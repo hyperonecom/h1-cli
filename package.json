@@ -1,0 +1,15 @@
+{
+    "name": "h1-cli",
+    "description": "HyperOne Command Line Interface",
+    "version": "0.0.1",
+    "main": "index.js",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/hyperonecom/h1-cli.git"
+    },
+    "author": "",
+    "bugs": {
+        "url": "https://github.com/hyperonecom/h1-cli/issues"
+    }
+}
