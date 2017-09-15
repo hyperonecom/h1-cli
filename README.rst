@@ -207,11 +207,11 @@ Zarządzanie serwerami
 Poniżej przedstawiono podstawowe akcje możliwe do wykonania z serwerami w postaci przykładowych poleceń:
 
 * ``h1 vm list`` - wypisuje istniejące serwery,
-* ``h1 vm show vm-tutorial`` - wypisuje szczegółowe informacje o instancji,
-* ``h1 vm stop vm-tutorial`` - zatrzymuje serwery bez jej usuwania,
-* ``h1 vm start vm-tutorial`` - uruchamia serwery,
-* ``h1 vm turnoff vm-tutorial`` - wyłącza serwery bez jej usuwania,
-* ``h1 vm destroy vm-tutorial`` - kasuje serwery.
+* ``h1 vm show vm-tutorial`` - wypisuje szczegółowe informacje o serwerze ``vm-tutorial``,
+* ``h1 vm stop vm-tutorial`` - zatrzymuje serwery ``vm-tutorial`` bez jego usuwania,
+* ``h1 vm start vm-tutorial`` - uruchamia serwer ``vm-tutorial``,
+* ``h1 vm turnoff vm-tutorial`` - wyłącza serwer ``vm-tutorial`` bez jego usuwania,
+* ``h1 vm destroy vm-tutorial`` - kasuje serwer ``vm-tutorial``.
 
 Możliwe jest także wprowadzanie zmian dotyczących dysków podłączonych do serwera:
 
