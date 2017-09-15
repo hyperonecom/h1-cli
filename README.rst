@@ -118,7 +118,7 @@ Poniżej przedstawiona jest przykładowa sesja przedstawiająca podstawową akcj
    59af5115bd02f5a8ef9cd7c3  Ubuntu 17.04 (zesty zapus)    ubuntu  17.04     zesty zapus   x64   2         2017-09-06T01:36:21.100Z  Online  false
    59af3cefbd02f5a8ef9cd5f2  CentOS 6                      centos  6.9       core          x64   2         2017-09-06T00:10:23.672Z  Online  false
    59af4086bd02f5a8ef9cd635  CentOS 7                      centos  7.3.1611  core          x64   2         2017-09-06T00:25:42.763Z  Online  false
-   $ $ h1 vm create --name vm-tutorial \
+   $ vm create --name vm-tutorial \
                     --sshkey 59b0369284e468875f8a59d1 \
                     --image 59af47f1bd02f5a8ef9cd700 \
                     --type a1.micro \
@@ -207,7 +207,7 @@ Zarządzanie serwerami
 Poniżej przedstawiono podstawowe akcje możliwe do wykonania z serwerami w postaci przykładowych poleceń:
 
 * ``h1 vm list`` - wypisuje istniejące serwery,
-* ``h1 vm list vm-tutorial`` - wypisuje szczegółowe informacje o instancji,
+* ``h1 vm show vm-tutorial`` - wypisuje szczegółowe informacje o instancji,
 * ``h1 vm stop vm-tutorial`` - zatrzymuje serwery bez jej usuwania,
 * ``h1 vm start vm-tutorial`` - uruchamia serwery,
 * ``h1 vm turnoff vm-tutorial`` - wyłącza serwery bez jej usuwania,
@@ -260,4 +260,4 @@ Zgłaszanie problemów i uwag
 Jeśli napotkasz jakiekolwiek błędy z narzędziem, proszę zgłosić problem poprzez system zgłoszeń w panelu administracyjnym lub zakładkę "Issues" w `repozytorium`_.
 
 .. _Releases: https://github.com/hyperonecom/h1-cli/releases/latest
-.. _repozytorium: https://github.com/hyperonecom/h1-cli przepinanie,!
+.. _repozytorium: https://github.com/hyperonecom/h1-cli
