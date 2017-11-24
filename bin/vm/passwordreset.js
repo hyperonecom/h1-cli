@@ -1,0 +1,73 @@
+'use strict';
+
+const NodeRSA = require('node-rsa');
+const Cli = require('structured-cli');
+
+const logger = require('lib/logger');
+
+const options = {
+    user: {
+        description: 'Username'
+      , type: 'string'
+      , required: true
+    }
+};
+
+const params = {
+    id: {
+        description: 'Resource identifier'
+      , type: 'string'
+      , required: true
+    }
+};
+
+const handler = args => {
+    logger('info', 'Generating key pair...');
+
+    const rsa = new NodeRSA().generateKeyPair();
+    const components = rsa.exportKey('components');
+    const modulus = components.n.toString('base64');
+
+    const b = Buffer.alloc(4);
+    b.writeUInt32BE(components.e);
+    const exponent = b.toString('base64');
+
+    args.query = args.query || '[].{"New Password":password}';
+
+    return args.helpers.api
+        .post(`${args.$node.parent.config.url(args)}/${args.id}/actions`, {
+            name: 'password_reset'
+          , data: {
+                userName: args.user
+              , modulus : modulus
+              , exponent: exponent
+            }
+        })
+        .then(() => new Promise(r => setTimeout(r, 2000))) //TODO use websocket
+        .then(() => args.helpers.api.get(`/vm/${args.id}/serialport/2`))
+        .then(data => {
+            const line = data.split('\n').filter(line => line.trim().length > 0).pop();
+
+            data = JSON.parse(line);
+
+            if (data.modulus !== modulus) {
+                return Promise.reject('modulus differs');
+            }
+
+            if (data.exponent !== exponent) {
+                return Promise.reject('exponent differs');
+            }
+
+            return { password: rsa.decrypt(data.encryptedPassword).toString() };
+        })
+        .then(result => args.helpers.sendOutput(args, result));
+    ;
+};
+
+module.exports = resource => Cli.createCommand('passwordreset', {
+    description: 'Password reset'
+  , plugins: resource.plugins
+  , params: params
+  , options: Object.assign({}, options, resource.options)
+  , handler: handler
+});

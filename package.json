@@ -1,15 +1,44 @@
 {
-    "name": "h1-cli",
-    "description": "HyperOne Command Line Interface",
-    "version": "0.0.1",
-    "main": "index.js",
-    "scripts": {},
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/hyperonecom/h1-cli.git"
-    },
-    "author": "",
-    "bugs": {
-        "url": "https://github.com/hyperonecom/h1-cli/issues"
-    }
+  "name": "h1-cli",
+  "version": "0.1.0",
+  "description": "HyperOne Command Line Interface",
+  "license": "MIT",
+  "author": "",
+  "main": "bin/h1",
+  "bin": {
+    "h1": "./bin/h1"
+  },
+  "scripts": {
+    "start": "./bin/h1",
+    "build": "pkg --out-path ./dist ."
+  },
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "cookie": "^0.3.1",
+    "inquirer": "^1.2.3",
+    "jmespath": "^0.15.0",
+    "lodash": "^4.17.2",
+    "node-rsa": "^0.4.2",
+    "opn": "^5.1.0",
+    "ssh2": "^0.5.5",
+    "structured-cli": "^1.0.5",
+    "superagent": "^2.3.0",
+    "tabula": "^1.9.0",
+    "ws": "^3.0.0"
+  },
+  "pkg": {
+    "scripts": [
+      "lib/**/*.js",
+      "bin/**/*.js"
+    ],
+    "targets": [
+      "node8-linux",
+      "node8-macos",
+      "node8-win"
+    ]
+  },
+  "keywords": [],
+  "devDependencies": {
+    "pkg": "^4.2.6"
+  }
 }
