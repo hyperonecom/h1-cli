@@ -6,7 +6,6 @@ const options = {
     username: {
         description: 'Username for ssh connection'
       , type: 'string'
-      , defaultValue: 'guru'
     }
   , port: {
         description: 'Port for ssh connection'
@@ -26,38 +25,43 @@ const params = {
     }
 };
 
-const handler = args => args.helpers.api.get(`${args.$node.parent.config.url(args)}/${args.id}/netadp`).then(result => {
-    result = result.filter(item => item.ip.length > 0);
+const handler = args => Promise.all([
+        args.helpers.api.get(`${args.$node.parent.config.url(args)}/${args.id}/netadp`)
+      , args.helpers.api.get(`${args.$node.parent.config.url(args)}/${args.id}`)
+    ]).then(([netadps, vm]) => {
+        netadps = netadps.filter(item => item.ip.length > 0);
 
-    if (args.private) {
-        result = result.filter(item => item.network.type === 'private');
-    }
+        if (args.private) {
+            netadps = netadps.filter(item => item.network.type === 'private');
+        }
 
-    if (result.length < 1) {
-        throw Cli.error.notFound('No network interfaces with defined ip found for VM');
-    }
+        if (netadps.length < 1) {
+            throw Cli.error.notFound('No network interfaces with defined ip found for VM');
+        }
 
-    const nic = result.find(item => item.network && item.network.type === 'public') || result[0];
+        const netadp = netadps.find(item => item.network && item.network.type === 'public') || netadps[0];
 
-    const sshArgs = [
-        `${args.username}@${nic.ip[0].address}`
-    ];
+        const username = args.username || vm.data.username || 'guru';
 
-    if (args.port) {
-        sshArgs.push(...['-p', args.port]);
-    }
+        const sshArgs = [
+            `${username}@${netadp.ip[0].address}`
+        ];
 
-    console.log(`ssh ${sshArgs.join(' ')}`);
+        if (args.port) {
+            sshArgs.push(...['-p', args.port]);
+        }
 
-    const spawn = require('child_process').spawn;
+        console.log(`ssh ${sshArgs.join(' ')}`);
 
-    return new Promise((resolve, reject) => {
-        const ssh = spawn('ssh', sshArgs, { stdio: 'inherit' });
+        const spawn = require('child_process').spawn;
 
-        ssh.on('close', resolve);
-        ssh.on('error', reject);
+        return new Promise((resolve, reject) => {
+            const ssh = spawn('ssh', sshArgs, { stdio: 'inherit' });
+
+            ssh.on('close', resolve);
+            ssh.on('error', reject);
+        });
     });
-});
 
 module.exports = resource => Cli.createCommand('ssh', {
     description: 'Connect to VM using SSH'
