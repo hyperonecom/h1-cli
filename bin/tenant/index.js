@@ -14,6 +14,7 @@ const resource = {
 };
 
 const category = genericResource(resource);
+category.addChild(require('./list')(resource));
 
 const childDefaults = Object.assign({}, resource, {
     params: {
