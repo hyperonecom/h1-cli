@@ -16,6 +16,7 @@ module.exports = function(resource) {
       , defaultQuery: resource.defaultQuery
       , transform: resource.transform
       , url: resource.url
+      , plugins: resource.plugins
     });
 
     resource.commands = [
