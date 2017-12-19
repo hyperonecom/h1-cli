@@ -17,7 +17,8 @@ category.addChild(require('./create')(resource));
 
 category.addChild(require('bin/generic/access')(resource));
 category.addChild(require('bin/generic/resize')(resource));
-category.addChild(require('./config')(resource));
+
+category.addChild(require('./credential')(resource));
 
 category.addChild(require('./ssh')(resource));
 
