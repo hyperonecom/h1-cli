@@ -3,40 +3,19 @@
 const Cli = require('structured-cli');
 
 const options = {
-    'iso': {
-        description: 'ISO id',
-        type: 'string',
-        required: true
+    iso: {
+        description: 'ISO id'
+      , type: 'string'
+      , required: true
     }
 };
 
-const params = {
-    'id': {
-        description: 'DVD drive identifier',
-        type: 'string',
-        required: true
-    }
-};
-
-
-module.exports = function(resource) {
-    return Cli.createCommand('insert', {
-        description: 'Insert ISO into DVD drive',
-        plugins: resource.plugins,
-        params: params,
-        options: Object.assign({}, options, resource.options),
-        handler: handleResourceInsert(resource)
-    });
-};
-
-function handleResourceInsert() {
-    return function(args) {
-
-        const url = `${args.$node.parent.config.url(args)}/${args.id}`;
-
-        return args.helpers.api.put(url, {
-            iso: args.iso
-        })
-        .then(result => args.helpers.sendOutput(args, result));
-    };
-}
+module.exports = resource => Cli.createCommand('insert', {
+    description: 'Insert ISO into DVD drive'
+  , plugins: resource.plugins
+  , params: resource.params
+  , options: Object.assign({}, options, resource.options)
+  , handler: args => args.helpers.api
+        .put(args.$node.parent.config.url(args), { iso: args.iso })
+        .then(result => args.helpers.sendOutput(args, result))
+});
