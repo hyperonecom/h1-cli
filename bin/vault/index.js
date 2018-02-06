@@ -22,4 +22,6 @@ category.addChild(require('./credential')(resource));
 
 category.addChild(require('./ssh')(resource));
 
+category.addChild(require('./action/snapshot')(resource));
+
 module.exports = category;
