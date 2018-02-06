@@ -37,6 +37,7 @@ cli.addChild(require('./service'));
 cli.addChild(require('./netgw'));
 cli.addChild(require('./firewall'));
 cli.addChild(require('./vault'));
+cli.addChild(require('./snapshot'));
 
 // inject defaultValues from config defaults
 const applyDefault = (element, defaults) => {
