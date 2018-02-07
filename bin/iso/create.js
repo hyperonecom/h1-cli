@@ -15,16 +15,11 @@ const options = {
     }
 };
 
-module.exports = Cli.createCommand('create', {
+module.exports = resource => Cli.createCommand('create', {
     description: 'ISO import'
-  , plugins: [
-        require('bin/_plugins/loginRequired')
-      , require('bin/_plugins/tenantRequired')
-      , require('bin/_plugins/outputFormat')
-      , require('bin/_plugins/api')
-    ]
+  , plugins: resource.plugins
   , options: options
   , handler: args => args.helpers.api
-        .post('iso', { name: args.name, source: args.source })
+        .post(resource.url(args), { name: args.name, source: args.source })
         .then(result => args.helpers.sendOutput(args, result))
 });
