@@ -1,9 +1,9 @@
 'use strict';
 
 const Cli = require('structured-cli');
-
-const websocketStream = require('websocket-stream/stream');
 const fs = require('fs');
+
+const websocketStream = require('lib/websocketStream');
 
 const options = {
     name: {
@@ -30,25 +30,23 @@ module.exports = resource => Cli.createCommand('create', {
                 .then(result => args.helpers.sendOutput(args, result));
         }
 
+        const fileSize = fs.statSync(args.source).size;
+
         return args.helpers.api
-            .post(resource.url(args), {
-                name: args.name
-              , size: fs.statSync(args.source).size / 1024**3
-            })
+            .post(resource.url(args), { name: args.name, size: fileSize/1024**3 })
             .then(result => args.helpers.api
                 .ws(`/iso/${result._id}/upload`)
                 .then(ws => new Promise((resolve, reject) => {
                     console.log('waiting for the OK to upload');
                     ws.on('message', data => {
                         console.log('received', data);
+
                         if (data !== 'OK') {
                             return reject(data);
                         }
 
-                        const stream = websocketStream(ws, { binary: true, perMessageDeflate: false });
+                        const stream = websocketStream.upload(ws, args.source);
                         stream.on('finish', () => resolve(result));
-
-                        fs.createReadStream(args.source).pipe(stream).pipe(process.stdout);
                     });
 
                     ws.on('error', reject);
