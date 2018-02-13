@@ -21,6 +21,7 @@
     "node-rsa": "^0.4.2",
     "opn": "^5.1.0",
     "progress": "^2.0.0",
+    "rbx-vhdx": "git+ssh://git@bitbucket.org/rbxcom/rbx-vhdx.git",
     "ssh2": "^0.5.5",
     "structured-cli": "^1.0.5",
     "superagent": "^2.3.0",
