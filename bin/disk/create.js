@@ -7,13 +7,13 @@ const options = {
         description: 'Disk name'
       , type: 'string'
       , required: true
-    },
-    type: {
+    }
+  , type: {
         description: 'Disk type Id'
       , type: 'string'
       , required: true
-    },
-    size: {
+    }
+  , size: {
         description: 'Disk size in GB'
       , type: 'int'
       , required: true
