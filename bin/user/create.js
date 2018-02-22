@@ -91,7 +91,7 @@ const handler = args => args.helpers.api
 ;
 
 module.exports = Cli.createCommand('create', {
-    description: 'Create and account'
+    description: 'Create an account'
   , plugins: [
         require('bin/_plugins/api')
       , require('bin/_plugins/interactiveOptions')
