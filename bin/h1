@@ -63,6 +63,5 @@ cli.run()
 
         process.exit(99);
     })
-    .then(function () {
-        process.exit(0);
-    });
+    .then(() => process.exit(0))
+;
