@@ -17,12 +17,16 @@ module.exports = {
     onBeforeHandler: context => {
         const profile = config.get('profile', {});
 
+        context.args.profile = Object.assign({}, profile);
+
+        if (process.env.API_KEY) {
+            return;
+        }
+
         if (!profile.tenant || !profile.tenant._id) {
             logger('info', 'You need to select tenant before you can manage your resources');
             return process.exit(-1); //TODO find a better way
         }
-
-        context.args.profile = Object.assign({}, profile);
 
         if (context.args['tenant-select']) {
             context.args.profile.tenant.name = '';

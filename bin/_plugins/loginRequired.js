@@ -11,6 +11,10 @@ module.exports = {
     onBeforeHandler: context => {
         const profile = config.get('profile', {});
 
+        if (process.env.API_KEY) {
+            return;
+        }
+
         if (profile.apiKey && profile.expires && new Date(profile.expires) > Date.now()) {
             context.args.profile = profile;
             context.args.apiKey = profile.apiKey;
