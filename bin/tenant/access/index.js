@@ -7,7 +7,7 @@ module.exports = function(resource) {
     const category = Cli.createCategory('access', {
         description: `Manage your ${resource.name.toUpperCase()} Access Rights`,
         defaultQuery: '[].{id:id,role:role}',
-        url: args => `tenant/${args.id}/accessrights`,
+        url: args => `${resource.url(args)}/accessrights`,
         params: resource.params
     });
 

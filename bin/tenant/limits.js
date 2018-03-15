@@ -11,7 +11,7 @@ module.exports = resource => Cli.createCommand('limit', {
         args.query = args.query || '[].{resource:resource,limit:limit,value:value}';
 
         return args.helpers.api
-            .get(`${args.$node.parent.config.url(args)}/${args.id}/limit`)
+            .get(`${resource.url(args)}/limit`)
             .then(result => Object
                 .entries(result)
                 .map(([resource, limits]) => Object

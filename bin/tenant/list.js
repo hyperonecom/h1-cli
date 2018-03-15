@@ -15,6 +15,6 @@ module.exports = resource => Cli.createCommand('list', {
   , plugins: resource.plugins
   , options: options
   , handler: args => args.helpers.api
-        .get('tenant', args.all ? {} : { active: true })
+        .get(resource.url(args), args.all ? {} : { active: true })
         .then(result => args.helpers.sendOutput(args, result))
 });

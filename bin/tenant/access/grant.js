@@ -32,7 +32,7 @@ module.exports = resource => Cli.createCommand('grant', {
           , role: args.role
         };
         return args.helpers.api
-            .post(`${resource.name}/${args.id}/accessrights`, data)
+            .post(`${resource.url(args)}/accessrights`, data)
             .then(result => args.helpers.sendOutput(args, result))
         ;
     }

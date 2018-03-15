@@ -19,11 +19,12 @@ category.addChild(require('./list')(resource));
 const childDefaults = Object.assign({}, resource, {
     params: {
         id: {
-            description: 'Tenant id',
-            type: 'string',
-            required: true
+            description: 'Tenant id'
+          , type: 'string'
+          , required: true
         }
     }
+  , url: args => `${resource.url(args)}/${args.id}`
 });
 
 category.addChild(require('./access')(childDefaults));
@@ -34,7 +35,7 @@ category.addChild(require('./limits')(childDefaults));
 category.addChild(require('bin/generic/credentials')(Object.assign(
     {}
   , childDefaults
-  , { url: args => `tenant/${args.id}/credentialStore`}
+  , { url: args => `${childDefaults.url(args)}/credentialStore`}
 )));
 
 module.exports = category;
