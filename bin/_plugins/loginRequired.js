@@ -26,7 +26,8 @@ module.exports = {
             logger('info', `Your authtoken expired, trying to login using ssh "${profile.user}"`);
             context.args.username = profile.user;
         } else {
-            return logger('info', 'Please login first');
+            logger('info', 'Please login first');
+            process.exit(-1);
         }
 
         return login
