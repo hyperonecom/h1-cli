@@ -15,6 +15,7 @@ const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
 category.addChild(require('./list')(resource));
+category.addChild(require('./disk')(resource));
 
 category.addChild(require('bin/generic/access')(resource));
 
