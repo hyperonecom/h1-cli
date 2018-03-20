@@ -27,12 +27,14 @@ module.exports = resource => Cli.createCommand('resume', {
   , params: params
   , handler: async args => {
 
-        const disk = await args.helpers.api.get(`${resource.url(args)}/${args.id}`);
+        let r = await args.helpers.api.get(`${resource.url(args)}/${args.id}`);
 
-        const ws = await args.helpers.api.wsUpload(`/disk/${disk._id}/upload`);
+        const ws = await args.helpers.api.wsUpload(`${resource.url(args)}/${r._id}/upload`);
 
         await websocketStream.upload(ws, args.source);
 
-        return args.helpers.sendOutput(args, disk);
+        r = await args.helpers.api.get(`${resource.url(args)}/${r._id}`);
+
+        return args.helpers.sendOutput(args, r);
     }
 });
