@@ -66,7 +66,7 @@ module.exports = resource => Cli.createCommand('create', {
                 throw Cli.error.cancelled(`<source> ${Math.ceil(vhdxInfo.size/1024 **3)}GB is bigger than ${args.size}GB`);
             }
 
-            const ws = await args.helpers.api.wsUpload(`/disk/${disk._id}/upload`);
+            const ws = await args.helpers.api.wsUpload(`disk/${disk._id}/upload`);
 
             await websocketStream.upload(ws, args.source);
         }
