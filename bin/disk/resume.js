@@ -3,10 +3,6 @@
 const Cli = require('structured-cli');
 
 const websocketStream = require('lib/websocketStream');
-const vhdx = require('rbx-vhdx');
-const util = require('util');
-const path = require('path');
-const fs = require('fs');
 
 const options = {
     source: {
