@@ -50,12 +50,6 @@ module.exports = resource => Cli.createCommand('create', {
                   , size: fs.statSync(args.source).size
                 }
             };
-        }
-
-        const disk = await args.helpers.api.post(resource.url(args), body);
-
-        if (args.source) {
-
             const vhdxInfo = await util.promisify(vhdx.info)(args.source);
 
             if (vhdxInfo.type !== 'dynamic') {
@@ -65,7 +59,11 @@ module.exports = resource => Cli.createCommand('create', {
             if (vhdxInfo.size > args.size * 1024**3) {
                 throw Cli.error.cancelled(`<source> ${Math.ceil(vhdxInfo.size/1024 **3)}GB is bigger than ${args.size}GB`);
             }
+        }
 
+        let disk = await args.helpers.api.post(resource.url(args), body);
+
+        if (args.source) {
             const ws = await args.helpers.api.wsUpload(`disk/${disk._id}/upload`);
 
             await websocketStream.upload(ws, args.source);
