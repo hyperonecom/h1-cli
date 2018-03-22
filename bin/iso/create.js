@@ -47,6 +47,8 @@ module.exports = resource => Cli.createCommand('create', {
             const ws = await args.helpers.api.wsUpload(`/iso/${iso._id}/upload`);
 
             await websocketStream.upload(ws, args.source);
+
+            iso = await args.helpers.api.get(`${resource.url(args)}/${iso._id}`);
         }
 
         return args.helpers.sendOutput(args, iso);
