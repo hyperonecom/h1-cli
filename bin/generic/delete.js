@@ -20,22 +20,16 @@ module.exports = resource => Cli.createCommand('delete', {
     ]
   , params: Object.assign({}, resource.params, params)
   , options: resource.options
-  , handler: args => {
-        let ret = Promise.resolve();
-
+  , handler: async args => {
         if (!args.yes) {
-            ret = ret
-                .then(() => interactive.confirm(`Are you sure you want to delete resource "${args['remove-id']}"?`))
-                .then(answer => {
-                    if (answer.value !== true) {
-                        throw Cli.error.cancelled('Canceled', undefined);
-                    }
-                });
+            const answer = await interactive.confirm(`Are you sure you want to delete resource "${args['remove-id']}"?`);
+            if (answer.value !== true) {
+                throw Cli.error.cancelled('Canceled', undefined);
+            }
         }
 
-        return ret
-            .then(() => args.helpers.api.delete(`${resource.url(args)}/${args['remove-id']}`, args.helpers.body || {}))
-            .then(result => args.helpers.sendOutput(args, result))
-        ;
+        const result = await args.helpers.api.delete(`${resource.url(args)}/${args['remove-id']}`, args.helpers.body || {});
+
+        return args.helpers.sendOutput(args, result);
     }
 });
