@@ -34,5 +34,6 @@ category.addChild(require('./tag')(resource));
 category.addChild(require('./ssh')(resource));
 category.addChild(require('./serialport')(resource));
 category.addChild(require('./passwordreset')(resource));
+category.addChild(require('./metrics')(resource));
 
 module.exports = category;
