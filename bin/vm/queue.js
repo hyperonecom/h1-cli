@@ -2,34 +2,17 @@
 
 const Cli = require('structured-cli');
 
-const options = {};
+module.exports = resource => Cli.createCommand('queue', {
+    description: 'Resource history'
+  , plugins: resource.plugins
+  , options: resource.options
+  , params: resource.params
+  , handler: args => {
 
-const params = {
-    'vm-id': {
-        description: 'Resource identifier',
-        type: 'string',
-        required: true
+        args.query = '[].{id:_id,name:name,createdBy:createdBy,queued:queued,state:state}';
+
+        return args.helpers.api
+            .get(`vm/${args.id}/queue`)
+            .then(result => args.helpers.sendOutput(args, result));
     }
-};
-
-module.exports = Cli.createCommand('queue', {
-    description: 'Resource history',
-    plugins: [
-        require('../_plugins/loginRequired'),
-        require('../_plugins/tenantRequired'),
-        require('../_plugins/outputFormat'),
-        require('../_plugins/api')
-    ],
-    options: options,
-    params: params,
-    handler: handleResourceHistory
 });
-
-
-function handleResourceHistory(args) {
-
-    args.$node.parent.config.displayFields = ['_id', 'name', 'createdBy', 'queued', 'state'];
-
-    return args.helpers.api.get(`vm/${args['vm-id']}/queue`)
-    .then(result => args.helpers.sendOutput(args, result));
-}
