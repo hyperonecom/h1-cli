@@ -17,18 +17,16 @@ const options = {
     }
 };
 
-const params = {
-    id: {
-        description: 'Resource identifier'
-      , type: 'string'
-      , required: true
-    }
-};
+module.exports = resource => Cli.createCommand('ssh', {
+    description: 'Connect to VM using SSH'
+  , plugins: resource.plugins
+  , params: resource.params
+  , options: Object.assign({}, options, resource.options)
+  , handler: async args => {
+        const vm = await args.helpers.api.get(resource.url(args));
 
-const handler = args => Promise.all([
-        args.helpers.api.get(`${args.$node.parent.config.url(args)}/${args.id}/netadp`)
-      , args.helpers.api.get(`${args.$node.parent.config.url(args)}/${args.id}`)
-    ]).then(([netadps, vm]) => {
+        let netadps = await args.helpers.api.get(`${resource.url(args)}/netadp`);
+
         netadps = netadps.filter(item => item.ip.length > 0);
 
         if (args.private) {
@@ -61,12 +59,5 @@ const handler = args => Promise.all([
             ssh.on('close', resolve);
             ssh.on('error', reject);
         });
-    });
-
-module.exports = resource => Cli.createCommand('ssh', {
-    description: 'Connect to VM using SSH'
-  , plugins: resource.plugins
-  , params: params
-  , options: Object.assign({}, options, resource.options)
-  , handler: handler
+    }
 });
