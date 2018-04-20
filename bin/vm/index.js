@@ -28,7 +28,7 @@ category.addChild(require('./create'));
 category.addChild(require('./delete')(resource));
 
 category.addChild(require('./queue'));
-category.addChild(require('./console'));
+category.addChild(require('./console')(childDefaults));
 
 category.addChild(require('./action/generic')('stop'));
 category.addChild(require('./action/generic')('start'));
