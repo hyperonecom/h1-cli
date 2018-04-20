@@ -3,14 +3,6 @@
 const Cli = require('structured-cli');
 const tabula = require('tabula');
 
-const params = {
-    id: {
-        description: 'Resource identifier'
-      , type: 'string'
-      , required: true
-    }
-};
-
 const logMetrics = (type, resource, ws, callback) => ws.on('message', message => {
     const metrics = { };
 
@@ -39,13 +31,13 @@ const combineMetrics = async (api, type, resource, all) => {
 module.exports = resource => Cli.createCommand('metrics', {
     description: 'Get Live Metrics'
   , plugins: resource.plugins
-  , params: params
+  , params: resource.params
   , options: resource.options
   , handler: async args => {
 
-        const vm = args.helpers.api.get(`${resource.url(args)}/${args.id}`);
-        const hdds = args.helpers.api.get(`${resource.url(args)}/${args.id}/hdd`);
-        const netadps = args.helpers.api.get(`${resource.url(args)}/${args.id}/netadp`);
+        const vm = args.helpers.api.get(resource.url(args));
+        const hdds = args.helpers.api.get(`${resource.url(args)}/hdd`);
+        const netadps = args.helpers.api.get(`${resource.url(args)}/netadp`);
 
         const all = {};
 
