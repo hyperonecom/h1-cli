@@ -4,11 +4,11 @@ const genericResource = require('bin/generic');
 const genericDefaults = require('bin/generic/defaults');
 
 const resource = {
-    name: 'vm',
-    defaultQuery: '[].{id:_id,name:name,flavour:flavour,state:state,processing:processing}',
-    url: () => 'vm',
-    plugins: genericDefaults.plugins,
-    commands: ['list', 'show']
+    name: 'vm'
+  , defaultQuery: '[].{id:_id,name:name,flavour:flavour,state:state,processing:processing}'
+  , url: () => 'vm'
+  , plugins: genericDefaults.plugins
+  , commands: [ 'list', 'show' ]
 };
 
 const childDefaults = Object.assign({}, resource, {
