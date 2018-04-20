@@ -11,6 +11,17 @@ const resource = {
     commands: ['list', 'show']
 };
 
+const childDefaults = Object.assign({}, resource, {
+    params: {
+        id: {
+            description: 'Resource identifier'
+          , type: 'string'
+          , required: true
+        }
+    }
+  , url: args => `${resource.url(args)}/${args.id}`
+});
+
 const category = genericResource(resource);
 
 category.addChild(require('./create'));
