@@ -44,6 +44,6 @@
   },
   "keywords": [],
   "devDependencies": {
-    "pkg": "^4.3.0"
+    "pkg": "^4.3.1"
   }
 }
