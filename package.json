@@ -37,6 +37,7 @@
       "bin/**/*.js"
     ],
     "targets": [
+      "node8-alpine",
       "node8-linux",
       "node8-macos",
       "node8-win"
