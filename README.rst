@@ -252,7 +252,12 @@ Poniżej przedstawiono podstawowe akcje możliwe do wykonania z obrazami w posta
 Zarządzanie innymi zasobami
 ###########################
 
+Warto zwrócić uwagę na:
+
+* ``h1 vm nic list --vm-id vm-id`` - wypisuje m. in. adresy IP wirtualnej maszyny.
+
 W przypadku pozostałych zasobów warto korzystać z przełącznika ``h1 -h``, który w sposób pełny i najbardziej aktualny dokumentuje możliwości klienta.
+ 
 
 Zgłaszanie problemów i uwag
 ---------------------------
