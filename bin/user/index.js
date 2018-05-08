@@ -9,7 +9,7 @@ const category = Cli.createCategory('user', {
 category.addChild(require('./create'));
 
 category.addChild(require('bin/generic/credentials')({
-    url: () => 'user/credential'
+    url: () => 'user/me/credential'
   , plugins: [
         require('bin/_plugins/loginRequired')
       , require('bin/_plugins/outputFormat')
