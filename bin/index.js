@@ -44,6 +44,10 @@ if ('resources' in cli_config) {
         .forEach(resource => cli.addChild(require(`./${resource}`)));
 }
 
+if (process.platform === 'win32') {
+    cli.addChild(require('./replica'));
+}
+
 // inject defaultValues from config defaults
 const applyDefault = (element, defaults) => {
     Object.entries(defaults).forEach(([name, values]) => {
