@@ -17,10 +17,22 @@ const options = {
     }
 };
 
+const params = {
+    id: {
+        description: 'Resource identifier'
+        , type: 'string'
+        , required: true
+    }
+  , command: {
+        description: 'Command to execute'
+      , type: 'string'
+    }
+}
+
 module.exports = resource => Cli.createCommand('ssh', {
     description: 'Connect to VM using SSH'
   , plugins: resource.plugins
-  , params: resource.params
+  , params: params
   , options: Object.assign({}, options, resource.options)
   , handler: async args => {
         const vm = await args.helpers.api.get(resource.url(args));
@@ -47,6 +59,10 @@ module.exports = resource => Cli.createCommand('ssh', {
 
         if (args.port) {
             sshArgs.push(...['-p', args.port]);
+        }
+
+        if (args.command) {
+            sshArgs.push(args.command);
         }
 
         console.log(`ssh ${sshArgs.join(' ')}`);
