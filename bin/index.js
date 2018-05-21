@@ -44,7 +44,6 @@ const applyDefault = (element, defaults) => {
 
     Object.entries(defaults).forEach(([name, values]) => {
         const children = element.children.find(children => children.name === name);
-
         if (!children) { return; }
 
         if (children.children) {
@@ -53,8 +52,9 @@ const applyDefault = (element, defaults) => {
 
         Object.entries(values).forEach(([key, value]) => {
             const option = children.options[key];
-            console.log('defaultValue', element.name, name, key, value);
             if (!option) { return; }
+
+            // console.log('defaultValue', element.name, name, key, value);
 
             option.defaultValue = value;
             option.required = false;
