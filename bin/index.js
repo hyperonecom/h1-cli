@@ -68,10 +68,20 @@ const printArguments = (element, prefix) => {
 
        const field = [];
        if (entry.options) {
-           field.push(...Object.keys(entry.options).map(name => `-${name} ${name.toUpperCase()}`));
+           field.push(...Object.entries(entry.options).map(([name, value]) => {
+                if(value.required){
+                    return `--${name} ${name.toUpperCase()}`
+                }
+                return `[--${name} ${name.toUpperCase()}]`
+           }))
        }
        if (entry.params) {
-           field.push(...Object.keys(entry.params).map(name => `-${name} ${name.toUpperCase()}`));
+           field.push(...Object.entries(entry.params).map(([name, value]) => {
+                if(value.required){
+                    return `${name}`
+                }
+                return `[${name}]`
+           }))
        }
        const field_help = field.join(' ');
        console.log(`${prefix} ${entry.name} | ${field_help}`);
