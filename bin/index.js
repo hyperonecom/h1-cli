@@ -41,8 +41,10 @@ cli.addChild(require('./snapshot'));
 
 // inject defaultValues from config defaults
 const applyDefault = (element, defaults) => {
+
     Object.entries(defaults).forEach(([name, values]) => {
         const children = element.children.find(children => children.name === name);
+
         if (!children) { return; }
 
         if (children.children) {
@@ -51,15 +53,37 @@ const applyDefault = (element, defaults) => {
 
         Object.entries(values).forEach(([key, value]) => {
             const option = children.options[key];
+            console.log('defaultValue', element.name, name, key, value);
             if (!option) { return; }
 
-            // console.log('defaultValue', element.name, name, key, value);
             option.defaultValue = value;
             option.required = false;
         });
     });
 };
 applyDefault(cli, config.get('defaults', {}));
+
+const printArguments = (element, prefix) => {
+    element.forEach(entry => {
+
+       const field = [];
+       if (entry.options) {
+           field.push(...Object.keys(entry.options).map(name => `-${name} ${name.toUpperCase()}`));
+       }
+       if (entry.params) {
+           field.push(...Object.keys(entry.params).map(name => `-${name} ${name.toUpperCase()}`));
+       }
+       const field_help = field.join(' ');
+       console.log(`${prefix} ${entry.name} | ${field_help}`);
+
+       if (!entry.children) {
+            return
+       }
+       printArguments(entry.children, `${prefix} ${entry.name}`);
+    });
+};
+
+printArguments(cli.children, 'h1');
 
 // load plugins
 config.plugins.forEach(plugin => plugin.load(cli));
