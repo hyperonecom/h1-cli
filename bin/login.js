@@ -28,6 +28,7 @@ const handler = args => {
         p = args.helpers.api.getApiKey(args.username, args.password);
     } else {
         p = args.helpers.api.getApiKeySSH(args.username)
+            .then(() => logger('info', 'Used your SSH key to login.'))
             .catch(err => {
                 if (err.message.indexOf('host fingerprint verification failed') > -1) {
                     throw Cli.error.serverError(err.message);
