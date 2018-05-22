@@ -25,7 +25,7 @@ const handler = args => {
     let p;
 
     if (args.password) {
-        p = args.helpers.api.getApiKey(args.username, args.password);
+        p = args.helpers.api.getApiKey(args.username, { password: args.password });
     } else {
         p = args.helpers.api.getApiKeySSH(args.username)
             .catch(err => {
@@ -39,7 +39,7 @@ const handler = args => {
                   , message: 'Password:'
                   , validate: input => _.isEmpty(input) ? 'Incorrect password' : true
                 })
-                .then(password => args.helpers.api.getApiKey(args.username, password.value));
+                .then(password => args.helpers.api.getApiKey(args.username, { password: password.value }));
             });
     }
 
