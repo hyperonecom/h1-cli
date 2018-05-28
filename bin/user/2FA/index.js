@@ -93,9 +93,10 @@ module.exports = resource => {
 
             if (password) {
                 await args.helpers.api.delete(`${resource.url()}/credential/password/${password._id}`);
+                console.log('done');
+            } else {
+                console.log(`${args.type} not found`);
             }
-
-            console.log('done');
         }
     });
 
