@@ -63,38 +63,6 @@ const applyDefault = (element, defaults) => {
 };
 applyDefault(cli, config.get('defaults', {}));
 
-const printArguments = (element, prefix) => {
-    element.forEach(entry => {
-
-       const field = [];
-       if (entry.options) {
-           field.push(...Object.entries(entry.options).map(([name, value]) => {
-                if(value.required){
-                    return `--${name} ${name.toUpperCase()}`
-                }
-                return `[--${name} ${name.toUpperCase()}]`
-           }))
-       }
-       if (entry.params) {
-           field.push(...Object.entries(entry.params).map(([name, value]) => {
-                if(value.required){
-                    return `${name}`
-                }
-                return `[${name}]`
-           }))
-       }
-       const field_help = field.join(' ');
-       console.log(`${prefix} ${entry.name} | ${field_help}`);
-
-       if (!entry.children) {
-            return
-       }
-       printArguments(entry.children, `${prefix} ${entry.name}`);
-    });
-};
-
-printArguments(cli.children, 'h1');
-
 // load plugins
 config.plugins.forEach(plugin => plugin.load(cli));
 
