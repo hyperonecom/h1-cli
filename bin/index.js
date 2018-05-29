@@ -14,12 +14,13 @@ const scope = path.basename(process.argv[1]);
 const cli = Cli.createCategory('app', {
     description: Package.description,
     version: Package.version,
-    epilog: `${Chalk.underline('Sample usage:')  }\n`
-        + '1. Login to your account:' + `\n${
-         Chalk.bold(`  $ ${scope} login user@example.org`)  }\n`
-        + '2. Select tenant:' + `\n${
-         Chalk.bold(`  $ ${scope} tenant select <objectid>`)  }\n`
-});
+    epilog: `
+${Chalk.underline('Sample usage:')}
+1. Login to your account:'
+  ${Chalk.bold(`$ ${scope} login user@example.org`)}
+2. Select tenant:
+  ${Chalk.bold(`$ ${scope} tenant select <tenant>`)}
+`});
 
 cli.addChild(require('./config'));
 cli.addChild(require('./user'));
