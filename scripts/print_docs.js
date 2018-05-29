@@ -5,7 +5,7 @@ const printDocs = (element, prefix) => {
     element.forEach(entry => {
         console.log(`# ${prefix} ${entry.name}\n`);
 
-        console.log(`Syntax: \`\`\`${lib.getCommandHeader(entry, prefix)}\`\`\`\``);
+        console.log(`Syntax: \`\`\`${lib.getCommandHeader(entry, prefix)}\`\`\``);
 
         if (typeof entry.options !== "undefined" && Object.keys(entry.options).length > 0) {
             console.log("Arguments:");
@@ -15,7 +15,7 @@ const printDocs = (element, prefix) => {
                 if (!value.required) {
                     label = `[${label}]`
                 }
-                console.log(`\t${label} - ${value.description}`);
+                console.log(`* ${label} - ${value.description}`);
             });
         }
 
@@ -28,7 +28,7 @@ const printDocs = (element, prefix) => {
                 if (!value.required) {
                     label = `[${label}]`
                 }
-                console.log(`\t${label} - ${value.description}`);
+                console.log(`* ${label} - ${value.description}`);
             })
         }
 
