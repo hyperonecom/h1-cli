@@ -1,11 +1,16 @@
 const cli = require('../bin/index');
 const lib= require('./lib');
 
+
+const code = "```";
+
 const printDocs = (element, prefix) => {
     element.forEach(entry => {
         console.log(`# ${prefix} ${entry.name}\n`);
 
-        console.log(`Syntax: \`\`\`${lib.getCommandHeader(entry, prefix)}\`\`\``);
+        console.log(`Syntax: ${code}${lib.getCommandHeader(entry, prefix)}${code}`);
+
+        console.log("");
 
         if (typeof entry.options !== "undefined" && Object.keys(entry.options).length > 0) {
             console.log("Arguments:");
@@ -15,7 +20,7 @@ const printDocs = (element, prefix) => {
                 if (!value.required) {
                     label = `[${label}]`
                 }
-                console.log(`* ${label} - ${value.description}`);
+                console.log(`* ${code}${label}${code} - ${value.description}`);
             });
         }
 
@@ -28,7 +33,7 @@ const printDocs = (element, prefix) => {
                 if (!value.required) {
                     label = `[${label}]`
                 }
-                console.log(`* ${label} - ${value.description}`);
+                console.log(`* ${code}${label}${code} - ${value.description}`);
             })
         }
 
