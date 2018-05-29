@@ -56,10 +56,6 @@ h1 dns zone create --name siecobywatelska.pl
 error: 422 {"status":422,"response":{"req":{"method":"POST","url":"http://rbx-ns-master-10.srv.wdc.pl:8081/api/v1/servers/localhost/zones","data":{"account":"5af0bbbcb7802508ad844caa","name":"siecobywatelska.pl","nameservers":["ns1.hyperone.com.","ns2.hyperone.com."],"rrsets":[{"name":"siecobywatelska.pl","records":[{"content":"pns.hyperone.com. hostmaster.hyperone.com. 1 15 180 1209600 1800","disabled":false}],"type":"SOA","ttl":1800}],"kind":"Native"},"headers":{"user-agent":"node-superagent/3.8.2","x-api-key":"x","content-type":"application/json"}},"header":{"access-control-allow-origin":"*","connection":"close","content-length":"59","content-security-policy":"default-src 'self'; style-src 'self' 'unsafe-inline'","content-type":"application/json","server":"PowerDNS/4.1.0-rc1","x-content-type-options":"nosniff","x-frame-options":"deny","x-permitted-cross-domain-policies":"none","x-xss-protection":"1; mode=block"},"status":422,"text":"{\"error\": \"DNS Name 'siecobywatelska.pl' is not canonical\"}"}}
 ```
 
-# User-agent not updated
-
-The user-agent of CLI don't contains CLI version.
-
 # 'null'
 
 ```bash
