@@ -24,7 +24,7 @@ const options = {
             })
         }
     }
-  , emailCode: {
+  , 'email-code': {
         description: 'email validation code'
       , type: 'string'
       , defaultValue: {
@@ -50,7 +50,7 @@ const options = {
             })
         }
     }
-  , phoneCode: {
+  , 'phone-code': {
         description: 'phone validation code'
       , type: 'string'
       , defaultValue: {
@@ -64,7 +64,7 @@ const options = {
                 }))
         }
     }
-   , password: {
+  , password: {
         description: 'Password'
       , type: 'string'
       , defaultValue: {
@@ -83,12 +83,11 @@ const handler = args => args.helpers.api
         email: args.email
       , password: args.password
       , verification: {
-            email: Object.assign(verification.email, { code: args.emailCode })
-          , phone: Object.assign(verification.phone, { code: args.phoneCode })
+            email: Object.assign(verification.email, {code: args["email-code"]})
+          , phone: Object.assign(verification.phone, {code: args["phone-code"]})
         }
     })
-    .then(() => logger('info', 'User successfully created!'))
-;
+    .then(() => logger('info', 'User successfully created!'));
 
 module.exports = Cli.createCommand('create', {
     description: 'Create an account'
