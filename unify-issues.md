@@ -4,6 +4,10 @@
 h1 user create | [--email EMAIL] [--emailCode EMAILCODE] [--phone PHONE] [--phoneCode PHONECODE] [--password PASSWORD]
 ```
 
+## Action plan
+
+Use dash.
+
 # Different parameters name for reference to "network".
 
 ```bash
@@ -18,6 +22,10 @@ h1 netgw attach | --network NETWORK id
 h1 firewall attach | --network NETWORK id
 ```
 
+## Action plan
+
+Rename ```network-id``` to ```network``` in all cases.
+
 # remove / delete resources
 
 ```bash
@@ -27,6 +35,10 @@ $ grep 'remove' argument-extract.txt -c
 31
 ```
 
+## Action plan
+
+Rename all remove to "delete".
+
 # What does mean "--source" in "h1 disk create"?
 
 Description:
@@ -34,19 +46,35 @@ Description:
 
 It should be "--source-file".
 
+## Action plan
+
+Update description to explain what it do.
+
 # Cert parameter for vault
 
 ```
-$ h1 vault create --name x --size 25 --cert x
+$ h1 vault create --name x --size 25 --cert @pubkey.pub
 
 error: 400 {"message":"validation failed: credential.certificate.0.createdBy: Path `createdBy` is required.","status":400,"error":{"credential.certificate.0.createdBy":{"message":"Path `createdBy` is required.","name":"ValidatorError","properties":{"type":"required","message":"Path `{PATH}` is required.","path":"createdBy"},"kind":"required","path":"createdBy","$isValidatorError":true}}}
 ```
+
 I don't understant what this error messages mean.
 
 # What does mean "--cert" in "h1 vault create"
 
 It was confusing to me. In the case of an error message, there should be clear information on
 how to obtain the correct value.
+
+## Action plan
+
+```diff
+- h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--sshkey SSHKEY] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start NO-START] [--userdata-file USERDATA-FILE]
++ h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSHKEY] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start NO-START] [--userdata-file USERDATA-FILE]
+-h1 vault create | --name NAME --size SIZE [--cert CERT]
++ h1 vault create | --name NAME --size SIZE [--password PASSWORD] [--username USERNAME] [--ssh SSHKEY]
+```
+
+Add description what does it mean.
 
 # Poor error messages
 
@@ -55,6 +83,10 @@ how to obtain the correct value.
 h1 dns zone create --name siecobywatelska.pl
 error: 422 {"status":422,"response":{"req":{"method":"POST","url":"http://rbx-ns-master-10.srv.wdc.pl:8081/api/v1/servers/localhost/zones","data":{"account":"5af0bbbcb7802508ad844caa","name":"siecobywatelska.pl","nameservers":["ns1.hyperone.com.","ns2.hyperone.com."],"rrsets":[{"name":"siecobywatelska.pl","records":[{"content":"pns.hyperone.com. hostmaster.hyperone.com. 1 15 180 1209600 1800","disabled":false}],"type":"SOA","ttl":1800}],"kind":"Native"},"headers":{"user-agent":"node-superagent/3.8.2","x-api-key":"x","content-type":"application/json"}},"header":{"access-control-allow-origin":"*","connection":"close","content-length":"59","content-security-policy":"default-src 'self'; style-src 'self' 'unsafe-inline'","content-type":"application/json","server":"PowerDNS/4.1.0-rc1","x-content-type-options":"nosniff","x-frame-options":"deny","x-permitted-cross-domain-policies":"none","x-xss-protection":"1; mode=block"},"status":422,"text":"{\"error\": \"DNS Name 'siecobywatelska.pl' is not canonical\"}"}}
 ```
+
+## Action plan
+
+No action.
 
 # 'null'
 
@@ -66,11 +98,19 @@ h1 dns record-set list: error: argument "--zone-name": Expected one argument. nu
 
 What does mean "null" there?
 
+## Action plan
+
+Remove them.
+
 # What UI for DNS?
 
 * CloudFlare web-UI
 * Route 59 CLI & web-UI
 * Azure CLI & web-UI
+
+## Action plan
+
+Just use Azure-CLI.
 
 # Explain of ```--filter``` etc. in ```h1 fifrewall ingress add```
 
@@ -110,7 +150,15 @@ Output options:
 
 Web-UI provides nice explaination for that. Maybe some examples?
 
+## Action plan
+
+Add examples as in description.
+
 # Rename ```tenant --> project``` in CLI?
+
+## Action plan
+
+Do it.
 
 # Move ```h1 user create``` to admin CLI?
 
@@ -131,11 +179,29 @@ If we add resource URLs - just like Google Storage - it will be easier to enter 
 
 [GCP URI]: (https://stackoverflow.com/questions/25373467/how-do-i-identify-the-google-cloud-storage-uri-from-my-google-developers-console)
 
+## Action plan:
+
+```diff
+-h1 disk download | --destination DESTINATION id
+-h1 disk create | --name NAME --type TYPE --size SIZE [--source SOURCE]
+-h1 disk resume-upload | --source SOURCE id
+-h1 iso resume | --source SOURCE id
+-h1 iso create | --name NAME --source SOURCE
++h1 disk download | --destination-file DESTINATION id
++h1 disk create | --name NAME --type TYPE --size SIZE [--source-file SOURCE]
++h1 disk resume-upload | --source-file SOURCE id
++h1 iso resume-upload | --source-file SOURCE id
++h1 iso create | --name NAME --source-file SOURCE
+```
 
 # ```h1 tenant limit id```
 
 I suggest use as ```id``` a current selected tenat by default. This is a special and not coherent
 approach, but - in my opinion - intuitive, because the resource is special because it defines the context.
+
+## Action plan
+
+Do it.
 
 # ```h1 vm passwordreset``` fail
 
@@ -181,6 +247,9 @@ error: SyntaxError: Unexpected token u in JSON at position 0
     at process._tickCallback (internal/process/next_tick.js:68:7)
 ```
 
+## Action plan
+
+
 # ```h1 vm create --username``` vs. ```h1 vm passwordreset --user```
 
 I suggest unify that in any direction.
@@ -199,13 +268,13 @@ h1: error: too few arguments
 $ h1 --help
 usage: h1 [-h] [-v]
             {config,user,login,tenant,disk,vm,image,iso,network,ip,dns,service,netgw,firewall,vault,snapshot} ...
- 
+
   HyperOne Command Line Interface
- 
+
   Optional arguments:
     -h, --help            Show this help message and exit.
     -v, --version         Show program's version number and exit.
- 
+
   subcommands:
     {config,user,login,tenant,disk,vm,image,iso,network,ip,dns,service,netgw,firewall,vault,snapshot}
       config              Manage config
@@ -224,7 +293,7 @@ usage: h1 [-h] [-v]
       firewall            Manage your FIREWALL
       vault               Manage your VAULT
       snapshot            Manage your SNAPSHOT
- 
+
   Sample usage:
   1. Login to your account:
     $ h1 login user@example.org
@@ -439,7 +508,7 @@ usage: h1 vm create [-h] [--output {table,tsv,list,json}] [--query QUERY] [--tra
                     [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE]
                     [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE]
                     [--tenant-select TENANT-SELECT] [--verbose] [--no-wait] [--dry-run]
-                   
+
 
 VM create
 
@@ -481,7 +550,7 @@ Output options:
 ### Azure
 
 ```
-$ az vm create --help   
+$ az vm create --help
 
 Command
     az vm create: Create an Azure Virtual Machine.
