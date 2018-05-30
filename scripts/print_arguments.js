@@ -1,3 +1,5 @@
+'use strict';
+
 const cli = require('../bin/index');
 
 

@@ -1,8 +1,21 @@
+'use strict';
+
 const cli = require('../bin/index');
 const lib= require('./lib');
 
 
 const code = "```";
+
+
+function printElement(label, values, f) {
+    if (Object.keys(values || {}).length > 0) {
+        console.log(label);
+        Object.entries(values).map(([name, value]) => {
+            label = f(name, value);
+            console.log(`* ${code}${label}${code} - ${value.description}`);
+        })
+    }
+}
 
 const printDocs = (element, prefix) => {
     element.forEach(entry => {
@@ -12,30 +25,26 @@ const printDocs = (element, prefix) => {
 
         console.log("");
 
-        if (typeof entry.options !== "undefined" && Object.keys(entry.options).length > 0) {
-            console.log("Arguments:");
-
-            Object.entries(entry.options).map(([name, value]) => {
-                label = `--${name} ${name.toUpperCase()}`;
-                if (!value.required) {
-                    label = `[${label}]`
-                }
-                console.log(`* ${code}${label}${code} - ${value.description}`);
-            });
-        }
+        printElement("Arguments:", entry.options, (name, value) => {
+            label = `--${name} ${name.toUpperCase()}`;
+            if (!value.required) {
+                return `[${label}]`
+            }
+            return label;
+        });
 
         console.log("");
 
-        if (typeof entry.params !== "undefined" && Object.keys(entry.params).length > 0) {
-            console.log("Parameters:");
-            Object.entries(entry.params).map(([name, value]) => {
-                label = `${name}`;
-                if (!value.required) {
-                    label = `[${label}]`
-                }
-                console.log(`* ${code}${label}${code} - ${value.description}`);
-            })
-        }
+        printElement("Parameters:", entry.params, (name, value) => {
+            label = `${name}`;
+            if (!value.required) {
+                return `[${label}]`
+            }
+            return label;
+        });
+
+        console.log("");
+        // console.log(`Usage: ${entry.epilog}`);
 
         if (entry.children) {
             return printDocs(entry.children, `${prefix} ${entry.name}`);
