@@ -37,7 +37,7 @@ $ grep 'remove' argument-extract.txt -c
 
 ## Action plan
 
-Rename all remove to "delete".
+Rename all ``remove`` to ``delete``.
 
 # What does mean "--source" in "h1 disk create"?
 
@@ -152,7 +152,7 @@ Web-UI provides nice explaination for that. Maybe some examples?
 
 ## Action plan
 
-Add examples as in description.
+Add examples in description as in web-UI.
 
 # Rename ```tenant --> project``` in CLI?
 
@@ -249,10 +249,19 @@ error: SyntaxError: Unexpected token u in JSON at position 0
 
 ## Action plan
 
+Fixed.
 
 # ```h1 vm create --username``` vs. ```h1 vm passwordreset --user```
 
 I suggest unify that in any direction.
+
+## Action plan
+
+```diff
+-h1 vm passwordreset | --user USER id
++h1 vm passwordreset | --username USER id
+```
+
 
 # CLI help compare
 
