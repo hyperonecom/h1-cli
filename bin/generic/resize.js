@@ -12,7 +12,7 @@ const options = {
 
 const params = {
     id: {
-        description: 'Resource id'
+        description: 'Resource name or ID'
       , type: 'string'
       , required: true
     }

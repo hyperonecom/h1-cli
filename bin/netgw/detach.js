@@ -4,7 +4,7 @@ const Cli = require('structured-cli');
 
 const params = {
     id: {
-        description: 'NetGW id'
+        description: 'Network gateway name or ID'
       , type: 'string'
       , required: true
     }

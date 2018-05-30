@@ -12,7 +12,7 @@ const params = {
 
 const options = {
     network: {
-        description: 'network id'
+        description: 'Network name or ID'
       , type: 'string'
       , required: true
     }

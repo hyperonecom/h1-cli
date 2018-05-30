@@ -4,7 +4,7 @@ const Cli = require('structured-cli');
 
 const options = {
     iso: {
-        description: 'ISO id'
+        description: 'ISO name or ID'
       , type: 'string'
       , required: true
     }
