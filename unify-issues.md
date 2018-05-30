@@ -110,7 +110,63 @@ Remove them.
 
 ## Action plan
 
-Just use Azure-CLI.
+```diff
+@@ -133,16 +133,16 @@ h1 dns zone export | --name NAME
+ h1 dns record-set |
+ h1 dns record-set a |
+ h1 dns record-set a list | --zone-name ZONE-NAME
+-h1 dns record-set a create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --ipv4-address IPV4-ADDRESS
++h1 dns record-set a create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value IPV4-ADDRESS
+ h1 dns record-set a delete | --name NAME --zone-name ZONE-NAME
+-h1 dns record-set a add-record | --name NAME --zone-name ZONE-NAME --ipv4-address IPV4-ADDRESS
+-h1 dns record-set a remove-record | --name NAME --zone-name ZONE-NAME --ipv4-address IPV4-ADDRESS
++h1 dns record-set a add-record | --name NAME --zone-name ZONE-NAME --value IPV4-ADDRESS
++h1 dns record-set a remove-record | --name NAME --zone-name ZONE-NAME --value IPV4-ADDRESS
+ h1 dns record-set cname |
+ h1 dns record-set cname list | --zone-name ZONE-NAME
+-h1 dns record-set cname create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --cname CNAME
++h1 dns record-set cname create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value CNAME
+ h1 dns record-set cname delete | --name NAME --zone-name ZONE-NAME
+-h1 dns record-set cname add-record | --name NAME --zone-name ZONE-NAME --cname CNAME
+-h1 dns record-set cname remove-record | --name NAME --zone-name ZONE-NAME --cname CNAME
++h1 dns record-set cname add-record | --name NAME --zone-name ZONE-NAME --value CNAME
++h1 dns record-set cname remove-record | --name NAME --zone-name ZONE-NAME --value CNAME
+ h1 dns record-set txt |
+ h1 dns record-set txt list | --zone-name ZONE-NAME
+ h1 dns record-set txt create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value VALUE
+@@ -151,22 +151,22 @@ h1 dns record-set txt add-record | --name NAME --zone-name ZONE-NAME --value VAL
+ h1 dns record-set txt remove-record | --name NAME --zone-name ZONE-NAME --value VALUE
+ h1 dns record-set mx |
+ h1 dns record-set mx list | --zone-name ZONE-NAME
+-h1 dns record-set mx create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --exchange EXCHANGE --preference PREFERENCE
++h1 dns record-set mx create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value EXCHANGE-PREFERENCE
+ h1 dns record-set mx delete | --name NAME --zone-name ZONE-NAME
+-h1 dns record-set mx add-record | --name NAME --zone-name ZONE-NAME --exchange EXCHANGE --preference PREFERENCE
+-h1 dns record-set mx remove-record | --name NAME --zone-name ZONE-NAME --exchange EXCHANGE --preference PREFERENCE
++h1 dns record-set mx add-record | --name NAME --zone-name ZONE-NAME --value EXCHANGE-PREFERENCE
++h1 dns record-set mx remove-record | --name NAME --zone-name ZONE-NAME --value EXCHANGE-PREFERENCE
+ h1 dns record-set ns |
+ h1 dns record-set ns list | --zone-name ZONE-NAME
+-h1 dns record-set ns create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --nsdname NSDNAME
++h1 dns record-set ns create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value NSDNAME
+ h1 dns record-set ns delete | --name NAME --zone-name ZONE-NAME
+-h1 dns record-set ns add-record | --name NAME --zone-name ZONE-NAME --nsdname NSDNAME
+-h1 dns record-set ns remove-record | --name NAME --zone-name ZONE-NAME --nsdname NSDNAME
++h1 dns record-set ns add-record | --name NAME --zone-name ZONE-NAME --value NSDNAME
++h1 dns record-set ns remove-record | --name NAME --zone-name ZONE-NAME --value NSDNAME
+ h1 dns record-set srv |
+ h1 dns record-set srv list | --zone-name ZONE-NAME
+-h1 dns record-set srv create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --port PORT --priority PRIORITY --weight WEIGHT --target TARGET
++h1 dns record-set srv create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value PRIORITY-WEIGHT-PORT-TARGET
+ h1 dns record-set srv delete | --name NAME --zone-name ZONE-NAME
+-h1 dns record-set srv add-record | --name NAME --zone-name ZONE-NAME --port PORT --priority PRIORITY --weight WEIGHT --target TARGET
+-h1 dns record-set srv remove-record | --name NAME --zone-name ZONE-NAME --port PORT --priority PRIORITY --weight WEIGHT --target TARGET
++h1 dns record-set srv add-record | --name NAME --zone-name ZONE-NAME --value PRIORITY-WEIGHT-PORT-TARGET
++h1 dns record-set srv remove-record | --name NAME --zone-name ZONE-NAME --value PRIORITY-WEIGHT-PORT-TARGET
+ h1 dns record-set list | --zone-name ZONE-NAME
+ h1 service |
+ h1 service list |
+```
 
 # Explain of ```--filter``` etc. in ```h1 fifrewall ingress add```
 
@@ -184,13 +240,13 @@ If we add resource URLs - just like Google Storage - it will be easier to enter 
 ```diff
 -h1 disk download | --destination DESTINATION id
 -h1 disk create | --name NAME --type TYPE --size SIZE [--source SOURCE]
--h1 disk resume-upload | --source SOURCE id
+-h1 disk resume | --source SOURCE id
 -h1 iso resume | --source SOURCE id
 -h1 iso create | --name NAME --source SOURCE
 +h1 disk download | --destination-file DESTINATION id
 +h1 disk create | --name NAME --type TYPE --size SIZE [--source-file SOURCE]
-+h1 disk resume-upload | --source-file SOURCE id
-+h1 iso resume-upload | --source-file SOURCE id
++h1 disk resume-create | --source-file SOURCE id
++h1 iso resume-create | --source-file SOURCE id
 +h1 iso create | --name NAME --source-file SOURCE
 ```
 
