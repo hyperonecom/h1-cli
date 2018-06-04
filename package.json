@@ -11,7 +11,7 @@
   "scripts": {
     "start": "./bin/h1",
     "build": "pkg --out-path ./dist .",
-    "lint": "eslint **/*.js"
+    "lint": "eslint ."
   },
   "dependencies": {
     "chalk": "^2.1.0",
