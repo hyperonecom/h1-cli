@@ -22,7 +22,7 @@ module.exports = (table, parent) => {
 
     category.addChild(require('./list')(table, resource));
     category.addChild(require('./add')(table, resource));
-    category.addChild(require('./remove')(table, resource));
+    category.addChild(require('./delete')(table, resource));
 
     return category;
 };
