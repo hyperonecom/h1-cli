@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs');
 
 const websocketStream = require('lib/websocketStream');
+const epilog = require('lib/epilog');
 
 const options = {
     name: {
@@ -27,6 +28,7 @@ module.exports = resource => Cli.createCommand('create', {
     description: 'ISO import'
   , plugins: resource.plugins
   , options: options
+  , epilog: epilog.examples(__dirname)
   , handler: async args => {
 
         let iso;
