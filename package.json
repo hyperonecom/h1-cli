@@ -10,7 +10,8 @@
   },
   "scripts": {
     "start": "./bin/h1",
-    "build": "pkg --out-path ./dist ."
+    "build": "pkg --out-path ./dist .",
+    "lint": "eslint **/*.js"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -45,6 +46,73 @@
   },
   "keywords": [],
   "devDependencies": {
+    "eslint": "^4.19.1",
     "pkg": "^4.3.1"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "semi": [
+        "error",
+        "always"
+      ],
+      "strict": [
+        "off",
+        "safe"
+      ],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "no-cond-assign": [
+        "error",
+        "always"
+      ],
+      "no-constant-condition": "error",
+      "no-unused-vars": "error",
+      "no-unused-expressions": "error",
+      "no-dupe-keys": "error",
+      "no-undef": "error",
+      "no-duplicate-case": "error",
+      "prefer-template": "warn",
+      "no-var": "warn",
+      "prefer-const": "warn",
+      "valid-typeof": "error",
+      "dot-notation": "error",
+      "eol-last": "error",
+      "no-trailing-spaces": "warn",
+      "quotes": [
+        "error",
+        "single",
+        {
+          "avoidEscape": true
+        }
+      ],
+      "no-tabs": "error",
+      "space-before-blocks": "error",
+      "keyword-spacing": "error",
+      "no-lonely-if": "error",
+      "brace-style": [
+        "error",
+        "1tbs",
+        {
+          "allowSingleLine": true
+        }
+      ],
+      "no-else-return": "error",
+      "func-call-spacing": "error",
+      "callback-return": "error",
+      "no-extra-parens": "error",
+      "new-parens": "error",
+      "space-in-parens": "error",
+      "comma-spacing": "error"
+    }
   }
 }

@@ -22,7 +22,7 @@ const params = {
         description: 'Command to execute'
       , type: 'string'
     }
-}
+};
 
 module.exports = resource => Cli.createCommand('ssh', {
     description: 'Connect to VM using SSH'
