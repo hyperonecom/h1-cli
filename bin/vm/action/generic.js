@@ -7,8 +7,8 @@ const options = {};
 const params = {
     id: {
         description: 'VM name or ID'
-        ,type: 'string'
-        ,required: true
+        , type: 'string'
+        , required: true
     }
 };
 
@@ -16,16 +16,16 @@ const params = {
 module.exports = function(action) {
     return Cli.createCommand(action, {
         description: `VM action: ${action}`
-        ,plugins: [
+        , plugins: [
             require('../../_plugins/loginRequired')
-            ,require('../../_plugins/tenantRequired')
-            ,require('../../_plugins/outputFormat')
-            ,require('../../_plugins/api')
-            ,require('../../_plugins/interactiveOptions')
+            , require('../../_plugins/tenantRequired')
+            , require('../../_plugins/outputFormat')
+            , require('../../_plugins/api')
+            , require('../../_plugins/interactiveOptions')
         ]
-        ,options: options
-        ,params: params
-        ,handler: genericVMAction(action)
+        , options: options
+        , params: params
+        , handler: genericVMAction(action)
     });
 };
 

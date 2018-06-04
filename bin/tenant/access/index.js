@@ -6,9 +6,9 @@ module.exports = function(resource) {
 
     const category = Cli.createCategory('access', {
         description: `Manage your ${resource.name.toUpperCase()} Access Rights`
-        ,defaultQuery: '[].{id:id,role:role}'
-        ,url: args => `${resource.url(args)}/accessrights`
-        ,params: resource.params
+        , defaultQuery: '[].{id:id,role:role}'
+        , url: args => `${resource.url(args)}/accessrights`
+        , params: resource.params
     });
 
     category.addChild(require('./grant')(resource));

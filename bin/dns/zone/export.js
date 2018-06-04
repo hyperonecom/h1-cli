@@ -5,8 +5,8 @@ const Cli = require('structured-cli');
 const options = {
     name: {
         description: 'Dns zone name'
-        ,type: 'string'
-        ,required: true
+        , type: 'string'
+        , required: true
     }
 };
 
@@ -14,9 +14,9 @@ const options = {
 module.exports = function(resource) {
     return Cli.createCommand('export', {
         description: 'Export dns zone'
-        ,plugins: resource.plugins
-        ,options: Object.assign({}, options, resource.options)
-        ,handler: handleCommand(resource)
+        , plugins: resource.plugins
+        , options: Object.assign({}, options, resource.options)
+        , handler: handleCommand(resource)
     });
 };
 

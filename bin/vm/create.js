@@ -6,90 +6,90 @@ const fs = require('lib/fs');
 const options = {
     name: {
         description: 'VM name'
-        ,type: 'string'
-        ,required: true
+        , type: 'string'
+        , required: true
     }
-    ,type: {
+    , type: {
         description: 'VM type Id'
-        ,type: 'string'
-        ,required: true
+        , type: 'string'
+        , required: true
     }
-    ,password: {
+    , password: {
         description: 'Password'
-        ,type: 'string'
+        , type: 'string'
     }
-    ,username: {
+    , username: {
         description: 'Username'
-        ,type: 'string'
+        , type: 'string'
     }
-    ,sshkey: {
+    , sshkey: {
         action: 'append'
-        ,description: 'SSH key id'
-        ,type: 'string'
-        ,dest: 'sshKeys'
+        , description: 'SSH key id'
+        , type: 'string'
+        , dest: 'sshKeys'
     }
-    ,image: {
+    , image: {
         description: 'Image id'
-        ,type: 'string'
+        , type: 'string'
     }
-    ,iso: {
+    , iso: {
         description: 'Iso id'
-        ,type: 'string'
+        , type: 'string'
     }
 
-    ,'os-disk-name': {
+    , 'os-disk-name': {
         description: 'OS disk name'
-        ,type: 'string'
+        , type: 'string'
     }
-    ,'os-disk-type': {
+    , 'os-disk-type': {
         description: 'OS disk type'
-        ,type: 'string'
+        , type: 'string'
     }
-    ,'os-disk-size': {
+    , 'os-disk-size': {
         description: 'OS disk size'
-        ,type: 'int'
+        , type: 'int'
     }
-    ,'os-disk': {
+    , 'os-disk': {
         description: 'OS disk: name,service,size'
-        ,type: 'string'
+        , type: 'string'
     }
 
-    ,network: {
+    , network: {
         description: 'Network for VM'
-        ,type: 'string'
+        , type: 'string'
     }
-    ,ip: {
+    , ip: {
         description: 'IP for VM'
-        ,type: 'string'
+        , type: 'string'
     }
-    ,'no-start': {
+    , 'no-start': {
         description: 'Do not start vm after creation'
-        ,type: 'boolean'
+        , type: 'boolean'
     }
-    ,'userdata-file': {
+    , 'userdata-file': {
         description: 'Read userdata from file'
-        ,type: 'string'
+        , type: 'string'
     }
 };
 
 
 module.exports = Cli.createCommand('create', {
     description: 'VM create'
-    ,plugins: [
+    , plugins: [
         require('bin/_plugins/loginRequired')
-        ,require('bin/_plugins/tenantRequired')
-        ,require('bin/_plugins/outputFormat')
-        ,require('bin/_plugins/api')
+        , require('bin/_plugins/tenantRequired')
+        , require('bin/_plugins/outputFormat')
+        , require('bin/_plugins/api')
     ]
-    ,options: options
-    ,handler: handler
+    , options: options
+    , handler: handler
 });
 
 function handler(args) {
 
     const newVM = {
         name: args.name
-        ,service: args.type
+        , service: args.type
     };
 
     if (args.password) {
@@ -128,8 +128,8 @@ function handler(args) {
         osDisk = osDisk.length === 2 ? [ `${args.name}-os`, ...osDisk ] : osDisk;
         newVM.disk.push({
             name: osDisk[0] || args['os-disk-name']
-            ,service: osDisk[1] || args['os-disk-type']
-            ,size: osDisk[2] || args['os-disk-size']
+            , service: osDisk[1] || args['os-disk-type']
+            , size: osDisk[2] || args['os-disk-size']
         });
     }
 

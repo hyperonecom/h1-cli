@@ -7,12 +7,12 @@ const logger = require('lib/logger');
 
 module.exports = resource => Cli.createCommand('select', {
     description: 'Select tenant context'
-    ,plugins: [
+    , plugins: [
         require('bin/_plugins/loginRequired')
-        ,require('bin/_plugins/api')
+        , require('bin/_plugins/api')
     ]
-    ,params: resource.params
-    ,handler: args => args.helpers.api
+    , params: resource.params
+    , handler: args => args.helpers.api
         .get(resource.url(args))
         .then(tenant => {
             config.set('profile.tenant', { _id: tenant._id, name: tenant.name });

@@ -8,22 +8,22 @@ const defaults = require('bin/generic/defaults');
 const options = {
     vm: {
         description: 'VM name or ID'
-        ,type: 'string'
-        ,required: true
+        , type: 'string'
+        , required: true
     }
-    ,disk: {
+    , disk: {
         description: 'Disk name or ID'
-        ,type: 'string'
-        ,required: true
+        , type: 'string'
+        , required: true
     }
 };
 
 
 module.exports = Cli.createCommand('detach', {
     description: 'Disk detach'
-    ,plugins: defaults.plugins
-    ,options: options
-    ,handler: handleVMDiskDetach
+    , plugins: defaults.plugins
+    , options: options
+    , handler: handleVMDiskDetach
 });
 
 

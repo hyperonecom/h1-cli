@@ -4,12 +4,12 @@ const genericResource = require('bin/generic');
 
 const resource = {
     name: 'tenant'
-    ,defaultQuery: '[].{id:_id,name:name,billing:billing.company,active:active,processing:processing}'
-    ,url: () => 'tenant'
-    ,plugins: [
+    , defaultQuery: '[].{id:_id,name:name,billing:billing.company,active:active,processing:processing}'
+    , url: () => 'tenant'
+    , plugins: [
         require('bin/_plugins/loginRequired')
-        ,require('bin/_plugins/outputFormat')
-        ,require('bin/_plugins/api')
+        , require('bin/_plugins/outputFormat')
+        , require('bin/_plugins/api')
     ]
 };
 

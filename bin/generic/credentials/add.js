@@ -8,13 +8,13 @@ const fs = require('fs');
 const options = {
     name: {
         description: 'Name'
-        ,type: 'string'
-        ,required: true
+        , type: 'string'
+        , required: true
     }
-    ,'sshkey-file': {
+    , 'sshkey-file': {
         description: 'Public SSH key filename'
-        ,type: 'string'
-        ,required: true
+        , type: 'string'
+        , required: true
     }
 };
 

@@ -8,7 +8,7 @@ module.exports = function(resource) {
 
     const category = Cli.createCategory('access', {
         description: `Manage your ${resource.name.toUpperCase()} Access Rights`
-        ,defaultQuery: '[].{tenant:@}'
+        , defaultQuery: '[].{tenant:@}'
     });
 
     commands.forEach(cmd => category.addChild(require(`./${cmd}`)(resource)));

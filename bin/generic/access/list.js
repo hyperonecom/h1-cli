@@ -5,8 +5,8 @@ const Cli = require('structured-cli');
 const params = {
     id: {
         description: 'Resource name or ID'
-        ,type: 'string'
-        ,required: true
+        , type: 'string'
+        , required: true
     }
 };
 
@@ -14,14 +14,14 @@ module.exports = function(resource) {
 
     return Cli.createCommand('list', {
         description: `List of access rights for ${resource.name.toUpperCase()}`
-        ,plugins: [
+        , plugins: [
             require('bin/_plugins/loginRequired')
-            ,require('bin/_plugins/tenantRequired')
-            ,require('bin/_plugins/outputFormat')
-            ,require('bin/_plugins/api')
+            , require('bin/_plugins/tenantRequired')
+            , require('bin/_plugins/outputFormat')
+            , require('bin/_plugins/api')
         ]
-        ,params: params
-        ,handler: handleAccessList(resource)
+        , params: params
+        , handler: handleAccessList(resource)
     });
 };
 

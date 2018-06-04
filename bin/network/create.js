@@ -5,8 +5,8 @@ const Cli = require('structured-cli');
 const options = {
     name: {
         description: 'Name'
-        ,type: 'string'
-        ,required: true
+        , type: 'string'
+        , required: true
     }
 };
 

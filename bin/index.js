@@ -13,8 +13,8 @@ const scope = path.basename(process.argv[1]);
 
 const cli = Cli.createCategory('app', {
     description: Package.description
-    ,version: Package.version
-    ,epilog: `
+    , version: Package.version
+    , epilog: `
 ${Chalk.underline('Sample usage:')}
 1. Login to your account:'
   ${Chalk.bold(`$ ${scope} login user@example.org`)}

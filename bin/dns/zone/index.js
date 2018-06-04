@@ -5,9 +5,9 @@ const defaults = require('bin/generic/defaults');
 
 const resource = {
     name: 'zone'
-    ,defaultQuery: '[].{id:id,name:name}'
-    ,plugins: defaults.plugins
-    ,url: () => 'dns/zone'
+    , defaultQuery: '[].{id:id,name:name}'
+    , plugins: defaults.plugins
+    , url: () => 'dns/zone'
 };
 
 const category = genericResource(resource);

@@ -58,7 +58,8 @@
     },
     "rules": {
       "quotes": ["error", "single"],
-      "comma-style": ["error", "first"]
+      "comma-style": ["error", "first"],
+      "comma-spacing": ["error", { "before": false, "after": true }]
     }
   }
 }
