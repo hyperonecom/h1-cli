@@ -6,8 +6,8 @@ module.exports = {
 
         node.addOption('yes',
         {
-            description: 'confirm yes',
-            type: 'boolean'
+            description: 'confirm yes'
+            , type: 'boolean'
         });
     }
 };

@@ -6,7 +6,7 @@ const interactive = require('lib/interactive');
 
 const params = {
     'remove-id': {
-        description: 'Identifier'
+        description: 'Resource name or ID'
       , type: 'string'
       , required: true
     }

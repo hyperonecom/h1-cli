@@ -24,8 +24,8 @@ module.exports = resource => Cli.createCommand('snapshot', {
   , options: Object.assign({}, resource.options, options)
   , params: Object.assign({}, resource.params, params)
   , handler: args => args.helpers.api.post(`${resource.url(args)}/${args.id}/actions`, {
-        name: 'snapshot',
-        data: {
+        name: 'snapshot'
+        , data: {
             name: args.name
         }
     })

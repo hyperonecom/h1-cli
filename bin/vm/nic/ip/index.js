@@ -10,8 +10,8 @@ module.exports = parent => {
       , url: args => `${parent.url(args)}/${args['nic-id']}/ip`
       , plugins: parent.plugins
       , options: Object.assign({}, parent.options, {
-            'nic-id': {
-                description: 'nic id'
+            nic: {
+                description: 'NIC name of ID'
               , type: 'string'
               , required: true
             }

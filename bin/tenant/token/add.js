@@ -4,9 +4,9 @@ const Cli = require('structured-cli');
 
 const options = {
     name: {
-        description: 'Name',
-        type: 'string',
-        required: true
+        description: 'Name'
+        , type: 'string'
+        , required: true
     }
 };
 

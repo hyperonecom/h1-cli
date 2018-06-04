@@ -4,33 +4,33 @@ const Cli = require('structured-cli');
 
 const options = {
     network: {
-        description: 'Network connected to network adapter',
-        type: 'string',
-        required: false
-    },
-    type: {
-        description: 'Type of network adapter',
-        type: 'string',
-        required: true
-    },
-    ip: {
-        description: 'IP to assign from network',
-        type: 'string'
-    },
-    'vm-id': {
-        description: 'VM id',
-        type: 'string',
-        required: true
+        description: 'Network connected to network adapter'
+        , type: 'string'
+        , required: false
+    }
+    , type: {
+        description: 'Type of network adapter'
+        , type: 'string'
+        , required: true
+    }
+    , ip: {
+        description: 'IP to assign from network'
+        , type: 'string'
+    }
+    , vm: {
+        description: 'VM name or ID'
+        , type: 'string'
+        , required: true
     }
 };
 
 
 module.exports = function(resource) {
     return Cli.createCommand('create', {
-        description: 'Network Adapter create',
-        plugins: resource.plugins,
-        options: options,
-        handler: handleResourceCreate(resource)
+        description: 'Network Adapter create'
+        , plugins: resource.plugins
+        , options: options
+        , handler: handleResourceCreate(resource)
     });
 };
 

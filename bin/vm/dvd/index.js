@@ -6,12 +6,12 @@ const genericDefaults = require('bin/generic/defaults');
 const resource = {
     name: 'dvd'
   , defaultQuery: '[].{id:_id,iso:iso._id,isoname:iso.name}'
-  , url: args => `vm/${args['vm-id']}/dvddrive`
+  , url: args => `vm/${args.vm}/dvddrive`
   , commands: ['list']
   , plugins: genericDefaults.plugins
   , options: {
-        'vm-id': {
-            description: 'VM id'
+        vm: {
+            description: 'VM name or ID'
           , type: 'string'
           , required: true
         }
