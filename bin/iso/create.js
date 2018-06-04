@@ -31,7 +31,10 @@ module.exports = resource => Cli.createCommand('create', {
 
         let iso;
 
-        if(!(!args['source-url'] ^ !args['source-file'])){
+        if(!args['source-url'] && !args['source-file'])){
+            throw Cli.error.cancelled('Providing either source-file or source-url is required.')
+        }
+        if(args['source-url'] && args['source-file']){
             throw Cli.error.cancelled('Providing either source-file or source-url is required.')
         }
 
