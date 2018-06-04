@@ -2,6 +2,7 @@
 
 const Cli = require('structured-cli');
 const fs = require('lib/fs');
+const genericDefaults = require('bin/generic/defaults');
 
 const options = {
     name: {
@@ -22,9 +23,9 @@ const options = {
         description: 'Username',
         type: 'string'
     },
-    sshkey: {
+    ssh: {
         action: 'append',
-        description: 'SSH key id',
+        description: 'SSH key Id or name that allows access.',
         type: 'string',
         dest: 'sshKeys'
     },
@@ -75,17 +76,12 @@ const options = {
 
 module.exports = Cli.createCommand('create', {
     description: 'VM create',
-    plugins: [
-        require('bin/_plugins/loginRequired'),
-        require('bin/_plugins/tenantRequired'),
-        require('bin/_plugins/outputFormat'),
-        require('bin/_plugins/api')
-    ],
+    plugins: genericDefaults.plugins,
     options: options,
     handler: handler
 });
 
-function handler(args) {
+async function handler(args) {
 
     const newVM = {
         name: args.name,
@@ -139,16 +135,11 @@ function handler(args) {
         }
     });
 
-    let ret = Promise.resolve();
-
     if (args['userdata-file']) {
-        ret = ret
-            .then(() => fs.getFileContent(args['userdata-file']))
-            .then(content => newVM.userMetadata = content.toString('base64'));
+        const content = await fs.getFileContent(args['userdata-file']);
+        newVM.userMetadata = content.toString('base64')
     }
 
-    ret = ret.then(() => args.helpers.api.post('vm', newVM));
-    ret = ret.then(result => args.helpers.sendOutput(args, result));
-
-    return ret;
-};
+    return args.helpers.api.post('vm', newVM)
+        .then(result => args.helpers.sendOutput(args, result));
+}

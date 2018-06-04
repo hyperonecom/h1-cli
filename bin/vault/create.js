@@ -13,32 +13,49 @@ const options = {
       , type: 'float'
       , required: true
     }
-  , cert: {
-        description: 'SSH key Id'
-      , type: 'string'
-      , required: false
+  , ssh: {
+        description: 'SSH key Id or name that allows access.'
+        , type: 'string'
+        , required: false
+        , action: 'append'
+        , defaultValue: []
+    }
+  , password: {
+        description: 'Password to access Vault. Recommend using SSH keys.'
+        , type: 'string'
+        , required: false
     }
 };
+
 
 module.exports = resource => Cli.createCommand('create', {
     description: 'Vault create'
   , plugins: resource.plugins
   , options: Object.assign({}, options, resource.options)
   , handler: args => {
+
+        const passwords = [{
+            name: 'initial-cli'
+            , type: 'sha512'
+            , value: args.password
+        }];
+
+        const certificates = args.ssh.map(x => {
+            return {
+                name: x
+                , type: 'ssh'
+                , value: x
+            }
+        });
+
         const body = {
             name: args.name
           , size: args.size
+          , credential: {
+                password: passwords,
+                certificate: certificates
+            }
         };
-
-        if (args.cert) {
-            body.credential = {
-                certificate: [{
-                    name: 'cert'
-                  , type: 'ssh'
-                  , value: args.cert
-                }]
-            };
-        }
 
         return args.helpers.api
             .post(resource.url(args), body)
