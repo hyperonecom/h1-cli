@@ -25,7 +25,7 @@ module.exports = resource => Cli.createCommand('rename', {
   , options: Object.assign({}, options, resource.options)
   , handler: args => args.helpers.api
         .patch(`${args.$node.parent.config.url(args)}/${args.id}`, {
-            name: args["new-name"]
+            name: args['new-name']
         })
         .then(result => args.helpers.sendOutput(args, result))
 });

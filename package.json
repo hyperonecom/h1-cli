@@ -45,6 +45,19 @@
   },
   "keywords": [],
   "devDependencies": {
+    "eslint": "^4.19.1",
     "pkg": "^4.3.1"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 8
+    },
+    "env": {
+      "browser": false,
+      "node": true
+    },
+    "rules": {
+      "quotes": ["error", "single"]
+    }
   }
 }
