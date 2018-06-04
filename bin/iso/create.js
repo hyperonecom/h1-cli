@@ -31,16 +31,16 @@ module.exports = resource => Cli.createCommand('create', {
 
         let iso;
 
-        if(!args['source-url'] && !args['source-file'])){
-            throw Cli.error.cancelled('Providing either source-file or source-url is required.')
+        if (!args['source-url'] && !args['source-file']) {
+            throw Cli.error.cancelled('Providing either source-file or source-url is required.');
         }
-        if(args['source-url'] && args['source-file']){
-            throw Cli.error.cancelled('Providing either source-file or source-url is required.')
+        if (args['source-url'] && args['source-file']) {
+            throw Cli.error.cancelled('Providing either source-file or source-url is required.');
         }
 
         if (args['source-url']) {
-            iso = await args.helpers.api.post(resource.url(args), { name: args.name, source: args["source-url"] });
-        } else if(args['source-file']) {
+            iso = await args.helpers.api.post(resource.url(args), { name: args.name, source: args['source-url'] });
+        } else if (args['source-file']) {
             const fileSize = fs.statSync(args.source).size;
 
             iso = await args.helpers.api.post(resource.url(args), {
