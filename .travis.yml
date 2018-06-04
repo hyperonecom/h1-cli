@@ -3,3 +3,6 @@ node_js:
   - "8"
 script:
   - npm run lint
+addons:
+  ssh_known_hosts:
+    - bitbucket.org
