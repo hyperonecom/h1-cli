@@ -13,11 +13,11 @@ const options = {
       , type: 'string'
       , required: true
     }
-  , ['source-url']: {
+  , 'source-url': {
         description: 'Source url for ISO import. Required if source-url is not specified.'
         , type: 'string'
     }
-  , ['source-file']: {
+  , 'source-file': {
         description: 'Source file for ISO import.'
         , type: 'string'
   }
