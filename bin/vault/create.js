@@ -40,13 +40,11 @@ module.exports = resource => Cli.createCommand('create', {
             , value: args.password
         }];
 
-        const certificates = args.ssh.map(x => {
-            return {
+        const certificates = args.ssh.map(x => ({
                 name: x
                 , type: 'ssh'
                 , value: x
-            }
-        });
+            }));
 
         const body = {
             name: args.name

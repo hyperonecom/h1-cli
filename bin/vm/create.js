@@ -73,15 +73,7 @@ const options = {
     }
 };
 
-
-module.exports = Cli.createCommand('create', {
-    description: 'VM create',
-    plugins: genericDefaults.plugins,
-    options: options,
-    handler: handler
-});
-
-async function handler(args) {
+const handler = async (args) => {
 
     const newVM = {
         name: args.name,
@@ -137,9 +129,16 @@ async function handler(args) {
 
     if (args['userdata-file']) {
         const content = await fs.getFileContent(args['userdata-file']);
-        newVM.userMetadata = content.toString('base64')
+        newVM.userMetadata = content.toString('base64');
     }
 
     return args.helpers.api.post('vm', newVM)
         .then(result => args.helpers.sendOutput(args, result));
-}
+};
+
+module.exports = Cli.createCommand('create', {
+    description: 'VM create',
+    plugins: genericDefaults.plugins,
+    options: options,
+    handler: handler
+});
