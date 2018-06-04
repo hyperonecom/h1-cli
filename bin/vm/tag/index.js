@@ -24,7 +24,7 @@ module.exports = resource => {
     resource = Object.assign({}, resource, { params: Object.assign({}, resource.params, params) });
 
     category.addChild(require('./add')(resource));
-    category.addChild(require('./remove')(resource));
+    category.addChild(require('./delete')(resource));
 
     return category;
 };

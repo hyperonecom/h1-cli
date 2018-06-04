@@ -152,7 +152,7 @@ function record(type, resource) {
     category.addChild(createRecordSet(type, resource));
     category.addChild(deleteRecordSet(type, resource));
     category.addChild(addRecord(type, resource));
-    category.addChild(removeRecord(type, resource));
+    category.addChild(deleteRecord(type, resource));
 
     return category;
 };
@@ -272,7 +272,7 @@ function addRecord(type, resource) {
     });
 };
 
-const handleRemoveRecord = type => args => {
+const handleDeleteRecord = type => args => {
 
     args['zone-name'] = addTrailingDot(args['zone-name']);
     const name = formatRecordName(args.name, args['zone-name']);
@@ -292,7 +292,7 @@ const handleRemoveRecord = type => args => {
         });
 };
 
-function removeRecord(type, resource) {
+function deleteRecord(type, resource) {
 
     const options = {
         name: {
@@ -302,11 +302,11 @@ function removeRecord(type, resource) {
         }
     };
 
-    return Cli.createCommand('remove-record', {
-        description: 'Remove record',
+    return Cli.createCommand('delete-record', {
+        description: 'Delete record',
         plugins: resource.plugins,
         options: Object.assign({}, options, resource.options, recordTypes[type].options),
-        handler: handleRemoveRecord(type)
+        handler: handleDeleteRecord(type)
     });
 };
 
