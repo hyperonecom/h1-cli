@@ -10,11 +10,11 @@ module.exports = {
 
         node.addOption('tenant-select',
         {
-            description: 'Override current tenant on the request',
-            type: 'string'
+            description: 'Override current tenant on the request'
+            ,type: 'string'
         });
-    },
-    onBeforeHandler: context => {
+    }
+    ,onBeforeHandler: context => {
         const profile = config.get('profile', {});
 
         context.args.profile = Object.assign({}, profile);

@@ -7,23 +7,23 @@ const defaults = require('bin/generic/defaults');
 
 const options = {
     vm: {
-        description: 'VM name or ID',
-        type: 'string',
-        required: true
-    },
-    disk: {
-        description: 'Disk name or ID',
-        type: 'string',
-        required: true
+        description: 'VM name or ID'
+        ,type: 'string'
+        ,required: true
+    }
+    ,disk: {
+        description: 'Disk name or ID'
+        ,type: 'string'
+        ,required: true
     }
 };
 
 
 module.exports = Cli.createCommand('attach', {
-    description: 'Disk attach',
-    plugins: defaults.plugins,
-    options: options,
-    handler: handleVMDiskAttach
+    description: 'Disk attach'
+    ,plugins: defaults.plugins
+    ,options: options
+    ,handler: handleVMDiskAttach
 });
 
 

@@ -57,7 +57,8 @@
       "node": true
     },
     "rules": {
-      "quotes": ["error", "single"]
+      "quotes": ["error", "single"],
+      "comma-style": ["error", "first"]
     }
   }
 }

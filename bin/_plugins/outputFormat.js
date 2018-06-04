@@ -25,8 +25,8 @@ const outputFormat = {
     table: (args, result) => {
         result = queryFilter(args, result);
         return tabula.format(result);
-    },
-    tsv: (args, result) => {
+    }
+    ,tsv: (args, result) => {
         result = queryFilter(args, result);
         return result.map(item =>
             Object.values(item).map(value => {
@@ -40,8 +40,8 @@ const outputFormat = {
 
             }).join('\t')
         ).join('\n');
-    },
-    list: (args, result) => {
+    }
+    ,list: (args, result) => {
         result = queryFilter(args, result);
         const maxKeyLength = result[0] ? Math.max(...Object.keys(result[0]).map(i=>i.length)) : 0;
         return result
@@ -52,8 +52,8 @@ const outputFormat = {
                 .join('\n')
             ).join('\n')
         ;
-    },
-    json: (args, result) => args.query ? queryFilter(args, result) : result
+    }
+    ,json: (args, result) => args.query ? queryFilter(args, result) : result
 };
 
 module.exports = {
@@ -61,27 +61,27 @@ module.exports = {
         const node = context.node;
         const options = {
             output: {
-                alias: 'o',
-                description: 'output format',
-                type: 'string',
-                defaultValue: process.env.H1_DEFAULT_OUTPUT || 'table',
-                choices: Object.keys(outputFormat),
-                dest: 'output'
-            },
-            query: {
-                description: 'query selector',
-                type: 'string'
-            },
-            transform: {
-                description: 'transform results',
-                type: 'string'
+                alias: 'o'
+                ,description: 'output format'
+                ,type: 'string'
+                ,defaultValue: process.env.H1_DEFAULT_OUTPUT || 'table'
+                ,choices: Object.keys(outputFormat)
+                ,dest: 'output'
+            }
+            ,query: {
+                description: 'query selector'
+                ,type: 'string'
+            }
+            ,transform: {
+                description: 'transform results'
+                ,type: 'string'
             }
         };
 
         node.addOptionGroup('Output options', _.omit(options, _.get(context.node.config, 'outputOptions.hide', [])));
-    },
+    }
 
-    onBeforeHandler: context => {
+    ,onBeforeHandler: context => {
         context.args.helpers = context.args.helpers || {};
         context.args.helpers.sendOutput = (args, result) => outputFormat[args.output](args, result);
     }

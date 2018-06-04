@@ -108,15 +108,15 @@ const recordTypes = {
 };
 
 const resource = {
-    name: 'record-set',
+    name: 'record-set'
     // eslint-disable-next-line quotes
-    defaultQuery: "[].rrsets[].{name:name, type:type, ttl:ttl, records:join(',',records[].content)}",
-    url: args => `dns/zone/${args['zone-name']}`,
-    options: {
+    ,defaultQuery: "[].rrsets[].{name:name, type:type, ttl:ttl, records:join(',',records[].content)}"
+    ,url: args => `dns/zone/${args['zone-name']}`
+    ,options: {
         'zone-name': {
-            description: 'DNS Zone Name',
-            type: 'string',
-            required: true
+            description: 'DNS Zone Name'
+            ,type: 'string'
+            ,required: true
         }
     }
 };
@@ -130,9 +130,9 @@ const category = function(resource) {
     resource = Object.assign({}, defaults, resourceDefaults, resource);
 
     const category = Cli.createCategory(resource.name, {
-        description: `Manage your ${resource.name.toUpperCase()}`,
-        defaultQuery: resource.defaultQuery,
-        url: resource.url
+        description: `Manage your ${resource.name.toUpperCase()}`
+        ,defaultQuery: resource.defaultQuery
+        ,url: resource.url
     });
 
     Object.keys(recordTypes).forEach(type => category.addChild(record(type, resource)));
@@ -144,9 +144,9 @@ const category = function(resource) {
 
 function record(type, resource) {
     const category = Cli.createCategory(type, {
-        description: `Record Set Type ${type.toUpperCase()}`,
-        defaultQuery: `[].rrsets[?type=='${type.toUpperCase()}'][].{name:name, type:type, ttl:ttl, records:join(',',records[].content)}`,
-        url: args => `${resource.url(args)}/rrsets/${type.toUpperCase()}`
+        description: `Record Set Type ${type.toUpperCase()}`
+        ,defaultQuery: `[].rrsets[?type=='${type.toUpperCase()}'][].{name:name, type:type, ttl:ttl, records:join(',',records[].content)}`
+        ,url: args => `${resource.url(args)}/rrsets/${type.toUpperCase()}`
     });
 
     category.addChild(require('bin/generic/list')(resource));
@@ -188,22 +188,22 @@ function createRecordSet(type, resource) {
 
     const options = {
         name: {
-            description: 'Record Set name',
-            type: 'string',
-            required: true
-        },
-        ttl: {
-            description: 'Record Set Time To Live (TTL)',
-            type: 'int',
-            defaultValue: 3600
+            description: 'Record Set name'
+            ,type: 'string'
+            ,required: true
+        }
+        ,ttl: {
+            description: 'Record Set Time To Live (TTL)'
+            ,type: 'int'
+            ,defaultValue: 3600
         }
     };
 
     return Cli.createCommand('create', {
-        description: 'Create record-set',
-        plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options, recordTypes[type].options),
-        handler: handleCreate(type)
+        description: 'Create record-set'
+        ,plugins: resource.plugins
+        ,options: Object.assign({}, options, resource.options, recordTypes[type].options)
+        ,handler: handleCreate(type)
     });
 };
 
@@ -223,9 +223,9 @@ function deleteRecordSet(type, resource) {
 
     const options = {
         name: {
-            description: 'Record Set name',
-            type: 'string',
-            required: true
+            description: 'Record Set name'
+            ,type: 'string'
+            ,required: true
         }
     };
 
@@ -259,17 +259,17 @@ function addRecord(type, resource) {
 
     const options = {
         name: {
-            description: 'Record Set name',
-            type: 'string',
-            required: true
+            description: 'Record Set name'
+            ,type: 'string'
+            ,required: true
         }
     };
 
     return Cli.createCommand('add-record', {
-        description: 'Add record',
-        plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options, recordTypes[type].options),
-        handler: handleAddRecord(type)
+        description: 'Add record'
+        ,plugins: resource.plugins
+        ,options: Object.assign({}, options, resource.options, recordTypes[type].options)
+        ,handler: handleAddRecord(type)
     });
 };
 
@@ -297,17 +297,17 @@ function removeRecord(type, resource) {
 
     const options = {
         name: {
-            description: 'Record Set name',
-            type: 'string',
-            required: true
+            description: 'Record Set name'
+            ,type: 'string'
+            ,required: true
         }
     };
 
     return Cli.createCommand('remove-record', {
-        description: 'Remove record',
-        plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options, recordTypes[type].options),
-        handler: handleRemoveRecord(type)
+        description: 'Remove record'
+        ,plugins: resource.plugins
+        ,options: Object.assign({}, options, resource.options, recordTypes[type].options)
+        ,handler: handleRemoveRecord(type)
     });
 };
 
