@@ -90,7 +90,7 @@ Jeżeli wykorzystujesz więcej niż 1 project musisz dokonać wyboru aktywnie u�
 
 Następnie zatwierdzenia tego wyboru::
 
-    $ h1 project select {{project_id}}
+    $ h1 project select {{project}}
 
 
 Utworzenie serwera
