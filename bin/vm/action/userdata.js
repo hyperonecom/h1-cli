@@ -13,7 +13,7 @@ const options = {
 
 const params = {
     id: {
-        description: 'VM id',
+        description: 'VM name or ID',
         type: 'string',
         required: true
     }

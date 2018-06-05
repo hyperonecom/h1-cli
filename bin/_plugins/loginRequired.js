@@ -27,7 +27,7 @@ module.exports = {
         const username = context.args.username;
 
         if (profile.user) {
-            logger('info', `Your authtoken expired, trying to login using ssh "${profile.user}"`);
+            logger('info', 'Your authtoken has expired');
             context.args.username = profile.user;
         } else {
             logger('info', 'Please login first');

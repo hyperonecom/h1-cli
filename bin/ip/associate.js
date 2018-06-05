@@ -4,7 +4,7 @@ const Cli = require('structured-cli');
 
 const params = {
     id: {
-        description: 'IP id'
+        description: 'Public IP or ID or IP'
       , type: 'string'
       , required: true
     }
@@ -12,7 +12,7 @@ const params = {
 
 const options = {
     'private-ip': {
-        description: 'pivate IP id'
+        description: 'ID of private IP'
       , type: 'string'
       , required: true
     }

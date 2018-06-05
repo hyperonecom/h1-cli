@@ -3,8 +3,8 @@
 const Cli = require('structured-cli');
 
 const options = {
-    'tenant-id': {
-        description: 'Tenant Id',
+    tenant: {
+        description: 'Tenant name or ID',
         type: 'string',
         required: true
     }

@@ -17,10 +17,19 @@ const options = {
     }
 };
 
+const params = {
+    command: {
+        description: 'Command to execute'
+      , type: 'string'
+    }
+};
+
 module.exports = resource => Cli.createCommand('ssh', {
     description: 'Connect to VM using SSH'
   , plugins: resource.plugins
-  , params: resource.params
+    // The order of assign is important - it determines the order of positional parameters in the current
+    // NodeJS implementation.
+  , params: Object.assign({}, resource.params, params)
   , options: Object.assign({}, options, resource.options)
   , handler: async args => {
         const vm = await args.helpers.api.get(resource.url(args));
@@ -47,6 +56,10 @@ module.exports = resource => Cli.createCommand('ssh', {
 
         if (args.port) {
             sshArgs.push(...['-p', args.port]);
+        }
+
+        if (args.command) {
+            sshArgs.push(args.command);
         }
 
         console.log(`ssh ${sshArgs.join(' ')}`);

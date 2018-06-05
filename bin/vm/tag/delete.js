@@ -10,7 +10,7 @@ const options = {
     }
 };
 
-module.exports = resource => Cli.createCommand('remove', {
+module.exports = resource => Cli.createCommand('delete', {
     description: 'Add a Tag'
   , plugins: resource.plugins
   , params: resource.params

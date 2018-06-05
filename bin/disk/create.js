@@ -24,7 +24,7 @@ const options = {
       , type: 'int'
       , required: true
     }
-  , source: {
+  , 'source-file': {
         description: 'import disk path'
       , type: 'string'
       , required: false
@@ -43,30 +43,30 @@ module.exports = resource => Cli.createCommand('create', {
           , size: args.size
         };
 
-        if (args.source) {
+        if (args['source-file']) {
             body.metadata = {
                 source: {
-                    filename: path.basename(args.source)
-                  , size: fs.statSync(args.source).size
+                    filename: path.basename(args['source-file'])
+                  , size: fs.statSync(args['source-file']).size
                 }
             };
-            const vhdxInfo = await util.promisify(vhdx.info)(args.source);
+            const vhdxInfo = await util.promisify(vhdx.info)(args['source-file']);
 
             if (vhdxInfo.type !== 'dynamic') {
-                throw Cli.error.cancelled('<source> vhdx should be dynamic');
+                throw Cli.error.cancelled('<source-file> vhdx should be dynamic');
             }
 
             if (vhdxInfo.size > args.size * 1024**3) {
-                throw Cli.error.cancelled(`<source> ${Math.ceil(vhdxInfo.size/1024 **3)}GB is bigger than ${args.size}GB`);
+                throw Cli.error.cancelled(`<source-file> ${Math.ceil(vhdxInfo.size/1024 **3)}GB is bigger than ${args.size}GB`);
             }
         }
 
         let disk = await args.helpers.api.post(resource.url(args), body);
 
-        if (args.source) {
+        if (args['source-file']) {
             const ws = await args.helpers.api.wsUpload(`disk/${disk._id}/upload`);
 
-            await websocketStream.upload(ws, args.source);
+            await websocketStream.upload(ws, args['source-file']);
 
             disk = await args.helpers.api.get(`${resource.url(args)}/${disk._id}`);
         }
