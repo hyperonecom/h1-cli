@@ -10,7 +10,8 @@
   },
   "scripts": {
     "start": "./bin/h1",
-    "build": "pkg --out-path ./dist ."
+    "build": "pkg --out-path ./dist .",
+    "lint": "eslint ."
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -18,10 +19,12 @@
     "inquirer": "^1.2.3",
     "jmespath": "^0.15.0",
     "lodash": "^4.17.5",
+    "marked": "^0.4.0",
+    "marked-terminal": "^3.0.0",
     "node-rsa": "^0.4.2",
     "opn": "^5.3.0",
     "progress": "^2.0.0",
-    "rbx-vhdx": "git+ssh://git@bitbucket.org/rbxcom/rbx-vhdx.git",
+    "rbx-vhdx": "git+https://bitbucket.org/rbxcom/rbx-vhdx.git",
     "request": "^2.85.0",
     "ssh2": "^0.6.0",
     "structured-cli": "^1.0.5",
@@ -50,14 +53,68 @@
   },
   "eslintConfig": {
     "parserOptions": {
-      "ecmaVersion": 8
+      "ecmaVersion": 2017,
+      "sourceType": "module"
     },
     "env": {
-      "browser": false,
-      "node": true
+      "node": true,
+      "es6": true
     },
     "rules": {
-      "quotes": ["error", "single"]
+      "semi": [
+        "error",
+        "always"
+      ],
+      "strict": [
+        "off",
+        "safe"
+      ],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "no-cond-assign": [
+        "error",
+        "always"
+      ],
+      "no-constant-condition": "error",
+      "no-unused-vars": "error",
+      "no-unused-expressions": "error",
+      "no-dupe-keys": "error",
+      "no-undef": "error",
+      "no-duplicate-case": "error",
+      "prefer-template": "warn",
+      "no-var": "warn",
+      "prefer-const": "warn",
+      "valid-typeof": "error",
+      "dot-notation": "error",
+      "eol-last": "error",
+      "no-trailing-spaces": "warn",
+      "quotes": [
+        "error",
+        "single",
+        {
+          "avoidEscape": true
+        }
+      ],
+      "no-tabs": "error",
+      "space-before-blocks": "error",
+      "keyword-spacing": "error",
+      "no-lonely-if": "error",
+      "brace-style": [
+        "error",
+        "1tbs",
+        {
+          "allowSingleLine": true
+        }
+      ],
+      "no-else-return": "error",
+      "func-call-spacing": "error",
+      "callback-return": "error",
+      "no-extra-parens": "error",
+      "new-parens": "error",
+      "space-in-parens": "error",
+      "comma-spacing": "error"
     }
   }
 }

@@ -6,6 +6,7 @@ const path = require('path');
 const fs = require('fs');
 
 const websocketStream = require('lib/websocketStream');
+const epilog = require('lib/epilog');
 
 const options = {
     name: {
@@ -13,24 +14,35 @@ const options = {
       , type: 'string'
       , required: true
     }
-  , source: {
-        description: 'Source for ISO import (eg: url, file)'
-      , type: 'string'
-      , required: true
+  , 'source-url': {
+        description: 'Source url for ISO import. Required if source-url is not specified.'
+        , type: 'string'
     }
+  , 'source-file': {
+        description: 'Source file for ISO import.'
+        , type: 'string'
+  }
 };
 
 module.exports = resource => Cli.createCommand('create', {
     description: 'ISO import'
   , plugins: resource.plugins
   , options: options
+  , epilog: epilog.examples(__dirname)
   , handler: async args => {
 
         let iso;
 
-        if (args.source.match('^http(s)?://')) {
-            iso = await args.helpers.api.post(resource.url(args), { name: args.name, source: args.source });
-        } else {
+        if (!args['source-url'] && !args['source-file']) {
+            throw Cli.error.cancelled('Providing either source-file or source-url is required.');
+        }
+        if (args['source-url'] && args['source-file']) {
+            throw Cli.error.cancelled('Providing either source-file or source-url is required.');
+        }
+
+        if (args['source-url']) {
+            iso = await args.helpers.api.post(resource.url(args), { name: args.name, source: args['source-url'] });
+        } else if (args['source-file']) {
             const fileSize = fs.statSync(args.source).size;
 
             iso = await args.helpers.api.post(resource.url(args), {

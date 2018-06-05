@@ -5,7 +5,7 @@ const Cli = require('structured-cli');
 const interactive = require('lib/interactive');
 
 const params = {
-    'remove-id': {
+    'delete-id': {
         description: 'Resource name or ID'
       , type: 'string'
       , required: true
@@ -22,13 +22,13 @@ module.exports = resource => Cli.createCommand('delete', {
   , options: resource.options
   , handler: async args => {
         if (!args.yes) {
-            const answer = await interactive.confirm(`Are you sure you want to delete resource "${args['remove-id']}"?`);
+            const answer = await interactive.confirm(`Are you sure you want to delete resource "${args['delete-id']}"?`);
             if (answer.value !== true) {
                 throw Cli.error.cancelled('Canceled', undefined);
             }
         }
 
-        const result = await args.helpers.api.delete(`${resource.url(args)}/${args['remove-id']}`, args.helpers.body || {});
+        const result = await args.helpers.api.delete(`${resource.url(args)}/${args['delete-id']}`, args.helpers.body || {});
 
         return args.helpers.sendOutput(args, result);
     }

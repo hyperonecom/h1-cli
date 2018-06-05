@@ -2,92 +2,19 @@
 
 const Cli = require('structured-cli');
 
-const logger = require('lib/logger');
-const _ = require('lodash');
 const inquirer = require('inquirer');
+const _ = require('lodash');
 
-const verification = {
-    email: {}
-  , phone: {}
-};
+const logger = require('lib/logger');
 
-const options = {
-    email: {
-        description: 'email'
-      , type: 'string'
-      , defaultValue: {
-            interactive: () => inquirer.prompt({
-                type: 'input'
-              , name: 'value'
-              , message: 'email:'
-              , validate: input => _.isEmpty(input) ? 'Invalid email' : true
-            })
-        }
-    }
-  , emailCode: {
-        description: 'email validation code'
-      , type: 'string'
-      , defaultValue: {
-            interactive: ctx => ctx.args.helpers.api.post(`verification/email/${ctx.args.email}`)
-                .then(emailVerification => verification.email = emailVerification)
-                .then(() => inquirer.prompt({
-                    type: 'input'
-                  , name: 'value'
-                  , message: 'email validation:'
-                  , validate: input => _.isEmpty(input) ? 'Invalid code' : true
-                }))
-        }
-    }
-  , phone: {
-        description: 'phone'
-      , type: 'string'
-      , defaultValue: {
-            interactive: () => inquirer.prompt({
-                type: 'input'
-              , name: 'value'
-              , message: 'phone number:'
-              , validate: input => _.isEmpty(input) ? 'Invalid phone number' : true
-            })
-        }
-    }
-  , phoneCode: {
-        description: 'phone validation code'
-      , type: 'string'
-      , defaultValue: {
-            interactive: ctx => ctx.args.helpers.api.post(`verification/phone/${ctx.args.phone}`)
-                .then(phoneVerification => verification.phone = phoneVerification)
-                .then(() => inquirer.prompt({
-                    type: 'input'
-                  , name: 'value'
-                  , message: 'phone validation:'
-                  , validate: input => _.isEmpty(input) ? 'Invalid code' : true
-                }))
-        }
-    }
-   , password: {
-        description: 'Password'
-      , type: 'string'
-      , defaultValue: {
-            interactive: () => inquirer.prompt({
-                type: 'password'
-              , name: 'value'
-              , message: 'password:'
-              , validate: input => _.isEmpty(input) ? 'Incorrect password' : true
-            })
-        }
-    }
-};
-
-const handler = args => args.helpers.api
-    .post('user', {
-        email: args.email
-      , password: args.password
-      , verification: {
-            email: Object.assign(verification.email, { code: args.emailCode })
-          , phone: Object.assign(verification.phone, { code: args.phoneCode })
-        }
+const prompt = (type, message) => inquirer
+    .prompt({
+        type: type
+      , message: `${message}:`
+      , name: 'value'
+      , validate: input => _.isEmpty(input) ? 'invalid value' : true
     })
-    .then(() => logger('info', 'User successfully created!'))
+    .then(response => response.value)
 ;
 
 module.exports = Cli.createCommand('create', {
@@ -96,6 +23,29 @@ module.exports = Cli.createCommand('create', {
         require('bin/_plugins/api')
       , require('bin/_plugins/interactiveOptions')
     ]
-  , options: options
-  , handler: handler
+  , handler: async args => {
+
+        const api = args.helpers.api;
+
+        const email = await prompt('input', 'email');
+        const emailVerification = await api.post(`verification/email/${email}`);
+        const emailCode = await prompt('input', 'email validation');
+
+        const phone = await prompt('input', 'phone number');
+        const phoneVerification = await api.post(`verification/phone/${phone}`);
+        const phoneCode = await prompt('input', 'phone validation');
+
+        const password = await prompt('password', 'password');
+
+        await api.post('user', {
+            email: email
+          , password: password
+          , verification: {
+                email: { id: emailVerification.id, code: emailCode }
+              , phone: { id: phoneVerification.id, code: phoneCode }
+            }
+        });
+
+        return logger('info', 'User successfully created!');
+    }
 });

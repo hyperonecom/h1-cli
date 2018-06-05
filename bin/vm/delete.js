@@ -7,7 +7,7 @@ const plugin = {
         const node = context.node;
 
         node.addOption('disk', {
-            description: 'disk to remove'
+            description: 'disk to delete'
           , type: 'string'
           , action: 'append'
         });
