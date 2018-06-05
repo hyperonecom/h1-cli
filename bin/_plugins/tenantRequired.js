@@ -8,9 +8,9 @@ module.exports = {
     onBeforeConfigure: context => {
         const node = context.node;
 
-        node.addOption('tenant-select',
+        node.addOption('project-select',
         {
-            description: 'Override current tenant on the request',
+            description: 'Override current project on the request',
             type: 'string'
         });
     },
@@ -24,13 +24,13 @@ module.exports = {
         }
 
         if (!profile.tenant || !profile.tenant._id) {
-            logger('info', 'You need to select tenant before you can manage your resources');
+            logger('info', 'You need to select project before you can manage your resources');
             return process.exit(-1); //TODO find a better way
         }
 
-        if (context.args['tenant-select']) {
+        if (context.args['project-select']) {
             context.args.profile.tenant.name = '';
-            context.args.profile.tenant._id = context.args['tenant-select'];
+            context.args.profile.tenant._id = context.args['project-select'];
         }
     }
 };

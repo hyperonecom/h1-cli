@@ -25,7 +25,7 @@ ${Chalk.underline('Sample usage:')}
 cli.addChild(require('./config'));
 cli.addChild(require('./user'));
 cli.addChild(require('./login'));
-cli.addChild(require('./tenant'));
+cli.addChild(require('./project'));
 
 cli.addChild(require('./disk'));
 cli.addChild(require('./vm'));

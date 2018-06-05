@@ -1,6 +1,7 @@
 'use strict';
 
 const Cli = require('structured-cli');
+const genericDefaults = require('bin/generic/defaults');
 
 const options = {
     identity: {
@@ -12,12 +13,7 @@ const options = {
 
 module.exports = resource => Cli.createCommand('revoke', {
     description: `Revoke access rights for ${resource.name.toUpperCase()}`,
-    plugins: [
-        require('bin/_plugins/loginRequired'),
-        require('bin/_plugins/tenantRequired'),
-        require('bin/_plugins/outputFormat'),
-        require('bin/_plugins/api')
-    ],
+    plugins: genericDefaults.plugins,
     params: resource.params,
     options: options,
     handler: args => args.helpers.api
