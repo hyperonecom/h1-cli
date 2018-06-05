@@ -2,6 +2,7 @@
 
 const Cli = require('structured-cli');
 const genericDefaults = require('bin/generic/defaults');
+
 const params = {
     id: {
         description: 'NetGW id'
