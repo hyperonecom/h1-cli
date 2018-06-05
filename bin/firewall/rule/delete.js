@@ -10,8 +10,8 @@ const options = {
     }
 };
 
-module.exports = (table, resource) => Cli.createCommand('remove', {
-    description: 'Remove'
+module.exports = (table, resource) => Cli.createCommand('delete', {
+    description: 'Delete'
   , plugins: resource.plugins
   , params: resource.params
   , options: Object.assign(options, resource.options)

@@ -23,9 +23,9 @@ const options = {
         description: 'Username',
         type: 'string'
     },
-    sshkey: {
+    ssh: {
         action: 'append',
-        description: 'SSH key id',
+        description: 'SSH key Id or name that allows access.',
         type: 'string',
         dest: 'sshKeys'
     },
@@ -74,14 +74,7 @@ const options = {
 };
 
 
-module.exports = Cli.createCommand('create', {
-    description: 'VM create',
-    plugins: genericDefaults.plugins,
-    options: options,
-    handler: handler
-});
-
-function handler(args) {
+const handler = async (args) => {
 
     const newVM = {
         name: args.name,
@@ -135,16 +128,18 @@ function handler(args) {
         }
     });
 
-    let ret = Promise.resolve();
-
     if (args['userdata-file']) {
-        ret = ret
-            .then(() => fs.getFileContent(args['userdata-file']))
-            .then(content => newVM.userMetadata = content.toString('base64'));
+        const content = await fs.getFileContent(args['userdata-file']);
+        newVM.userMetadata = content.toString('base64');
     }
 
-    ret = ret.then(() => args.helpers.api.post('vm', newVM));
-    ret = ret.then(result => args.helpers.sendOutput(args, result));
-
-    return ret;
+    return args.helpers.api.post('vm', newVM)
+        .then(result => args.helpers.sendOutput(args, result));
 };
+
+module.exports = Cli.createCommand('create', {
+    description: 'VM create',
+    plugins: genericDefaults.plugins,
+    options: options,
+    handler: handler
+});

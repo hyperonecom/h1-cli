@@ -5,7 +5,7 @@ const genericDefaults = require('bin/generic/defaults');
 
 const params = {
     id: {
-        description: 'Resource id',
+        description: 'Resource name or ID',
         type: 'string',
         required: true
     }

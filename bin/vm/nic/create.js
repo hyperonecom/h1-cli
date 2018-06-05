@@ -17,8 +17,8 @@ const options = {
         description: 'IP to assign from network',
         type: 'string'
     },
-    'vm-id': {
-        description: 'VM id',
+    vm: {
+        description: 'VM name or ID',
         type: 'string',
         required: true
     }

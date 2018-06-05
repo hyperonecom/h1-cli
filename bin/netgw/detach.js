@@ -5,7 +5,7 @@ const genericDefaults = require('bin/generic/defaults');
 
 const params = {
     id: {
-        description: 'NetGW id'
+        description: 'Network gateway name or ID'
       , type: 'string'
       , required: true
     }

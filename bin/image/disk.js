@@ -4,7 +4,7 @@ const Cli = require('structured-cli');
 
 const params = {
     id: {
-        description: 'Resource identifier'
+        description: 'Image name or ID'
       , type: 'string'
       , required: true
     }

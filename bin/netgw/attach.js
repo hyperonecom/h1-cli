@@ -5,7 +5,7 @@ const genericDefaults = require('bin/generic/defaults');
 
 const params = {
     id: {
-        description: 'NetGW id'
+        description: 'Network gateway name or ID'
       , type: 'string'
       , required: true
     }
@@ -13,14 +13,14 @@ const params = {
 
 const options = {
     network: {
-        description: 'network id'
+        description: 'Network name or id'
       , type: 'string'
       , required: true
     }
 };
 
 module.exports = Cli.createCommand('attach', {
-    description: 'NetGW attach to a network'
+    description: 'Network gateway attach to a network'
   , plugins: genericDefaults.plugins
   , options: options
   , handler: handler

@@ -4,11 +4,11 @@ const Cli = require('structured-cli');
 
 const options = {
     recommended: {
-        description: 'display recommended images'
+        description: 'Display recommended images'
       , type: 'boolean'
     }
   , all: {
-        description: 'display all images'
+        description: 'Display all images'
       , type: 'boolean'
     }
 };
