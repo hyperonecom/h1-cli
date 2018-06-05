@@ -1,7 +1,6 @@
 'use strict';
 
 const Cli = require('structured-cli');
-const genericDefaults = require('bin/generic/defaults');
 
 const options = {
     identity: {
@@ -19,7 +18,7 @@ const options = {
 
 module.exports = resource => Cli.createCommand('grant', {
     description: `Grant access rights for ${resource.name.toUpperCase()}`,
-    plugins: genericDefaults.plugins,
+    plugins: resource.plugins,
     params: resource.params,
     options: options,
     handler: args => {

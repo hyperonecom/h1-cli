@@ -1,11 +1,10 @@
 'use strict';
 
 const Cli = require('structured-cli');
-const genericDefaults = require('bin/generic/defaults');
 
 module.exports = resource => Cli.createCommand('create', {
     description: 'IP create'
-  , plugins: genericDefaults.plugins
+  , plugins: resource.plugins
   , options: resource.options
   , handler: handler
 });
