@@ -5,7 +5,7 @@ const Cli = require('structured-cli');
 const fs = require('fs');
 
 const options = {
-    destination: {
+    'destination-file': {
         description: 'destination disk path'
       , type: 'string'
       , required: true
@@ -30,7 +30,7 @@ module.exports = resource => Cli.createCommand('download', {
         const disk = await args.helpers.api.get(`${resource.url(args)}/${args.id}`);
 
         return new Promise((resolve, reject) => {
-            const writeStream = fs.createWriteStream(args.destination);
+            const writeStream = fs.createWriteStream(args['destination-file']);
             const req = args.helpers.api.download(disk.downloadUrl);
             // const req = args.helpers.api.download(`http://localhost:3000/disk/${disk._id}`);
             req.on('error', reject);
