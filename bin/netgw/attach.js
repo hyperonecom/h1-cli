@@ -4,7 +4,7 @@ const Cli = require('structured-cli');
 
 const params = {
     id: {
-        description: 'NetGW id'
+        description: 'Network gateway name or ID'
       , type: 'string'
       , required: true
     }
@@ -12,14 +12,14 @@ const params = {
 
 const options = {
     network: {
-        description: 'network id'
+        description: 'Network name or id'
       , type: 'string'
       , required: true
     }
 };
 
 module.exports = Cli.createCommand('attach', {
-    description: 'NetGW attach to a network'
+    description: 'Network gateway attach to a network'
   , plugins: [
         require('bin/_plugins/loginRequired')
       , require('bin/_plugins/tenantRequired')

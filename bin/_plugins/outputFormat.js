@@ -15,7 +15,7 @@ const queryFilter = (args, result) => {
         result = eval(args.transform)(result);
     }
 
-    const query = args.query || config.defaultQuery || "[].['_id']";
+    const query = args.query || config.defaultQuery || '[].[_id]';
     result = Array.isArray(result) ? result : [ result ];
     result = jmespath.search(result, query);
     return result;

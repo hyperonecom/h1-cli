@@ -109,6 +109,7 @@ const recordTypes = {
 
 const resource = {
     name: 'record-set',
+    // eslint-disable-next-line quotes
     defaultQuery: "[].rrsets[].{name:name, type:type, ttl:ttl, records:join(',',records[].content)}",
     url: args => `dns/zone/${args['zone-name']}`,
     options: {

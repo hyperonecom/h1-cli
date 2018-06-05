@@ -6,7 +6,7 @@ const interactive = require('lib/interactive');
 
 const params = {
     'delete-id': {
-        description: 'Identifier'
+        description: 'Resource name or ID'
       , type: 'string'
       , required: true
     }

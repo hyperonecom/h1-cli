@@ -3,8 +3,8 @@
 const Cli = require('structured-cli');
 
 const options = {
-    'tenant-id': {
-        description: 'Tenant Id',
+    tenant: {
+        description: 'Tenant name or ID',
         type: 'string',
         required: true
     }
@@ -12,7 +12,7 @@ const options = {
 
 const params = {
     id: {
-        description: 'Resource id',
+        description: 'Resource ID',
         type: 'string',
         required: true
     }
@@ -38,7 +38,7 @@ module.exports = function(resource) {
 function handleAccessGrant(resource) {
     return function(args) {
         return args.helpers.api.post(`${resource.name}/${args.id}/accessrights`, {
-            identity: args['tenant-id']
+            identity: args.tenant
         })
         .then(result => args.helpers.sendOutput(args, result));
     };

@@ -4,7 +4,7 @@ const Cli = require('structured-cli');
 
 const options = {
     name: {
-        description: 'NetGW name'
+        description: 'Network gateway name'
       , type: 'string'
       , required: true
     }
