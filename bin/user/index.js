@@ -23,4 +23,6 @@ category.addChild(require('bin/generic/credentials')(Object.assign(
   , { url: args => `${childDefaults.url(args)}/credential`}
 )));
 
+category.addChild(require('./2FA')(childDefaults));
+
 module.exports = category;
