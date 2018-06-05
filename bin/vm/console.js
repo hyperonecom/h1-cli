@@ -12,7 +12,7 @@ module.exports = resource => Cli.createCommand('console', {
 
         const vm = await args.helpers.api.get(resource.url(args));
 
-        const url = `https://console.hyperone.com/console/#/?scope=h1&username=${vm._id}&password=${args.apiKey}&billingTenant=${args.profile.tenant._id}`;
+        const url = `https://console.hyperone.com/console/#/?scope=h1&username=${vm._id}&password=${args.apiKey}&billingTenant=${args.profile.project._id}`;
 
         console.log('Attempting to open the following url in your browser: ');
         console.log();

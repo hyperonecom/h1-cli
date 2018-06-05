@@ -6,9 +6,7 @@ const logger = require('lib/logger');
 
 module.exports = {
     onBeforeConfigure: context => {
-        const node = context.node;
-
-        node.addOption('project-select',
+        context.node.addOption('project-select',
         {
             description: 'Override current project on the request',
             type: 'string'
@@ -23,14 +21,14 @@ module.exports = {
             return;
         }
 
-        if (!profile.tenant || !profile.tenant._id) {
+        if (!profile.project || !profile.project._id) {
             logger('info', 'You need to select project before you can manage your resources');
             return process.exit(-1); //TODO find a better way
         }
 
         if (context.args['project-select']) {
-            context.args.profile.tenant.name = '';
-            context.args.profile.tenant._id = context.args['project-select'];
+            context.args.profile.project.name = '';
+            context.args.profile.project._id = context.args['project-select'];
         }
     }
 };

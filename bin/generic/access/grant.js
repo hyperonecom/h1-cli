@@ -1,10 +1,11 @@
 'use strict';
 
 const Cli = require('structured-cli');
+const genericDefaults = require('bin/generic/defaults');
 
 const options = {
-    'tenant-id': {
-        description: 'Tenant Id',
+    'project-id': {
+        description: 'Project Id',
         type: 'string',
         required: true
     }
@@ -23,12 +24,7 @@ module.exports = function(resource) {
 
     return Cli.createCommand('grant', {
         description: `Grant access rights for ${resource.name.toUpperCase()}`,
-        plugins: [
-            require('bin/_plugins/loginRequired'),
-            require('bin/_plugins/tenantRequired'),
-            require('bin/_plugins/outputFormat'),
-            require('bin/_plugins/api')
-        ],
+        plugins: genericDefaults.plugins,
         params: params,
         options: options,
         handler: handleAccessGrant(resource)
@@ -38,8 +34,8 @@ module.exports = function(resource) {
 function handleAccessGrant(resource) {
     return function(args) {
         return args.helpers.api.post(`${resource.name}/${args.id}/accessrights`, {
-            identity: args['tenant-id']
+            identity: args['project-id']
         })
         .then(result => args.helpers.sendOutput(args, result));
     };
-};
+}

@@ -2,6 +2,7 @@
 
 const Cli = require('structured-cli');
 const fs = require('lib/fs');
+const genericDefaults = require('bin/generic/defaults');
 
 const options = {
     'userdata-file': {
@@ -21,12 +22,7 @@ const params = {
 
 module.exports = Cli.createCommand('userdata', {
     description: 'Userdata for VM',
-    plugins: [
-        require('bin/_plugins/loginRequired'),
-        require('bin/_plugins/tenantRequired'),
-        require('bin/_plugins/outputFormat'),
-        require('bin/_plugins/api')
-    ],
+    plugins: genericDefaults.plugins,
     options: options,
     params: params,
     handler: args => fs.getFileContent(args['userdata-file'])

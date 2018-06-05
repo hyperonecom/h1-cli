@@ -17,11 +17,11 @@ module.exports = function(action) {
     return Cli.createCommand(action, {
         description: `VM action: ${action}`,
         plugins: [
-            require('../../_plugins/loginRequired'),
-            require('../../_plugins/tenantRequired'),
-            require('../../_plugins/outputFormat'),
-            require('../../_plugins/api'),
-            require('../../_plugins/interactiveOptions')
+            require('bin/_plugins/loginRequired'),
+            require('bin/_plugins/projectRequired'),
+            require('bin/_plugins/outputFormat'),
+            require('bin/_plugins/api'),
+            require('bin/_plugins/interactiveOptions')
         ],
         options: options,
         params: params,

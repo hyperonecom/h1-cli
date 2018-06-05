@@ -1,7 +1,7 @@
 'use strict';
 
 const Cli = require('structured-cli');
-
+const genericDefaults = require('bin/generic/defaults');
 const options = {
     name: {
         description: 'NetGW name'
@@ -17,12 +17,7 @@ const options = {
 
 module.exports = Cli.createCommand('create', {
     description: 'NetGW create'
-  , plugins: [
-        require('bin/_plugins/loginRequired')
-      , require('bin/_plugins/tenantRequired')
-      , require('bin/_plugins/outputFormat')
-      , require('bin/_plugins/api')
-    ]
+  , plugins: genericDefaults.plugins
   , options: options
   , handler: handler
 });

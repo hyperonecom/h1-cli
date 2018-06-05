@@ -14,8 +14,8 @@ module.exports = resource => Cli.createCommand('select', {
     params: resource.params,
     handler: args => args.helpers.api
         .get(resource.url(args))
-        .then(tenant => {
-            config.set('profile.project', { _id: tenant._id, name: tenant.name });
-            logger('info', `Tenant selected: ${tenant._id} "${tenant.name}"`);
+        .then(project => {
+            config.set('profile.project', { _id: project._id, name: project.name });
+            logger('info', `Project selected: ${project._id} "${project.name}"`);
         })
 });

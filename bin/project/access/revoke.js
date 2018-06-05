@@ -17,7 +17,6 @@ module.exports = resource => Cli.createCommand('revoke', {
     params: resource.params,
     options: options,
     handler: args => args.helpers.api
-        .delete(`${resource.url(args)}/accessrights/${args['tenant-id']}`)
+        .delete(`${resource.url(args)}/accessrights/s${args['identity']}`)
         .then(result => args.helpers.sendOutput(args, result))
 });
-

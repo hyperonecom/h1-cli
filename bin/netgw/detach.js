@@ -1,7 +1,7 @@
 'use strict';
 
 const Cli = require('structured-cli');
-
+const genericDefaults = require('bin/generic/defaults');
 const params = {
     id: {
         description: 'NetGW id'
@@ -12,12 +12,7 @@ const params = {
 
 module.exports = Cli.createCommand('detach', {
     description: 'NetGW detach from network'
-  , plugins: [
-        require('bin/_plugins/loginRequired')
-      , require('bin/_plugins/tenantRequired')
-      , require('bin/_plugins/outputFormat')
-      , require('bin/_plugins/api')
-    ]
+  , plugins: genericDefaults.plugins
   , handler: handler
   , params: params
 });

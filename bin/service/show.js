@@ -1,6 +1,7 @@
 'use strict';
 
 const Cli = require('structured-cli');
+const genericDefaults = require('bin/generic/defaults');
 
 const options = {};
 
@@ -15,12 +16,7 @@ const params = {
 
 module.exports = Cli.createCommand('show', {
     description: 'Resource show',
-    plugins: [
-        require('bin/_plugins/loginRequired'),
-        require('bin/_plugins/tenantRequired'),
-        require('bin/_plugins/outputFormat'),
-        require('bin/_plugins/api')
-    ],
+    plugins: genericDefaults.plugins,
     options: options,
     params: params,
     handler: handleResourceShow
