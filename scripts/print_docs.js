@@ -22,9 +22,9 @@ const printTOC = (element, prefix) => {
 
     element.forEach(entry => {
         const name = `${prefix} ${entry.name}`;
-        const clean_name = name.replace('/ /', '-').toLowerCase();
+        const clean_name = name.replace(/ /, '-').toLowerCase();
 
-        console.log(`* [#${clean_name}](${name})`);
+        console.log(`* [${name}](#${clean_name})`);
 
     });
 };
