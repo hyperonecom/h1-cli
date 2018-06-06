@@ -65,7 +65,7 @@ const enableOTAC = async (resource, args) => {
 
 module.exports = resource => {
 
-    const category = Cli.createCategory('2FA', {
+    const category = Cli.createCategory('2fa', {
         description: 'Manage 2FA'
     });
 
