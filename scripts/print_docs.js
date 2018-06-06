@@ -17,16 +17,28 @@ function printElement(label, values, f) {
     }
 }
 
-const printDocs = (element, prefix) => {
+
+const printTOC = (element, prefix) => {
+
     element.forEach(entry => {
-        console.log(`# ${prefix} ${entry.name}\n`);
+        const name = `${prefix} ${entry.name}`;
+        const clean_name = name.replace('/ /', '-').toLowerCase();
+
+        console.log(`* [#${clean_name}](${name})`);
+
+    });
+};
+const printDocs = (element, prefix) => {
+
+    element.forEach(entry => {
+        console.log(`# ${prefix} ${entry.name}`);
 
         console.log(`Syntax: ${code}${lib.getCommandHeader(entry, prefix)}${code}`);
 
         console.log("");
 
         printElement("Arguments:", entry.options, (name, value) => {
-            label = `--${name} ${name.toUpperCase()}`;
+            const label = `--${name} ${name.toUpperCase()}`;
             if (!value.required) {
                 return `[${label}]`
             }
@@ -36,7 +48,7 @@ const printDocs = (element, prefix) => {
         console.log("");
 
         printElement("Parameters:", entry.params, (name, value) => {
-            label = `${name}`;
+            const label = `${name}`;
             if (!value.required) {
                 return `[${label}]`
             }
@@ -53,4 +65,5 @@ const printDocs = (element, prefix) => {
     });
 };
 
+printTOC(cli.children, 'h1');
 printDocs(cli.children, 'h1');
