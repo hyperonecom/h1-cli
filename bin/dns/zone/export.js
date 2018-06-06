@@ -3,7 +3,7 @@
 const Cli = require('structured-cli');
 
 const options = {
-    name: {
+    'zone-name': {
         description: 'Dns zone name',
         type: 'string',
         required: true
@@ -23,11 +23,9 @@ module.exports = function(resource) {
 function handleCommand() {
     return function(args) {
 
-        const url = `${args.$node.parent.config.url(args)}/${args.name}`;
+        const url = `${args.$node.parent.config.url(args)}/${args['zone-name']}`;
 
-        return args.helpers.api.get(url, {
-            name: args.name
-        })
+        return args.helpers.api.get(url)
         .then(result => {
             result.rrsets.forEach(item => {
                 item.records.filter(r=>!r.disabled).map(r=>{
