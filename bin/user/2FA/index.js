@@ -22,7 +22,7 @@ const enableTOTP = async (resource, args) => {
     const code = await qrcode.toString(secret.otpauth_url, { type: 'terminal' });
 
     console.log(code);
-    console.log('secret', secret.base32);
+    console.log('Secret:', secret.base32);
 
     while (code) {
         const token = await interactive.prompt('token');
@@ -40,7 +40,7 @@ const enableTOTP = async (resource, args) => {
               , name: 'Time-Based One-Time Password'
             });
 
-            console.log('done');
+            console.log('Done');
             return;
         }
 
