@@ -4,16 +4,19 @@ const Cli = require('structured-cli');
 
 const options = {
     resource: {
-        type: String
+        type: String,
+        choices: ['container', 'disk', 'image', 'ip', 'iso', 'netadp',
+            'network', 'replica', 'reservation', 'tenant', 'vault', 'vm']
     }
   , type: {
-        type: String
+        type: String,
+        choices: ['flavour', 'ipv4', 'license', 'metric', 'standard', 'support']
     }
 };
 
 const customOutput = {
     vm: {
-        flavour: '[].{name: name, maxIPv4:data.vm.maxIPv4, maxhdd:data.vm.maxhdd, maxNetAdp:data.vm.maxNetAdp, cpu:data.vm.cpu, memory:data.vm.memory}'
+        flavour: '[].{name: name, maxIPv4:data.vm.maxIPv4, maxhdd:data.vm.maxhdd, maxNetAdp:data.vm.maxNetAdp, cpu:data.vm.cpu, memory:data.vm.memory, PLN: billing.price.PLN, period: billing.period}'
     }
 };
 
