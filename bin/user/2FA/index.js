@@ -9,6 +9,7 @@ const options = {
         description: 'type'
       , type: 'string'
       , default: 'totp'
+      , choices: ['totp', 'otac']
     }
 };
 
