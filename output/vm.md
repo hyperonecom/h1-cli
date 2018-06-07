@@ -1,45 +1,25 @@
 # TOC
 
-* [h1 list](#h1-list)
-* [h1 show](#h1-show)
-* [h1 create](#h1-create)
-* [h1 delete](#h1-delete)
-* [h1 queue](#h1-queue)
-* [h1 console](#h1-console)
-* [h1 stop](#h1-stop)
-* [h1 start](#h1-start)
-* [h1 restart](#h1-restart)
-* [h1 turnoff](#h1-turnoff)
-* [h1 rename](#h1-rename)
-* [h1 userdata](#h1-userdata)
-* [h1 disk](#h1-disk)
-* [h1 disk list](#h1-disk list)
-* [h1 disk attach](#h1-disk attach)
-* [h1 disk detach](#h1-disk detach)
-* [h1 nic](#h1-nic)
-* [h1 nic list](#h1-nic list)
-* [h1 nic show](#h1-nic show)
-* [h1 nic delete](#h1-nic delete)
-* [h1 nic create](#h1-nic create)
-* [h1 nic delete](#h1-nic delete)
-* [h1 nic ip](#h1-nic ip)
-* [h1 nic ip list](#h1-nic ip list)
-* [h1 nic ip delete](#h1-nic ip delete)
-* [h1 nic ip add](#h1-nic ip add)
-* [h1 dvd](#h1-dvd)
-* [h1 dvd list](#h1-dvd list)
-* [h1 dvd insert](#h1-dvd insert)
-* [h1 dvd eject](#h1-dvd eject)
-* [h1 tag](#h1-tag)
-* [h1 tag list](#h1-tag list)
-* [h1 tag add](#h1-tag add)
-* [h1 tag delete](#h1-tag delete)
-* [h1 ssh](#h1-ssh)
-* [h1 serialport](#h1-serialport)
-* [h1 serialport console](#h1-serialport console)
-* [h1 serialport log](#h1-serialport log)
-* [h1 passwordreset](#h1-passwordreset)
-* [h1 metrics](#h1-metrics)
+* [h1 vm list](#h1-vm-list)
+* [h1 vm show](#h1-vm-show)
+* [h1 vm create](#h1-vm-create)
+* [h1 vm delete](#h1-vm-delete)
+* [h1 vm queue](#h1-vm-queue)
+* [h1 vm console](#h1-vm-console)
+* [h1 vm stop](#h1-vm-stop)
+* [h1 vm start](#h1-vm-start)
+* [h1 vm restart](#h1-vm-restart)
+* [h1 vm turnoff](#h1-vm-turnoff)
+* [h1 vm rename](#h1-vm-rename)
+* [h1 vm userdata](#h1-vm-userdata)
+* [h1 vm disk](#h1-vm-disk)
+* [h1 vm nic](#h1-vm-nic)
+* [h1 vm dvd](#h1-vm-dvd)
+* [h1 vm tag](#h1-vm-tag)
+* [h1 vm ssh](#h1-vm-ssh)
+* [h1 vm serialport](#h1-vm-serialport)
+* [h1 vm passwordreset](#h1-vm-passwordreset)
+* [h1 vm metrics](#h1-vm-metrics)
 
 
 # Specification
@@ -61,12 +41,6 @@
 ### Syntax
 
 ```h1 vm show | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
 
 ## h1 vm create
 
@@ -94,17 +68,31 @@
 | ```--no-start NO-START``` |  | Do not start vm after creation |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | VM name |
+| ```type``` |  | VM type Id |
+| ```[password]``` |  | Password |
+| ```[username]``` |  | Username |
+| ```[ssh]``` |  | SSH key Id or name that allows access.. The parameter may occur repeatedly |
+| ```[image]``` |  | Image id |
+| ```[iso]``` |  | Iso id |
+| ```[os-disk-name]``` |  | OS disk name |
+| ```[os-disk-type]``` |  | OS disk type |
+| ```[os-disk-size]``` |  | OS disk size |
+| ```[os-disk]``` |  | OS disk: name,service,size |
+| ```[network]``` |  | Network for VM |
+| ```[ip]``` |  | IP for VM |
+| ```[no-start]``` |  | Do not start vm after creation |
+| ```[userdata-file]``` |  | Read userdata from file |
+
 ## h1 vm delete
 
 ### Syntax
 
 ```h1 vm delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 vm queue
 
@@ -112,23 +100,11 @@
 
 ```h1 vm queue | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
 ## h1 vm console
 
 ### Syntax
 
 ```h1 vm console | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
 
 ## h1 vm stop
 
@@ -136,23 +112,11 @@
 
 ```h1 vm stop | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | VM name or ID |
-
 ## h1 vm start
 
 ### Syntax
 
 ```h1 vm start | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | VM name or ID |
 
 ## h1 vm restart
 
@@ -160,23 +124,11 @@
 
 ```h1 vm restart | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | VM name or ID |
-
 ## h1 vm turnoff
 
 ### Syntax
 
 ```h1 vm turnoff | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | VM name or ID |
 
 ## h1 vm rename
 
@@ -194,7 +146,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | VM name or ID |
+| ```newname``` |  | New name |
 
 ## h1 vm userdata
 
@@ -212,7 +164,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | VM name or ID |
+| ```userdata-file``` |  | Read userdata from file |
 
 ## h1 vm disk
 
@@ -232,6 +184,12 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```vm``` |  | VM name or ID |
+
 ## h1 vm disk attach
 
 ### Syntax
@@ -245,6 +203,13 @@
 | ```--vm VM``` |  | VM name or ID |
 | ```--disk DISK``` |  | Disk name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```vm``` |  | VM name or ID |
+| ```disk``` |  | Disk name or ID |
+
 ## h1 vm disk detach
 
 ### Syntax
@@ -257,6 +222,13 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 | ```--disk DISK``` |  | Disk name or ID |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```vm``` |  | VM name or ID |
+| ```disk``` |  | Disk name or ID |
 
 ## h1 vm nic
 
@@ -276,6 +248,12 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```vm``` |  | VM name or ID |
+
 ## h1 vm nic show
 
 ### Syntax
@@ -292,7 +270,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```vm``` |  | VM name or ID |
 
 ## h1 vm nic delete
 
@@ -310,7 +288,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```vm``` |  | VM name or ID |
 
 ## h1 vm nic create
 
@@ -327,6 +305,15 @@
 | ```--ip IP``` |  | IP to assign from network |
 | ```--vm VM``` |  | VM name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```[network]``` |  | Network connected to network adapter |
+| ```type``` |  | Type of network adapter |
+| ```[ip]``` |  | IP to assign from network |
+| ```vm``` |  | VM name or ID |
+
 ## h1 vm nic delete
 
 ### Syntax
@@ -343,7 +330,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```vm``` |  | VM name or ID |
 
 ## h1 vm nic ip
 
@@ -364,6 +351,13 @@
 | ```--vm VM``` |  | VM name or ID |
 | ```--nic NIC``` |  | NIC name of ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```vm``` |  | VM name or ID |
+| ```nic``` |  | NIC name of ID |
+
 ## h1 vm nic ip delete
 
 ### Syntax
@@ -381,7 +375,8 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```vm``` |  | VM name or ID |
+| ```nic``` |  | NIC name of ID |
 
 ## h1 vm nic ip add
 
@@ -400,7 +395,8 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```ip``` |  | Public IP address or ID of IP |
+| ```vm``` |  | VM name or ID |
+| ```nic``` |  | NIC name of ID |
 
 ## h1 vm dvd
 
@@ -420,6 +416,12 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```vm``` |  | VM name or ID |
+
 ## h1 vm dvd insert
 
 ### Syntax
@@ -433,6 +435,13 @@
 | ```--iso ISO``` |  | ISO name or ID |
 | ```--vm VM``` |  | VM name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```iso``` |  | ISO name or ID |
+| ```vm``` |  | VM name or ID |
+
 ## h1 vm dvd eject
 
 ### Syntax
@@ -445,6 +454,12 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```vm``` |  | VM name or ID |
+
 ## h1 vm tag
 
 ### Syntax
@@ -456,12 +471,6 @@
 ### Syntax
 
 ```h1 vm tag list | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource id |
 
 ## h1 vm tag add
 
@@ -479,7 +488,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource id |
+| ```tag``` |  | New Tag. The parameter may occur repeatedly |
 
 ## h1 vm tag delete
 
@@ -497,7 +506,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource id |
+| ```tag``` |  | Tag |
 
 ## h1 vm ssh
 
@@ -517,8 +526,9 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-| ```[command]``` |  | Command to execute |
+| ```[username]``` |  | Username for ssh connection |
+| ```[port]``` |  | Port for ssh connection |
+| ```[private]``` |  | Use first private network, skip public |
 
 ## h1 vm serialport
 
@@ -542,7 +552,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```[port]``` |  | Port to connect |
 
 ## h1 vm serialport log
 
@@ -560,7 +570,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```[port]``` |  | Port to connect |
 
 ## h1 vm passwordreset
 
@@ -578,17 +588,11 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```user``` |  | Username |
 
 ## h1 vm metrics
 
 ### Syntax
 
 ```h1 vm metrics | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
 

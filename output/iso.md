@@ -1,15 +1,12 @@
 # TOC
 
-* [h1 list](#h1-list)
-* [h1 show](#h1-show)
-* [h1 delete](#h1-delete)
-* [h1 rename](#h1-rename)
-* [h1 access](#h1-access)
-* [h1 access grant](#h1-access grant)
-* [h1 access revoke](#h1-access revoke)
-* [h1 access list](#h1-access list)
-* [h1 resume](#h1-resume)
-* [h1 create](#h1-create)
+* [h1 iso list](#h1-iso-list)
+* [h1 iso show](#h1-iso-show)
+* [h1 iso delete](#h1-iso-delete)
+* [h1 iso rename](#h1-iso-rename)
+* [h1 iso access](#h1-iso-access)
+* [h1 iso resume](#h1-iso-resume)
+* [h1 iso create](#h1-iso-create)
 
 
 # Specification
@@ -32,23 +29,11 @@
 
 ```h1 iso show | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
 ## h1 iso delete
 
 ### Syntax
 
 ```h1 iso delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 iso rename
 
@@ -66,7 +51,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```new-name``` |  | New name |
 
 ## h1 iso access
 
@@ -90,7 +75,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource ID |
+| ```tenant``` |  | Tenant name or ID |
 
 ## h1 iso access revoke
 
@@ -108,19 +93,13 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource id |
+| ```tenant``` |  | Tenant name or ID |
 
 ## h1 iso access list
 
 ### Syntax
 
 ```h1 iso access list | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource name or ID |
 
 ## h1 iso resume
 
@@ -138,7 +117,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource name or ID |
+| ```source``` |  | import disk path |
 
 ## h1 iso create
 
@@ -153,4 +132,12 @@
 | ```--name NAME``` |  | ISO name |
 | ```--source-url SOURCE-URL``` |  | Source url for ISO import. Required if source-url is not specified. |
 | ```--source-file SOURCE-FILE``` |  | Source file for ISO import. |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | ISO name |
+| ```[source-url]``` |  | Source url for ISO import. Required if source-url is not specified. |
+| ```[source-file]``` |  | Source file for ISO import. |
 

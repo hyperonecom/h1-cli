@@ -1,13 +1,13 @@
 # TOC
 
-* [h1 list](#h1-list)
-* [h1 show](#h1-show)
-* [h1 delete](#h1-delete)
-* [h1 rename](#h1-rename)
-* [h1 create](#h1-create)
-* [h1 resume](#h1-resume)
-* [h1 resize](#h1-resize)
-* [h1 download](#h1-download)
+* [h1 disk list](#h1-disk-list)
+* [h1 disk show](#h1-disk-show)
+* [h1 disk delete](#h1-disk-delete)
+* [h1 disk rename](#h1-disk-rename)
+* [h1 disk create](#h1-disk-create)
+* [h1 disk resume](#h1-disk-resume)
+* [h1 disk resize](#h1-disk-resize)
+* [h1 disk download](#h1-disk-download)
 
 
 # Specification
@@ -30,23 +30,11 @@
 
 ```h1 disk show | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
 ## h1 disk delete
 
 ### Syntax
 
 ```h1 disk delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 disk rename
 
@@ -64,7 +52,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```new-name``` |  | New name |
 
 ## h1 disk create
 
@@ -80,6 +68,15 @@
 | ```--type TYPE``` |  | Disk type Id |
 | ```--size SIZE``` |  | Disk size in GB |
 | ```--source-file SOURCE-FILE``` |  | import disk path |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Disk name |
+| ```type``` |  | Disk type Id |
+| ```size``` |  | Disk size in GB |
+| ```[source-file]``` |  | import disk path |
 
 ## h1 disk resume
 
@@ -97,7 +94,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource name or ID |
+| ```source``` |  | import disk path |
 
 ## h1 disk resize
 
@@ -115,7 +112,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource name or ID |
+| ```size``` |  | New size |
 
 ## h1 disk download
 
@@ -133,5 +130,5 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```destination``` |  | destination disk path |
 

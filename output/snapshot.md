@@ -1,9 +1,9 @@
 # TOC
 
-* [h1 list](#h1-list)
-* [h1 show](#h1-show)
-* [h1 delete](#h1-delete)
-* [h1 rename](#h1-rename)
+* [h1 snapshot list](#h1-snapshot-list)
+* [h1 snapshot show](#h1-snapshot-show)
+* [h1 snapshot delete](#h1-snapshot-delete)
+* [h1 snapshot rename](#h1-snapshot-rename)
 
 
 # Specification
@@ -26,23 +26,11 @@
 
 ```h1 snapshot show | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
 ## h1 snapshot delete
 
 ### Syntax
 
 ```h1 snapshot delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 snapshot rename
 
@@ -60,5 +48,5 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```new-name``` |  | New name |
 

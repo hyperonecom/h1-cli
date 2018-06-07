@@ -1,49 +1,7 @@
 # TOC
 
-* [h1 zone](#h1-zone)
-* [h1 zone list](#h1-zone list)
-* [h1 zone show](#h1-zone show)
-* [h1 zone delete](#h1-zone delete)
-* [h1 zone create](#h1-zone create)
-* [h1 zone export](#h1-zone export)
-* [h1 record-set](#h1-record-set)
-* [h1 record-set a](#h1-record-set a)
-* [h1 record-set a list](#h1-record-set a list)
-* [h1 record-set a create](#h1-record-set a create)
-* [h1 record-set a delete](#h1-record-set a delete)
-* [h1 record-set a add-record](#h1-record-set a add-record)
-* [h1 record-set a delete-record](#h1-record-set a delete-record)
-* [h1 record-set cname](#h1-record-set cname)
-* [h1 record-set cname list](#h1-record-set cname list)
-* [h1 record-set cname create](#h1-record-set cname create)
-* [h1 record-set cname delete](#h1-record-set cname delete)
-* [h1 record-set cname add-record](#h1-record-set cname add-record)
-* [h1 record-set cname delete-record](#h1-record-set cname delete-record)
-* [h1 record-set txt](#h1-record-set txt)
-* [h1 record-set txt list](#h1-record-set txt list)
-* [h1 record-set txt create](#h1-record-set txt create)
-* [h1 record-set txt delete](#h1-record-set txt delete)
-* [h1 record-set txt add-record](#h1-record-set txt add-record)
-* [h1 record-set txt delete-record](#h1-record-set txt delete-record)
-* [h1 record-set mx](#h1-record-set mx)
-* [h1 record-set mx list](#h1-record-set mx list)
-* [h1 record-set mx create](#h1-record-set mx create)
-* [h1 record-set mx delete](#h1-record-set mx delete)
-* [h1 record-set mx add-record](#h1-record-set mx add-record)
-* [h1 record-set mx delete-record](#h1-record-set mx delete-record)
-* [h1 record-set ns](#h1-record-set ns)
-* [h1 record-set ns list](#h1-record-set ns list)
-* [h1 record-set ns create](#h1-record-set ns create)
-* [h1 record-set ns delete](#h1-record-set ns delete)
-* [h1 record-set ns add-record](#h1-record-set ns add-record)
-* [h1 record-set ns delete-record](#h1-record-set ns delete-record)
-* [h1 record-set srv](#h1-record-set srv)
-* [h1 record-set srv list](#h1-record-set srv list)
-* [h1 record-set srv create](#h1-record-set srv create)
-* [h1 record-set srv delete](#h1-record-set srv delete)
-* [h1 record-set srv add-record](#h1-record-set srv add-record)
-* [h1 record-set srv delete-record](#h1-record-set srv delete-record)
-* [h1 record-set list](#h1-record-set list)
+* [h1 dns zone](#h1-dns-zone)
+* [h1 dns record-set](#h1-dns-record-set)
 
 
 # Specification
@@ -72,23 +30,11 @@
 
 ```h1 dns zone show | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
 ## h1 dns zone delete
 
 ### Syntax
 
 ```h1 dns zone delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 dns zone create
 
@@ -102,6 +48,12 @@
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | Dns zone name |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```zone-name``` |  | Dns zone name |
+
 ## h1 dns zone export
 
 ### Syntax
@@ -113,6 +65,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | Dns zone name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```zone-name``` |  | Dns zone name |
 
 ## h1 dns record-set
 
@@ -138,6 +96,12 @@
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```zone-name``` |  | DNS Zone Name |
+
 ## h1 dns record-set a create
 
 ### Syntax
@@ -153,6 +117,15 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```[ttl]``` |  | Record Set Time To Live (TTL) |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set a delete
 
 ### Syntax
@@ -165,6 +138,13 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
 
 ## h1 dns record-set a add-record
 
@@ -180,6 +160,14 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set a delete-record
 
 ### Syntax
@@ -193,6 +181,14 @@
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
 
 ## h1 dns record-set cname
 
@@ -212,6 +208,12 @@
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```zone-name``` |  | DNS Zone Name |
+
 ## h1 dns record-set cname create
 
 ### Syntax
@@ -227,6 +229,15 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```[ttl]``` |  | Record Set Time To Live (TTL) |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set cname delete
 
 ### Syntax
@@ -239,6 +250,13 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
 
 ## h1 dns record-set cname add-record
 
@@ -254,6 +272,14 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set cname delete-record
 
 ### Syntax
@@ -267,6 +293,14 @@
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
 
 ## h1 dns record-set txt
 
@@ -286,6 +320,12 @@
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```zone-name``` |  | DNS Zone Name |
+
 ## h1 dns record-set txt create
 
 ### Syntax
@@ -301,6 +341,15 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```[ttl]``` |  | Record Set Time To Live (TTL) |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set txt delete
 
 ### Syntax
@@ -313,6 +362,13 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
 
 ## h1 dns record-set txt add-record
 
@@ -328,6 +384,14 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set txt delete-record
 
 ### Syntax
@@ -341,6 +405,14 @@
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
 
 ## h1 dns record-set mx
 
@@ -360,6 +432,12 @@
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```zone-name``` |  | DNS Zone Name |
+
 ## h1 dns record-set mx create
 
 ### Syntax
@@ -375,6 +453,15 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```[ttl]``` |  | Record Set Time To Live (TTL) |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set mx delete
 
 ### Syntax
@@ -387,6 +474,13 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
 
 ## h1 dns record-set mx add-record
 
@@ -402,6 +496,14 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set mx delete-record
 
 ### Syntax
@@ -415,6 +517,14 @@
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
 
 ## h1 dns record-set ns
 
@@ -434,6 +544,12 @@
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```zone-name``` |  | DNS Zone Name |
+
 ## h1 dns record-set ns create
 
 ### Syntax
@@ -449,6 +565,15 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```[ttl]``` |  | Record Set Time To Live (TTL) |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set ns delete
 
 ### Syntax
@@ -461,6 +586,13 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
 
 ## h1 dns record-set ns add-record
 
@@ -476,6 +608,14 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set ns delete-record
 
 ### Syntax
@@ -489,6 +629,14 @@
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
 
 ## h1 dns record-set srv
 
@@ -508,6 +656,12 @@
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```zone-name``` |  | DNS Zone Name |
+
 ## h1 dns record-set srv create
 
 ### Syntax
@@ -523,6 +677,15 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```[ttl]``` |  | Record Set Time To Live (TTL) |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set srv delete
 
 ### Syntax
@@ -535,6 +698,13 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
 
 ## h1 dns record-set srv add-record
 
@@ -550,6 +720,14 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set srv delete-record
 
 ### Syntax
@@ -564,6 +742,14 @@
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
 | ```--value VALUE``` |  | Value. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Record Set name |
+| ```zone-name``` |  | DNS Zone Name |
+| ```value``` |  | Value. The parameter may occur repeatedly |
+
 ## h1 dns record-set list
 
 ### Syntax
@@ -575,4 +761,10 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS Zone Name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```zone-name``` |  | DNS Zone Name |
 

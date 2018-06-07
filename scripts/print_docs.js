@@ -9,8 +9,8 @@ const fs = require('fs');
 const code = "```";
 
 
-function writeElements(output_stream, label, values, label_fn) {
-    const entries = Object.entries(values);
+function writeElements(output_stream, label, values, label_fn, filter) {
+    const entries = Object.entries(_.pickBy(values|| {}, filter));
 
     if (entries.length > 0) {
         output_stream.write(`### ${label}\n\n`);
@@ -41,45 +41,54 @@ const writeTOC = (wstream, element, prefix) => {
 };
 
 
-function writeCommandTOC(stream, entries, prefix) {
-    entries.forEach(entry => {
+function writeCommandTOC(stream, entry, prefix) {
+    if(!entry.children) return;
+    entry.children.forEach(entry => {
         const name = `${prefix} ${entry.name}`;
-        const slug = name.replace(' ', '-').toLowerCase();
+        console.log("Prefix: ", prefix);
+        console.log("Entry name: ", entry.name);
+        console.log("Name:", name);
+        const slug = name.replace(/ /g, '-').toLowerCase();
         stream.write(`* [${name}](#${slug})\n`);
         if(entry.children){
-            writeCommandTOC(stream, entry.children, `${prefix} ${entry.name}`)
+            writeCommandTOC(stream, entry.children, `${prefix} ${entry.name}`);
         }
 
     });
 }
 
-const writeSpecs = function (stream, entries, prefix) {
-    entries.forEach(entry => {
-        stream.write(`## ${prefix} ${entry.name}\n\n`);
+const getParamLabel = (name, value) => {
+    const label = `${name}`;
+    if (!value.required) {
+        return `[${label}]`
+    }
+    return label;
+};
 
-        stream.write(`### Syntax\n\n`);
-        stream.write(`${code}${lib.getCommandHeader(entry, prefix)}${code}\n\n`);
+function writeCommandSpecs(stream, entry, prefix) {
+    console.log("Prefix: ", prefix);
+    console.log("Entry name: ", entry.name);
+    stream.write(`## ${prefix} ${entry.name}\n\n`);
 
-        const options = entry.options || {};
+    stream.write(`### Syntax\n\n`);
+    stream.write(`${code}${lib.getCommandHeader(entry, prefix)}${code}\n\n`);
 
-        const required_options = _.pickBy(options || {}, (name, option) => option.required);
-        const optional_options = _.pickBy(options || {}, (name, option) => !option.required);
+    const options = entry.options || {};
 
-        const getOptionLabel = (name, value) => `--${name} ${name.toUpperCase()}`;
+    const getOptionLabel = (name, value) => `--${name} ${name.toUpperCase()}`;
 
-        writeElements(stream, "Required options", required_options, getOptionLabel);
-        writeElements(stream, "Optional options", optional_options, getOptionLabel);
+    writeElements(stream, "Required options", options, getOptionLabel, (name, option) => option.required);
+    writeElements(stream, "Optional options", options, getOptionLabel, (name, option) => !option.required);
+    writeElements(stream, "Parameters (DEPRECATED)", options, getParamLabel, (name, option) => true);
+}
 
-        writeElements(stream, "Parameters (DEPRECATED)", entry.params || {}, (name, value) => {
-            const label = `${name}`;
-            if (!value.required) {
-                return `[${label}]`
-            }
-            return label;
-        });
+const writeSpecs = function (stream, entry, prefix) {
+
+    entry.children.forEach(entry => {
+        writeCommandSpecs(stream, entry, prefix);
 
         if (entry.children) {
-            writeSpecs(stream, entry.children, `${prefix} ${entry.name}`)
+            writeSpecs(stream, entry, `${prefix} ${entry.name}`)
         }
     });
 };
@@ -101,19 +110,19 @@ const main = async () => {
     cli.children.forEach(entry => {
         const section_filename = path.join(output_dir, entry_filename(entry));
         const wstream = fs.createWriteStream(section_filename);
-        const prefix = `h1`;
-
         wstream.write("# TOC\n\n");
-        writeCommandTOC(wstream, entry.children || [], prefix);
+        writeCommandTOC(wstream, entry, `h1 ${entry.name}`);
 
         wstream.write("\n\n");
-        wstream.write("# Specification\n\n");
-        writeSpecs(wstream, [entry], prefix);
 
+        wstream.write("# Specification\n\n");
+        writeCommandSpecs(wstream, entry, `h1`);
+        if(entry.children) {
+            writeSpecs(wstream, entry, `h1 ${entry.name}`);
+        }
         wstream.end();
 
         console.log("Saved", section_filename);
-
     });
 
 };

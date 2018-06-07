@@ -1,19 +1,13 @@
 # TOC
 
-* [h1 list](#h1-list)
-* [h1 show](#h1-show)
-* [h1 delete](#h1-delete)
-* [h1 create](#h1-create)
-* [h1 attach](#h1-attach)
-* [h1 detach](#h1-detach)
-* [h1 ingress](#h1-ingress)
-* [h1 ingress list](#h1-ingress list)
-* [h1 ingress add](#h1-ingress add)
-* [h1 ingress delete](#h1-ingress delete)
-* [h1 egress](#h1-egress)
-* [h1 egress list](#h1-egress list)
-* [h1 egress add](#h1-egress add)
-* [h1 egress delete](#h1-egress delete)
+* [h1 firewall list](#h1-firewall-list)
+* [h1 firewall show](#h1-firewall-show)
+* [h1 firewall delete](#h1-firewall-delete)
+* [h1 firewall create](#h1-firewall-create)
+* [h1 firewall attach](#h1-firewall-attach)
+* [h1 firewall detach](#h1-firewall-detach)
+* [h1 firewall ingress](#h1-firewall-ingress)
+* [h1 firewall egress](#h1-firewall-egress)
 
 
 # Specification
@@ -36,23 +30,11 @@
 
 ```h1 firewall show | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
 ## h1 firewall delete
 
 ### Syntax
 
 ```h1 firewall delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 firewall create
 
@@ -65,6 +47,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Name |
 
 ## h1 firewall attach
 
@@ -82,19 +70,13 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```network``` |  | Network name or ID |
 
 ## h1 firewall detach
 
 ### Syntax
 
 ```h1 firewall detach | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
 
 ## h1 firewall ingress
 
@@ -107,12 +89,6 @@
 ### Syntax
 
 ```h1 firewall ingress list | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
 
 ## h1 firewall ingress add
 
@@ -135,7 +111,12 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```name``` |  | Name |
+| ```action``` |  | Action |
+| ```priority``` |  | Number between 100 and 999 representing priority |
+| ```filter``` |  | The filter rule in the form of "protocol:format [, protocol:format...]". Protocol as "icmp" / "udp" / "tcp" / "any". Port as numeric value. Example: "tcp:83". The parameter may occur repeatedly |
+| ```external``` |  | Ip address or network on internal side.. The parameter may occur repeatedly |
+| ```internal``` |  | Resource tags or * for all. The parameter may occur repeatedly |
 
 ## h1 firewall ingress delete
 
@@ -153,7 +134,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```rule``` |  | Rule identifier |
 
 ## h1 firewall egress
 
@@ -166,12 +147,6 @@
 ### Syntax
 
 ```h1 firewall egress list | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
 
 ## h1 firewall egress add
 
@@ -194,7 +169,12 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```name``` |  | Name |
+| ```action``` |  | Action |
+| ```priority``` |  | Number between 100 and 999 representing priority |
+| ```filter``` |  | The filter rule in the form of "protocol:format [, protocol:format...]". Protocol as "icmp" / "udp" / "tcp" / "any". Port as numeric value. Example: "tcp:83". The parameter may occur repeatedly |
+| ```external``` |  | Ip address or network on internal side.. The parameter may occur repeatedly |
+| ```internal``` |  | Resource tags or * for all. The parameter may occur repeatedly |
 
 ## h1 firewall egress delete
 
@@ -212,5 +192,5 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```rule``` |  | Rule identifier |
 

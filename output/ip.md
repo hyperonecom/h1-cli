@@ -1,12 +1,12 @@
 # TOC
 
-* [h1 list](#h1-list)
-* [h1 show](#h1-show)
-* [h1 delete](#h1-delete)
-* [h1 disassociate](#h1-disassociate)
-* [h1 associate](#h1-associate)
-* [h1 create](#h1-create)
-* [h1 ptr](#h1-ptr)
+* [h1 ip list](#h1-ip-list)
+* [h1 ip show](#h1-ip-show)
+* [h1 ip delete](#h1-ip-delete)
+* [h1 ip disassociate](#h1-ip-disassociate)
+* [h1 ip associate](#h1-ip-associate)
+* [h1 ip create](#h1-ip-create)
+* [h1 ip ptr](#h1-ip-ptr)
 
 
 # Specification
@@ -29,35 +29,17 @@
 
 ```h1 ip show | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
 ## h1 ip delete
 
 ### Syntax
 
 ```h1 ip delete | delete-id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
-
 ## h1 ip disassociate
 
 ### Syntax
 
 ```h1 ip disassociate | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | IP id |
 
 ## h1 ip associate
 
@@ -75,7 +57,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Public IP or ID or IP |
+| ```private-ip``` |  | ID of private IP |
 
 ## h1 ip create
 
@@ -99,5 +81,5 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | IP id |
+| ```value``` |  | PTR record |
 

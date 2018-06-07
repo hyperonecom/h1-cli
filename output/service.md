@@ -1,7 +1,7 @@
 # TOC
 
-* [h1 list](#h1-list)
-* [h1 show](#h1-show)
+* [h1 service list](#h1-service-list)
+* [h1 service show](#h1-service-show)
 
 
 # Specification
@@ -23,10 +23,4 @@
 ### Syntax
 
 ```h1 service show | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
 

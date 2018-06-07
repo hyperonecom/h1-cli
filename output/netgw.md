@@ -1,15 +1,12 @@
 # TOC
 
-* [h1 list](#h1-list)
-* [h1 show](#h1-show)
-* [h1 delete](#h1-delete)
-* [h1 access](#h1-access)
-* [h1 access grant](#h1-access grant)
-* [h1 access revoke](#h1-access revoke)
-* [h1 access list](#h1-access list)
-* [h1 detach](#h1-detach)
-* [h1 attach](#h1-attach)
-* [h1 create](#h1-create)
+* [h1 netgw list](#h1-netgw-list)
+* [h1 netgw show](#h1-netgw-show)
+* [h1 netgw delete](#h1-netgw-delete)
+* [h1 netgw access](#h1-netgw-access)
+* [h1 netgw detach](#h1-netgw-detach)
+* [h1 netgw attach](#h1-netgw-attach)
+* [h1 netgw create](#h1-netgw-create)
 
 
 # Specification
@@ -32,23 +29,11 @@
 
 ```h1 netgw show | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
 ## h1 netgw delete
 
 ### Syntax
 
 ```h1 netgw delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 netgw access
 
@@ -72,7 +57,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource ID |
+| ```tenant``` |  | Tenant name or ID |
 
 ## h1 netgw access revoke
 
@@ -90,7 +75,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource id |
+| ```tenant``` |  | Tenant name or ID |
 
 ## h1 netgw access list
 
@@ -98,23 +83,11 @@
 
 ```h1 netgw access list | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource name or ID |
-
 ## h1 netgw detach
 
 ### Syntax
 
 ```h1 netgw detach | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Network gateway name or ID |
 
 ## h1 netgw attach
 
@@ -132,7 +105,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Network gateway name or ID |
+| ```network``` |  | Network name or id |
 
 ## h1 netgw create
 
@@ -146,4 +119,11 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Network gateway name |
 | ```--ip IP``` |  | Primary IP for the outgoing traffic |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Network gateway name |
+| ```ip``` |  | Primary IP for the outgoing traffic |
 

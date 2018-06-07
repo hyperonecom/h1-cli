@@ -20,5 +20,5 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```username``` |  | Your h1 username |
+| ```[password]``` |  | Password |
 

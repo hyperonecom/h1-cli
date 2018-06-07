@@ -1,26 +1,15 @@
 # TOC
 
-* [h1 list](#h1-list)
-* [h1 show](#h1-show)
-* [h1 delete](#h1-delete)
-* [h1 rename](#h1-rename)
-* [h1 create](#h1-create)
-* [h1 access](#h1-access)
-* [h1 access grant](#h1-access grant)
-* [h1 access revoke](#h1-access revoke)
-* [h1 access list](#h1-access list)
-* [h1 resize](#h1-resize)
-* [h1 credential](#h1-credential)
-* [h1 credential cert](#h1-credential cert)
-* [h1 credential cert list](#h1-credential cert list)
-* [h1 credential cert delete](#h1-credential cert delete)
-* [h1 credential cert add](#h1-credential cert add)
-* [h1 credential password](#h1-credential password)
-* [h1 credential password list](#h1-credential password list)
-* [h1 credential password delete](#h1-credential password delete)
-* [h1 credential password add](#h1-credential password add)
-* [h1 ssh](#h1-ssh)
-* [h1 snapshot](#h1-snapshot)
+* [h1 vault list](#h1-vault-list)
+* [h1 vault show](#h1-vault-show)
+* [h1 vault delete](#h1-vault-delete)
+* [h1 vault rename](#h1-vault-rename)
+* [h1 vault create](#h1-vault-create)
+* [h1 vault access](#h1-vault-access)
+* [h1 vault resize](#h1-vault-resize)
+* [h1 vault credential](#h1-vault-credential)
+* [h1 vault ssh](#h1-vault-ssh)
+* [h1 vault snapshot](#h1-vault-snapshot)
 
 
 # Specification
@@ -43,23 +32,11 @@
 
 ```h1 vault show | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
 ## h1 vault delete
 
 ### Syntax
 
 ```h1 vault delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 vault rename
 
@@ -77,7 +54,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```new-name``` |  | New name |
 
 ## h1 vault create
 
@@ -93,6 +70,15 @@
 | ```--size SIZE``` |  | Vault Size in GB |
 | ```--ssh SSH``` |  | SSH key Id or name that allows access.. The parameter may occur repeatedly |
 | ```--password PASSWORD``` |  | Password to access Vault. Recommend using SSH keys. |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Vault Name |
+| ```size``` |  | Vault Size in GB |
+| ```[ssh]``` |  | SSH key Id or name that allows access.. The parameter may occur repeatedly |
+| ```[password]``` |  | Password to access Vault. Recommend using SSH keys. |
 
 ## h1 vault access
 
@@ -116,7 +102,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource ID |
+| ```tenant``` |  | Tenant name or ID |
 
 ## h1 vault access revoke
 
@@ -134,19 +120,13 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource id |
+| ```tenant``` |  | Tenant name or ID |
 
 ## h1 vault access list
 
 ### Syntax
 
 ```h1 vault access list | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource name or ID |
 
 ## h1 vault resize
 
@@ -164,7 +144,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource name or ID |
+| ```size``` |  | New size |
 
 ## h1 vault credential
 
@@ -184,24 +164,11 @@
 
 ```h1 vault credential cert list | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Vault id |
-
 ## h1 vault credential cert delete
 
 ### Syntax
 
 ```h1 vault credential cert delete | id delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Vault id |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 vault credential cert add
 
@@ -221,7 +188,9 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Vault id |
+| ```name``` |  | Name |
+| ```[sshkey]``` |  | Public SSH key Id |
+| ```[sshkey-file]``` |  | Public SSH key filename |
 
 ## h1 vault credential password
 
@@ -235,24 +204,11 @@
 
 ```h1 vault credential password list | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Vault id |
-
 ## h1 vault credential password delete
 
 ### Syntax
 
 ```h1 vault credential password delete | id delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Vault id |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 vault credential password add
 
@@ -271,19 +227,14 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Vault id |
+| ```name``` |  | Name |
+| ```password``` |  | Password |
 
 ## h1 vault ssh
 
 ### Syntax
 
 ```h1 vault ssh | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
 
 ## h1 vault snapshot
 
@@ -301,5 +252,5 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```name``` |  | Name |
 

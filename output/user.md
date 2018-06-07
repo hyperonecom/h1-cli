@@ -1,10 +1,7 @@
 # TOC
 
-* [h1 create](#h1-create)
-* [h1 credentials](#h1-credentials)
-* [h1 credentials list](#h1-credentials list)
-* [h1 credentials delete](#h1-credentials delete)
-* [h1 credentials add](#h1-credentials add)
+* [h1 user create](#h1-user-create)
+* [h1 user credentials](#h1-user-credentials)
 
 
 # Specification
@@ -39,12 +36,6 @@
 
 ```h1 user credentials delete | delete-id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
-
 ## h1 user credentials add
 
 ### Syntax
@@ -57,4 +48,11 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Name |
+| ```sshkey-file``` |  | Public SSH key filename |
 

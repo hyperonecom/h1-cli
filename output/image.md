@@ -1,15 +1,12 @@
 # TOC
 
-* [h1 show](#h1-show)
-* [h1 delete](#h1-delete)
-* [h1 rename](#h1-rename)
-* [h1 create](#h1-create)
-* [h1 list](#h1-list)
-* [h1 disk](#h1-disk)
-* [h1 access](#h1-access)
-* [h1 access grant](#h1-access grant)
-* [h1 access revoke](#h1-access revoke)
-* [h1 access list](#h1-access list)
+* [h1 image show](#h1-image-show)
+* [h1 image delete](#h1-image-delete)
+* [h1 image rename](#h1-image-rename)
+* [h1 image create](#h1-image-create)
+* [h1 image list](#h1-image-list)
+* [h1 image disk](#h1-image-disk)
+* [h1 image access](#h1-image-access)
 
 
 # Specification
@@ -26,23 +23,11 @@
 
 ```h1 image show | id```
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
 ## h1 image delete
 
 ### Syntax
 
 ```h1 image delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 image rename
 
@@ -60,7 +45,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
+| ```new-name``` |  | New name |
 
 ## h1 image create
 
@@ -76,6 +61,14 @@
 | ```--description DESCRIPTION``` |  | Description of image |
 | ```--vm VM``` |  | VM name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```name``` |  | Name of image |
+| ```[description]``` |  | Description of image |
+| ```vm``` |  | VM name or ID |
+
 ## h1 image list
 
 ### Syntax
@@ -89,17 +82,18 @@
 | ```--recommended RECOMMENDED``` |  | Display recommended images |
 | ```--all ALL``` |  | Display all images |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```[recommended]``` |  | Display recommended images |
+| ```[all]``` |  | Display all images |
+
 ## h1 image disk
 
 ### Syntax
 
 ```h1 image disk | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Image name or ID |
 
 ## h1 image access
 
@@ -123,7 +117,7 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource ID |
+| ```tenant``` |  | Tenant name or ID |
 
 ## h1 image access revoke
 
@@ -141,17 +135,11 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```id``` |  | Resource id |
+| ```tenant``` |  | Tenant name or ID |
 
 ## h1 image access list
 
 ### Syntax
 
 ```h1 image access list | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource name or ID |
 
