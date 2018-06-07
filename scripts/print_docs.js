@@ -45,9 +45,6 @@ function writeCommandTOC(stream, entry, prefix) {
     if(!entry.children) return;
     entry.children.forEach(entry => {
         const name = `${prefix} ${entry.name}`;
-        console.log("Prefix: ", prefix);
-        console.log("Entry name: ", entry.name);
-        console.log("Name:", name);
         const slug = name.replace(/ /g, '-').toLowerCase();
         stream.write(`* [${name}](#${slug})\n`);
         if(entry.children){
@@ -66,8 +63,6 @@ const getParamLabel = (name, value) => {
 };
 
 function writeCommandSpecs(stream, entry, prefix) {
-    console.log("Prefix: ", prefix);
-    console.log("Entry name: ", entry.name);
     stream.write(`## ${prefix} ${entry.name}\n\n`);
 
     stream.write(`### Syntax\n\n`);
@@ -105,6 +100,7 @@ const main = async () => {
 
     writeTOC(wstream, cli.children, 'h1');
     wstream.end();
+
     console.log("Saved", index_filename);
 
     cli.children.forEach(entry => {
