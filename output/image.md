@@ -41,12 +41,6 @@
 | ---- | ------- | ----------- |
 | ```--new-name NEW-NAME``` |  | New name |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```new-name``` |  | New name |
-
 ## h1 image create
 
 ### Syntax
@@ -61,14 +55,6 @@
 | ```--description DESCRIPTION``` |  | Description of image |
 | ```--vm VM``` |  | VM name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Name of image |
-| ```[description]``` |  | Description of image |
-| ```vm``` |  | VM name or ID |
-
 ## h1 image list
 
 ### Syntax
@@ -81,13 +67,6 @@
 | ---- | ------- | ----------- |
 | ```--recommended RECOMMENDED``` |  | Display recommended images |
 | ```--all ALL``` |  | Display all images |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```[recommended]``` |  | Display recommended images |
-| ```[all]``` |  | Display all images |
 
 ## h1 image disk
 
@@ -113,12 +92,6 @@
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```tenant``` |  | Tenant name or ID |
-
 ## h1 image access revoke
 
 ### Syntax
@@ -130,12 +103,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```tenant``` |  | Tenant name or ID |
 
 ## h1 image access list
 

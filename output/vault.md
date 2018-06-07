@@ -50,12 +50,6 @@
 | ---- | ------- | ----------- |
 | ```--new-name NEW-NAME``` |  | New name |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```new-name``` |  | New name |
-
 ## h1 vault create
 
 ### Syntax
@@ -70,15 +64,6 @@
 | ```--size SIZE``` |  | Vault Size in GB |
 | ```--ssh SSH``` |  | SSH key Id or name that allows access.. The parameter may occur repeatedly |
 | ```--password PASSWORD``` |  | Password to access Vault. Recommend using SSH keys. |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Vault Name |
-| ```size``` |  | Vault Size in GB |
-| ```[ssh]``` |  | SSH key Id or name that allows access.. The parameter may occur repeatedly |
-| ```[password]``` |  | Password to access Vault. Recommend using SSH keys. |
 
 ## h1 vault access
 
@@ -98,12 +83,6 @@
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```tenant``` |  | Tenant name or ID |
-
 ## h1 vault access revoke
 
 ### Syntax
@@ -115,12 +94,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```tenant``` |  | Tenant name or ID |
 
 ## h1 vault access list
 
@@ -139,12 +112,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--size SIZE``` |  | New size |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```size``` |  | New size |
 
 ## h1 vault credential
 
@@ -184,14 +151,6 @@
 | ```--sshkey SSHKEY``` |  | Public SSH key Id |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Name |
-| ```[sshkey]``` |  | Public SSH key Id |
-| ```[sshkey-file]``` |  | Public SSH key filename |
-
 ## h1 vault credential password
 
 ### Syntax
@@ -223,13 +182,6 @@
 | ```--name NAME``` |  | Name |
 | ```--password PASSWORD``` |  | Password |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Name |
-| ```password``` |  | Password |
-
 ## h1 vault ssh
 
 ### Syntax
@@ -247,10 +199,4 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Name |
 

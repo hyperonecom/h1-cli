@@ -45,12 +45,6 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Name |
-
 ## h1 network ip
 
 ### Syntax
@@ -69,12 +63,6 @@
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```network``` |  | Network name or ID |
-
 ## h1 network ip show
 
 ### Syntax
@@ -86,12 +74,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```network``` |  | Network name or ID |
 
 ## h1 network ip delete
 
@@ -105,12 +87,6 @@
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```network``` |  | Network name or ID |
-
 ## h1 network ip create
 
 ### Syntax
@@ -122,10 +98,4 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```network``` |  | Network name or ID |
 

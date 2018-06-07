@@ -48,12 +48,6 @@
 | ---- | ------- | ----------- |
 | ```--new-name NEW-NAME``` |  | New name |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```new-name``` |  | New name |
-
 ## h1 disk create
 
 ### Syntax
@@ -69,15 +63,6 @@
 | ```--size SIZE``` |  | Disk size in GB |
 | ```--source-file SOURCE-FILE``` |  | import disk path |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Disk name |
-| ```type``` |  | Disk type Id |
-| ```size``` |  | Disk size in GB |
-| ```[source-file]``` |  | import disk path |
-
 ## h1 disk resume
 
 ### Syntax
@@ -89,12 +74,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--source SOURCE``` |  | import disk path |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```source``` |  | import disk path |
 
 ## h1 disk resize
 
@@ -108,12 +87,6 @@
 | ---- | ------- | ----------- |
 | ```--size SIZE``` |  | New size |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```size``` |  | New size |
-
 ## h1 disk download
 
 ### Syntax
@@ -125,10 +98,4 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--destination DESTINATION``` |  | destination disk path |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```destination``` |  | destination disk path |
 

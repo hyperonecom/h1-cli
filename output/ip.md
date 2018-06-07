@@ -53,12 +53,6 @@
 | ---- | ------- | ----------- |
 | ```--private-ip PRIVATE-IP``` |  | ID of private IP |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```private-ip``` |  | ID of private IP |
-
 ## h1 ip create
 
 ### Syntax
@@ -76,10 +70,4 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--value VALUE``` |  | PTR record |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```value``` |  | PTR record |
 

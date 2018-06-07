@@ -16,9 +16,3 @@
 | ---- | ------- | ----------- |
 | ```--password PASSWORD``` |  | Password |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```[password]``` |  | Password |
-

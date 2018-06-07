@@ -48,12 +48,6 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Name |
-
 ## h1 firewall attach
 
 ### Syntax
@@ -65,12 +59,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```network``` |  | Network name or ID |
 
 ## h1 firewall detach
 
@@ -107,17 +95,6 @@
 | ```--external EXTERNAL``` |  | Ip address or network on internal side.. The parameter may occur repeatedly |
 | ```--internal INTERNAL``` |  | Resource tags or * for all. The parameter may occur repeatedly |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Name |
-| ```action``` |  | Action |
-| ```priority``` |  | Number between 100 and 999 representing priority |
-| ```filter``` |  | The filter rule in the form of "protocol:format [, protocol:format...]". Protocol as "icmp" / "udp" / "tcp" / "any". Port as numeric value. Example: "tcp:83". The parameter may occur repeatedly |
-| ```external``` |  | Ip address or network on internal side.. The parameter may occur repeatedly |
-| ```internal``` |  | Resource tags or * for all. The parameter may occur repeatedly |
-
 ## h1 firewall ingress delete
 
 ### Syntax
@@ -129,12 +106,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--rule RULE``` |  | Rule identifier |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```rule``` |  | Rule identifier |
 
 ## h1 firewall egress
 
@@ -165,17 +136,6 @@
 | ```--external EXTERNAL``` |  | Ip address or network on internal side.. The parameter may occur repeatedly |
 | ```--internal INTERNAL``` |  | Resource tags or * for all. The parameter may occur repeatedly |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Name |
-| ```action``` |  | Action |
-| ```priority``` |  | Number between 100 and 999 representing priority |
-| ```filter``` |  | The filter rule in the form of "protocol:format [, protocol:format...]". Protocol as "icmp" / "udp" / "tcp" / "any". Port as numeric value. Example: "tcp:83". The parameter may occur repeatedly |
-| ```external``` |  | Ip address or network on internal side.. The parameter may occur repeatedly |
-| ```internal``` |  | Resource tags or * for all. The parameter may occur repeatedly |
-
 ## h1 firewall egress delete
 
 ### Syntax
@@ -187,10 +147,4 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--rule RULE``` |  | Rule identifier |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```rule``` |  | Rule identifier |
 

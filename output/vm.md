@@ -68,26 +68,6 @@
 | ```--no-start NO-START``` |  | Do not start vm after creation |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | VM name |
-| ```type``` |  | VM type Id |
-| ```[password]``` |  | Password |
-| ```[username]``` |  | Username |
-| ```[ssh]``` |  | SSH key Id or name that allows access.. The parameter may occur repeatedly |
-| ```[image]``` |  | Image id |
-| ```[iso]``` |  | Iso id |
-| ```[os-disk-name]``` |  | OS disk name |
-| ```[os-disk-type]``` |  | OS disk type |
-| ```[os-disk-size]``` |  | OS disk size |
-| ```[os-disk]``` |  | OS disk: name,service,size |
-| ```[network]``` |  | Network for VM |
-| ```[ip]``` |  | IP for VM |
-| ```[no-start]``` |  | Do not start vm after creation |
-| ```[userdata-file]``` |  | Read userdata from file |
-
 ## h1 vm delete
 
 ### Syntax
@@ -142,12 +122,6 @@
 | ---- | ------- | ----------- |
 | ```--newname NEWNAME``` |  | New name |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```newname``` |  | New name |
-
 ## h1 vm userdata
 
 ### Syntax
@@ -159,12 +133,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```userdata-file``` |  | Read userdata from file |
 
 ## h1 vm disk
 
@@ -184,12 +152,6 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
-
 ## h1 vm disk attach
 
 ### Syntax
@@ -203,13 +165,6 @@
 | ```--vm VM``` |  | VM name or ID |
 | ```--disk DISK``` |  | Disk name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
-| ```disk``` |  | Disk name or ID |
-
 ## h1 vm disk detach
 
 ### Syntax
@@ -222,13 +177,6 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 | ```--disk DISK``` |  | Disk name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
-| ```disk``` |  | Disk name or ID |
 
 ## h1 vm nic
 
@@ -248,12 +196,6 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
-
 ## h1 vm nic show
 
 ### Syntax
@@ -266,12 +208,6 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
-
 ## h1 vm nic delete
 
 ### Syntax
@@ -283,12 +219,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
 
 ## h1 vm nic create
 
@@ -305,15 +235,6 @@
 | ```--ip IP``` |  | IP to assign from network |
 | ```--vm VM``` |  | VM name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```[network]``` |  | Network connected to network adapter |
-| ```type``` |  | Type of network adapter |
-| ```[ip]``` |  | IP to assign from network |
-| ```vm``` |  | VM name or ID |
-
 ## h1 vm nic delete
 
 ### Syntax
@@ -325,12 +246,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
 
 ## h1 vm nic ip
 
@@ -351,13 +266,6 @@
 | ```--vm VM``` |  | VM name or ID |
 | ```--nic NIC``` |  | NIC name of ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
-| ```nic``` |  | NIC name of ID |
-
 ## h1 vm nic ip delete
 
 ### Syntax
@@ -371,13 +279,6 @@
 | ```--vm VM``` |  | VM name or ID |
 | ```--nic NIC``` |  | NIC name of ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
-| ```nic``` |  | NIC name of ID |
-
 ## h1 vm nic ip add
 
 ### Syntax
@@ -390,13 +291,6 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 | ```--nic NIC``` |  | NIC name of ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
-| ```nic``` |  | NIC name of ID |
 
 ## h1 vm dvd
 
@@ -416,12 +310,6 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
-
 ## h1 vm dvd insert
 
 ### Syntax
@@ -435,13 +323,6 @@
 | ```--iso ISO``` |  | ISO name or ID |
 | ```--vm VM``` |  | VM name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```iso``` |  | ISO name or ID |
-| ```vm``` |  | VM name or ID |
-
 ## h1 vm dvd eject
 
 ### Syntax
@@ -453,12 +334,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```vm``` |  | VM name or ID |
 
 ## h1 vm tag
 
@@ -484,12 +359,6 @@
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | New Tag. The parameter may occur repeatedly |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```tag``` |  | New Tag. The parameter may occur repeatedly |
-
 ## h1 vm tag delete
 
 ### Syntax
@@ -501,12 +370,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```tag``` |  | Tag |
 
 ## h1 vm ssh
 
@@ -521,14 +384,6 @@
 | ```--username USERNAME``` |  | Username for ssh connection |
 | ```--port PORT``` |  | Port for ssh connection |
 | ```--private PRIVATE``` |  | Use first private network, skip public |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```[username]``` |  | Username for ssh connection |
-| ```[port]``` |  | Port for ssh connection |
-| ```[private]``` |  | Use first private network, skip public |
 
 ## h1 vm serialport
 
@@ -548,12 +403,6 @@
 | ---- | ------- | ----------- |
 | ```--port PORT``` |  | Port to connect |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```[port]``` |  | Port to connect |
-
 ## h1 vm serialport log
 
 ### Syntax
@@ -566,12 +415,6 @@
 | ---- | ------- | ----------- |
 | ```--port PORT``` |  | Port to connect |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```[port]``` |  | Port to connect |
-
 ## h1 vm passwordreset
 
 ### Syntax
@@ -583,12 +426,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--user USER``` |  | Username |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```user``` |  | Username |
 
 ## h1 vm metrics
 

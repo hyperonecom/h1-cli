@@ -49,12 +49,6 @@
 | ---- | ------- | ----------- |
 | ```--all ALL``` |  | display all tenants |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```[all]``` |  | display all tenants |
-
 ## h1 tenant access
 
 ### Syntax
@@ -74,13 +68,6 @@
 | ```--identity IDENTITY``` |  | Identity (eg: user@example.org) |
 | ```--role ROLE``` |  | Role |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```identity``` |  | Identity (eg: user@example.org) |
-| ```[role]``` |  | Role |
-
 ## h1 tenant access revoke
 
 ### Syntax
@@ -92,12 +79,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--identity IDENTITY``` |  | Identity (eg: user@example.org) |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```identity``` |  | Identity (eg: user@example.org) |
 
 ## h1 tenant access list
 
@@ -135,12 +116,6 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Name |
-
 ## h1 tenant token access
 
 ### Syntax
@@ -159,12 +134,6 @@
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | token id |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```token``` |  | token id |
-
 ## h1 tenant token access delete
 
 ### Syntax
@@ -176,12 +145,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | token id |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```token``` |  | token id |
 
 ## h1 tenant token access add
 
@@ -196,14 +159,6 @@
 | ```--method METHOD``` |  | http method. eg: GET, POST..., ALL (to allow all methods) |
 | ```--path PATH``` |  | url path, eg: /disk |
 | ```--token TOKEN``` |  | token id |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```method``` |  | http method. eg: GET, POST..., ALL (to allow all methods) |
-| ```path``` |  | url path, eg: /disk |
-| ```token``` |  | token id |
 
 ## h1 tenant select
 
@@ -247,11 +202,4 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Name |
-| ```sshkey-file``` |  | Public SSH key filename |
 

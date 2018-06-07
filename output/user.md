@@ -49,10 +49,3 @@
 | ```--name NAME``` |  | Name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Name |
-| ```sshkey-file``` |  | Public SSH key filename |
-

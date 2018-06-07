@@ -53,12 +53,6 @@
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```tenant``` |  | Tenant name or ID |
-
 ## h1 netgw access revoke
 
 ### Syntax
@@ -70,12 +64,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```tenant``` |  | Tenant name or ID |
 
 ## h1 netgw access list
 
@@ -101,12 +89,6 @@
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or id |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```network``` |  | Network name or id |
-
 ## h1 netgw create
 
 ### Syntax
@@ -119,11 +101,4 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Network gateway name |
 | ```--ip IP``` |  | Primary IP for the outgoing traffic |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | Network gateway name |
-| ```ip``` |  | Primary IP for the outgoing traffic |
 

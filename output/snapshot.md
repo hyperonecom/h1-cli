@@ -44,9 +44,3 @@
 | ---- | ------- | ----------- |
 | ```--new-name NEW-NAME``` |  | New name |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```new-name``` |  | New name |
-

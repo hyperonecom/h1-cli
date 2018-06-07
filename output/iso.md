@@ -47,12 +47,6 @@
 | ---- | ------- | ----------- |
 | ```--new-name NEW-NAME``` |  | New name |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```new-name``` |  | New name |
-
 ## h1 iso access
 
 ### Syntax
@@ -71,12 +65,6 @@
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```tenant``` |  | Tenant name or ID |
-
 ## h1 iso access revoke
 
 ### Syntax
@@ -88,12 +76,6 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```tenant``` |  | Tenant name or ID |
 
 ## h1 iso access list
 
@@ -113,12 +95,6 @@
 | ---- | ------- | ----------- |
 | ```--source SOURCE``` |  | import disk path |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```source``` |  | import disk path |
-
 ## h1 iso create
 
 ### Syntax
@@ -132,12 +108,4 @@
 | ```--name NAME``` |  | ISO name |
 | ```--source-url SOURCE-URL``` |  | Source url for ISO import. Required if source-url is not specified. |
 | ```--source-file SOURCE-FILE``` |  | Source file for ISO import. |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```name``` |  | ISO name |
-| ```[source-url]``` |  | Source url for ISO import. Required if source-url is not specified. |
-| ```[source-file]``` |  | Source file for ISO import. |
 
