@@ -1,47 +1,57 @@
-# h1 config
+# TOC
 
-## Syntax
+* [h1 config show](#h1 config show)
+* [h1 config get](#h1 config get)
+* [h1 config set](#h1 config set)
+* [h1 config unset](#h1 config unset)
 
-```h1 config | ```
 
-# h1 config show
+# Specification
 
-## Syntax
+## h1 config config
 
-```h1 config show | ```
+### Syntax
 
-# h1 config get
+```h1 config config | ```
 
-## Syntax
+## h1 config config show
 
-```h1 config get | key```
+### Syntax
 
-## Parameters (DEPRECATED)
+```h1 config config show | ```
+
+## h1 config config get
+
+### Syntax
+
+```h1 config config get | key```
+
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```key``` |  | key |
 
-# h1 config set
+## h1 config config set
 
-## Syntax
+### Syntax
 
-```h1 config set | key value```
+```h1 config config set | key value```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```key``` |  | key |
 | ```value``` |  | value |
 
-# h1 config unset
+## h1 config config unset
 
-## Syntax
+### Syntax
 
-```h1 config unset | key```
+```h1 config config unset | key```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

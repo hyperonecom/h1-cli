@@ -1,130 +1,146 @@
-# h1 netgw
+# TOC
 
-## Syntax
+* [h1 netgw list](#h1 netgw list)
+* [h1 netgw show](#h1 netgw show)
+* [h1 netgw delete](#h1 netgw delete)
+* [h1 netgw access](#h1 netgw access)
+* [h1 netgw access grant](#h1 netgw access grant)
+* [h1 netgw access revoke](#h1 netgw access revoke)
+* [h1 netgw access list](#h1 netgw access list)
+* [h1 netgw detach](#h1 netgw detach)
+* [h1 netgw attach](#h1 netgw attach)
+* [h1 netgw create](#h1 netgw create)
 
-```h1 netgw | ```
 
-# h1 netgw list
+# Specification
 
-## Syntax
+## h1 netgw netgw
 
-```h1 netgw list | ```
+### Syntax
 
-# h1 netgw show
+```h1 netgw netgw | ```
 
-## Syntax
+## h1 netgw netgw list
 
-```h1 netgw show | id```
+### Syntax
 
-## Parameters (DEPRECATED)
+```h1 netgw netgw list | ```
+
+## h1 netgw netgw show
+
+### Syntax
+
+```h1 netgw netgw show | id```
+
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-# h1 netgw delete
+## h1 netgw netgw delete
 
-## Syntax
+### Syntax
 
-```h1 netgw delete | delete-id```
+```h1 netgw netgw delete | delete-id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-# h1 netgw access
+## h1 netgw netgw access
 
-## Syntax
+### Syntax
 
-```h1 netgw access | ```
+```h1 netgw netgw access | ```
 
-# h1 netgw access grant
+## h1 netgw netgw access grant
 
-## Syntax
+### Syntax
 
-```h1 netgw access grant | --tenant TENANT id```
+```h1 netgw netgw access grant | --tenant TENANT id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource ID |
 
-# h1 netgw access revoke
+## h1 netgw netgw access revoke
 
-## Syntax
+### Syntax
 
-```h1 netgw access revoke | --tenant TENANT id```
+```h1 netgw netgw access revoke | --tenant TENANT id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource id |
 
-# h1 netgw access list
+## h1 netgw netgw access list
 
-## Syntax
+### Syntax
 
-```h1 netgw access list | id```
+```h1 netgw netgw access list | id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource name or ID |
 
-# h1 netgw detach
+## h1 netgw netgw detach
 
-## Syntax
+### Syntax
 
-```h1 netgw detach | id```
+```h1 netgw netgw detach | id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Network gateway name or ID |
 
-# h1 netgw attach
+## h1 netgw netgw attach
 
-## Syntax
+### Syntax
 
-```h1 netgw attach | --network NETWORK id```
+```h1 netgw netgw attach | --network NETWORK id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or id |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Network gateway name or ID |
 
-# h1 netgw create
+## h1 netgw netgw create
 
-## Syntax
+### Syntax
 
-```h1 netgw create | --name NAME --ip IP```
+```h1 netgw netgw create | --name NAME --ip IP```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

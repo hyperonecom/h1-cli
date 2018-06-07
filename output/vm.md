@@ -1,34 +1,80 @@
-# h1 vm
+# TOC
 
-## Syntax
+* [h1 vm list](#h1 vm list)
+* [h1 vm show](#h1 vm show)
+* [h1 vm create](#h1 vm create)
+* [h1 vm delete](#h1 vm delete)
+* [h1 vm queue](#h1 vm queue)
+* [h1 vm console](#h1 vm console)
+* [h1 vm stop](#h1 vm stop)
+* [h1 vm start](#h1 vm start)
+* [h1 vm restart](#h1 vm restart)
+* [h1 vm turnoff](#h1 vm turnoff)
+* [h1 vm rename](#h1 vm rename)
+* [h1 vm userdata](#h1 vm userdata)
+* [h1 vm disk](#h1 vm disk)
+* [h1 vm disk list](#h1 vm disk list)
+* [h1 vm disk attach](#h1 vm disk attach)
+* [h1 vm disk detach](#h1 vm disk detach)
+* [h1 vm nic](#h1 vm nic)
+* [h1 vm nic list](#h1 vm nic list)
+* [h1 vm nic show](#h1 vm nic show)
+* [h1 vm nic delete](#h1 vm nic delete)
+* [h1 vm nic create](#h1 vm nic create)
+* [h1 vm nic delete](#h1 vm nic delete)
+* [h1 vm nic ip](#h1 vm nic ip)
+* [h1 vm nic ip list](#h1 vm nic ip list)
+* [h1 vm nic ip delete](#h1 vm nic ip delete)
+* [h1 vm nic ip add](#h1 vm nic ip add)
+* [h1 vm dvd](#h1 vm dvd)
+* [h1 vm dvd list](#h1 vm dvd list)
+* [h1 vm dvd insert](#h1 vm dvd insert)
+* [h1 vm dvd eject](#h1 vm dvd eject)
+* [h1 vm tag](#h1 vm tag)
+* [h1 vm tag list](#h1 vm tag list)
+* [h1 vm tag add](#h1 vm tag add)
+* [h1 vm tag delete](#h1 vm tag delete)
+* [h1 vm ssh](#h1 vm ssh)
+* [h1 vm serialport](#h1 vm serialport)
+* [h1 vm serialport console](#h1 vm serialport console)
+* [h1 vm serialport log](#h1 vm serialport log)
+* [h1 vm passwordreset](#h1 vm passwordreset)
+* [h1 vm metrics](#h1 vm metrics)
 
-```h1 vm | ```
 
-# h1 vm list
+# Specification
 
-## Syntax
+## h1 vm vm
 
-```h1 vm list | ```
+### Syntax
 
-# h1 vm show
+```h1 vm vm | ```
 
-## Syntax
+## h1 vm vm list
 
-```h1 vm show | id```
+### Syntax
 
-## Parameters (DEPRECATED)
+```h1 vm vm list | ```
+
+## h1 vm vm show
+
+### Syntax
+
+```h1 vm vm show | id```
+
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-# h1 vm create
+## h1 vm vm create
 
-## Syntax
+### Syntax
 
-```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start NO-START] [--userdata-file USERDATA-FILE]```
+```h1 vm vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start NO-START] [--userdata-file USERDATA-FILE]```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -48,231 +94,231 @@
 | ```--no-start NO-START``` |  | Do not start vm after creation |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
 
-# h1 vm delete
+## h1 vm vm delete
 
-## Syntax
+### Syntax
 
-```h1 vm delete | delete-id```
+```h1 vm vm delete | delete-id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-# h1 vm queue
+## h1 vm vm queue
 
-## Syntax
+### Syntax
 
-```h1 vm queue | id```
+```h1 vm vm queue | id```
 
-## Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
-# h1 vm console
-
-## Syntax
-
-```h1 vm console | id```
-
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-# h1 vm stop
+## h1 vm vm console
 
-## Syntax
+### Syntax
 
-```h1 vm stop | id```
+```h1 vm vm console | id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
+## h1 vm vm stop
+
+### Syntax
+
+```h1 vm vm stop | id```
+
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | VM name or ID |
 
-# h1 vm start
+## h1 vm vm start
 
-## Syntax
+### Syntax
 
-```h1 vm start | id```
+```h1 vm vm start | id```
 
-## Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | VM name or ID |
-
-# h1 vm restart
-
-## Syntax
-
-```h1 vm restart | id```
-
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | VM name or ID |
 
-# h1 vm turnoff
+## h1 vm vm restart
 
-## Syntax
+### Syntax
 
-```h1 vm turnoff | id```
+```h1 vm vm restart | id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | VM name or ID |
 
-# h1 vm rename
+## h1 vm vm turnoff
 
-## Syntax
+### Syntax
 
-```h1 vm rename | --newname NEWNAME id```
+```h1 vm vm turnoff | id```
 
-## Optional options
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | VM name or ID |
+
+## h1 vm vm rename
+
+### Syntax
+
+```h1 vm vm rename | --newname NEWNAME id```
+
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--newname NEWNAME``` |  | New name |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | VM name or ID |
 
-# h1 vm userdata
+## h1 vm vm userdata
 
-## Syntax
+### Syntax
 
-```h1 vm userdata | --userdata-file USERDATA-FILE id```
+```h1 vm vm userdata | --userdata-file USERDATA-FILE id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | VM name or ID |
 
-# h1 vm disk
+## h1 vm vm disk
 
-## Syntax
+### Syntax
 
-```h1 vm disk | ```
+```h1 vm vm disk | ```
 
-# h1 vm disk list
+## h1 vm vm disk list
 
-## Syntax
+### Syntax
 
-```h1 vm disk list | --vm VM```
+```h1 vm vm disk list | --vm VM```
 
-## Optional options
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | VM name or ID |
-
-# h1 vm disk attach
-
-## Syntax
-
-```h1 vm disk attach | --vm VM --disk DISK```
-
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
-| ```--disk DISK``` |  | Disk name or ID |
 
-# h1 vm disk detach
+## h1 vm vm disk attach
 
-## Syntax
+### Syntax
 
-```h1 vm disk detach | --vm VM --disk DISK```
+```h1 vm vm disk attach | --vm VM --disk DISK```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 | ```--disk DISK``` |  | Disk name or ID |
 
-# h1 vm nic
+## h1 vm vm disk detach
 
-## Syntax
+### Syntax
 
-```h1 vm nic | ```
+```h1 vm vm disk detach | --vm VM --disk DISK```
 
-# h1 vm nic list
+### Optional options
 
-## Syntax
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | VM name or ID |
+| ```--disk DISK``` |  | Disk name or ID |
 
-```h1 vm nic list | --vm VM```
+## h1 vm vm nic
 
-## Optional options
+### Syntax
+
+```h1 vm vm nic | ```
+
+## h1 vm vm nic list
+
+### Syntax
+
+```h1 vm vm nic list | --vm VM```
+
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
-# h1 vm nic show
+## h1 vm vm nic show
 
-## Syntax
+### Syntax
 
-```h1 vm nic show | --vm VM id```
+```h1 vm vm nic show | --vm VM id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-# h1 vm nic delete
+## h1 vm vm nic delete
 
-## Syntax
+### Syntax
 
-```h1 vm nic delete | --vm VM delete-id```
+```h1 vm vm nic delete | --vm VM delete-id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-# h1 vm nic create
+## h1 vm vm nic create
 
-## Syntax
+### Syntax
 
-```h1 vm nic create | [--network NETWORK] --type TYPE [--ip IP] --vm VM```
+```h1 vm vm nic create | [--network NETWORK] --type TYPE [--ip IP] --vm VM```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -281,185 +327,185 @@
 | ```--ip IP``` |  | IP to assign from network |
 | ```--vm VM``` |  | VM name or ID |
 
-# h1 vm nic delete
+## h1 vm vm nic delete
 
-## Syntax
+### Syntax
 
-```h1 vm nic delete | --vm VM delete-id```
+```h1 vm vm nic delete | --vm VM delete-id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-# h1 vm nic ip
+## h1 vm vm nic ip
 
-## Syntax
+### Syntax
 
-```h1 vm nic ip | ```
+```h1 vm vm nic ip | ```
 
-# h1 vm nic ip list
+## h1 vm vm nic ip list
 
-## Syntax
+### Syntax
 
-```h1 vm nic ip list | --vm VM --nic NIC```
+```h1 vm vm nic ip list | --vm VM --nic NIC```
 
-## Optional options
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | VM name or ID |
-| ```--nic NIC``` |  | NIC name of ID |
-
-# h1 vm nic ip delete
-
-## Syntax
-
-```h1 vm nic ip delete | --vm VM --nic NIC delete-id```
-
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 | ```--nic NIC``` |  | NIC name of ID |
 
-## Parameters (DEPRECATED)
+## h1 vm vm nic ip delete
+
+### Syntax
+
+```h1 vm vm nic ip delete | --vm VM --nic NIC delete-id```
+
+### Optional options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | VM name or ID |
+| ```--nic NIC``` |  | NIC name of ID |
+
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-# h1 vm nic ip add
+## h1 vm vm nic ip add
 
-## Syntax
+### Syntax
 
-```h1 vm nic ip add | --vm VM --nic NIC ip```
+```h1 vm vm nic ip add | --vm VM --nic NIC ip```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 | ```--nic NIC``` |  | NIC name of ID |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```ip``` |  | Public IP address or ID of IP |
 
-# h1 vm dvd
+## h1 vm vm dvd
 
-## Syntax
+### Syntax
 
-```h1 vm dvd | ```
+```h1 vm vm dvd | ```
 
-# h1 vm dvd list
+## h1 vm vm dvd list
 
-## Syntax
+### Syntax
 
-```h1 vm dvd list | --vm VM```
+```h1 vm vm dvd list | --vm VM```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
-# h1 vm dvd insert
+## h1 vm vm dvd insert
 
-## Syntax
+### Syntax
 
-```h1 vm dvd insert | --iso ISO --vm VM```
+```h1 vm vm dvd insert | --iso ISO --vm VM```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO name or ID |
 | ```--vm VM``` |  | VM name or ID |
 
-# h1 vm dvd eject
+## h1 vm vm dvd eject
 
-## Syntax
+### Syntax
 
-```h1 vm dvd eject | --vm VM```
+```h1 vm vm dvd eject | --vm VM```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
-# h1 vm tag
+## h1 vm vm tag
 
-## Syntax
+### Syntax
 
-```h1 vm tag | ```
+```h1 vm vm tag | ```
 
-# h1 vm tag list
+## h1 vm vm tag list
 
-## Syntax
+### Syntax
 
-```h1 vm tag list | id```
+```h1 vm vm tag list | id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource id |
 
-# h1 vm tag add
+## h1 vm vm tag add
 
-## Syntax
+### Syntax
 
-```h1 vm tag add | --tag TAG [--tag TAG ...] id```
+```h1 vm vm tag add | --tag TAG [--tag TAG ...] id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | New Tag. The parameter may occur repeatedly |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource id |
 
-# h1 vm tag delete
+## h1 vm vm tag delete
 
-## Syntax
+### Syntax
 
-```h1 vm tag delete | --tag TAG id```
+```h1 vm vm tag delete | --tag TAG id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource id |
 
-# h1 vm ssh
+## h1 vm vm ssh
 
-## Syntax
+### Syntax
 
-```h1 vm ssh | [--username USERNAME] [--port PORT] [--private PRIVATE] id [command]```
+```h1 vm vm ssh | [--username USERNAME] [--port PORT] [--private PRIVATE] id [command]```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -467,80 +513,80 @@
 | ```--port PORT``` |  | Port for ssh connection |
 | ```--private PRIVATE``` |  | Use first private network, skip public |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 | ```[command]``` |  | Command to execute |
 
-# h1 vm serialport
+## h1 vm vm serialport
 
-## Syntax
+### Syntax
 
-```h1 vm serialport | ```
+```h1 vm vm serialport | ```
 
-# h1 vm serialport console
+## h1 vm vm serialport console
 
-## Syntax
+### Syntax
 
-```h1 vm serialport console | [--port PORT] id```
+```h1 vm vm serialport console | [--port PORT] id```
 
-## Optional options
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--port PORT``` |  | Port to connect |
-
-## Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```id``` |  | Resource identifier |
-
-# h1 vm serialport log
-
-## Syntax
-
-```h1 vm serialport log | [--port PORT] id```
-
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--port PORT``` |  | Port to connect |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-# h1 vm passwordreset
+## h1 vm vm serialport log
 
-## Syntax
+### Syntax
 
-```h1 vm passwordreset | --user USER id```
+```h1 vm vm serialport log | [--port PORT] id```
 
-## Optional options
+### Optional options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--port PORT``` |  | Port to connect |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
+## h1 vm vm passwordreset
+
+### Syntax
+
+```h1 vm vm passwordreset | --user USER id```
+
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--user USER``` |  | Username |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-# h1 vm metrics
+## h1 vm vm metrics
 
-## Syntax
+### Syntax
 
-```h1 vm metrics | id```
+```h1 vm vm metrics | id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

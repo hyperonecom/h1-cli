@@ -1,16 +1,22 @@
-# h1 login
+# TOC
 
-## Syntax
 
-```h1 login | [--password PASSWORD] username```
 
-## Optional options
+# Specification
+
+## h1 login login
+
+### Syntax
+
+```h1 login login | [--password PASSWORD] username```
+
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--password PASSWORD``` |  | Password |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

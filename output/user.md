@@ -1,46 +1,57 @@
-# h1 user
+# TOC
 
-## Syntax
+* [h1 user create](#h1 user create)
+* [h1 user credentials](#h1 user credentials)
+* [h1 user credentials list](#h1 user credentials list)
+* [h1 user credentials delete](#h1 user credentials delete)
+* [h1 user credentials add](#h1 user credentials add)
 
-```h1 user | ```
 
-# h1 user create
+# Specification
 
-## Syntax
+## h1 user user
 
-```h1 user create | ```
+### Syntax
 
-# h1 user credentials
+```h1 user user | ```
 
-## Syntax
+## h1 user user create
 
-```h1 user credentials | ```
+### Syntax
 
-# h1 user credentials list
+```h1 user user create | ```
 
-## Syntax
+## h1 user user credentials
 
-```h1 user credentials list | ```
+### Syntax
 
-# h1 user credentials delete
+```h1 user user credentials | ```
 
-## Syntax
+## h1 user user credentials list
 
-```h1 user credentials delete | delete-id```
+### Syntax
 
-## Parameters (DEPRECATED)
+```h1 user user credentials list | ```
+
+## h1 user user credentials delete
+
+### Syntax
+
+```h1 user user credentials delete | delete-id```
+
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-# h1 user credentials add
+## h1 user user credentials add
 
-## Syntax
+### Syntax
 
-```h1 user credentials add | --name NAME --sshkey-file SSHKEY-FILE```
+```h1 user user credentials add | --name NAME --sshkey-file SSHKEY-FILE```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

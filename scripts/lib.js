@@ -7,10 +7,7 @@ const getParamLabel = ([name, value]) => {
 
 const getOptionLabel = ([name, value]) => {
     let label = `--${name} ${name.toUpperCase()}`;
-    if(name === 'value'){
-        console.log(value);
-    }
-    // console.log(value.action);
+
     if (value.action === 'append'){
         label = `${label} [${label} ...]`
     }

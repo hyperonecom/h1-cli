@@ -1,22 +1,30 @@
-# h1 service
+# TOC
 
-## Syntax
+* [h1 service list](#h1 service list)
+* [h1 service show](#h1 service show)
 
-```h1 service | ```
 
-# h1 service list
+# Specification
 
-## Syntax
+## h1 service service
 
-```h1 service list | ```
+### Syntax
 
-# h1 service show
+```h1 service service | ```
 
-## Syntax
+## h1 service service list
 
-```h1 service show | id```
+### Syntax
 
-## Parameters (DEPRECATED)
+```h1 service service list | ```
+
+## h1 service service show
+
+### Syntax
+
+```h1 service service show | id```
+
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

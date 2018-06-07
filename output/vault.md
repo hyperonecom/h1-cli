@@ -1,64 +1,91 @@
-# h1 vault
+# TOC
 
-## Syntax
+* [h1 vault list](#h1 vault list)
+* [h1 vault show](#h1 vault show)
+* [h1 vault delete](#h1 vault delete)
+* [h1 vault rename](#h1 vault rename)
+* [h1 vault create](#h1 vault create)
+* [h1 vault access](#h1 vault access)
+* [h1 vault access grant](#h1 vault access grant)
+* [h1 vault access revoke](#h1 vault access revoke)
+* [h1 vault access list](#h1 vault access list)
+* [h1 vault resize](#h1 vault resize)
+* [h1 vault credential](#h1 vault credential)
+* [h1 vault credential cert](#h1 vault credential cert)
+* [h1 vault credential cert list](#h1 vault credential cert list)
+* [h1 vault credential cert delete](#h1 vault credential cert delete)
+* [h1 vault credential cert add](#h1 vault credential cert add)
+* [h1 vault credential password](#h1 vault credential password)
+* [h1 vault credential password list](#h1 vault credential password list)
+* [h1 vault credential password delete](#h1 vault credential password delete)
+* [h1 vault credential password add](#h1 vault credential password add)
+* [h1 vault ssh](#h1 vault ssh)
+* [h1 vault snapshot](#h1 vault snapshot)
 
-```h1 vault | ```
 
-# h1 vault list
+# Specification
 
-## Syntax
+## h1 vault vault
 
-```h1 vault list | ```
+### Syntax
 
-# h1 vault show
+```h1 vault vault | ```
 
-## Syntax
+## h1 vault vault list
 
-```h1 vault show | id```
+### Syntax
 
-## Parameters (DEPRECATED)
+```h1 vault vault list | ```
+
+## h1 vault vault show
+
+### Syntax
+
+```h1 vault vault show | id```
+
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-# h1 vault delete
+## h1 vault vault delete
 
-## Syntax
+### Syntax
 
-```h1 vault delete | delete-id```
+```h1 vault vault delete | delete-id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-# h1 vault rename
+## h1 vault vault rename
 
-## Syntax
+### Syntax
 
-```h1 vault rename | --new-name NEW-NAME id```
+```h1 vault vault rename | --new-name NEW-NAME id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--new-name NEW-NAME``` |  | New name |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-# h1 vault create
+## h1 vault vault create
 
-## Syntax
+### Syntax
 
-```h1 vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD]```
+```h1 vault vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD]```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -67,122 +94,122 @@
 | ```--ssh SSH``` |  | SSH key Id or name that allows access.. The parameter may occur repeatedly |
 | ```--password PASSWORD``` |  | Password to access Vault. Recommend using SSH keys. |
 
-# h1 vault access
+## h1 vault vault access
 
-## Syntax
+### Syntax
 
-```h1 vault access | ```
+```h1 vault vault access | ```
 
-# h1 vault access grant
+## h1 vault vault access grant
 
-## Syntax
+### Syntax
 
-```h1 vault access grant | --tenant TENANT id```
+```h1 vault vault access grant | --tenant TENANT id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource ID |
 
-# h1 vault access revoke
+## h1 vault vault access revoke
 
-## Syntax
+### Syntax
 
-```h1 vault access revoke | --tenant TENANT id```
+```h1 vault vault access revoke | --tenant TENANT id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource id |
 
-# h1 vault access list
+## h1 vault vault access list
 
-## Syntax
+### Syntax
 
-```h1 vault access list | id```
+```h1 vault vault access list | id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource name or ID |
 
-# h1 vault resize
+## h1 vault vault resize
 
-## Syntax
+### Syntax
 
-```h1 vault resize | --size SIZE id```
+```h1 vault vault resize | --size SIZE id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--size SIZE``` |  | New size |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource name or ID |
 
-# h1 vault credential
+## h1 vault vault credential
 
-## Syntax
+### Syntax
 
-```h1 vault credential | ```
+```h1 vault vault credential | ```
 
-# h1 vault credential cert
+## h1 vault vault credential cert
 
-## Syntax
+### Syntax
 
-```h1 vault credential cert | ```
+```h1 vault vault credential cert | ```
 
-# h1 vault credential cert list
+## h1 vault vault credential cert list
 
-## Syntax
+### Syntax
 
-```h1 vault credential cert list | id```
+```h1 vault vault credential cert list | id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Vault id |
 
-# h1 vault credential cert delete
+## h1 vault vault credential cert delete
 
-## Syntax
+### Syntax
 
-```h1 vault credential cert delete | id delete-id```
+```h1 vault vault credential cert delete | id delete-id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Vault id |
 | ```delete-id``` |  | Resource name or ID |
 
-# h1 vault credential cert add
+## h1 vault vault credential cert add
 
-## Syntax
+### Syntax
 
-```h1 vault credential cert add | --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE] id```
+```h1 vault vault credential cert add | --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE] id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -190,87 +217,87 @@
 | ```--sshkey SSHKEY``` |  | Public SSH key Id |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Vault id |
 
-# h1 vault credential password
+## h1 vault vault credential password
 
-## Syntax
+### Syntax
 
-```h1 vault credential password | ```
+```h1 vault vault credential password | ```
 
-# h1 vault credential password list
+## h1 vault vault credential password list
 
-## Syntax
+### Syntax
 
-```h1 vault credential password list | id```
+```h1 vault vault credential password list | id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Vault id |
 
-# h1 vault credential password delete
+## h1 vault vault credential password delete
 
-## Syntax
+### Syntax
 
-```h1 vault credential password delete | id delete-id```
+```h1 vault vault credential password delete | id delete-id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Vault id |
 | ```delete-id``` |  | Resource name or ID |
 
-# h1 vault credential password add
+## h1 vault vault credential password add
 
-## Syntax
+### Syntax
 
-```h1 vault credential password add | --name NAME --password PASSWORD id```
+```h1 vault vault credential password add | --name NAME --password PASSWORD id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 | ```--password PASSWORD``` |  | Password |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Vault id |
 
-# h1 vault ssh
+## h1 vault vault ssh
 
-## Syntax
+### Syntax
 
-```h1 vault ssh | id```
+```h1 vault vault ssh | id```
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-# h1 vault snapshot
+## h1 vault vault snapshot
 
-## Syntax
+### Syntax
 
-```h1 vault snapshot | --name NAME id```
+```h1 vault vault snapshot | --name NAME id```
 
-## Optional options
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
-## Parameters (DEPRECATED)
+### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
