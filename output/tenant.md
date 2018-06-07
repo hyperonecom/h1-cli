@@ -41,13 +41,13 @@
 
 ### Syntax
 
-```h1 tenant delete | delete-id```
+```h1 tenant delete | --delete-id DELETE-ID```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ## h1 tenant list
 
@@ -138,14 +138,19 @@
 
 ### Syntax
 
-```h1 tenant token delete | id delete-id```
+```h1 tenant token delete | --delete-id DELETE-ID id```
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Tenant id |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 tenant token add
 
@@ -193,20 +198,20 @@
 
 ### Syntax
 
-```h1 tenant token access delete | --token TOKEN id delete-id```
+```h1 tenant token access delete | --token TOKEN --delete-id DELETE-ID id```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | token id |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Tenant id |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 tenant token access add
 
@@ -274,14 +279,19 @@
 
 ### Syntax
 
-```h1 tenant credentials delete | id delete-id```
+```h1 tenant credentials delete | --delete-id DELETE-ID id```
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Tenant id |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 tenant credentials add
 

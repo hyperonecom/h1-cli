@@ -78,13 +78,13 @@
 
 ### Syntax
 
-```h1 vm delete | delete-id```
+```h1 vm delete | --delete-id DELETE-ID```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ## h1 vm queue
 
@@ -278,19 +278,14 @@
 
 ### Syntax
 
-```h1 vm nic delete | --vm VM delete-id```
+```h1 vm nic delete | --vm VM --delete-id DELETE-ID```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ## h1 vm nic create
 
@@ -311,19 +306,14 @@
 
 ### Syntax
 
-```h1 vm nic delete | --vm VM delete-id```
+```h1 vm nic delete | --vm VM --delete-id DELETE-ID```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ## h1 vm nic ip
 
@@ -348,7 +338,7 @@
 
 ### Syntax
 
-```h1 vm nic ip delete | --vm VM --nic NIC delete-id```
+```h1 vm nic ip delete | --vm VM --nic NIC --delete-id DELETE-ID```
 
 ### Required options
 
@@ -356,12 +346,7 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 | ```--nic NIC``` |  | NIC name of ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ## h1 vm nic ip add
 

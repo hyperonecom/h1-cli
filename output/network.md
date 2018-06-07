@@ -37,13 +37,13 @@
 
 ### Syntax
 
-```h1 network delete | delete-id```
+```h1 network delete | --delete-id DELETE-ID```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ## h1 network create
 
@@ -97,19 +97,14 @@
 
 ### Syntax
 
-```h1 network ip delete | --network NETWORK delete-id```
+```h1 network ip delete | --network NETWORK --delete-id DELETE-ID```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ## h1 network ip create
 

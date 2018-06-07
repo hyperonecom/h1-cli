@@ -42,13 +42,13 @@
 
 ### Syntax
 
-```h1 vault delete | delete-id```
+```h1 vault delete | --delete-id DELETE-ID```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ## h1 vault rename
 
@@ -183,14 +183,19 @@
 
 ### Syntax
 
-```h1 vault credential cert delete | id delete-id```
+```h1 vault credential cert delete | --delete-id DELETE-ID id```
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Vault id |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 vault credential cert add
 
@@ -234,14 +239,19 @@
 
 ### Syntax
 
-```h1 vault credential password delete | id delete-id```
+```h1 vault credential password delete | --delete-id DELETE-ID id```
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ### Parameters (DEPRECATED)
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```id``` |  | Vault id |
-| ```delete-id``` |  | Resource name or ID |
 
 ## h1 vault credential password add
 

@@ -40,13 +40,13 @@
 
 ### Syntax
 
-```h1 firewall delete | delete-id```
+```h1 firewall delete | --delete-id DELETE-ID```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```delete-id``` |  | Resource name or ID |
+| ```--delete-id DELETE-ID``` |  | Resource name or ID |
 
 ## h1 firewall create
 
