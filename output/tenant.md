@@ -55,7 +55,7 @@
 
 ```h1 tenant list | [--all ALL]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -73,7 +73,7 @@
 
 ```h1 tenant access grant | --identity IDENTITY [--role ROLE] id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -92,7 +92,7 @@
 
 ```h1 tenant access revoke | --identity IDENTITY id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -153,7 +153,7 @@
 
 ```h1 tenant token add | --name NAME id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -177,7 +177,7 @@
 
 ```h1 tenant token access list | --token TOKEN id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -195,7 +195,7 @@
 
 ```h1 tenant token access delete | --token TOKEN id delete-id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -214,7 +214,7 @@
 
 ```h1 tenant token access add | --method METHOD --path PATH --token TOKEN id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -289,7 +289,7 @@
 
 ```h1 tenant credentials add | --name NAME --sshkey-file SSHKEY-FILE id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

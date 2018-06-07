@@ -10,7 +10,7 @@
 
 ```h1 login | [--password PASSWORD] username```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

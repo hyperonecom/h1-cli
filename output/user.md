@@ -48,7 +48,7 @@
 
 ```h1 user credentials add | --name NAME --sshkey-file SSHKEY-FILE```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

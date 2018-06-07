@@ -53,7 +53,7 @@
 
 ```h1 iso rename | --new-name NEW-NAME id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -77,7 +77,7 @@
 
 ```h1 iso access grant | --tenant TENANT id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -95,7 +95,7 @@
 
 ```h1 iso access revoke | --tenant TENANT id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -125,7 +125,7 @@
 
 ```h1 iso resume | --source SOURCE id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -143,7 +143,7 @@
 
 ```h1 iso create | --name NAME [--source-url SOURCE-URL] [--source-file SOURCE-FILE]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

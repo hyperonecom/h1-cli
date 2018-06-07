@@ -65,7 +65,7 @@
 
 ```h1 ip associate | --private-ip PRIVATE-IP id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -89,7 +89,7 @@
 
 ```h1 ip ptr | --value VALUE id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

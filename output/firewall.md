@@ -54,7 +54,7 @@
 
 ```h1 firewall create | --name NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -66,7 +66,7 @@
 
 ```h1 firewall attach | --network NETWORK id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -114,7 +114,7 @@
 
 ```h1 firewall ingress add | --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...] id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -137,7 +137,7 @@
 
 ```h1 firewall ingress delete | --rule RULE id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -173,7 +173,7 @@
 
 ```h1 firewall egress add | --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...] id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -196,7 +196,7 @@
 
 ```h1 firewall egress delete | --rule RULE id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

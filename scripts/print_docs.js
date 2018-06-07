@@ -72,8 +72,8 @@ function writeCommandSpecs(stream, entry, prefix) {
 
     const getOptionLabel = (name, value) => `--${name} ${name.toUpperCase()}`;
 
-    writeElements(stream, "Required options", options, getOptionLabel, (name, option) => option.required);
-    writeElements(stream, "Optional options", options, getOptionLabel, (name, option) => !option.required);
+    writeElements(stream, "Required options", options, getOptionLabel, (name, option) => !option.required);
+    writeElements(stream, "Optional options", options, getOptionLabel, (name, option) => option.required);
     writeElements(stream, "Parameters (DEPRECATED)", entry.params, getParamLabel, (name, option) => true);
 }
 

@@ -26,7 +26,7 @@
 
 ```h1 config get | --key KEY```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -38,7 +38,7 @@
 
 ```h1 config set | --key KEY --value VALUE```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -51,7 +51,7 @@
 
 ```h1 config unset | --key KEY```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

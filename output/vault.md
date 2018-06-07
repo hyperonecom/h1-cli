@@ -56,7 +56,7 @@
 
 ```h1 vault rename | --new-name NEW-NAME id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -74,7 +74,7 @@
 
 ```h1 vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -95,7 +95,7 @@
 
 ```h1 vault access grant | --tenant TENANT id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -113,7 +113,7 @@
 
 ```h1 vault access revoke | --tenant TENANT id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -143,7 +143,7 @@
 
 ```h1 vault resize | --size SIZE id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -198,7 +198,7 @@
 
 ```h1 vault credential cert add | --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE] id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -249,7 +249,7 @@
 
 ```h1 vault credential password add | --name NAME --password PASSWORD id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -280,7 +280,7 @@
 
 ```h1 vault snapshot | --name NAME id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

@@ -50,7 +50,7 @@
 
 ```h1 snapshot rename | --new-name NEW-NAME id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

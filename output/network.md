@@ -51,7 +51,7 @@
 
 ```h1 network create | --name NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -69,7 +69,7 @@
 
 ```h1 network ip list | --network NETWORK```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -81,7 +81,7 @@
 
 ```h1 network ip show | --network NETWORK id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -99,7 +99,7 @@
 
 ```h1 network ip delete | --network NETWORK delete-id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -117,7 +117,7 @@
 
 ```h1 network ip create | --network NETWORK```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

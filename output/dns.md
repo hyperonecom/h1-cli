@@ -54,7 +54,7 @@
 
 ```h1 dns zone create | --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -66,7 +66,7 @@
 
 ```h1 dns zone export | --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -90,7 +90,7 @@
 
 ```h1 dns record-set a list | --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -102,7 +102,7 @@
 
 ```h1 dns record-set a create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -117,7 +117,7 @@
 
 ```h1 dns record-set a delete | --name NAME --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -130,7 +130,7 @@
 
 ```h1 dns record-set a add-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -144,7 +144,7 @@
 
 ```h1 dns record-set a delete-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -164,7 +164,7 @@
 
 ```h1 dns record-set cname list | --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -176,7 +176,7 @@
 
 ```h1 dns record-set cname create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -191,7 +191,7 @@
 
 ```h1 dns record-set cname delete | --name NAME --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -204,7 +204,7 @@
 
 ```h1 dns record-set cname add-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -218,7 +218,7 @@
 
 ```h1 dns record-set cname delete-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -238,7 +238,7 @@
 
 ```h1 dns record-set txt list | --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -250,7 +250,7 @@
 
 ```h1 dns record-set txt create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -265,7 +265,7 @@
 
 ```h1 dns record-set txt delete | --name NAME --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -278,7 +278,7 @@
 
 ```h1 dns record-set txt add-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -292,7 +292,7 @@
 
 ```h1 dns record-set txt delete-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -312,7 +312,7 @@
 
 ```h1 dns record-set mx list | --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -324,7 +324,7 @@
 
 ```h1 dns record-set mx create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -339,7 +339,7 @@
 
 ```h1 dns record-set mx delete | --name NAME --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -352,7 +352,7 @@
 
 ```h1 dns record-set mx add-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -366,7 +366,7 @@
 
 ```h1 dns record-set mx delete-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -386,7 +386,7 @@
 
 ```h1 dns record-set ns list | --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -398,7 +398,7 @@
 
 ```h1 dns record-set ns create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -413,7 +413,7 @@
 
 ```h1 dns record-set ns delete | --name NAME --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -426,7 +426,7 @@
 
 ```h1 dns record-set ns add-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -440,7 +440,7 @@
 
 ```h1 dns record-set ns delete-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -460,7 +460,7 @@
 
 ```h1 dns record-set srv list | --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -472,7 +472,7 @@
 
 ```h1 dns record-set srv create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -487,7 +487,7 @@
 
 ```h1 dns record-set srv delete | --name NAME --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -500,7 +500,7 @@
 
 ```h1 dns record-set srv add-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -514,7 +514,7 @@
 
 ```h1 dns record-set srv delete-record | --name NAME --zone-name ZONE-NAME --value VALUE [--value VALUE ...]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -528,7 +528,7 @@
 
 ```h1 dns record-set list | --zone-name ZONE-NAME```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

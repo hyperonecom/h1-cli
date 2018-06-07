@@ -54,7 +54,7 @@
 
 ```h1 disk rename | --new-name NEW-NAME id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -72,7 +72,7 @@
 
 ```h1 disk create | --name NAME --type TYPE --size SIZE [--source-file SOURCE-FILE]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -87,7 +87,7 @@
 
 ```h1 disk resume | --source SOURCE id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -105,7 +105,7 @@
 
 ```h1 disk resize | --size SIZE id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -123,7 +123,7 @@
 
 ```h1 disk download | --destination DESTINATION id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

@@ -59,7 +59,7 @@
 
 ```h1 netgw access grant | --tenant TENANT id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -77,7 +77,7 @@
 
 ```h1 netgw access revoke | --tenant TENANT id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -119,7 +119,7 @@
 
 ```h1 netgw attach | --network NETWORK id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -137,7 +137,7 @@
 
 ```h1 netgw create | --name NAME --ip IP```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

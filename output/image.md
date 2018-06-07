@@ -47,7 +47,7 @@
 
 ```h1 image rename | --new-name NEW-NAME id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -65,7 +65,7 @@
 
 ```h1 image create | --name NAME [--description DESCRIPTION] --vm VM```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -79,7 +79,7 @@
 
 ```h1 image list | [--recommended RECOMMENDED] [--all ALL]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -110,7 +110,7 @@
 
 ```h1 image access grant | --tenant TENANT id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -128,7 +128,7 @@
 
 ```h1 image access revoke | --tenant TENANT id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |

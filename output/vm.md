@@ -54,7 +54,7 @@
 
 ```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start NO-START] [--userdata-file USERDATA-FILE]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -164,7 +164,7 @@
 
 ```h1 vm rename | --newname NEWNAME id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -182,7 +182,7 @@
 
 ```h1 vm userdata | --userdata-file USERDATA-FILE id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -206,7 +206,7 @@
 
 ```h1 vm disk list | --vm VM```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -218,7 +218,7 @@
 
 ```h1 vm disk attach | --vm VM --disk DISK```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -231,7 +231,7 @@
 
 ```h1 vm disk detach | --vm VM --disk DISK```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -250,7 +250,7 @@
 
 ```h1 vm nic list | --vm VM```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -262,7 +262,7 @@
 
 ```h1 vm nic show | --vm VM id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -280,7 +280,7 @@
 
 ```h1 vm nic delete | --vm VM delete-id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -298,7 +298,7 @@
 
 ```h1 vm nic create | [--network NETWORK] --type TYPE [--ip IP] --vm VM```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -313,7 +313,7 @@
 
 ```h1 vm nic delete | --vm VM delete-id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -337,7 +337,7 @@
 
 ```h1 vm nic ip list | --vm VM --nic NIC```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -350,7 +350,7 @@
 
 ```h1 vm nic ip delete | --vm VM --nic NIC delete-id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -369,7 +369,7 @@
 
 ```h1 vm nic ip add | --vm VM --nic NIC ip```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -394,7 +394,7 @@
 
 ```h1 vm dvd list | --vm VM```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -406,7 +406,7 @@
 
 ```h1 vm dvd insert | --iso ISO --vm VM```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -419,7 +419,7 @@
 
 ```h1 vm dvd eject | --vm VM```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -449,7 +449,7 @@
 
 ```h1 vm tag add | --tag TAG [--tag TAG ...] id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -467,7 +467,7 @@
 
 ```h1 vm tag delete | --tag TAG id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -485,7 +485,7 @@
 
 ```h1 vm ssh | [--username USERNAME] [--port PORT] [--private PRIVATE] id [command]```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -512,7 +512,7 @@
 
 ```h1 vm serialport console | [--port PORT] id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -530,7 +530,7 @@
 
 ```h1 vm serialport log | [--port PORT] id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
@@ -548,7 +548,7 @@
 
 ```h1 vm passwordreset | --user USER id```
 
-### Optional options
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
