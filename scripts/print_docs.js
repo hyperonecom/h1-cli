@@ -79,7 +79,7 @@ function writeCommandSpecs(stream, entry, prefix) {
 
     writeElements(stream, "Required options", options, getOptionLabel, (name, option) => option.required);
     writeElements(stream, "Optional options", options, getOptionLabel, (name, option) => !option.required);
-    writeElements(stream, "Parameters (DEPRECATED)", options, getParamLabel, (name, option) => true);
+    writeElements(stream, "Parameters (DEPRECATED)", params, getParamLabel, (name, option) => true);
 }
 
 const writeSpecs = function (stream, entry, prefix) {
