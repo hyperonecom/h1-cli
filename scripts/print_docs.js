@@ -35,7 +35,7 @@ const entry_filename = (entry) => `${entry.name}.md`;
 const writeTOC = (wstream, element, prefix) => {
     element.map(entry => {
         const name = `${prefix} ${entry.name}`;
-        const slug = entry_filename(name);
+        const slug = entry_filename(entry);
         wstream.write(`* [${name}](${slug})\n`)
     })
 };
