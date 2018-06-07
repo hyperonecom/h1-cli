@@ -23,11 +23,23 @@
 
 ```h1 image show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 image delete
 
 ### Syntax
 
 ```h1 image delete | delete-id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 image rename
 
@@ -40,6 +52,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--new-name NEW-NAME``` |  | New name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 
 ## h1 image create
 
@@ -74,6 +92,12 @@
 
 ```h1 image disk | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Image name or ID |
+
 ## h1 image access
 
 ### Syntax
@@ -92,6 +116,12 @@
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource ID |
+
 ## h1 image access revoke
 
 ### Syntax
@@ -104,9 +134,21 @@
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource id |
+
 ## h1 image access list
 
 ### Syntax
 
 ```h1 image access list | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource name or ID |
 

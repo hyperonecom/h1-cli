@@ -30,11 +30,23 @@
 
 ```h1 firewall show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 firewall delete
 
 ### Syntax
 
 ```h1 firewall delete | delete-id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 firewall create
 
@@ -60,11 +72,23 @@
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 firewall detach
 
 ### Syntax
 
 ```h1 firewall detach | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 
 ## h1 firewall ingress
 
@@ -77,6 +101,12 @@
 ### Syntax
 
 ```h1 firewall ingress list | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 
 ## h1 firewall ingress add
 
@@ -95,6 +125,12 @@
 | ```--external EXTERNAL``` |  | Ip address or network on internal side.. The parameter may occur repeatedly |
 | ```--internal INTERNAL``` |  | Resource tags or * for all. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 firewall ingress delete
 
 ### Syntax
@@ -107,6 +143,12 @@
 | ---- | ------- | ----------- |
 | ```--rule RULE``` |  | Rule identifier |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 firewall egress
 
 ### Syntax
@@ -118,6 +160,12 @@
 ### Syntax
 
 ```h1 firewall egress list | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 
 ## h1 firewall egress add
 
@@ -136,6 +184,12 @@
 | ```--external EXTERNAL``` |  | Ip address or network on internal side.. The parameter may occur repeatedly |
 | ```--internal INTERNAL``` |  | Resource tags or * for all. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 firewall egress delete
 
 ### Syntax
@@ -147,4 +201,10 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--rule RULE``` |  | Rule identifier |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 

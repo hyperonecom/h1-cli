@@ -24,3 +24,9 @@
 
 ```h1 service show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+

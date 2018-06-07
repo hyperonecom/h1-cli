@@ -29,17 +29,35 @@
 
 ```h1 ip show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 ip delete
 
 ### Syntax
 
 ```h1 ip delete | delete-id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
+
 ## h1 ip disassociate
 
 ### Syntax
 
 ```h1 ip disassociate | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | IP id |
 
 ## h1 ip associate
 
@@ -52,6 +70,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--private-ip PRIVATE-IP``` |  | ID of private IP |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Public IP or ID or IP |
 
 ## h1 ip create
 
@@ -70,4 +94,10 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--value VALUE``` |  | PTR record |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | IP id |
 

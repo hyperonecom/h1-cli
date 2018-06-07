@@ -26,11 +26,23 @@
 
 ```h1 snapshot show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 snapshot delete
 
 ### Syntax
 
 ```h1 snapshot delete | delete-id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 snapshot rename
 
@@ -43,4 +55,10 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--new-name NEW-NAME``` |  | New name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 

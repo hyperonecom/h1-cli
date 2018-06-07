@@ -31,11 +31,23 @@
 
 ```h1 tenant show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 tenant delete
 
 ### Syntax
 
 ```h1 tenant delete | delete-id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 tenant list
 
@@ -68,6 +80,12 @@
 | ```--identity IDENTITY``` |  | Identity (eg: user@example.org) |
 | ```--role ROLE``` |  | Role |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
+
 ## h1 tenant access revoke
 
 ### Syntax
@@ -80,11 +98,23 @@
 | ---- | ------- | ----------- |
 | ```--identity IDENTITY``` |  | Identity (eg: user@example.org) |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
+
 ## h1 tenant access list
 
 ### Syntax
 
 ```h1 tenant access list | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
 
 ## h1 tenant token
 
@@ -98,11 +128,24 @@
 
 ```h1 tenant token list | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
+
 ## h1 tenant token delete
 
 ### Syntax
 
 ```h1 tenant token delete | id delete-id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 tenant token add
 
@@ -115,6 +158,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
 
 ## h1 tenant token access
 
@@ -134,6 +183,12 @@
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | token id |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
+
 ## h1 tenant token access delete
 
 ### Syntax
@@ -145,6 +200,13 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | token id |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 tenant token access add
 
@@ -160,17 +222,35 @@
 | ```--path PATH``` |  | url path, eg: /disk |
 | ```--token TOKEN``` |  | token id |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
+
 ## h1 tenant select
 
 ### Syntax
 
 ```h1 tenant select | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
+
 ## h1 tenant limit
 
 ### Syntax
 
 ```h1 tenant limit | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
 
 ## h1 tenant credentials
 
@@ -184,11 +264,24 @@
 
 ```h1 tenant credentials list | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
+
 ## h1 tenant credentials delete
 
 ### Syntax
 
 ```h1 tenant credentials delete | id delete-id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 tenant credentials add
 
@@ -202,4 +295,10 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Tenant id |
 

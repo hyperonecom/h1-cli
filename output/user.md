@@ -36,6 +36,12 @@
 
 ```h1 user credentials delete | delete-id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
+
 ## h1 user credentials add
 
 ### Syntax

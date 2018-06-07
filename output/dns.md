@@ -30,11 +30,23 @@
 
 ```h1 dns zone show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 dns zone delete
 
 ### Syntax
 
 ```h1 dns zone delete | delete-id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 dns zone create
 

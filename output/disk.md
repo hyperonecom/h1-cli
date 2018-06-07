@@ -30,11 +30,23 @@
 
 ```h1 disk show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 disk delete
 
 ### Syntax
 
 ```h1 disk delete | delete-id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 disk rename
 
@@ -47,6 +59,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--new-name NEW-NAME``` |  | New name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 
 ## h1 disk create
 
@@ -75,6 +93,12 @@
 | ---- | ------- | ----------- |
 | ```--source SOURCE``` |  | import disk path |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource name or ID |
+
 ## h1 disk resize
 
 ### Syntax
@@ -87,6 +111,12 @@
 | ---- | ------- | ----------- |
 | ```--size SIZE``` |  | New size |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource name or ID |
+
 ## h1 disk download
 
 ### Syntax
@@ -98,4 +128,10 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--destination DESTINATION``` |  | destination disk path |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 

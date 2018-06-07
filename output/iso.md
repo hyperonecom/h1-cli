@@ -29,11 +29,23 @@
 
 ```h1 iso show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 iso delete
 
 ### Syntax
 
 ```h1 iso delete | delete-id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 iso rename
 
@@ -46,6 +58,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--new-name NEW-NAME``` |  | New name |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 
 ## h1 iso access
 
@@ -65,6 +83,12 @@
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource ID |
+
 ## h1 iso access revoke
 
 ### Syntax
@@ -77,11 +101,23 @@
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource id |
+
 ## h1 iso access list
 
 ### Syntax
 
 ```h1 iso access list | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource name or ID |
 
 ## h1 iso resume
 
@@ -94,6 +130,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--source SOURCE``` |  | import disk path |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource name or ID |
 
 ## h1 iso create
 

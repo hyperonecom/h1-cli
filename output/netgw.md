@@ -29,11 +29,23 @@
 
 ```h1 netgw show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 netgw delete
 
 ### Syntax
 
 ```h1 netgw delete | delete-id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 netgw access
 
@@ -53,6 +65,12 @@
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource ID |
+
 ## h1 netgw access revoke
 
 ### Syntax
@@ -65,17 +83,35 @@
 | ---- | ------- | ----------- |
 | ```--tenant TENANT``` |  | Tenant name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource id |
+
 ## h1 netgw access list
 
 ### Syntax
 
 ```h1 netgw access list | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource name or ID |
+
 ## h1 netgw detach
 
 ### Syntax
 
 ```h1 netgw detach | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Network gateway name or ID |
 
 ## h1 netgw attach
 
@@ -88,6 +124,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or id |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Network gateway name or ID |
 
 ## h1 netgw create
 

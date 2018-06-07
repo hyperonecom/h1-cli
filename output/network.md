@@ -27,11 +27,23 @@
 
 ```h1 network show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 network delete
 
 ### Syntax
 
 ```h1 network delete | delete-id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 network create
 
@@ -75,6 +87,12 @@
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 network ip delete
 
 ### Syntax
@@ -86,6 +104,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 network ip create
 

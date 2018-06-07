@@ -42,6 +42,12 @@
 
 ```h1 vm show | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 vm create
 
 ### Syntax
@@ -74,11 +80,23 @@
 
 ```h1 vm delete | delete-id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
+
 ## h1 vm queue
 
 ### Syntax
 
 ```h1 vm queue | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 
 ## h1 vm console
 
@@ -86,11 +104,23 @@
 
 ```h1 vm console | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 vm stop
 
 ### Syntax
 
 ```h1 vm stop | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | VM name or ID |
 
 ## h1 vm start
 
@@ -98,17 +128,35 @@
 
 ```h1 vm start | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | VM name or ID |
+
 ## h1 vm restart
 
 ### Syntax
 
 ```h1 vm restart | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | VM name or ID |
+
 ## h1 vm turnoff
 
 ### Syntax
 
 ```h1 vm turnoff | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | VM name or ID |
 
 ## h1 vm rename
 
@@ -122,6 +170,12 @@
 | ---- | ------- | ----------- |
 | ```--newname NEWNAME``` |  | New name |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | VM name or ID |
+
 ## h1 vm userdata
 
 ### Syntax
@@ -133,6 +187,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | VM name or ID |
 
 ## h1 vm disk
 
@@ -208,6 +268,12 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 vm nic delete
 
 ### Syntax
@@ -219,6 +285,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 vm nic create
 
@@ -246,6 +318,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
 
 ## h1 vm nic ip
 
@@ -279,6 +357,12 @@
 | ```--vm VM``` |  | VM name or ID |
 | ```--nic NIC``` |  | NIC name of ID |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```delete-id``` |  | Resource name or ID |
+
 ## h1 vm nic ip add
 
 ### Syntax
@@ -291,6 +375,12 @@
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | VM name or ID |
 | ```--nic NIC``` |  | NIC name of ID |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```ip``` |  | Public IP address or ID of IP |
 
 ## h1 vm dvd
 
@@ -347,6 +437,12 @@
 
 ```h1 vm tag list | id```
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource id |
+
 ## h1 vm tag add
 
 ### Syntax
@@ -359,6 +455,12 @@
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | New Tag. The parameter may occur repeatedly |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource id |
+
 ## h1 vm tag delete
 
 ### Syntax
@@ -370,6 +472,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource id |
 
 ## h1 vm ssh
 
@@ -384,6 +492,13 @@
 | ```--username USERNAME``` |  | Username for ssh connection |
 | ```--port PORT``` |  | Port for ssh connection |
 | ```--private PRIVATE``` |  | Use first private network, skip public |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+| ```[command]``` |  | Command to execute |
 
 ## h1 vm serialport
 
@@ -403,6 +518,12 @@
 | ---- | ------- | ----------- |
 | ```--port PORT``` |  | Port to connect |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 vm serialport log
 
 ### Syntax
@@ -414,6 +535,12 @@
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--port PORT``` |  | Port to connect |
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 
 ## h1 vm passwordreset
 
@@ -427,9 +554,21 @@
 | ---- | ------- | ----------- |
 | ```--user USER``` |  | Username |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
+
 ## h1 vm metrics
 
 ### Syntax
 
 ```h1 vm metrics | id```
+
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```id``` |  | Resource identifier |
 

@@ -16,3 +16,9 @@
 | ---- | ------- | ----------- |
 | ```--password PASSWORD``` |  | Password |
 
+### Parameters (DEPRECATED)
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```username``` |  | Your h1 username |
+
