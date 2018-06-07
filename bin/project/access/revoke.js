@@ -12,16 +12,10 @@ const options = {
 
 module.exports = resource => Cli.createCommand('revoke', {
     description: `Revoke access rights for ${resource.name.toUpperCase()}`,
-    plugins: [
-        require('bin/_plugins/loginRequired'),
-        require('bin/_plugins/tenantRequired'),
-        require('bin/_plugins/outputFormat'),
-        require('bin/_plugins/api')
-    ],
+    plugins: resource.plugins,
     params: resource.params,
     options: options,
     handler: args => args.helpers.api
-        .delete(`${resource.url(args)}/accessrights/${args['tenant-id']}`)
+        .delete(`${resource.url(args)}/accessrights/${args.identity}`)
         .then(result => args.helpers.sendOutput(args, result))
 });
-

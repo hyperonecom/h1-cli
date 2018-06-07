@@ -1,6 +1,7 @@
 'use strict';
 
 const Cli = require('structured-cli');
+const genericDefaults = require('bin/generic/defaults');
 
 const params = {
     id: {
@@ -24,12 +25,7 @@ const handler = args => args.helpers.api
 
 module.exports = Cli.createCommand('ptr', {
     description: 'IP disassociate'
-  , plugins: [
-        require('bin/_plugins/loginRequired')
-      , require('bin/_plugins/tenantRequired')
-      , require('bin/_plugins/outputFormat')
-      , require('bin/_plugins/api')
-    ]
+  , plugins: genericDefaults.plugins
   , options: options
   , params: params
   , handler: handler

@@ -1,6 +1,7 @@
 'use strict';
 
 const Cli = require('structured-cli');
+const genericDefaults = require('bin/generic/defaults');
 
 const params = {
     id: {
@@ -20,12 +21,7 @@ const options = {
 
 module.exports = Cli.createCommand('attach', {
     description: 'Network gateway attach to a network'
-  , plugins: [
-        require('bin/_plugins/loginRequired')
-      , require('bin/_plugins/tenantRequired')
-      , require('bin/_plugins/outputFormat')
-      , require('bin/_plugins/api')
-    ]
+  , plugins: genericDefaults.plugins
   , options: options
   , handler: handler
   , params: params

@@ -4,7 +4,7 @@ const Cli = require('structured-cli');
 
 const options = {
     all: {
-        description: 'display all tenants'
+        description: 'display all projects'
       , type: 'boolean'
       , default: false
     }

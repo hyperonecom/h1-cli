@@ -3,7 +3,7 @@
 const genericResource = require('bin/generic');
 
 const resource = {
-    name: 'tenant',
+    name: 'project',
     defaultQuery: '[].{id:_id,name:name,billing:billing.company,active:active,processing:processing}',
     url: () => 'tenant',
     plugins: [
@@ -19,7 +19,7 @@ category.addChild(require('./list')(resource));
 const childDefaults = Object.assign({}, resource, {
     params: {
         id: {
-            description: 'Tenant id'
+            description: 'Project id'
           , type: 'string'
           , required: true
         }

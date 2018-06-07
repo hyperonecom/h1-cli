@@ -84,13 +84,13 @@ Dane uwierzytelniające zostały zapisane na platformie Linux / macOS w ``$HOME/
     Gdzie zapisują się dane na platformie Windows?
     Czy poprawna ścieżka jest dla platformy macOS?
 
-Jeżeli wykorzystujesz więcej niż 1 tenant musisz dokonać wyboru aktywnie używanego poprzez pobranie identyfikatora właściwego::
+Jeżeli wykorzystujesz więcej niż 1 project musisz dokonać wyboru aktywnie używanego poprzez pobranie identyfikatora właściwego::
 
-    $ h1 tenant list --output table
+    $ h1 project list --output table
 
 Następnie zatwierdzenia tego wyboru::
 
-    $ h1 tenant select {{tenant_id}}
+    $ h1 project select {{project}}
 
 
 Utworzenie serwera

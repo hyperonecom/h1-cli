@@ -18,14 +18,14 @@ const cli = Cli.createCategory('app', {
 ${Chalk.underline('Sample usage:')}
 1. Login to your account:'
   ${Chalk.bold(`$ ${scope} login user@example.org`)}
-2. Select tenant:
-  ${Chalk.bold(`$ ${scope} tenant select <tenant>`)}
+2. Select project:
+  ${Chalk.bold(`$ ${scope} project select <project>`)}
 `});
 
 cli.addChild(require('./config'));
 cli.addChild(require('./user'));
 cli.addChild(require('./login'));
-cli.addChild(require('./tenant'));
+cli.addChild(require('./project'));
 
 cli.addChild(require('./disk'));
 cli.addChild(require('./vm'));
