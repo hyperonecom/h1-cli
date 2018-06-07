@@ -49,11 +49,11 @@
 
 ### Syntax
 
-```h1 config unset | key```
+```h1 config unset | --key KEY```
 
-### Parameters (DEPRECATED)
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```key``` |  | Name of config key |
+| ```--key KEY``` |  | Name of config key |
 

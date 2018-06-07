@@ -84,7 +84,7 @@ category.addChild(Cli.createCommand('set', {
 
 category.addChild(Cli.createCommand('unset', {
     description: 'Unset config key'
-  , params: {
+  , options: {
         key: {
             description: 'Name of config key'
           , type: 'string'
