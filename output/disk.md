@@ -1,34 +1,34 @@
 # TOC
 
-* [h1 disk list](#h1 disk list)
-* [h1 disk show](#h1 disk show)
-* [h1 disk delete](#h1 disk delete)
-* [h1 disk rename](#h1 disk rename)
-* [h1 disk create](#h1 disk create)
-* [h1 disk resume](#h1 disk resume)
-* [h1 disk resize](#h1 disk resize)
-* [h1 disk download](#h1 disk download)
+* [h1 list](#h1-list)
+* [h1 show](#h1-show)
+* [h1 delete](#h1-delete)
+* [h1 rename](#h1-rename)
+* [h1 create](#h1-create)
+* [h1 resume](#h1-resume)
+* [h1 resize](#h1-resize)
+* [h1 download](#h1-download)
 
 
 # Specification
 
-## h1 disk disk
+## h1 disk
 
 ### Syntax
 
-```h1 disk disk | ```
+```h1 disk | ```
 
-## h1 disk disk list
-
-### Syntax
-
-```h1 disk disk list | ```
-
-## h1 disk disk show
+## h1 disk list
 
 ### Syntax
 
-```h1 disk disk show | id```
+```h1 disk list | ```
+
+## h1 disk show
+
+### Syntax
+
+```h1 disk show | id```
 
 ### Parameters (DEPRECATED)
 
@@ -36,11 +36,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 disk disk delete
+## h1 disk delete
 
 ### Syntax
 
-```h1 disk disk delete | delete-id```
+```h1 disk delete | delete-id```
 
 ### Parameters (DEPRECATED)
 
@@ -48,11 +48,11 @@
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-## h1 disk disk rename
+## h1 disk rename
 
 ### Syntax
 
-```h1 disk disk rename | --new-name NEW-NAME id```
+```h1 disk rename | --new-name NEW-NAME id```
 
 ### Optional options
 
@@ -66,11 +66,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 disk disk create
+## h1 disk create
 
 ### Syntax
 
-```h1 disk disk create | --name NAME --type TYPE --size SIZE [--source-file SOURCE-FILE]```
+```h1 disk create | --name NAME --type TYPE --size SIZE [--source-file SOURCE-FILE]```
 
 ### Optional options
 
@@ -81,11 +81,11 @@
 | ```--size SIZE``` |  | Disk size in GB |
 | ```--source-file SOURCE-FILE``` |  | import disk path |
 
-## h1 disk disk resume
+## h1 disk resume
 
 ### Syntax
 
-```h1 disk disk resume | --source SOURCE id```
+```h1 disk resume | --source SOURCE id```
 
 ### Optional options
 
@@ -99,11 +99,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource name or ID |
 
-## h1 disk disk resize
+## h1 disk resize
 
 ### Syntax
 
-```h1 disk disk resize | --size SIZE id```
+```h1 disk resize | --size SIZE id```
 
 ### Optional options
 
@@ -117,11 +117,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource name or ID |
 
-## h1 disk disk download
+## h1 disk download
 
 ### Syntax
 
-```h1 disk disk download | --destination DESTINATION id```
+```h1 disk download | --destination DESTINATION id```
 
 ### Optional options
 

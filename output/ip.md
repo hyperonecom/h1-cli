@@ -1,33 +1,33 @@
 # TOC
 
-* [h1 ip list](#h1 ip list)
-* [h1 ip show](#h1 ip show)
-* [h1 ip delete](#h1 ip delete)
-* [h1 ip disassociate](#h1 ip disassociate)
-* [h1 ip associate](#h1 ip associate)
-* [h1 ip create](#h1 ip create)
-* [h1 ip ptr](#h1 ip ptr)
+* [h1 list](#h1-list)
+* [h1 show](#h1-show)
+* [h1 delete](#h1-delete)
+* [h1 disassociate](#h1-disassociate)
+* [h1 associate](#h1-associate)
+* [h1 create](#h1-create)
+* [h1 ptr](#h1-ptr)
 
 
 # Specification
 
-## h1 ip ip
+## h1 ip
 
 ### Syntax
 
-```h1 ip ip | ```
+```h1 ip | ```
 
-## h1 ip ip list
-
-### Syntax
-
-```h1 ip ip list | ```
-
-## h1 ip ip show
+## h1 ip list
 
 ### Syntax
 
-```h1 ip ip show | id```
+```h1 ip list | ```
+
+## h1 ip show
+
+### Syntax
+
+```h1 ip show | id```
 
 ### Parameters (DEPRECATED)
 
@@ -35,11 +35,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 ip ip delete
+## h1 ip delete
 
 ### Syntax
 
-```h1 ip ip delete | delete-id```
+```h1 ip delete | delete-id```
 
 ### Parameters (DEPRECATED)
 
@@ -47,11 +47,11 @@
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-## h1 ip ip disassociate
+## h1 ip disassociate
 
 ### Syntax
 
-```h1 ip ip disassociate | id```
+```h1 ip disassociate | id```
 
 ### Parameters (DEPRECATED)
 
@@ -59,11 +59,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | IP id |
 
-## h1 ip ip associate
+## h1 ip associate
 
 ### Syntax
 
-```h1 ip ip associate | --private-ip PRIVATE-IP id```
+```h1 ip associate | --private-ip PRIVATE-IP id```
 
 ### Optional options
 
@@ -77,17 +77,17 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Public IP or ID or IP |
 
-## h1 ip ip create
+## h1 ip create
 
 ### Syntax
 
-```h1 ip ip create | ```
+```h1 ip create | ```
 
-## h1 ip ip ptr
+## h1 ip ptr
 
 ### Syntax
 
-```h1 ip ip ptr | --value VALUE id```
+```h1 ip ptr | --value VALUE id```
 
 ### Optional options
 

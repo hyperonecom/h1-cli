@@ -1,30 +1,30 @@
 # TOC
 
-* [h1 snapshot list](#h1 snapshot list)
-* [h1 snapshot show](#h1 snapshot show)
-* [h1 snapshot delete](#h1 snapshot delete)
-* [h1 snapshot rename](#h1 snapshot rename)
+* [h1 list](#h1-list)
+* [h1 show](#h1-show)
+* [h1 delete](#h1-delete)
+* [h1 rename](#h1-rename)
 
 
 # Specification
 
-## h1 snapshot snapshot
+## h1 snapshot
 
 ### Syntax
 
-```h1 snapshot snapshot | ```
+```h1 snapshot | ```
 
-## h1 snapshot snapshot list
-
-### Syntax
-
-```h1 snapshot snapshot list | ```
-
-## h1 snapshot snapshot show
+## h1 snapshot list
 
 ### Syntax
 
-```h1 snapshot snapshot show | id```
+```h1 snapshot list | ```
+
+## h1 snapshot show
+
+### Syntax
+
+```h1 snapshot show | id```
 
 ### Parameters (DEPRECATED)
 
@@ -32,11 +32,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 snapshot snapshot delete
+## h1 snapshot delete
 
 ### Syntax
 
-```h1 snapshot snapshot delete | delete-id```
+```h1 snapshot delete | delete-id```
 
 ### Parameters (DEPRECATED)
 
@@ -44,11 +44,11 @@
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-## h1 snapshot snapshot rename
+## h1 snapshot rename
 
 ### Syntax
 
-```h1 snapshot snapshot rename | --new-name NEW-NAME id```
+```h1 snapshot rename | --new-name NEW-NAME id```
 
 ### Optional options
 

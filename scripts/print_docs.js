@@ -35,7 +35,7 @@ const entry_filename = (entry) => `${entry.name}.md`;
 const writeTOC = (wstream, element, prefix) => {
     element.map(entry => {
         const name = `${prefix} ${entry.name}`;
-        const slug = entry_filename(name);
+        const slug = entry_filename(entry);
         wstream.write(`* [${name}](${slug})\n`)
     })
 };
@@ -44,7 +44,7 @@ const writeTOC = (wstream, element, prefix) => {
 function writeCommandTOC(stream, entries, prefix) {
     entries.forEach(entry => {
         const name = `${prefix} ${entry.name}`;
-        const slug = name.replace(' ', ' ').toLowerCase();
+        const slug = name.replace(' ', '-').toLowerCase();
         stream.write(`* [${name}](#${slug})\n`);
         if(entry.children){
             writeCommandTOC(stream, entry.children, `${prefix} ${entry.name}`)
@@ -101,7 +101,7 @@ const main = async () => {
     cli.children.forEach(entry => {
         const section_filename = path.join(output_dir, entry_filename(entry));
         const wstream = fs.createWriteStream(section_filename);
-        const prefix = `h1 ${entry.name}`;
+        const prefix = `h1`;
 
         wstream.write("# TOC\n\n");
         writeCommandTOC(wstream, entry.children || [], prefix);

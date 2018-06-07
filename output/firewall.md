@@ -1,40 +1,40 @@
 # TOC
 
-* [h1 firewall list](#h1 firewall list)
-* [h1 firewall show](#h1 firewall show)
-* [h1 firewall delete](#h1 firewall delete)
-* [h1 firewall create](#h1 firewall create)
-* [h1 firewall attach](#h1 firewall attach)
-* [h1 firewall detach](#h1 firewall detach)
-* [h1 firewall ingress](#h1 firewall ingress)
-* [h1 firewall ingress list](#h1 firewall ingress list)
-* [h1 firewall ingress add](#h1 firewall ingress add)
-* [h1 firewall ingress delete](#h1 firewall ingress delete)
-* [h1 firewall egress](#h1 firewall egress)
-* [h1 firewall egress list](#h1 firewall egress list)
-* [h1 firewall egress add](#h1 firewall egress add)
-* [h1 firewall egress delete](#h1 firewall egress delete)
+* [h1 list](#h1-list)
+* [h1 show](#h1-show)
+* [h1 delete](#h1-delete)
+* [h1 create](#h1-create)
+* [h1 attach](#h1-attach)
+* [h1 detach](#h1-detach)
+* [h1 ingress](#h1-ingress)
+* [h1 ingress list](#h1-ingress list)
+* [h1 ingress add](#h1-ingress add)
+* [h1 ingress delete](#h1-ingress delete)
+* [h1 egress](#h1-egress)
+* [h1 egress list](#h1-egress list)
+* [h1 egress add](#h1-egress add)
+* [h1 egress delete](#h1-egress delete)
 
 
 # Specification
 
-## h1 firewall firewall
+## h1 firewall
 
 ### Syntax
 
-```h1 firewall firewall | ```
+```h1 firewall | ```
 
-## h1 firewall firewall list
-
-### Syntax
-
-```h1 firewall firewall list | ```
-
-## h1 firewall firewall show
+## h1 firewall list
 
 ### Syntax
 
-```h1 firewall firewall show | id```
+```h1 firewall list | ```
+
+## h1 firewall show
+
+### Syntax
+
+```h1 firewall show | id```
 
 ### Parameters (DEPRECATED)
 
@@ -42,11 +42,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 firewall firewall delete
+## h1 firewall delete
 
 ### Syntax
 
-```h1 firewall firewall delete | delete-id```
+```h1 firewall delete | delete-id```
 
 ### Parameters (DEPRECATED)
 
@@ -54,11 +54,11 @@
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-## h1 firewall firewall create
+## h1 firewall create
 
 ### Syntax
 
-```h1 firewall firewall create | --name NAME```
+```h1 firewall create | --name NAME```
 
 ### Optional options
 
@@ -66,11 +66,11 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
-## h1 firewall firewall attach
+## h1 firewall attach
 
 ### Syntax
 
-```h1 firewall firewall attach | --network NETWORK id```
+```h1 firewall attach | --network NETWORK id```
 
 ### Optional options
 
@@ -84,11 +84,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 firewall firewall detach
+## h1 firewall detach
 
 ### Syntax
 
-```h1 firewall firewall detach | id```
+```h1 firewall detach | id```
 
 ### Parameters (DEPRECATED)
 
@@ -96,17 +96,17 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 firewall firewall ingress
+## h1 firewall ingress
 
 ### Syntax
 
-```h1 firewall firewall ingress | ```
+```h1 firewall ingress | ```
 
-## h1 firewall firewall ingress list
+## h1 firewall ingress list
 
 ### Syntax
 
-```h1 firewall firewall ingress list | id```
+```h1 firewall ingress list | id```
 
 ### Parameters (DEPRECATED)
 
@@ -114,11 +114,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 firewall firewall ingress add
+## h1 firewall ingress add
 
 ### Syntax
 
-```h1 firewall firewall ingress add | --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...] id```
+```h1 firewall ingress add | --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...] id```
 
 ### Optional options
 
@@ -137,11 +137,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 firewall firewall ingress delete
+## h1 firewall ingress delete
 
 ### Syntax
 
-```h1 firewall firewall ingress delete | --rule RULE id```
+```h1 firewall ingress delete | --rule RULE id```
 
 ### Optional options
 
@@ -155,17 +155,17 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 firewall firewall egress
+## h1 firewall egress
 
 ### Syntax
 
-```h1 firewall firewall egress | ```
+```h1 firewall egress | ```
 
-## h1 firewall firewall egress list
+## h1 firewall egress list
 
 ### Syntax
 
-```h1 firewall firewall egress list | id```
+```h1 firewall egress list | id```
 
 ### Parameters (DEPRECATED)
 
@@ -173,11 +173,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 firewall firewall egress add
+## h1 firewall egress add
 
 ### Syntax
 
-```h1 firewall firewall egress add | --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...] id```
+```h1 firewall egress add | --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...] id```
 
 ### Optional options
 
@@ -196,11 +196,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 firewall firewall egress delete
+## h1 firewall egress delete
 
 ### Syntax
 
-```h1 firewall firewall egress delete | --rule RULE id```
+```h1 firewall egress delete | --rule RULE id```
 
 ### Optional options
 

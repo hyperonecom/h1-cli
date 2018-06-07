@@ -1,35 +1,35 @@
 # TOC
 
-* [h1 network list](#h1 network list)
-* [h1 network show](#h1 network show)
-* [h1 network delete](#h1 network delete)
-* [h1 network create](#h1 network create)
-* [h1 network ip](#h1 network ip)
-* [h1 network ip list](#h1 network ip list)
-* [h1 network ip show](#h1 network ip show)
-* [h1 network ip delete](#h1 network ip delete)
-* [h1 network ip create](#h1 network ip create)
+* [h1 list](#h1-list)
+* [h1 show](#h1-show)
+* [h1 delete](#h1-delete)
+* [h1 create](#h1-create)
+* [h1 ip](#h1-ip)
+* [h1 ip list](#h1-ip list)
+* [h1 ip show](#h1-ip show)
+* [h1 ip delete](#h1-ip delete)
+* [h1 ip create](#h1-ip create)
 
 
 # Specification
 
-## h1 network network
+## h1 network
 
 ### Syntax
 
-```h1 network network | ```
+```h1 network | ```
 
-## h1 network network list
-
-### Syntax
-
-```h1 network network list | ```
-
-## h1 network network show
+## h1 network list
 
 ### Syntax
 
-```h1 network network show | id```
+```h1 network list | ```
+
+## h1 network show
+
+### Syntax
+
+```h1 network show | id```
 
 ### Parameters (DEPRECATED)
 
@@ -37,11 +37,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 network network delete
+## h1 network delete
 
 ### Syntax
 
-```h1 network network delete | delete-id```
+```h1 network delete | delete-id```
 
 ### Parameters (DEPRECATED)
 
@@ -49,11 +49,11 @@
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-## h1 network network create
+## h1 network create
 
 ### Syntax
 
-```h1 network network create | --name NAME```
+```h1 network create | --name NAME```
 
 ### Optional options
 
@@ -61,17 +61,17 @@
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
-## h1 network network ip
+## h1 network ip
 
 ### Syntax
 
-```h1 network network ip | ```
+```h1 network ip | ```
 
-## h1 network network ip list
+## h1 network ip list
 
 ### Syntax
 
-```h1 network network ip list | --network NETWORK```
+```h1 network ip list | --network NETWORK```
 
 ### Optional options
 
@@ -79,11 +79,11 @@
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 
-## h1 network network ip show
+## h1 network ip show
 
 ### Syntax
 
-```h1 network network ip show | --network NETWORK id```
+```h1 network ip show | --network NETWORK id```
 
 ### Optional options
 
@@ -97,11 +97,11 @@
 | ---- | ------- | ----------- |
 | ```id``` |  | Resource identifier |
 
-## h1 network network ip delete
+## h1 network ip delete
 
 ### Syntax
 
-```h1 network network ip delete | --network NETWORK delete-id```
+```h1 network ip delete | --network NETWORK delete-id```
 
 ### Optional options
 
@@ -115,11 +115,11 @@
 | ---- | ------- | ----------- |
 | ```delete-id``` |  | Resource name or ID |
 
-## h1 network network ip create
+## h1 network ip create
 
 ### Syntax
 
-```h1 network network ip create | --network NETWORK```
+```h1 network ip create | --network NETWORK```
 
 ### Optional options
 

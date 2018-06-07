@@ -4,11 +4,11 @@
 
 # Specification
 
-## h1 login login
+## h1 login
 
 ### Syntax
 
-```h1 login login | [--password PASSWORD] username```
+```h1 login | [--password PASSWORD] username```
 
 ### Optional options
 
