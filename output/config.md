@@ -24,26 +24,26 @@
 
 ### Syntax
 
-```h1 config get | key```
+```h1 config get | --key KEY```
 
-### Parameters (DEPRECATED)
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```key``` |  | key |
+| ```--key KEY``` |  | Name of config key |
 
 ## h1 config set
 
 ### Syntax
 
-```h1 config set | key value```
+```h1 config set | --key KEY --value VALUE```
 
-### Parameters (DEPRECATED)
+### Optional options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```key``` |  | key |
-| ```value``` |  | value |
+| ```--key KEY``` |  | Name of config key |
+| ```--value VALUE``` |  | Value of option |
 
 ## h1 config unset
 
@@ -55,5 +55,5 @@
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```key``` |  | key |
+| ```key``` |  | Name of config key |
 
