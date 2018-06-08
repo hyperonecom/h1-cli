@@ -5,29 +5,27 @@ const Cli = require('structured-cli');
 const fs = require('fs');
 
 const options = {
+    disk: {
+        description: 'Disk name or ID'
+      , type: 'string'
+      , required: true
+    },
     'destination-file': {
-        description: 'destination disk path'
+        description: 'Path to .vhdx file to save'
       , type: 'string'
       , required: true
     }
 };
 
-const params = {
-    id: {
-        description: 'Resource identifier'
-      , type: 'string'
-      , required: true
-    }
-};
 
 module.exports = resource => Cli.createCommand('download', {
-    description: 'Download'
+    description: `Download ${resource.title} to a file`
   , plugins: resource.plugins
   , options: options
-  , params: params
+  , params: resource.params
   , handler: async args => {
 
-        const disk = await args.helpers.api.get(`${resource.url(args)}/${args.id}`);
+        const disk = await args.helpers.api.get(`${resource.url(args)}/${args['disk-id']}`);
 
         return new Promise((resolve, reject) => {
             const writeStream = fs.createWriteStream(args['destination-file']);

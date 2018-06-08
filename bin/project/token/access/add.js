@@ -4,19 +4,19 @@ const Cli = require('structured-cli');
 
 const options = {
     method: {
-        description: 'http method. eg: GET, POST..., ALL (to allow all methods)'
+        description: 'HTTP method. eg: GET, POST..., ALL (to allow all methods)'
       , type: 'string'
       , required: true
     }
   , path: {
-        description: 'url path, eg: /disk'
+        description: 'URL path, eg: /disk'
       , type: 'string'
       , required: true
     }
 };
 
 module.exports = resource => Cli.createCommand('add', {
-    description: 'Add'
+    description: `Add ${resource.title}`
   , plugins: resource.plugins
   , params: resource.params
   , options: Object.assign(options, resource.options)

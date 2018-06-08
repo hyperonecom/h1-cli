@@ -1,24 +1,24 @@
 # TOC
 
- * [h1 disk list](#h1-disk-list) - Resource list
- * [h1 disk show](#h1-disk-show) - Resource show
- * [h1 disk delete](#h1-disk-delete) - Resource delete
- * [h1 disk rename](#h1-disk-rename) - Resource rename
- * [h1 disk create](#h1-disk-create) - Disk create
- * [h1 disk resume-create](#h1-disk-resume-create) - Resume Create Upload
- * [h1 disk resize](#h1-disk-resize) - Resource resize
- * [h1 disk download](#h1-disk-download) - Download
+ * [h1 disk list](#h1-disk-list) - List disk
+ * [h1 disk show](#h1-disk-show) - Show disk
+ * [h1 disk delete](#h1-disk-delete) - Delete disk
+ * [h1 disk rename](#h1-disk-rename) - Rename disk
+ * [h1 disk create](#h1-disk-create) - Create disk
+ * [h1 disk resume](#h1-disk-resume) - Resume create upload of disk
+ * [h1 disk resize](#h1-disk-resize) - Resize disk
+ * [h1 disk download](#h1-disk-download) - Download disk to a file
 
 
 # Specification
 
 ## h1 disk
 
-Manage your DISK
+Manage your disk
 
 ## h1 disk list
 
-Resource list
+List disk
 
 ### Syntax
 
@@ -26,55 +26,50 @@ Resource list
 
 ## h1 disk show
 
-Resource show
+Show disk
 
 ### Syntax
 
-```h1 disk show | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
-
-## h1 disk delete
-
-Resource delete
-
-### Syntax
-
-```h1 disk delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
-
-## h1 disk rename
-
-Resource rename
-
-### Syntax
-
-```h1 disk rename | --new-name NEW-NAME id```
+```h1 disk show | --disk DISK```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--new-name NEW-NAME``` |  | New name |
+| ```--disk DISK``` |  | Disk ID or name |
 
-### Parameters (DEPRECATED)
+## h1 disk delete
+
+Delete disk
+
+### Syntax
+
+```h1 disk delete | --disk DISK```
+
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--disk DISK``` |  | Disk ID or name |
+
+## h1 disk rename
+
+Rename disk
+
+### Syntax
+
+```h1 disk rename | --disk DISK --new-name NEW-NAME```
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 disk create
 
-Disk create
+Create disk
 
 ### Syntax
 
@@ -85,67 +80,52 @@ Disk create
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Disk name |
-| ```--type TYPE``` |  | Disk type Id |
+| ```--type TYPE``` |  | Disk type ID or name |
 | ```--size SIZE``` |  | Disk size in GB |
-| ```[--source-file SOURCE-FILE]``` |  | import disk path |
+| ```[--source-file SOURCE-FILE]``` |  | Path to .vhdx file to import |
 
-## h1 disk resume-create
+## h1 disk resume
 
-Resume Create Upload
+Resume create upload of disk
 
 ### Syntax
 
-```h1 disk resume-create | --source-file SOURCE-FILE id```
+```h1 disk resume | --disk DISK --source-file SOURCE-FILE```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--source-file SOURCE-FILE``` |  | import disk path |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource name or ID |
+| ```--disk DISK``` |  | Disk ID or name |
+| ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
 
 ## h1 disk resize
 
-Resource resize
+Resize disk
 
 ### Syntax
 
-```h1 disk resize | --size SIZE id```
+```h1 disk resize | --disk DISK --size SIZE```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
 | ```--size SIZE``` |  | New size |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource name or ID |
 
 ## h1 disk download
 
-Download
+Download disk to a file
 
 ### Syntax
 
-```h1 disk download | --destination-file DESTINATION-FILE id```
+```h1 disk download | --disk DISK --destination-file DESTINATION-FILE```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--destination-file DESTINATION-FILE``` |  | destination disk path |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--disk DISK``` |  | Disk name or ID |
+| ```--destination-file DESTINATION-FILE``` |  | Path to .vhdx file to save |
 

@@ -10,6 +10,7 @@ module.exports = resource => {
       , url: args => `${resource.url(args)}/password`
       , commands: ['list', 'delete']
       , params: resource.params
+      , title: 'password to Vault'
     });
 
     category.addChild(require('./add')(resource));

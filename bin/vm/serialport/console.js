@@ -4,15 +4,13 @@ const Cli = require('structured-cli');
 
 const readline = require('readline');
 
-const params = {
-    id: {
-        description: 'Resource identifier'
-      , type: 'string'
-      , required: true
-    }
-};
-
 const options = {
+    vm: {
+        description: 'Virtual machine ID or name'
+        , type: 'string'
+        , required: true
+
+    },
     port: {
         description: 'Port to connect'
       , type: 'string'
@@ -21,10 +19,10 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('console', {
-    description: 'Connect to VM using Serial Console'
+    description: `Connect to ${resource.title} using Serial Console`
   , plugins: resource.plugins
-  , params: params
-  , options: Object.assign(options, resource.options)
+  , params: resource.params
+  , options: Object.assign({}, options, resource.options)
   , handler: handler
 });
 

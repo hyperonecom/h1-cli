@@ -3,33 +3,26 @@
 const Cli = require('structured-cli');
 const genericDefaults = require('bin/generic/defaults');
 
-const params = {
-    id: {
+const options = {
+    netgw: {
         description: 'Network gateway name or ID'
       , type: 'string'
       , required: true
-    }
-};
-
-const options = {
+    },
     network: {
-        description: 'Network name or id'
+        description: 'Network name or ID'
       , type: 'string'
       , required: true
     }
 };
 
-module.exports = Cli.createCommand('attach', {
+module.exports = resource => Cli.createCommand('attach', {
     description: 'Network gateway attach to a network'
   , plugins: genericDefaults.plugins
-  , options: options
-  , handler: handler
-  , params: params
+  , options: Object.assign({}, resource.options, options)
+  , params: resource.params
+  , handler: (args) => args.helpers.api
+        .post(`netgw/${args.netgw}/actions`, { name: 'attach', data: { private: { network: args.network } } })
+        .then(result => args.helpers.sendOutput(args, result))
 });
 
-function handler(args) {
-    return args.helpers.api
-        .post(`netgw/${args.id}/actions`, { name: 'attach', data: { private: { network: args.network } } })
-        .then(result => args.helpers.sendOutput(args, result))
-    ;
-}

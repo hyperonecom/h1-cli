@@ -17,7 +17,7 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('grant', {
-    description: `Grant access rights for ${resource.name.toUpperCase()}`,
+    description: `Grant access rights for ${resource.title}`,
     plugins: resource.plugins,
     params: resource.params,
     options: options,

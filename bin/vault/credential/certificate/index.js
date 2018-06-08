@@ -10,6 +10,7 @@ module.exports = resource => {
       , url: args => `${resource.url(args)}/certificate`
       , commands: ['list', 'delete']
       , params: resource.params
+      , title: 'certificate to Vault'
     });
 
     category.addChild(require('./add')(resource));

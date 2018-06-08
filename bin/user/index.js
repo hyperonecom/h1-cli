@@ -2,6 +2,11 @@
 
 const Cli = require('structured-cli');
 
+const resource = {
+    'name': 'user',
+    'title': 'user'
+};
+
 const childDefaults = {
     url: () => 'user/me'
   , plugins: [
@@ -11,14 +16,15 @@ const childDefaults = {
     ]
 };
 
-const category = Cli.createCategory('user', {
-    description: 'Manage your User'
+const category = Cli.createCategory(resource.name, {
+    description: `Manage your ${resource.title}`
 });
 
 category.addChild(require('./create'));
 
 category.addChild(require('bin/generic/credentials')(Object.assign(
     {}
+  , resource
   , childDefaults
   , { url: args => `${childDefaults.url(args)}/credential`}
 )));

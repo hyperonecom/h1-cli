@@ -15,7 +15,7 @@ const options = {
       , required: true
     }
   , type: {
-        description: 'Disk type Id'
+        description: 'Disk type ID or name'
       , type: 'string'
       , required: true
     }
@@ -25,14 +25,14 @@ const options = {
       , required: true
     }
   , 'source-file': {
-        description: 'import disk path'
+        description: 'Path to .vhdx file to import'
       , type: 'string'
       , required: false
     }
 };
 
 module.exports = resource => Cli.createCommand('create', {
-    description: 'Disk create'
+    description: `Create ${resource.title}`
   , plugins: resource.plugins
   , options: options
   , handler: async args => {

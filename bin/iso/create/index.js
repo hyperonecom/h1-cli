@@ -14,14 +14,15 @@ const options = {
       , type: 'string'
       , required: true
     }
-  , 'source-url': {
-        description: 'Source url for ISO import. Required if source-url is not specified.'
-        , type: 'string'
-    }
   , 'source-file': {
         description: 'Source file for ISO import.'
         , type: 'string'
-  }
+    }
+  , 'source-url': {
+        description: 'Source url for ISO import. Required if source-file is not specified.'
+        , type: 'string'
+    }
+
 };
 
 module.exports = resource => Cli.createCommand('create', {

@@ -5,7 +5,7 @@ const Open = require('opn');
 const Chalk = require('chalk');
 
 module.exports = resource => Cli.createCommand('console', {
-    description: 'Open VM console in webbrowser'
+    description: `Open ${resource.title} console in webbrowser`
   , plugins: resource.plugins
   , params: resource.params
   , handler: async args => {

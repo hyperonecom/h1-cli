@@ -1,15 +1,18 @@
 'use strict';
 
 const Cli = require('structured-cli');
+const genericDefaults = require('bin/generic/defaults');
 
 const options = {
     resource: {
         type: String
       , choices: [ 'disk', 'image', 'ip', 'iso', 'netadp', 'network', 'tenant', 'vault', 'vm']
+      , description: 'Kind of resource'
     }
   , type: {
         type: String
       , choices: [ 'flavour', 'ipv4', 'license', 'metric', 'standard', 'support' ]
+      , description: 'Kind of type of resource'
     }
 };
 
@@ -20,10 +23,10 @@ const customOutput = {
 };
 
 module.exports = resource => Cli.createCommand('list', {
-    description: 'Resource List'
-  , plugins: resource.plugins
-  , options: options
-  , handler: async args => {
+    description: `List ${resource.title}`,
+    plugins: genericDefaults.plugins,
+    options: options,
+    handler: async args => {
 
         const query = {};
         if (args.resource) {

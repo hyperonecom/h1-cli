@@ -11,7 +11,7 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('revoke', {
-    description: `Revoke access rights for ${resource.name.toUpperCase()}`,
+    description: `Revoke access rights for ${resource.title}`,
     plugins: resource.plugins,
     params: resource.params,
     options: options,

@@ -10,14 +10,12 @@ const options = {
         description: 'Username'
       , type: 'string'
       , required: true
-    }
-};
-
-const params = {
-    id: {
-        description: 'Resource identifier'
+    },
+    vm: {
+        description: 'Virtual machine ID or name'
       , type: 'string'
       , required: true
+      , dest: 'id'
     }
 };
 
@@ -70,9 +68,9 @@ const handler = args => {
 };
 
 module.exports = resource => Cli.createCommand('passwordreset', {
-    description: 'Password reset'
+    description: `Password reset for ${resource.title}`
   , plugins: resource.plugins
-  , params: params
+  , params: resource.params
   , options: Object.assign({}, options, resource.options)
   , handler: handler
 });

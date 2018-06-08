@@ -3,11 +3,12 @@
 const Cli = require('structured-cli');
 
 const resource = {
-    name: 'dns'
+    name: 'dns',
+    title: 'DNS'
 };
 
-const category = Cli.createCategory(resource.name, {
-    description: `Manage your ${resource.name.toUpperCase()}`
+const category = Cli.createCategory(resource.name.toLowerCase(), {
+    description: `Manage your ${resource.title} - zones and records`
 });
 
 category.addChild(require('./zone'));

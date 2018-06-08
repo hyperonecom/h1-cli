@@ -29,7 +29,7 @@ const combineMetrics = async (api, type, resource, all) => {
 };
 
 module.exports = resource => Cli.createCommand('metrics', {
-    description: 'Get Live Metrics'
+    description: `Get live metrics of ${resource.title}`
   , plugins: resource.plugins
   , params: resource.params
   , options: resource.options

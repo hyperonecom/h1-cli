@@ -9,12 +9,12 @@ const logger = require('lib/logger');
 
 const options = {
     name: {
-        description: 'Name'
+        description: 'Certificate name'
       , type: 'string'
       , required: true
     }
   , sshkey: {
-        description: 'Public SSH key Id'
+        description: 'Public SSH key ID or name'
       , type: 'string'
     }
   , 'sshkey-file': {
@@ -24,10 +24,10 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('add', {
-    description: 'Adding public SSH key'
+    description: `Add ${resource.title}`
   , plugins: resource.plugins
   , params: resource.params
-  , options: options
+  , options: Object.assign({}, resource.options, options)
   , handler: args => {
 
         if (!args.sshkey && !args['sshkey-file']) {

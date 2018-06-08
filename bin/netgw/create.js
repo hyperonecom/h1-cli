@@ -5,7 +5,7 @@ const genericDefaults = require('bin/generic/defaults');
 
 const options = {
     name: {
-        description: 'Network gateway name'
+        description: 'Network gateway name or ID'
       , type: 'string'
       , required: true
     }
@@ -16,16 +16,12 @@ const options = {
     }
 };
 
-module.exports = Cli.createCommand('create', {
-    description: 'NetGW create'
+module.exports = resource => Cli.createCommand('create', {
+    description: 'Network gateway create'
   , plugins: genericDefaults.plugins
-  , options: options
-  , handler: handler
-});
-
-function handler(args) {
-    return args.helpers.api
+  , options: Object.assign({}, resource.options, options)
+  , params: resource.params
+  , handler: (args) => args.helpers.api
         .post('netgw', { name: args.name, public: { ip: args.ip } })
         .then(result => args.helpers.sendOutput(args, result))
-    ;
-}
+});

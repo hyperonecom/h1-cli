@@ -2,18 +2,18 @@
 
 const Cli = require('structured-cli');
 
-const params = {
-    id: {
-        description: 'Resource identifier'
+const options = {
+    vault: {
+        description: 'Vault ID or name'
       , type: 'string'
       , required: true
     }
 };
 
 module.exports = resource => Cli.createCommand('ssh', {
-    description: 'Connect to Vault using SSH'
+    description: `Connect to ${resource.title} using SSH`
   , plugins: resource.plugins
-  , params: params
+  , options: Object.assign({}, resource.options, options)
   , handler: args => args.helpers.api
         .get(`${args.$node.parent.config.url(args)}/${args.id}`)
         .then(result => {

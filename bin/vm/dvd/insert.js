@@ -11,7 +11,7 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('insert', {
-    description: 'Insert ISO into DVD drive'
+    description: `Insert ISO into DVD drive of ${resource.title}`
   , plugins: resource.plugins
   , params: resource.params
   , options: Object.assign({}, options, resource.options)

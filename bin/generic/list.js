@@ -3,7 +3,7 @@
 const Cli = require('structured-cli');
 
 module.exports = resource => Cli.createCommand('list', {
-    description: 'Resource list'
+    description: `List ${resource.title}`
   , plugins: resource.plugins
   , options: resource.options
   , params: resource.params

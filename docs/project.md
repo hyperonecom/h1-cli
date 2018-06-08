@@ -1,38 +1,38 @@
 # TOC
 
- * [h1 project list](#h1-project-list) - Resource list
- * [h1 project show](#h1-project-show) - Resource show
- * [h1 project delete](#h1-project-delete) - Resource delete
- * [h1 project list](#h1-project-list) - Resource list
- * [h1 project access](#h1-project-access) - Manage your PROJECT Access Rights
-  * [h1 project access grant](#h1-project-access-grant) - Grant access rights for PROJECT
-  * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for PROJECT
-  * [h1 project access list](#h1-project-access-list) - Resource list
- * [h1 project token](#h1-project-token) - Manage your TOKEN
-  * [h1 project token list](#h1-project-token-list) - Resource list
-  * [h1 project token delete](#h1-project-token-delete) - Resource delete
-  * [h1 project token add](#h1-project-token-add) - Add
-  * [h1 project token access](#h1-project-token-access) - Manage your ACCESS
-   * [h1 project token access list](#h1-project-token-access-list) - Resource list
-   * [h1 project token access delete](#h1-project-token-access-delete) - Resource delete
-   * [h1 project token access add](#h1-project-token-access-add) - Add
+ * [h1 project list](#h1-project-list) - List project
+ * [h1 project show](#h1-project-show) - Show project
+ * [h1 project delete](#h1-project-delete) - Delete project
+ * [h1 project list](#h1-project-list) - List project
+ * [h1 project access](#h1-project-access) - Manage your project access rights
+  * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
+  * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for project
+  * [h1 project access list](#h1-project-access-list) - List project
+ * [h1 project token](#h1-project-token) - Manage your project tokens
+  * [h1 project token list](#h1-project-token-list) - List token
+  * [h1 project token delete](#h1-project-token-delete) - Delete token
+  * [h1 project token add](#h1-project-token-add) - Add token
+  * [h1 project token access](#h1-project-token-access) - Manage your token access
+   * [h1 project token access list](#h1-project-token-access-list) - List access rule
+   * [h1 project token access delete](#h1-project-token-access-delete) - Delete access rule
+   * [h1 project token access add](#h1-project-token-access-add) - Add access rule
  * [h1 project select](#h1-project-select) - Select project context
- * [h1 project limit](#h1-project-limit) - Cloud limits set for Tenant
- * [h1 project credentials](#h1-project-credentials) - Manage your CREDENTIALS
-  * [h1 project credentials list](#h1-project-credentials-list) - Resource list
-  * [h1 project credentials delete](#h1-project-credentials-delete) - Resource delete
-  * [h1 project credentials add](#h1-project-credentials-add) - Adding public SSH key
+ * [h1 project limit](#h1-project-limit) - Cloud limits set for project
+ * [h1 project credentials](#h1-project-credentials) - Manage your credentials
+  * [h1 project credentials list](#h1-project-credentials-list) - List credentials
+  * [h1 project credentials delete](#h1-project-credentials-delete) - Delete credentials
+  * [h1 project credentials add](#h1-project-credentials-add) - Add public SSH key for project
 
 
 # Specification
 
 ## h1 project
 
-Manage your PROJECT
+Manage your project
 
 ## h1 project list
 
-Resource list
+List project
 
 ### Syntax
 
@@ -40,35 +40,35 @@ Resource list
 
 ## h1 project show
 
-Resource show
+Show project
 
 ### Syntax
 
-```h1 project show | id```
+```h1 project show | --project PROJECT```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project delete
 
-Resource delete
+Delete project
 
 ### Syntax
 
-```h1 project delete | delete-id```
+```h1 project delete | --project PROJECT```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project list
 
-Resource list
+List project
 
 ### Syntax
 
@@ -78,19 +78,19 @@ Resource list
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```[--all]``` |  | display all projects |
+| ```[--all]``` |  | Display all projects |
 
 ## h1 project access
 
-Manage your PROJECT Access Rights
+Manage your project access rights
 
 ## h1 project access grant
 
-Grant access rights for PROJECT
+Grant access rights for project
 
 ### Syntax
 
-```h1 project access grant | --identity IDENTITY [--role ROLE] id```
+```h1 project access grant | --identity IDENTITY [--role ROLE]```
 
 ### Required options
 
@@ -99,19 +99,13 @@ Grant access rights for PROJECT
 | ```--identity IDENTITY``` |  | Identity (eg: user@example.org) |
 | ```[--role ROLE]``` |  | Role |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
-
 ## h1 project access revoke
 
-Revoke access rights for PROJECT
+Revoke access rights for project
 
 ### Syntax
 
-```h1 project access revoke | --identity IDENTITY id```
+```h1 project access revoke | --identity IDENTITY```
 
 ### Required options
 
@@ -119,66 +113,53 @@ Revoke access rights for PROJECT
 | ---- | ------- | ----------- |
 | ```--identity IDENTITY``` |  | Identity (eg: user@example.org) |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
-
 ## h1 project access list
 
-Resource list
+List project
 
 ### Syntax
 
-```h1 project access list | id```
+```h1 project access list | --project PROJECT```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project token
 
-Manage your TOKEN
+Manage your project tokens
 
 ## h1 project token list
 
-Resource list
+List token
 
 ### Syntax
 
-```h1 project token list | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
+```h1 project token list | ```
 
 ## h1 project token delete
 
-Resource delete
+Delete token
 
 ### Syntax
 
-```h1 project token delete | id delete-id```
+```h1 project token delete | --token TOKEN```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
+| ```--token TOKEN``` |  | Token ID or name |
 
 ## h1 project token add
 
-Add
+Add token
 
 ### Syntax
 
-```h1 project token add | --name NAME id```
+```h1 project token add | --name NAME```
 
 ### Required options
 
@@ -186,78 +167,54 @@ Add
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
-
 ## h1 project token access
 
-Manage your ACCESS
+Manage your token access
 
 ## h1 project token access list
 
-Resource list
+List access rule
 
 ### Syntax
 
-```h1 project token access list | --token TOKEN id```
+```h1 project token access list | --token TOKEN```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--token TOKEN``` |  | token id |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
+| ```--token TOKEN``` |  | Token ID |
 
 ## h1 project token access delete
 
-Resource delete
+Delete access rule
 
 ### Syntax
 
-```h1 project token access delete | --token TOKEN id delete-id```
+```h1 project token access delete | --token TOKEN --access ACCESS```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--token TOKEN``` |  | token id |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
+| ```--token TOKEN``` |  | Token ID |
+| ```--access ACCESS``` |  | Access rule ID or name |
 
 ## h1 project token access add
 
-Add
+Add access rule
 
 ### Syntax
 
-```h1 project token access add | --method METHOD --path PATH --token TOKEN id```
+```h1 project token access add | --method METHOD --path PATH --token TOKEN```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--method METHOD``` |  | http method. eg: GET, POST..., ALL (to allow all methods) |
-| ```--path PATH``` |  | url path, eg: /disk |
-| ```--token TOKEN``` |  | token id |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
+| ```--method METHOD``` |  | HTTP method. eg: GET, POST..., ALL (to allow all methods) |
+| ```--path PATH``` |  | URL path, eg: /disk |
+| ```--token TOKEN``` |  | Token ID |
 
 ## h1 project select
 
@@ -265,68 +222,55 @@ Select project context
 
 ### Syntax
 
-```h1 project select | id```
+```h1 project select | --project PROJECT```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project limit
 
-Cloud limits set for Tenant
+Cloud limits set for project
 
 ### Syntax
 
-```h1 project limit | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
+```h1 project limit | ```
 
 ## h1 project credentials
 
-Manage your CREDENTIALS
+Manage your credentials
 
 ## h1 project credentials list
 
-Resource list
+List credentials
 
 ### Syntax
 
-```h1 project credentials list | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
+```h1 project credentials list | ```
 
 ## h1 project credentials delete
 
-Resource delete
+Delete credentials
 
 ### Syntax
 
-```h1 project credentials delete | id delete-id```
+```h1 project credentials delete | --credentials CREDENTIALS```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
 ## h1 project credentials add
 
-Adding public SSH key
+Add public SSH key for project
 
 ### Syntax
 
-```h1 project credentials add | --name NAME --sshkey-file SSHKEY-FILE id```
+```h1 project credentials add | --name NAME --sshkey-file SSHKEY-FILE```
 
 ### Required options
 
@@ -334,10 +278,4 @@ Adding public SSH key
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Project id |
 

@@ -6,35 +6,35 @@ const genericDefaults = require('bin/generic/defaults');
 
 const options = {
     name: {
-        description: 'VM name',
+        description: 'Virtual machine name',
         type: 'string',
         required: true
     },
     type: {
-        description: 'VM type Id',
+        description: 'Virtual machine type name or ID',
         type: 'string',
         required: true
     },
     password: {
-        description: 'Password',
+        description: 'Initial administrator user password',
         type: 'string'
     },
     username: {
-        description: 'Username',
+        description: 'Initial administrator username',
         type: 'string'
     },
     ssh: {
         action: 'append',
-        description: 'SSH key Id or name that allows access.',
+        description: 'SSH key ID or name that allows access.',
         type: 'string',
         dest: 'sshKeys'
     },
     image: {
-        description: 'Image id',
+        description: 'Image ID or name',
         type: 'string'
     },
     iso: {
-        description: 'Iso id',
+        description: 'ISO ID or name',
         type: 'string'
     },
 
@@ -56,15 +56,15 @@ const options = {
     },
 
     network: {
-        description: 'Network for VM',
+        description: 'Network ID or name to attach',
         type: 'string'
     },
     ip: {
-        description: 'IP for VM',
+        description: 'IP address for Virtual machine',
         type: 'string'
     },
     'no-start': {
-        description: 'Do not start vm after creation',
+        description: 'Do not start Virtual machine after creation',
         type: 'boolean'
     },
     'userdata-file': {
@@ -137,8 +137,8 @@ const handler = async (args) => {
         .then(result => args.helpers.sendOutput(args, result));
 };
 
-module.exports = Cli.createCommand('create', {
-    description: 'VM create',
+module.exports = resource => Cli.createCommand('create', {
+    description: `${resource.title} create`,
     plugins: genericDefaults.plugins,
     options: options,
     handler: handler

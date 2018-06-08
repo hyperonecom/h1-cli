@@ -4,14 +4,14 @@ const Cli = require('structured-cli');
 
 const options = {
     all: {
-        description: 'display all projects'
+        description: 'Display all projects'
       , type: 'boolean'
       , defaultValue: false
     }
 };
 
 module.exports = resource => Cli.createCommand('list', {
-    description: 'Resource list'
+    description: `List ${resource.title}`
   , plugins: resource.plugins
   , options: options
   , handler: args => args.helpers.api

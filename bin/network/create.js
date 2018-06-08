@@ -11,16 +11,13 @@ const options = {
     }
 };
 
-module.exports = Cli.createCommand('create', {
-    description: 'Network create'
+
+module.exports = resource => Cli.createCommand('create', {
+    description: `Create ${resource.title}`
   , plugins: genericDefaults.plugins
   , options: options
-  , handler: handler
-});
-
-function handler(args) {
-    return args.helpers.api
+  , handler: (args) => args.helpers.api
         .post('network', { name: args.name })
         .then(result => args.helpers.sendOutput(args, result))
-    ;
-}
+});
+

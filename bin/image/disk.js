@@ -2,19 +2,19 @@
 
 const Cli = require('structured-cli');
 
-const params = {
-    id: {
-        description: 'Image name or ID'
+const options = {
+    image: {
+        description: 'Image ID or name'
       , type: 'string'
       , required: true
     }
 };
 
 module.exports = resource => Cli.createCommand('disk', {
-    description: 'List all disks'
+    description: `List all disks of ${resource.title}`
   , plugins: resource.plugins
-  , options: resource.options
-  , params: Object.assign({}, resource.params, params)
+  , options: Object.assign({}, resource.options, options)
+  , params: resource.params
   , handler: async args => {
         args.query = '[].{id:disk._id,name:disk.name,type:type,size:size}';
 

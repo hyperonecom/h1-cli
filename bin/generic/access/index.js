@@ -7,7 +7,7 @@ module.exports = function(resource) {
     const commands =  ['grant', 'revoke', 'list'];
 
     const category = Cli.createCategory('access', {
-        description: `Manage your ${resource.name.toUpperCase()} Access Rights`,
+        description: `Manage your ${resource.title} access rights`,
         defaultQuery: '[].{tenant:@}'
     });
 

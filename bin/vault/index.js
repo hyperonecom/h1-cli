@@ -9,6 +9,7 @@ const resource = {
   , url: () => 'vault'
   , plugins: genericDefaults.plugins
   , extraCommands: ['rename']
+  , title: 'Vault'
 };
 
 const category = genericResource(resource);

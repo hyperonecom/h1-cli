@@ -1,21 +1,21 @@
 # TOC
 
  * [h1 user create](#h1-user-create) - Create an account
- * [h1 user credentials](#h1-user-credentials) - Manage your CREDENTIALS
-  * [h1 user credentials list](#h1-user-credentials-list) - Resource list
-  * [h1 user credentials delete](#h1-user-credentials-delete) - Resource delete
-  * [h1 user credentials add](#h1-user-credentials-add) - Adding public SSH key
- * [h1 user 2fa](#h1-user-2fa) - Manage 2fa
-  * [h1 user 2fa enable](#h1-user-2fa-enable) - enable
-  * [h1 user 2fa disable](#h1-user-2fa-disable) - disable
-  * [h1 user 2fa list](#h1-user-2fa-list) - Resource list
+ * [h1 user credentials](#h1-user-credentials) - Manage your credentials
+  * [h1 user credentials list](#h1-user-credentials-list) - List credentials
+  * [h1 user credentials delete](#h1-user-credentials-delete) - Delete credentials
+  * [h1 user credentials add](#h1-user-credentials-add) - Add public SSH key for user
+ * [h1 user 2fa](#h1-user-2fa) - Manage two factor authentication
+  * [h1 user 2fa enable](#h1-user-2fa-enable) - Enable factor of authentication
+  * [h1 user 2fa disable](#h1-user-2fa-disable) - Disable factor of authentication
+  * [h1 user 2fa list](#h1-user-2fa-list) - List authentication factory
 
 
 # Specification
 
 ## h1 user
 
-Manage your User
+Manage your user
 
 ## h1 user create
 
@@ -27,11 +27,11 @@ Create an account
 
 ## h1 user credentials
 
-Manage your CREDENTIALS
+Manage your credentials
 
 ## h1 user credentials list
 
-Resource list
+List credentials
 
 ### Syntax
 
@@ -39,21 +39,21 @@ Resource list
 
 ## h1 user credentials delete
 
-Resource delete
+Delete credentials
 
 ### Syntax
 
-```h1 user credentials delete | delete-id```
+```h1 user credentials delete | --credentials CREDENTIALS```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
 ## h1 user credentials add
 
-Adding public SSH key
+Add public SSH key for user
 
 ### Syntax
 
@@ -68,11 +68,11 @@ Adding public SSH key
 
 ## h1 user 2fa
 
-Manage 2fa
+Manage two factor authentication
 
 ## h1 user 2fa enable
 
-enable
+Enable factor of authentication
 
 ### Syntax
 
@@ -86,7 +86,7 @@ enable
 
 ## h1 user 2fa disable
 
-disable
+Disable factor of authentication
 
 ### Syntax
 
@@ -100,7 +100,7 @@ disable
 
 ## h1 user 2fa list
 
-Resource list
+List authentication factory
 
 ### Syntax
 

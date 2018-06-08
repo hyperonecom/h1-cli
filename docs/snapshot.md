@@ -1,20 +1,20 @@
 # TOC
 
- * [h1 snapshot list](#h1-snapshot-list) - Resource list
- * [h1 snapshot show](#h1-snapshot-show) - Resource show
- * [h1 snapshot delete](#h1-snapshot-delete) - Resource delete
- * [h1 snapshot rename](#h1-snapshot-rename) - Resource rename
+ * [h1 snapshot list](#h1-snapshot-list) - List snapshot
+ * [h1 snapshot show](#h1-snapshot-show) - Show snapshot
+ * [h1 snapshot delete](#h1-snapshot-delete) - Delete snapshot
+ * [h1 snapshot rename](#h1-snapshot-rename) - Rename snapshot
 
 
 # Specification
 
 ## h1 snapshot
 
-Manage your SNAPSHOT
+Manage your snapshot
 
 ## h1 snapshot list
 
-Resource list
+List snapshot
 
 ### Syntax
 
@@ -22,49 +22,44 @@ Resource list
 
 ## h1 snapshot show
 
-Resource show
+Show snapshot
 
 ### Syntax
 
-```h1 snapshot show | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
-
-## h1 snapshot delete
-
-Resource delete
-
-### Syntax
-
-```h1 snapshot delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
-
-## h1 snapshot rename
-
-Resource rename
-
-### Syntax
-
-```h1 snapshot rename | --new-name NEW-NAME id```
+```h1 snapshot show | --snapshot SNAPSHOT```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--new-name NEW-NAME``` |  | New name |
+| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 
-### Parameters (DEPRECATED)
+## h1 snapshot delete
+
+Delete snapshot
+
+### Syntax
+
+```h1 snapshot delete | --snapshot SNAPSHOT```
+
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
+
+## h1 snapshot rename
+
+Rename snapshot
+
+### Syntax
+
+```h1 snapshot rename | --snapshot SNAPSHOT --new-name NEW-NAME```
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
 

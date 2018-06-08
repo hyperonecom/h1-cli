@@ -1,30 +1,30 @@
 # TOC
 
- * [h1 firewall list](#h1-firewall-list) - Resource list
- * [h1 firewall show](#h1-firewall-show) - Resource show
- * [h1 firewall delete](#h1-firewall-delete) - Resource delete
- * [h1 firewall create](#h1-firewall-create) - Create
- * [h1 firewall attach](#h1-firewall-attach) - Attach to a network
- * [h1 firewall detach](#h1-firewall-detach) - Detach from network
- * [h1 firewall ingress](#h1-firewall-ingress) - undefined
-  * [h1 firewall ingress list](#h1-firewall-ingress-list) - List
-  * [h1 firewall ingress add](#h1-firewall-ingress-add) - Add
-  * [h1 firewall ingress delete](#h1-firewall-ingress-delete) - Delete
- * [h1 firewall egress](#h1-firewall-egress) - undefined
-  * [h1 firewall egress list](#h1-firewall-egress-list) - List
-  * [h1 firewall egress add](#h1-firewall-egress-add) - Add
-  * [h1 firewall egress delete](#h1-firewall-egress-delete) - Delete
+ * [h1 firewall list](#h1-firewall-list) - List firewall
+ * [h1 firewall show](#h1-firewall-show) - Show firewall
+ * [h1 firewall delete](#h1-firewall-delete) - Delete firewall
+ * [h1 firewall create](#h1-firewall-create) - Create firewall
+ * [h1 firewall attach](#h1-firewall-attach) - Attach firewall to a network
+ * [h1 firewall detach](#h1-firewall-detach) - Detach firewall from network
+ * [h1 firewall ingress](#h1-firewall-ingress) - Manage ingress rules of firewall
+  * [h1 firewall ingress list](#h1-firewall-ingress-list) - List rule ingress of firewall
+  * [h1 firewall ingress add](#h1-firewall-ingress-add) - Add rule ingress of firewall
+  * [h1 firewall ingress delete](#h1-firewall-ingress-delete) - Add rule ingress of firewall
+ * [h1 firewall egress](#h1-firewall-egress) - Manage egress rules of firewall
+  * [h1 firewall egress list](#h1-firewall-egress-list) - List rule egress of firewall
+  * [h1 firewall egress add](#h1-firewall-egress-add) - Add rule egress of firewall
+  * [h1 firewall egress delete](#h1-firewall-egress-delete) - Add rule egress of firewall
 
 
 # Specification
 
 ## h1 firewall
 
-Manage your FIREWALL
+Manage your firewall
 
 ## h1 firewall list
 
-Resource list
+List firewall
 
 ### Syntax
 
@@ -32,35 +32,35 @@ Resource list
 
 ## h1 firewall show
 
-Resource show
+Show firewall
 
 ### Syntax
 
-```h1 firewall show | id```
+```h1 firewall show | --firewall FIREWALL```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 
 ## h1 firewall delete
 
-Resource delete
+Delete firewall
 
 ### Syntax
 
-```h1 firewall delete | delete-id```
+```h1 firewall delete | --firewall FIREWALL```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 
 ## h1 firewall create
 
-Create
+Create firewall
 
 ### Syntax
 
@@ -74,161 +74,148 @@ Create
 
 ## h1 firewall attach
 
-Attach to a network
+Attach firewall to a network
 
 ### Syntax
 
-```h1 firewall attach | --network NETWORK id```
+```h1 firewall attach | --firewall FIREWALL --network NETWORK```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--network NETWORK``` |  | Network name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+| ```--network NETWORK``` |  | Network ID or name |
 
 ## h1 firewall detach
 
-Detach from network
+Detach firewall from network
 
 ### Syntax
 
-```h1 firewall detach | id```
+```h1 firewall detach | --firewall FIREWALL```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 
 ## h1 firewall ingress
 
-undefined
+Manage ingress rules of firewall
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 
 ## h1 firewall ingress list
 
-List
+List rule ingress of firewall
 
 ### Syntax
 
-```h1 firewall ingress list | id```
+```h1 firewall ingress list | --firewall FIREWALL```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 
 ## h1 firewall ingress add
 
-Add
+Add rule ingress of firewall
 
 ### Syntax
 
-```h1 firewall ingress add | --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...] id```
+```h1 firewall ingress add | --firewall FIREWALL --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--name NAME``` |  | Name |
 | ```--action ACTION``` |  | Action |
 | ```--priority PRIORITY``` |  | Number between 100 and 999 representing priority |
 | ```--filter FILTER [--filter FILTER ...]``` |  | The filter rule in the form of "protocol:format [, protocol:format...]". Protocol as "icmp" / "udp" / "tcp" / "any". Port as numeric value. Example: "tcp:83". The parameter may occur repeatedly |
-| ```--external EXTERNAL [--external EXTERNAL ...]``` |  | Ip address or network on internal side.. The parameter may occur repeatedly |
+| ```--external EXTERNAL [--external EXTERNAL ...]``` |  | IP address or network on external side. The parameter may occur repeatedly |
 | ```--internal INTERNAL [--internal INTERNAL ...]``` |  | Resource tags or * for all. The parameter may occur repeatedly |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
 
 ## h1 firewall ingress delete
 
-Delete
+Add rule ingress of firewall
 
 ### Syntax
 
-```h1 firewall ingress delete | --rule RULE id```
+```h1 firewall ingress delete | --firewall FIREWALL --rule RULE```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--rule RULE``` |  | Rule identifier |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
 
 ## h1 firewall egress
 
-undefined
-
-## h1 firewall egress list
-
-List
-
-### Syntax
-
-```h1 firewall egress list | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
-
-## h1 firewall egress add
-
-Add
-
-### Syntax
-
-```h1 firewall egress add | --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...] id```
+Manage egress rules of firewall
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+
+## h1 firewall egress list
+
+List rule egress of firewall
+
+### Syntax
+
+```h1 firewall egress list | --firewall FIREWALL```
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+
+## h1 firewall egress add
+
+Add rule egress of firewall
+
+### Syntax
+
+```h1 firewall egress add | --firewall FIREWALL --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--name NAME``` |  | Name |
 | ```--action ACTION``` |  | Action |
 | ```--priority PRIORITY``` |  | Number between 100 and 999 representing priority |
 | ```--filter FILTER [--filter FILTER ...]``` |  | The filter rule in the form of "protocol:format [, protocol:format...]". Protocol as "icmp" / "udp" / "tcp" / "any". Port as numeric value. Example: "tcp:83". The parameter may occur repeatedly |
-| ```--external EXTERNAL [--external EXTERNAL ...]``` |  | Ip address or network on internal side.. The parameter may occur repeatedly |
+| ```--external EXTERNAL [--external EXTERNAL ...]``` |  | IP address or network on external side. The parameter may occur repeatedly |
 | ```--internal INTERNAL [--internal INTERNAL ...]``` |  | Resource tags or * for all. The parameter may occur repeatedly |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
 
 ## h1 firewall egress delete
 
-Delete
+Add rule egress of firewall
 
 ### Syntax
 
-```h1 firewall egress delete | --rule RULE id```
+```h1 firewall egress delete | --firewall FIREWALL --rule RULE```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--rule RULE``` |  | Rule identifier |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
 

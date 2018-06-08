@@ -2,15 +2,12 @@
 
 const Cli = require('structured-cli');
 
-const params = {
-    id: {
-        description: 'Resource identifier'
+const options = {
+    vm: {
+        description: 'Virtual machine ID or name'
       , type: 'string'
       , required: true
-    }
-};
-
-const options = {
+    },
     port: {
         description: 'Port to connect'
       , type: 'string'
@@ -19,11 +16,11 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('log', {
-    description: 'Log Serial Console buffer'
+    description: `Log Serial Console buffer of ${resource.title}`
   , plugins: resource.plugins
-  , params: params
-  , options: Object.assign(options, resource.options)
+  , params: resource.params
+  , options: Object.assign({}, resource.options, options)
   , handler: handler
 });
 
-const handler = args => args.helpers.api.get(`/vm/${args.id}/serialport/${args.port}`).then(data => console.log(data));
+const handler = args => args.helpers.api.get(`/vm/${args.vm}/serialport/${args.port}`).then(data => console.log(data));

@@ -4,7 +4,7 @@ const Cli = require('structured-cli');
 const config = require('lib/config');
 
 const category = Cli.createCategory('config', {
-    description: 'Manage config'
+    description: 'Manage config of CLI'
 });
 
 category.addChild(Cli.createCommand('show', {
@@ -16,10 +16,10 @@ category.addChild(Cli.createCommand('show', {
 }));
 
 category.addChild(Cli.createCommand('get', {
-    description: 'get'
-  , params: {
+    description: 'Get config value'
+  , options: {
         key: {
-            description: 'key'
+            description: 'Name of config key'
           , type: 'string'
           , required: true
         }
@@ -35,7 +35,7 @@ const getApp = args =>{
 
     while (elem.parent) {
         elem = elem.parent;
-    };
+    }
 
     return elem;
 };
@@ -51,15 +51,15 @@ const getAppCommand = (args, path) => {
 };
 
 category.addChild(Cli.createCommand('set', {
-    description: 'set'
-  , params: {
+    description: 'Set config value'
+  , options: {
         key: {
-            description: 'key'
+            description: 'Name of config key'
           , type: 'string'
           , required: true
         }
       , value: {
-            description: 'value'
+            description: 'Config value'
           , type: 'string'
           , required: true
         }
@@ -83,17 +83,17 @@ category.addChild(Cli.createCommand('set', {
 }));
 
 category.addChild(Cli.createCommand('unset', {
-    description: 'unset'
-  , params: {
+    description: 'Unset config key'
+  , options: {
         key: {
-            description: 'key'
+            description: 'Name of config key'
           , type: 'string'
           , required: true
         }
     }
   , handler: args => {
         config.unset(`defaults.${args.key}`);
-    }
+  }
 }));
 
 module.exports = category;

@@ -13,14 +13,14 @@ const options = {
       , type: 'string'
     }
   , vm: {
-        description: 'VM name or ID'
+        description: 'Virtual machine name or ID'
       , type: 'string'
       , required: true
     }
 };
 
 module.exports = resource => Cli.createCommand('create', {
-    description: 'IMAGE create'
+    description: `Create ${resource.title}`
   , plugins: resource.plugins
   , options: options
   , handler: args => args.helpers.api
