@@ -51,9 +51,9 @@ const handler = args => {
                 // On May 30, 2018, the agent is available only for Windows.
                 const line = data.split('\n').filter(line => line.trim().length > 0).pop();
                 data = JSON.parse(line);
-            }catch(e) {
-                console.log("Invalid response from agent. Unable to reset password.");
-                console.debug("Response: ", data);
+            } catch (e) {
+                console.log('Invalid response from agent. Unable to reset password.');
+                console.debug('Response: ', data);
                 process.exit(-1);
             }
             if (data.modulus !== modulus) {
