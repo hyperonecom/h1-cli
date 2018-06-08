@@ -1,9 +1,9 @@
 # TOC
 
- * [h1 snapshot list](#h1-snapshot-list) - List snapshot
- * [h1 snapshot show](#h1-snapshot-show) - Show snapshot
- * [h1 snapshot delete](#h1-snapshot-delete) - Delete snapshot
- * [h1 snapshot rename](#h1-snapshot-rename) - Rename snapshot
+  * [h1 snapshot list](#h1-snapshot-list) - List snapshot
+  * [h1 snapshot show](#h1-snapshot-show) - Show snapshot
+  * [h1 snapshot delete](#h1-snapshot-delete) - Delete snapshot
+  * [h1 snapshot rename](#h1-snapshot-rename) - Rename snapshot
 
 
 # Specification
@@ -30,7 +30,7 @@ Show snapshot
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 
@@ -44,7 +44,7 @@ Delete snapshot
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 
@@ -58,7 +58,7 @@ Rename snapshot
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 | ```--new-name NEW-NAME``` |  | New name |

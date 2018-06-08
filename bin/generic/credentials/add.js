@@ -1,6 +1,6 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
 const path = require('path');
 const fs = require('fs');
@@ -20,9 +20,10 @@ const options = {
 
 module.exports = resource => Cli.createCommand('add', {
     description: `Add public SSH key for ${resource.title}`
+  // , dirname: __dirname
   , plugins: resource.plugins
   , params: resource.params
-  , options: options
+  , options: Object.assign({}, resource.options, options)
   , handler: args => {
 
         const filename = path.resolve(args['sshkey-file']);

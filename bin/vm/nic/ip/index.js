@@ -7,13 +7,13 @@ const options = {
     vm: {
         description: 'Virtual machine name or ID'
       , type: 'string'
-      ,  required: true
+      , required: true
     },
     nic: {
-      description: 'Network adapter ID'
-    , type: 'string'
-    , required: true
-  }
+        description: 'Network adapter ID'
+      , type: 'string'
+      , required: true
+    }
 };
 
 const resource = {

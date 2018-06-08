@@ -9,7 +9,7 @@ const resource = {
   , plugins: genericDefaults.plugins
   , url: () => 'service'
   , commands: [ 'show' ]
-  , title: 'Service'
+  , title: 'service'
 };
 
 const category = genericResource(resource);

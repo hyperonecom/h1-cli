@@ -18,12 +18,13 @@ const resource = {
     url: args => `vm/${args.vm}/netadp`,
     options: options,
     plugins: defaults.plugins,
-    title: 'Network adapter'
+    title: 'Network adapter',
+    dirname: __dirname
 };
 
 const category = genericResource(resource);
 
-category.addChild(require('./create')(resource));
+category.addChild(require('./create/create')(resource));
 category.addChild(require('bin/generic/delete')(resource));
 
 category.addChild(require('./ip'));

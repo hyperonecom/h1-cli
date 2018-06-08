@@ -1,6 +1,6 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
 const genericDefaults = require('bin/generic/defaults');
 const text = require('lib/text');
@@ -20,6 +20,7 @@ module.exports = function(resource) {
     };
 
     return Cli.createCommand('revoke', {
+        // dirname: __dirname,
         description: `Revoke access rights for ${resource.title}`,
         plugins: genericDefaults.plugins,
         params: resource.params,
@@ -30,7 +31,7 @@ module.exports = function(resource) {
 
 function handleAccessGrant(resource) {
     return function(args) {
-        return args.helpers.api.delete(`${resource.name}/${args.id}/accessrights/${args.project}`)
+        return args.helpers.api.delete(`${resource.name}/${args[resource.name]}/accessrights/${args.project}`)
         .then(result => args.helpers.sendOutput(args, result));
     };
 }

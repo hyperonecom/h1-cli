@@ -10,9 +10,9 @@ const resource = {
 
 const category = genericResource(resource);
 
-category.addChild(require('./disassociate')(resource));
-category.addChild(require('./associate')(resource));
 category.addChild(require('./create')(resource));
+category.addChild(require('./associate')(resource));
+category.addChild(require('./disassociate')(resource));
 category.addChild(require('./ptr')(resource));
 
 module.exports = category;

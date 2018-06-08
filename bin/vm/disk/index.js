@@ -29,7 +29,6 @@ const childOptions = Object.assign({}, resource.options, {
     }
 });
 
-
 const childDefaults = Object.assign({}, resource, {
     options: childOptions
 });

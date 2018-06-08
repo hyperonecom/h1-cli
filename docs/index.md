@@ -9,7 +9,7 @@
 * [h1 network](network.md) - Manage your network
 * [h1 ip](ip.md) - Manage your IP address
 * [h1 dns](dns.md) - Manage your DNS - zones and records
-* [h1 service](service.md) - Manage your Service
+* [h1 service](service.md) - Manage your service
 * [h1 netgw](netgw.md) - Manage your network gateway
 * [h1 firewall](firewall.md) - Manage your firewall
 * [h1 vault](vault.md) - Manage your Vault

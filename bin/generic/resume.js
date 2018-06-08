@@ -1,6 +1,6 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
 const websocketStream = require('lib/websocketStream');
 const text = require('lib/text');
@@ -11,7 +11,6 @@ module.exports = resource => {
             description: `${text.toTitleCase(resource.title)} ID or name`
           , type: 'string'
           , required: true
-          , dest: 'id'
         },
         'source-file': {
             description: 'Path to .vhdx file to import'
@@ -21,13 +20,14 @@ module.exports = resource => {
     };
 
     return Cli.createCommand('resume', {
-        description: `Resume create upload of ${resource.title}`
+          description: `Resume create upload of ${resource.title}`
+        // , dirname: __dirname
         , plugins: resource.plugins
         , options: Object.assign({}, resource.options, options)
         , params: resource.params
         , handler: async args => {
 
-            let r = await args.helpers.api.get(`${resource.url(args)}/${args.id}`);
+            let r = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);
 
             const ws = await args.helpers.api.wsUpload(`${resource.url(args)}/${r._id}/upload`);
 

@@ -5,7 +5,7 @@ const genericResource = require('bin/generic');
 
 module.exports = parent => {
 
-    const options = Object.assign({
+    const options = Object.assign({}, {
         token: {
             description: 'Token ID'
             , type: 'string'

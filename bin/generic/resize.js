@@ -1,6 +1,6 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
 const text = require('lib/text');
 
@@ -10,7 +10,6 @@ module.exports = resource => {
             description: `${text.toTitleCase(resource.title)} ID or name`
           , type: 'string'
           , required: true
-          , dest: 'id'
         },
         size: {
             description: 'New size'
@@ -20,12 +19,13 @@ module.exports = resource => {
     };
 
     return Cli.createCommand('resize', {
-        description: `Resize ${resource.title}`
+          description: `Resize ${resource.title}`
+        // , dirname: __dirname
         , plugins: resource.plugins
         , params: resource.params
         , options: options
         , handler: args => args.helpers.api
-            .post(`${resource.url(args)}/${args.id}/actions`, {
+            .post(`${resource.url(args)}/${args[resource.name]}/actions`, {
                 name: 'resize'
                 , data: {
                     size: args.size

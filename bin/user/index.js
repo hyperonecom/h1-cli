@@ -1,6 +1,6 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
 const resource = {
     name: 'user',
