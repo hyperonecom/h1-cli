@@ -8,7 +8,7 @@ const options = {
     type: {
         description: 'type'
       , type: 'string'
-      , default: 'totp'
+      , defaultValue: 'totp'
       , choices: ['totp', 'otac']
     }
 };
@@ -67,7 +67,9 @@ const enableOTAC = async (resource, args) => {
 module.exports = resource => {
 
     const category = Cli.createCategory('2fa', {
-        description: 'Manage 2FA'
+        description: 'Manage 2fa',
+        url: () => 'user/me/credential/password',
+        defaultQuery: '[].{id: _id, type: type, name: name, createdOn: createdOn}'
     });
 
     const enable = Cli.createCommand('enable', {
@@ -88,13 +90,15 @@ module.exports = resource => {
       , options: options
       , plugins: resource.plugins
       , handler: async args => {
-            const passwords = await args.helpers.api.get(`${resource.url()}/credential/password`);
+            const url = args.$node.parent.config.url(args);
+
+            const passwords = await args.helpers.api.get(url);
 
             const password = passwords.find(p => p.type === args.type);
 
             if (password) {
-                await args.helpers.api.delete(`${resource.url()}/credential/password/${password._id}`);
-                console.log('done');
+                await args.helpers.api.delete(`${args.$node.parent.config.url(args)}/${password._id}`);
+                console.log('Done');
             } else {
                 console.log(`${args.type} not found`);
             }
@@ -103,6 +107,7 @@ module.exports = resource => {
 
     category.addChild(enable);
     category.addChild(disable);
+    category.addChild(require('bin/generic/list')(resource));
 
     return category;
 };

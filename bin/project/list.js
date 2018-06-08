@@ -6,7 +6,7 @@ const options = {
     all: {
         description: 'display all projects'
       , type: 'boolean'
-      , default: false
+      , defaultValue: false
     }
 };
 
