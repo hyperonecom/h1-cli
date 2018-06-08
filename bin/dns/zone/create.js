@@ -3,7 +3,7 @@
 const Cli = require('structured-cli');
 
 const options = {
-    name: {
+    'zone-name': {
         description: 'Dns zone name',
         type: 'string',
         required: true
@@ -26,7 +26,7 @@ function handleCommand() {
         const url = `${args.$node.parent.config.url(args)}`;
 
         return args.helpers.api.post(url, {
-            name: args.name
+            name: args['zone-name']
         })
         .then(result => args.helpers.sendOutput(args, result));
     };

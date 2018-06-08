@@ -17,93 +17,13 @@ const formatRecordName = (name, zone) => {
     return name;
 };
 
-
-const recordTypes = {
-    a: {
-        options: {
-            'ipv4-address': {
-                description: 'IPv4 address'
-              , type: 'string'
-              , required: true
-              // , action: 'append'
-              // , dest: 'records'
-            }
-        }
-      , content: args => args['ipv4-address']
-    }
-  , cname: {
-        options : {
-            'cname': {
-                description: 'CName'
-              , type: 'string'
-              , required: true
-              // , action: 'append'
-              // , dest: 'records'
-            }
-        }
-      , content: args => addTrailingDot(args.cname)
-    }
-  , txt: {
-        options : {
-            'value': {
-                description: 'TXT value'
-              , type: 'string'
-              , required: true
-              // , action: 'append'
-              // , dest: 'records'
-            }
-        }
-      , content: args => args.value
-    }
-  , 'mx': {
-        options : {
-            exchange: {
-                description: 'Exchange metric'
-              , type: 'string'
-              , required: true
-            }
-          , preference: {
-                description: 'Preference metric'
-              , type: 'int'
-              , required: true
-            }
-        }
-      , content: args => `${args.preference} ${addTrailingDot(args.exchange)}`
-    }
-  , ns: {
-        options : {
-            'nsdname': {
-                description: 'Name server domain name'
-              , type: 'string'
-              , required: true
-            }
-        }
-      , content: args => addTrailingDot(args.nsdname)
-    }
-  , srv: {
-        options : {
-            port: {
-                description: 'Service port.'
-              , type: 'string'
-              , required: true
-            }
-          , priority: {
-                description: 'Priority metric'
-              , type: 'int'
-              , required: true
-            }
-          , weight: {
-                description: 'Weight metric'
-              , type: 'int'
-              , required: true
-            }
-          , target: {
-                description: 'Target domain name'
-              , type: 'string'
-              , required: true
-            }
-        }
-      , content: args => `${args.priority} ${args.weight} ${args.port} ${addTrailingDot(args.target)}`
+const recordOptions = {
+    value: {
+        description: 'Value'
+      ,  type: 'string'
+      , required: true
+      , action: 'append'
+      , dest: 'values'
     }
 };
 
@@ -121,6 +41,8 @@ const resource = {
     }
 };
 
+const recordTypes = ['a', 'cname', 'txt', 'mx', 'ns', 'srv'];
+
 const category = function(resource) {
 
     const resourceDefaults = {
@@ -135,7 +57,7 @@ const category = function(resource) {
         url: resource.url
     });
 
-    Object.keys(recordTypes).forEach(type => category.addChild(record(type, resource)));
+    recordTypes.forEach(type => category.addChild(record(type, resource)));
 
     category.addChild(require('bin/generic/list')(resource));
 
@@ -145,20 +67,19 @@ const category = function(resource) {
 function record(type, resource) {
     const category = Cli.createCategory(type, {
         description: `Record Set Type ${type.toUpperCase()}`,
-        defaultQuery: `[].rrsets[?type=='${type.toUpperCase()}'][].{name:name, type:type, ttl:ttl, records:join(',',records[].content)}`,
+        defaultQuery: `[?type=='${type.toUpperCase()}'][].{name:name, type:type, ttl:ttl, records:join(',',records[].content)}`,
         url: args => `${resource.url(args)}/rrsets/${type.toUpperCase()}`
     });
-
     category.addChild(require('bin/generic/list')(resource));
-    category.addChild(createRecordSet(type, resource));
-    category.addChild(deleteRecordSet(type, resource));
-    category.addChild(addRecord(type, resource));
-    category.addChild(deleteRecord(type, resource));
+    category.addChild(createRecordSet(resource));
+    category.addChild(deleteRecordSet(resource));
+    category.addChild(addRecord(resource));
+    category.addChild(deleteRecord(resource));
 
     return category;
 };
 
-const handleCreate = type => args => {
+const handleCreate = args => {
 
     const url = args.$node.parent.config.url(args);
 
@@ -166,17 +87,9 @@ const handleCreate = type => args => {
 
     const data = {
         name: formatRecordName(args.name, args['zone-name'])
-      , type: type
       , ttl: args.ttl
-      , records: [{ content: recordTypes[type].content(args), disabled: false }]
+      , records: args.values.map(value => ({ content: value, disabled: false }))
     };
-
-    // TODO handle array
-    /*
-    if (args.records) {
-         data.records = args.records.map(value => ({ content: value, disabled: false }));
-    }
-    */
 
     return args.helpers.api
         .post(url, data)
@@ -184,7 +97,7 @@ const handleCreate = type => args => {
     ;
 };
 
-function createRecordSet(type, resource) {
+function createRecordSet(resource) {
 
     const options = {
         name: {
@@ -202,12 +115,12 @@ function createRecordSet(type, resource) {
     return Cli.createCommand('create', {
         description: 'Create record-set',
         plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options, recordTypes[type].options),
-        handler: handleCreate(type)
+        options: Object.assign({}, options, resource.options, recordOptions),
+        handler: handleCreate
     });
 };
 
-const handleDelete = () => args => {
+const handleDelete = args => {
     args['zone-name'] = addTrailingDot(args['zone-name']);
 
     const name = formatRecordName(args.name, args['zone-name']);
@@ -219,7 +132,7 @@ const handleDelete = () => args => {
     ;
 };
 
-function deleteRecordSet(type, resource) {
+function deleteRecordSet(resource) {
 
     const options = {
         name: {
@@ -233,20 +146,22 @@ function deleteRecordSet(type, resource) {
         description: 'Delete record-set'
       , plugins: resource.plugins
       , options: Object.assign({}, options, resource.options)
-      , handler: handleDelete(type, resource)
+      , handler: handleDelete
     });
-};
+}
 
-const handleAddRecord = type => args => {
+const handleAddRecord = args => {
 
     args['zone-name'] = addTrailingDot(args['zone-name']);
     const name = formatRecordName(args.name, args['zone-name']);
     const url = `${args.$node.parent.config.url(args)}/${name}`;
 
+    const new_records = args.values.map(value => ({ content: value, disabled: false }));
+
     return args.helpers.api
         .get(url)
         .then(rset => {
-            rset.records.push({ content: recordTypes[type].content(args), disabled: false });
+            rset.records.push(...new_records);
 
             return args.helpers.api
                 .patch(url, rset)
@@ -255,7 +170,7 @@ const handleAddRecord = type => args => {
         });
 };
 
-function addRecord(type, resource) {
+function addRecord(resource) {
 
     const options = {
         name: {
@@ -268,12 +183,12 @@ function addRecord(type, resource) {
     return Cli.createCommand('add-record', {
         description: 'Add record',
         plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options, recordTypes[type].options),
-        handler: handleAddRecord(type)
+        options: Object.assign({}, options, resource.options, recordOptions),
+        handler: handleAddRecord
     });
 };
 
-const handleDeleteRecord = type => args => {
+const handleDeleteRecord = args => {
 
     args['zone-name'] = addTrailingDot(args['zone-name']);
     const name = formatRecordName(args.name, args['zone-name']);
@@ -282,9 +197,7 @@ const handleDeleteRecord = type => args => {
     return args.helpers.api
         .get(url)
         .then(rset => {
-            const content = recordTypes[type].content(args);
-
-            rset.records = rset.records.filter(record => record.content !== content);
+            rset.records = rset.records.filter(record => !args.values.includes(record.content));
 
             return args.helpers.api
                 .patch(url, rset)
@@ -293,7 +206,7 @@ const handleDeleteRecord = type => args => {
         });
 };
 
-function deleteRecord(type, resource) {
+function deleteRecord(resource) {
 
     const options = {
         name: {
@@ -306,8 +219,8 @@ function deleteRecord(type, resource) {
     return Cli.createCommand('delete-record', {
         description: 'Delete record',
         plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options, recordTypes[type].options),
-        handler: handleDeleteRecord(type)
+        options: Object.assign({}, options, resource.options, recordOptions),
+        handler: handleDeleteRecord
     });
 };
 
