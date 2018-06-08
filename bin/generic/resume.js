@@ -5,7 +5,7 @@ const Cli = require('structured-cli');
 const websocketStream = require('lib/websocketStream');
 
 const options = {
-    source: {
+    'source-file': {
         description: 'import disk path'
       , type: 'string'
       , required: true
@@ -20,7 +20,7 @@ const params = {
     }
 };
 
-module.exports = resource => Cli.createCommand('resume', {
+module.exports = resource => Cli.createCommand('resume-create', {
     description: 'Resume Create Upload'
   , plugins: resource.plugins
   , options: options
@@ -31,7 +31,7 @@ module.exports = resource => Cli.createCommand('resume', {
 
         const ws = await args.helpers.api.wsUpload(`${resource.url(args)}/${r._id}/upload`);
 
-        await websocketStream.upload(ws, args.source);
+        await websocketStream.upload(ws, args['source-file']);
 
         r = await args.helpers.api.get(`${resource.url(args)}/${r._id}`);
 
