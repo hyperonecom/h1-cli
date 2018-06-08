@@ -4,7 +4,7 @@ const Cli = require('structured-cli');
 
 const interactive = require('lib/interactive');
 
-const params = {
+const options = {
     'delete-id': {
         description: 'Resource name or ID'
       , type: 'string'
@@ -18,8 +18,8 @@ module.exports = resource => Cli.createCommand('delete', {
         ...resource.plugins
       , require('bin/_plugins/confirmYes')
     ]
-  , params: Object.assign({}, resource.params, params)
-  , options: resource.options
+  , params: resource.params
+  , options: Object.assign({}, resource.options, options)
   , handler: async args => {
         if (!args.yes) {
             const answer = await interactive.confirm(`Are you sure you want to delete resource "${args['delete-id']}"?`);

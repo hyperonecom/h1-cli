@@ -17,9 +17,9 @@ category.addChild(Cli.createCommand('show', {
 
 category.addChild(Cli.createCommand('get', {
     description: 'get'
-  , params: {
+  , options: {
         key: {
-            description: 'key'
+            description: 'Name of config key'
           , type: 'string'
           , required: true
         }
@@ -52,14 +52,14 @@ const getAppCommand = (args, path) => {
 
 category.addChild(Cli.createCommand('set', {
     description: 'set'
-  , params: {
+  , options: {
         key: {
-            description: 'key'
+            description: 'Name of config key'
           , type: 'string'
           , required: true
         }
       , value: {
-            description: 'value'
+            description: 'Value of option'
           , type: 'string'
           , required: true
         }
@@ -83,10 +83,10 @@ category.addChild(Cli.createCommand('set', {
 }));
 
 category.addChild(Cli.createCommand('unset', {
-    description: 'unset'
-  , params: {
+    description: 'Unset config key'
+  , options: {
         key: {
-            description: 'key'
+            description: 'Name of config key'
           , type: 'string'
           , required: true
         }

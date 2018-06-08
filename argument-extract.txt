@@ -1,0 +1,226 @@
+h1 config | 
+h1 config show | 
+h1 config get | key
+h1 config set | key value
+h1 config unset | key
+h1 user | 
+h1 user create | 
+h1 user credentials | 
+h1 user credentials list | 
+h1 user credentials delete | delete-id
+h1 user credentials add | --name NAME --sshkey-file SSHKEY-FILE
+h1 login | [--password PASSWORD] username
+h1 tenant | 
+h1 tenant list | 
+h1 tenant show | id
+h1 tenant delete | delete-id
+h1 tenant list | [--all ALL]
+h1 tenant access | 
+h1 tenant access grant | --identity IDENTITY [--role ROLE] id
+h1 tenant access revoke | --identity IDENTITY id
+h1 tenant access list | id
+h1 tenant token | 
+h1 tenant token list | id
+h1 tenant token delete | id delete-id
+h1 tenant token add | --name NAME id
+h1 tenant token access | 
+h1 tenant token access list | --token TOKEN id
+h1 tenant token access delete | --token TOKEN id delete-id
+h1 tenant token access add | --method METHOD --path PATH --token TOKEN id
+h1 tenant select | id
+h1 tenant limit | id
+h1 tenant credentials | 
+h1 tenant credentials list | id
+h1 tenant credentials delete | id delete-id
+h1 tenant credentials add | --name NAME --sshkey-file SSHKEY-FILE id
+h1 disk | 
+h1 disk list | 
+h1 disk show | id
+h1 disk delete | delete-id
+h1 disk rename | --new-name NEW-NAME id
+h1 disk create | --name NAME --type TYPE --size SIZE [--source-file SOURCE-FILE]
+h1 disk resume | --source SOURCE id
+h1 disk resize | --size SIZE id
+h1 disk download | --destination DESTINATION id
+h1 vm | 
+h1 vm list | 
+h1 vm show | id
+h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start NO-START] [--userdata-file USERDATA-FILE]
+h1 vm delete | delete-id
+h1 vm queue | id
+h1 vm console | id
+h1 vm stop | id
+h1 vm start | id
+h1 vm restart | id
+h1 vm turnoff | id
+h1 vm rename | --newname NEWNAME id
+h1 vm userdata | --userdata-file USERDATA-FILE id
+h1 vm disk | 
+h1 vm disk list | --vm VM
+h1 vm disk attach | --vm VM --disk DISK
+h1 vm disk detach | --vm VM --disk DISK
+h1 vm nic | 
+h1 vm nic list | --vm VM
+h1 vm nic show | --vm VM id
+h1 vm nic delete | --vm VM delete-id
+h1 vm nic create | [--network NETWORK] --type TYPE [--ip IP] --vm VM
+h1 vm nic delete | --vm VM delete-id
+h1 vm nic ip | 
+h1 vm nic ip list | --vm VM --nic NIC
+h1 vm nic ip delete | --vm VM --nic NIC delete-id
+h1 vm nic ip add | --vm VM --nic NIC ip
+h1 vm dvd | 
+h1 vm dvd list | --vm VM
+h1 vm dvd insert | --iso ISO --vm VM
+h1 vm dvd eject | --vm VM
+h1 vm tag | 
+h1 vm tag list | id
+h1 vm tag add | --tag TAG id
+h1 vm tag delete | --tag TAG id
+h1 vm ssh | [--username USERNAME] [--port PORT] [--private PRIVATE] id [command]
+h1 vm serialport | 
+h1 vm serialport console | [--port PORT] id
+h1 vm serialport log | [--port PORT] id
+h1 vm passwordreset | --user USER id
+h1 vm metrics | id
+h1 image | 
+h1 image show | id
+h1 image delete | delete-id
+h1 image rename | --new-name NEW-NAME id
+h1 image create | --name NAME [--description DESCRIPTION] --vm VM
+h1 image list | [--recommended RECOMMENDED] [--all ALL]
+h1 image disk | id
+h1 image access | 
+h1 image access grant | --tenant TENANT id
+h1 image access revoke | --tenant TENANT id
+h1 image access list | id
+h1 iso | 
+h1 iso list | 
+h1 iso show | id
+h1 iso delete | delete-id
+h1 iso rename | --new-name NEW-NAME id
+h1 iso access | 
+h1 iso access grant | --tenant TENANT id
+h1 iso access revoke | --tenant TENANT id
+h1 iso access list | id
+h1 iso resume | --source SOURCE id
+h1 iso create | --name NAME [--source-url SOURCE-URL] [--source-file SOURCE-FILE]
+h1 network | 
+h1 network list | 
+h1 network show | id
+h1 network delete | delete-id
+h1 network create | --name NAME
+h1 network ip | 
+h1 network ip list | --network NETWORK
+h1 network ip show | --network NETWORK id
+h1 network ip delete | --network NETWORK delete-id
+h1 network ip create | --network NETWORK
+h1 ip | 
+h1 ip list | 
+h1 ip show | id
+h1 ip delete | delete-id
+h1 ip disassociate | id
+h1 ip associate | --private-ip PRIVATE-IP id
+h1 ip create | 
+h1 ip ptr | --value VALUE id
+h1 dns | 
+h1 dns zone | 
+h1 dns zone list | 
+h1 dns zone show | id
+h1 dns zone delete | delete-id
+h1 dns zone create | --name NAME
+h1 dns zone export | --name NAME
+h1 dns record-set | 
+h1 dns record-set a | 
+h1 dns record-set a list | --zone-name ZONE-NAME
+h1 dns record-set a create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --ipv4-address IPV4-ADDRESS
+h1 dns record-set a delete | --name NAME --zone-name ZONE-NAME
+h1 dns record-set a add-record | --name NAME --zone-name ZONE-NAME --ipv4-address IPV4-ADDRESS
+h1 dns record-set a delete-record | --name NAME --zone-name ZONE-NAME --ipv4-address IPV4-ADDRESS
+h1 dns record-set cname | 
+h1 dns record-set cname list | --zone-name ZONE-NAME
+h1 dns record-set cname create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --cname CNAME
+h1 dns record-set cname delete | --name NAME --zone-name ZONE-NAME
+h1 dns record-set cname add-record | --name NAME --zone-name ZONE-NAME --cname CNAME
+h1 dns record-set cname delete-record | --name NAME --zone-name ZONE-NAME --cname CNAME
+h1 dns record-set txt | 
+h1 dns record-set txt list | --zone-name ZONE-NAME
+h1 dns record-set txt create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --value VALUE
+h1 dns record-set txt delete | --name NAME --zone-name ZONE-NAME
+h1 dns record-set txt add-record | --name NAME --zone-name ZONE-NAME --value VALUE
+h1 dns record-set txt delete-record | --name NAME --zone-name ZONE-NAME --value VALUE
+h1 dns record-set mx | 
+h1 dns record-set mx list | --zone-name ZONE-NAME
+h1 dns record-set mx create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --exchange EXCHANGE --preference PREFERENCE
+h1 dns record-set mx delete | --name NAME --zone-name ZONE-NAME
+h1 dns record-set mx add-record | --name NAME --zone-name ZONE-NAME --exchange EXCHANGE --preference PREFERENCE
+h1 dns record-set mx delete-record | --name NAME --zone-name ZONE-NAME --exchange EXCHANGE --preference PREFERENCE
+h1 dns record-set ns | 
+h1 dns record-set ns list | --zone-name ZONE-NAME
+h1 dns record-set ns create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --nsdname NSDNAME
+h1 dns record-set ns delete | --name NAME --zone-name ZONE-NAME
+h1 dns record-set ns add-record | --name NAME --zone-name ZONE-NAME --nsdname NSDNAME
+h1 dns record-set ns delete-record | --name NAME --zone-name ZONE-NAME --nsdname NSDNAME
+h1 dns record-set srv | 
+h1 dns record-set srv list | --zone-name ZONE-NAME
+h1 dns record-set srv create | --name NAME [--ttl TTL] --zone-name ZONE-NAME --port PORT --priority PRIORITY --weight WEIGHT --target TARGET
+h1 dns record-set srv delete | --name NAME --zone-name ZONE-NAME
+h1 dns record-set srv add-record | --name NAME --zone-name ZONE-NAME --port PORT --priority PRIORITY --weight WEIGHT --target TARGET
+h1 dns record-set srv delete-record | --name NAME --zone-name ZONE-NAME --port PORT --priority PRIORITY --weight WEIGHT --target TARGET
+h1 dns record-set list | --zone-name ZONE-NAME
+h1 service | 
+h1 service list | 
+h1 service show | id
+h1 netgw | 
+h1 netgw list | 
+h1 netgw show | id
+h1 netgw delete | delete-id
+h1 netgw access | 
+h1 netgw access grant | --tenant TENANT id
+h1 netgw access revoke | --tenant TENANT id
+h1 netgw access list | id
+h1 netgw detach | id
+h1 netgw attach | --network NETWORK id
+h1 netgw create | --name NAME --ip IP
+h1 firewall | 
+h1 firewall list | 
+h1 firewall show | id
+h1 firewall delete | delete-id
+h1 firewall create | --name NAME
+h1 firewall attach | --network NETWORK id
+h1 firewall detach | id
+h1 firewall ingress | 
+h1 firewall ingress list | id
+h1 firewall ingress add | --name NAME --action ACTION --priority PRIORITY --filter FILTER --external EXTERNAL --internal INTERNAL id
+h1 firewall ingress delete | --rule RULE id
+h1 firewall egress | 
+h1 firewall egress list | id
+h1 firewall egress add | --name NAME --action ACTION --priority PRIORITY --filter FILTER --external EXTERNAL --internal INTERNAL id
+h1 firewall egress delete | --rule RULE id
+h1 vault | 
+h1 vault list | 
+h1 vault show | id
+h1 vault delete | delete-id
+h1 vault rename | --new-name NEW-NAME id
+h1 vault create | --name NAME --size SIZE [--ssh SSH] [--password PASSWORD]
+h1 vault access | 
+h1 vault access grant | --tenant TENANT id
+h1 vault access revoke | --tenant TENANT id
+h1 vault access list | id
+h1 vault resize | --size SIZE id
+h1 vault credential | 
+h1 vault credential cert | 
+h1 vault credential cert list | id
+h1 vault credential cert delete | id delete-id
+h1 vault credential cert add | --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE] id
+h1 vault credential password | 
+h1 vault credential password list | id
+h1 vault credential password delete | id delete-id
+h1 vault credential password add | --name NAME --password PASSWORD id
+h1 vault ssh | id
+h1 vault snapshot | --name NAME id
+h1 snapshot | 
+h1 snapshot list | 
+h1 snapshot show | id
+h1 snapshot delete | delete-id
+h1 snapshot rename | --new-name NEW-NAME id

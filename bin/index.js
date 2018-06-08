@@ -42,6 +42,7 @@ cli.addChild(require('./snapshot'));
 
 // inject defaultValues from config defaults
 const applyDefault = (element, defaults) => {
+
     Object.entries(defaults).forEach(([name, values]) => {
         const children = element.children.find(children => children.name === name);
         if (!children) { return; }
@@ -55,6 +56,7 @@ const applyDefault = (element, defaults) => {
             if (!option) { return; }
 
             // console.log('defaultValue', element.name, name, key, value);
+
             option.defaultValue = value;
             option.required = false;
         });
