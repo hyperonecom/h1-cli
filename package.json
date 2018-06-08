@@ -56,7 +56,7 @@
   "eslintConfig": {
     "parserOptions": {
       "ecmaVersion": 2017,
-      "sourceType": "module"
+      "sourceType": "script"
     },
     "env": {
       "node": true,
@@ -68,8 +68,8 @@
         "always"
       ],
       "strict": [
-        "off",
-        "safe"
+        "error",
+        "global"
       ],
       "comma-dangle": [
         "error",
