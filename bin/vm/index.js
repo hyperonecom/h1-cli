@@ -37,8 +37,8 @@ category.addChild(genericAction(childDefaults, 'stop'));
 category.addChild(genericAction(childDefaults, 'start'));
 category.addChild(genericAction(childDefaults, 'restart'));
 category.addChild(genericAction(childDefaults, 'turnoff'));
-category.addChild(require('./action/rename')(resource));
-category.addChild(require('./action/userdata')(resource));
+category.addChild(require('./action/rename')(childDefaults));
+category.addChild(require('./action/userdata')(childDefaults));
 
 category.addChild(require('./disk'));
 category.addChild(require('./nic'));
