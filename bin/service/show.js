@@ -6,7 +6,7 @@ const genericDefaults = require('bin/generic/defaults');
 const options = {};
 
 const params = {
-    'id': {
+    id: {
         description: 'Service name or ID',
         type: 'string',
         required: true

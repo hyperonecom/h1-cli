@@ -5,7 +5,7 @@ const genericResource = require('bin/generic');
 
 
 const options = {
-    'vm': {
+    vm: {
         description: 'Virtual machine ID or name',
         type: 'string',
         required: true

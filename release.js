@@ -21,7 +21,7 @@ const upload = (releaseId, filePath, name) => new Promise((resolve, reject) => {
       , method: 'POST'
       , path: `/repos/hyperonecom/h1-cli/releases/${releaseId}/assets?name=${name}`
       , headers: {
-            'Authorization': `token ${process.env.GH_TOKEN}`
+            Authorization: `token ${process.env.GH_TOKEN}`
           , 'Content-Type': 'application/octet-stream'
           , 'Content-Length': stat.size
         }

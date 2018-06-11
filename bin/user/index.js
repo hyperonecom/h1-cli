@@ -3,8 +3,8 @@
 const Cli = require('structured-cli');
 
 const resource = {
-    'name': 'user',
-    'title': 'user'
+    name: 'user',
+    title: 'user'
 };
 
 const childDefaults = {

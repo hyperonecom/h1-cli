@@ -64,6 +64,10 @@
       "es6": true
     },
     "rules": {
+      "quote-props": [
+        "error",
+        "as-needed"
+      ],
       "semi": [
         "error",
         "always"
