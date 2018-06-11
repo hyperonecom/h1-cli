@@ -2,6 +2,7 @@
 
 const genericResource = require('bin/generic');
 const genericDefaults = require('bin/generic/defaults');
+const genericAction = require('bin/generic/action');
 
 const resource = {
     name: 'vm'
@@ -32,10 +33,10 @@ category.addChild(require('./delete')(resource));
 category.addChild(require('./queue')(childDefaults));
 category.addChild(require('./console')(childDefaults));
 
-category.addChild(require('./action/generic')(childDefaults, 'stop'));
-category.addChild(require('./action/generic')(childDefaults, 'start'));
-category.addChild(require('./action/generic')(childDefaults, 'restart'));
-category.addChild(require('./action/generic')(childDefaults, 'turnoff'));
+category.addChild(genericAction(childDefaults, 'stop'));
+category.addChild(genericAction(childDefaults, 'start'));
+category.addChild(genericAction(childDefaults, 'restart'));
+category.addChild(genericAction(childDefaults, 'turnoff'));
 category.addChild(require('./action/rename')(resource));
 category.addChild(require('./action/userdata')(resource));
 
