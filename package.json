@@ -11,7 +11,8 @@
   "scripts": {
     "start": "./bin/h1",
     "build": "pkg --out-path ./dist .",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "docs": "node scripts/print_docs.js docs/"
   },
   "dependencies": {
     "chalk": "^2.1.0",
