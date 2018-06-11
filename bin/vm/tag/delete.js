@@ -11,7 +11,7 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('delete', {
-    description: 'Add a Tag'
+    description: `Add a tag of ${resource.title}`
   , plugins: resource.plugins
   , params: resource.params
   , options: Object.assign(options, resource.options)

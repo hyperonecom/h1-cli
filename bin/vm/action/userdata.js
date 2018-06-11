@@ -12,19 +12,11 @@ const options = {
     }
 };
 
-const params = {
-    id: {
-        description: 'VM name or ID',
-        type: 'string',
-        required: true
-    }
-};
-
-module.exports = Cli.createCommand('userdata', {
-    description: 'Userdata for VM',
+module.exports = (resource) => Cli.createCommand('userdata', {
+    description: `Manage userdata for ${resource.title}`,
     plugins: genericDefaults.plugins,
-    options: options,
-    params: params,
+    options: Object.assign({}, resource.options, options),
+    params: resource.params,
     handler: args => fs.getFileContent(args['userdata-file'])
         .then(content => args.helpers.api.patch(`vm/${args.id}`, {
             userMetadata: content.toString('base64')

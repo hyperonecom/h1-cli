@@ -11,9 +11,9 @@ const options = {
 };
 
 module.exports = (table, resource) => Cli.createCommand('delete', {
-    description: 'Delete'
+    description: `Add ${resource.title}`
   , plugins: resource.plugins
   , params: resource.params
-  , options: Object.assign(options, resource.options)
-  , handler: args => args.helpers.api.delete(`firewall/${args.id}/${table}/${args.rule}`)
+  , options: Object.assign({}, resource.options, options)
+  , handler: args => args.helpers.api.delete(`firewall/${args.firewall}/${table}/${args.rule}`)
 });

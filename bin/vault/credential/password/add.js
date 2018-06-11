@@ -16,7 +16,7 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('add', {
-    description: 'Adding a password'
+    description: 'Add password to Vault'
   , plugins: resource.plugins
   , params: resource.params
   , options: options

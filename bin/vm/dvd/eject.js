@@ -5,7 +5,7 @@ const Cli = require('structured-cli');
 const interactive = require('lib/interactive');
 
 module.exports = resource => Cli.createCommand('eject', {
-    description: 'Eject ISO from DVD drive'
+    description: `Eject ISO from DVD drive of ${resource.title}`
   , plugins: [
         ...resource.plugins
       , require('bin/_plugins/confirmYes')

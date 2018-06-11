@@ -4,7 +4,7 @@ const Cli = require('structured-cli');
 
 const options = {
     tag: {
-        description: 'New Tag'
+        description: 'New tag'
       , type: 'string'
       , action: 'append'
       , required: true
@@ -24,7 +24,7 @@ const handler = args => {
 };
 
 module.exports = resource => Cli.createCommand('add', {
-    description: 'Add a Tag'
+    description: `Add a tag to ${resource.title}`
   , plugins: resource.plugins
   , params: resource.params
   , options: Object.assign(options, resource.options)

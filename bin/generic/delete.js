@@ -3,33 +3,37 @@
 const Cli = require('structured-cli');
 
 const interactive = require('lib/interactive');
+const text = require('lib/text');
 
-const params = {
-    'delete-id': {
-        description: 'Resource name or ID'
-      , type: 'string'
-      , required: true
-    }
-};
-
-module.exports = resource => Cli.createCommand('delete', {
-    description: 'Resource delete'
-  , plugins: [
-        ...resource.plugins
-      , require('bin/_plugins/confirmYes')
-    ]
-  , params: Object.assign({}, resource.params, params)
-  , options: resource.options
-  , handler: async args => {
-        if (!args.yes) {
-            const answer = await interactive.confirm(`Are you sure you want to delete resource "${args['delete-id']}"?`);
-            if (answer.value !== true) {
-                throw Cli.error.cancelled('Canceled', undefined);
-            }
+module.exports = resource => {
+    const options = {
+        [resource.name]: {
+            description: `${text.toTitleCase(resource.title)} ID or name`
+          , type: 'string'
+          , required: true
+          , dest: 'id'
         }
+    };
 
-        const result = await args.helpers.api.delete(`${resource.url(args)}/${args['delete-id']}`, args.helpers.body || {});
+    return Cli.createCommand('delete', {
+        description: `Delete ${resource.title}`
+        , plugins: [
+            ...resource.plugins
+            , require('bin/_plugins/confirmYes')
+        ]
+        , params: resource.params
+        , options: Object.assign({}, resource.options, options)
+        , handler: async args => {
+            if (!args.yes) {
+                const answer = await interactive.confirm(`Are you sure you want to delete resource "${args.id}"?`);
+                if (answer.value !== true) {
+                    throw Cli.error.cancelled('Canceled', undefined);
+                }
+            }
 
-        return args.helpers.sendOutput(args, result);
-    }
-});
+            const result = await args.helpers.api.delete(`${resource.url(args)}/${args.id}`, args.helpers.body || {});
+
+            return args.helpers.sendOutput(args, result);
+        }
+    });
+};

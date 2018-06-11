@@ -2,31 +2,28 @@
 
 const Cli = require('structured-cli');
 
-const params = {
-    id: {
-        description: 'Resource identifier'
-      , type: 'string'
-      , required: true
-    }
-};
-
 const options = {
+    firewall: {
+        description: 'Firewall ID or name'
+        , type: 'string'
+        , required: true
+    },
     network: {
-        description: 'Network name or ID'
+        description: 'Network ID or name'
       , type: 'string'
       , required: true
     }
 };
 
 const handler = args => args.helpers.api
-    .post(`firewall/${args.id}/actions`, { name: 'attach', data: { network: args.network } })
+    .post(`firewall/${args.firewall}/actions`, { name: 'attach', data: { network: args.network } })
     .then(result => args.helpers.sendOutput(args, result))
 ;
 
 module.exports = resource => Cli.createCommand('attach', {
-    description: 'Attach to a network'
+    description: `Attach ${resource.title} to a network`
   , plugins: resource.plugins
-  , options: options
+  , options: Object.assign({}, resource.options, options)
   , handler: handler
-  , params: params
+  , params: resource.params
 });

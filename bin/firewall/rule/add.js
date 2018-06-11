@@ -28,7 +28,7 @@ const options = {
       , action: 'append'
     }
   , external: {
-        description: 'Ip address or network on internal side.'
+        description: 'IP address or network on external side'
       , type: 'string'
       , required: true
       , action: 'append'
@@ -44,12 +44,12 @@ const options = {
 };
 
 module.exports = (table, resource) => Cli.createCommand('add', {
-    description: 'Add'
+    description: `Add ${resource.title}`
   , plugins: resource.plugins
   , params: resource.params
-  , options: Object.assign(options, resource.options)
+  , options: Object.assign({}, resource.options, options)
   , handler: args => args.helpers.api
-            .post(`firewall/${args.id}/${table}`, {
+            .post(`firewall/${args.firewall}/${table}`, {
                 name: args.name
                 , priority: args.priority
                 , direction: args.direction

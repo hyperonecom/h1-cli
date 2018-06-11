@@ -3,15 +3,12 @@
 const Cli = require('structured-cli');
 const genericDefaults = require('bin/generic/defaults');
 
-const params = {
-    id: {
-        description: 'IP id'
-      , type: 'string'
-      , required: true
-    }
-};
-
 const options = {
+    ip: {
+        description: 'IP address or ID'
+        , type: 'string'
+        , required: true
+    },
     value: {
         description: 'PTR record'
       , type: 'string'
@@ -23,10 +20,10 @@ const handler = args => args.helpers.api
     .patch(`ip/${args.id}`, { ptrRecord: args.value })
     .then(result => args.helpers.sendOutput(args, result));
 
-module.exports = Cli.createCommand('ptr', {
+module.exports = resource => Cli.createCommand('ptr', {
     description: 'IP disassociate'
   , plugins: genericDefaults.plugins
-  , options: options
-  , params: params
+  , options: Object.assign({}, resource.options, options)
+  , params: resource.params
   , handler: handler
 });

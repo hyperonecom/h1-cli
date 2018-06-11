@@ -1,11 +1,11 @@
 # TOC
 
- * [h1 ip list](#h1-ip-list) - Resource list
- * [h1 ip show](#h1-ip-show) - Resource show
- * [h1 ip delete](#h1-ip-delete) - Resource delete
- * [h1 ip disassociate](#h1-ip-disassociate) - IP disassociate
- * [h1 ip associate](#h1-ip-associate) - IP associate
- * [h1 ip create](#h1-ip-create) - IP create
+ * [h1 ip list](#h1-ip-list) - List IP address
+ * [h1 ip show](#h1-ip-show) - Show IP address
+ * [h1 ip delete](#h1-ip-delete) - Delete IP address
+ * [h1 ip disassociate](#h1-ip-disassociate) - Disassociate IP address
+ * [h1 ip associate](#h1-ip-associate) - Associate IP address
+ * [h1 ip create](#h1-ip-create) - Create IP address
  * [h1 ip ptr](#h1-ip-ptr) - IP disassociate
 
 
@@ -13,11 +13,11 @@
 
 ## h1 ip
 
-Manage your IP
+Manage your IP address
 
 ## h1 ip list
 
-Resource list
+List IP address
 
 ### Syntax
 
@@ -25,69 +25,64 @@ Resource list
 
 ## h1 ip show
 
-Resource show
+Show IP address
 
 ### Syntax
 
-```h1 ip show | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
-
-## h1 ip delete
-
-Resource delete
-
-### Syntax
-
-```h1 ip delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
-
-## h1 ip disassociate
-
-IP disassociate
-
-### Syntax
-
-```h1 ip disassociate | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | IP id |
-
-## h1 ip associate
-
-IP associate
-
-### Syntax
-
-```h1 ip associate | --private-ip PRIVATE-IP id```
+```h1 ip show | --ip IP```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--private-ip PRIVATE-IP``` |  | ID of private IP |
+| ```--ip IP``` |  | IP address ID or name |
 
-### Parameters (DEPRECATED)
+## h1 ip delete
+
+Delete IP address
+
+### Syntax
+
+```h1 ip delete | --ip IP```
+
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Public IP or ID or IP |
+| ```--ip IP``` |  | IP address ID or name |
+
+## h1 ip disassociate
+
+Disassociate IP address
+
+### Syntax
+
+```h1 ip disassociate | --ip IP```
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | Public IP or ID of IP |
+
+## h1 ip associate
+
+Associate IP address
+
+### Syntax
+
+```h1 ip associate | --ip IP --private-ip PRIVATE-IP```
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | Public IP or ID of IP |
+| ```--private-ip PRIVATE-IP``` |  | ID of private IP |
 
 ## h1 ip create
 
-IP create
+Create IP address
 
 ### Syntax
 
@@ -99,17 +94,12 @@ IP disassociate
 
 ### Syntax
 
-```h1 ip ptr | --value VALUE id```
+```h1 ip ptr | --ip IP --value VALUE```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address or ID |
 | ```--value VALUE``` |  | PTR record |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | IP id |
 

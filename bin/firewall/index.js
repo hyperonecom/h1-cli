@@ -8,6 +8,7 @@ const resource = {
   , defaultQuery: '[].{id:_id,name:name,network:network,state:state,processing:processing}'
   , url: () => 'firewall'
   , plugins: genericDefaults.plugins
+  , title: 'firewall'
 };
 
 const category = genericResource(resource);

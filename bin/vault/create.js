@@ -4,32 +4,32 @@ const Cli = require('structured-cli');
 
 const options = {
     name: {
-        description: 'Vault Name'
+        description: 'Vault name'
       , type: 'string'
       , required: true
     }
   , size: {
-        description: 'Vault Size in GB'
+        description: 'Vault size in GB'
       , type: 'float'
       , required: true
     }
   , ssh: {
-        description: 'SSH key Id or name that allows access.'
-        , type: 'string'
-        , required: false
-        , action: 'append'
-        , defaultValue: []
+        description: 'SSH key ID or name that allows access'
+      , type: 'string'
+      , required: false
+      , action: 'append'
+      , defaultValue: []
     }
   , password: {
-        description: 'Password to access Vault. Recommend using SSH keys.'
-        , type: 'string'
-        , required: false
+        description: 'Password to access Vault. Recommend using SSH keys'
+      , type: 'string'
+      , required: false
     }
 };
 
 
 module.exports = resource => Cli.createCommand('create', {
-    description: 'Vault create'
+    description: `Create ${resource.title}`
   , plugins: resource.plugins
   , options: Object.assign({}, options, resource.options)
   , handler: args => {

@@ -13,7 +13,7 @@ const options = {
 const handler = args => args.helpers.api.post('firewall', { name: args.name }).then(result => args.helpers.sendOutput(args, result));
 
 module.exports = resource => Cli.createCommand('create', {
-    description: 'Create'
+    description: `Create ${resource.title}`
   , options: options
   , plugins: resource.plugins
   , handler: handler

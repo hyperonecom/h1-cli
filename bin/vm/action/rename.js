@@ -11,23 +11,13 @@ const options = {
     }
 };
 
-const params = {
-    id: {
-        description: 'VM name or ID',
-        type: 'string',
-        required: true
-    }
-};
-
-
-module.exports = Cli.createCommand('rename', {
-    description: 'VM action: rename',
-    plugins: genericDefaults.plugins,
-    options: options,
-    params: params,
-    handler: genericVMAction
-});
-
+module.exports = (resource) => Cli.createCommand('rename', {
+        description: `Rename ${resource.title}`,
+        plugins: genericDefaults.plugins,
+        options: Object.assign({}, resource.options, options),
+        params: resource.params,
+        handler: genericVMAction
+    });
 
 function genericVMAction(args) {
 

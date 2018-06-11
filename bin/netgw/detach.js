@@ -3,24 +3,20 @@
 const Cli = require('structured-cli');
 const genericDefaults = require('bin/generic/defaults');
 
-const params = {
-    id: {
+const options = {
+    netgw: {
         description: 'Network gateway name or ID'
       , type: 'string'
       , required: true
     }
 };
 
-module.exports = Cli.createCommand('detach', {
-    description: 'NetGW detach from network'
+module.exports = resource => Cli.createCommand('detach', {
+    description: 'Network gateway detach from a network'
   , plugins: genericDefaults.plugins
-  , handler: handler
-  , params: params
-});
-
-function handler(args) {
-    return args.helpers.api
-        .post(`netgw/${args.id}/actions`, { name: 'detach' })
+  , options: Object.assign({}, resource.options, options)
+  , params: resource.params
+  , handler: (args) => args.helpers.api
+        .post(`netgw/${args.netgw}/actions`, { name: 'detach' })
         .then(result => args.helpers.sendOutput(args, result))
-    ;
-}
+});

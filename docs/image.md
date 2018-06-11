@@ -1,74 +1,69 @@
 # TOC
 
- * [h1 image show](#h1-image-show) - Resource show
- * [h1 image delete](#h1-image-delete) - Resource delete
- * [h1 image rename](#h1-image-rename) - Resource rename
- * [h1 image create](#h1-image-create) - IMAGE create
- * [h1 image list](#h1-image-list) - Resource list
- * [h1 image disk](#h1-image-disk) - List all disks
- * [h1 image access](#h1-image-access) - Manage your IMAGE Access Rights
-  * [h1 image access grant](#h1-image-access-grant) - Grant access rights for IMAGE
-  * [h1 image access revoke](#h1-image-access-revoke) - Revoke access rights for IMAGE
-  * [h1 image access list](#h1-image-access-list) - List of access rights for IMAGE
+ * [h1 image show](#h1-image-show) - Show image
+ * [h1 image delete](#h1-image-delete) - Delete image
+ * [h1 image rename](#h1-image-rename) - Rename image
+ * [h1 image create](#h1-image-create) - Create image
+ * [h1 image list](#h1-image-list) - List image
+ * [h1 image disk](#h1-image-disk) - List all disks of image
+ * [h1 image access](#h1-image-access) - Manage your image access rights
+  * [h1 image access grant](#h1-image-access-grant) - Grant access rights for image
+  * [h1 image access revoke](#h1-image-access-revoke) - Revoke access rights for image
+  * [h1 image access list](#h1-image-access-list) - List of access rights for image
 
 
 # Specification
 
 ## h1 image
 
-Manage your IMAGE
+Manage your image
 
 ## h1 image show
 
-Resource show
+Show image
 
 ### Syntax
 
-```h1 image show | id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
-
-## h1 image delete
-
-Resource delete
-
-### Syntax
-
-```h1 image delete | delete-id```
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
-
-## h1 image rename
-
-Resource rename
-
-### Syntax
-
-```h1 image rename | --new-name NEW-NAME id```
+```h1 image show | --image IMAGE```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--new-name NEW-NAME``` |  | New name |
+| ```--image IMAGE``` |  | Image ID or name |
 
-### Parameters (DEPRECATED)
+## h1 image delete
+
+Delete image
+
+### Syntax
+
+```h1 image delete | --image IMAGE```
+
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--image IMAGE``` |  | Image ID or name |
+
+## h1 image rename
+
+Rename image
+
+### Syntax
+
+```h1 image rename | --image IMAGE --new-name NEW-NAME```
+
+### Required options
+
+| Name | Default | Description | 
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 image create
 
-IMAGE create
+Create image
 
 ### Syntax
 
@@ -80,11 +75,11 @@ IMAGE create
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name of image |
 | ```[--description DESCRIPTION]``` |  | Description of image |
-| ```--vm VM``` |  | VM name or ID |
+| ```--vm VM``` |  | Virtual machine name or ID |
 
 ## h1 image list
 
-Resource list
+List image
 
 ### Syntax
 
@@ -99,73 +94,63 @@ Resource list
 
 ## h1 image disk
 
-List all disks
+List all disks of image
 
 ### Syntax
 
-```h1 image disk | id```
+```h1 image disk | --image IMAGE```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Image name or ID |
+| ```--image IMAGE``` |  | Image ID or name |
 
 ## h1 image access
 
-Manage your IMAGE Access Rights
+Manage your image access rights
 
 ## h1 image access grant
 
-Grant access rights for IMAGE
+Grant access rights for image
 
 ### Syntax
 
-```h1 image access grant | --project PROJECT id```
+```h1 image access grant | --image IMAGE --project PROJECT```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource ID |
 
 ## h1 image access revoke
 
-Revoke access rights for IMAGE
+Revoke access rights for image
 
 ### Syntax
 
-```h1 image access revoke | --project PROJECT id```
+```h1 image access revoke | --image IMAGE --project PROJECT```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource id |
 
 ## h1 image access list
 
-List of access rights for IMAGE
+List of access rights for image
 
 ### Syntax
 
-```h1 image access list | id```
+```h1 image access list | --image IMAGE```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource name or ID |
+| ```--image IMAGE``` |  | Image ID or name |
 

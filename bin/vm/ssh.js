@@ -15,21 +15,18 @@ const options = {
         description: 'Use first private network, skip public'
       , type: 'boolean'
     }
-};
-
-const params = {
-    command: {
+  , command: {
         description: 'Command to execute'
       , type: 'string'
     }
 };
 
 module.exports = resource => Cli.createCommand('ssh', {
-    description: 'Connect to VM using SSH'
+    description: `Connect to ${resource.title} using SSH`
   , plugins: resource.plugins
     // The order of assign is important - it determines the order of positional parameters in the current
     // NodeJS implementation.
-  , params: Object.assign({}, resource.params, params)
+  , params: resource.params
   , options: Object.assign({}, options, resource.options)
   , handler: async args => {
         const vm = await args.helpers.api.get(resource.url(args));

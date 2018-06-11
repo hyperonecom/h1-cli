@@ -14,7 +14,7 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('list', {
-    description: 'Resource list'
+    description: `List ${resource.title}`
   , plugins: resource.plugins
   , options: options
   , handler: args => {

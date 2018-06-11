@@ -10,18 +10,20 @@ const resource = {
         require('bin/_plugins/loginRequired'),
         require('bin/_plugins/outputFormat'),
         require('bin/_plugins/api')
-    ]
+    ],
+    title: 'project'
 };
 
 const category = genericResource(resource);
 category.addChild(require('./list')(resource));
 
 const childDefaults = Object.assign({}, resource, {
-    params: {
-        id: {
-            description: 'Project id'
+    options: {
+        project: {
+            description: 'Project ID or name'
           , type: 'string'
           , required: true
+          , dest: 'id'
         }
     }
   , url: args => `${resource.url(args)}/${args.id}`

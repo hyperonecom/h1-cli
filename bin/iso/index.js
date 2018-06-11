@@ -9,6 +9,7 @@ const resource = {
   , url: () => 'iso'
   , plugins: genericDefaults.plugins
   , extraCommands: ['rename']
+  , title: 'ISO'
 };
 
 const category = genericResource(resource);

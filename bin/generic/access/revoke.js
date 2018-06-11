@@ -1,32 +1,29 @@
 'use strict';
 
 const Cli = require('structured-cli');
+
 const genericDefaults = require('bin/generic/defaults');
-
-const options = {
-    project: {
-        description: 'Project name or ID',
-        type: 'string',
-        required: true
-    }
-};
-
-const params = {
-    id: {
-        description: 'Resource id',
-        type: 'string',
-        required: true
-    }
-};
-
+const text = require('lib/text');
 
 module.exports = function(resource) {
+    const options = {
+        [resource.name]: {
+            description: `${text.toTitleCase(resource.title)} ID or name`,
+            type: 'string',
+            required: true
+        },
+        project: {
+            description: 'Project name or ID',
+            type: 'string',
+            required: true
+        }
+    };
 
     return Cli.createCommand('revoke', {
-        description: `Revoke access rights for ${resource.name.toUpperCase()}`,
+        description: `Revoke access rights for ${resource.title}`,
         plugins: genericDefaults.plugins,
-        params: params,
-        options: options,
+        params: resource.params,
+        options: Object.assign({}, resource.options, options),
         handler: handleAccessGrant(resource)
     });
 };

@@ -6,12 +6,12 @@ const config = require('lib/config');
 const logger = require('lib/logger');
 
 module.exports = resource => Cli.createCommand('select', {
-    description: 'Select project context',
+    description: `Select ${resource.title} context`,
     plugins: [
         require('bin/_plugins/loginRequired'),
         require('bin/_plugins/api')
     ],
-    params: resource.params,
+    options: resource.options,
     handler: args => args.helpers.api
         .get(resource.url(args))
         .then(project => {

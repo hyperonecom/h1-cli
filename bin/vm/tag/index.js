@@ -1,30 +1,36 @@
 'use strict';
 
 const genericResource = require('bin/generic');
+const genericDefaults = require('bin/generic/defaults');
 
-const params = {
-    id: {
-        description: 'Resource id'
+
+const options = {
+    vm: {
+        description: 'Virtual machine ID or name'
       , type: 'string'
       , required: true
     }
 };
 
-module.exports = resource => {
-
-    const category = genericResource({
-        name: 'tag'
-      , defaultQuery: '[].{key:key, value:value}'
-      , url: args => `${resource.url(args)}/${args.id}/tag`
-      , transform: data => Object.entries(data).map(([key, value]) => ({ key, value }))
-      , commands: ['list']
-      , params: Object.assign({}, resource.params, params)
-    });
-
-    resource = Object.assign({}, resource, { params: Object.assign({}, resource.params, params) });
-
-    category.addChild(require('./add')(resource));
-    category.addChild(require('./delete')(resource));
-
-    return category;
+const resource = {
+    name: 'tag'
+    , defaultQuery: '[].{id:_id,name:name,flavour:flavour,state:state,processing:processing}'
+    , url: () => 'vm'
+    , plugins: genericDefaults.plugins
+    , commands: [ 'list', 'show' ]
+    , title: 'Tag of virtual machine'
+    , options: options
 };
+
+ const category = genericResource({
+     name: 'tag'
+   , defaultQuery: '[].{key:key, value:value}'
+   , url: args => `vm/${args.vm}/tag`
+   , transform: data => Object.entries(data).map(([key, value]) => ({ key, value }))
+   , commands: ['list']
+ });
+
+ category.addChild(require('./add')(resource));
+ category.addChild(require('./delete')(resource));
+
+module.exports = category;

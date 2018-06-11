@@ -1,32 +1,32 @@
 # TOC
 
- * [h1 service show](#h1-service-show) - Resource show
- * [h1 service list](#h1-service-list) - Resource List
+ * [h1 service show](#h1-service-show) - Show Service
+ * [h1 service list](#h1-service-list) - List Service
 
 
 # Specification
 
 ## h1 service
 
-Manage your SERVICE
+Manage your Service
 
 ## h1 service show
 
-Resource show
+Show Service
 
 ### Syntax
 
-```h1 service show | id```
+```h1 service show | --service SERVICE```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--service SERVICE``` |  | Service ID or name |
 
 ## h1 service list
 
-Resource List
+List Service
 
 ### Syntax
 
@@ -36,6 +36,6 @@ Resource List
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```[--resource RESOURCE]``` |  | undefined |
-| ```[--type TYPE]``` |  | undefined |
+| ```[--resource RESOURCE]``` |  | Kind of resource |
+| ```[--type TYPE]``` |  | Kind of type of resource |
 

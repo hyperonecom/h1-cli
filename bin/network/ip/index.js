@@ -17,6 +17,7 @@ const resource = {
   , url: args => `network/${args.network}/ip`
   , plugins: defaults.plugins
   , options: options
+  , title: 'IP address'
 };
 
 const category = genericResource(resource);

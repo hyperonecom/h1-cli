@@ -9,14 +9,16 @@ const resource = {
   , url: () => 'vm'
   , plugins: genericDefaults.plugins
   , commands: [ 'list', 'show' ]
+  , title: 'Virtual machine'
 };
 
 const childDefaults = Object.assign({}, resource, {
-    params: {
-        id: {
-            description: 'Resource identifier'
-          , type: 'string'
-          , required: true
+    options: {
+        vm: {
+            description: `${resource.title} ID or name`,
+            type: 'string',
+            required: true,
+            dest: 'id'
         }
     }
   , url: args => `${resource.url(args)}/${args.id}`
@@ -24,23 +26,23 @@ const childDefaults = Object.assign({}, resource, {
 
 const category = genericResource(resource);
 
-category.addChild(require('./create'));
+category.addChild(require('./create')(resource));
 category.addChild(require('./delete')(resource));
 
 category.addChild(require('./queue')(childDefaults));
 category.addChild(require('./console')(childDefaults));
 
-category.addChild(require('./action/generic')('stop'));
-category.addChild(require('./action/generic')('start'));
-category.addChild(require('./action/generic')('restart'));
-category.addChild(require('./action/generic')('turnoff'));
-category.addChild(require('./action/rename'));
-category.addChild(require('./action/userdata'));
+category.addChild(require('./action/generic')(childDefaults, 'stop'));
+category.addChild(require('./action/generic')(childDefaults, 'start'));
+category.addChild(require('./action/generic')(childDefaults, 'restart'));
+category.addChild(require('./action/generic')(childDefaults, 'turnoff'));
+category.addChild(require('./action/rename')(resource));
+category.addChild(require('./action/userdata')(resource));
 
 category.addChild(require('./disk'));
 category.addChild(require('./nic'));
 category.addChild(require('./dvd'));
-category.addChild(require('./tag')(resource));
+category.addChild(require('./tag'));
 
 category.addChild(require('./ssh')(childDefaults));
 category.addChild(require('./serialport')(resource));

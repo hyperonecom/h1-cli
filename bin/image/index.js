@@ -9,6 +9,7 @@ const resource = {
   , commands: ['show', 'delete', 'rename']
   , plugins: genericDefaults.plugins
   , url: () => 'image'
+  , title: 'image'
 };
 
 const category = genericResource(resource);

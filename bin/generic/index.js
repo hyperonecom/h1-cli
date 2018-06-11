@@ -6,13 +6,14 @@ const defaults = require('./defaults');
 module.exports = function(resource) {
 
     const resourceDefaults = {
-        url: () => resource.name
+        url: () => resource.name,
+        title: resource.name
     };
 
     resource = Object.assign({}, defaults, resourceDefaults, resource);
 
     const category = Cli.createCategory(resource.name, {
-        description: `Manage your ${resource.name.toUpperCase()}`
+        description: resource.description || `Manage your ${resource.title}`
       , defaultQuery: resource.defaultQuery
       , transform: resource.transform
       , url: resource.url

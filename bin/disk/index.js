@@ -9,6 +9,7 @@ const resource = {
   , url: () => 'disk'
   , plugins: genericDefaults.plugins
   , extraCommands: ['rename']
+  , title: 'disk'
 };
 
 const category = genericResource(resource);

@@ -4,7 +4,7 @@ const Cli = require('structured-cli');
 const defaults = require('bin/generic/defaults');
 
 module.exports = resource => Cli.createCommand('limit', {
-    description: 'Cloud limits set for Tenant'
+    description: 'Cloud limits set for project'
   , plugins: defaults.plugins
   , params: resource.params
   , handler: args => {

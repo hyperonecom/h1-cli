@@ -9,16 +9,19 @@ module.exports = (table, parent) => {
         // eslint-disable-next-line quotes
       , defaultQuery: `[].{id:_id, name:name, priority:priority, action: action, filter:join(',',filter), external:join(',',external), internal:join(',',internal)}`
       , plugins: parent.plugins
-      , params: {
-            id: {
-                description: 'Resource identifier'
+      , options: {
+            firewall: {
+                description: 'Firewall ID or name'
               , type: 'string'
               , required: true
             }
-        }
+        },
+        title: `rule ${table} of ${parent.title}`
     };
 
-    const category = Cli.createCategory(table, resource);
+    const category = Cli.createCategory(table, Object.assign({}, resource, {
+        description: `Manage ${table} rules of ${parent.title}`
+    }));
 
     category.addChild(require('./list')(table, resource));
     category.addChild(require('./add')(table, resource));

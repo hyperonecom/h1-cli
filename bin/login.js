@@ -7,17 +7,14 @@ const _ = require('lodash');
 const inquirer = require('inquirer');
 
 const options = {
+    username: {
+        description: 'Your h1 username'
+        , type: 'string'
+        , required: true
+    },
     password: {
         description: 'Password'
       , type: 'string'
-    }
-};
-
-const params = {
-    username: {
-        description: 'Your h1 username'
-      , type: 'string'
-      , required: true
     }
 };
 
@@ -60,6 +57,5 @@ module.exports = Cli.createCommand('login', {
       , require('./_plugins/interactiveOptions')
     ]
   , options: options
-  , params: params
   , handler: handler
 });

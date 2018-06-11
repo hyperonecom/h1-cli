@@ -1,13 +1,13 @@
 # TOC
 
- * [h1 network list](#h1-network-list) - Resource list
- * [h1 network show](#h1-network-show) - Resource show
- * [h1 network delete](#h1-network-delete) - Resource delete
- * [h1 network create](#h1-network-create) - Network create
- * [h1 network ip](#h1-network-ip) - Manage your IP
-  * [h1 network ip list](#h1-network-ip-list) - Resource list
-  * [h1 network ip show](#h1-network-ip-show) - Resource show
-  * [h1 network ip delete](#h1-network-ip-delete) - Resource delete
+ * [h1 network list](#h1-network-list) - List network
+ * [h1 network show](#h1-network-show) - Show network
+ * [h1 network delete](#h1-network-delete) - Delete network
+ * [h1 network create](#h1-network-create) - Create network
+ * [h1 network ip](#h1-network-ip) - Manage your IP address
+  * [h1 network ip list](#h1-network-ip-list) - List IP address
+  * [h1 network ip show](#h1-network-ip-show) - Show IP address
+  * [h1 network ip delete](#h1-network-ip-delete) - Delete IP address
   * [h1 network ip create](#h1-network-ip-create) - IP create
 
 
@@ -15,11 +15,11 @@
 
 ## h1 network
 
-Manage your NETWORK
+Manage your network
 
 ## h1 network list
 
-Resource list
+List network
 
 ### Syntax
 
@@ -27,35 +27,35 @@ Resource list
 
 ## h1 network show
 
-Resource show
+Show network
 
 ### Syntax
 
-```h1 network show | id```
+```h1 network show | --network NETWORK```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--network NETWORK``` |  | Network ID or name |
 
 ## h1 network delete
 
-Resource delete
+Delete network
 
 ### Syntax
 
-```h1 network delete | delete-id```
+```h1 network delete | --network NETWORK```
 
-### Parameters (DEPRECATED)
+### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
+| ```--network NETWORK``` |  | Network ID or name |
 
 ## h1 network create
 
-Network create
+Create network
 
 ### Syntax
 
@@ -69,11 +69,11 @@ Network create
 
 ## h1 network ip
 
-Manage your IP
+Manage your IP address
 
 ## h1 network ip list
 
-Resource list
+List IP address
 
 ### Syntax
 
@@ -87,43 +87,32 @@ Resource list
 
 ## h1 network ip show
 
-Resource show
+Show IP address
 
 ### Syntax
 
-```h1 network ip show | --network NETWORK id```
+```h1 network ip show | --ip IP```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
-| ```--network NETWORK``` |  | Network name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--id ID``` |  | Resource identifier |
+| ```--ip IP``` |  | IP address ID or name |
 
 ## h1 network ip delete
 
-Resource delete
+Delete IP address
 
 ### Syntax
 
-```h1 network ip delete | --network NETWORK delete-id```
+```h1 network ip delete | --network NETWORK --ip IP```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
-
-### Parameters (DEPRECATED)
-
-| Name | Default | Description | 
-| ---- | ------- | ----------- |
-| ```--delete-id DELETE-ID``` |  | Resource name or ID |
+| ```--ip IP``` |  | IP address ID or name |
 
 ## h1 network ip create
 

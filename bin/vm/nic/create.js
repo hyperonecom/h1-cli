@@ -18,23 +18,13 @@ const options = {
         type: 'string'
     },
     vm: {
-        description: 'VM name or ID',
+        description: 'Virtual machine name or ID',
         type: 'string',
         required: true
     }
 };
 
-
-module.exports = function(resource) {
-    return Cli.createCommand('create', {
-        description: 'Network Adapter create',
-        plugins: resource.plugins,
-        options: options,
-        handler: handleResourceCreate(resource)
-    });
-};
-
-function handleResourceCreate(resource) {
+function handle(resource) {
 
     return function(args) {
 
@@ -51,7 +41,17 @@ function handleResourceCreate(resource) {
         }
 
         return args.helpers.api.post(resource.url(args), body)
-        .then(result => args.helpers.sendOutput(args, result));
+            .then(result => args.helpers.sendOutput(args, result));
 
     };
+}
+
+module.exports = function(resource) {
+    return Cli.createCommand('create', {
+        description: `Create ${resource.title}`,
+        plugins: resource.plugins,
+        options: options,
+        handler: handle(resource)
+    });
 };
+

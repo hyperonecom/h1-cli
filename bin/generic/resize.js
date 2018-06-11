@@ -2,33 +2,35 @@
 
 const Cli = require('structured-cli');
 
-const options = {
-    size: {
-        description: 'New size'
-      , type: 'int'
-      , required: true
-    }
-};
+const text = require('lib/text');
 
-const params = {
-    id: {
-        description: 'Resource name or ID'
-      , type: 'string'
-      , required: true
-    }
-};
+module.exports = resource => {
+    const options = {
+        [resource.name]: {
+            description: `${text.toTitleCase(resource.title)} ID or name`
+          , type: 'string'
+          , required: true
+          , dest: 'id'
+        },
+        size: {
+            description: 'New size'
+          , type: 'int'
+          , required: true
+        }
+    };
 
-module.exports = resource => Cli.createCommand('resize', {
-    description: 'Resource resize'
-  , plugins: resource.plugins
-  , params: params
-  , options: options
-  , handler: args => args.helpers.api
-        .post(`${resource.url(args)}/${args.id}/actions`, {
-            name: 'resize'
-          , data: {
-                size: args.size
-            }
-        })
-        .then(result => args.helpers.sendOutput(args, result))
-});
+    return Cli.createCommand('resize', {
+        description: `Resize ${resource.title}`
+        , plugins: resource.plugins
+        , params: resource.params
+        , options: options
+        , handler: args => args.helpers.api
+            .post(`${resource.url(args)}/${args.id}/actions`, {
+                name: 'resize'
+                , data: {
+                    size: args.size
+                }
+            })
+            .then(result => args.helpers.sendOutput(args, result))
+    });
+};

@@ -19,7 +19,7 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('add', {
-    description: 'Adding public SSH key'
+    description: `Add public SSH key for ${resource.title}`
   , plugins: resource.plugins
   , params: resource.params
   , options: options

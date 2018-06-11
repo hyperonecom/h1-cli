@@ -66,14 +66,16 @@ const enableOTAC = async (resource, args) => {
 
 module.exports = resource => {
 
+    resource.title = 'authentication factory';
+
     const category = Cli.createCategory('2fa', {
-        description: 'Manage 2fa',
+        description: 'Manage two factor authentication',
         url: () => 'user/me/credential/password',
         defaultQuery: '[].{id: _id, type: type, name: name, createdOn: createdOn}'
     });
 
     const enable = Cli.createCommand('enable', {
-        description: 'enable'
+        description: 'Enable factor of authentication'
       , plugins: resource.plugins
       , options: options
       , handler: async args => {
@@ -86,7 +88,7 @@ module.exports = resource => {
     });
 
     const disable = Cli.createCommand('disable', {
-        description: 'disable'
+        description: 'Disable factor of authentication'
       , options: options
       , plugins: resource.plugins
       , handler: async args => {
