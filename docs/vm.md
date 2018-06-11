@@ -196,12 +196,13 @@ Rename Virtual machine
 
 ### Syntax
 
-```h1 vm rename | --newname NEWNAME```
+```h1 vm rename | --vm VM --newname NEWNAME```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
 | ```--newname NEWNAME``` |  | New name |
 
 ## h1 vm userdata
@@ -210,12 +211,13 @@ Manage userdata for Virtual machine
 
 ### Syntax
 
-```h1 vm userdata | --userdata-file USERDATA-FILE```
+```h1 vm userdata | --vm VM --userdata-file USERDATA-FILE```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
 
 ## h1 vm disk
