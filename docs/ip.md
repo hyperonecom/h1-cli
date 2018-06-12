@@ -33,7 +33,7 @@ Show IP address
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address ID or name |
 
@@ -47,7 +47,7 @@ Delete IP address
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address ID or name |
 
@@ -61,7 +61,7 @@ Disassociate IP address
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | Public IP or ID of IP |
 
@@ -75,7 +75,7 @@ Associate IP address
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | Public IP or ID of IP |
 | ```--private-ip PRIVATE-IP``` |  | ID of private IP |
@@ -98,7 +98,7 @@ IP disassociate
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address or ID |
 | ```--value VALUE``` |  | PTR record |

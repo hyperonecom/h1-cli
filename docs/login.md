@@ -14,7 +14,7 @@ Obtain your apiKey
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--username USERNAME``` |  | Your h1 username |
 | ```[--password PASSWORD]``` |  | Password |

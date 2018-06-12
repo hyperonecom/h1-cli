@@ -30,7 +30,7 @@ Show snapshot
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 
@@ -44,7 +44,7 @@ Delete snapshot
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 
@@ -58,7 +58,7 @@ Rename snapshot
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 | ```--new-name NEW-NAME``` |  | New name |

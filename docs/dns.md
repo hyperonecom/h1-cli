@@ -74,7 +74,7 @@ Show DNS zone
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--zone ZONE``` |  | DNS zone ID or name |
 
@@ -88,7 +88,7 @@ Delete DNS zone
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--zone ZONE``` |  | DNS zone ID or name |
 
@@ -102,7 +102,7 @@ Create DNS zone
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
 
@@ -116,7 +116,7 @@ Export DNS zone
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
 
@@ -138,7 +138,7 @@ List Record A
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
 
@@ -152,7 +152,7 @@ Create record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
@@ -169,7 +169,7 @@ Delete record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -184,7 +184,7 @@ Add record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -200,7 +200,7 @@ Delete record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -220,7 +220,7 @@ List Record CNAME
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
 
@@ -234,7 +234,7 @@ Create record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
@@ -251,7 +251,7 @@ Delete record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -266,7 +266,7 @@ Add record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -282,7 +282,7 @@ Delete record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -302,7 +302,7 @@ List Record TXT
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
 
@@ -316,7 +316,7 @@ Create record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
@@ -333,7 +333,7 @@ Delete record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -348,7 +348,7 @@ Add record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -364,7 +364,7 @@ Delete record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -384,7 +384,7 @@ List Record MX
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
 
@@ -398,7 +398,7 @@ Create record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
@@ -415,7 +415,7 @@ Delete record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -430,7 +430,7 @@ Add record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -446,7 +446,7 @@ Delete record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -466,7 +466,7 @@ List Record NS
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
 
@@ -480,7 +480,7 @@ Create record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
@@ -497,7 +497,7 @@ Delete record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -512,7 +512,7 @@ Add record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -528,7 +528,7 @@ Delete record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -548,7 +548,7 @@ List Record SRV
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
 
@@ -562,7 +562,7 @@ Create record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
@@ -579,7 +579,7 @@ Delete record-set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -594,7 +594,7 @@ Add record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -610,7 +610,7 @@ Delete record
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
@@ -626,7 +626,7 @@ List Record set
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--zone-name ZONE-NAME``` |  | DNS zone name |
 

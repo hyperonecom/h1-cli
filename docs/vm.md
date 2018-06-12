@@ -66,7 +66,7 @@ Show Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
@@ -80,7 +80,7 @@ Virtual machine create
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Virtual machine name |
 | ```--type TYPE``` |  | Virtual machine type name or ID |
@@ -108,7 +108,7 @@ Delete Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
@@ -122,7 +122,7 @@ History of Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
@@ -144,7 +144,7 @@ Stop Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
@@ -158,7 +158,7 @@ Start Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
@@ -172,7 +172,7 @@ Restart Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
@@ -186,7 +186,7 @@ Turnoff Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
@@ -200,7 +200,7 @@ Rename Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```--newname NEWNAME``` |  | New name |
@@ -215,7 +215,7 @@ Manage userdata for Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
@@ -234,7 +234,7 @@ List Disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
@@ -248,7 +248,7 @@ Attach disk to Disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```--disk DISK``` |  | Disk name or ID |
@@ -263,7 +263,7 @@ Detach disk from Disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```--disk DISK``` |  | Disk name or ID |
@@ -282,7 +282,7 @@ List Network adapter
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 
@@ -296,7 +296,7 @@ Show Network adapter
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--nic NIC``` |  | Network adapter ID or name |
 
@@ -310,7 +310,7 @@ Delete Network adapter
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
@@ -325,7 +325,7 @@ Create Network adapter
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```[--network NETWORK]``` |  | Network connected to network adapter |
 | ```--type TYPE``` |  | Type of network adapter |
@@ -342,7 +342,7 @@ Delete Network adapter
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
@@ -361,7 +361,7 @@ List IP  address of network adapter
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID |
@@ -376,7 +376,7 @@ Delete IP  address of network adapter
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID |
@@ -392,7 +392,7 @@ Add IP address to IP  address of network adapter
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID |
@@ -412,7 +412,7 @@ List DVD
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 
@@ -426,7 +426,7 @@ Insert ISO into DVD drive of DVD
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO name or ID |
 | ```--vm VM``` |  | Virtual machine name or ID |
@@ -441,7 +441,7 @@ Eject ISO from DVD drive of DVD
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 
@@ -467,7 +467,7 @@ Add a tag to Tag of virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
 | ```--vm VM``` |  | Virtual machine ID or name |
@@ -482,7 +482,7 @@ Add a tag of Tag of virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--vm VM``` |  | Virtual machine ID or name |
@@ -497,7 +497,7 @@ Connect to Virtual machine using SSH
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```[--username USERNAME]``` |  | Username for ssh connection |
 | ```[--port PORT]``` |  | Port for ssh connection |
@@ -519,7 +519,7 @@ Connect to Virtual machine using Serial Console
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```[--port PORT]``` |  | Port to connect |
@@ -534,7 +534,7 @@ Log Serial Console buffer of Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```[--port PORT]``` |  | Port to connect |
@@ -549,7 +549,7 @@ Password reset for Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--user USER``` |  | Username |
 | ```--vm VM``` |  | Virtual machine ID or name |
@@ -564,7 +564,7 @@ Get live metrics of Virtual machine
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 

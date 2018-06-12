@@ -20,7 +20,7 @@ Show Service
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--service SERVICE``` |  | Service ID or name |
 
@@ -34,7 +34,7 @@ List Service
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```[--resource RESOURCE]``` |  | Kind of resource |
 | ```[--type TYPE]``` |  | Kind of type of resource |

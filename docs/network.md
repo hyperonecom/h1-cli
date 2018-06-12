@@ -35,7 +35,7 @@ Show network
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network ID or name |
 
@@ -49,7 +49,7 @@ Delete network
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network ID or name |
 
@@ -63,7 +63,7 @@ Create network
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
@@ -81,7 +81,7 @@ List IP address
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 
@@ -95,7 +95,7 @@ Show IP address
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address ID or name |
 
@@ -109,7 +109,7 @@ Delete IP address
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 | ```--ip IP``` |  | IP address ID or name |
@@ -124,7 +124,7 @@ IP create
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 

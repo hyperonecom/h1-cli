@@ -47,7 +47,7 @@ Show Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 
@@ -61,7 +61,7 @@ Delete Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 
@@ -75,7 +75,7 @@ Rename Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
@@ -90,7 +90,7 @@ Create Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Vault name |
 | ```--size SIZE``` |  | Vault size in GB |
@@ -111,7 +111,7 @@ Grant access rights for Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
@@ -126,7 +126,7 @@ Revoke access rights for Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
@@ -141,7 +141,7 @@ List of access rights for Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 
@@ -155,7 +155,7 @@ Resize Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--size SIZE``` |  | New size |
@@ -186,7 +186,7 @@ Delete certificate to Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--cert CERT``` |  | Certificate to Vault ID or name |
 
@@ -200,7 +200,7 @@ Add credential to Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--name NAME``` |  | Certificate name |
@@ -229,7 +229,7 @@ Delete password to Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--password PASSWORD``` |  | Password to Vault ID or name |
 
@@ -243,7 +243,7 @@ Add password to Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 | ```--password PASSWORD``` |  | Password |
@@ -258,7 +258,7 @@ Connect to Vault using SSH
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 
@@ -272,7 +272,7 @@ Perform a snapshot of Vault
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--name NAME``` |  | Snapshot name |

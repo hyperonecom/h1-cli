@@ -48,7 +48,7 @@ Show project
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 
@@ -62,7 +62,7 @@ Delete project
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 
@@ -76,7 +76,7 @@ List project
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```[--all]``` |  | Display all projects |
 
@@ -94,7 +94,7 @@ Grant access rights for project
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--identity IDENTITY``` |  | Identity (eg: user@example.org) |
 | ```[--role ROLE]``` |  | Role |
@@ -109,7 +109,7 @@ Revoke access rights for project
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--identity IDENTITY``` |  | Identity (eg: user@example.org) |
 
@@ -123,7 +123,7 @@ List project
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 
@@ -149,7 +149,7 @@ Delete token
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | Token ID or name |
 
@@ -163,7 +163,7 @@ Add token
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
@@ -181,7 +181,7 @@ List access rule
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | Token ID |
 
@@ -195,7 +195,7 @@ Delete access rule
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | Token ID |
 | ```--access ACCESS``` |  | Access rule ID or name |
@@ -210,7 +210,7 @@ Add access rule
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--method METHOD``` |  | HTTP method. eg: GET, POST..., ALL (to allow all methods) |
 | ```--path PATH``` |  | URL path, eg: /disk |
@@ -226,7 +226,7 @@ Select project context
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 
@@ -260,7 +260,7 @@ Delete credentials
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
@@ -274,7 +274,7 @@ Add public SSH key for project
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |

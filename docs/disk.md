@@ -34,7 +34,7 @@ Show disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 
@@ -48,7 +48,7 @@ Delete disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 
@@ -62,7 +62,7 @@ Rename disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
@@ -77,7 +77,7 @@ Create disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Disk name |
 | ```--type TYPE``` |  | Disk type ID or name |
@@ -94,7 +94,7 @@ Resume create upload of disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 | ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
@@ -109,7 +109,7 @@ Resize disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 | ```--size SIZE``` |  | New size |
@@ -124,7 +124,7 @@ Download disk to a file
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk name or ID |
 | ```--destination-file DESTINATION-FILE``` |  | Path to .vhdx file to save |
