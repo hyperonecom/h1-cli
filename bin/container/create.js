@@ -18,6 +18,11 @@ const options = {
       , type: 'string'
       , required: true
     }
+  , expose: {
+        description: 'Expose container to the world using http/https'
+      , type: 'boolean'
+      , required: false
+    }
 };
 
 module.exports = resource => Cli.createCommand('create', {
@@ -30,6 +35,7 @@ module.exports = resource => Cli.createCommand('create', {
             name: args.name
           , image: args.image
           , service: args.type
+          , expose: args.expose
         };
 
         return args.helpers.api
