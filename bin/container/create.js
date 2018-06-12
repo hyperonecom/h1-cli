@@ -23,6 +23,13 @@ const options = {
       , type: 'boolean'
       , required: false
     }
+  , env: {
+        description: 'Add enviroment variable'
+      , type: 'string'
+      , action: 'append'
+      , defaultValue: []
+      , required: false
+    }
 };
 
 module.exports = resource => Cli.createCommand('create', {
@@ -31,11 +38,18 @@ module.exports = resource => Cli.createCommand('create', {
   , options: Object.assign({}, options, resource.options)
   , handler: args => {
 
+        const env = {};
+        args.env.forEach(value => {
+            const [k, v] = value.split('=');
+            env[k] = v;
+        });
+
         const body = {
             name: args.name
           , image: args.image
           , service: args.type
           , expose: args.expose
+          , env: env
         };
 
         return args.helpers.api
