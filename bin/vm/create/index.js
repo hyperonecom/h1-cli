@@ -138,7 +138,7 @@ const handler = async (args) => {
 };
 
 module.exports = resource => Cli.createCommand('create', {
-    description: `${resource.title} create`,
+    description: `Create ${resource.title}`,
     plugins: genericDefaults.plugins,
     options: options,
     dirname: __dirname,

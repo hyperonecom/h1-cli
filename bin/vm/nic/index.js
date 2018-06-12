@@ -18,7 +18,7 @@ const resource = {
     url: args => `vm/${args.vm}/netadp`,
     options: options,
     plugins: defaults.plugins,
-    title: 'Network adapter',
+    title: 'network adapter',
     dirname: __dirname
 };
 

@@ -1,27 +1,27 @@
 # TOC
 
-  * [h1 vm list](#h1-vm-list) - List Virtual machine
-  * [h1 vm show](#h1-vm-show) - Show Virtual machine
-  * [h1 vm create](#h1-vm-create) - Virtual machine create
-  * [h1 vm delete](#h1-vm-delete) - Delete Virtual machine
-  * [h1 vm queue](#h1-vm-queue) - History of Virtual machine
-  * [h1 vm console](#h1-vm-console) - Open Virtual machine console in web-browser
-  * [h1 vm stop](#h1-vm-stop) - Stop Virtual machine
-  * [h1 vm start](#h1-vm-start) - Start Virtual machine
-  * [h1 vm restart](#h1-vm-restart) - Restart Virtual machine
-  * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff Virtual machine
-  * [h1 vm rename](#h1-vm-rename) - Rename Virtual machine
-  * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for Virtual machine
-  * [h1 vm disk](#h1-vm-disk) - Manage your Disk
-    * [h1 vm disk list](#h1-vm-disk-list) - List Disk
-    * [h1 vm disk attach](#h1-vm-disk-attach) - Attach disk to Disk
-    * [h1 vm disk detach](#h1-vm-disk-detach) - Detach disk from Disk
-  * [h1 vm nic](#h1-vm-nic) - Manage your Network adapter
-    * [h1 vm nic list](#h1-vm-nic-list) - List Network adapter
-    * [h1 vm nic show](#h1-vm-nic-show) - Show Network adapter
-    * [h1 vm nic delete](#h1-vm-nic-delete) - Delete Network adapter
-    * [h1 vm nic create](#h1-vm-nic-create) - Create Network adapter
-    * [h1 vm nic delete](#h1-vm-nic-delete) - Delete Network adapter
+  * [h1 vm list](#h1-vm-list) - List virtual machine
+  * [h1 vm show](#h1-vm-show) - Show virtual machine
+  * [h1 vm create](#h1-vm-create) - Create virtual machine
+  * [h1 vm delete](#h1-vm-delete) - Delete virtual machine
+  * [h1 vm queue](#h1-vm-queue) - History of virtual machine
+  * [h1 vm console](#h1-vm-console) - Open virtual machine console in web-browser
+  * [h1 vm stop](#h1-vm-stop) - Stop virtual machine
+  * [h1 vm start](#h1-vm-start) - Start virtual machine
+  * [h1 vm restart](#h1-vm-restart) - Restart virtual machine
+  * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff virtual machine
+  * [h1 vm rename](#h1-vm-rename) - Rename virtual machine
+  * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for virtual machine
+  * [h1 vm disk](#h1-vm-disk) - Manage your disk
+    * [h1 vm disk list](#h1-vm-disk-list) - List disk
+    * [h1 vm disk attach](#h1-vm-disk-attach) - Attach disk to disk
+    * [h1 vm disk detach](#h1-vm-disk-detach) - Detach disk from disk
+  * [h1 vm nic](#h1-vm-nic) - Manage your network adapter
+    * [h1 vm nic list](#h1-vm-nic-list) - List network adapter
+    * [h1 vm nic show](#h1-vm-nic-show) - Show network adapter
+    * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
+    * [h1 vm nic create](#h1-vm-nic-create) - Create network adapter
+    * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
     * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP  address of network adapter
       * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP  address of network adapter
       * [h1 vm nic ip delete](#h1-vm-nic-ip-delete) - Delete IP  address of network adapter
@@ -34,23 +34,23 @@
     * [h1 vm tag list](#h1-vm-tag-list) - List tag
     * [h1 vm tag add](#h1-vm-tag-add) - Add a tag to Tag of virtual machine
     * [h1 vm tag delete](#h1-vm-tag-delete) - Add a tag of Tag of virtual machine
-  * [h1 vm ssh](#h1-vm-ssh) - Connect to Virtual machine using SSH
+  * [h1 vm ssh](#h1-vm-ssh) - Connect to virtual machine using SSH
   * [h1 vm serialport](#h1-vm-serialport) - Serial Console
-    * [h1 vm serialport console](#h1-vm-serialport-console) - Connect to Virtual machine using Serial Console
-    * [h1 vm serialport log](#h1-vm-serialport-log) - Log Serial Console buffer of Virtual machine
-  * [h1 vm passwordreset](#h1-vm-passwordreset) - Password reset for Virtual machine
-  * [h1 vm metrics](#h1-vm-metrics) - Get live metrics of Virtual machine
+    * [h1 vm serialport console](#h1-vm-serialport-console) - Connect to virtual machine using Serial Console
+    * [h1 vm serialport log](#h1-vm-serialport-log) - Log Serial Console buffer of virtual machine
+  * [h1 vm passwordreset](#h1-vm-passwordreset) - Password reset for virtual machine
+  * [h1 vm metrics](#h1-vm-metrics) - Get live metrics of virtual machine
 
 
 # Specification
 
 ## h1 vm
 
-Manage your Virtual machine
+Manage your virtual machine
 
 ## h1 vm list
 
-List Virtual machine
+List virtual machine
 
 ### Syntax
 
@@ -58,7 +58,7 @@ List Virtual machine
 
 ## h1 vm show
 
-Show Virtual machine
+Show virtual machine
 
 ### Syntax
 
@@ -72,7 +72,7 @@ Show Virtual machine
 
 ## h1 vm create
 
-Virtual machine create
+Create virtual machine
 
 ### Syntax
 
@@ -127,7 +127,7 @@ Note: You can mount ISO disk and provide stateless services.
 
 ## h1 vm delete
 
-Delete Virtual machine
+Delete virtual machine
 
 ### Syntax
 
@@ -141,7 +141,7 @@ Delete Virtual machine
 
 ## h1 vm queue
 
-History of Virtual machine
+History of virtual machine
 
 ### Syntax
 
@@ -151,11 +151,11 @@ History of Virtual machine
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--vm VM``` |  | virtual machine ID or name |
 
 ## h1 vm console
 
-Open Virtual machine console in web-browser
+Open virtual machine console in web-browser
 
 ### Syntax
 
@@ -173,11 +173,11 @@ h1 vm console --vm test-vm
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--vm VM``` |  | virtual machine ID or name |
 
 ## h1 vm stop
 
-Stop Virtual machine
+Stop virtual machine
 
 ### Syntax
 
@@ -187,11 +187,11 @@ Stop Virtual machine
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--vm VM``` |  | virtual machine ID or name |
 
 ## h1 vm start
 
-Start Virtual machine
+Start virtual machine
 
 ### Syntax
 
@@ -201,11 +201,11 @@ Start Virtual machine
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--vm VM``` |  | virtual machine ID or name |
 
 ## h1 vm restart
 
-Restart Virtual machine
+Restart virtual machine
 
 ### Syntax
 
@@ -215,11 +215,11 @@ Restart Virtual machine
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--vm VM``` |  | virtual machine ID or name |
 
 ## h1 vm turnoff
 
-Turnoff Virtual machine
+Turnoff virtual machine
 
 ### Syntax
 
@@ -229,11 +229,11 @@ Turnoff Virtual machine
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--vm VM``` |  | virtual machine ID or name |
 
 ## h1 vm rename
 
-Rename Virtual machine
+Rename virtual machine
 
 ### Syntax
 
@@ -243,12 +243,12 @@ Rename Virtual machine
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--vm VM``` |  | virtual machine ID or name |
 | ```--newname NEWNAME``` |  | New name |
 
 ## h1 vm userdata
 
-Manage userdata for Virtual machine
+Manage userdata for virtual machine
 
 ### Syntax
 
@@ -273,16 +273,16 @@ $ h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openss
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--vm VM``` |  | virtual machine ID or name |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
 
 ## h1 vm disk
 
-Manage your Disk
+Manage your disk
 
 ## h1 vm disk list
 
-List Disk
+List disk
 
 ### Syntax
 
@@ -296,7 +296,7 @@ List Disk
 
 ## h1 vm disk attach
 
-Attach disk to Disk
+Attach disk to disk
 
 ### Syntax
 
@@ -307,11 +307,11 @@ Attach disk to Disk
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
-| ```--disk DISK``` |  | Disk name or ID |
+| ```--disk DISK``` |  | disk name or ID |
 
 ## h1 vm disk detach
 
-Detach disk from Disk
+Detach disk from disk
 
 ### Syntax
 
@@ -322,11 +322,11 @@ Detach disk from Disk
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
-| ```--disk DISK``` |  | Disk name or ID |
+| ```--disk DISK``` |  | disk name or ID |
 
 ## h1 vm nic
 
-Manage your Network adapter
+Manage your network adapter
 
 ### Examples
 
@@ -338,7 +338,7 @@ h1 vm nic list --vm test-vm --output json --query "[].{ip:join(',', ip[].address
 
 ## h1 vm nic list
 
-List Network adapter
+List network adapter
 
 ### Syntax
 
@@ -352,7 +352,7 @@ List Network adapter
 
 ## h1 vm nic show
 
-Show Network adapter
+Show network adapter
 
 ### Syntax
 
@@ -366,7 +366,7 @@ Show Network adapter
 
 ## h1 vm nic delete
 
-Delete Network adapter
+Delete network adapter
 
 ### Syntax
 
@@ -381,7 +381,7 @@ Delete Network adapter
 
 ## h1 vm nic create
 
-Create Network adapter
+Create network adapter
 
 ### Syntax
 
@@ -398,7 +398,7 @@ Create Network adapter
 
 ## h1 vm nic delete
 
-Delete Network adapter
+Delete network adapter
 
 ### Syntax
 
@@ -579,7 +579,7 @@ h1 vm tag delete --vm test-vm --tag prod
 
 ## h1 vm ssh
 
-Connect to Virtual machine using SSH
+Connect to virtual machine using SSH
 
 ### Syntax
 
@@ -593,7 +593,7 @@ Connect to Virtual machine using SSH
 | ```[--port PORT]``` |  | Port for ssh connection |
 | ```[--private]``` |  | Use first private network, skip public |
 | ```[--command COMMAND]``` |  | Command to execute |
-| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--vm VM``` |  | virtual machine ID or name |
 
 ## h1 vm serialport
 
@@ -601,7 +601,7 @@ Serial Console
 
 ## h1 vm serialport console
 
-Connect to Virtual machine using Serial Console
+Connect to virtual machine using Serial Console
 
 ### Syntax
 
@@ -616,7 +616,7 @@ Connect to Virtual machine using Serial Console
 
 ## h1 vm serialport log
 
-Log Serial Console buffer of Virtual machine
+Log Serial Console buffer of virtual machine
 
 ### Syntax
 
@@ -631,7 +631,7 @@ Log Serial Console buffer of Virtual machine
 
 ## h1 vm passwordreset
 
-Password reset for Virtual machine
+Password reset for virtual machine
 
 ### Syntax
 
@@ -646,7 +646,7 @@ Password reset for Virtual machine
 
 ## h1 vm metrics
 
-Get live metrics of Virtual machine
+Get live metrics of virtual machine
 
 ### Syntax
 
@@ -656,5 +656,5 @@ Get live metrics of Virtual machine
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--vm VM``` |  | virtual machine ID or name |
 

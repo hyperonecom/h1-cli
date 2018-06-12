@@ -10,7 +10,7 @@ const resource = {
   , url: () => 'vm'
   , plugins: genericDefaults.plugins
   , commands: [ 'list', 'show' ]
-  , title: 'Virtual machine'
+  , title: 'virtual machine'
 };
 
 const childDefaults = Object.assign({}, resource, {

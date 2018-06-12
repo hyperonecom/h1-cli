@@ -3,7 +3,7 @@
 * [h1 login](login.md) - Obtain your apiKey
 * [h1 project](project.md) - Manage your project
 * [h1 disk](disk.md) - Manage your disk
-* [h1 vm](vm.md) - Manage your Virtual machine
+* [h1 vm](vm.md) - Manage your virtual machine
 * [h1 image](image.md) - Manage your image
 * [h1 iso](iso.md) - Manage your ISO
 * [h1 network](network.md) - Manage your network
