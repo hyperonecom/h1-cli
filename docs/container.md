@@ -73,7 +73,7 @@ container create
 
 ### Syntax
 
-```h1 container create | --name NAME --image IMAGE --type TYPE```
+```h1 container create | --name NAME --image IMAGE --type TYPE [--expose] [--env ENV [--env ENV ...]]```
 
 ### Required options
 
@@ -82,6 +82,8 @@ container create
 | ```--name NAME``` |  | Name |
 | ```--image IMAGE``` |  | Image |
 | ```--type TYPE``` |  | Type |
+| ```[--expose]``` |  | Expose container to the world using http/https |
+| ```[--env ENV [--env ENV ...]]``` |  | Add enviroment variable. The parameter may occur repeatedly |
 
 ## h1 container stop
 
@@ -117,11 +119,12 @@ container logs
 
 ### Syntax
 
-```h1 container logs | --container CONTAINER```
+```h1 container logs | --container CONTAINER [--follow]```
 
 ### Required options
 
 | Name | Default | Description | 
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | container ID or name |
+| ```[--follow]``` |  | Follow log output |
 
