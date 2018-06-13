@@ -28,7 +28,7 @@ Show image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 
@@ -42,7 +42,7 @@ Delete image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 
@@ -56,7 +56,7 @@ Rename image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
@@ -71,7 +71,7 @@ Create image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name of image |
 | ```[--description DESCRIPTION]``` |  | Description of image |
@@ -87,7 +87,7 @@ List image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```[--recommended]``` |  | Display recommended images |
 | ```[--all]``` |  | Display all images |
@@ -102,7 +102,7 @@ List all disks of image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 
@@ -120,7 +120,7 @@ Grant access rights for image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
@@ -135,7 +135,7 @@ Revoke access rights for image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
@@ -150,7 +150,7 @@ List of access rights for image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 

@@ -36,7 +36,7 @@ Show ISO
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
 
@@ -50,7 +50,7 @@ Delete ISO
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
 
@@ -64,7 +64,7 @@ Rename ISO
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
@@ -83,7 +83,7 @@ Grant access rights for ISO
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
@@ -98,7 +98,7 @@ Revoke access rights for ISO
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
@@ -113,7 +113,7 @@ List of access rights for ISO
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
 
@@ -127,7 +127,7 @@ Resume create upload of ISO
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
 | ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
@@ -142,7 +142,7 @@ ISO import
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | ISO name |
 | ```[--source-file SOURCE-FILE]``` |  | Source file for ISO import. |

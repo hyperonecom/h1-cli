@@ -40,7 +40,7 @@ Show firewall
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 
@@ -54,7 +54,7 @@ Delete firewall
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 
@@ -68,7 +68,7 @@ Create firewall
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
@@ -82,7 +82,7 @@ Attach firewall to a network
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--network NETWORK``` |  | Network ID or name |
@@ -97,7 +97,7 @@ Detach firewall from network
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 
@@ -107,7 +107,7 @@ Manage ingress rules of firewall
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 
@@ -121,7 +121,7 @@ List rule ingress of firewall
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 
@@ -135,7 +135,7 @@ Add rule ingress of firewall
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--name NAME``` |  | Name |
@@ -155,7 +155,7 @@ Add rule ingress of firewall
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--rule RULE``` |  | Rule identifier |
@@ -166,7 +166,7 @@ Manage egress rules of firewall
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 
@@ -180,7 +180,7 @@ List rule egress of firewall
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 
@@ -194,7 +194,7 @@ Add rule egress of firewall
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--name NAME``` |  | Name |
@@ -214,7 +214,7 @@ Add rule egress of firewall
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--rule RULE``` |  | Rule identifier |

@@ -30,7 +30,7 @@ Get config value
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--key KEY``` |  | Name of config key |
 
@@ -44,7 +44,7 @@ Set config value
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--key KEY``` |  | Name of config key |
 | ```--value VALUE``` |  | Config value |
@@ -59,7 +59,7 @@ Unset config key
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--key KEY``` |  | Name of config key |
 

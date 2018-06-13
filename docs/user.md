@@ -47,7 +47,7 @@ Delete credentials
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
@@ -61,7 +61,7 @@ Add public SSH key for user
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
@@ -80,7 +80,7 @@ Enable factor of authentication
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```[--type TYPE]``` |  | type |
 
@@ -94,7 +94,7 @@ Disable factor of authentication
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```[--type TYPE]``` |  | type |
 

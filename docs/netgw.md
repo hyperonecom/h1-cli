@@ -36,7 +36,7 @@ Show network gateway
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
 
@@ -50,7 +50,7 @@ Delete network gateway
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
 
@@ -64,7 +64,7 @@ Network gateway create
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Network gateway name or ID |
 | ```--ip IP``` |  | Primary IP for the outgoing traffic |
@@ -79,7 +79,7 @@ Network gateway detach from a network
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway name or ID |
 
@@ -93,7 +93,7 @@ Network gateway attach to a network
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway name or ID |
 | ```--network NETWORK``` |  | Network name or ID |
@@ -112,7 +112,7 @@ Grant access rights for network gateway
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
@@ -127,7 +127,7 @@ Revoke access rights for network gateway
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
@@ -142,7 +142,7 @@ List of access rights for network gateway
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
 
