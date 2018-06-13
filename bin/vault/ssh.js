@@ -15,7 +15,7 @@ module.exports = resource => Cli.createCommand('ssh', {
   , plugins: resource.plugins
   , options: Object.assign({}, resource.options, options)
   , handler: args => args.helpers.api
-        .get(`${args.$node.parent.config.url(args)}/${args.id}`)
+        .get(`${args.$node.parent.config.url(args)}/${args.vault}`)
         .then(result => {
 
             const sshArgs = [
