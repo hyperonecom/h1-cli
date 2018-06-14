@@ -162,6 +162,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --external 0.0.0.0/0 --internal 10.177.2.2 \
     --name 'Allow HTTP'
 
+
 ### Required options
 
 | Name | Default | Description |
@@ -214,6 +215,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --filter tcp:80 \ 
     --external 0.0.0.0/0 --internal 10.177.2.2 \
     --name 'Allow HTTP'
+
 
 ### Required options
 
@@ -287,6 +289,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --external 0.0.0.0/0 --internal 10.177.2.2 \
     --name 'Allow HTTP'
 
+
 ### Required options
 
 | Name | Default | Description |
@@ -339,6 +342,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --filter tcp:80 \ 
     --external 0.0.0.0/0 --internal 10.177.2.2 \
     --name 'Allow HTTP'
+
 
 ### Required options
 

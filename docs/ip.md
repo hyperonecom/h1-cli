@@ -61,9 +61,11 @@ Create IP address
 
 ### Examples
 
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--ip IP``` |  | Public IP or ID of IP |
+#### Create a new public IP
+
+```bash
+h1 ip create
+```
 
 ## h1 ip associate
 
@@ -103,6 +105,7 @@ Disassociate IP address
 ```bash
 h1 ip disassociate --ip 62.181.8.21
 ```
+
 
 ### Required options
 
