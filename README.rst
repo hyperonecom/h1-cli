@@ -1,6 +1,9 @@
 h1-cli
 ======
 
+.. image:: https://travis-ci.org/hyperonecom/h1-cli.svg?branch=master
+    :target: https://travis-ci.org/hyperonecom/h1-cli
+
 h1-cli jest konsolowym narzędziem przeznaczonym do zarządzania infrastrukturą chmury HyperOne. Możesz go wykorzystywać zarówno do własnych prac administracyjnych, jak również podczas tworzenia  skryptów automatyzujących.
 
 Przegląd funkcjonalności
