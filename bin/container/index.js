@@ -5,24 +5,24 @@ const genericAction = require('bin/generic/action');
 const genericResource = require('bin/generic');
 
 const resource = {
-    name: 'container'
-  , defaultQuery: '[].{id:_id,name:name,state:state,processing:processing}'
-  , url: () => 'container'
-  , plugins: genericDefaults.plugins
-  , extraCommands: ['rename']
-  , title: 'container'
+    name: 'container',
+    defaultQuery: '[].{id:_id,name:name,state:state,processing:processing}',
+    url: () => 'container',
+    plugins: genericDefaults.plugins,
+    extraCommands: ['rename'],
+    title: 'container',
 };
 
 const childDefaults = Object.assign({}, resource, {
     options: {
         container: {
-            description: `${resource.title} ID or name`
-          , type: 'string'
-          , required: true
-          , dest: 'id'
-        }
-    }
-  , url: args => `${resource.url(args)}/${args.id}`
+            description: `${resource.title} ID or name`,
+            type: 'string',
+            required: true,
+            dest: 'id',
+        },
+    },
+    url: args => `${resource.url(args)}/${args.id}`,
 });
 
 const category = genericResource(resource);
