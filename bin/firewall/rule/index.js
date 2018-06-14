@@ -1,6 +1,6 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
 module.exports = (table, parent) => {
 
@@ -20,7 +20,8 @@ module.exports = (table, parent) => {
     };
 
     const category = Cli.createCategory(table, Object.assign({}, resource, {
-        description: `Manage ${table} rules of ${parent.title}`
+        description: `Manage ${table} rules of ${parent.title}`,
+        dirname: __dirname
     }));
 
     category.addChild(require('./list')(table, resource));

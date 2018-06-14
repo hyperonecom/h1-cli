@@ -1,7 +1,7 @@
 'use strict';
 
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
 module.exports = resource => {
     const category = Cli.createCategory('serialport', {

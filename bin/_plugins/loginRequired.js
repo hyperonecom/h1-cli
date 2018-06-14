@@ -12,6 +12,7 @@ module.exports = {
         const profile = config.get('profile', {});
 
         if (process.env.API_KEY) {
+            console.debug('Skip log in. Using API_KEY from environment variable');
             return;
         }
 

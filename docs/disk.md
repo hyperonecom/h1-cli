@@ -1,13 +1,13 @@
 # TOC
 
- * [h1 disk list](#h1-disk-list) - List disk
- * [h1 disk show](#h1-disk-show) - Show disk
- * [h1 disk delete](#h1-disk-delete) - Delete disk
- * [h1 disk rename](#h1-disk-rename) - Rename disk
- * [h1 disk create](#h1-disk-create) - Create disk
- * [h1 disk resume](#h1-disk-resume) - Resume create upload of disk
- * [h1 disk resize](#h1-disk-resize) - Resize disk
- * [h1 disk download](#h1-disk-download) - Download disk to a file
+  * [h1 disk list](#h1-disk-list) - List disk
+  * [h1 disk show](#h1-disk-show) - Show disk
+  * [h1 disk delete](#h1-disk-delete) - Delete disk
+  * [h1 disk rename](#h1-disk-rename) - Rename disk
+  * [h1 disk create](#h1-disk-create) - Create disk
+  * [h1 disk resume](#h1-disk-resume) - Resume create upload of disk
+  * [h1 disk resize](#h1-disk-resize) - Resize disk
+  * [h1 disk download](#h1-disk-download) - Download disk to a file
 
 
 # Specification
@@ -34,7 +34,7 @@ Show disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 
@@ -48,7 +48,7 @@ Delete disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 
@@ -62,7 +62,7 @@ Rename disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
@@ -75,9 +75,21 @@ Create disk
 
 ```h1 disk create | --name NAME --type TYPE --size SIZE [--source-file SOURCE-FILE]```
 
+### Examples
+
+#### Create 10 GB SSD disk
+
+```bash
+h1 disk create --name db-disk --type ssd --size 10
+```
+
+#### Create disk from .vkdx file
+
+TODO
+
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Disk name |
 | ```--type TYPE``` |  | Disk type ID or name |
@@ -94,7 +106,7 @@ Resume create upload of disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 | ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
@@ -109,7 +121,7 @@ Resize disk
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 | ```--size SIZE``` |  | New size |
@@ -124,7 +136,7 @@ Download disk to a file
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk name or ID |
 | ```--destination-file DESTINATION-FILE``` |  | Path to .vhdx file to save |

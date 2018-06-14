@@ -23,7 +23,7 @@ const resource = {
 
 const category = genericResource(resource);
 
-category.addChild(require('./insert')(resource));
-category.addChild(require('./eject')(resource));
+category.addChild(require('./insert/insert')(resource));
+category.addChild(require('./eject/eject')(resource));
 
 module.exports = category;

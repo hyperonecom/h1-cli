@@ -1,14 +1,14 @@
 # TOC
 
- * [h1 user create](#h1-user-create) - Create an account
- * [h1 user credentials](#h1-user-credentials) - Manage your credentials
-  * [h1 user credentials list](#h1-user-credentials-list) - List credentials
-  * [h1 user credentials delete](#h1-user-credentials-delete) - Delete credentials
-  * [h1 user credentials add](#h1-user-credentials-add) - Add public SSH key for user
- * [h1 user 2fa](#h1-user-2fa) - Manage two factor authentication
-  * [h1 user 2fa enable](#h1-user-2fa-enable) - Enable factor of authentication
-  * [h1 user 2fa disable](#h1-user-2fa-disable) - Disable factor of authentication
-  * [h1 user 2fa list](#h1-user-2fa-list) - List authentication factory
+  * [h1 user create](#h1-user-create) - Create an account
+  * [h1 user credentials](#h1-user-credentials) - Manage your credentials
+    * [h1 user credentials list](#h1-user-credentials-list) - List credentials
+    * [h1 user credentials delete](#h1-user-credentials-delete) - Delete credentials
+    * [h1 user credentials add](#h1-user-credentials-add) - Add public SSH key for user
+  * [h1 user 2fa](#h1-user-2fa) - Manage two factor authentication
+    * [h1 user 2fa enable](#h1-user-2fa-enable) - Enable factor of authentication
+    * [h1 user 2fa disable](#h1-user-2fa-disable) - Disable factor of authentication
+    * [h1 user 2fa list](#h1-user-2fa-list) - List authentication factory
 
 
 # Specification
@@ -24,6 +24,14 @@ Create an account
 ### Syntax
 
 ```h1 user create | ```
+
+### Examples
+
+#### Create user
+
+```bash
+h1 user create
+```
 
 ## h1 user credentials
 
@@ -47,7 +55,7 @@ Delete credentials
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
@@ -61,7 +69,7 @@ Add public SSH key for user
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
@@ -78,9 +86,29 @@ Enable factor of authentication
 
 ```h1 user 2fa enable | [--type TYPE]```
 
+### Examples
+
+#### Enable Time-Based One-Time Password (TOTP) factor
+
+```bash
+h1 user 2fa enable
+```
+
+After scanning image in [Google Authenticator] or [Authy] applications, you will receive a 
+token that will allow you to login to the site.
+
+[Google Authenticator]: https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2
+[Authy]: https://authy.com/download/
+
+#### Enable One-time authorization Codes (OTAC) factor
+
+```bash
+h1 user 2fa enable --type otac
+```
+
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```[--type TYPE]``` |  | type |
 
@@ -92,9 +120,17 @@ Disable factor of authentication
 
 ```h1 user 2fa disable | [--type TYPE]```
 
+### Examples
+
+#### Disable OTAC codes
+
+```bash
+h1 user 2fa disable --type otac
+```
+
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```[--type TYPE]``` |  | type |
 

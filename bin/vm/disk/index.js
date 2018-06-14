@@ -18,7 +18,7 @@ const resource = {
     url: args => `vm/${args.vm}/hdd`,
     options: options,
     commands: ['list'],
-    title: 'Disk'
+    title: 'disk'
 };
 
 const childOptions = Object.assign({}, resource.options, {
@@ -28,7 +28,6 @@ const childOptions = Object.assign({}, resource.options, {
         required: true
     }
 });
-
 
 const childDefaults = Object.assign({}, resource, {
     options: childOptions

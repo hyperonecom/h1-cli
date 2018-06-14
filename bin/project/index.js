@@ -2,6 +2,8 @@
 
 const genericResource = require('bin/generic');
 
+const config = require('lib/config');
+
 const resource = {
     name: 'project',
     defaultQuery: '[].{id:_id,name:name,billing:billing.company,active:active,processing:processing}',
@@ -17,12 +19,15 @@ const resource = {
 const category = genericResource(resource);
 category.addChild(require('./list')(resource));
 
+const active_project = config.get('profile.project._id');
+
 const childDefaults = Object.assign({}, resource, {
     options: {
         project: {
             description: 'Project ID or name'
           , type: 'string'
-          , required: true
+          , required: !active_project
+          , defaultValue: active_project
           , dest: 'id'
         }
     }

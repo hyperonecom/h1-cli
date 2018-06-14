@@ -1,14 +1,14 @@
 # TOC
 
- * [h1 network list](#h1-network-list) - List network
- * [h1 network show](#h1-network-show) - Show network
- * [h1 network delete](#h1-network-delete) - Delete network
- * [h1 network create](#h1-network-create) - Create network
- * [h1 network ip](#h1-network-ip) - Manage your IP address
-  * [h1 network ip list](#h1-network-ip-list) - List IP address
-  * [h1 network ip show](#h1-network-ip-show) - Show IP address
-  * [h1 network ip delete](#h1-network-ip-delete) - Delete IP address
-  * [h1 network ip create](#h1-network-ip-create) - IP create
+  * [h1 network list](#h1-network-list) - List network
+  * [h1 network show](#h1-network-show) - Show network
+  * [h1 network delete](#h1-network-delete) - Delete network
+  * [h1 network create](#h1-network-create) - Create network
+  * [h1 network ip](#h1-network-ip) - Manage your IP address
+    * [h1 network ip list](#h1-network-ip-list) - List IP address
+    * [h1 network ip show](#h1-network-ip-show) - Show IP address
+    * [h1 network ip delete](#h1-network-ip-delete) - Delete IP address
+    * [h1 network ip create](#h1-network-ip-create) - Create IP address
 
 
 # Specification
@@ -35,7 +35,7 @@ Show network
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network ID or name |
 
@@ -49,7 +49,7 @@ Delete network
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network ID or name |
 
@@ -61,9 +61,17 @@ Create network
 
 ```h1 network create | --name NAME```
 
+### Examples
+
+#### Create a network
+
+```bash
+h1 network create --name my-safe-net
+```
+
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
@@ -81,7 +89,7 @@ List IP address
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 
@@ -95,7 +103,7 @@ Show IP address
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address ID or name |
 
@@ -109,22 +117,30 @@ Delete IP address
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 | ```--ip IP``` |  | IP address ID or name |
 
 ## h1 network ip create
 
-IP create
+Create IP address
 
 ### Syntax
 
 ```h1 network ip create | --network NETWORK```
 
+### Examples
+
+#### Create a new IP address in network
+
+```
+h1 network ip create --network my-safe-net
+```
+
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 

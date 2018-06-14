@@ -1,8 +1,8 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
-module.exports = function(resource) {
+module.exports = (resource) => {
 
     const category = Cli.createCategory('access', {
         description: `Manage your ${resource.title} access rights`,

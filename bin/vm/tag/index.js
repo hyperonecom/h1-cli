@@ -28,6 +28,7 @@ const resource = {
    , url: args => `vm/${args.vm}/tag`
    , transform: data => Object.entries(data).map(([key, value]) => ({ key, value }))
    , commands: ['list']
+   , options: resource.options
  });
 
  category.addChild(require('./add')(resource));

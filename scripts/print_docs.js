@@ -9,11 +9,11 @@ const fs = require('fs');
 const code = '```';
 
 
-function writeElements(output_stream, label, values, label_fn, filter) {
+function writeElements(output_stream, label, values = {}, label_fn, filter) {
     const entries = Object.entries(_.pickBy(values|| {}, filter));
     if (entries.length > 0) {
         output_stream.write(`### ${label}\n\n`);
-        output_stream.write('| Name | Default | Description | \n');
+        output_stream.write('| Name | Default | Description |\n');
         output_stream.write('| ---- | ------- | ----------- |\n');
 
         entries.forEach(([name, value]) => {
@@ -45,7 +45,7 @@ function writeCommandTOC(stream, entry, prefix, depth) {
     entry.children.forEach(entry => {
         const name = `${prefix} ${entry.name}`;
         const slug = name.replace(/ /g, '-').toLowerCase();
-        const depth_prefix = ' '.repeat(depth);
+        const depth_prefix = ' '.repeat(depth*2);
 
         stream.write(`${depth_prefix}* [${name}](#${slug}) - ${entry.description}\n`);
         if (entry.children) {
@@ -65,9 +65,18 @@ function writeCommandSpecs(stream, entry, prefix) {
         stream.write(`${code}${lib.getCommandHeader(entry, prefix)}${code}\n\n`);
     }
 
-    writeElements(stream, 'Required options', entry.options || {}, lib.getOptionLabel, (name, option) => !option.required);
-    writeElements(stream, 'Optional options', entry.options || {}, lib.getOptionLabel, (name, option) => option.required);
-    writeElements(stream, 'Parameters (DEPRECATED)', entry.params || {}, lib.getParamLabel, () => true);
+    if (entry.examples) {
+        let examples = entry.examples.replace(/\n+$/g, '');  // Drop leading empty line to standarize
+        const start_level = 3;
+        const level_prefix = '#'.repeat(start_level);
+        examples = examples.replace(/^(#+)/gm, `${level_prefix}$1`);
+        stream.write(`### Examples\n\n${examples}\n\n`);
+    }
+
+
+    writeElements(stream, 'Required options', entry.options, lib.getOptionLabel, (name, option) => !option.required);
+    writeElements(stream, 'Optional options', entry.options, lib.getOptionLabel, (name, option) => option.required);
+    writeElements(stream, 'Parameters (DEPRECATED)', entry.params, lib.getParamLabel, () => true);
 }
 
 const writeSpecs = function (stream, entry, prefix) {
@@ -104,6 +113,7 @@ const main = async () => {
 
         wstream.write('# TOC\n\n');
         writeCommandTOC(wstream, entry, `h1 ${entry.name}`, 1);
+
 
         wstream.write('\n\n');
 
