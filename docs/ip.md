@@ -106,7 +106,6 @@ Disassociate IP address
 h1 ip disassociate --ip 62.181.8.21
 ```
 
-
 ### Required options
 
 | Name | Default | Description |
