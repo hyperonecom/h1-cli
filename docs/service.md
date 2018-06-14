@@ -1,18 +1,18 @@
 # TOC
 
- * [h1 service show](#h1-service-show) - Show Service
- * [h1 service list](#h1-service-list) - List Service
+  * [h1 service show](#h1-service-show) - Show service
+  * [h1 service list](#h1-service-list) - List service
 
 
 # Specification
 
 ## h1 service
 
-Manage your Service
+Manage your service
 
 ## h1 service show
 
-Show Service
+Show service
 
 ### Syntax
 
@@ -20,21 +20,35 @@ Show Service
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--service SERVICE``` |  | Service ID or name |
 
 ## h1 service list
 
-List Service
+List service
 
 ### Syntax
 
 ```h1 service list | [--resource RESOURCE] [--type TYPE]```
 
+### Examples
+
+#### List services
+
+```bash
+h1 service list
+````
+
+#### List types of virtual machines 
+
+```bash
+h1 service list --resource vm --type flavour 
+```
+
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```[--resource RESOURCE]``` |  | Kind of resource |
 | ```[--type TYPE]``` |  | Kind of type of resource |

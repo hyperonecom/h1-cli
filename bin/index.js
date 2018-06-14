@@ -3,7 +3,7 @@
 
 require('../lib/injectPath');
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 const Chalk = require('chalk');
 const path = require('path');
 const config = require('lib/config');

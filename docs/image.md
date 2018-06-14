@@ -1,15 +1,15 @@
 # TOC
 
- * [h1 image show](#h1-image-show) - Show image
- * [h1 image delete](#h1-image-delete) - Delete image
- * [h1 image rename](#h1-image-rename) - Rename image
- * [h1 image create](#h1-image-create) - Create image
- * [h1 image list](#h1-image-list) - List image
- * [h1 image disk](#h1-image-disk) - List all disks of image
- * [h1 image access](#h1-image-access) - Manage your image access rights
-  * [h1 image access grant](#h1-image-access-grant) - Grant access rights for image
-  * [h1 image access revoke](#h1-image-access-revoke) - Revoke access rights for image
-  * [h1 image access list](#h1-image-access-list) - List of access rights for image
+  * [h1 image show](#h1-image-show) - Show image
+  * [h1 image delete](#h1-image-delete) - Delete image
+  * [h1 image rename](#h1-image-rename) - Rename image
+  * [h1 image create](#h1-image-create) - Create image
+  * [h1 image list](#h1-image-list) - List image
+  * [h1 image disk](#h1-image-disk) - List all disks of image
+  * [h1 image access](#h1-image-access) - Manage your image access rights
+    * [h1 image access grant](#h1-image-access-grant) - Grant access rights for image
+    * [h1 image access revoke](#h1-image-access-revoke) - Revoke access rights for image
+    * [h1 image access list](#h1-image-access-list) - List of access rights for image
 
 
 # Specification
@@ -28,7 +28,7 @@ Show image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 
@@ -42,7 +42,7 @@ Delete image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 
@@ -56,7 +56,7 @@ Rename image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
@@ -69,9 +69,17 @@ Create image
 
 ```h1 image create | --name NAME [--description DESCRIPTION] --vm VM```
 
+### Examples
+
+#### Create a image
+
+```bash
+$ h1 image create --vm test-vm --name dev-image
+```
+
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name of image |
 | ```[--description DESCRIPTION]``` |  | Description of image |
@@ -85,9 +93,23 @@ List image
 
 ```h1 image list | [--recommended] [--all]```
 
+### Examples
+
+#### List all user images
+
+```bash
+h1 image list
+```
+
+#### List public images recommended by platform
+
+```bash
+h1 image list --recommended
+```
+
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```[--recommended]``` |  | Display recommended images |
 | ```[--all]``` |  | Display all images |
@@ -100,9 +122,17 @@ List all disks of image
 
 ```h1 image disk | --image IMAGE```
 
+### Examples
+
+#### List all disks of image
+
+```bash
+$ h1 image disk --image dev-image
+```
+
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 
@@ -120,7 +150,7 @@ Grant access rights for image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
@@ -135,7 +165,7 @@ Revoke access rights for image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 | ```--project PROJECT``` |  | Project name or ID |
@@ -150,7 +180,7 @@ List of access rights for image
 
 ### Required options
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 

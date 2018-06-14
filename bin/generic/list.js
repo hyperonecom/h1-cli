@@ -1,9 +1,10 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
 module.exports = resource => Cli.createCommand('list', {
-    description: `List ${resource.title}`
+  description: `List ${resource.title}`
+  // , dirname: __dirname
   , plugins: resource.plugins
   , options: resource.options
   , params: resource.params

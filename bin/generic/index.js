@@ -1,6 +1,6 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 const defaults = require('./defaults');
 
 module.exports = function(resource) {
@@ -18,6 +18,7 @@ module.exports = function(resource) {
       , transform: resource.transform
       , url: resource.url
       , plugins: resource.plugins
+      , dirname: resource.dirname
     });
 
     resource.commands = [

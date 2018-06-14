@@ -10,7 +10,7 @@ const resource = {
   , url: () => 'vm'
   , plugins: genericDefaults.plugins
   , commands: [ 'list', 'show' ]
-  , title: 'Virtual machine'
+  , title: 'virtual machine'
 };
 
 const childDefaults = Object.assign({}, resource, {
@@ -38,14 +38,14 @@ category.addChild(genericAction(childDefaults, 'start'));
 category.addChild(genericAction(childDefaults, 'restart'));
 category.addChild(genericAction(childDefaults, 'turnoff'));
 category.addChild(require('./action/rename')(childDefaults));
-category.addChild(require('./action/userdata')(childDefaults));
+category.addChild(require('./action/userdata/userdata')(childDefaults));
 
 category.addChild(require('./disk'));
 category.addChild(require('./nic'));
 category.addChild(require('./dvd'));
 category.addChild(require('./tag'));
 
-category.addChild(require('./ssh')(childDefaults));
+category.addChild(require('./ssh/ssh')(childDefaults));
 category.addChild(require('./serialport')(resource));
 category.addChild(require('./passwordreset')(resource));
 category.addChild(require('./metrics')(childDefaults));
