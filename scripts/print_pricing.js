@@ -11,16 +11,16 @@ const table = require('../lib/table').table;
 const priceLists = [
     {
         name: 'VM price',
-        query: '[?resource==\'vm\' && type==\'flavour\'].merge({name: name, maxIPv4:data.vm.maxIPv4, maxhdd:data.vm.maxhdd, maxNetAdp:data.vm.maxNetAdp, cpu:data.vm.cpu, memory:data.vm.memory, period: billing.period}, billing.price)'
+        query: '[?resource==\'vm\' && type==\'flavour\'].merge({name: name, maxIPv4:data.vm.maxIPv4, maxhdd:data.vm.maxhdd, maxNetAdp:data.vm.maxNetAdp, cpu:data.vm.cpu, memory:data.vm.memory, period: billing.period}, billing.price)',
     },
     {
         name: 'Support price',
-        query: '[?resource==\'tenant\' && type==\'support\'].merge({name: name, types: join(\', \', data.types), messages: join(\', \', data.messages),  period: billing.period}, billing.price)'
+        query: '[?resource==\'tenant\' && type==\'support\'].merge({name: name, types: join(\', \', data.types), messages: join(\', \', data.messages),  period: billing.period}, billing.price)',
     },
     {
         name: 'Disk price',
-        query: '[?resource==\'disk\' && type==\'flavour\'].merge({name: name, period: billing.period, sizeMax: data.sizeMax, sizeMin: data.sizeMin}, billing.price)'
-    }
+        query: '[?resource==\'disk\' && type==\'flavour\'].merge({name: name, period: billing.period, sizeMax: data.sizeMax, sizeMin: data.sizeMin}, billing.price)',
+    },
 ];
 
 
