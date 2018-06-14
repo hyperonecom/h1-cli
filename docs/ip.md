@@ -61,11 +61,9 @@ Create IP address
 
 ### Examples
 
-#### Create a new public IP
-
-```bash
-h1 ip create
-```
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | Public IP or ID of IP |
 
 ## h1 ip associate
 

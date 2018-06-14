@@ -6,25 +6,27 @@ const path = require('path');
 const _ = require('lodash');
 const fs = require('fs');
 
+const table = require('lib/table').table;
+
 const code = '```';
 
 
 function writeElements(output_stream, label, values = {}, label_fn, filter) {
     const entries = Object.entries(_.pickBy(values|| {}, filter));
     if (entries.length > 0) {
-        output_stream.write(`### ${label}\n\n`);
-        output_stream.write('| Name | Default | Description |\n');
-        output_stream.write('| ---- | ------- | ----------- |\n');
+        output_stream.write(`### ${label}\n`);
 
-        entries.forEach(([name, value]) => {
+        const rows = entries.map(([name, value]) => {
             label = label_fn([name, value]);
             let description = value.description;
             if (value.action === 'append') {
                 description = `${description}. The parameter may occur repeatedly`;
             }
-            output_stream.write(`| ${code}${label}${code} | ${value.default || ''} | ${description} |\n`);
+            return {Name: `${code}${label}${code}`,
+                Default: value.default || '',
+                Description: description};
         });
-
+        output_stream.write(table(rows));
         output_stream.write('\n');
     }
 }
