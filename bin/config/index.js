@@ -3,7 +3,7 @@
 const Cli = require('lib/cli');
 
 const category = Cli.createCategory('config', {
-    description: 'Manage config of CLI'
+    description: 'Manage config of CLI',
 });
 
 category.addChild(require('./show'));

@@ -24,21 +24,21 @@ const getAppCommand = (args, path) => {
 };
 
 module.exports = Cli.createCommand('set', {
-    dirname: __dirname
-    , description: 'Set config value'
-    , options: {
+    dirname: __dirname,
+    description: 'Set config value',
+    options: {
         key: {
-            description: 'Name of config key'
-            , type: 'string'
-            , required: true
-        }
-        , value: {
-            description: 'Config value'
-            , type: 'string'
-            , required: true
-        }
-    }
-    , handler: args => {
+            description: 'Name of config key',
+            type: 'string',
+            required: true,
+        },
+        value: {
+            description: 'Config value',
+            type: 'string',
+            required: true,
+        },
+    },
+    handler: args => {
 
         const parts = args.key.split('.');
         const option = parts.pop();
@@ -46,7 +46,7 @@ module.exports = Cli.createCommand('set', {
         const cmd = getAppCommand(args, parts.join('.'));
 
         if (!cmd || option in cmd.options === false) {
-;
+            ;
             return console.log('key not found');
         }
         if (cmd.options[option].action === 'append') {
@@ -54,5 +54,5 @@ module.exports = Cli.createCommand('set', {
         }
 
         config.set(`defaults.${args.key}`, args.value);
-    }
+    },
 });

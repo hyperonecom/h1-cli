@@ -10,13 +10,13 @@ module.exports = function(resource) {
         [resource.name]: {
             description: `${text.toTitleCase(resource.title)} ID or name`,
             type: 'string',
-            required: true
+            required: true,
         },
         project: {
             description: 'Project name or ID',
             type: 'string',
-            required: true
-        }
+            required: true,
+        },
     };
 
     return Cli.createCommand('revoke', {
@@ -25,13 +25,13 @@ module.exports = function(resource) {
         plugins: genericDefaults.plugins,
         params: resource.params,
         options: Object.assign({}, resource.options, options),
-        handler: handleAccessGrant(resource)
+        handler: handleAccessGrant(resource),
     });
 };
 
 function handleAccessGrant(resource) {
     return function(args) {
         return args.helpers.api.delete(`${resource.name}/${args[resource.name]}/accessrights/${args.project}`)
-        .then(result => args.helpers.sendOutput(args, result));
+            .then(result => args.helpers.sendOutput(args, result));
     };
 }

@@ -4,12 +4,12 @@ const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
 
 const resource = {
-    name: 'disk'
-  , defaultQuery: '[].{id:_id,name:name,type:type,size:size,state:state,processing:processing}'
-  , url: () => 'disk'
-  , plugins: genericDefaults.plugins
-  , extraCommands: ['rename']
-  , title: 'disk'
+    name: 'disk',
+    defaultQuery: '[].{id:_id,name:name,type:type,size:size,state:state,processing:processing}',
+    url: () => 'disk',
+    plugins: genericDefaults.plugins,
+    extraCommands: ['rename'],
+    title: 'disk',
 };
 
 const category = genericResource(resource);

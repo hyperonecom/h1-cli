@@ -8,8 +8,8 @@ const handler = (args) => args.helpers.api
     .then(result => args.helpers.sendOutput(args, result));
 
 module.exports = resource => Cli.createCommand('create', {
-    dirname: __dirname
-  , description: `Create ${resource.title}`
-  , plugins: genericDefaults.plugins
-  , handler: handler
+    dirname: __dirname,
+    description: `Create ${resource.title}`,
+    plugins: genericDefaults.plugins,
+    handler: handler,
 });

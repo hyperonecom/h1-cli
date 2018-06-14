@@ -5,7 +5,7 @@ const genericResource = require('bin/generic');
 const resource = {
     name: 'ip',
     title: 'IP address',
-    defaultQuery: '[].{id:_id,address:address,mac:mac,ptrRecord:ptrRecord,network:network,processing:processing,fip:associated.fip,state:state}'
+    defaultQuery: '[].{id:_id,address:address,mac:mac,ptrRecord:ptrRecord,network:network,processing:processing,fip:associated.fip,state:state}',
 };
 
 const category = genericResource(resource);

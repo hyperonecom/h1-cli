@@ -7,8 +7,8 @@ const options = {
     vm: {
         description: 'Virtual machine name or ID',
         type: 'string',
-        required: true
-    }
+        required: true,
+    },
 };
 
 const resource = {
@@ -19,7 +19,7 @@ const resource = {
     options: options,
     plugins: defaults.plugins,
     title: 'network adapter',
-    dirname: __dirname
+    dirname: __dirname,
 };
 
 const category = genericResource(resource);

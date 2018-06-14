@@ -11,9 +11,9 @@ const resource = {
     plugins: [
         require('bin/_plugins/loginRequired'),
         require('bin/_plugins/outputFormat'),
-        require('bin/_plugins/api')
+        require('bin/_plugins/api'),
     ],
-    title: 'project'
+    title: 'project',
 };
 
 const category = genericResource(resource);
@@ -24,14 +24,14 @@ const active_project = config.get('profile.project._id');
 const childDefaults = Object.assign({}, resource, {
     options: {
         project: {
-            description: 'Project ID or name'
-          , type: 'string'
-          , required: !active_project
-          , defaultValue: active_project
-          , dest: 'id'
-        }
-    }
-  , url: args => `${resource.url(args)}/${args.id}`
+            description: 'Project ID or name',
+            type: 'string',
+            required: !active_project,
+            defaultValue: active_project,
+            dest: 'id',
+        },
+    },
+    url: args => `${resource.url(args)}/${args.id}`,
 });
 
 category.addChild(require('./access')(childDefaults));
@@ -42,8 +42,8 @@ category.addChild(require('./limits')(childDefaults));
 
 category.addChild(require('bin/generic/credentials')(Object.assign(
     {}
-  , childDefaults
-  , { url: args => `${childDefaults.url(args)}/credentialStore`}
+    , childDefaults
+    , { url: args => `${childDefaults.url(args)}/credentialStore`}
 )));
 
 module.exports = category;

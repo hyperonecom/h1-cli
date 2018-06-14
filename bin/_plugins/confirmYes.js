@@ -5,9 +5,9 @@ module.exports = {
         const node = context.node;
 
         node.addOption('yes',
-        {
-            description: 'confirm yes',
-            type: 'boolean'
-        });
-    }
+            {
+                description: 'confirm yes',
+                type: 'boolean',
+            });
+    },
 };

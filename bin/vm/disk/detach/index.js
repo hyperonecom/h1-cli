@@ -10,5 +10,5 @@ module.exports = resource => Cli.createCommand('detach', {
     plugins: defaults.plugins,
     options: resource.options,
     handler: args => args.helpers.api.delete(`vm/${args.vm}/hdd/${args.disk}`)
-        .then(result => args.helpers.sendOutput(args, result))
+        .then(result => args.helpers.sendOutput(args, result)),
 });

@@ -8,14 +8,14 @@ const inquirer = require('inquirer');
 
 const options = {
     username: {
-        description: 'Your h1 username'
-        , type: 'string'
-        , required: true
+        description: 'Your h1 username',
+        type: 'string',
+        required: true,
     },
     password: {
-        description: 'Password'
-      , type: 'string'
-    }
+        description: 'Password',
+        type: 'string',
+    },
 };
 
 const handler = args => {
@@ -31,12 +31,12 @@ const handler = args => {
                 }
 
                 return inquirer.prompt({
-                    type: 'password'
-                  , name: 'value'
-                  , message: 'Password:'
-                  , validate: input => _.isEmpty(input) ? 'Incorrect password' : true
+                    type: 'password',
+                    name: 'value',
+                    message: 'Password:',
+                    validate: input => _.isEmpty(input) ? 'Incorrect password' : true,
                 })
-                .then(password => args.helpers.api.getApiKey(args.username, { password: password.value }));
+                    .then(password => args.helpers.api.getApiKey(args.username, { password: password.value }));
             });
     }
 
@@ -51,12 +51,12 @@ const handler = args => {
 };
 
 module.exports = Cli.createCommand('login', {
-    dirname: __dirname
-  , description: 'Obtain your apiKey'
-  , plugins: [
-        require('../_plugins/api')
-      , require('../_plugins/interactiveOptions')
-    ]
-  , options: options
-  , handler: handler
+    dirname: __dirname,
+    description: 'Obtain your apiKey',
+    plugins: [
+        require('../_plugins/api'),
+        require('../_plugins/interactiveOptions'),
+    ],
+    options: options,
+    handler: handler,
 });

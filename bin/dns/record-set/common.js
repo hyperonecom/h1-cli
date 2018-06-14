@@ -2,10 +2,10 @@
 
 module.exports.recordOptions = {
     value: {
-        description: 'Value'
-      , type: 'string'
-      , required: true
-      , action: 'append'
-      , dest: 'values'
-    }
+        description: 'Value',
+        type: 'string',
+        required: true,
+        action: 'append',
+        dest: 'values',
+    },
 };

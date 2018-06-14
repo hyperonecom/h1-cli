@@ -21,17 +21,17 @@ const enableTOTP = async (resource, args) => {
     while (code) {
         const token = await interactive.prompt('token');
         const verified = speakeasy.totp.verify({
-            secret: secret.base32
-            , encoding: 'base32'
-            , token: token.value
+            secret: secret.base32,
+            encoding: 'base32',
+            token: token.value,
         });
 
         if (verified) {
             await args.helpers.api.post(`${resource.url()}/credential/password`, {
-                value: secret.base32
-                , token: token.value
-                , type: 'totp'
-                , name: 'Time-Based One-Time Password'
+                value: secret.base32,
+                token: token.value,
+                type: 'totp',
+                name: 'Time-Based One-Time Password',
             });
 
             console.log('Done');
@@ -46,9 +46,9 @@ const enableOTAC = async (resource, args) => {
     const codes = Array(20).fill().map(() => crypto.randomBytes(4).toString('hex')).join(' ');
 
     await args.helpers.api.post(`${resource.url()}/credential/password`, {
-        value: codes
-        , type: 'otac'
-        , name: 'One-time authorization Codes'
+        value: codes,
+        type: 'otac',
+        name: 'One-time authorization Codes',
     });
 
     console.log('Here are your codes');
@@ -59,15 +59,15 @@ const enableOTAC = async (resource, args) => {
 
 
 module.exports = resource => Cli.createCommand('enable', {
-      description: 'Enable factor of authentication'
-    , dirname: __dirname
-    , plugins: resource.plugins
-    , options: common.options
-    , handler: async args => {
+    description: 'Enable factor of authentication',
+    dirname: __dirname,
+    plugins: resource.plugins,
+    options: common.options,
+    handler: async args => {
         if (args.type === 'totp') {
             return enableTOTP(resource, args);
         }
 
         return enableOTAC(resource, args);
-    }
+    },
 });

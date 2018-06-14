@@ -5,11 +5,11 @@ const Cli = require('lib/cli');
 const common = require('../common');
 
 module.exports = resource => Cli.createCommand('disable', {
-      dirname: __dirname
-    , description: 'Disable factor of authentication'
-    , options: common.options
-    , plugins: resource.plugins
-    , handler: async args => {
+    dirname: __dirname,
+    description: 'Disable factor of authentication',
+    options: common.options,
+    plugins: resource.plugins,
+    handler: async args => {
         const url = args.$node.parent.config.url(args);
 
         const passwords = await args.helpers.api.get(url);
@@ -22,5 +22,5 @@ module.exports = resource => Cli.createCommand('disable', {
         } else {
             console.log(`${args.type} not found`);
         }
-    }
+    },
 });

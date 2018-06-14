@@ -9,22 +9,22 @@ const logger = require('lib/logger');
 
 const prompt = (type, message) => inquirer
     .prompt({
-        type: type
-      , message: `${message}:`
-      , name: 'value'
-      , validate: input => _.isEmpty(input) ? 'invalid value' : true
+        type: type,
+        message: `${message}:`,
+        name: 'value',
+        validate: input => _.isEmpty(input) ? 'invalid value' : true,
     })
     .then(response => response.value)
 ;
 
 module.exports = Cli.createCommand('create', {
-    description: 'Create an account'
-  , dirname: __dirname
-  , plugins: [
-        require('bin/_plugins/api')
-      , require('bin/_plugins/interactiveOptions')
-    ]
-  , handler: async args => {
+    description: 'Create an account',
+    dirname: __dirname,
+    plugins: [
+        require('bin/_plugins/api'),
+        require('bin/_plugins/interactiveOptions'),
+    ],
+    handler: async args => {
 
         const api = args.helpers.api;
 
@@ -39,14 +39,14 @@ module.exports = Cli.createCommand('create', {
         const password = await prompt('password', 'password');
 
         await api.post('user', {
-            email: email
-          , password: password
-          , verification: {
-                email: { id: emailVerification.id, code: emailCode }
-              , phone: { id: phoneVerification.id, code: phoneCode }
-            }
+            email: email,
+            password: password,
+            verification: {
+                email: { id: emailVerification.id, code: emailCode },
+                phone: { id: phoneVerification.id, code: phoneCode },
+            },
         });
 
         return logger('info', 'User successfully created!');
-    }
+    },
 });

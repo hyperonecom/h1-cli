@@ -7,10 +7,10 @@ const logger = require('lib/logger');
 module.exports = {
     onBeforeConfigure: context => {
         context.node.addOption('project-select',
-        {
-            description: 'Override current project on the request',
-            type: 'string'
-        });
+            {
+                description: 'Override current project on the request',
+                type: 'string',
+            });
     },
     onBeforeHandler: context => {
         const profile = config.get('profile', {});
@@ -30,5 +30,5 @@ module.exports = {
             context.args.profile.project.name = '';
             context.args.profile.project._id = context.args['project-select'];
         }
-    }
+    },
 };

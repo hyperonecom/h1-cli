@@ -5,7 +5,7 @@ const Cli = require('lib/cli');
 
 module.exports = resource => {
     const category = Cli.createCategory('serialport', {
-        description: 'Serial Console'
+        description: 'Serial Console',
     });
 
     category.addChild(require('./console')(resource));

@@ -8,7 +8,7 @@ const resource = {
     defaultQuery: '[].{id:id,name:name}',
     plugins: defaults.plugins,
     url: () => 'dns/zone',
-    title: 'DNS zone'
+    title: 'DNS zone',
 };
 
 const category = genericResource(resource);

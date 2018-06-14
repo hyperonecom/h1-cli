@@ -9,22 +9,22 @@ const options = {
     name: {
         description: 'Name',
         type: 'string',
-        required: true
+        required: true,
     },
     'sshkey-file': {
         description: 'Public SSH key filename',
         type: 'string',
-        required: true
-    }
+        required: true,
+    },
 };
 
 module.exports = resource => Cli.createCommand('add', {
-    description: `Add public SSH key for ${resource.title}`
-  // , dirname: __dirname
-  , plugins: resource.plugins
-  , params: resource.params
-  , options: Object.assign({}, resource.options, options)
-  , handler: args => {
+    description: `Add public SSH key for ${resource.title}`,
+    // , dirname: __dirname
+    plugins: resource.plugins,
+    params: resource.params,
+    options: Object.assign({}, resource.options, options),
+    handler: args => {
 
         const filename = path.resolve(args['sshkey-file']);
 
@@ -33,14 +33,14 @@ module.exports = resource => Cli.createCommand('add', {
         }
 
         const body = {
-            name: args.name
-          , type: 'ssh'
-          , value: fs.readFileSync(filename, 'utf8')
+            name: args.name,
+            type: 'ssh',
+            value: fs.readFileSync(filename, 'utf8'),
         };
 
         return args.helpers.api
             .post(args.$node.parent.config.url(args), body)
             .then(result => args.helpers.sendOutput(args, result))
         ;
-    }
+    },
 });

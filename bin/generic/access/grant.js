@@ -11,13 +11,13 @@ module.exports = function(resource) {
         [resource.name]: {
             description: `${text.toTitleCase(resource.title)} ID or name`,
             type: 'string',
-            required: true
+            required: true,
         },
         project: {
             description: 'Project name or ID',
             type: 'string',
-            required: true
-        }
+            required: true,
+        },
     };
 
     return Cli.createCommand('grant', {
@@ -26,15 +26,15 @@ module.exports = function(resource) {
         plugins: genericDefaults.plugins,
         params: resource.params,
         options: options,
-        handler: handleAccessGrant(resource)
+        handler: handleAccessGrant(resource),
     });
 };
 
 function handleAccessGrant(resource) {
     return function(args) {
         return args.helpers.api.post(`${resource.name}/${args[resource.name]}/accessrights`, {
-            identity: args.project
+            identity: args.project,
         })
-        .then(result => args.helpers.sendOutput(args, result));
+            .then(result => args.helpers.sendOutput(args, result));
     };
 }

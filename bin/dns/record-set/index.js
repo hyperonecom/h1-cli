@@ -14,10 +14,10 @@ const resource = {
         'zone-name': {
             description: 'DNS zone name',
             type: 'string',
-            required: true
-        }
+            required: true,
+        },
     },
-    title: 'Record set'
+    title: 'Record set',
 };
 
 const recordTypes = ['a', 'cname', 'txt', 'mx', 'ns', 'srv'];
@@ -25,7 +25,7 @@ const recordTypes = ['a', 'cname', 'txt', 'mx', 'ns', 'srv'];
 const category = (resource) => {
 
     const resourceDefaults = {
-        url: () => resource.name
+        url: () => resource.name,
     };
 
     resource = Object.assign({}, defaults, resourceDefaults, resource);
@@ -33,7 +33,7 @@ const category = (resource) => {
     const category = Cli.createCategory(resource.name, {
         description: `Manage your ${resource.name}`,
         defaultQuery: resource.defaultQuery,
-        url: resource.url
+        url: resource.url,
     });
 
     recordTypes.forEach(type => category.addChild(record(type, resource)));
@@ -47,11 +47,11 @@ const record = (type, resource) => {
     const category = Cli.createCategory(type, {
         description: `Manage record set type ${type.toUpperCase()}`,
         defaultQuery: `[?type=='${type.toUpperCase()}'][].{name:name, type:type, ttl:ttl, records:join(',',records[].content)}`,
-        url: args => `${resource.url(args)}/rrsets/${type.toUpperCase()}`
+        url: args => `${resource.url(args)}/rrsets/${type.toUpperCase()}`,
     });
 
     resource = Object.assign({}, resource, {
-        title: `Record ${type.toUpperCase()}`
+        title: `Record ${type.toUpperCase()}`,
     });
 
     category.addChild(require('bin/generic/list')(resource));

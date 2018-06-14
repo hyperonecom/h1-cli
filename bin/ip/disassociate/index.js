@@ -5,10 +5,10 @@ const genericDefaults = require('bin/generic/defaults');
 
 const options = {
     ip: {
-        description: 'Public IP or ID of IP'
-      , type: 'string'
-      , required: true
-    }
+        description: 'Public IP or ID of IP',
+        type: 'string',
+        required: true,
+    },
 };
 
 const handler = (args) => args.helpers.api
@@ -17,9 +17,9 @@ const handler = (args) => args.helpers.api
 
 
 module.exports = resource => Cli.createCommand('disassociate', {
-        dirname: __dirname
-        , description: `Disassociate ${resource.title}`
-        , plugins: genericDefaults.plugins
-        , options: Object.assign({}, resource.options, options)
-        , handler: handler
-    });
+    dirname: __dirname,
+    description: `Disassociate ${resource.title}`,
+    plugins: genericDefaults.plugins,
+    options: Object.assign({}, resource.options, options),
+    handler: handler,
+});

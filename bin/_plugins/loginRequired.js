@@ -39,5 +39,5 @@ module.exports = {
             .handler(context.args)
             .then(() => context.args.username = username)
         ;
-    }
+    },
 };

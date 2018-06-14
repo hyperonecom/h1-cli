@@ -14,21 +14,21 @@ const handleDelete = args => {
     return args.helpers.api
         .delete(url)
         .then(result => args.helpers.sendOutput(args, result))
-        ;
+    ;
 };
 
 const options = {
     name: {
         description: 'Record Set name',
         type: 'string',
-        required: true
-    }
+        required: true,
+    },
 };
 
 module.exports = (resource) => Cli.createCommand('delete', {
-      dirname: __dirname
-    , description: 'Delete record-set'
-    , plugins: resource.plugins
-    , options: Object.assign({}, options, resource.options)
-    , handler: handleDelete
+    dirname: __dirname,
+    description: 'Delete record-set',
+    plugins: resource.plugins,
+    options: Object.assign({}, options, resource.options),
+    handler: handleDelete,
 });

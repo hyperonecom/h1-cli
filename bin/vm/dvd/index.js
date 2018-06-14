@@ -5,20 +5,20 @@ const genericDefaults = require('bin/generic/defaults');
 
 const options = {
     vm: {
-        description: 'Virtual machine name or ID'
-        , type: 'string'
-        , required: true
-    }
+        description: 'Virtual machine name or ID',
+        type: 'string',
+        required: true,
+    },
 };
 
 const resource = {
-    name: 'dvd'
-    , defaultQuery: '[].{id:_id,iso:iso._id,isoname:iso.name}'
-    , url: args => `vm/${args.vm}/dvddrive`
-    , commands: ['list']
-    , plugins: genericDefaults.plugins
-    , options: options
-    , title: 'DVD'
+    name: 'dvd',
+    defaultQuery: '[].{id:_id,iso:iso._id,isoname:iso.name}',
+    url: args => `vm/${args.vm}/dvddrive`,
+    commands: ['list'],
+    plugins: genericDefaults.plugins,
+    options: options,
+    title: 'DVD',
 };
 
 const category = genericResource(resource);

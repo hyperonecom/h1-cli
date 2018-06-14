@@ -20,7 +20,7 @@ const combineMetrics = async (api, type, resource, all) => {
     all[type] = all[type] || [];
 
     const obj = {
-        resource: resource
+        resource: resource,
     };
 
     logMetrics(type, resource, ws, metrics => obj.metrics = metrics);
@@ -29,11 +29,11 @@ const combineMetrics = async (api, type, resource, all) => {
 };
 
 module.exports = resource => Cli.createCommand('metrics', {
-    description: `Get live metrics of ${resource.title}`
-  , plugins: resource.plugins
-  , params: resource.params
-  , options: resource.options
-  , handler: async args => {
+    description: `Get live metrics of ${resource.title}`,
+    plugins: resource.plugins,
+    params: resource.params,
+    options: resource.options,
+    handler: async args => {
 
         const vm = args.helpers.api.get(resource.url(args));
         const hdds = args.helpers.api.get(`${resource.url(args)}/hdd`);
@@ -65,18 +65,18 @@ module.exports = resource => Cli.createCommand('metrics', {
                 }
 
                 const columns = [
-                    { name: 'Name', lookup: 'name' }
-                  , ...Object
+                    { name: 'Name', lookup: 'name' },
+                    ...Object
                         .keys(resources[0].metrics)
-                        .map(name => ({ name: name, lookup: name, align: 'right' }))
+                        .map(name => ({ name: name, lookup: name, align: 'right' })),
                 ];
 
                 tabula(
                     resources.map(data => Object.assign({ name: data.resource.name }, data.metrics))
-                  , { columns: columns }
+                    , { columns: columns }
                 );
             });
 
         }, 1000));
-    }
+    },
 });

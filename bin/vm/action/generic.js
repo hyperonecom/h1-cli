@@ -8,19 +8,19 @@ module.exports = (resource, action) => Cli.createCommand(action, {
     description: `${text.toTitleCase(action)} ${resource.title}`,
     plugins: [
         ...resource.plugins,
-        require('bin/_plugins/interactiveOptions')
+        require('bin/_plugins/interactiveOptions'),
     ],
     options: resource.options,
     params: resource.params,
-    handler: genericVMAction(action)
+    handler: genericVMAction(action),
 });
 
 function genericVMAction(action) {
 
     return function (args) {
         return args.helpers.api.post(`vm/${args.id}/actions`, {
-            name: action
+            name: action,
         })
-        .then(result => args.helpers.sendOutput(args, result));
+            .then(result => args.helpers.sendOutput(args, result));
     };
 }

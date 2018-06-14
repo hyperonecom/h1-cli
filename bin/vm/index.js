@@ -5,12 +5,12 @@ const genericDefaults = require('bin/generic/defaults');
 const genericAction = require('bin/generic/action');
 
 const resource = {
-    name: 'vm'
-  , defaultQuery: '[].{id:_id,name:name,flavour:flavour,state:state,processing:processing}'
-  , url: () => 'vm'
-  , plugins: genericDefaults.plugins
-  , commands: [ 'list', 'show' ]
-  , title: 'virtual machine'
+    name: 'vm',
+    defaultQuery: '[].{id:_id,name:name,flavour:flavour,state:state,processing:processing}',
+    url: () => 'vm',
+    plugins: genericDefaults.plugins,
+    commands: [ 'list', 'show' ],
+    title: 'virtual machine',
 };
 
 const childDefaults = Object.assign({}, resource, {
@@ -19,10 +19,10 @@ const childDefaults = Object.assign({}, resource, {
             description: `${resource.title} ID or name`,
             type: 'string',
             required: true,
-            dest: 'id'
-        }
-    }
-  , url: args => `${resource.url(args)}/${args.id}`
+            dest: 'id',
+        },
+    },
+    url: args => `${resource.url(args)}/${args.id}`,
 });
 
 const category = genericResource(resource);

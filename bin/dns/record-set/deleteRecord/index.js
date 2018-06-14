@@ -20,7 +20,7 @@ const handleDeleteRecord = args => {
             return args.helpers.api
                 .patch(url, rset)
                 .then(result => args.helpers.sendOutput(args, result))
-                ;
+            ;
         });
 };
 
@@ -28,8 +28,8 @@ const options = {
     name: {
         description: 'Record Set name',
         type: 'string',
-        required: true
-    }
+        required: true,
+    },
 };
 
 
@@ -38,5 +38,5 @@ module.exports = (resource) => Cli.createCommand('delete-record', {
     description: 'Delete record',
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options, recordOptions),
-    handler: handleDeleteRecord
+    handler: handleDeleteRecord,
 });

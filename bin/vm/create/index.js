@@ -8,69 +8,69 @@ const options = {
     name: {
         description: 'Virtual machine name',
         type: 'string',
-        required: true
+        required: true,
     },
     type: {
         description: 'Virtual machine type name or ID',
         type: 'string',
-        required: true
+        required: true,
     },
     password: {
         description: 'Initial administrator user password',
-        type: 'string'
+        type: 'string',
     },
     username: {
         description: 'Initial administrator username',
-        type: 'string'
+        type: 'string',
     },
     ssh: {
         action: 'append',
         description: 'SSH key ID or name that allows access.',
         type: 'string',
-        dest: 'sshKeys'
+        dest: 'sshKeys',
     },
     image: {
         description: 'Image ID or name',
-        type: 'string'
+        type: 'string',
     },
     iso: {
         description: 'ISO ID or name',
-        type: 'string'
+        type: 'string',
     },
 
     'os-disk-name': {
         description: 'OS disk name',
-        type: 'string'
+        type: 'string',
     },
     'os-disk-type': {
         description: 'OS disk type',
-        type: 'string'
+        type: 'string',
     },
     'os-disk-size': {
         description: 'OS disk size',
-        type: 'int'
+        type: 'int',
     },
     'os-disk': {
         description: 'OS disk: name,service,size',
-        type: 'string'
+        type: 'string',
     },
 
     network: {
         description: 'Network ID or name to attach',
-        type: 'string'
+        type: 'string',
     },
     ip: {
         description: 'IP address for Virtual machine',
-        type: 'string'
+        type: 'string',
     },
     'no-start': {
         description: 'Do not start Virtual machine after creation',
-        type: 'boolean'
+        type: 'boolean',
     },
     'userdata-file': {
         description: 'Read userdata from file',
-        type: 'string'
-    }
+        type: 'string',
+    },
 };
 
 
@@ -78,7 +78,7 @@ const handler = async (args) => {
 
     const newVM = {
         name: args.name,
-        service: args.type
+        service: args.type,
     };
 
     if (args.password) {
@@ -118,7 +118,7 @@ const handler = async (args) => {
         newVM.disk.push({
             name: osDisk[0] || args['os-disk-name'],
             service: osDisk[1] || args['os-disk-type'],
-            size: osDisk[2] || args['os-disk-size']
+            size: osDisk[2] || args['os-disk-size'],
         });
     }
 
@@ -142,5 +142,5 @@ module.exports = resource => Cli.createCommand('create', {
     plugins: genericDefaults.plugins,
     options: options,
     dirname: __dirname,
-    handler: handler
+    handler: handler,
 });

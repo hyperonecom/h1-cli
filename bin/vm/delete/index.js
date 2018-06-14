@@ -7,18 +7,18 @@ const plugin = {
         const node = context.node;
 
         node.addOption('disk', {
-            description: 'Disk to delete'
-          , type: 'string'
-          , action: 'append'
+            description: 'Disk to delete',
+            type: 'string',
+            action: 'append',
         });
 
-    }
-  , onBeforeHandler: context => {
+    },
+    onBeforeHandler: context => {
         context.args.helpers = Object.assign(
             { body: { removeDisks: context.args.disk }}
-          , context.args.helpers
+            , context.args.helpers
         );
-    }
+    },
 };
 
 module.exports = resource => {

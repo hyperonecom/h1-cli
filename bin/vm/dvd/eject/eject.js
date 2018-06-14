@@ -5,14 +5,14 @@ const Cli = require('lib/cli');
 const interactive = require('lib/interactive');
 
 module.exports = resource => Cli.createCommand('eject', {
-    description: `Eject ISO from DVD drive of ${resource.title}`
-  , plugins: [
-        ...resource.plugins
-      , require('bin/_plugins/confirmYes')
-    ]
-  , params: resource.params
-  , options: resource.options
-  , handler: args => {
+    description: `Eject ISO from DVD drive of ${resource.title}`,
+    plugins: [
+        ...resource.plugins,
+        require('bin/_plugins/confirmYes'),
+    ],
+    params: resource.params,
+    options: resource.options,
+    handler: args => {
         const eject = () => args.helpers.api
             .put(args.$node.parent.config.url(args), { })
             .then(result => args.helpers.sendOutput(args, result));
@@ -30,5 +30,5 @@ module.exports = resource => Cli.createCommand('eject', {
 
                 throw Cli.error.cancelled('Canceled', undefined);
             });
-    }
+    },
 });

@@ -10,8 +10,8 @@ module.exports = function(resource) {
         [resource.name]: {
             description: `${text.toTitleCase(resource.title)} ID or name`,
             type: 'string',
-            required: true
-        }
+            required: true,
+        },
     };
 
     return Cli.createCommand('list', {
@@ -19,7 +19,7 @@ module.exports = function(resource) {
         description: `List of access rights for ${resource.title}`,
         plugins: genericDefaults.plugins,
         options: Object.assign({}, resource.options, options),
-        handler: handleAccessList(resource)
+        handler: handleAccessList(resource),
     });
 };
 
@@ -28,6 +28,6 @@ function handleAccessList(resource) {
     return function(args) {
 
         return args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}/accessrights`)
-        .then(result => args.helpers.sendOutput(args, result));
+            .then(result => args.helpers.sendOutput(args, result));
     };
 };

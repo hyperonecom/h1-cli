@@ -8,7 +8,7 @@ module.exports = (resource) => {
         description: `Manage your ${resource.title} access rights`,
         defaultQuery: '[].{id:id,role:role}',
         url: args => `${resource.url(args)}/accessrights`,
-        params: resource.params
+        params: resource.params,
     });
 
     category.addChild(require('./grant')(resource));

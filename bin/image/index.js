@@ -4,12 +4,12 @@ const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
 
 const resource = {
-    name: 'image'
-  , defaultQuery: '[].{id:_id,name:name,fileSize:ceil(fileSize),created:createdOn,state:state,processing:processing}'
-  , commands: ['show', 'delete', 'rename']
-  , plugins: genericDefaults.plugins
-  , url: () => 'image'
-  , title: 'image'
+    name: 'image',
+    defaultQuery: '[].{id:_id,name:name,fileSize:ceil(fileSize),created:createdOn,state:state,processing:processing}',
+    commands: ['show', 'delete', 'rename'],
+    plugins: genericDefaults.plugins,
+    url: () => 'image',
+    title: 'image',
 };
 
 const category = genericResource(resource);

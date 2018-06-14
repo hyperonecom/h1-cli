@@ -11,7 +11,7 @@ module.exports = resource => {
         plugins: defaults.plugins,
         options: resource.options,
         handler: (args) => args.helpers.api.post(`vm/${args.vm}/hdd`, {
-            disk: args.disk
-        }).then(result => args.helpers.sendOutput(args, result))
+            disk: args.disk,
+        }).then(result => args.helpers.sendOutput(args, result)),
     });
 };

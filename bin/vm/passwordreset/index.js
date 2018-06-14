@@ -7,16 +7,16 @@ const logger = require('lib/logger');
 
 const options = {
     user: {
-        description: 'Username'
-      , type: 'string'
-      , required: true
+        description: 'Username',
+        type: 'string',
+        required: true,
     },
     vm: {
-        description: 'Virtual machine ID or name'
-      , type: 'string'
-      , required: true
-      , dest: 'id'
-    }
+        description: 'Virtual machine ID or name',
+        type: 'string',
+        required: true,
+        dest: 'id',
+    },
 };
 
 const handler = args => {
@@ -34,12 +34,12 @@ const handler = args => {
 
     return args.helpers.api
         .post(`${args.$node.parent.config.url(args)}/${args.id}/actions`, {
-            name: 'password_reset'
-          , data: {
-                userName: args.user
-              , modulus : modulus
-              , exponent: exponent
-            }
+            name: 'password_reset',
+            data: {
+                userName: args.user,
+                modulus : modulus,
+                exponent: exponent,
+            },
         })
         .then(() => new Promise(r => setTimeout(r, 2000))) //TODO use websocket
         .then(() => args.helpers.api.get(`/vm/${args.id}/serialport/2`))
@@ -68,9 +68,9 @@ const handler = args => {
 };
 
 module.exports = resource => Cli.createCommand('passwordreset', {
-    description: `Password reset for ${resource.title}`
-  , plugins: resource.plugins
-  , params: resource.params
-  , options: Object.assign({}, options, resource.options)
-  , handler: handler
+    description: `Password reset for ${resource.title}`,
+    plugins: resource.plugins,
+    params: resource.params,
+    options: Object.assign({}, options, resource.options),
+    handler: handler,
 });

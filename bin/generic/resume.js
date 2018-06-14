@@ -8,24 +8,24 @@ const text = require('lib/text');
 module.exports = resource => {
     const options = {
         [resource.name]: {
-            description: `${text.toTitleCase(resource.title)} ID or name`
-          , type: 'string'
-          , required: true
+            description: `${text.toTitleCase(resource.title)} ID or name`,
+            type: 'string',
+            required: true,
         },
         'source-file': {
-            description: 'Path to .vhdx file to import'
-          , type: 'string'
-          , required: true
-        }
+            description: 'Path to .vhdx file to import',
+            type: 'string',
+            required: true,
+        },
     };
 
     return Cli.createCommand('resume', {
-          description: `Resume create upload of ${resource.title}`
+        description: `Resume create upload of ${resource.title}`,
         // , dirname: __dirname
-        , plugins: resource.plugins
-        , options: Object.assign({}, resource.options, options)
-        , params: resource.params
-        , handler: async args => {
+        plugins: resource.plugins,
+        options: Object.assign({}, resource.options, options),
+        params: resource.params,
+        handler: async args => {
 
             let r = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);
 
@@ -36,7 +36,7 @@ module.exports = resource => {
             r = await args.helpers.api.get(`${resource.url(args)}/${r._id}`);
 
             return args.helpers.sendOutput(args, r);
-        }
+        },
     });
 };
 

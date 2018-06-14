@@ -8,8 +8,8 @@ const options = {
     vm: {
         description: 'Virtual machine ID or name',
         type: 'string',
-        required: true
-    }
+        required: true,
+    },
 };
 
 const resource = {
@@ -18,19 +18,19 @@ const resource = {
     url: args => `vm/${args.vm}/hdd`,
     options: options,
     commands: ['list'],
-    title: 'disk'
+    title: 'disk',
 };
 
 const childOptions = Object.assign({}, resource.options, {
     disk: {
         description: `${resource.title} name or ID`,
         type: 'string',
-        required: true
-    }
+        required: true,
+    },
 });
 
 const childDefaults = Object.assign({}, resource, {
-    options: childOptions
+    options: childOptions,
 });
 
 const category = genericResource(resource);

@@ -53,7 +53,7 @@ const outputFormat = {
             ).join('\n')
         ;
     },
-    json: (args, result) => args.query ? queryFilter(args, result) : result
+    json: (args, result) => args.query ? queryFilter(args, result) : result,
 };
 
 module.exports = {
@@ -66,16 +66,16 @@ module.exports = {
                 type: 'string',
                 defaultValue: process.env.H1_DEFAULT_OUTPUT || 'table',
                 choices: Object.keys(outputFormat),
-                dest: 'output'
+                dest: 'output',
             },
             query: {
                 description: 'query selector',
-                type: 'string'
+                type: 'string',
             },
             transform: {
                 description: 'transform results',
-                type: 'string'
-            }
+                type: 'string',
+            },
         };
 
         node.addOptionGroup('Output options', _.omit(options, _.get(context.node.config, 'outputOptions.hide', [])));
@@ -84,5 +84,5 @@ module.exports = {
     onBeforeHandler: context => {
         context.args.helpers = context.args.helpers || {};
         context.args.helpers.sendOutput = (args, result) => outputFormat[args.output](args, result);
-    }
+    },
 };

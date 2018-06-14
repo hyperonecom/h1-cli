@@ -11,47 +11,47 @@ const Cli = require('lib/cli');
 
 const options = {
     name: {
-        description: 'Disk name'
-      , type: 'string'
-      , required: true
-    }
-  , type: {
-        description: 'Disk type ID or name'
-      , type: 'string'
-      , required: true
-    }
-  , size: {
-        description: 'Disk size in GB'
-      , type: 'int'
-      , required: true
-    }
-  , 'source-file': {
-        description: 'Path to .vhdx file to import'
-      , type: 'string'
-      , required: false
-    }
+        description: 'Disk name',
+        type: 'string',
+        required: true,
+    },
+    type: {
+        description: 'Disk type ID or name',
+        type: 'string',
+        required: true,
+    },
+    size: {
+        description: 'Disk size in GB',
+        type: 'int',
+        required: true,
+    },
+    'source-file': {
+        description: 'Path to .vhdx file to import',
+        type: 'string',
+        required: false,
+    },
 };
 
 
 module.exports = resource => Cli.createCommand('create', {
-    description: `Create ${resource.title}`
-    , dirname: __dirname
-    , plugins: resource.plugins
-    , options: options
-    , handler: async args => {
+    description: `Create ${resource.title}`,
+    dirname: __dirname,
+    plugins: resource.plugins,
+    options: options,
+    handler: async args => {
 
         const body = {
-            name: args.name
-          , service: args.type
-          , size: args.size
+            name: args.name,
+            service: args.type,
+            size: args.size,
         };
 
         if (args['source-file']) {
             body.metadata = {
                 source: {
-                    filename: path.basename(args['source-file'])
-                  , size: fs.statSync(args['source-file']).size
-                }
+                    filename: path.basename(args['source-file']),
+                    size: fs.statSync(args['source-file']).size,
+                },
             };
             const vhdxInfo = await util.promisify(vhdx.info)(args['source-file']);
 
@@ -77,5 +77,5 @@ module.exports = resource => Cli.createCommand('create', {
         }
 
         return args.helpers.sendOutput(args, disk);
-    }
+    },
 });

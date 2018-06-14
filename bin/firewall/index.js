@@ -4,11 +4,11 @@ const genericResource = require('bin/generic');
 const genericDefaults = require('bin/generic/defaults');
 
 const resource = {
-    name: 'firewall'
-  , defaultQuery: '[].{id:_id,name:name,network:network,state:state,processing:processing}'
-  , url: () => 'firewall'
-  , plugins: genericDefaults.plugins
-  , title: 'firewall'
+    name: 'firewall',
+    defaultQuery: '[].{id:_id,name:name,network:network,state:state,processing:processing}',
+    url: () => 'firewall',
+    plugins: genericDefaults.plugins,
+    title: 'firewall',
 };
 
 const category = genericResource(resource);

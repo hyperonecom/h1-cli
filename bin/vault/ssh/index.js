@@ -4,35 +4,35 @@ const Cli = require('lib/cli');
 
 const options = {
     vault: {
-        description: 'Vault ID or name'
-      , type: 'string'
-      , required: true
-    }
+        description: 'Vault ID or name',
+        type: 'string',
+        required: true,
+    },
 };
 
 
 module.exports = resource => Cli.createCommand('ssh', {
-          description: `Connect to ${resource.title} using SSH`
-        , plugins: resource.plugins
-        , dirname: __dirname
-        , options: Object.assign({}, resource.options, options)
-        , handler: args => args.helpers.api
-            .get(`${args.$node.parent.config.url(args)}/${args.vault}`)
-            .then(result => {
+    description: `Connect to ${resource.title} using SSH`,
+    plugins: resource.plugins,
+    dirname: __dirname,
+    options: Object.assign({}, resource.options, options),
+    handler: args => args.helpers.api
+        .get(`${args.$node.parent.config.url(args)}/${args.vault}`)
+        .then(result => {
 
-                const sshArgs = [
-                    `${result._id}@vault.pl-waw-1.hyperone.com`
-                ];
+            const sshArgs = [
+                `${result._id}@vault.pl-waw-1.hyperone.com`,
+            ];
 
-                console.log(`ssh ${sshArgs.join(' ')}`);
+            console.log(`ssh ${sshArgs.join(' ')}`);
 
-                const spawn = require('child_process').spawn;
+            const spawn = require('child_process').spawn;
 
-                return new Promise((resolve, reject) => {
-                    const ssh = spawn('ssh', sshArgs, { stdio: 'inherit' });
+            return new Promise((resolve, reject) => {
+                const ssh = spawn('ssh', sshArgs, { stdio: 'inherit' });
 
-                    ssh.on('close', resolve);
-                    ssh.on('error', reject);
-                });
-            })
-    });
+                ssh.on('close', resolve);
+                ssh.on('error', reject);
+            });
+        }),
+});

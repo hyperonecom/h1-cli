@@ -4,31 +4,31 @@ const Cli = require('lib/cli');
 
 const options = {
     username: {
-        description: 'Username for ssh connection'
-      , type: 'string'
-    }
-  , port: {
-        description: 'Port for ssh connection'
-      , type: 'string'
-    }
-  , private: {
-        description: 'Use first private network, skip public'
-      , type: 'boolean'
-    }
-  , command: {
-        description: 'Command to execute'
-      , type: 'string'
-    }
+        description: 'Username for ssh connection',
+        type: 'string',
+    },
+    port: {
+        description: 'Port for ssh connection',
+        type: 'string',
+    },
+    private: {
+        description: 'Use first private network, skip public',
+        type: 'boolean',
+    },
+    command: {
+        description: 'Command to execute',
+        type: 'string',
+    },
 };
 
 module.exports = resource => Cli.createCommand('ssh', {
-    description: `Connect to ${resource.title} using SSH`
-  , plugins: resource.plugins
+    description: `Connect to ${resource.title} using SSH`,
+    plugins: resource.plugins,
     // The order of assign is important - it determines the order of positional parameters in the current
     // NodeJS implementation.
-  , params: resource.params
-  , options: Object.assign({}, options, resource.options)
-  , handler: async args => {
+    params: resource.params,
+    options: Object.assign({}, options, resource.options),
+    handler: async args => {
         const vm = await args.helpers.api.get(resource.url(args));
 
         let netadps = await args.helpers.api.get(`${resource.url(args)}/netadp`);
@@ -48,7 +48,7 @@ module.exports = resource => Cli.createCommand('ssh', {
         const username = args.username || vm.data.username || 'guru';
 
         const sshArgs = [
-            `${username}@${netadp.ip[0].address}`
+            `${username}@${netadp.ip[0].address}`,
         ];
 
         if (args.port) {
@@ -69,5 +69,5 @@ module.exports = resource => Cli.createCommand('ssh', {
             ssh.on('close', resolve);
             ssh.on('error', reject);
         });
-    }
+    },
 });

@@ -4,21 +4,21 @@ const Cli = require('lib/cli');
 
 const options = {
     recommended: {
-        description: 'Display recommended images'
-      , type: 'boolean'
-    }
-  , all: {
-        description: 'Display all images'
-      , type: 'boolean'
-    }
+        description: 'Display recommended images',
+        type: 'boolean',
+    },
+    all: {
+        description: 'Display all images',
+        type: 'boolean',
+    },
 };
 
 module.exports = resource => Cli.createCommand('list', {
-    description: `List ${resource.title}`
-  , dirname: __dirname
-  , plugins: resource.plugins
-  , options: options
-  , handler: args => {
+    description: `List ${resource.title}`,
+    dirname: __dirname,
+    plugins: resource.plugins,
+    options: options,
+    handler: args => {
         let path = '';
         if (args.recommended) {
             path = '/recommended';
@@ -33,5 +33,5 @@ module.exports = resource => Cli.createCommand('list', {
         return args.helpers.api
             .get(`${resource.url()}${path}`)
             .then(result => args.helpers.sendOutput(args, result));
-    }
+    },
 });

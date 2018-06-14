@@ -5,19 +5,19 @@ const defaults = require('bin/generic/defaults');
 
 const options = {
     network: {
-        description: 'Network name or ID'
-      , type: 'string'
-      , required: true
-    }
+        description: 'Network name or ID',
+        type: 'string',
+        required: true,
+    },
 };
 
 const resource = {
-    name: 'ip'
-  , defaultQuery: require('bin/ip').config.defaultQuery
-  , url: args => `network/${args.network}/ip`
-  , plugins: defaults.plugins
-  , options: options
-  , title: 'IP address'
+    name: 'ip',
+    defaultQuery: require('bin/ip').config.defaultQuery,
+    url: args => `network/${args.network}/ip`,
+    plugins: defaults.plugins,
+    options: options,
+    title: 'IP address',
 };
 
 const category = genericResource(resource);

@@ -5,12 +5,12 @@ const Open = require('opn');
 const Chalk = require('chalk');
 
 module.exports = resource => Cli.createCommand('console', {
-    dirname: __dirname
-  , description: `Open ${resource.title} console in web-browser`
-  , plugins: resource.plugins
-  , params: resource.params
-  , options: resource.options
-  , handler: async args => {
+    dirname: __dirname,
+    description: `Open ${resource.title} console in web-browser`,
+    plugins: resource.plugins,
+    params: resource.params,
+    options: resource.options,
+    handler: async args => {
 
         const vm = await args.helpers.api.get(resource.url(args));
 
@@ -23,5 +23,5 @@ module.exports = resource => Cli.createCommand('console', {
         console.log('If the console does not automatically open, please copy this address and paste it into your browser.');
 
         return Open(url).then(() => {});
-    }
+    },
 });

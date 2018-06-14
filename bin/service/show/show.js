@@ -9,8 +9,8 @@ const params = {
     id: {
         description: 'Service name or ID',
         type: 'string',
-        required: true
-    }
+        required: true,
+    },
 };
 
 
@@ -21,5 +21,5 @@ module.exports = Cli.createCommand('show', {
     options: options,
     params: params,
     handler: (args) => args.helpers.api.get(`service/${args.id}`)
-        .then(result => args.helpers.sendOutput(args, result))
+        .then(result => args.helpers.sendOutput(args, result)),
 });

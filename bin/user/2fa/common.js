@@ -2,9 +2,9 @@
 
 module.exports.options = {
     type: {
-        description: 'type'
-        , type: 'string'
-        , defaultValue: 'totp'
-        , choices: ['totp', 'otac']
-    }
+        description: 'type',
+        type: 'string',
+        defaultValue: 'totp',
+        choices: ['totp', 'otac'],
+    },
 };

@@ -17,14 +17,14 @@ const upload = (releaseId, filePath, name) => new Promise((resolve, reject) => {
     const stream = fs.createReadStream(filePath);
 
     const options = {
-        hostname: 'uploads.github.com'
-      , method: 'POST'
-      , path: `/repos/hyperonecom/h1-cli/releases/${releaseId}/assets?name=${name}`
-      , headers: {
-            Authorization: `token ${process.env.GH_TOKEN}`
-          , 'Content-Type': 'application/octet-stream'
-          , 'Content-Length': stat.size
-        }
+        hostname: 'uploads.github.com',
+        method: 'POST',
+        path: `/repos/hyperonecom/h1-cli/releases/${releaseId}/assets?name=${name}`,
+        headers: {
+            Authorization: `token ${process.env.GH_TOKEN}`,
+            'Content-Type': 'application/octet-stream',
+            'Content-Length': stat.size,
+        },
     };
 
     const req = https.request(options, res => {
@@ -50,12 +50,12 @@ superagent
     .post('https://api.github.com/repos/hyperonecom/h1-cli/releases')
     .set('Authorization', `token ${process.env.GH_TOKEN}`)
     .send({
-        tag_name: `v${info.version}`
-      , target_commitish: 'master'
-      , name: `v${info.version}`
-      , body: 'Description of the release'
-      , draft: true
-      , prerelease: false
+        tag_name: `v${info.version}`,
+        target_commitish: 'master',
+        name: `v${info.version}`,
+        body: 'Description of the release',
+        draft: true,
+        prerelease: false,
     })
     .end((err, rsp) => {
         if (err) { throw err; }

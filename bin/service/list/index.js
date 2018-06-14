@@ -5,21 +5,21 @@ const genericDefaults = require('bin/generic/defaults');
 
 const options = {
     resource: {
-        type: String
-      , choices: [ 'disk', 'image', 'ip', 'iso', 'netadp', 'network', 'tenant', 'vault', 'vm']
-      , description: 'Kind of resource'
-    }
-  , type: {
-        type: String
-      , choices: [ 'flavour', 'ipv4', 'license', 'metric', 'standard', 'support' ]
-      , description: 'Kind of type of resource'
-    }
+        type: String,
+        choices: [ 'disk', 'image', 'ip', 'iso', 'netadp', 'network', 'tenant', 'vault', 'vm'],
+        description: 'Kind of resource',
+    },
+    type: {
+        type: String,
+        choices: [ 'flavour', 'ipv4', 'license', 'metric', 'standard', 'support' ],
+        description: 'Kind of type of resource',
+    },
 };
 
 const customOutput = {
     vm: {
-        flavour: '[].{name: name, maxIPv4:data.vm.maxIPv4, maxhdd:data.vm.maxhdd, maxNetAdp:data.vm.maxNetAdp, cpu:data.vm.cpu, memory:data.vm.memory, PLN: billing.price.PLN, period: billing.period}'
-    }
+        flavour: '[].{name: name, maxIPv4:data.vm.maxIPv4, maxhdd:data.vm.maxhdd, maxNetAdp:data.vm.maxNetAdp, cpu:data.vm.cpu, memory:data.vm.memory, PLN: billing.price.PLN, period: billing.period}',
+    },
 };
 
 module.exports = resource => Cli.createCommand('list', {
@@ -46,5 +46,5 @@ module.exports = resource => Cli.createCommand('list', {
         }
 
         return args.helpers.sendOutput(args, services);
-    }
+    },
 });
