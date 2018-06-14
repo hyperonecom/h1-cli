@@ -13,7 +13,6 @@ module.exports = {
         'quote-props': [ 'error', 'as-needed' ]
       , 'semi': [ 'error', 'always' ]
       , 'strict': [ 'error', 'global' ]
-      , 'comma-dangle': [ 'error', 'never' ]
       , 'no-cond-assign': [ 'error', 'always' ]
       , 'no-constant-condition': 'error'
       , 'no-unused-vars': 'error'
@@ -41,5 +40,8 @@ module.exports = {
       , 'new-parens': 'error'
       , 'space-in-parens': 'error'
       , 'comma-spacing': 'error'
+      , 'comma-style': [ 'error', 'last' ]
+      , 'comma-dangle': [ 'error', 'always-multiline' ]
+      , 'indent': ['error', 4 ]
     }
 }
