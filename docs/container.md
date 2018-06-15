@@ -82,7 +82,7 @@ container create
 | ```--name NAME``` |  | Name |
 | ```--image IMAGE``` |  | Image |
 | ```--type TYPE``` |  | Type |
-| ```[--expose]``` |  | Expose container to the world using http/https |
+| ```[--expose EXPOSE]``` |  | Port to expose to the world using http/https |
 | ```[--env ENV [--env ENV ...]]``` |  | Add enviroment variable. The parameter may occur repeatedly |
 | ```[--command COMMAND]``` |  | Override the default command |
 

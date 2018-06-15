@@ -19,8 +19,8 @@ const options = {
         required: true,
     },
     expose: {
-        description: 'Expose container to the world using http/https',
-        type: 'boolean',
+        description: 'Port to expose to the world using http/https',
+        type: 'int',
         required: false,
     },
     env: {
