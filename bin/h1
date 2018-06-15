@@ -14,10 +14,11 @@ const matches = (prop, value, callback) => err => {
 cli.run()
     .then(result => {
         if (result) {
-            if (typeof result !== 'string') {
-                result = JSON.stringify(result, null, 2);
+            if (typeof result === 'object') {
+                console.dir(result, {depth: null});
+            }else {
+                console.log(result);
             }
-            console.log(result);
         }
     })
     // Code: 1
