@@ -73,7 +73,7 @@ container create
 
 ### Syntax
 
-```h1 container create | --name NAME --image IMAGE --type TYPE [--expose] [--env ENV [--env ENV ...]]```
+```h1 container create | --name NAME --image IMAGE --type TYPE [--expose EXPOSE] [--env ENV [--env ENV ...]] [--command COMMAND]```
 
 ### Required options
 
@@ -84,6 +84,7 @@ container create
 | ```--type TYPE``` |  | Type |
 | ```[--expose]``` |  | Expose container to the world using http/https |
 | ```[--env ENV [--env ENV ...]]``` |  | Add enviroment variable. The parameter may occur repeatedly |
+| ```[--command COMMAND]``` |  | Override the default command |
 
 ## h1 container stop
 

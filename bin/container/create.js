@@ -30,6 +30,11 @@ const options = {
         defaultValue: [],
         required: false,
     },
+    command: {
+        description: 'Override the default command',
+        type: 'string',
+        required: false,
+    },
 };
 
 module.exports = resource => Cli.createCommand('create', {
@@ -50,6 +55,7 @@ module.exports = resource => Cli.createCommand('create', {
             service: args.type,
             expose: args.expose,
             env: env,
+            command: args.command,
         };
 
         return args.helpers.api
