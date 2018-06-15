@@ -1,15 +1,14 @@
 #!/usr/bin/env node
 'use strict';
-
 require('../lib/injectPath');
 
 const Cli = require('lib/cli');
 const Chalk = require('chalk');
-const path = require('path');
+
 const config = require('lib/config');
 
 const Package = require('../package.json');
-const scope = path.basename(process.argv[1]);
+const scope = process.env.SCOPE_NAME;
 
 const cli = Cli.createCategory('app', {
     description: Package.description,
