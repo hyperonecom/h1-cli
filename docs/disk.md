@@ -73,7 +73,7 @@ Create disk
 
 ### Syntax
 
-```h1 disk create | --name NAME --type TYPE --size SIZE [--source-file SOURCE-FILE]```
+```h1 disk create | --name NAME --type TYPE --size SIZE [--source-file SOURCE-FILE] [--no-progress]```
 
 ### Examples
 
@@ -95,6 +95,7 @@ TODO
 | ```--type TYPE``` |  | Disk type ID or name |
 | ```--size SIZE``` |  | Disk size in GB |
 | ```[--source-file SOURCE-FILE]``` |  | Path to .vhdx file to import |
+| ```[--no-progress]``` |  | Disable progress bar |
 
 ## h1 disk resume
 
@@ -132,7 +133,7 @@ Download disk to a file
 
 ### Syntax
 
-```h1 disk download | --disk DISK --destination-file DESTINATION-FILE```
+```h1 disk download | --disk DISK --destination-file DESTINATION-FILE [--no-process]```
 
 ### Required options
 
@@ -140,4 +141,5 @@ Download disk to a file
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk name or ID |
 | ```--destination-file DESTINATION-FILE``` |  | Path to .vhdx file to save |
+| ```[--no-process]``` |  | Disable progress bar |
 
