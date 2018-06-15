@@ -4,12 +4,12 @@
   "description": "HyperOne Command Line Interface",
   "license": "MIT",
   "author": "",
-  "main": "bin/h1",
+  "main": "bin/h1.js",
   "bin": {
-    "h1": "./bin/h1"
+    "h1": "./bin/h1.js"
   },
   "scripts": {
-    "start": "./bin/h1",
+    "start": "./bin/h1.js",
     "build": "pkg --out-path ./dist .",
     "lint": "eslint .",
     "docs": "node scripts/print_docs.js docs/"
