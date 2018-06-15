@@ -30,6 +30,10 @@ const options = {
         type: 'string',
         required: false,
     },
+    'no-progress': {
+        description: 'Disable progress bar',
+        type: 'boolean',
+    },
 };
 
 
@@ -39,7 +43,6 @@ module.exports = resource => Cli.createCommand('create', {
     plugins: resource.plugins,
     options: options,
     handler: async args => {
-
         const body = {
             name: args.name,
             service: args.type,
@@ -71,7 +74,7 @@ module.exports = resource => Cli.createCommand('create', {
         if (args['source-file']) {
             const ws = await args.helpers.api.wsUpload(`disk/${disk._id}/upload`);
 
-            await websocketStream.upload(ws, args['source-file']);
+            await websocketStream.upload(ws, args['source-file'], {progress: !args['no-progress']});
 
             disk = await args.helpers.api.get(`${resource.url(args)}/${disk._id}`);
         }

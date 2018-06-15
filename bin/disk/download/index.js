@@ -15,6 +15,10 @@ const options = {
         type: 'string',
         required: true,
     },
+    'no-process': {
+        description: 'Disable progress bar',
+        type: 'boolean',
+    },
 };
 
 
@@ -39,7 +43,10 @@ module.exports = resource => Cli.createCommand('download', {
                     return reject(`${response.statusMessage} ${response.request.href}`);
                 }
 
-                showProgressBar(req, response);
+                if (!args['no-progress']) {
+                    showProgressBar(req, response);
+                }
+
                 req.pipe(writeStream);
             });
         });
@@ -53,7 +60,7 @@ const showProgressBar = (req, response) => {
         complete: '=',
         incomplete: ' ',
         total: parseInt(response.headers['content-length']),
-        stream: process.stdout,
+        stream: process.stderr,
     });
     req.on('data', chunk => bar.tick(chunk.length));
 };
