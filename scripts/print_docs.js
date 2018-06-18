@@ -1,15 +1,21 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+
+const _ = require('lodash');
+
+require('../scope/h1');
+
+process.env.H1_CONFIG_PATH = fs.mkdtempSync(path.join(os.tmpdir(), 'h1-doc-gen'));
+
 const cli = require('../bin');
 const lib = require('./lib');
-const path = require('path');
-const _ = require('lodash');
-const fs = require('fs');
 
 const table = require('lib/table').table;
 
 const code = '```';
-
 
 function writeElements(output_stream, label, values = {}, label_fn, filter) {
     const entries = Object.entries(_.pickBy(values|| {}, filter));

@@ -1,6 +1,6 @@
 # Create a Vault
 
-```
+```bash
 h1 vault create --name my-vault --size 10 --ssh my-key
 ```
 

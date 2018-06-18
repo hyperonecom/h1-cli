@@ -1,5 +1,5 @@
 # Detach firewall from network
 
-```
-$ h1 firewall detach --firewall secure-zone-fw
+```bash
+h1 firewall detach --firewall secure-zone-fw
 ```

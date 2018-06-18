@@ -3,7 +3,7 @@
 ```bash
 echo "any-data" > data.txt
  h1 vm userdata --vm test-vm --userdata-file 'data.txt'
- ```
+```
  
  # Read userdata for virtual machine
  
