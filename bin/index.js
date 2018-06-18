@@ -10,7 +10,7 @@ const config = require('lib/config');
 const Package = require('../package.json');
 const scope = process.env.SCOPE_NAME;
 
-const cli = Cli.createCategory('app', {
+const cli = Cli.createCategory(scope, {
     description: Package.description,
     version: Package.version,
     epilog: `
