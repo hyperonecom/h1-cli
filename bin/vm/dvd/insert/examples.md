@@ -1,6 +1,6 @@
 # Insert a DVD
 
-```
+```bash
 h1 vm dvd insert --vm test-vm --iso ubuntu-live
 ```
 

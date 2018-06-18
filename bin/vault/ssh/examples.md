@@ -1,6 +1,6 @@
 # Connect to Vault using SSH
 
-```ssh
+```bash
 sh1 vault ssh --vault x
 ```
 
