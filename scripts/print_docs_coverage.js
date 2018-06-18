@@ -3,19 +3,11 @@
 require('../scope/h1');
 
 const cli = require('../bin');
-const lib = require('./lib');
-const path = require('path');
-const _ = require('lodash');
-const fs = require('fs');
-
-const table = require('lib/table').table;
-
-const code = '```';
 
 const full_name = (entry) => {
     const names = [entry.name];
     let cur = entry;
-    while(cur.parent){
+    while (cur.parent) {
         names.push(cur.parent.name);
         cur = cur.parent;
     }
@@ -28,14 +20,14 @@ const stats_collector = parent => {
     let examples = 0;
     let total = 0;
 
-    while(missing.length > 0){
+    while (missing.length > 0) {
         const entry = missing.pop();
-        if(entry.children){
+        if (entry.children) {
             missing.push(...entry.children);
         }
-        if(entry.examples){
+        if (entry.examples) {
             examples += 1;
-        }else{
+        } else {
             console.log(`Missing documentation for ${full_name(entry)}`);
         }
         total += 1;
