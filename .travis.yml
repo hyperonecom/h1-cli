@@ -7,3 +7,4 @@ script:
   - git status
   - git diff HEAD
   - test -z "$(git status --porcelain docs)"
+  - scripts/markown_lint.sh
