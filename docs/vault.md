@@ -92,7 +92,7 @@ Create Vault
 
 #### Create a Vault
 
-```
+```bash
 h1 vault create --name my-vault --size 10 --ssh my-key
 ```
 
@@ -212,7 +212,7 @@ Add credential to Vault
 
 #### Add SSH key to Vault
 
-```
+```bash
 h1 vault credential cert add --vault x --name my-key --sshkey Dell-Home
 ```
 
@@ -263,7 +263,7 @@ Add password to Vault
 
 #### Add password to Vault
 
-```
+```bash
 h1 vault credential password add --name my-pass --password secret-password --vault my-vault
 ```
 
@@ -287,7 +287,7 @@ Connect to Vault using SSH
 
 #### Connect to Vault using SSH
 
-```ssh
+```bash
 sh1 vault ssh --vault x
 ```
 

@@ -98,7 +98,7 @@ Note (4): To list available cloud-provided images use ```h1 image list --recomme
 
 #### Create a diskless virtual machine in private network
 
-```
+```bash
 h1 vm create --name test-vm2 --type a1.nano --network my-network --ssh so-wp
 ```
 
@@ -261,7 +261,7 @@ Manage userdata for virtual machine
 ```bash
 echo "any-data" > data.txt
  h1 vm userdata --vm test-vm --userdata-file 'data.txt'
- ```
+```
  
  # Read userdata for virtual machine
  
@@ -332,7 +332,7 @@ Manage your network adapter
 
 #### Get IP address of virtual machine
 
-```
+```bash
 h1 vm nic list --vm test-vm --output json --query "[].{ip:join(',', ip[].address)}" --output tsv
 ```
 

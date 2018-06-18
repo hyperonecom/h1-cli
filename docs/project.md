@@ -231,10 +231,6 @@ Add token
 
 ```h1 project token add | --project PROJECT --name NAME```
 
-### Examples
-
-MISSING DOCS
-
 ### Required options
 
 | Name | Default | Description |
@@ -284,10 +280,6 @@ Add access rule
 ### Syntax
 
 ```h1 project token access add | --method METHOD --path PATH --token TOKEN --project PROJECT```
-
-### Examples
-
-MISSING DOCS
 
 ### Required options
 
