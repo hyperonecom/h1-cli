@@ -38,6 +38,9 @@ module.exports = Cli.createCommand('set', {
             required: true,
         },
     },
+    plugins: [
+        require('bin/_plugins/outputFormat'),
+    ],
     handler: args => {
 
         const parts = args.key.split('.');
@@ -46,7 +49,6 @@ module.exports = Cli.createCommand('set', {
         const cmd = getAppCommand(args, parts.join('.'));
 
         if (!cmd || option in cmd.options === false) {
-            ;
             return console.log('key not found');
         }
         if (cmd.options[option].action === 'append') {
@@ -54,5 +56,6 @@ module.exports = Cli.createCommand('set', {
         }
 
         config.set(`defaults.${args.key}`, args.value);
+        return args.value;
     },
 });

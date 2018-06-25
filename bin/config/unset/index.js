@@ -13,5 +13,8 @@ module.exports = Cli.createCommand('unset', {
             required: true,
         },
     },
+    plugins: [
+        require('bin/_plugins/outputFormat'),
+    ],
     handler: args => config.unset(`defaults.${args.key}`),
 });
