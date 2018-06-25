@@ -13,8 +13,11 @@ module.exports = Cli.createCommand('get', {
             required: true,
         },
     },
+    plugins: [
+        require('bin/_plugins/outputFormat'),
+    ],
     handler: args => {
         const defaults = config.get(`defaults.${args.key}`);
-        console.log(defaults || 'key not set');
+        return defaults || 'key not set';
     },
 });
