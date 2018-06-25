@@ -3,7 +3,7 @@
 ```bash
 h1 vm create --name test-vm2 --os-disk os-disk-0,ssd,10 \
     --type a1.nano --image 5b1ddeaf9a26cb1d0c0c31c3 \
-    --ssh so-wp
+    --ssh my-ssh
 ```
 
 Note (1): To identify available disk type use ```h1 service list --resource disk``` .
