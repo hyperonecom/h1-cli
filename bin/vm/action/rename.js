@@ -4,7 +4,7 @@ const Cli = require('lib/cli');
 const genericDefaults = require('bin/generic/defaults');
 
 const options = {
-    newname: {
+    'new-name': {
         description: 'New name',
         type: 'string',
         required: true,
@@ -20,7 +20,7 @@ module.exports = (resource) => Cli.createCommand('rename', {
         .post(`vm/${args.id}/actions`, {
             name: 'rename',
             data: {
-                newname: args.newname,
+                newname: args['new-name'],
             },
         })
         .then(result => args.helpers.sendOutput(args, result)),
