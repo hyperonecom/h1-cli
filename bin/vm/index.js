@@ -3,6 +3,7 @@
 const genericResource = require('bin/generic');
 const genericDefaults = require('bin/generic/defaults');
 const genericAction = require('bin/generic/action');
+const text = require('lib/text');
 
 const resource = {
     name: 'vm',
@@ -16,7 +17,7 @@ const resource = {
 const childDefaults = Object.assign({}, resource, {
     options: {
         vm: {
-            description: `${resource.title} ID or name`,
+            description: `${text.toTitleCase(resource.title)} ID or name`,
             type: 'string',
             required: true,
             dest: 'id',
@@ -38,7 +39,7 @@ category.addChild(genericAction(childDefaults, 'start'));
 category.addChild(genericAction(childDefaults, 'restart'));
 category.addChild(genericAction(childDefaults, 'turnoff'));
 category.addChild(require('./action/rename')(childDefaults));
-category.addChild(require('./action/userdata/userdata')(childDefaults));
+category.addChild(require('./action/userdata')(childDefaults));
 
 category.addChild(require('./disk'));
 category.addChild(require('./nic'));
