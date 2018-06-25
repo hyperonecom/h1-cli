@@ -14,7 +14,8 @@
     "build": "pkg --out-path ./dist .",
     "lint": "eslint .",
     "docs": "node scripts/print_docs.js docs/",
-    "docs_coverage": "node scripts/print_docs_coverage.js"
+    "docs_coverage": "node scripts/print_docs_coverage.js",
+    "test": "npx ava --verbose"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -30,6 +31,7 @@
     "qrcode": "^1.2.0",
     "rbx-vhdx": "git+https://bitbucket.org/rbxcom/rbx-vhdx.git",
     "request": "^2.85.0",
+    "shell-quote": "^1.6.1",
     "speakeasy": "^2.0.0",
     "ssh2": "^0.6.0",
     "structured-cli": "^1.0.5",
@@ -53,7 +55,13 @@
   },
   "keywords": [],
   "devDependencies": {
+    "ava": "1.0.0-beta.5.1",
     "eslint": "^4.19.1",
     "pkg": "^4.3.1"
+  },
+  "ava": {
+    "files": [
+      "bin/**/tests.js"
+    ]
   }
 }
