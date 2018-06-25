@@ -16,11 +16,11 @@ const handle = (args) => {
     return args.helpers.api.get(url, {
         name: args['zone-name'],
     }).then(result => {
-        result.rrsets.forEach(item => {
-            item.records.filter(r=>!r.disabled).map(r=>{
-                console.log([item.name, 'IN', item.ttl, item.type, r.content].join('\t'));
-            });
-        });
+        return result.rrsets.map(item => {
+            return item.records.filter(r=>!r.disabled).map(r => {
+                return [item.name, 'IN', item.ttl, item.type, r.content].join('\t');
+            }).join('\n');
+        }).join('\n');
     });
 };
 
