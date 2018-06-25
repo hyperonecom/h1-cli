@@ -1,7 +1,7 @@
 'use strict';
 
 const genericResource = require('bin/generic');
-
+const text = require('lib/text');
 
 
 const options = {
@@ -23,7 +23,7 @@ const resource = {
 
 const childOptions = Object.assign({}, resource.options, {
     disk: {
-        description: `${resource.title} name or ID`,
+        description: `${text.toTitleCase(resource.title)} name or ID`,
         type: 'string',
         required: true,
     },
