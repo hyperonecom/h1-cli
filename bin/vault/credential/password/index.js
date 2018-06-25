@@ -9,7 +9,7 @@ module.exports = resource => {
         defaultQuery: resource.defaultQuery,
         url: args => `${resource.url(args)}/password`,
         commands: ['list', 'delete'],
-        params: resource.params,
+        options: resource.options,
         title: 'password to Vault',
     });
 

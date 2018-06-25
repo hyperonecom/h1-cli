@@ -7,7 +7,6 @@ const options = {
         description: 'Vault ID or name',
         type: 'string',
         required: true,
-        dest: 'id',
     },
 };
 
@@ -16,7 +15,7 @@ module.exports = resource => {
     const defaults = {
         name: 'credential',
         defaultQuery: '[].{id:_id,name:name,type:type}',
-        url: args => `${resource.url(args)}/${args.id}/credential`,
+        url: args => `${resource.url(args)}/${args.vault}/credential`,
         commands: [],
         options: options,
         plugins: resource.plugins,
