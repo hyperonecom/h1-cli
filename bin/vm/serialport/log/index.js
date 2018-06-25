@@ -23,4 +23,4 @@ module.exports = resource => Cli.createCommand('log', {
     handler: handler,
 });
 
-const handler = args => args.helpers.api.get(`/vm/${args.vm}/serialport/${args.port}`).then(data => console.log(data));
+const handler = args => args.helpers.api.get(`/vm/${args.vm}/serialport/${args.port}`);
