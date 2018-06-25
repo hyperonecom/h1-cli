@@ -4,7 +4,7 @@ const genericResource = require('bin/generic');
 
 const resource = {
     name: 'netgw',
-    defaultQuery: '[].{id:_id,name:name,IP:primaryIP,processing:processing,network:network._id}',
+    defaultQuery: '[].{id:_id,name:name,IP:primaryIP,processing:processing,network:network}',
     url: () => 'netgw',
     title: 'network gateway',
 };
