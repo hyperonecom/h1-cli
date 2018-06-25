@@ -4,14 +4,13 @@ const Cli = require('lib/cli');
 
 const defaults = require('bin/generic/defaults');
 
-
 const resource = {
     name: 'record-set',
     // eslint-disable-next-line quotes
     defaultQuery: "[].rrsets[].{name:name, type:type, ttl:ttl, records:join(',',records[].content)}",
-    url: args => `dns/zone/${args['zone-name']}`,
+    url: args => `dns/zone/${args.zone}`,
     options: {
-        'zone-name': {
+        zone: {
             description: 'DNS zone name',
             type: 'string',
             required: true,

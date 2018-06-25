@@ -8,8 +8,8 @@ const recordOptions = require('../common').recordOptions;
 
 const handleDeleteRecord = args => {
 
-    args['zone-name'] = addTrailingDot(args['zone-name']);
-    const name = formatRecordName(args.name, args['zone-name']);
+    args.zone = addTrailingDot(args.zone);
+    const name = formatRecordName(args.name, args.zone);
     const url = `${args.$node.parent.config.url(args)}/${name}`;
 
     return args.helpers.api

@@ -23,11 +23,11 @@ const handleCreate = args => {
 
     const url = args.$node.parent.config.url(args);
 
-    args['zone-name'] = addTrailingDot(args['zone-name']);
+    args.zone = addTrailingDot(args.zone);
 
 
     const data = {
-        name: formatRecordName(args.name, args['zone-name']),
+        name: formatRecordName(args.name, args.zone),
         ttl: args.ttl,
         records: args.values.map(value => ({ content: value, disabled: false })),
     };
