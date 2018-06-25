@@ -19,7 +19,7 @@ module.exports = resource => {
         // , dirname: __dirname
         plugins: resource.plugins,
         params: resource.params,
-        options: options,
+        options: Object.assign({}, resource.options, options),
         handler: args => args.helpers.api
             .get(`${resource.url(args)}/${args[resource.name]}`)
             .then(result => args.helpers.sendOutput(args, result)),
