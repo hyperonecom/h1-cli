@@ -3,6 +3,7 @@
   * [h1 firewall list](#h1-firewall-list) - List firewall
   * [h1 firewall show](#h1-firewall-show) - Show firewall
   * [h1 firewall delete](#h1-firewall-delete) - Delete firewall
+  * [h1 firewall history](#h1-firewall-history) - History of firewall
   * [h1 firewall create](#h1-firewall-create) - Create firewall
   * [h1 firewall attach](#h1-firewall-attach) - Attach firewall to a network
   * [h1 firewall detach](#h1-firewall-detach) - Detach firewall from network
@@ -51,6 +52,20 @@ Delete firewall
 ### Syntax
 
 ```h1 firewall delete | --firewall FIREWALL```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+
+## h1 firewall history
+
+History of firewall
+
+### Syntax
+
+```h1 firewall history | --firewall FIREWALL```
 
 ### Required options
 

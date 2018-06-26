@@ -11,7 +11,7 @@ module.exports = parent => {
         url: args => `${parent.url(args)}/credential/authtoken`,
         params: parent.params,
         options: parent.options,
-        commands: ['list', 'delete'],
+        commands: ['list', 'delete', 'history'],
         plugins: parent.plugins,
         title: 'token',
         dirname: __dirname,

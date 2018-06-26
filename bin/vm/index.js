@@ -10,7 +10,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,flavour:flavour,state:state,processing:processing}',
     url: () => 'vm',
     plugins: genericDefaults.plugins,
-    commands: [ 'list', 'show' ],
+    commands: [ 'list', 'show', 'history'],
     title: 'virtual machine',
 };
 
@@ -31,7 +31,6 @@ const category = genericResource(resource);
 category.addChild(require('./create')(resource));
 category.addChild(require('./delete')(resource));
 
-category.addChild(require('./history')(childDefaults));
 category.addChild(require('./console')(childDefaults));
 
 category.addChild(genericAction(childDefaults, 'stop'));

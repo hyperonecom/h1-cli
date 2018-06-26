@@ -3,6 +3,7 @@
   * [h1 disk list](#h1-disk-list) - List disk
   * [h1 disk show](#h1-disk-show) - Show disk
   * [h1 disk delete](#h1-disk-delete) - Delete disk
+  * [h1 disk history](#h1-disk-history) - History of disk
   * [h1 disk rename](#h1-disk-rename) - Rename disk
   * [h1 disk create](#h1-disk-create) - Create disk
   * [h1 disk resume](#h1-disk-resume) - Resume create upload of disk
@@ -45,6 +46,20 @@ Delete disk
 ### Syntax
 
 ```h1 disk delete | --disk DISK```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
+
+## h1 disk history
+
+History of disk
+
+### Syntax
+
+```h1 disk history | --disk DISK```
 
 ### Required options
 

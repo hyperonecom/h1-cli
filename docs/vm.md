@@ -2,9 +2,9 @@
 
   * [h1 vm list](#h1-vm-list) - List virtual machine
   * [h1 vm show](#h1-vm-show) - Show virtual machine
+  * [h1 vm history](#h1-vm-history) - History of virtual machine
   * [h1 vm create](#h1-vm-create) - Create virtual machine
   * [h1 vm delete](#h1-vm-delete) - Delete virtual machine
-  * [h1 vm history](#h1-vm-history) - History of virtual machine
   * [h1 vm console](#h1-vm-console) - Open virtual machine console in web-browser
   * [h1 vm stop](#h1-vm-stop) - Stop virtual machine
   * [h1 vm start](#h1-vm-start) - Start virtual machine
@@ -20,6 +20,7 @@
     * [h1 vm nic list](#h1-vm-nic-list) - List network adapter
     * [h1 vm nic show](#h1-vm-nic-show) - Show network adapter
     * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
+    * [h1 vm nic history](#h1-vm-nic-history) - History of network adapter
     * [h1 vm nic create](#h1-vm-nic-create) - Create network adapter
     * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
     * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP  address of network adapter
@@ -63,6 +64,20 @@ Show virtual machine
 ### Syntax
 
 ```h1 vm show | --vm VM```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm history
+
+History of virtual machine
+
+### Syntax
+
+```h1 vm history | --vm VM```
 
 ### Required options
 
@@ -131,20 +146,6 @@ Delete virtual machine
 ### Syntax
 
 ```h1 vm delete | --vm VM```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm history
-
-History of virtual machine
-
-### Syntax
-
-```h1 vm history | --vm VM```
 
 ### Required options
 
@@ -378,6 +379,21 @@ Delete network adapter
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
+
+## h1 vm nic history
+
+History of network adapter
+
+### Syntax
+
+```h1 vm nic history | --nic NIC --vm VM```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--nic NIC``` |  | Network adapter ID or name |
+| ```--vm VM``` |  | Virtual machine name or ID |
 
 ## h1 vm nic create
 
