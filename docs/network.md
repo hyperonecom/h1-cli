@@ -3,11 +3,13 @@
   * [h1 network list](#h1-network-list) - List network
   * [h1 network show](#h1-network-show) - Show network
   * [h1 network delete](#h1-network-delete) - Delete network
+  * [h1 network history](#h1-network-history) - History of network
   * [h1 network create](#h1-network-create) - Create network
   * [h1 network ip](#h1-network-ip) - Manage your IP address
     * [h1 network ip list](#h1-network-ip-list) - List IP address
     * [h1 network ip show](#h1-network-ip-show) - Show IP address
     * [h1 network ip delete](#h1-network-ip-delete) - Delete IP address
+    * [h1 network ip history](#h1-network-ip-history) - History of IP address
     * [h1 network ip create](#h1-network-ip-create) - Create IP address
 
 
@@ -46,6 +48,20 @@ Delete network
 ### Syntax
 
 ```h1 network delete | --network NETWORK```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network ID or name |
+
+## h1 network history
+
+History of network
+
+### Syntax
+
+```h1 network history | --network NETWORK```
 
 ### Required options
 
@@ -130,6 +146,21 @@ Delete IP address
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 | ```--ip IP``` |  | IP address ID or name |
+
+## h1 network ip history
+
+History of IP address
+
+### Syntax
+
+```h1 network ip history | --ip IP --network NETWORK```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address ID or name |
+| ```--network NETWORK``` |  | Network name or ID |
 
 ## h1 network ip create
 

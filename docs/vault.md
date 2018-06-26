@@ -3,6 +3,7 @@
   * [h1 vault list](#h1-vault-list) - List Vault
   * [h1 vault show](#h1-vault-show) - Show Vault
   * [h1 vault delete](#h1-vault-delete) - Delete Vault
+  * [h1 vault history](#h1-vault-history) - History of Vault
   * [h1 vault rename](#h1-vault-rename) - Rename Vault
   * [h1 vault create](#h1-vault-create) - Create Vault
   * [h1 vault resize](#h1-vault-resize) - Resize Vault
@@ -53,6 +54,20 @@ Delete Vault
 ### Syntax
 
 ```h1 vault delete | --vault VAULT```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+
+## h1 vault history
+
+History of Vault
+
+### Syntax
+
+```h1 vault history | --vault VAULT```
 
 ### Required options
 

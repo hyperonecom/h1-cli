@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-    commands: ['list', 'show', 'delete'],
+    commands: ['list', 'show', 'delete', 'history'],
     options: {},
     plugins: [
         require('bin/_plugins/loginRequired'),

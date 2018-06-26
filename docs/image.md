@@ -3,6 +3,7 @@
   * [h1 image show](#h1-image-show) - Show image
   * [h1 image delete](#h1-image-delete) - Delete image
   * [h1 image rename](#h1-image-rename) - Rename image
+  * [h1 image history](#h1-image-history) - History of image
   * [h1 image create](#h1-image-create) - Create image
   * [h1 image list](#h1-image-list) - List image
   * [h1 image disk](#h1-image-disk) - List all disks of image
@@ -60,6 +61,20 @@ Rename image
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
+
+## h1 image history
+
+History of image
+
+### Syntax
+
+```h1 image history | --image IMAGE```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
 
 ## h1 image create
 

@@ -3,6 +3,7 @@
   * [h1 netgw list](#h1-netgw-list) - List network gateway
   * [h1 netgw show](#h1-netgw-show) - Show network gateway
   * [h1 netgw delete](#h1-netgw-delete) - Delete network gateway
+  * [h1 netgw history](#h1-netgw-history) - History of network gateway
   * [h1 netgw create](#h1-netgw-create) - Network gateway create
   * [h1 netgw detach](#h1-netgw-detach) - Network gateway detach from a network
   * [h1 netgw attach](#h1-netgw-attach) - Network gateway attach to a network
@@ -43,6 +44,20 @@ Delete network gateway
 ### Syntax
 
 ```h1 netgw delete | --netgw NETGW```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--netgw NETGW``` |  | Network gateway ID or name |
+
+## h1 netgw history
+
+History of network gateway
+
+### Syntax
+
+```h1 netgw history | --netgw NETGW```
 
 ### Required options
 

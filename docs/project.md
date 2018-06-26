@@ -3,6 +3,7 @@
   * [h1 project list](#h1-project-list) - List project
   * [h1 project show](#h1-project-show) - Show project
   * [h1 project delete](#h1-project-delete) - Delete project
+  * [h1 project history](#h1-project-history) - History of project
   * [h1 project list](#h1-project-list) - List project
   * [h1 project access](#h1-project-access) - Manage your project access rights
     * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
@@ -11,6 +12,7 @@
   * [h1 project token](#h1-project-token) - Manage your project tokens
     * [h1 project token list](#h1-project-token-list) - List token
     * [h1 project token delete](#h1-project-token-delete) - Delete token
+    * [h1 project token history](#h1-project-token-history) - History of token
     * [h1 project token add](#h1-project-token-add) - Add token
     * [h1 project token access](#h1-project-token-access) - Manage your token access
       * [h1 project token access list](#h1-project-token-access-list) - List access rule
@@ -59,6 +61,20 @@ Delete project
 ### Syntax
 
 ```h1 project delete | --project PROJECT```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project history
+
+History of project
+
+### Syntax
+
+```h1 project history | --project PROJECT```
 
 ### Required options
 
@@ -222,6 +238,21 @@ Delete token
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 | ```--token TOKEN``` |  | Token ID or name |
+
+## h1 project token history
+
+History of token
+
+### Syntax
+
+```h1 project token history | --token TOKEN --project PROJECT```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--token TOKEN``` |  | Token ID or name |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project token add
 

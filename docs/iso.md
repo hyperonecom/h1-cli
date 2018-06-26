@@ -3,6 +3,7 @@
   * [h1 iso list](#h1-iso-list) - List ISO
   * [h1 iso show](#h1-iso-show) - Show ISO
   * [h1 iso delete](#h1-iso-delete) - Delete ISO
+  * [h1 iso history](#h1-iso-history) - History of ISO
   * [h1 iso rename](#h1-iso-rename) - Rename ISO
   * [h1 iso access](#h1-iso-access) - Manage your ISO access rights
     * [h1 iso access grant](#h1-iso-access-grant) - Grant access rights for ISO
@@ -47,6 +48,20 @@ Delete ISO
 ### Syntax
 
 ```h1 iso delete | --iso ISO```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--iso ISO``` |  | ISO ID or name |
+
+## h1 iso history
+
+History of ISO
+
+### Syntax
+
+```h1 iso history | --iso ISO```
 
 ### Required options
 
