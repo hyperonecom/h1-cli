@@ -30,7 +30,7 @@ const category = genericResource(resource);
 category.addChild(require('./create')(resource));
 category.addChild(require('./delete')(resource));
 
-category.addChild(require('./queue')(childDefaults));
+category.addChild(require('./history')(childDefaults));
 category.addChild(require('./console')(childDefaults));
 
 category.addChild(genericAction(childDefaults, 'stop'));
