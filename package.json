@@ -6,7 +6,8 @@
   "author": "",
   "main": "bin/h1.js",
   "bin": {
-    "h1": "./bin/h1.js"
+    "h1": "./bin/h1.js",
+    "rbx": "./bin/rbx.js"
   },
   "scripts": {
     "start": "./bin/h1.js",
