@@ -2,7 +2,7 @@
 
 const Cli = require('lib/cli');
 
-module.exports = resource => Cli.createCommand('queue', {
+module.exports = resource => Cli.createCommand('history', {
     description: `History of ${resource.title}`,
     plugins: resource.plugins,
     options: resource.options,

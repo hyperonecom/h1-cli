@@ -4,7 +4,7 @@
   * [h1 vm show](#h1-vm-show) - Show virtual machine
   * [h1 vm create](#h1-vm-create) - Create virtual machine
   * [h1 vm delete](#h1-vm-delete) - Delete virtual machine
-  * [h1 vm queue](#h1-vm-queue) - History of virtual machine
+  * [h1 vm history](#h1-vm-history) - History of virtual machine
   * [h1 vm console](#h1-vm-console) - Open virtual machine console in web-browser
   * [h1 vm stop](#h1-vm-stop) - Stop virtual machine
   * [h1 vm start](#h1-vm-start) - Start virtual machine
@@ -139,13 +139,13 @@ Delete virtual machine
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
-## h1 vm queue
+## h1 vm history
 
 History of virtual machine
 
 ### Syntax
 
-```h1 vm queue | --vm VM```
+```h1 vm history | --vm VM```
 
 ### Required options
 
