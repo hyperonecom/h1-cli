@@ -5,10 +5,6 @@
   * [h1 vault delete](#h1-vault-delete) - Delete Vault
   * [h1 vault rename](#h1-vault-rename) - Rename Vault
   * [h1 vault create](#h1-vault-create) - Create Vault
-  * [h1 vault access](#h1-vault-access) - Manage your Vault access rights
-    * [h1 vault access grant](#h1-vault-access-grant) - Grant access rights for Vault
-    * [h1 vault access revoke](#h1-vault-access-revoke) - Revoke access rights for Vault
-    * [h1 vault access list](#h1-vault-access-list) - List of access rights for Vault
   * [h1 vault resize](#h1-vault-resize) - Resize Vault
   * [h1 vault credential](#h1-vault-credential) - Manage your credentials to Vault
     * [h1 vault credential cert](#h1-vault-credential-cert) - Manage your certificate to Vault
@@ -107,54 +103,6 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ```[--ssh SSH [--ssh SSH ...]]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```[--password PASSWORD]``` |  | Password to access Vault. Recommend using SSH keys |
 
-## h1 vault access
-
-Manage your Vault access rights
-
-## h1 vault access grant
-
-Grant access rights for Vault
-
-### Syntax
-
-```h1 vault access grant | --vault VAULT --project PROJECT```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--project PROJECT``` |  | Project name or ID |
-
-## h1 vault access revoke
-
-Revoke access rights for Vault
-
-### Syntax
-
-```h1 vault access revoke | --vault VAULT --project PROJECT```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--project PROJECT``` |  | Project name or ID |
-
-## h1 vault access list
-
-List of access rights for Vault
-
-### Syntax
-
-```h1 vault access list | --vault VAULT```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-
 ## h1 vault resize
 
 Resize Vault
@@ -184,7 +132,13 @@ List certificate to Vault
 
 ### Syntax
 
-```h1 vault credential cert list | ```
+```h1 vault credential cert list | --vault VAULT```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
 
 ## h1 vault credential cert delete
 
@@ -192,12 +146,13 @@ Delete certificate to Vault
 
 ### Syntax
 
-```h1 vault credential cert delete | --cert CERT```
+```h1 vault credential cert delete | --vault VAULT --cert CERT```
 
 ### Required options
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
 | ```--cert CERT``` |  | Certificate to Vault ID or name |
 
 ## h1 vault credential cert add
@@ -235,7 +190,13 @@ List password to Vault
 
 ### Syntax
 
-```h1 vault credential password list | ```
+```h1 vault credential password list | --vault VAULT```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
 
 ## h1 vault credential password delete
 
@@ -243,12 +204,13 @@ Delete password to Vault
 
 ### Syntax
 
-```h1 vault credential password delete | --password PASSWORD```
+```h1 vault credential password delete | --vault VAULT --password PASSWORD```
 
 ### Required options
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
 | ```--password PASSWORD``` |  | Password to Vault ID or name |
 
 ## h1 vault credential password add
