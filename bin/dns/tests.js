@@ -29,12 +29,11 @@ const recordTypes = {
 };
 
 
-const test_record_values = async (t, zone, type, name, records) => {
+const test_record_values = async (t, zone, type, name, expected_values) => {
     const list = await tests.run(`dns record-set ${type} list --zone ${zone.name}`);
-    const expected_records = records.map(r => ({ content: r, disabled: false }));
-    const record = list.find(r => r.name === name);
-    t.true(!!record);
-    t.deepEqual(record.records, expected_records);
+    const record_set = list.find(rs => rs.name === name && rs.type.toLowerCase() === type);
+    const received_values = record_set.records.map(r => r.content);
+    t.deepEqual(received_values.sort(), expected_values.sort());
 };
 
 Object.entries(recordTypes).forEach(([type, values]) => {
