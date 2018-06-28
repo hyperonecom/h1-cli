@@ -133,7 +133,7 @@ Download disk to a file
 
 ### Syntax
 
-```h1 disk download | --disk DISK --destination-file DESTINATION-FILE [--no-process]```
+```h1 disk download | --disk DISK --destination-file DESTINATION-FILE [--no-progress]```
 
 ### Required options
 
@@ -141,5 +141,5 @@ Download disk to a file
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk name or ID |
 | ```--destination-file DESTINATION-FILE``` |  | Path to .vhdx file to save |
-| ```[--no-process]``` |  | Disable progress bar |
+| ```[--no-progress]``` |  | Disable progress bar |
 

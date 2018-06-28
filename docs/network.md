@@ -99,12 +99,13 @@ Show IP address
 
 ### Syntax
 
-```h1 network ip show | --ip IP```
+```h1 network ip show | --network NETWORK --ip IP```
 
 ### Required options
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network name or ID |
 | ```--ip IP``` |  | IP address ID or name |
 
 ## h1 network ip delete

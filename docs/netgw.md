@@ -6,10 +6,6 @@
   * [h1 netgw create](#h1-netgw-create) - Network gateway create
   * [h1 netgw detach](#h1-netgw-detach) - Network gateway detach from a network
   * [h1 netgw attach](#h1-netgw-attach) - Network gateway attach to a network
-  * [h1 netgw access](#h1-netgw-access) - Manage your network gateway access rights
-    * [h1 netgw access grant](#h1-netgw-access-grant) - Grant access rights for network gateway
-    * [h1 netgw access revoke](#h1-netgw-access-revoke) - Revoke access rights for network gateway
-    * [h1 netgw access list](#h1-netgw-access-list) - List of access rights for network gateway
 
 
 # Specification
@@ -125,52 +121,4 @@ Hint: Use ```h1 network list``` to list available network or ```h1 network creat
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway name or ID |
 | ```--network NETWORK``` |  | Network name or ID |
-
-## h1 netgw access
-
-Manage your network gateway access rights
-
-## h1 netgw access grant
-
-Grant access rights for network gateway
-
-### Syntax
-
-```h1 netgw access grant | --netgw NETGW --project PROJECT```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway ID or name |
-| ```--project PROJECT``` |  | Project name or ID |
-
-## h1 netgw access revoke
-
-Revoke access rights for network gateway
-
-### Syntax
-
-```h1 netgw access revoke | --netgw NETGW --project PROJECT```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway ID or name |
-| ```--project PROJECT``` |  | Project name or ID |
-
-## h1 netgw access list
-
-List of access rights for network gateway
-
-### Syntax
-
-```h1 netgw access list | --netgw NETGW```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway ID or name |
 
