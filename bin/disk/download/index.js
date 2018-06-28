@@ -15,7 +15,7 @@ const options = {
         type: 'string',
         required: true,
     },
-    'no-process': {
+    'no-progress': {
         description: 'Disable progress bar',
         type: 'boolean',
     },
