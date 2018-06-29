@@ -31,7 +31,7 @@ module.exports = resource => Cli.createCommand('create', {
         const network = { name: args.name };
 
         if (args.gateway && !args.address) {
-            throw Cli.error('IP address of network gateway must be within the network address space');
+            throw Cli.error.cancelled('IP address of network gateway must be within the network address space');
         }
 
         if (args.address) {

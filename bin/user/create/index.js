@@ -2,20 +2,10 @@
 
 const Cli = require('lib/cli');
 
-const inquirer = require('inquirer');
-const _ = require('lodash');
+const interactive = require('lib/interactive');
 
 const logger = require('lib/logger');
 
-const prompt = (type, message) => inquirer
-    .prompt({
-        type: type,
-        message: `${message}:`,
-        name: 'value',
-        validate: input => _.isEmpty(input) ? 'invalid value' : true,
-    })
-    .then(response => response.value)
-;
 
 module.exports = Cli.createCommand('create', {
     description: 'Create an account',
@@ -28,22 +18,24 @@ module.exports = Cli.createCommand('create', {
 
         const api = args.helpers.api;
 
-        const email = await prompt('input', 'email');
-        const emailVerification = await api.post(`verification/email/${email}`);
-        const emailCode = await prompt('input', 'email validation');
+        const email = await interactive.prompt('E-mail');
+        const emailVerification = await api.post(`verification/email/${email.value}`);
+        const emailCode = await interactive.prompt('Email validation');
 
-        const phone = await prompt('input', 'phone number');
-        const phoneVerification = await api.post(`verification/phone/${phone}`);
-        const phoneCode = await prompt('input', 'phone validation');
+        const phone = await interactive.prompt('Phone number');
+        const phoneVerification = await api.post(`verification/phone/${phone.value}`);
+        const phoneCode = await interactive.prompt('Phone validation');
 
-        const password = await prompt('password', 'password');
+        const password = await interactive.prompt('Password', {
+            type: 'password',
+        });
 
         await api.post('user', {
             email: email,
             password: password,
             verification: {
-                email: { id: emailVerification.id, code: emailCode },
-                phone: { id: phoneVerification.id, code: phoneCode },
+                email: {id: emailVerification.id, code: emailCode},
+                phone: {id: phoneVerification.id, code: phoneCode},
             },
         });
 

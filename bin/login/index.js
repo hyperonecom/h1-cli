@@ -4,7 +4,7 @@ const Cli = require('lib/cli');
 
 const logger = require('lib/logger');
 const _ = require('lodash');
-const inquirer = require('inquirer');
+const interactive = require('lib/interactive');
 
 const options = {
     username: {
@@ -30,10 +30,9 @@ const handler = args => {
                     throw Cli.error.serverError(err.message);
                 }
 
-                return inquirer.prompt({
+                return interactive.prompt('Password', {
                     type: 'password',
                     name: 'value',
-                    message: 'Password:',
                     validate: input => _.isEmpty(input) ? 'Incorrect password' : true,
                 })
                     .then(password => args.helpers.api.getApiKey(args.username, { password: password.value }));
