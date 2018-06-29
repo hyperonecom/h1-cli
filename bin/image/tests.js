@@ -38,7 +38,9 @@ ava.test.serial('image disk list', async t => {
     t.true(list.some(d => d.type === 'ssd' && d.size === 10));
 
     await tests.remove('vm', common.vm);
+    await tests.remove('disk', common.disk_name);
     await tests.remove('image', image);
+
 });
 
 ava.test.serial('image access', async t => {
@@ -47,4 +49,5 @@ ava.test.serial('image access', async t => {
     await tests.resourceAccessCycle('image', `--vm ${common.vm._id} --name ${name}`)(t);
 
     await tests.remove('vm', common.vm);
+    await tests.remove('disk', common.disk_name);
 });
