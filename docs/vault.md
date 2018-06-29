@@ -16,7 +16,6 @@
       * [h1 vault credential password delete](#h1-vault-credential-password-delete) - Delete password to Vault
       * [h1 vault credential password add](#h1-vault-credential-password-add) - Add password to Vault
   * [h1 vault ssh](#h1-vault-ssh) - Connect to Vault using SSH
-  * [h1 vault snapshot](#h1-vault-snapshot) - Perform a snapshot of Vault
 
 
 # Specification
@@ -260,27 +259,4 @@ Note: You need valid credentials to access Vault any way.
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
-
-## h1 vault snapshot
-
-Perform a snapshot of Vault
-
-### Syntax
-
-```h1 vault snapshot | --vault VAULT --name NAME```
-
-### Examples
-
-#### Perform a snapshot of a Vault
-
-```bash
-h1 vault snapshot --vault my-vault --name 
-```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--name NAME``` |  | Snapshot name |
 

@@ -11,4 +11,6 @@ const resource = {
 
 const category = genericResource(resource);
 
+category.addChild(require('./create'));
+
 module.exports = category;

@@ -11,7 +11,7 @@ const now = Date.now();
 ava.test.serial('snapshot create & list & show & rename & delete', async t => {
     const vault = await tests.run(`vault create --name vault-snapshot-test-${now} --size 10`);
     const name = `snapshot-test-${now}`;
-    await tests.run(`vault snapshot --vault ${vault._id} --name ${name}`);
+    await tests.run(`snapshot create --vault ${vault._id} --name ${name}`);
 
     const list  = await tests.run('snapshot list');
     const snapshot = list.find(x => x.name === name);

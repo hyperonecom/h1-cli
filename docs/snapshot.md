@@ -4,6 +4,7 @@
   * [h1 snapshot show](#h1-snapshot-show) - Show snapshot
   * [h1 snapshot delete](#h1-snapshot-delete) - Delete snapshot
   * [h1 snapshot rename](#h1-snapshot-rename) - Rename snapshot
+  * [h1 snapshot create](#h1-snapshot-create) - Create a snapshot of Vault
 
 
 # Specification
@@ -62,4 +63,27 @@ Rename snapshot
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
+
+## h1 snapshot create
+
+Create a snapshot of Vault
+
+### Syntax
+
+```h1 snapshot create | --vault VAULT --name NAME```
+
+### Examples
+
+#### Perform a snapshot of a Vault
+
+```bash
+h1 snapshot create --vault my-vault --name
+```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+| ```--name NAME``` |  | Snapshot name |
 

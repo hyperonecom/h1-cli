@@ -1,5 +1,6 @@
 'use strict';
 
+const genericDefaults = require('bin/generic/defaults');
 const Cli = require('lib/cli');
 
 const options = {
@@ -15,13 +16,12 @@ const options = {
     },
 };
 
-module.exports = resource => Cli.createCommand('snapshot', {
-    description: `Perform a snapshot of ${resource.title}`,
+module.exports = Cli.createCommand('create', {
+    description: 'Create a snapshot of Vault',
     dirname: __dirname,
-    plugins: resource.plugins,
-    options: Object.assign({}, resource.options, options),
-    params: resource.params,
-    handler: args => args.helpers.api.post(`${resource.url(args)}/${args.vault}/actions/snapshot`, {
+    plugins: genericDefaults.plugins,
+    options: options,
+    handler: args => args.helpers.api.post(`vault/${args.vault}/actions/snapshot`, {
         data: {
             name: args.name,
         },
