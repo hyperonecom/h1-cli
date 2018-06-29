@@ -28,5 +28,3 @@ ava.test.serial('netgw attach & detach', async t => {
     await tests.remove('network', network);
     await tests.remove('ip', ip);
 });
-
-ava.test.todo('netgw access');
