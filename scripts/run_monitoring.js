@@ -37,16 +37,16 @@ const getConfig = () => {
         },
         MONITORING_CMD: {
             label: 'Monitored executable',
-            defaultValue: 'ava --verbose',
+            defaultValue: 'npx ava --verbose',
         },
         SMTP_SENDER: {
             label: 'Monitoring sender address',
             defaultValue: 'h1-cli@hyperone.com',
         },
         MONITORING_TIMEOUT: {
-            label: 'Maximum execution time',
+            label: 'Maximum execution time (seconds)',
             parse: v => parseInt(v),
-            defaultValue: 60*30,
+            defaultValue: 60 * 30,
         },
     };
     // TODO: How to write it in clear way object -> list of properties -> object?
@@ -75,20 +75,25 @@ const sendMail = async (config, success, report) => {
     await smtpTransport.close();
 };
 
-
-// const getReport = (exec, argv=[], env={}) => execFile(exec, argv, {env: env});
-
-const runProcess = async (cmd = [], env = {}, timeout = 60*30) => new Promise((resolve, reject) => {
+const runProcess = async (cmd = [], env = {}, timeout = 60 * 30) => new Promise((resolve, reject) => {
     const arg = shell_quote.parse(cmd);
 
     const proc = childProcess.spawn(arg[0], arg.slice(1), {
         env: Object.assign({}, process.env, env),
-        timeout: timeout * 1000,
-        // stdio: [null, 'pipe', 'pipe']
+        stdio: [null, 'pipe', 'pipe'],
     });
     let output = '';
 
+    const killer = setTimeout(() => {
+        proc.kill();
+        const error = new Error(`Process timeouted after ${timeout} seconds.`);
+        error.output = output;
+        reject(error);
+    }, timeout * 1000);
+
     proc.on('close', (code) => {
+        clearTimeout(killer);
+
         if (code !== 0) {
             const error = new Error(`Process exited with code ${code}`);
             error.code = code;
@@ -116,10 +121,10 @@ const main = async () => {
     await runProcess(`h1 project select --project ${config.H1_PROJECT}`);
 
     try {
-        const output = await runProcess(config.MONITORING_CMD);
+        const output = await runProcess(config.MONITORING_CMD, {}, config.MONITORING_TIMEOUT);
         await sendMail(config, true, output);
     } catch (err) {
-        await sendMail(config, false, err.output);
+        await sendMail(config, false, `${err.message}\n${err.output}\n${err.message}`);
     }
     try {
         await runProcess('/bin/bash ./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT});
