@@ -10,11 +10,10 @@ const name = `image-test-${now}`;
 
 const getCommon = async (test_name) => {
     const name = `image-test-${test_name}-${now}`.replace(/[^\w]/g, '-');
-    const image = await tests.getImage();
     const password = await tests.getToken();
     const disk_name = `disk-${name}`;
     return {
-        vm: await tests.run(`vm create --name ${name} --password ${password} --os-disk ${disk_name},ssd,10 --type a1.nano --image ${image._id}`),
+        vm: await tests.run(`vm create --name ${name} --password ${password} --os-disk ${disk_name},ssd,10 --type a1.nano --image debian`),
         disk_name: disk_name,
         vm_name: name,
     };
