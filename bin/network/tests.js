@@ -18,3 +18,16 @@ ava.test.serial('network ip life cycle', async t => {
     })(t);
     await tests.remove('network', network);
 });
+
+ava.test.serial('network using custom ip', async t => {
+    const private_ip = '10.214.180.10';
+    const name = `my-ip-network-${now}`;
+    const network = await tests.run(`network create --name ${name}  --address 10.214.180.0/24 --gateway ${private_ip}`);
+
+    await tests.run(`network ip create --network ${name} --address ${private_ip}`);
+
+    const list = await tests.run(`network ip list --network ${name}`);
+    t.true(list.some(x => x.address === private_ip));
+
+    await tests.remove('network', network);
+});

@@ -59,7 +59,7 @@ Create network
 
 ### Syntax
 
-```h1 network create | --name NAME```
+```h1 network create | --name NAME [--address ADDRESS] [--gateway GATEWAY]```
 
 ### Examples
 
@@ -69,11 +69,19 @@ Create network
 h1 network create --name my-safe-net
 ```
 
+#### Create a network by specifying the address space and gateway address
+
+```bash
+h1 network create --name my-ip-network --address 10.214.180.0/24 --gateway 10.214.180.10
+```
+
 ### Required options
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
+| ```[--address ADDRESS]``` |  | Network address space as CIDR, network address and prefix eg. 10.214.180.0/24 |
+| ```[--gateway GATEWAY]``` |  | IP address of network gateway within the network address space eg. 10.214.180.10 |
 
 ## h1 network ip
 
@@ -129,7 +137,7 @@ Create IP address
 
 ### Syntax
 
-```h1 network ip create | --network NETWORK```
+```h1 network ip create | --network NETWORK [--address ADDRESS]```
 
 ### Examples
 
@@ -139,9 +147,16 @@ Create IP address
 h1 network ip create --network my-safe-net
 ```
 
+#### Create a custom IP address in network
+
+```bash
+h1 network ip create --name my-ip-network --address 10.214.180.10
+```
+
 ### Required options
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
+| ```[--address ADDRESS]``` |  | IP address |
 
