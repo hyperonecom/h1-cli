@@ -86,7 +86,7 @@ const runProcess = async (cmd = [], env = {}, timeout = 60 * 30) => new Promise(
 
     const killer = setTimeout(() => {
         proc.kill();
-        const error = new Error(`Process timeouted after ${timeout} seconds.`);
+        const error = new Error(`Process timed out after ${timeout} seconds.`);
         error.output = output;
         reject(error);
     }, timeout * 1000);
