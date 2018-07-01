@@ -22,6 +22,7 @@ const download = (resource, destination) => tests.run(`disk download
     ava.test.serial(`disk rename ${type}`, tests.resourceRename('disk', createParams));
 });
 
+// TODO find a way to stop disk upload
 ava.test.todo('disk resume');
 
 ava.test.serial('disk add & download', async t => {

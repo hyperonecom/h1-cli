@@ -2,4 +2,6 @@
 
 const ava = require('ava');
 
-ava.test.todo('login');
+ava.test.todo('login password');
+
+ava.test.todo('login ssh');
