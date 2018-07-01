@@ -14,7 +14,7 @@ cli.run()
     .then(result => {
         if (typeof result === 'object') {
             console.dir(result, {depth: null});
-        } else {
+        } else if (result) {
             console.log(result);
         }
     })
