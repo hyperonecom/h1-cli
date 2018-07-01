@@ -49,15 +49,14 @@ ava.test.serial('vm stop & start & turnoff', async t => {
     t.true(vm.state === 'Running');
 
     const actions = [
-        {name: 'stop', state: 'Off', delay: 3000},
+        {name: 'stop', state: 'Off'},
         {name: 'start', state: 'Running'},
-        {name: 'restart', state: 'Running', delay: 3000},
-        {name: 'turnoff', state: 'Off', delay: 3000},
+        {name: 'restart', state: 'Running'},
+        {name: 'turnoff', state: 'Off'},
     ];
 
     for (const action of actions) {
         await tests.run(`vm ${action.name} --vm ${vm._id}`);
-        await tests.delay(action.delay || 0); // Wait to shut down the system
         const updated_vm = await tests.run(`vm show --vm ${vm._id}`);
         t.true(updated_vm.state === action.state);
     }
@@ -96,7 +95,6 @@ ava.test.serial('vm disk attach & detach', async t => {
     for (const action of actions) {
         await tests.run(`vm disk ${action.name} --vm ${vm._id} --disk ${disk._id}`);
         const list = await tests.run(`vm disk list --vm ${vm._id}`);
-        await tests.delay(3000);
         t.true(list.some(x => x.disk._id === disk._id) === action.result);
     }
 
