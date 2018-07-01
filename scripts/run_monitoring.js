@@ -88,7 +88,7 @@ const runProcess = async (cmd = [], env = {}, timeout = 60 * 30) => new Promise(
         proc.kill();
         const error = new Error(`Process timed out after ${timeout} seconds.`);
         error.output = output;
-        reject(error);
+        return reject(error);
     }, timeout * 1000);
 
     proc.on('close', (code) => {
@@ -98,9 +98,9 @@ const runProcess = async (cmd = [], env = {}, timeout = 60 * 30) => new Promise(
             const error = new Error(`Process exited with code ${code}`);
             error.code = code;
             error.output = output;
-            reject(error);
+            return reject(error);
         }
-        resolve(output);
+        return resolve(output);
     });
 
     proc.stdout.on('data', (data) => {
