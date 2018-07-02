@@ -8,14 +8,19 @@ const now = Date.now();
 
 const name = `image-test-${now}`;
 
-const getCommon = async (test_name) => {
+const getCommon = async (test_name, options) => {
+    const image = options.image || 'debian';
     const name = `image-test-${test_name}-${now}`.replace(/[^\w]/g, '-');
     const password = await tests.getToken();
     const disk_name = `disk-${name}`;
     return {
-        vm: await tests.run(`vm create --name ${name} --password ${password} --os-disk ${disk_name},ssd,10 --type a1.nano --image debian`),
+        vm: await tests.run(`vm create --name ${name} --password ${password} --os-disk ${disk_name},ssd,10 --type a1.nano --image ${image}`),
         disk_name: disk_name,
         vm_name: name,
+        cleanup: () => {
+            tests.remove('vm', name);
+            tests.remove('disk', disk_name);
+        },
     };
 };
 
@@ -26,8 +31,7 @@ ava.test.serial('image rename', async t => {
         createParams: `--vm ${common.vm._id} --name ${name}`,
     })(t);
 
-    await tests.remove('vm', common.vm);
-    await tests.remove('disk', common.disk_name);
+    common.cleanup();
 });
 
 ava.test.serial('image disk list', async t => {
@@ -37,8 +41,7 @@ ava.test.serial('image disk list', async t => {
     const list = await tests.run(`image disk --image ${image._id}`);
     t.true(list.some(d => d.type === 'ssd' && d.size === 10));
 
-    await tests.remove('vm', common.vm);
-    await tests.remove('disk', common.disk_name);
+    common.cleanup();
     await tests.remove('image', image);
 
 });
@@ -48,6 +51,20 @@ ava.test.serial('image access', async t => {
 
     await tests.resourceAccessCycle('image', `--vm ${common.vm._id} --name ${name}`)(t);
 
-    await tests.remove('vm', common.vm);
-    await tests.remove('disk', common.disk_name);
+    common.cleanup();
+});
+
+ava.test.serial('image resolver prefer server', async t => {
+    const common = await getCommon(t.title, {
+        image: 'ubuntu:18.04',
+    });
+    const image_list = await tests.run('image list --recommended');
+    const image_server = image_list.find(x => {
+        return x.description.distro === 'ubuntu' &&
+            x.description.release === '18.04' &&
+            x.description.edition === 'server';
+    });
+    t.true(common.vm.sourceImage._id === image_server._id);
+
+    common.cleanup();
 });
