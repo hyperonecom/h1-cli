@@ -39,7 +39,7 @@ Show firewall
 
 ```h1 firewall show | --firewall FIREWALL```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -53,7 +53,7 @@ Delete firewall
 
 ```h1 firewall delete | --firewall FIREWALL```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -67,7 +67,7 @@ History of firewall
 
 ```h1 firewall history | --firewall FIREWALL```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -89,7 +89,7 @@ Create firewall
 h1 firewall create --name secure-zone-fw
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -113,7 +113,7 @@ h1 firewall attach --firewall secure-zone-fw --network my-safe-net
 
 Hint: Use ```h1 network list``` to list available networks or ```h1 network create``` to create a new one.
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -136,7 +136,7 @@ Detach firewall from network
 h1 firewall detach --firewall secure-zone-fw
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -178,7 +178,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --name 'Allow HTTP'
 ```
 
-### Required options
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -206,7 +206,7 @@ h1 firewall ingress list --firewall secure-zone-fw
 h1 firewall egress list --firewall secure-zone-fw
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -232,7 +232,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --name 'Allow HTTP'
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -262,7 +262,7 @@ h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51d
 
 Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to list available rules.
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -305,7 +305,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --name 'Allow HTTP'
 ```
 
-### Required options
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -333,7 +333,7 @@ h1 firewall ingress list --firewall secure-zone-fw
 h1 firewall egress list --firewall secure-zone-fw
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -359,7 +359,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --name 'Allow HTTP'
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -389,7 +389,7 @@ h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51d
 
 Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to list available rules.
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |

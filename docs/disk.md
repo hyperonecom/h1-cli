@@ -33,7 +33,7 @@ Show disk
 
 ```h1 disk show | --disk DISK```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -47,7 +47,7 @@ Delete disk
 
 ```h1 disk delete | --disk DISK```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -61,7 +61,7 @@ History of disk
 
 ```h1 disk history | --disk DISK```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -75,7 +75,7 @@ Rename disk
 
 ```h1 disk rename | --disk DISK --new-name NEW-NAME```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -90,7 +90,7 @@ Resize disk
 
 ```h1 disk resize | --disk DISK --size SIZE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -105,7 +105,7 @@ Resume create upload of disk
 
 ```h1 disk resume | --disk DISK --source-file SOURCE-FILE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -132,15 +132,20 @@ h1 disk create --name db-disk --type ssd --size 10
 
 TODO
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Disk name |
 | ```--type TYPE``` |  | Disk type ID or name |
 | ```--size SIZE``` |  | Disk size in GB |
-| ```[--source-file SOURCE-FILE]``` |  | Path to .vhdx file to import |
-| ```[--no-progress]``` |  | Disable progress bar |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
+| ```--no-progress``` |  | Disable progress bar |
 
 ## h1 disk download
 
@@ -150,11 +155,16 @@ Download disk to a file
 
 ```h1 disk download | --disk DISK --destination-file DESTINATION-FILE [--no-progress]```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk name or ID |
 | ```--destination-file DESTINATION-FILE``` |  | Path to .vhdx file to save |
-| ```[--no-progress]``` |  | Disable progress bar |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--no-progress``` |  | Disable progress bar |
 

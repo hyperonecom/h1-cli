@@ -53,7 +53,7 @@ Delete credentials
 
 ```h1 user credentials delete | --credentials CREDENTIALS```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -67,7 +67,7 @@ Add public SSH key for user
 
 ```h1 user credentials add | --name NAME --sshkey-file SSHKEY-FILE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -106,11 +106,11 @@ token that will allow you to login to the site.
 h1 user 2fa enable --type otac
 ```
 
-### Required options
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```[--type TYPE]``` |  | type |
+| ```--type TYPE``` |  | type |
 
 ## h1 user 2fa disable
 
@@ -128,11 +128,11 @@ Disable factor of authentication
 h1 user 2fa disable --type otac
 ```
 
-### Required options
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```[--type TYPE]``` |  | type |
+| ```--type TYPE``` |  | type |
 
 ## h1 user 2fa list
 

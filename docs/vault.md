@@ -41,7 +41,7 @@ Show Vault
 
 ```h1 vault show | --vault VAULT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -55,7 +55,7 @@ Delete Vault
 
 ```h1 vault delete | --vault VAULT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -69,7 +69,7 @@ History of Vault
 
 ```h1 vault history | --vault VAULT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -83,7 +83,7 @@ Rename Vault
 
 ```h1 vault rename | --vault VAULT --new-name NEW-NAME```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -98,7 +98,7 @@ Resize Vault
 
 ```h1 vault resize | --vault VAULT --size SIZE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -123,14 +123,19 @@ h1 vault create --name my-vault --size 10 --ssh my-key
 
 Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Vault name |
 | ```--size SIZE``` |  | Vault size in GB |
-| ```[--ssh SSH [--ssh SSH ...]]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
-| ```[--password PASSWORD]``` |  | Password to access Vault. Recommend using SSH keys |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
+| ```--password PASSWORD``` |  | Password to access Vault. Recommend using SSH keys |
 
 ## h1 vault credential
 
@@ -148,7 +153,7 @@ List certificate to Vault
 
 ```h1 vault credential cert list | --vault VAULT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -162,7 +167,7 @@ Delete certificate to Vault
 
 ```h1 vault credential cert delete | --vault VAULT --cert CERT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -185,14 +190,19 @@ Add credential to Vault
 h1 vault credential cert add --vault x --name my-key --sshkey Dell-Home
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--name NAME``` |  | Certificate name |
-| ```[--sshkey SSHKEY]``` |  | Public SSH key ID or name |
-| ```[--sshkey-file SSHKEY-FILE]``` |  | Public SSH key filename |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--sshkey SSHKEY``` |  | Public SSH key ID or name |
+| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
 
 ## h1 vault credential password
 
@@ -206,7 +216,7 @@ List password to Vault
 
 ```h1 vault credential password list | --vault VAULT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -220,7 +230,7 @@ Delete password to Vault
 
 ```h1 vault credential password delete | --vault VAULT --password PASSWORD```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -243,7 +253,7 @@ Add password to Vault
 h1 vault credential password add --name my-pass --password secret-password --vault my-vault
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -269,7 +279,7 @@ sh1 vault ssh --vault x
 
 Note: You need valid credentials to access Vault any way.
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |

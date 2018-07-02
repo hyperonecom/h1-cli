@@ -31,7 +31,7 @@ Show IP address
 
 ```h1 ip show | --ip IP```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -45,7 +45,7 @@ Delete IP address
 
 ```h1 ip delete | --ip IP```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -83,7 +83,7 @@ Associate IP address
 h1 ip associate --ip 62.181.8.21 --private-ip 10.177.2.10 --output json
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -106,7 +106,7 @@ Disassociate IP address
 h1 ip disassociate --ip 62.181.8.21
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -128,7 +128,7 @@ Update PTR record of IP address
 h1 ip ptr --ip 62.181.8.21 --value 'example.com'
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |

@@ -31,7 +31,7 @@ Show network gateway
 
 ```h1 netgw show | --netgw NETGW```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -45,7 +45,7 @@ Delete network gateway
 
 ```h1 netgw delete | --netgw NETGW```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -59,7 +59,7 @@ History of network gateway
 
 ```h1 netgw history | --netgw NETGW```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -83,7 +83,7 @@ h1 netgw create --name my-netgw --ip 62.181.8.21
 
 Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to create a new one.
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -106,7 +106,7 @@ Network gateway detach from a network
 h1 netgw detach --netgw my-netgw
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -130,7 +130,7 @@ h1 netgw attach --netgw my-netgw --network my-safe-net
 
 Hint: Use ```h1 network list``` to list available network or ```h1 network create``` to create a new one.
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |

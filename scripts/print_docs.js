@@ -4,8 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const _ = require('lodash');
-
 require('../scope/h1');
 
 process.env.H1_CONFIG_PATH = fs.mkdtempSync(path.join(os.tmpdir(), 'h1-doc-gen'));
@@ -17,13 +15,13 @@ const table = require('lib/table').table;
 
 const code = '```';
 
-function writeElements(output_stream, label, values = {}, label_fn, filter) {
-    const entries = Object.entries(_.pickBy(values|| {}, filter));
+function writeElements(output_stream, label, values = {}) {
+    const entries = Object.entries(values || {});
     if (entries.length > 0) {
         output_stream.write(`### ${label}\n`);
 
         const rows = entries.map(([name, value]) => {
-            label = label_fn([name, value]);
+            label = lib.getArgumentLabel([name, value]);
             let description = value.description;
             if (value.action === 'append') {
                 description = `${description}. The parameter may occur repeatedly`;
@@ -81,10 +79,8 @@ function writeCommandSpecs(stream, entry, prefix) {
         stream.write(`### Examples\n\n${examples}\n\n`);
     }
 
-
-    writeElements(stream, 'Required options', entry.options, lib.getOptionLabel, (name, option) => !option.required);
-    writeElements(stream, 'Optional options', entry.options, lib.getOptionLabel, (name, option) => option.required);
-    writeElements(stream, 'Parameters (DEPRECATED)', entry.params, lib.getParamLabel, () => true);
+    writeElements(stream, 'Required arguments', entry.optionGroups['Required arguments']);
+    writeElements(stream, 'Optional arguments', entry.options);
 }
 
 const writeSpecs = function (stream, entry, prefix) {
