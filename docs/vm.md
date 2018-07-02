@@ -64,7 +64,7 @@ Show virtual machine
 
 ```h1 vm show | --vm VM```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -78,7 +78,7 @@ History of virtual machine
 
 ```h1 vm history | --vm VM```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -118,25 +118,30 @@ h1 vm create --name test-vm --type a1.nano --network my-network --ssh so-wp
 Note: You can mount ISO disk and provide stateless services. 
       This allows you to reduce the costs of server disks.
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Virtual machine name |
 | ```--type TYPE``` |  | Virtual machine type name or ID |
-| ```[--password PASSWORD]``` |  | Initial administrator user password |
-| ```[--username USERNAME]``` |  | Initial administrator username |
-| ```[--ssh SSH [--ssh SSH ...]]``` |  | SSH key ID or name that allows access.. The parameter may occur repeatedly |
-| ```[--image IMAGE]``` |  | Image ID or name |
-| ```[--iso ISO]``` |  | ISO ID or name |
-| ```[--os-disk-name OS-DISK-NAME]``` |  | OS disk name |
-| ```[--os-disk-type OS-DISK-TYPE]``` |  | OS disk type |
-| ```[--os-disk-size OS-DISK-SIZE]``` |  | OS disk size |
-| ```[--os-disk OS-DISK]``` |  | OS disk: name,service,size |
-| ```[--network NETWORK]``` |  | Network ID or name to attach |
-| ```[--ip IP]``` |  | IP address for Virtual machine |
-| ```[--no-start]``` |  | Do not start Virtual machine after creation |
-| ```[--userdata-file USERDATA-FILE]``` |  | Read userdata from file |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--password PASSWORD``` |  | Initial administrator user password |
+| ```--username USERNAME``` |  | Initial administrator username |
+| ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access.. The parameter may occur repeatedly |
+| ```--image IMAGE``` |  | Image ID or name |
+| ```--iso ISO``` |  | ISO ID or name |
+| ```--os-disk-name OS-DISK-NAME``` |  | OS disk name |
+| ```--os-disk-type OS-DISK-TYPE``` |  | OS disk type |
+| ```--os-disk-size OS-DISK-SIZE``` |  | OS disk size |
+| ```--os-disk OS-DISK``` |  | OS disk: name,service,size |
+| ```--network NETWORK``` |  | Network ID or name to attach |
+| ```--ip IP``` |  | IP address for Virtual machine |
+| ```--no-start``` |  | Do not start Virtual machine after creation |
+| ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
 
 ## h1 vm delete
 
@@ -146,7 +151,7 @@ Delete virtual machine
 
 ```h1 vm delete | --vm VM```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -168,7 +173,7 @@ Open virtual machine console in web-browser
 h1 vm console --vm test-vm
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -180,9 +185,9 @@ Stop virtual machine
 
 ### Syntax
 
-```h1 vm stop | --vm VM```
+```h1 vm stop | [--vm VM]```
 
-### Required options
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -194,9 +199,9 @@ Start virtual machine
 
 ### Syntax
 
-```h1 vm start | --vm VM```
+```h1 vm start | [--vm VM]```
 
-### Required options
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -208,9 +213,9 @@ Restart virtual machine
 
 ### Syntax
 
-```h1 vm restart | --vm VM```
+```h1 vm restart | [--vm VM]```
 
-### Required options
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -222,9 +227,9 @@ Turnoff virtual machine
 
 ### Syntax
 
-```h1 vm turnoff | --vm VM```
+```h1 vm turnoff | [--vm VM]```
 
-### Required options
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -238,7 +243,7 @@ Rename virtual machine
 
 ```h1 vm rename | --vm VM --new-name NEW-NAME```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -268,7 +273,7 @@ echo "any-data" > data.txt
 $ h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl base64 -d
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -287,7 +292,7 @@ List disk
 
 ```h1 vm disk list | --vm VM```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -301,7 +306,7 @@ Attach disk to disk
 
 ```h1 vm disk attach | --vm VM --disk DISK```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -316,7 +321,7 @@ Detach disk from disk
 
 ```h1 vm disk detach | --vm VM --disk DISK```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -343,7 +348,7 @@ List network adapter
 
 ```h1 vm nic list | --vm VM```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -357,7 +362,7 @@ Show network adapter
 
 ```h1 vm nic show | --vm VM --nic NIC```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -372,7 +377,7 @@ Delete network adapter
 
 ```h1 vm nic delete | --vm VM --nic NIC```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -385,16 +390,21 @@ Create network adapter
 
 ### Syntax
 
-```h1 vm nic create | [--network NETWORK] --type TYPE [--ip IP] --vm VM```
+```h1 vm nic create | --type TYPE --vm VM [--network NETWORK] [--ip IP]```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```[--network NETWORK]``` |  | Network connected to network adapter |
 | ```--type TYPE``` |  | Type of network adapter |
-| ```[--ip IP]``` |  | IP to assign from network |
 | ```--vm VM``` |  | Virtual machine name or ID |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network connected to network adapter |
+| ```--ip IP``` |  | IP to assign from network |
 
 ## h1 vm nic history
 
@@ -404,7 +414,7 @@ History of network adapter
 
 ```h1 vm nic history | --nic NIC --vm VM```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -423,7 +433,7 @@ List IP  address of network adapter
 
 ```h1 vm nic ip list | --vm VM --nic NIC```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -438,7 +448,7 @@ Delete IP  address of network adapter
 
 ```h1 vm nic ip delete | --vm VM --nic NIC --ip IP```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -466,7 +476,7 @@ Note: Use ```h1 vm nic list --vm test-vm2``` to identify network adapter.
 
 Note: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to create a new one.
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -486,7 +496,7 @@ List DVD
 
 ```h1 vm dvd list | --vm VM```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -500,7 +510,7 @@ Insert ISO into DVD drive of DVD
 
 ```h1 vm dvd insert | --vm VM --iso ISO```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -515,7 +525,7 @@ Eject ISO from DVD drive of DVD
 
 ```h1 vm dvd eject | --vm VM```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -533,7 +543,7 @@ List tag
 
 ```h1 vm tag list | --vm VM```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -547,7 +557,7 @@ Add a tag to Tag of virtual machine
 
 ```h1 vm tag add | --vm VM --tag TAG [--tag TAG ...]```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -570,7 +580,7 @@ Add a tag of Tag of virtual machine
 h1 vm tag delete --vm test-vm --tag prod
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -583,17 +593,22 @@ Connect to virtual machine using SSH
 
 ### Syntax
 
-```h1 vm ssh | [--username USERNAME] [--port PORT] [--private] [--command COMMAND] --vm VM```
+```h1 vm ssh | --vm VM [--username USERNAME] [--port PORT] [--private] [--command COMMAND]```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```[--username USERNAME]``` |  | Username for ssh connection |
-| ```[--port PORT]``` |  | Port for ssh connection |
-| ```[--private]``` |  | Use first private network, skip public |
-| ```[--command COMMAND]``` |  | Command to execute |
 | ```--vm VM``` |  | Virtual machine ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--username USERNAME``` |  | Username for ssh connection |
+| ```--port PORT``` |  | Port for ssh connection |
+| ```--private``` |  | Use first private network, skip public |
+| ```--command COMMAND``` |  | Command to execute |
 
 ## h1 vm serialport
 
@@ -607,12 +622,17 @@ Connect to virtual machine using Serial Console
 
 ```h1 vm serialport console | --vm VM [--port PORT]```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
-| ```[--port PORT]``` |  | Port to connect |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--port PORT``` |  | Port to connect |
 
 ## h1 vm serialport log
 
@@ -622,12 +642,17 @@ Log Serial Console buffer of virtual machine
 
 ```h1 vm serialport log | --vm VM [--port PORT]```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
-| ```[--port PORT]``` |  | Port to connect |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--port PORT``` |  | Port to connect |
 
 ## h1 vm passwordreset
 
@@ -637,7 +662,7 @@ Password reset for virtual machine
 
 ```h1 vm passwordreset | --user USER --vm VM```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -652,7 +677,7 @@ Get live metrics of virtual machine
 
 ```h1 vm metrics | --vm VM```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |

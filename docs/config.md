@@ -50,7 +50,7 @@ h1 config set --key vm.create.ssh --value 'my-home'
 h1 config set --key vm.create.type --value 'a1.nano'
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -73,7 +73,7 @@ Get config value
 h1 config get --key vm.create.type
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -95,7 +95,7 @@ Unset config key
 h1 config unset --key vm.create.ssh
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |

@@ -48,7 +48,7 @@ Show project
 
 ```h1 project show | --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -62,7 +62,7 @@ Delete project
 
 ```h1 project delete | --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -76,7 +76,7 @@ History of project
 
 ```h1 project history | --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -98,11 +98,11 @@ List project
 h1 project list --project 5af0bbbcb7802508ad844caa
 ```
 
-### Required options
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```[--all]``` |  | Display all projects |
+| ```--all``` |  | Display all projects |
 
 ## h1 project access
 
@@ -124,13 +124,18 @@ Grant access rights for project
 h1 project access grant --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 | ```--email EMAIL``` |  | User email (eg: user@example.org) |
-| ```[--role ROLE]``` |  | Role |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--role ROLE``` |  | Role |
 
 ## h1 project access revoke
 
@@ -148,7 +153,7 @@ Revoke access rights for project
 h1 project access revoke --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -163,7 +168,7 @@ List project
 
 ```h1 project access list | --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -218,7 +223,7 @@ List token
 
 ```h1 project token list | --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -232,7 +237,7 @@ Delete token
 
 ```h1 project token delete | --project PROJECT --token TOKEN```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -247,7 +252,7 @@ History of token
 
 ```h1 project token history | --token TOKEN --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -262,7 +267,7 @@ Add token
 
 ```h1 project token add | --project PROJECT --name NAME```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -281,7 +286,7 @@ List access rule
 
 ```h1 project token access list | --token TOKEN --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -296,7 +301,7 @@ Delete access rule
 
 ```h1 project token access delete | --token TOKEN --project PROJECT --access ACCESS```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -312,7 +317,7 @@ Add access rule
 
 ```h1 project token access add | --method METHOD --path PATH --token TOKEN --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -337,7 +342,7 @@ Select project context
 h1 project select --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -361,7 +366,7 @@ h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
 
 Contact technical support to request increase the limits.
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -379,7 +384,7 @@ List credentials
 
 ```h1 project credentials list | --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -393,7 +398,7 @@ Delete credentials
 
 ```h1 project credentials delete | --project PROJECT --credentials CREDENTIALS```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -408,7 +413,7 @@ Add public SSH key for project
 
 ```h1 project credentials add | --project PROJECT --name NAME --sshkey-file SSHKEY-FILE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |

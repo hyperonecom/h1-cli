@@ -34,7 +34,7 @@ Show network
 
 ```h1 network show | --network NETWORK```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -48,7 +48,7 @@ Delete network
 
 ```h1 network delete | --network NETWORK```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -62,7 +62,7 @@ History of network
 
 ```h1 network history | --network NETWORK```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -90,13 +90,18 @@ h1 network create --name my-safe-net
 h1 network create --name my-ip-network --address 10.214.180.0/24 --gateway 10.214.180.10
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
-| ```[--address ADDRESS]``` |  | Network address space as CIDR, network address and prefix eg. 10.214.180.0/24 |
-| ```[--gateway GATEWAY]``` |  | IP address of network gateway within the network address space eg. 10.214.180.10 |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--address ADDRESS``` |  | Network address space as CIDR, network address and prefix eg. 10.214.180.0/24 |
+| ```--gateway GATEWAY``` |  | IP address of network gateway within the network address space eg. 10.214.180.10 |
 
 ## h1 network ip
 
@@ -110,7 +115,7 @@ List IP address
 
 ```h1 network ip list | --network NETWORK```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -124,7 +129,7 @@ Show IP address
 
 ```h1 network ip show | --network NETWORK --ip IP```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -139,7 +144,7 @@ Delete IP address
 
 ```h1 network ip delete | --network NETWORK --ip IP```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -168,10 +173,15 @@ h1 network ip create --network my-safe-net
 h1 network ip create --name my-ip-network --address 10.214.180.10
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
-| ```[--address ADDRESS]``` |  | IP address |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--address ADDRESS``` |  | IP address |
 

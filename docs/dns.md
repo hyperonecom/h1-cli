@@ -96,7 +96,7 @@ Show DNS zone
 
 ```h1 dns zone show | --zone ZONE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -110,7 +110,7 @@ Delete DNS zone
 
 ```h1 dns zone delete | --zone ZONE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -124,7 +124,7 @@ Create DNS zone
 
 ```h1 dns zone create | --name NAME```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -138,7 +138,7 @@ Export DNS zone
 
 ```h1 dns zone export | --zone-name ZONE-NAME```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -160,7 +160,7 @@ List Record A
 
 ```h1 dns record-set a list | --zone ZONE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -172,7 +172,7 @@ Create record-set
 
 ### Syntax
 
-```h1 dns record-set a create | --name NAME [--ttl TTL] --zone ZONE --value VALUE [--value VALUE ...]```
+```h1 dns record-set a create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Examples
 
@@ -182,14 +182,19 @@ Create record-set
 h1 dns record-set a create --name '.' --zone-name 'my-domain.tld' --value 127.0.0.1
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
-| ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
 
 ## h1 dns record-set a delete
 
@@ -207,7 +212,7 @@ Delete record-set
 h1 dns record-set a delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -230,7 +235,7 @@ Add record
 $ h1 dns record-set a add-record --zone-name 'my-domain.tld' --name subdomain --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -254,7 +259,7 @@ Delete record
 h1 dns record-set a delete-record --zone-name 'my-domain.tld' --name www --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -274,7 +279,7 @@ List Record CNAME
 
 ```h1 dns record-set cname list | --zone ZONE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -286,7 +291,7 @@ Create record-set
 
 ### Syntax
 
-```h1 dns record-set cname create | --name NAME [--ttl TTL] --zone ZONE --value VALUE [--value VALUE ...]```
+```h1 dns record-set cname create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Examples
 
@@ -296,14 +301,19 @@ Create record-set
 h1 dns record-set a create --name '.' --zone-name 'my-domain.tld' --value 127.0.0.1
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
-| ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
 
 ## h1 dns record-set cname delete
 
@@ -321,7 +331,7 @@ Delete record-set
 h1 dns record-set a delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -344,7 +354,7 @@ Add record
 $ h1 dns record-set a add-record --zone-name 'my-domain.tld' --name subdomain --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -368,7 +378,7 @@ Delete record
 h1 dns record-set a delete-record --zone-name 'my-domain.tld' --name www --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -388,7 +398,7 @@ List Record TXT
 
 ```h1 dns record-set txt list | --zone ZONE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -400,7 +410,7 @@ Create record-set
 
 ### Syntax
 
-```h1 dns record-set txt create | --name NAME [--ttl TTL] --zone ZONE --value VALUE [--value VALUE ...]```
+```h1 dns record-set txt create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Examples
 
@@ -410,14 +420,19 @@ Create record-set
 h1 dns record-set a create --name '.' --zone-name 'my-domain.tld' --value 127.0.0.1
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
-| ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
 
 ## h1 dns record-set txt delete
 
@@ -435,7 +450,7 @@ Delete record-set
 h1 dns record-set a delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -458,7 +473,7 @@ Add record
 $ h1 dns record-set a add-record --zone-name 'my-domain.tld' --name subdomain --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -482,7 +497,7 @@ Delete record
 h1 dns record-set a delete-record --zone-name 'my-domain.tld' --name www --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -502,7 +517,7 @@ List Record MX
 
 ```h1 dns record-set mx list | --zone ZONE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -514,7 +529,7 @@ Create record-set
 
 ### Syntax
 
-```h1 dns record-set mx create | --name NAME [--ttl TTL] --zone ZONE --value VALUE [--value VALUE ...]```
+```h1 dns record-set mx create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Examples
 
@@ -524,14 +539,19 @@ Create record-set
 h1 dns record-set a create --name '.' --zone-name 'my-domain.tld' --value 127.0.0.1
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
-| ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
 
 ## h1 dns record-set mx delete
 
@@ -549,7 +569,7 @@ Delete record-set
 h1 dns record-set a delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -572,7 +592,7 @@ Add record
 $ h1 dns record-set a add-record --zone-name 'my-domain.tld' --name subdomain --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -596,7 +616,7 @@ Delete record
 h1 dns record-set a delete-record --zone-name 'my-domain.tld' --name www --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -616,7 +636,7 @@ List Record NS
 
 ```h1 dns record-set ns list | --zone ZONE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -628,7 +648,7 @@ Create record-set
 
 ### Syntax
 
-```h1 dns record-set ns create | --name NAME [--ttl TTL] --zone ZONE --value VALUE [--value VALUE ...]```
+```h1 dns record-set ns create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Examples
 
@@ -638,14 +658,19 @@ Create record-set
 h1 dns record-set a create --name '.' --zone-name 'my-domain.tld' --value 127.0.0.1
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
-| ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
 
 ## h1 dns record-set ns delete
 
@@ -663,7 +688,7 @@ Delete record-set
 h1 dns record-set a delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -686,7 +711,7 @@ Add record
 $ h1 dns record-set a add-record --zone-name 'my-domain.tld' --name subdomain --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -710,7 +735,7 @@ Delete record
 h1 dns record-set a delete-record --zone-name 'my-domain.tld' --name www --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -730,7 +755,7 @@ List Record SRV
 
 ```h1 dns record-set srv list | --zone ZONE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -742,7 +767,7 @@ Create record-set
 
 ### Syntax
 
-```h1 dns record-set srv create | --name NAME [--ttl TTL] --zone ZONE --value VALUE [--value VALUE ...]```
+```h1 dns record-set srv create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Examples
 
@@ -752,14 +777,19 @@ Create record-set
 h1 dns record-set a create --name '.' --zone-name 'my-domain.tld' --value 127.0.0.1
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Record Set name |
-| ```[--ttl TTL]``` |  | Record Set Time To Live (TTL) |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
 
 ## h1 dns record-set srv delete
 
@@ -777,7 +807,7 @@ Delete record-set
 h1 dns record-set a delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -800,7 +830,7 @@ Add record
 $ h1 dns record-set a add-record --zone-name 'my-domain.tld' --name subdomain --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -824,7 +854,7 @@ Delete record
 h1 dns record-set a delete-record --zone-name 'my-domain.tld' --name www --value 127.0.0.2
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -840,7 +870,7 @@ List Record set
 
 ```h1 dns record-set list | --zone ZONE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |

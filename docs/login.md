@@ -20,10 +20,15 @@ Obtain your apiKey
 h1 login --username user@example.com
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--username USERNAME``` |  | Your h1 username |
-| ```[--password PASSWORD]``` |  | Password |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--password PASSWORD``` |  | Password |
 

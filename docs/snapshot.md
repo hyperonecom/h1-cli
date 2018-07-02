@@ -30,7 +30,7 @@ Show snapshot
 
 ```h1 snapshot show | --snapshot SNAPSHOT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -44,7 +44,7 @@ Delete snapshot
 
 ```h1 snapshot delete | --snapshot SNAPSHOT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -58,7 +58,7 @@ History of snapshot
 
 ```h1 snapshot history | --snapshot SNAPSHOT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -72,7 +72,7 @@ Rename snapshot
 
 ```h1 snapshot rename | --snapshot SNAPSHOT --new-name NEW-NAME```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -95,7 +95,7 @@ Create a snapshot of Vault
 h1 snapshot create --vault my-vault --name
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |

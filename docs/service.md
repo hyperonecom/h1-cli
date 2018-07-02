@@ -18,7 +18,7 @@ Show service
 
 ```h1 service show | --service SERVICE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -46,10 +46,10 @@ h1 service list
 h1 service list --resource vm --type flavour 
 ```
 
-### Required options
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```[--resource RESOURCE]``` |  | Kind of resource |
-| ```[--type TYPE]``` |  | Kind of type of resource |
+| ```--resource RESOURCE``` |  | Kind of resource |
+| ```--type TYPE``` |  | Kind of type of resource |
 

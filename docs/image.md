@@ -27,7 +27,7 @@ Show image
 
 ```h1 image show | --image IMAGE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -41,7 +41,7 @@ Delete image
 
 ```h1 image delete | --image IMAGE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -55,7 +55,7 @@ Rename image
 
 ```h1 image rename | --image IMAGE --new-name NEW-NAME```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -70,7 +70,7 @@ History of image
 
 ```h1 image history | --image IMAGE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -82,7 +82,7 @@ Create image
 
 ### Syntax
 
-```h1 image create | --name NAME [--description DESCRIPTION] --vm VM```
+```h1 image create | --name NAME --vm VM [--description DESCRIPTION]```
 
 ### Examples
 
@@ -92,13 +92,18 @@ Create image
 $ h1 image create --vm test-vm --name dev-image
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name of image |
-| ```[--description DESCRIPTION]``` |  | Description of image |
 | ```--vm VM``` |  | Virtual machine name or ID |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--description DESCRIPTION``` |  | Description of image |
 
 ## h1 image list
 
@@ -122,12 +127,12 @@ h1 image list
 h1 image list --recommended
 ```
 
-### Required options
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```[--recommended]``` |  | Display recommended images |
-| ```[--all]``` |  | Display all images |
+| ```--recommended``` |  | Display recommended images |
+| ```--all``` |  | Display all images |
 
 ## h1 image disk
 
@@ -145,7 +150,7 @@ List all disks of image
 $ h1 image disk --image dev-image
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -163,7 +168,7 @@ Grant access rights for image
 
 ```h1 image access grant | --image IMAGE --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -178,7 +183,7 @@ Revoke access rights for image
 
 ```h1 image access revoke | --image IMAGE --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -193,7 +198,7 @@ List of access rights for image
 
 ```h1 image access list | --image IMAGE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |

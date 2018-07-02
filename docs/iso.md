@@ -35,7 +35,7 @@ Show ISO
 
 ```h1 iso show | --iso ISO```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -49,7 +49,7 @@ Delete ISO
 
 ```h1 iso delete | --iso ISO```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -63,7 +63,7 @@ History of ISO
 
 ```h1 iso history | --iso ISO```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -77,7 +77,7 @@ Rename ISO
 
 ```h1 iso rename | --iso ISO --new-name NEW-NAME```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -96,7 +96,7 @@ Grant access rights for ISO
 
 ```h1 iso access grant | --iso ISO --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -111,7 +111,7 @@ Revoke access rights for ISO
 
 ```h1 iso access revoke | --iso ISO --project PROJECT```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -126,7 +126,7 @@ List of access rights for ISO
 
 ```h1 iso access list | --iso ISO```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -140,7 +140,7 @@ Resume create upload of ISO
 
 ```h1 iso resume | --iso ISO --source-file SOURCE-FILE```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -168,11 +168,16 @@ h1 iso create --name myiso --source-file my.iso
 h1 iso create --name myiso --source-url http://example.com/some.iso
 ```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | ISO name |
-| ```[--source-file SOURCE-FILE]``` |  | Source file for ISO import. |
-| ```[--source-url SOURCE-URL]``` |  | Source url for ISO import. Required if source-file is not specified. |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--source-file SOURCE-FILE``` |  | Source file for ISO import. |
+| ```--source-url SOURCE-URL``` |  | Source url for ISO import. Required if source-file is not specified. |
 
