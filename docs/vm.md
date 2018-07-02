@@ -20,9 +20,8 @@
     * [h1 vm nic list](#h1-vm-nic-list) - List network adapter
     * [h1 vm nic show](#h1-vm-nic-show) - Show network adapter
     * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
-    * [h1 vm nic history](#h1-vm-nic-history) - History of network adapter
     * [h1 vm nic create](#h1-vm-nic-create) - Create network adapter
-    * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
+    * [h1 vm nic history](#h1-vm-nic-history) - History of nic
     * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP  address of network adapter
       * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP  address of network adapter
       * [h1 vm nic ip delete](#h1-vm-nic-ip-delete) - Delete IP  address of network adapter
@@ -380,21 +379,6 @@ Delete network adapter
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
 
-## h1 vm nic history
-
-History of network adapter
-
-### Syntax
-
-```h1 vm nic history | --nic NIC --vm VM```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--nic NIC``` |  | Network adapter ID or name |
-| ```--vm VM``` |  | Virtual machine name or ID |
-
 ## h1 vm nic create
 
 Create network adapter
@@ -412,20 +396,20 @@ Create network adapter
 | ```[--ip IP]``` |  | IP to assign from network |
 | ```--vm VM``` |  | Virtual machine name or ID |
 
-## h1 vm nic delete
+## h1 vm nic history
 
-Delete network adapter
+History of nic
 
 ### Syntax
 
-```h1 vm nic delete | --vm VM --nic NIC```
+```h1 vm nic history | --nic NIC --vm VM```
 
 ### Required options
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--nic NIC``` |  | Nic ID or name |
 | ```--vm VM``` |  | Virtual machine name or ID |
-| ```--nic NIC``` |  | Network adapter ID or name |
 
 ## h1 vm nic ip
 

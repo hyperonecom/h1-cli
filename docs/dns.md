@@ -4,7 +4,6 @@
     * [h1 dns zone list](#h1-dns-zone-list) - List DNS zone
     * [h1 dns zone show](#h1-dns-zone-show) - Show DNS zone
     * [h1 dns zone delete](#h1-dns-zone-delete) - Delete DNS zone
-    * [h1 dns zone history](#h1-dns-zone-history) - History of DNS zone
     * [h1 dns zone create](#h1-dns-zone-create) - Create DNS zone
     * [h1 dns zone export](#h1-dns-zone-export) - Export DNS zone
   * [h1 dns record-set](#h1-dns-record-set) - Manage your record-set
@@ -110,20 +109,6 @@ Delete DNS zone
 ### Syntax
 
 ```h1 dns zone delete | --zone ZONE```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--zone ZONE``` |  | DNS zone ID or name |
-
-## h1 dns zone history
-
-History of DNS zone
-
-### Syntax
-
-```h1 dns zone history | --zone ZONE```
 
 ### Required options
 

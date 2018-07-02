@@ -5,8 +5,8 @@
   * [h1 vault delete](#h1-vault-delete) - Delete Vault
   * [h1 vault history](#h1-vault-history) - History of Vault
   * [h1 vault rename](#h1-vault-rename) - Rename Vault
-  * [h1 vault create](#h1-vault-create) - Create Vault
   * [h1 vault resize](#h1-vault-resize) - Resize Vault
+  * [h1 vault create](#h1-vault-create) - Create Vault
   * [h1 vault credential](#h1-vault-credential) - Manage your credentials to Vault
     * [h1 vault credential cert](#h1-vault-credential-cert) - Manage your certificate to Vault
       * [h1 vault credential cert list](#h1-vault-credential-cert-list) - List certificate to Vault
@@ -90,6 +90,21 @@ Rename Vault
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
+## h1 vault resize
+
+Resize Vault
+
+### Syntax
+
+```h1 vault resize | --vault VAULT --size SIZE```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+| ```--size SIZE``` |  | New size |
+
 ## h1 vault create
 
 Create Vault
@@ -116,21 +131,6 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ```--size SIZE``` |  | Vault size in GB |
 | ```[--ssh SSH [--ssh SSH ...]]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```[--password PASSWORD]``` |  | Password to access Vault. Recommend using SSH keys |
-
-## h1 vault resize
-
-Resize Vault
-
-### Syntax
-
-```h1 vault resize | --vault VAULT --size SIZE```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--size SIZE``` |  | New size |
 
 ## h1 vault credential
 
