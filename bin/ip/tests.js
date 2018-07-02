@@ -9,7 +9,7 @@ const now = Date.now();
 
 ava.test.serial('ip life cycle', tests.resourceLifeCycle('ip', {
     createParams: '',
-    skipHistory: true
+    skipHistory: true,
 }));
 
 ava.test.serial('ip ptr update', async t => {
