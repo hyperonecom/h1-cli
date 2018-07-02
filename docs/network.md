@@ -9,7 +9,6 @@
     * [h1 network ip list](#h1-network-ip-list) - List IP address
     * [h1 network ip show](#h1-network-ip-show) - Show IP address
     * [h1 network ip delete](#h1-network-ip-delete) - Delete IP address
-    * [h1 network ip history](#h1-network-ip-history) - History of IP address
     * [h1 network ip create](#h1-network-ip-create) - Create IP address
 
 
@@ -146,21 +145,6 @@ Delete IP address
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 | ```--ip IP``` |  | IP address ID or name |
-
-## h1 network ip history
-
-History of IP address
-
-### Syntax
-
-```h1 network ip history | --ip IP --network NETWORK```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--ip IP``` |  | IP address ID or name |
-| ```--network NETWORK``` |  | Network name or ID |
 
 ## h1 network ip create
 

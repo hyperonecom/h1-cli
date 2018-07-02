@@ -5,9 +5,9 @@
   * [h1 disk delete](#h1-disk-delete) - Delete disk
   * [h1 disk history](#h1-disk-history) - History of disk
   * [h1 disk rename](#h1-disk-rename) - Rename disk
-  * [h1 disk create](#h1-disk-create) - Create disk
-  * [h1 disk resume](#h1-disk-resume) - Resume create upload of disk
   * [h1 disk resize](#h1-disk-resize) - Resize disk
+  * [h1 disk resume](#h1-disk-resume) - Resume create upload of disk
+  * [h1 disk create](#h1-disk-create) - Create disk
   * [h1 disk download](#h1-disk-download) - Download disk to a file
 
 
@@ -82,6 +82,36 @@ Rename disk
 | ```--disk DISK``` |  | Disk ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
+## h1 disk resize
+
+Resize disk
+
+### Syntax
+
+```h1 disk resize | --disk DISK --size SIZE```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
+| ```--size SIZE``` |  | New size |
+
+## h1 disk resume
+
+Resume create upload of disk
+
+### Syntax
+
+```h1 disk resume | --disk DISK --source-file SOURCE-FILE```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
+| ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
+
 ## h1 disk create
 
 Create disk
@@ -111,36 +141,6 @@ TODO
 | ```--size SIZE``` |  | Disk size in GB |
 | ```[--source-file SOURCE-FILE]``` |  | Path to .vhdx file to import |
 | ```[--no-progress]``` |  | Disable progress bar |
-
-## h1 disk resume
-
-Resume create upload of disk
-
-### Syntax
-
-```h1 disk resume | --disk DISK --source-file SOURCE-FILE```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--disk DISK``` |  | Disk ID or name |
-| ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
-
-## h1 disk resize
-
-Resize disk
-
-### Syntax
-
-```h1 disk resize | --disk DISK --size SIZE```
-
-### Required options
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--disk DISK``` |  | Disk ID or name |
-| ```--size SIZE``` |  | New size |
 
 ## h1 disk download
 
