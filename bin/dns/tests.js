@@ -6,9 +6,10 @@ const tests = require('../../lib/tests');
 
 const now = Date.now();
 
-ava.test.serial('dns zone', tests.resourceLifeCycle('dns zone', {
+ava.test.serial('dns zone life cycle', tests.resourceLifeCycle('dns zone', {
     createParams: `--name zone-${now}.example.com`,
     skipCreated: true,
+    skipHistory: true
 }));
 
 ava.test.serial('dns zone export', async t => {

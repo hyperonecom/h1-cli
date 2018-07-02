@@ -15,6 +15,7 @@ ava.test.serial('network ip life cycle', async t => {
         listParams: `--network ${network._id}`,
         showParams: `--network ${network._id}`,
         deleteParams: `--network ${network._id}`,
+        skipHistory: true
     })(t);
     await tests.remove('network', network);
 });

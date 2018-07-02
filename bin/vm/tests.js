@@ -114,6 +114,7 @@ ava.test.serial('vm nic life cycle', async t => {
         listParams: `--vm ${vm._id}`,
         showParams: `--vm ${vm._id}`,
         deleteParams: `--vm ${vm._id}`,
+        historyParams: `--vm ${vm._id}`,
     })(t);
 
     await common.cleanup();
