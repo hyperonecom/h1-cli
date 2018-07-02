@@ -9,7 +9,7 @@ const resource = {
     plugins: defaults.plugins,
     url: () => 'dns/zone',
     title: 'DNS zone',
-    commands: ['list', 'show', 'delete']
+    commands: ['list', 'show', 'delete'],
 };
 
 const category = genericResource(resource);

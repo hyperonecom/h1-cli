@@ -28,7 +28,7 @@ const category = genericResource(resource);
 category.addChild(require('./create')(resource));
 
 category.addChild(require('bin/generic/history')(Object.assign({}, resource, {
-    url: args => `netadp`
+    url: () => 'netadp',
 })));
 
 category.addChild(require('./ip'));
