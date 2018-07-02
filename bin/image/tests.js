@@ -55,16 +55,7 @@ ava.test.serial('image access', async t => {
 });
 
 ava.test.serial('image resolver prefer server', async t => {
-    const common = await getCommon(t.title, {
-        image: 'ubuntu:18.04',
-    });
-    const image_list = await tests.run('image list --recommended');
-    const image_server = image_list.find(x => {
-        return x.description.distro === 'ubuntu' &&
-            x.description.release === '18.04' &&
-            x.description.edition === 'server';
-    });
-    t.true(common.vm.sourceImage._id === image_server._id);
-
-    common.cleanup();
+    const image = await tests.run('image show --image ubuntu');
+    t.true(image.description.edition === 'server');
+    t.true(image.description.distro === 'ubuntu');
 });
