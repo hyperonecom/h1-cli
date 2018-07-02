@@ -15,14 +15,22 @@ const createUserCredentials = async () => {
     return {file: file, name: name};
 };
 
-ava.test.serial('vault life & rename cycle', async t => {
+ava.test.serial('vault life cycle', async t => {
     const ssh = await createUserCredentials();
 
     await tests.resourceLifeCycle('vault', `--name vault-test-${now} --size 10 --ssh ${ssh.name}`)(t);
+
+    fs.unlinkSync(ssh.file);
+});
+
+ava.test.serial('vault rename', async t => {
+    const ssh = await createUserCredentials();
+
     await tests.resourceRename('vault', `--name vault-test-${now} --size 10 --ssh ${ssh.name}`)(t);
 
     fs.unlinkSync(ssh.file);
 });
+
 
 ava.test.serial('vault resize', tests.resourceResizeCycle('vault', {
     createParams: `--name vault-test-${now}`,

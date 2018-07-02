@@ -19,13 +19,21 @@ const resource = {
     options: options,
     plugins: defaults.plugins,
     title: 'network adapter',
+    commands: ['list', 'show', 'delete'],
     dirname: __dirname,
 };
 
 const category = genericResource(resource);
 
-category.addChild(require('./create/create')(resource));
-category.addChild(require('bin/generic/delete')(resource));
+category.addChild(require('./create')(resource));
+
+category.addChild(require('bin/generic/history')(Object.assign({}, {
+    url: args => `netadp`,
+    title: 'nic',
+    name: 'nic',
+    options: options,
+    plugins: defaults.plugins,
+})));
 
 category.addChild(require('./ip'));
 

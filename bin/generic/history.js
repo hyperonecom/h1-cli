@@ -18,11 +18,10 @@ module.exports = resource => {
         options: Object.assign({}, options, resource.options),
         params: resource.params,
         handler: args => {
-
             args.query = '[].{id:_id,name:name,createdBy:createdBy,queued:queued,state:state}';
 
             return args.helpers.api
-                .get(`${args.$node.parent.config.url(args)}/${args[resource.name]}/queue`)
+                .get(`${resource.url(args)}/${args[resource.name]}/queue`)
                 .then(result => args.helpers.sendOutput(args, result));
         },
     });
