@@ -9,7 +9,10 @@ const now = Date.now();
 const name = `firewall-test-${now}`;
 const createParams = `--name ${name}`;
 
-ava.test.serial('firewall life cycle', tests.resourceLifeCycle('firewall', createParams));
+ava.test.serial('firewall life cycle', tests.resourceLifeCycle('firewall', {
+    createParams: createParams,
+    skipHistoryCreated: true
+}));
 
 ava.test.serial('firewall attach & detach', async t => {
     const network = await tests.run(`network create --name network-${name}`);
