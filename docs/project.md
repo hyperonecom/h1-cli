@@ -302,7 +302,7 @@ Show access rule
 
 ```h1 project token access show | --token TOKEN --project PROJECT --access ACCESS```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |

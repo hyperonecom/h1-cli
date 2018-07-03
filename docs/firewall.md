@@ -279,7 +279,7 @@ Show rule ingress of firewall
 
 ```h1 firewall ingress show | --firewall FIREWALL --ingress INGRESS```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
@@ -421,7 +421,7 @@ Show rule egress of firewall
 
 ```h1 firewall egress show | --firewall FIREWALL --egress EGRESS```
 
-### Required options
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
