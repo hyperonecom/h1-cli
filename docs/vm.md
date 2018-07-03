@@ -97,7 +97,7 @@ Create virtual machine
 #### Create a Ubuntu virtual machine
 
 ```bash
-h1 vm create --name test-vm --os-disk os-disk-0,ssd,10 --type a1.nano --image debian --ssh my-ssh
+h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh
 ```
 
 Note (1): To identify available disk type use ```h1 service list --resource disk``` .

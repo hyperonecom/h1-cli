@@ -6,10 +6,7 @@ const text = require('lib/text');
 
 module.exports = (resource, action) => Cli.createCommand(action, {
     description: `${text.toTitleCase(action)} ${resource.title}`,
-    plugins: [
-        ...resource.plugins,
-        require('bin/_plugins/interactiveOptions'),
-    ],
+    plugins: resource.plugins,
     options: resource.options,
     params: resource.params,
     handler: genericVMAction(action),

@@ -1,18 +1,19 @@
 'use strict';
 
 const config = require('lib/config');
+const Cli = require('lib/cli');
 const logger = require('lib/logger');
 
 const login = require('bin/login');
 
-const api = require('./api');
+const api = require('../api');
 
 module.exports = {
     onBeforeHandler: context => {
         const profile = config.get('profile', {});
 
-        if (process.env.API_KEY) {
-            console.debug('Skip log in. Using API_KEY from environment variable');
+        if (process.env.H1_TOKEN) {
+            console.debug('Skip log in. Using H1_TOKEN from environment variable');
             return;
         }
 
@@ -31,8 +32,7 @@ module.exports = {
             logger('info', 'Your authtoken has expired');
             context.args.username = profile.user;
         } else {
-            logger('info', 'Please login first');
-            process.exit(-1);
+            throw Cli.error.cancelled('Please login first');
         }
 
         return login

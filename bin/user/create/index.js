@@ -12,7 +12,6 @@ module.exports = Cli.createCommand('create', {
     dirname: __dirname,
     plugins: [
         require('bin/_plugins/api'),
-        require('bin/_plugins/interactiveOptions'),
     ],
     handler: async args => {
 
