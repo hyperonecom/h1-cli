@@ -46,11 +46,14 @@
       "lib/**/*.js",
       "bin/**/*.js"
     ],
+    "assets": [
+      "bin/**/*.md"
+    ],
     "targets": [
-      "node8-alpine",
-      "node8-linux",
-      "node8-macos",
-      "node8-win"
+      "node10-alpine",
+      "node10-linux",
+      "node10-macos",
+      "node10-win"
     ]
   },
   "keywords": [],
@@ -58,7 +61,7 @@
     "ava": "1.0.0-beta.5.1",
     "eslint": "^4.19.1",
     "nodemailer": "^4.6.7",
-    "pkg": "^4.3.1"
+    "pkg": "^4.3.3"
   },
   "ava": {
     "files": [
