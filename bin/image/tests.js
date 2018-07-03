@@ -56,6 +56,7 @@ ava.test.serial('image access', async t => {
 
 ava.test.serial('image resolver prefer server', async t => {
     const image = await tests.run('image show --image ubuntu');
-    t.true(image.description.edition === 'server');
-    t.true(image.description.distro === 'ubuntu');
+    const description = JSON.parse(image.description);
+    t.true(description.edition === 'server');
+    t.true(description.distro === 'ubuntu');
 });
