@@ -7,13 +7,13 @@ const tests = require('../../lib/tests');
 const now = Date.now();
 
 ava.test.serial('dns zone life cycle', tests.resourceLifeCycle('dns zone', {
-    createParams: `--name zone-${now}.example.com`,
+    createParams: `--name dns-zone-${now}.com`,
     skipCreated: true,
     skipHistory: true,
 }));
 
 ava.test.serial('dns zone export', async t => {
-    const name = `${now}.example.com`;
+    const name = `dns-export-${now}.com`;
     const zone = await tests.run(`dns zone create --name ${name}`);
     const export_content = await tests.run(`dns zone export --zone-name ${name}`);
     t.true(export_content.indexOf('hostmaster.hyperone.com.') > -1);
@@ -39,7 +39,7 @@ const test_record_values = async (t, zone, type, name, expected_values) => {
 
 Object.entries(recordTypes).forEach(([type, values]) => {
     ava.test.serial(`dns zone record-set ${type}`, async t => {
-        const zone = await tests.run(`dns zone create --name ${now}.${type}.example.com`);
+        const zone = await tests.run(`dns zone create --name ${type}.dns-record-set-${now}.com`);
         const name = `${type}-${now}`;
         const full_name = `${name}.${zone.name}`;
 
