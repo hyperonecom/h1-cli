@@ -11,10 +11,12 @@
     * [h1 firewall ingress list](#h1-firewall-ingress-list) - List rule ingress of firewall
     * [h1 firewall ingress add](#h1-firewall-ingress-add) - Add rule ingress of firewall
     * [h1 firewall ingress delete](#h1-firewall-ingress-delete) - Add rule ingress of firewall
+    * [h1 firewall ingress show](#h1-firewall-ingress-show) - Show rule ingress of firewall
   * [h1 firewall egress](#h1-firewall-egress) - Manage egress rules of firewall
     * [h1 firewall egress list](#h1-firewall-egress-list) - List rule egress of firewall
     * [h1 firewall egress add](#h1-firewall-egress-add) - Add rule egress of firewall
     * [h1 firewall egress delete](#h1-firewall-egress-delete) - Add rule egress of firewall
+    * [h1 firewall egress show](#h1-firewall-egress-show) - Show rule egress of firewall
 
 
 # Specification
@@ -269,6 +271,21 @@ Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to l
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--rule RULE``` |  | Rule identifier |
 
+## h1 firewall ingress show
+
+Show rule ingress of firewall
+
+### Syntax
+
+```h1 firewall ingress show | --firewall FIREWALL --ingress INGRESS```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+| ```--ingress INGRESS``` |  | Rule ingress of firewall ID or name |
+
 ## h1 firewall egress
 
 Manage egress rules of firewall
@@ -395,4 +412,19 @@ Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to l
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--rule RULE``` |  | Rule identifier |
+
+## h1 firewall egress show
+
+Show rule egress of firewall
+
+### Syntax
+
+```h1 firewall egress show | --firewall FIREWALL --egress EGRESS```
+
+### Required options
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+| ```--egress EGRESS``` |  | Rule egress of firewall ID or name |
 

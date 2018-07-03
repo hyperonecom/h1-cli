@@ -40,7 +40,7 @@ ava.test.serial('project list', async t => {
     });
 });
 
-ava.test.serial('project token cycle', async t => {
+ava.test.serial('project token life cycle', async t => {
     const name = `test-project-token-${now}`;
 
     // TODO: Remove get element via https://github.com/hyperonecom/h1-cli/issues/67
@@ -52,7 +52,7 @@ ava.test.serial('project token cycle', async t => {
     await tests.remove('project token', token);
 });
 
-ava.test.serial('project token access cycle', async t => {
+ava.test.serial('project token access life cycle', async t => {
     const token = (await tests.run(`project token add --project ${project} --name test-project-token-${now}`))[0];
 
     const access = (await tests.run(`project token access add --project ${project} --method POST --path 'vault/' --token ${token._id}`))[0];

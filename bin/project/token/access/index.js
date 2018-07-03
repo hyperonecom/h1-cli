@@ -21,7 +21,7 @@ module.exports = parent => {
         url: args => `${parent.url(args)}/${args.token}/access`,
         params: parent.params,
         options: options,
-        commands: ['list', 'delete'],
+        commands: ['list', 'show', 'delete'],
         title: 'access rule',
     };
 
