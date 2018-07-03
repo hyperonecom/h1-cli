@@ -77,9 +77,9 @@ h1 vm list --query "[?state=='Running'].{id:_id}" -o tsv | xargs -r -n 1 h1 vm s
 
 ### Create new disk and attach to virtual machine
 
- ```
+```
 $ DISK_ID=$(h1 disk create --name my-ambigious-name --type ssd --size 10 -o tsv --query '[].[_id]')
 $ h1 vm disk attach --vm test-vm --disk $DISK_ID
- ```
+```
 
 Note (1): In most cases, you can avoid using ID by naming resources uniquely.
