@@ -16,7 +16,7 @@ module.exports = (table, parent) => {
                 required: true,
             },
         },
-        url: args => `/firewall/${args.firewall}/${table}/${args[table]}`,
+        url: args => `firewall/${args.firewall}/${table}`,
         title: `rule ${table} of ${parent.title}`,
     };
 
