@@ -35,10 +35,11 @@ const options = {
 };
 
 
-module.exports = (resource) => Cli.createCommand('add-record', {
+module.exports = resource => Cli.createCommand('add-record', {
     dirname: __dirname,
     description: 'Add record',
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options, recordOptions),
     handler: handleAddRecord,
+    resource: resource,
 });

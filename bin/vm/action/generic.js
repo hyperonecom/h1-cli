@@ -10,6 +10,7 @@ module.exports = (resource, action) => Cli.createCommand(action, {
     options: resource.options,
     params: resource.params,
     handler: genericVMAction(action),
+    dirname: `${__dirname}/${action}`,
 });
 
 function genericVMAction(action) {

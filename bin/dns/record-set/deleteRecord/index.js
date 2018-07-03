@@ -39,4 +39,5 @@ module.exports = (resource) => Cli.createCommand('delete-record', {
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options, recordOptions),
     handler: handleDeleteRecord,
+    resource: resource,
 });

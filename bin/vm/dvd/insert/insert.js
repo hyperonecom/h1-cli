@@ -15,6 +15,7 @@ module.exports = resource => Cli.createCommand('insert', {
     plugins: resource.plugins,
     params: resource.params,
     options: Object.assign({}, resource.options, options),
+    dirname: __dirname,
     handler: args => args.helpers.api
         .put(args.$node.parent.config.url(args), { iso: args.iso })
         .then(result => args.helpers.sendOutput(args, result)),

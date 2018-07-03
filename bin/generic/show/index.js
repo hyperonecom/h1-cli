@@ -16,9 +16,8 @@ module.exports = resource => {
 
     return Cli.createCommand('show', {
         description: `Show ${resource.title}`,
-        // , dirname: __dirname
-        plugins: resource.plugins,
-        params: resource.params,
+        dirname: __dirname,
+        resource: resource,
         options: Object.assign({}, resource.options, options),
         handler: args => args.helpers.api
             .get(`${resource.url(args)}/${args[resource.name]}`)

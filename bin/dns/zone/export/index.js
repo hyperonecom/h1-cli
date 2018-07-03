@@ -29,4 +29,5 @@ module.exports = (resource) => Cli.createCommand('export', {
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options),
     handler: handle,
+    dirname: __dirname,
 });

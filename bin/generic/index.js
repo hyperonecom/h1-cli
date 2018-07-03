@@ -19,6 +19,7 @@ module.exports = function(resource) {
         url: resource.url,
         plugins: resource.plugins,
         dirname: resource.dirname,
+        resource: resource,
     });
 
     resource.commands = [

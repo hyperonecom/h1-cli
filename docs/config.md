@@ -28,6 +28,14 @@ Show config
 h1 config get --key vm.create.ssh
 ```
 
+### Examples
+
+#### Get default SSH key for new virtual machine (if set)
+
+```bash
+h1 config get --key vm.create.ssh
+```
+
 ## h1 config set
 
 Set config value
@@ -35,6 +43,20 @@ Set config value
 ### Syntax
 
 ```h1 config set | --key KEY --value VALUE```
+
+### Examples
+
+#### Set default SSH key for new virtual machine
+
+```bash
+h1 config set --key vm.create.ssh --value 'my-home'
+```
+
+#### Set default virtual machine type for a new one
+
+```bash
+h1 config set --key vm.create.type --value 'a1.nano'
+```
 
 ### Examples
 
@@ -73,6 +95,14 @@ Get config value
 h1 config get --key vm.create.type
 ```
 
+### Examples
+
+#### Get default virtual machine type for a new one
+
+```bash
+h1 config get --key vm.create.type
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -86,6 +116,14 @@ Unset config key
 ### Syntax
 
 ```h1 config unset | --key KEY```
+
+### Examples
+
+#### Unset default SSH key for new virtual machine (if set)
+
+```bash
+h1 config unset --key vm.create.ssh
+```
 
 ### Examples
 

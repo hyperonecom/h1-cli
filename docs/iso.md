@@ -27,6 +27,18 @@ List ISO
 
 ```h1 iso list | ```
 
+### Example
+
+```bash
+h1 iso list
+```
+
+### Examples
+
+```bash
+h1 iso list
+```
+
 ## h1 iso show
 
 Show ISO
@@ -34,6 +46,18 @@ Show ISO
 ### Syntax
 
 ```h1 iso show | --iso ISO```
+
+### Example
+
+```bash
+h1 iso show --iso my-iso
+```
+
+### Examples
+
+```bash
+h1 iso show --iso my-iso
+```
 
 ### Required arguments
 
@@ -49,6 +73,18 @@ Delete ISO
 
 ```h1 iso delete | --iso ISO```
 
+### Example
+
+```bash
+h1 iso delete --iso my-iso
+```
+
+### Examples
+
+```bash
+h1 iso delete --iso my-iso
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -63,6 +99,18 @@ History of ISO
 
 ```h1 iso history | --iso ISO```
 
+### Example
+
+```bash
+h1 iso history --iso my-iso
+```
+
+### Examples
+
+```bash
+h1 iso history --iso my-iso
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -76,6 +124,18 @@ Rename ISO
 ### Syntax
 
 ```h1 iso rename | --iso ISO --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 iso rename --iso my-iso --new-name my-renamed-iso
+```
+
+### Examples
+
+```bash
+h1 iso rename --iso my-iso --new-name my-renamed-iso
+```
 
 ### Required arguments
 
@@ -96,6 +156,18 @@ Grant access rights for ISO
 
 ```h1 iso access grant | --iso ISO --project PROJECT```
 
+### Example
+
+```bash
+h1 iso access grant --iso test-image --project 5b28f7c9ddd5b3c5e9ec14c4
+```
+
+### Examples
+
+```bash
+h1 iso access grant --iso test-image --project 5b28f7c9ddd5b3c5e9ec14c4
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -110,6 +182,18 @@ Revoke access rights for ISO
 ### Syntax
 
 ```h1 iso access revoke | --iso ISO --project PROJECT```
+
+### Example
+
+```bash
+h1 iso access revoke --iso test-image
+```
+
+### Examples
+
+```bash
+h1 iso access revoke --iso test-image
+```
 
 ### Required arguments
 
@@ -126,6 +210,18 @@ List of access rights for ISO
 
 ```h1 iso access list | --iso ISO```
 
+### Example
+
+```bash
+h1 iso access list --iso test-image
+```
+
+### Examples
+
+```bash
+h1 iso access list --iso test-image
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -139,6 +235,18 @@ Resume create upload of ISO
 ### Syntax
 
 ```h1 iso resume | --iso ISO --source-file SOURCE-FILE```
+
+### Example
+
+```bash
+h1 iso resume --iso my-iso --source-file ./my-iso.vhdx
+```
+
+### Examples
+
+```bash
+h1 iso resume --iso my-iso --source-file ./my-iso.vhdx
+```
 
 ### Required arguments
 
@@ -154,6 +262,19 @@ ISO import
 ### Syntax
 
 ```h1 iso create | --name NAME [--source-file SOURCE-FILE] [--source-url SOURCE-URL]```
+
+### Examples
+
+#### Create an ISO using a local file
+
+```bash
+h1 iso create --name myiso --source-file my.iso
+```
+
+#### Create an ISO using url
+```bash
+h1 iso create --name myiso --source-url http://example.com/some.iso
+```
 
 ### Examples
 

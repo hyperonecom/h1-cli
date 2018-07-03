@@ -16,12 +16,12 @@ module.exports = resource => {
 
     return Cli.createCommand('delete', {
         description: `Delete ${resource.title}`,
-        // , dirname: __dirname
+        dirname: __dirname,
         plugins: [
             ...resource.plugins,
             require('bin/_plugins/confirmYes'),
         ],
-        params: resource.params,
+        resource: resource,
         options: Object.assign({}, resource.options, options),
         handler: async args => {
             if (!args.yes) {

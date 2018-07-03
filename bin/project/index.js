@@ -43,7 +43,14 @@ category.addChild(require('./limits')(childDefaults));
 category.addChild(require('bin/generic/credentials')(Object.assign(
     {}
     , childDefaults
-    , { url: args => `${childDefaults.url(args)}/credentialStore`}
+    , {
+        url: args => `${childDefaults.url(args)}/credentialStore`,
+        context: {
+            addParams: '--project my-project',
+            deleteParams:  '--project my-project',
+            listParams: '--project my-project',
+        },
+    }
 )));
 
 module.exports = category;

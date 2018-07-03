@@ -29,6 +29,9 @@ const category = genericResource({
     transform: data => Object.entries(data).map(([key, value]) => ({ key, value })),
     commands: ['list'],
     options: resource.options,
+    context: {
+        listParams: '--vm my-vm',
+    },
 });
 
 category.addChild(require('./add')(resource));

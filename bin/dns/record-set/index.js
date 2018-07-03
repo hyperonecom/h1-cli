@@ -19,7 +19,26 @@ const resource = {
     title: 'Record set',
 };
 
-const recordTypes = ['a', 'cname', 'txt', 'mx', 'ns', 'srv'];
+const recordTypes = {
+    a: {
+        value: '8.8.3.3',
+    },
+    cname: {
+        value: 'cname-example.com',
+    },
+    txt: {
+        value: '"some-text-value"',
+    },
+    mx: {
+        value: '10 mail.example.com',
+    },
+    ns: {
+        value: 'ns1.example.com',
+    },
+    srv: {
+        value: '10 5 11 s1.example.com.',
+    },
+};
 
 const category = (resource) => {
 
@@ -35,7 +54,7 @@ const category = (resource) => {
         url: resource.url,
     });
 
-    recordTypes.forEach(type => category.addChild(record(type, resource)));
+    Object.keys(recordTypes).forEach(type => category.addChild(record(type, resource)));
 
     category.addChild(require('bin/generic/list')(resource));
 
@@ -51,6 +70,11 @@ const record = (type, resource) => {
 
     resource = Object.assign({}, resource, {
         title: `Record ${type.toUpperCase()}`,
+        context: Object.assign({}, resource.context, {
+            listParams: '--zone my-zone',
+            dns_type: type,
+            dns_value: recordTypes[type].value,
+        }),
     });
 
     category.addChild(require('bin/generic/list')(resource));

@@ -33,6 +33,18 @@ List Vault
 
 ```h1 vault list | ```
 
+### Example
+
+```bash
+h1 vault list
+```
+
+### Examples
+
+```bash
+h1 vault list
+```
+
 ## h1 vault show
 
 Show Vault
@@ -40,6 +52,18 @@ Show Vault
 ### Syntax
 
 ```h1 vault show | --vault VAULT```
+
+### Example
+
+```bash
+h1 vault show --vault my-vault
+```
+
+### Examples
+
+```bash
+h1 vault show --vault my-vault
+```
 
 ### Required arguments
 
@@ -55,6 +79,18 @@ Delete Vault
 
 ```h1 vault delete | --vault VAULT```
 
+### Example
+
+```bash
+h1 vault delete --vault my-vault
+```
+
+### Examples
+
+```bash
+h1 vault delete --vault my-vault
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -69,6 +105,18 @@ History of Vault
 
 ```h1 vault history | --vault VAULT```
 
+### Example
+
+```bash
+h1 vault history --vault my-vault
+```
+
+### Examples
+
+```bash
+h1 vault history --vault my-vault
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -82,6 +130,18 @@ Rename Vault
 ### Syntax
 
 ```h1 vault rename | --vault VAULT --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 vault rename --vault my-vault --new-name my-renamed-vault
+```
+
+### Examples
+
+```bash
+h1 vault rename --vault my-vault --new-name my-renamed-vault
+```
 
 ### Required arguments
 
@@ -98,6 +158,18 @@ Resize Vault
 
 ```h1 vault resize | --vault VAULT --size SIZE```
 
+### Example
+
+```bash
+h1 vault resize --vault my-vault --size 10
+```
+
+### Examples
+
+```bash
+h1 vault resize --vault my-vault --size 10
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -112,6 +184,16 @@ Create Vault
 ### Syntax
 
 ```h1 vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD]```
+
+### Examples
+
+#### Create a Vault
+
+```bash
+h1 vault create --name my-vault --size 10 --ssh my-key
+```
+
+Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
 
 ### Examples
 
@@ -153,6 +235,18 @@ List certificate to Vault
 
 ```h1 vault credential cert list | --vault VAULT```
 
+### Example
+
+```bash
+h1 vault credential cert list --vault my-vault
+```
+
+### Examples
+
+```bash
+h1 vault credential cert list --vault my-vault
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -166,6 +260,18 @@ Delete certificate to Vault
 ### Syntax
 
 ```h1 vault credential cert delete | --vault VAULT --cert CERT```
+
+### Example
+
+```bash
+h1 vault credential cert delete --cert my-cert --vault my-vault
+```
+
+### Examples
+
+```bash
+h1 vault credential cert delete --cert my-cert --vault my-vault
+```
 
 ### Required arguments
 
@@ -181,6 +287,14 @@ Add credential to Vault
 ### Syntax
 
 ```h1 vault credential cert add | --vault VAULT --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE]```
+
+### Examples
+
+#### Add SSH key to Vault
+
+```bash
+h1 vault credential cert add --vault x --name my-key --sshkey Dell-Home
+```
 
 ### Examples
 
@@ -216,6 +330,18 @@ List password to Vault
 
 ```h1 vault credential password list | --vault VAULT```
 
+### Example
+
+```bash
+h1 vault credential password list --vault my-vault
+```
+
+### Examples
+
+```bash
+h1 vault credential password list --vault my-vault
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -229,6 +355,18 @@ Delete password to Vault
 ### Syntax
 
 ```h1 vault credential password delete | --vault VAULT --password PASSWORD```
+
+### Example
+
+```bash
+h1 vault credential password delete --password my-password --vault my-vault
+```
+
+### Examples
+
+```bash
+h1 vault credential password delete --password my-password --vault my-vault
+```
 
 ### Required arguments
 
@@ -253,6 +391,14 @@ Add password to Vault
 h1 vault credential password add --name my-pass --password secret-password --vault my-vault
 ```
 
+### Examples
+
+#### Add password to Vault
+
+```bash
+h1 vault credential password add --name my-pass --password secret-password --vault my-vault
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -268,6 +414,16 @@ Connect to Vault using SSH
 ### Syntax
 
 ```h1 vault ssh | --vault VAULT```
+
+### Examples
+
+#### Connect to Vault using SSH
+
+```bash
+sh1 vault ssh --vault x
+```
+
+Note: You need valid credentials to access Vault any way.
 
 ### Examples
 

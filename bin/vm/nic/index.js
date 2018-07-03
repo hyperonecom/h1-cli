@@ -21,6 +21,11 @@ const resource = {
     title: 'network adapter',
     commands: ['list', 'show', 'delete'],
     dirname: __dirname,
+    context: {
+        listParams: '--vm test-vm',
+        historyParams: '--vm test-vm',
+        deleteParams: '--vm test-vm',
+    },
 };
 
 const category = genericResource(resource);

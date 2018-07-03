@@ -25,6 +25,10 @@ const resource = {
     commands: [ 'list', 'delete' ],
     transform: data => data.ip || data,
     title: 'IP address of network adapter',
+    context: {
+        deleteParams: '--vm my-vm --nic nic-of-vm --ip 123.0.0.50',
+        listParams: '--vm my-vm --nic nic-of-vm',
+    },
 };
 
 

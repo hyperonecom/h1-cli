@@ -16,6 +16,7 @@ module.exports = (resource) => Cli.createCommand('rename', {
     plugins: genericDefaults.plugins,
     options: Object.assign({}, resource.options, options),
     params: resource.params,
+    dirname: __dirname,
     handler: args => args.helpers.api
         .post(`vm/${args.id}/actions`, {
             name: 'rename',

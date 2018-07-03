@@ -23,10 +23,10 @@ const options = {
 
 
 module.exports = resource => Cli.createCommand('download', {
-    description: `Download ${resource.title} to a file`,
-    plugins: resource.plugins,
-    options: options,
-    params: resource.params,
+    description: `Download ${resource.title} to a .vhdx file`,
+    options: Object.assign({}, resource.options, options),
+    dirname: __dirname,
+    resource: resource,
     handler: async args => {
 
         const disk = await args.helpers.api.get(`${resource.url(args)}/${args.disk}`);

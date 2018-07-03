@@ -23,12 +23,14 @@ const category = Cli.createCategory(resource.name, {
 category.addChild(require('./create'));
 
 category.addChild(require('bin/generic/credentials')(Object.assign(
-    {}
-    , resource
-    , childDefaults
-    , { url: args => `${childDefaults.url(args)}/credential`}
+    {},
+    resource,
+    childDefaults,
+    {
+        url: args => `${childDefaults.url(args)}/credential`,
+    }
 )));
 
-category.addChild(require('./2fa')(childDefaults));
+category.addChild(require('./2fa')(Object.assign({}, childDefaults)));
 
 module.exports = category;

@@ -33,6 +33,7 @@ module.exports = resource => Cli.createCommand('metrics', {
     plugins: resource.plugins,
     params: resource.params,
     options: resource.options,
+    dirname: __dirname,
     handler: async args => {
 
         const vm = args.helpers.api.get(resource.url(args));

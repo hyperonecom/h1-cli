@@ -19,6 +19,10 @@ const resource = {
     commands: ['list', 'show', 'delete'],
     options: options,
     title: 'IP address',
+    context: {
+        showParams: '--network my-network',
+        deleteParams: '--network my-network',
+    },
 };
 
 const category = genericResource(resource);

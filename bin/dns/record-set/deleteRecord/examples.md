@@ -1,5 +1,3 @@
-# Delete DNS record
-
 ```bash
-h1 dns record-set a delete-record --zone-name 'my-domain.tld' --name www --value 127.0.0.2
+h1 dns record-set {{dns_type}} delete-record --zone-name 'my-domain.tld' --name www --value '{{dns_value}}'
 ```

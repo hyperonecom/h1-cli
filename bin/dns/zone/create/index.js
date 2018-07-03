@@ -23,6 +23,7 @@ const handle = (args) => {
 module.exports = (resource) => Cli.createCommand('create', {
     description: `Create ${resource.title}`,
     plugins: resource.plugins,
+    dirname: __dirname,
     options: Object.assign({}, options, resource.options),
     handler: handle,
 });

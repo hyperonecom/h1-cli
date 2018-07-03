@@ -29,6 +29,7 @@ module.exports = (resource) => {
         description: `Create ${resource.title}`,
         plugins: resource.plugins,
         options: options,
+        dirname: __dirname,
         handler: (args) => {
             const body = {
                 type: args.type,

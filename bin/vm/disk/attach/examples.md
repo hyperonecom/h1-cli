@@ -11,7 +11,5 @@ Note (2): Use ```h1 disk list``` to list available disk or
 
 Note (3): Each disk can be connected to one virtual machine at a time.
 
-Note (4): Instead of adding a new disk, we suggest considering resize of available disk. 
+Note (4): Instead of adding a new disk, we suggest considering resize of available disk.
           This process can also be done on-line up to 1TB for each disk.
-          
-     

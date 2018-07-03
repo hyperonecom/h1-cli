@@ -33,6 +33,18 @@ List firewall
 
 ```h1 firewall list | ```
 
+### Example
+
+```bash
+h1 firewall list
+```
+
+### Examples
+
+```bash
+h1 firewall list
+```
+
 ## h1 firewall show
 
 Show firewall
@@ -40,6 +52,18 @@ Show firewall
 ### Syntax
 
 ```h1 firewall show | --firewall FIREWALL```
+
+### Example
+
+```bash
+h1 firewall show --firewall my-firewall
+```
+
+### Examples
+
+```bash
+h1 firewall show --firewall my-firewall
+```
 
 ### Required arguments
 
@@ -55,6 +79,18 @@ Delete firewall
 
 ```h1 firewall delete | --firewall FIREWALL```
 
+### Example
+
+```bash
+h1 firewall delete --firewall my-firewall
+```
+
+### Examples
+
+```bash
+h1 firewall delete --firewall my-firewall
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -69,6 +105,18 @@ History of firewall
 
 ```h1 firewall history | --firewall FIREWALL```
 
+### Example
+
+```bash
+h1 firewall history --firewall my-firewall
+```
+
+### Examples
+
+```bash
+h1 firewall history --firewall my-firewall
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -82,6 +130,14 @@ Create firewall
 ### Syntax
 
 ```h1 firewall create | --name NAME```
+
+### Examples
+
+#### Create a new firewall
+
+```bash
+h1 firewall create --name secure-zone-fw
+```
 
 ### Examples
 
@@ -107,7 +163,17 @@ Attach firewall to a network
 
 ### Examples
 
-#### Attach firewall to network 
+#### Attach firewall to network
+
+```bash
+h1 firewall attach --firewall secure-zone-fw --network my-safe-net
+```
+
+Hint: Use ```h1 network list``` to list available networks or ```h1 network create``` to create a new one.
+
+### Examples
+
+#### Attach firewall to network
 
 ```bash
 h1 firewall attach --firewall secure-zone-fw --network my-safe-net
@@ -129,6 +195,14 @@ Detach firewall from network
 ### Syntax
 
 ```h1 firewall detach | --firewall FIREWALL```
+
+### Examples
+
+#### Detach firewall from network
+
+```bash
+h1 firewall detach --firewall secure-zone-fw
+```
 
 ### Examples
 
@@ -173,7 +247,49 @@ h1 firewall egress list --firewall secure-zone-fw
 ```bash
 h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --priority 300 \
-    --filter tcp:80 \ 
+    --filter tcp:80 \
+    --external 0.0.0.0/0 --internal 10.177.2.2 \
+    --name 'Allow HTTP'
+```
+
+#### Delete firewall rule
+
+```bash
+h1 firewall egress delete --firewall secure-zone-fw --rule 5b3a0750db77e0540811669e
+```
+
+Note (1): To identify available rules use ```h1 firewall egress list``` or ```h1 firewall ingress list```.
+Note (2): The following rules apply implicitly:
+
+ - ingress has deny policy,
+ - egress has allow policy, but the server can not receive a response to any packets that have not passed any egress rule.
+
+### Examples
+
+#### Create a firewall
+
+```bash
+h1 firewall create --name secure-zone-fw
+```
+
+#### List firewall ingress rules
+
+```bash
+h1 firewall ingress list --firewall secure-zone-fw
+```
+
+#### List firewall egress rules
+
+```bash
+h1 firewall egress list --firewall secure-zone-fw
+```
+
+#### Add firewall to allow any incoming HTTP traffic to 10.177.2.2
+
+```bash
+h1 firewall ingress add --firewall secure-zone-fw --action allow \
+    --priority 300 \
+    --filter tcp:80 \
     --external 0.0.0.0/0 --internal 10.177.2.2 \
     --name 'Allow HTTP'
 ```
@@ -218,6 +334,20 @@ h1 firewall ingress list --firewall secure-zone-fw
 h1 firewall egress list --firewall secure-zone-fw
 ```
 
+### Examples
+
+#### List firewall ingress rules
+
+```bash
+h1 firewall ingress list --firewall secure-zone-fw
+```
+
+#### List firewall egress rules
+
+```bash
+h1 firewall egress list --firewall secure-zone-fw
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -231,6 +361,18 @@ Add rule ingress of firewall
 ### Syntax
 
 ```h1 firewall ingress add | --firewall FIREWALL --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
+
+### Examples
+
+#### Add firewall to allow any incoming HTTP traffic to 10.177.2.2
+
+```bash
+h1 firewall ingress add --firewall secure-zone-fw --action allow \
+    --priority 300 \
+    --filter tcp:80 \
+    --external 0.0.0.0/0 --internal 10.177.2.2 \
+    --name 'Allow HTTP'
+```
 
 ### Examples
 
@@ -274,6 +416,16 @@ h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51d
 
 Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to list available rules.
 
+### Examples
+
+#### Remove firewall rule
+
+```bash
+h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51dc843
+```
+
+Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to list available rules.
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -288,6 +440,18 @@ Show rule ingress of firewall
 ### Syntax
 
 ```h1 firewall ingress show | --firewall FIREWALL --ingress INGRESS```
+
+### Example
+
+```bash
+h1 firewall ingress show --ingress my-ingress
+```
+
+### Examples
+
+```bash
+h1 firewall ingress show --ingress my-ingress
+```
 
 ### Required arguments
 
@@ -325,7 +489,49 @@ h1 firewall egress list --firewall secure-zone-fw
 ```bash
 h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --priority 300 \
-    --filter tcp:80 \ 
+    --filter tcp:80 \
+    --external 0.0.0.0/0 --internal 10.177.2.2 \
+    --name 'Allow HTTP'
+```
+
+#### Delete firewall rule
+
+```bash
+h1 firewall egress delete --firewall secure-zone-fw --rule 5b3a0750db77e0540811669e
+```
+
+Note (1): To identify available rules use ```h1 firewall egress list``` or ```h1 firewall ingress list```.
+Note (2): The following rules apply implicitly:
+
+ - ingress has deny policy,
+ - egress has allow policy, but the server can not receive a response to any packets that have not passed any egress rule.
+
+### Examples
+
+#### Create a firewall
+
+```bash
+h1 firewall create --name secure-zone-fw
+```
+
+#### List firewall ingress rules
+
+```bash
+h1 firewall ingress list --firewall secure-zone-fw
+```
+
+#### List firewall egress rules
+
+```bash
+h1 firewall egress list --firewall secure-zone-fw
+```
+
+#### Add firewall to allow any incoming HTTP traffic to 10.177.2.2
+
+```bash
+h1 firewall ingress add --firewall secure-zone-fw --action allow \
+    --priority 300 \
+    --filter tcp:80 \
     --external 0.0.0.0/0 --internal 10.177.2.2 \
     --name 'Allow HTTP'
 ```
@@ -370,6 +576,20 @@ h1 firewall ingress list --firewall secure-zone-fw
 h1 firewall egress list --firewall secure-zone-fw
 ```
 
+### Examples
+
+#### List firewall ingress rules
+
+```bash
+h1 firewall ingress list --firewall secure-zone-fw
+```
+
+#### List firewall egress rules
+
+```bash
+h1 firewall egress list --firewall secure-zone-fw
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -383,6 +603,18 @@ Add rule egress of firewall
 ### Syntax
 
 ```h1 firewall egress add | --firewall FIREWALL --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
+
+### Examples
+
+#### Add firewall to allow any incoming HTTP traffic to 10.177.2.2
+
+```bash
+h1 firewall ingress add --firewall secure-zone-fw --action allow \
+    --priority 300 \
+    --filter tcp:80 \
+    --external 0.0.0.0/0 --internal 10.177.2.2 \
+    --name 'Allow HTTP'
+```
 
 ### Examples
 
@@ -426,6 +658,16 @@ h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51d
 
 Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to list available rules.
 
+### Examples
+
+#### Remove firewall rule
+
+```bash
+h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51dc843
+```
+
+Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to list available rules.
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -440,6 +682,18 @@ Show rule egress of firewall
 ### Syntax
 
 ```h1 firewall egress show | --firewall FIREWALL --egress EGRESS```
+
+### Example
+
+```bash
+h1 firewall egress show --egress my-egress
+```
+
+### Examples
+
+```bash
+h1 firewall egress show --egress my-egress
+```
 
 ### Required arguments
 

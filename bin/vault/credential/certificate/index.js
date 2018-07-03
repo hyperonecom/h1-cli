@@ -11,6 +11,7 @@ module.exports = resource => {
         commands: ['list', 'delete'],
         options: resource.options,
         title: 'certificate to Vault',
+        context: resource.context,
     });
 
     category.addChild(require('./add')(resource));
