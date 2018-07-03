@@ -26,12 +26,18 @@ module.exports = resource => Cli.createCommand('list', {
             path = '/all';
         }
 
-        if (args.recommended && args.output !== 'json') {
-            args.query = args.query || '[].{id:_id,name:name,distro:description.distro,release:description.release,codename:description.codename,arch:description.arch,fileSize:ceil(fileSize),created:createdOn}';
-        }
-
         return args.helpers.api
             .get(`${resource.url()}${path}`)
-            .then(result => args.helpers.sendOutput(args, result));
+            .then(images => {
+
+                if (args.recommended && args.output !== 'json') {
+                    args.query = args.query || '[].{id:_id,name:name,distro:description.distro,release:description.release,codename:description.codename,edition:description.edition,arch:description.arch,fileSize:ceil(fileSize),created:createdOn}';
+                    images.forEach(image => {
+                        image.description = JSON.parse(image.description);
+                    });
+                }
+
+                return args.helpers.sendOutput(args, images);
+            });
     },
 });
