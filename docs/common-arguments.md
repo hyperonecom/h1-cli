@@ -57,7 +57,7 @@ h1 network list -o list
 ### Description
 
 Argument ```--query``` mean JMESPath query string. It is quite a powerful tool that allows you to efficiently 
-    obtain specific information about resources. 
+    obtain specific information about resources.
     
 See the documentation and examples published on [jmespath.org](https://jmespath.org) for details about syntax.
     
@@ -75,7 +75,7 @@ h1 disk list -o json --query 'sum([].size)'
 h1 image list --query '[].{name:name,diskCount:length(disks),fileSize:fileSize}'
 ```
 
-#### Attach all detached disk 
+#### Attach all detached disk to VM
 
 ```bash
 h1 disk list --query "[?state=='Detached'].{id:_id}" -o tsv | xargs -r -n 1 h1 vm disk attach --vm test-vm --disk
@@ -109,7 +109,7 @@ h1 image list --verbose
 
 ### Description
 
-In case of queued event do not wait for completion. It allows you to perform operations 
+In case of queued event do not wait for completion. It allows you to perform operations
 asynchronously, which can be used to optimize the execution time of scripts.
 
 ### Examples

@@ -12,7 +12,7 @@ h1 image list --verbose
 
 ## Description
 
-In case of queued event do not wait for completion. It allows you to perform operations 
+In case of queued event do not wait for completion. It allows you to perform operations
 asynchronously, which can be used to optimize the execution time of scripts.
 
 ## Examples
