@@ -38,7 +38,7 @@ const test_record_values = async (t, zone, type, name, expected_values) => {
 };
 
 Object.entries(recordTypes).forEach(([type, values]) => {
-    ava.test.serial(`dns zone record-set ${type}`, async t => {
+    ava.test.serial(`dns zone record-set ${type} life cycle`, async t => {
         const zone = await tests.run(`dns zone create --name ${type}.dns-record-set-${now}.com`);
         const name = `${type}-${now}`;
         const full_name = `${name}.${zone.name}`;

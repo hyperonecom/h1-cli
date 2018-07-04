@@ -54,7 +54,6 @@ module.exports = Cli.createCommand('login', {
     description: 'Obtain your apiKey',
     plugins: [
         require('../_plugins/api'),
-        require('../_plugins/interactiveOptions'),
     ],
     options: options,
     handler: handler,

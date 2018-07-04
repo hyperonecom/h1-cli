@@ -1,29 +1,31 @@
 'use strict';
 
 const config = require('lib/config');
+const Cli = require('lib/cli');
 
-const logger = require('lib/logger');
+const options = {
+    'project-select': {
+        description: 'Override current project on the request',
+        type: 'string',
+    },
+};
+
 
 module.exports = {
-    onBeforeConfigure: context => {
-        context.node.addOption('project-select',
-            {
-                description: 'Override current project on the request',
-                type: 'string',
-            });
-    },
+    options: options,
+    dirname: __dirname,
+    onBeforeConfigure: context => Object.entries(options).forEach(([k, v]) => context.node.addOption(k, v)),
     onBeforeHandler: context => {
         const profile = config.get('profile', {});
 
         context.args.profile = Object.assign({}, profile);
 
-        if (process.env.API_KEY) {
+        if (process.env.H1_TOKEN) {
             return;
         }
 
         if (!profile.project || !profile.project._id) {
-            logger('info', 'You need to select project before you can manage your resources');
-            return process.exit(-1); //TODO find a better way
+            throw Cli.error.cancelled('You need to select project before you can manage your resources');
         }
 
         if (context.args['project-select']) {
