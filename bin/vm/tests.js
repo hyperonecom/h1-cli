@@ -56,7 +56,8 @@ ava.test.serial('vm stop & start & turnoff', async t => {
     ];
 
     for (const action of actions) {
-        await tests.run(`vm ${action.name} --vm ${vm._id}`);
+        const action_vm = await tests.run(`vm ${action.name} --vm ${vm._id}`);
+        t.true(action_vm.state === action.state);
         const updated_vm = await tests.run(`vm show --vm ${vm._id}`);
         t.true(updated_vm.state === action.state);
     }
