@@ -418,7 +418,7 @@ List access rule
 ### Example
 
 ```bash
-h1 project token access list --project my-project --token my-token --access my-access
+h1 project token access list --project my-project --token my-token --access my-access-id
 ```
 
 ### Examples
@@ -473,7 +473,7 @@ Delete access rule
 ### Example
 
 ```bash
-h1 project token access delete --access my-access --project my-project --token my-token --access my-access
+h1 project token access delete --access my-access --project my-project --token my-token --access my-access-id
 ```
 
 ### Examples

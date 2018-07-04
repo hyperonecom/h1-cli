@@ -11,7 +11,7 @@ Note (2): To identify available instance type use ```h1 service list --resource 
 Note (3): To list available SSH keys use ```h1 project credentials list``` or ```h1 user credentials list```.
 
 Note (4): To list available cloud-provided images use ```h1 image list --recommend```.
-          For them you can also ``<distro>[:<release>]``` as ID.
+          For them you can also ```<distro>[:<release>]``` as ID.
 
 # Create a diskless virtual machine in private network
 

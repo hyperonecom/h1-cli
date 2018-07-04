@@ -1,3 +1,3 @@
 ```bash
-$ h1 image disk --image dev-image
+h1 image disk --image dev-image
 ```

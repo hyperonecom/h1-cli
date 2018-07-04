@@ -287,7 +287,7 @@ Add credential to Vault
 ### Example
 
 ```bash
-h1 vault credential cert add --vault x --name my-key --sshkey Dell-Home
+h1 vault credential cert add --vault my-vault --name my-key --sshkey my-home-ssh
 ```
 
 ### Examples
@@ -406,7 +406,7 @@ Connect to Vault using SSH
 ### Example
 
 ```bash
-sh1 vault ssh --vault x
+sh1 vault ssh --vault my-vault
 ```
 
 Note: You need valid credentials to access Vault any way.

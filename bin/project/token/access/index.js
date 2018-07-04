@@ -24,8 +24,8 @@ module.exports = parent => {
         commands: ['list', 'show', 'delete'],
         title: 'access rule',
         context: {
-            deleteParams: '--project my-project --token my-token --access my-access',
-            listParams: '--project my-project --token my-token --access my-access ',
+            deleteParams: '--project my-project --token my-token --access my-access-id',
+            listParams: '--project my-project --token my-token --access my-access-id',
         },
     };
 

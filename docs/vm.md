@@ -169,7 +169,7 @@ Note (2): To identify available instance type use ```h1 service list --resource 
 Note (3): To list available SSH keys use ```h1 project credentials list``` or ```h1 user credentials list```.
 
 Note (4): To list available cloud-provided images use ```h1 image list --recommend```.
-          For them you can also ``<distro>[:<release>]``` as ID.
+          For them you can also ```<distro>[:<release>]``` as ID.
 
 #### Create a diskless virtual machine in private network
 
@@ -401,14 +401,14 @@ Manage userdata for virtual machine
 #### Set userdata for virtual machine
 
 ```bash
-echo "any-data" > data.txt
- h1 vm userdata --vm test-vm --userdata-file 'data.txt'
+$ echo "any-data" > data.txt
+$ h1 vm userdata --vm test-vm --userdata-file ./data.txt
 ```
 
  # Read userdata for virtual machine
  
 ```bash
-$ h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl base64 -d
+h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl base64 -d
 ```
 
 ### Examples
@@ -1142,9 +1142,7 @@ Get live metrics of virtual machine
 
 ```h1 vm metrics | --vm VM```
 
-### Examples
-
-#### View metrics of Virtual machine
+### Example
 
 ```bash
 h1 vm metrics --vm test-vm2

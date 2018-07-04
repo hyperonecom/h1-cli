@@ -135,7 +135,7 @@ Create image
 ### Example
 
 ```bash
-$ h1 image create --vm test-vm --name dev-image
+h1 image create --vm test-vm --name dev-image
 ```
 
 ### Examples
@@ -211,7 +211,7 @@ List all disks of image
 ### Example
 
 ```bash
-$ h1 image disk --image dev-image
+h1 image disk --image dev-image
 ```
 
 ### Examples
