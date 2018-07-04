@@ -1,5 +1,3 @@
-# Delete virtual machine
-
 ```bash
-h1 vm delete --vm test-vm
+{{command_name}} --vm test-vm
 ```

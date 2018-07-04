@@ -1,5 +1,5 @@
-# Create record-set at top of domain
-
 ```bash
-h1 dns record-set a create --name '.' --zone-name 'my-domain.tld' --value 127.0.0.1
+{{command_name}} --name '.' --zone-name 'my-domain.tld' --value '{{dns_value}}'
 ```
+
+Note (1): Use ```--name '.'``` to put record at top of the zone.

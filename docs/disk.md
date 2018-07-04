@@ -8,7 +8,7 @@
   * [h1 disk resize](#h1-disk-resize) - Resize disk
   * [h1 disk resume](#h1-disk-resume) - Resume create upload of disk
   * [h1 disk create](#h1-disk-create) - Create disk
-  * [h1 disk download](#h1-disk-download) - Download disk to a file
+  * [h1 disk download](#h1-disk-download) - Download disk to a .vhdx file
 
 
 # Specification
@@ -25,6 +25,18 @@ List disk
 
 ```h1 disk list | ```
 
+### Example
+
+```bash
+h1 disk list
+```
+
+### Examples
+
+```bash
+h1 disk list
+```
+
 ## h1 disk show
 
 Show disk
@@ -32,6 +44,18 @@ Show disk
 ### Syntax
 
 ```h1 disk show | --disk DISK```
+
+### Example
+
+```bash
+h1 disk show --disk my-disk
+```
+
+### Examples
+
+```bash
+h1 disk show --disk my-disk
+```
 
 ### Required arguments
 
@@ -47,6 +71,18 @@ Delete disk
 
 ```h1 disk delete | --disk DISK```
 
+### Example
+
+```bash
+h1 disk delete --disk my-disk
+```
+
+### Examples
+
+```bash
+h1 disk delete --disk my-disk
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -61,6 +97,18 @@ History of disk
 
 ```h1 disk history | --disk DISK```
 
+### Example
+
+```bash
+h1 disk history --disk my-disk
+```
+
+### Examples
+
+```bash
+h1 disk history --disk my-disk
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -74,6 +122,18 @@ Rename disk
 ### Syntax
 
 ```h1 disk rename | --disk DISK --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 disk rename --disk my-disk --new-name my-renamed-disk
+```
+
+### Examples
+
+```bash
+h1 disk rename --disk my-disk --new-name my-renamed-disk
+```
 
 ### Required arguments
 
@@ -90,6 +150,18 @@ Resize disk
 
 ```h1 disk resize | --disk DISK --size SIZE```
 
+### Example
+
+```bash
+h1 disk resize --disk my-disk --size 10
+```
+
+### Examples
+
+```bash
+h1 disk resize --disk my-disk --size 10
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -105,6 +177,18 @@ Resume create upload of disk
 
 ```h1 disk resume | --disk DISK --source-file SOURCE-FILE```
 
+### Example
+
+```bash
+h1 disk resume --disk my-disk --source-file ./my-disk.vhdx
+```
+
+### Examples
+
+```bash
+h1 disk resume --disk my-disk --source-file ./my-disk.vhdx
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -119,6 +203,18 @@ Create disk
 ### Syntax
 
 ```h1 disk create | --name NAME --type TYPE --size SIZE [--source-file SOURCE-FILE] [--no-progress]```
+
+### Examples
+
+#### Create 10 GB SSD disk
+
+```bash
+h1 disk create --name db-disk --type ssd --size 10
+```
+
+#### Create disk from .vkdx file
+
+TODO
 
 ### Examples
 
@@ -149,11 +245,23 @@ TODO
 
 ## h1 disk download
 
-Download disk to a file
+Download disk to a .vhdx file
 
 ### Syntax
 
 ```h1 disk download | --disk DISK --destination-file DESTINATION-FILE [--no-progress]```
+
+### Example
+
+```bash
+h1 disk download --disk db-disk --destination-file ./my-disk.vhdx
+```
+
+### Examples
+
+```bash
+h1 disk download --disk db-disk --destination-file ./my-disk.vhdx
+```
 
 ### Required arguments
 

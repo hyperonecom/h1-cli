@@ -1,11 +1,11 @@
 # Connect to virtual machine via SSH
 
 ```bash
-h1 vm ssh --vm test-vm
+{{command_name}} --vm test-vm
 ```
 
 # Execute command on virtual machine via SSH
 
 ```bash
-h1 vm ssh --vm test-vm --command 'id'
+{{command_name}} --vm test-vm --command 'id'
 ```

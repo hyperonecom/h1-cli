@@ -15,6 +15,10 @@ module.exports = parent => {
         plugins: parent.plugins,
         title: 'token',
         dirname: __dirname,
+        context: {
+            historyParams: '--project my-project',
+            deleteParams: '--project my-project',
+        },
     };
 
     const category = genericResource(resource);

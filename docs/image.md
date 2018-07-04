@@ -27,6 +27,18 @@ Show image
 
 ```h1 image show | --image IMAGE```
 
+### Example
+
+```bash
+h1 image show --image my-image
+```
+
+### Examples
+
+```bash
+h1 image show --image my-image
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -41,6 +53,18 @@ Delete image
 
 ```h1 image delete | --image IMAGE```
 
+### Example
+
+```bash
+h1 image delete --image my-image
+```
+
+### Examples
+
+```bash
+h1 image delete --image my-image
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -54,6 +78,18 @@ Rename image
 ### Syntax
 
 ```h1 image rename | --image IMAGE --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 image rename --image my-image --new-name my-renamed-image
+```
+
+### Examples
+
+```bash
+h1 image rename --image my-image --new-name my-renamed-image
+```
 
 ### Required arguments
 
@@ -70,6 +106,18 @@ History of image
 
 ```h1 image history | --image IMAGE```
 
+### Example
+
+```bash
+h1 image history --image my-image
+```
+
+### Examples
+
+```bash
+h1 image history --image my-image
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -84,12 +132,16 @@ Create image
 
 ```h1 image create | --name NAME --vm VM [--description DESCRIPTION]```
 
-### Examples
-
-#### Create a image
+### Example
 
 ```bash
-$ h1 image create --vm test-vm --name dev-image
+h1 image create --vm test-vm --name dev-image
+```
+
+### Examples
+
+```bash
+h1 image create --vm test-vm --name dev-image
 ```
 
 ### Required arguments
@@ -127,6 +179,20 @@ h1 image list
 h1 image list --recommended
 ```
 
+### Examples
+
+#### List all user images
+
+```bash
+h1 image list
+```
+
+#### List public images recommended by platform
+
+```bash
+h1 image list --recommended
+```
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -142,12 +208,16 @@ List all disks of image
 
 ```h1 image disk | --image IMAGE```
 
-### Examples
-
-#### List all disks of image
+### Example
 
 ```bash
-$ h1 image disk --image dev-image
+h1 image disk --image dev-image
+```
+
+### Examples
+
+```bash
+h1 image disk --image dev-image
 ```
 
 ### Required arguments
@@ -168,6 +238,18 @@ Grant access rights for image
 
 ```h1 image access grant | --image IMAGE --project PROJECT```
 
+### Example
+
+```bash
+h1 image access grant --image test-image --project 5b28f7c9ddd5b3c5e9ec14c4
+```
+
+### Examples
+
+```bash
+h1 image access grant --image test-image --project 5b28f7c9ddd5b3c5e9ec14c4
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -183,6 +265,18 @@ Revoke access rights for image
 
 ```h1 image access revoke | --image IMAGE --project PROJECT```
 
+### Example
+
+```bash
+h1 image access revoke --image test-image
+```
+
+### Examples
+
+```bash
+h1 image access revoke --image test-image
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -197,6 +291,18 @@ List of access rights for image
 ### Syntax
 
 ```h1 image access list | --image IMAGE```
+
+### Example
+
+```bash
+h1 image access list --image test-image
+```
+
+### Examples
+
+```bash
+h1 image access list --image test-image
+```
 
 ### Required arguments
 

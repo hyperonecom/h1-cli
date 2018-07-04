@@ -1,6 +1,4 @@
-# Disassociate IP address
-
 ```bash
-h1 ip disassociate --ip 62.181.8.21
+{{command_name}} --ip 62.181.8.21
 ```
 

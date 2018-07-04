@@ -1,7 +1,5 @@
-# Connect to Vault using SSH
-
 ```bash
-sh1 vault ssh --vault x
+sh1 vault ssh --vault my-vault
 ```
 
 Note: You need valid credentials to access Vault any way.

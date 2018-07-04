@@ -44,4 +44,5 @@ module.exports = (resource) => Cli.createCommand('create', {
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options, recordOptions),
     handler: handleCreate,
+    resource: resource,
 });

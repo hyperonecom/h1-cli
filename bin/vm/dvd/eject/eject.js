@@ -12,6 +12,7 @@ module.exports = resource => Cli.createCommand('eject', {
     ],
     params: resource.params,
     options: resource.options,
+    dirname: __dirname,
     handler: args => {
         const eject = () => args.helpers.api
             .put(args.$node.parent.config.url(args), { })

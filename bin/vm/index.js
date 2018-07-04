@@ -24,8 +24,13 @@ const childDefaults = Object.assign({}, resource, {
         },
     },
     url: args => `${resource.url(args)}/${args.id}`,
+    dirname: __dirname,
 });
 
+const actionDefault = Object.assign({}, childDefaults, {
+    dirname: `${__dirname}/action`,
+}
+);
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
@@ -33,12 +38,12 @@ category.addChild(require('./delete')(resource));
 
 category.addChild(require('./console')(childDefaults));
 
-category.addChild(genericAction(childDefaults, 'stop'));
-category.addChild(genericAction(childDefaults, 'start'));
-category.addChild(genericAction(childDefaults, 'restart'));
-category.addChild(genericAction(childDefaults, 'turnoff'));
-category.addChild(require('./action/rename')(childDefaults));
-category.addChild(require('./action/userdata')(childDefaults));
+category.addChild(genericAction(actionDefault, 'stop'));
+category.addChild(genericAction(actionDefault, 'start'));
+category.addChild(genericAction(actionDefault, 'restart'));
+category.addChild(genericAction(actionDefault, 'turnoff'));
+category.addChild(require('./action/rename')(actionDefault));
+category.addChild(require('./action/userdata')(actionDefault));
 
 category.addChild(require('./disk'));
 category.addChild(require('./nic'));

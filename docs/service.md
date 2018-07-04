@@ -18,6 +18,18 @@ Show service
 
 ```h1 service show | --service SERVICE```
 
+### Example
+
+```bash
+h1 service show --service my-service
+```
+
+### Examples
+
+```bash
+h1 service show --service my-service
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -40,7 +52,21 @@ List service
 h1 service list
 ```
 
-#### List types of virtual machines 
+#### List types of virtual machines
+
+```bash
+h1 service list --resource vm --type flavour 
+```
+
+### Examples
+
+#### List services
+
+```bash
+h1 service list
+```
+
+#### List types of virtual machines
 
 ```bash
 h1 service list --resource vm --type flavour 

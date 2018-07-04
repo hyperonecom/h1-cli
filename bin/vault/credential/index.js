@@ -21,6 +21,10 @@ module.exports = resource => {
         plugins: resource.plugins,
         description: 'Manage your credentials to Vault',
         title: 'credential to Vault',
+        context: {
+            listParams: '--vault my-vault',
+            deleteParams: '--vault my-vault',
+        },
     };
 
     const category = genericResource(defaults);

@@ -1,7 +1,5 @@
-# Insert a DVD
-
 ```bash
-h1 vm dvd insert --vm test-vm --iso ubuntu-live
+{{command_name}} --vm test-vm --iso ubuntu-live
 ```
 
-Note: Use ```h1 iso list``` to list available ISO or ```h1 iso create``` to create a new one.
+Note: Use ```{{scope}} iso list``` to list available ISO or ```{{scope}} iso create``` to create a new one.

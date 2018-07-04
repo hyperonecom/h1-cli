@@ -1,5 +1,3 @@
-# Add SSH key to Vault
-
 ```bash
-h1 vault credential cert add --vault x --name my-key --sshkey Dell-Home
+{{command_name}} --vault my-vault --name my-key --sshkey my-home-ssh
 ```

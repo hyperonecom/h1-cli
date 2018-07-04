@@ -76,6 +76,9 @@ const writeCommandSpecs = (stream, entry, prefix) => {
     if (entry.examples) {
         let examples = entry.examples.trimEnd('\n'); // Drop leading empty line to standarize
         examples = update_markdown_header(examples, 3);
+        examples = examples.replace(/ +$/m, '');
+        const header = examples.startsWith(code) ? 'Example' : 'Examples';
+        stream.write(`### ${header}\n\n${examples}\n\n`);
         stream.write(`### Examples\n\n${examples}\n\n`);
     }
 

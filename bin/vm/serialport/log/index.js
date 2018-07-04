@@ -21,6 +21,7 @@ module.exports = resource => Cli.createCommand('log', {
     params: resource.params,
     options: Object.assign({}, resource.options, options),
     handler: handler,
+    dirname: __dirname,
 });
 
 const handler = args => args.helpers.api.get(`/vm/${args.vm}/serialport/${args.port}`);

@@ -19,6 +19,9 @@ const resource = {
     plugins: genericDefaults.plugins,
     options: options,
     title: 'DVD',
+    context: {
+        listParams: '--vm my-vm',
+    },
 };
 
 const category = genericResource(resource);

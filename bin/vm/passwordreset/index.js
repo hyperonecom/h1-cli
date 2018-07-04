@@ -73,4 +73,5 @@ module.exports = resource => Cli.createCommand('passwordreset', {
     params: resource.params,
     options: Object.assign({}, options, resource.options),
     handler: handler,
+    dirname: __dirname,
 });

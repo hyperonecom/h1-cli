@@ -1,5 +1,3 @@
-# View metrics of VM
-
 ```bash
-h1 vm metrics --vm test-vm2
+{{command_name}} --vm test-vm2
 ```

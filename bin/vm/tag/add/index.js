@@ -27,6 +27,7 @@ module.exports = resource => Cli.createCommand('add', {
     description: `Add a tag to ${resource.title}`,
     plugins: resource.plugins,
     params: resource.params,
+    dirname: __dirname,
     options: Object.assign({}, resource.options, options),
     handler: handler,
 });

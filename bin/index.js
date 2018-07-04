@@ -4,6 +4,7 @@ require('../lib/injectPath');
 
 const Cli = require('lib/cli');
 const Chalk = require('chalk');
+const epilog = require('lib/epilog');
 
 const config = require('lib/config');
 
@@ -19,7 +20,8 @@ ${Chalk.underline('Sample usage:')}
   ${Chalk.bold(`$ ${scope} login user@example.org`)}
 2. Select project:
   ${Chalk.bold(`$ ${scope} project select <project>`)}
-`});
+`,
+});
 
 cli.addChild(require('./config'));
 cli.addChild(require('./user'));
@@ -43,7 +45,9 @@ cli.addChild(require('./snapshot'));
 const applyDefault = (element, defaults) => {
     Object.entries(defaults).forEach(([name, values]) => {
         const children = element.children.find(children => children.name === name);
-        if (!children) { return; }
+        if (!children) {
+            return;
+        }
 
         if (children.children) {
             return applyDefault(children, values);
@@ -51,7 +55,9 @@ const applyDefault = (element, defaults) => {
 
         Object.entries(values).forEach(([key, value]) => {
             const option = children.options[key];
-            if (!option) { return; }
+            if (!option) {
+                return;
+            }
 
             // console.log('defaultValue', element.name, name, key, value);
             option.defaultValue = value;
@@ -59,11 +65,45 @@ const applyDefault = (element, defaults) => {
         });
     });
 };
+
+Cli.flatten(cli).forEach(node => {
+    const options = node.createOptions || {};
+
+    let context = {
+        command_name: Cli.get_full_name(node),
+        scope: scope,
+    };
+    if (node.parent) {
+        context.category_name = Cli.get_full_name(node.parent);
+    }
+
+    if (options.resource) {
+        context = Object.assign(
+            context,
+            {
+                type: options.resource.name,
+                resource_title: options.resource.title,
+            },
+            options.resource.context,
+            options.context);
+    }
+
+    context = Object.assign({}, context, options.context);
+
+    if (options.dirname) {
+        epilog.examples(node, options.dirname, context);
+    }
+});
+
+
 applyDefault(cli, config.get('defaults', {}));
 
 // load plugins
 config.plugins.forEach(plugin => plugin.load(cli));
 
-cli.run = () => Cli.run(cli).then(data => { config.store(); return data; });
+cli.run = () => Cli.run(cli).then(data => {
+    config.store();
+    return data;
+});
 
 module.exports = cli;

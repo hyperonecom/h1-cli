@@ -1,5 +1,3 @@
-# Create a new zone
-
 ```bash
-h1 dns zone create --name my-domain.tld
+{{command_name}} --name my-domain.tld
 ```

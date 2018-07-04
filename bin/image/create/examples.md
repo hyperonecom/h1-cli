@@ -1,5 +1,3 @@
-# Create a image
-
 ```bash
-$ h1 image create --vm test-vm --name dev-image
+{{command_name}} --vm test-vm --name dev-image
 ```

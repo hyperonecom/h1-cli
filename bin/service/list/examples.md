@@ -1,11 +1,11 @@
 # List services
 
 ```bash
-h1 service list
+{{command_name}}
 ```
 
 # List types of virtual machines 
 
 ```bash
-h1 service list --resource vm --type flavour 
+{{command_name}} --resource vm --type flavour 
 ```

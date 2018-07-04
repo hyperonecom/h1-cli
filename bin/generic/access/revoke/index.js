@@ -5,7 +5,6 @@ const Cli = require('lib/cli');
 const genericDefaults = require('bin/generic/defaults');
 const text = require('lib/text');
 
-
 module.exports = function(resource) {
     const options = {
         [resource.name]: {
@@ -20,21 +19,20 @@ module.exports = function(resource) {
         },
     };
 
-    return Cli.createCommand('grant', {
-        // dirname: __dirname,
-        description: `Grant access rights for ${resource.title}`,
+    return Cli.createCommand('revoke', {
+        dirname: __dirname,
+        description: `Revoke access rights for ${resource.title}`,
         plugins: genericDefaults.plugins,
         params: resource.params,
-        options: options,
+        options: Object.assign({}, resource.options, options),
         handler: handleAccessGrant(resource),
+        resource: resource,
     });
 };
 
 function handleAccessGrant(resource) {
     return function(args) {
-        return args.helpers.api.post(`${resource.name}/${args[resource.name]}/accessrights`, {
-            identity: args.project,
-        })
+        return args.helpers.api.delete(`${resource.name}/${args[resource.name]}/accessrights/${args.project}`)
             .then(result => args.helpers.sendOutput(args, result));
     };
 }

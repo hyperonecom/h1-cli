@@ -11,25 +11,21 @@ module.exports = resource => {
             type: 'string',
             required: true,
         },
-        size: {
-            description: 'New size',
-            type: 'int',
+        'new-name': {
+            description: 'New name',
+            type: 'string',
             required: true,
         },
     };
 
-    return Cli.createCommand('resize', {
-        description: `Resize ${resource.title}`,
-        // , dirname: __dirname
-        plugins: resource.plugins,
-        params: resource.params,
-        options: options,
+    return Cli.createCommand('rename', {
+        description: `Rename ${resource.title}`,
+        dirname: __dirname,
+        resource: resource,
+        options: Object.assign({}, resource.options, options),
         handler: args => args.helpers.api
-            .post(`${resource.url(args)}/${args[resource.name]}/actions`, {
-                name: 'resize',
-                data: {
-                    size: args.size,
-                },
+            .patch(`${args.$node.parent.config.url(args)}/${args[resource.name]}`, {
+                name: args['new-name'],
             })
             .then(result => args.helpers.sendOutput(args, result)),
     });

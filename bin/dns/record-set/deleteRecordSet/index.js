@@ -31,4 +31,5 @@ module.exports = (resource) => Cli.createCommand('delete', {
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options),
     handler: handleDelete,
+    resource: resource,
 });

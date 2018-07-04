@@ -23,11 +23,9 @@ const options = {
 
 module.exports = resource => Cli.createCommand('ssh', {
     description: `Connect to ${resource.title} using SSH`,
-    plugins: resource.plugins,
-    // The order of assign is important - it determines the order of positional parameters in the current
-    // NodeJS implementation.
-    params: resource.params,
-    options: Object.assign({}, options, resource.options),
+    resource: resource,
+    dirname: __dirname,
+    options: Object.assign({}, resource.options, options),
     handler: async args => {
         const vm = await args.helpers.api.get(resource.url(args));
 

@@ -26,6 +26,18 @@ List network
 
 ```h1 network list | ```
 
+### Example
+
+```bash
+h1 network list
+```
+
+### Examples
+
+```bash
+h1 network list
+```
+
 ## h1 network show
 
 Show network
@@ -33,6 +45,18 @@ Show network
 ### Syntax
 
 ```h1 network show | --network NETWORK```
+
+### Example
+
+```bash
+h1 network show --network my-network
+```
+
+### Examples
+
+```bash
+h1 network show --network my-network
+```
 
 ### Required arguments
 
@@ -48,6 +72,18 @@ Delete network
 
 ```h1 network delete | --network NETWORK```
 
+### Example
+
+```bash
+h1 network delete --network my-network
+```
+
+### Examples
+
+```bash
+h1 network delete --network my-network
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -62,6 +98,18 @@ History of network
 
 ```h1 network history | --network NETWORK```
 
+### Example
+
+```bash
+h1 network history --network my-network
+```
+
+### Examples
+
+```bash
+h1 network history --network my-network
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -75,6 +123,20 @@ Create network
 ### Syntax
 
 ```h1 network create | --name NAME [--address ADDRESS] [--gateway GATEWAY]```
+
+### Examples
+
+#### Create a network
+
+```bash
+h1 network create --name my-safe-net
+```
+
+#### Create a network by specifying the address space and gateway address
+
+```bash
+h1 network create --name my-ip-network --address 10.214.180.0/24 --gateway 10.214.180.10
+```
 
 ### Examples
 
@@ -115,6 +177,18 @@ List IP address
 
 ```h1 network ip list | --network NETWORK```
 
+### Example
+
+```bash
+h1 network ip list
+```
+
+### Examples
+
+```bash
+h1 network ip list
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -128,6 +202,18 @@ Show IP address
 ### Syntax
 
 ```h1 network ip show | --network NETWORK --ip IP```
+
+### Example
+
+```bash
+h1 network ip show --ip my-ip --network my-network
+```
+
+### Examples
+
+```bash
+h1 network ip show --ip my-ip --network my-network
+```
 
 ### Required arguments
 
@@ -144,6 +230,18 @@ Delete IP address
 
 ```h1 network ip delete | --network NETWORK --ip IP```
 
+### Example
+
+```bash
+h1 network ip delete --ip my-ip --network my-network
+```
+
+### Examples
+
+```bash
+h1 network ip delete --ip my-ip --network my-network
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -158,6 +256,20 @@ Create IP address
 ### Syntax
 
 ```h1 network ip create | --network NETWORK [--address ADDRESS]```
+
+### Examples
+
+#### Create a new IP address in network
+
+```bash
+h1 network ip create --network my-safe-net
+```
+
+#### Create a custom IP address in network
+
+```bash
+h1 network ip create --name my-ip-network --address 10.214.180.10
+```
 
 ### Examples
 

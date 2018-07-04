@@ -21,10 +21,9 @@ module.exports = resource => {
 
     return Cli.createCommand('resume', {
         description: `Resume create upload of ${resource.title}`,
-        // , dirname: __dirname
-        plugins: resource.plugins,
+        dirname: __dirname,
+        resource: resource,
         options: Object.assign({}, resource.options, options),
-        params: resource.params,
         handler: async args => {
 
             let r = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);

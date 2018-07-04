@@ -12,26 +12,23 @@ module.exports = function(resource) {
             type: 'string',
             required: true,
         },
-        project: {
-            description: 'Project name or ID',
-            type: 'string',
-            required: true,
-        },
     };
 
-    return Cli.createCommand('revoke', {
-        // dirname: __dirname,
-        description: `Revoke access rights for ${resource.title}`,
+    return Cli.createCommand('list', {
+        dirname: __dirname,
+        description: `List of access rights for ${resource.title}`,
         plugins: genericDefaults.plugins,
-        params: resource.params,
         options: Object.assign({}, resource.options, options),
-        handler: handleAccessGrant(resource),
+        handler: handleAccessList(resource),
+        resource: resource,
     });
 };
 
-function handleAccessGrant(resource) {
+function handleAccessList(resource) {
+
     return function(args) {
-        return args.helpers.api.delete(`${resource.name}/${args[resource.name]}/accessrights/${args.project}`)
+
+        return args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}/accessrights`)
             .then(result => args.helpers.sendOutput(args, result));
     };
-}
+};

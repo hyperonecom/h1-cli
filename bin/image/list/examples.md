@@ -1,11 +1,11 @@
 # List all user images
 
 ```bash
-h1 image list
+{{command_name}}
 ```
 
 # List public images recommended by platform
 
 ```bash
-h1 image list --recommended
+{{command_name}} --recommended
 ```
