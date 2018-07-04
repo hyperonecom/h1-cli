@@ -54,18 +54,17 @@ const applyDefault = (element, defaults) => {
         }
 
         Object.entries(values).forEach(([key, value]) => {
-            const option = children.options[key];
+            const option = Cli.get_commnad_option(children, key);
             if (!option) {
                 return;
             }
-
-            // console.log('defaultValue', element.name, name, key, value);
             option.defaultValue = value;
             option.required = false;
         });
     });
 };
 
+// render & inject markdown examples
 Cli.flatten(cli).forEach(node => {
     const options = node.createOptions || {};
 
