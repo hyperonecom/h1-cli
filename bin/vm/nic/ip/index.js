@@ -24,7 +24,7 @@ const resource = {
     options: Object.assign({}, defaults.options, options),
     commands: [ 'list', 'delete' ],
     transform: data => data.ip || data,
-    title: 'IP  address of network adapter',
+    title: 'IP address of network adapter',
 };
 
 
