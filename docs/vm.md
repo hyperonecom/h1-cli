@@ -22,10 +22,10 @@
     * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
     * [h1 vm nic create](#h1-vm-nic-create) - Create network adapter
     * [h1 vm nic history](#h1-vm-nic-history) - History of network adapter
-    * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP  address of network adapter
-      * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP  address of network adapter
-      * [h1 vm nic ip delete](#h1-vm-nic-ip-delete) - Delete IP  address of network adapter
-      * [h1 vm nic ip add](#h1-vm-nic-ip-add) - Add IP address to IP  address of network adapter
+    * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP address of network adapter
+      * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP address of network adapter
+      * [h1 vm nic ip delete](#h1-vm-nic-ip-delete) - Delete IP address of network adapter
+      * [h1 vm nic ip add](#h1-vm-nic-ip-add) - Add IP address to IP address of network adapter
   * [h1 vm dvd](#h1-vm-dvd) - Manage your DVD
     * [h1 vm dvd list](#h1-vm-dvd-list) - List DVD
     * [h1 vm dvd insert](#h1-vm-dvd-insert) - Insert ISO into DVD drive of DVD
@@ -423,11 +423,11 @@ History of network adapter
 
 ## h1 vm nic ip
 
-Manage your IP  address of network adapter
+Manage your IP address of network adapter
 
 ## h1 vm nic ip list
 
-List IP  address of network adapter
+List IP address of network adapter
 
 ### Syntax
 
@@ -442,7 +442,7 @@ List IP  address of network adapter
 
 ## h1 vm nic ip delete
 
-Delete IP  address of network adapter
+Delete IP address of network adapter
 
 ### Syntax
 
@@ -454,11 +454,11 @@ Delete IP  address of network adapter
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID |
-| ```--ip IP``` |  | IP  address of network adapter ID or name |
+| ```--ip IP``` |  | IP address of network adapter ID or name |
 
 ## h1 vm nic ip add
 
-Add IP address to IP  address of network adapter
+Add IP address to IP address of network adapter
 
 ### Syntax
 
