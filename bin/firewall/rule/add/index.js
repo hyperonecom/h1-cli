@@ -59,5 +59,5 @@ module.exports = (table, resource) => Cli.createCommand('add', {
             internal: [...new Set(args.internal)],
             action: args.action,
         })
-        .then(result => args.helpers.sendOutput(args, result.sort((r1, r2) => r1.priority - r2.priority))),
+        .then(result => args.helpers.sendOutput(args, result))
 });

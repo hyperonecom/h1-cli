@@ -44,25 +44,31 @@ ava.test.serial('project token life cycle', async t => {
     const name = `test-project-token-${now}`;
 
     // TODO: Remove get element via https://github.com/hyperonecom/h1-cli/issues/67
-    const token = (await tests.run(`project token add --project ${project} --name ${name}`))[0];
+    const token = await tests.run(`project token add --project ${project} --name ${name}`);
 
     const token_list = await tests.run('project token list');
     t.true(token_list.some(d => d.name === name));
+
+    const refreshed_token = await tests.run(`project token show --project ${project} --token ${name}`);
+    t.true(token._id === refreshed_token._id);
 
     await tests.remove('project token', token);
 });
 
 ava.test.serial('project token access life cycle', async t => {
-    const token = (await tests.run(`project token add --project ${project} --name test-project-token-${now}`))[0];
+    const token = await tests.run(`project token add --project ${project} --name test-project-token-${now}`);
+    const access = await tests.run(`project token access add --project ${project} --method POST --path 'vault/' --token ${token._id}`);
 
-    const access = (await tests.run(`project token access add --project ${project} --method POST --path 'vault/' --token ${token._id}`))[0];
-
-    const access_list = await tests.run(`project token access list --project ${project} --token ${token._id}`);
+    const tokenParams = `--project ${project} --token ${token._id}`;
+    const access_list = await tests.run(`project token access list ${tokenParams}`);
     t.true(access_list.some(d => d._id === access._id));
 
-    await tests.run(`project token access delete --project ${project} --token ${token._id} --access ${access._id} --yes`);
+    const refreshed_access = await tests.run(`project token access show ${tokenParams} --access ${access._id}`);
+    t.true(access._id === refreshed_access._id);
 
-    const access_list_deleted = await tests.run(`project token access list --project ${project} --token ${token._id}`);
+    await tests.run(`project token access delete ${tokenParams} --access ${access._id} --yes`);
+
+    const access_list_deleted = await tests.run(`project token access list ${tokenParams}`);
     t.false(access_list_deleted.some(d => d._id === access._id));
 
     await tests.remove('project token', token);
