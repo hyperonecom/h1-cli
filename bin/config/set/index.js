@@ -2,6 +2,7 @@
 
 const Cli = require('lib/cli');
 const config = require('lib/config');
+const logger = require('lib/logger');
 
 const getApp = args =>{
     let elem = args.$node;
@@ -22,6 +23,7 @@ const getAppCommand = (args, path) => {
 
     return elem;
 };
+
 
 module.exports = Cli.createCommand('set', {
     dirname: __dirname,
@@ -44,14 +46,21 @@ module.exports = Cli.createCommand('set', {
     handler: args => {
 
         const parts = args.key.split('.');
-        const option = parts.pop();
+        const option_name = parts.pop();
 
         const cmd = getAppCommand(args, parts.join('.'));
 
-        if (!cmd || option in cmd.options === false) {
-            return console.log('key not found');
+        if (!cmd) {
+            return console.log('command for key not found');
         }
-        if (cmd.options[option].action === 'append') {
+
+        const option = Cli.get_commnad_option(cmd, option_name);
+
+        if (!option) {
+            logger('info', `There is no valid command option for '${args.key}' currently.`);
+        }
+
+        if (option && option.action === 'append') {
             args.value = args.value.split(',');
         }
 
