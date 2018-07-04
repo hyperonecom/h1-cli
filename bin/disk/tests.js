@@ -26,7 +26,7 @@ const download = (resource, destination) => tests.run(`disk download
 ava.test.todo('disk resume');
 
 ava.test.serial('disk add & download', async t => {
-    const tmp_filename = path.join(os.tmpdir(), `cli-dcisk-${now}.vhdx`);
+    const tmp_filename = path.join(os.tmpdir(), `cli-disk-${now}.vhdx`);
     const createParams = `--name disk-test-${now} --size 1 --type ssd`;
     const fresh_disk = await tests.run(`disk create ${createParams}`);
     t.true(fresh_disk.created);
