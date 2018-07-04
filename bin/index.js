@@ -70,11 +70,11 @@ Cli.flatten(cli).forEach(node => {
     const options = node.createOptions || {};
 
     let context = {
-            command_name: Cli.get_full_name(node),
-            scope: scope
-        };
-    if (node.parent){
-        context.category_name = Cli.get_full_name(node.parent)
+        command_name: Cli.get_full_name(node),
+        scope: scope,
+    };
+    if (node.parent) {
+        context.category_name = Cli.get_full_name(node.parent);
     }
 
     if (options.resource) {
