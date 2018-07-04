@@ -59,5 +59,5 @@ module.exports = (table, resource) => Cli.createCommand('add', {
             internal: [...new Set(args.internal)],
             action: args.action,
         })
-        .then(result => args.helpers.sendOutput(args, result))
+        .then(result => args.helpers.sendOutput(args, result)),
 });
