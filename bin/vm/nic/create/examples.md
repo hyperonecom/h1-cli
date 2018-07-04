@@ -10,4 +10,4 @@
 {{command_name}} --vm test-vm2 --network my-network --type private
 ```
 
-Note (4): To list available networks use ```h1 network list```.
+Note (4): To list available networks use ```{{scope}} network list```.

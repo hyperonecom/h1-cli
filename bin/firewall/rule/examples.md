@@ -29,10 +29,10 @@
 # Delete firewall rule
 
 ```bash
-h1 firewall egress delete --firewall secure-zone-fw --rule 5b3a0750db77e0540811669e
+{{scope}} firewall egress delete --firewall secure-zone-fw --rule 5b3a0750db77e0540811669e
 ```
 
-Note (1): To identify available rules use ```h1 firewall egress list``` or ```h1 firewall ingress list```.
+Note (1): To identify available rules use ```{{scope}} firewall egress list``` or ```{{scope}} firewall ingress list```.
 Note (2): The following rules apply implicitly:
 
  - ingress has deny policy,

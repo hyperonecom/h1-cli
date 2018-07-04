@@ -4,8 +4,8 @@
 
 Note (1): It is possible to connect up to 24 disks to one virtual machine.
 
-Note (2): Use ```h1 disk list``` to list available disk or 
-          ```h1 disk create --name my-disk-0 --type ssd --size 10``` to create a new one.
+Note (2): Use ```{{scope}} disk list``` to list available disk or 
+          ```{{scope}} disk create --name my-disk-0 --type ssd --size 10``` to create a new one.
 
 Note (3): Each disk can be connected to one virtual machine at a time.
 
