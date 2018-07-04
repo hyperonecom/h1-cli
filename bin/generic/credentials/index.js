@@ -11,7 +11,8 @@ module.exports = resource => {
         commands: ['list', 'delete'],
         params: resource.params,
         options: resource.options,
-        resource: resource,
+        context: resource.context,
+        resource: resource
     });
 
     category.addChild(require('./add')(resource));

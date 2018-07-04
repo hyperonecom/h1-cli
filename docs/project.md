@@ -121,7 +121,7 @@ List project
 ### Example
 
 ```bash
-h1 project list --project 5af0bbbcb7802508ad844caa
+h1 project list
 ```
 
 ### Examples
@@ -594,7 +594,7 @@ List credentials
 ### Example
 
 ```bash
-h1 project credentials list
+h1 project credentials list --project my-project
 ```
 
 ### Examples
@@ -620,7 +620,7 @@ Delete credentials
 ### Example
 
 ```bash
-h1 project credentials delete --credentials my-credentials
+h1 project credentials delete --credentials my-credentials --project my-project
 ```
 
 ### Examples
