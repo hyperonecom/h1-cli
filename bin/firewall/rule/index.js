@@ -16,6 +16,7 @@ module.exports = (table, parent) => {
                 required: true,
             },
         },
+        url: args => `firewall/${args.firewall}/${table}`,
         title: `rule ${table} of ${parent.title}`,
     };
 
@@ -27,6 +28,8 @@ module.exports = (table, parent) => {
     category.addChild(require('./list')(table, resource));
     category.addChild(require('./add')(table, resource));
     category.addChild(require('./delete')(table, resource));
+    category.addChild(require('bin/generic/show')(resource));
+
 
     return category;
 };

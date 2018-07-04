@@ -10,12 +10,13 @@
     * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for project
     * [h1 project access list](#h1-project-access-list) - List project
   * [h1 project token](#h1-project-token) - Manage your project tokens
+    * [h1 project token show](#h1-project-token-show) - Show token
     * [h1 project token list](#h1-project-token-list) - List token
     * [h1 project token delete](#h1-project-token-delete) - Delete token
-    * [h1 project token history](#h1-project-token-history) - History of token
     * [h1 project token add](#h1-project-token-add) - Add token
     * [h1 project token access](#h1-project-token-access) - Manage your token access
       * [h1 project token access list](#h1-project-token-access-list) - List access rule
+      * [h1 project token access show](#h1-project-token-access-show) - Show access rule
       * [h1 project token access delete](#h1-project-token-access-delete) - Delete access rule
       * [h1 project token access add](#h1-project-token-access-add) - Add access rule
   * [h1 project select](#h1-project-select) - Select project context
@@ -215,6 +216,21 @@ h1 project token access delete --project 6oAoJqgyLZP4Le9UUNHrEOYP \
 H1_TOKEN="d41d8cd98f00b204e9800998ecf8427e" h1 vault snapshot --vault x --name $(date +"%s")
 ```
 
+## h1 project token show
+
+Show token
+
+### Syntax
+
+```h1 project token show | --project PROJECT --token TOKEN```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+| ```--token TOKEN``` |  | Token ID or name |
+
 ## h1 project token list
 
 List token
@@ -243,21 +259,6 @@ Delete token
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 | ```--token TOKEN``` |  | Token ID or name |
-
-## h1 project token history
-
-History of token
-
-### Syntax
-
-```h1 project token history | --token TOKEN --project PROJECT```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--token TOKEN``` |  | Token ID or name |
-| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project token add
 
@@ -292,6 +293,22 @@ List access rule
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | Token ID |
 | ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project token access show
+
+Show access rule
+
+### Syntax
+
+```h1 project token access show | --token TOKEN --project PROJECT --access ACCESS```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--token TOKEN``` |  | Token ID |
+| ```--project PROJECT``` |  | Project ID or name |
+| ```--access ACCESS``` |  | Access rule ID or name |
 
 ## h1 project token access delete
 
