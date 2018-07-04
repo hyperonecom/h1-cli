@@ -131,17 +131,13 @@ Create firewall
 
 ```h1 firewall create | --name NAME```
 
-### Examples
-
-#### Create a new firewall
+### Example
 
 ```bash
 h1 firewall create --name secure-zone-fw
 ```
 
 ### Examples
-
-#### Create a new firewall
 
 ```bash
 h1 firewall create --name secure-zone-fw
@@ -161,9 +157,7 @@ Attach firewall to a network
 
 ```h1 firewall attach | --firewall FIREWALL --network NETWORK```
 
-### Examples
-
-#### Attach firewall to network
+### Example
 
 ```bash
 h1 firewall attach --firewall secure-zone-fw --network my-safe-net
@@ -172,8 +166,6 @@ h1 firewall attach --firewall secure-zone-fw --network my-safe-net
 Hint: Use ```h1 network list``` to list available networks or ```h1 network create``` to create a new one.
 
 ### Examples
-
-#### Attach firewall to network
 
 ```bash
 h1 firewall attach --firewall secure-zone-fw --network my-safe-net
@@ -196,17 +188,13 @@ Detach firewall from network
 
 ```h1 firewall detach | --firewall FIREWALL```
 
-### Examples
-
-#### Detach firewall from network
+### Example
 
 ```bash
 h1 firewall detach --firewall secure-zone-fw
 ```
 
 ### Examples
-
-#### Detach firewall from network
 
 ```bash
 h1 firewall detach --firewall secure-zone-fw
@@ -406,9 +394,7 @@ Add rule ingress of firewall
 
 ```h1 firewall ingress delete | --firewall FIREWALL --rule RULE```
 
-### Examples
-
-#### Remove firewall rule
+### Example
 
 ```bash
 h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51dc843
@@ -417,8 +403,6 @@ h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51d
 Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to list available rules.
 
 ### Examples
-
-#### Remove firewall rule
 
 ```bash
 h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51dc843
@@ -648,9 +632,7 @@ Add rule egress of firewall
 
 ```h1 firewall egress delete | --firewall FIREWALL --rule RULE```
 
-### Examples
-
-#### Remove firewall rule
+### Example
 
 ```bash
 h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51dc843
@@ -659,8 +641,6 @@ h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51d
 Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to list available rules.
 
 ### Examples
-
-#### Remove firewall rule
 
 ```bash
 h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51dc843

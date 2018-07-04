@@ -1,6 +1,5 @@
 # TOC
 
-  * [h1 project list](#h1-project-list) - List project
   * [h1 project show](#h1-project-show) - Show project
   * [h1 project delete](#h1-project-delete) - Delete project
   * [h1 project history](#h1-project-history) - History of project
@@ -32,26 +31,6 @@
 ## h1 project
 
 Manage your project
-
-## h1 project list
-
-List project
-
-### Syntax
-
-```h1 project list | ```
-
-### Example
-
-```bash
-h1 project list
-```
-
-### Examples
-
-```bash
-h1 project list
-```
 
 ## h1 project show
 
@@ -139,17 +118,13 @@ List project
 
 ```h1 project list | [--all]```
 
-### Examples
-
-#### List projects
+### Example
 
 ```bash
 h1 project list --project 5af0bbbcb7802508ad844caa
 ```
 
 ### Examples
-
-#### List projects
 
 ```bash
 h1 project list --project 5af0bbbcb7802508ad844caa
@@ -173,17 +148,13 @@ Grant access rights for project
 
 ```h1 project access grant | --project PROJECT --email EMAIL [--role ROLE]```
 
-### Examples
-
-#### Grant access to project
+### Example
 
 ```bash
 h1 project access grant --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
 ```
 
 ### Examples
-
-#### Grant access to project
 
 ```bash
 h1 project access grant --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
@@ -210,17 +181,13 @@ Revoke access rights for project
 
 ```h1 project access revoke | --project PROJECT --email EMAIL```
 
-### Examples
-
-#### Revoke access to project
+### Example
 
 ```bash
 h1 project access revoke --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
 ```
 
 ### Examples
-
-#### Revoke access to project
 
 ```bash
 h1 project access revoke --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
@@ -417,17 +384,13 @@ Add token
 
 ```h1 project token add | --project PROJECT --name NAME```
 
-### Examples
-
-#### Create a token
+### Example
 
 ```bash
 h1 project token add --project 6oAoJqgyLZP4Le9UUNHrEOYP --name secret-token-1
 ```
 
 ### Examples
-
-#### Create a token
 
 ```bash
 h1 project token add --project 6oAoJqgyLZP4Le9UUNHrEOYP --name secret-token-1
@@ -568,17 +531,13 @@ Select project context
 
 ```h1 project select | --project PROJECT```
 
-### Examples
-
-#### Select active project
+### Example
 
 ```bash
 h1 project select --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
 
 ### Examples
-
-#### Select active project
 
 ```bash
 h1 project select --project 6oAoJqgyLZP4Le9UUNHrEOYP
@@ -598,9 +557,7 @@ Cloud limits set for project
 
 ```h1 project limit | --project PROJECT```
 
-### Examples
-
-#### Cloud limits set for project
+### Example
 
 ```bash
 h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
@@ -609,8 +566,6 @@ h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
 Contact technical support to request increase the limits.
 
 ### Examples
-
-#### Cloud limits set for project
 
 ```bash
 h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP

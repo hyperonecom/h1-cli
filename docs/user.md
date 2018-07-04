@@ -25,17 +25,13 @@ Create an account
 
 ```h1 user create | ```
 
-### Examples
-
-#### Create user
+### Example
 
 ```bash
 h1 user create
 ```
 
 ### Examples
-
-#### Create user
 
 ```bash
 h1 user create

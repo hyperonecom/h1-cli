@@ -1,5 +1,3 @@
-# Attach a disk
-
 ```bash
 h1 vm disk attach --vm test-vm --disk my-disk-0
 ```

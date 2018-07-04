@@ -132,17 +132,13 @@ Create image
 
 ```h1 image create | --name NAME --vm VM [--description DESCRIPTION]```
 
-### Examples
-
-#### Create a image
+### Example
 
 ```bash
 $ h1 image create --vm test-vm --name dev-image
 ```
 
 ### Examples
-
-#### Create a image
 
 ```bash
 $ h1 image create --vm test-vm --name dev-image
@@ -212,17 +208,13 @@ List all disks of image
 
 ```h1 image disk | --image IMAGE```
 
-### Examples
-
-#### List all disks of image
+### Example
 
 ```bash
 $ h1 image disk --image dev-image
 ```
 
 ### Examples
-
-#### List all disks of image
 
 ```bash
 $ h1 image disk --image dev-image

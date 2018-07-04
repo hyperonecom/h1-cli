@@ -185,9 +185,7 @@ Create Vault
 
 ```h1 vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD]```
 
-### Examples
-
-#### Create a Vault
+### Example
 
 ```bash
 h1 vault create --name my-vault --size 10 --ssh my-key
@@ -196,8 +194,6 @@ h1 vault create --name my-vault --size 10 --ssh my-key
 Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
 
 ### Examples
-
-#### Create a Vault
 
 ```bash
 h1 vault create --name my-vault --size 10 --ssh my-key
@@ -288,17 +284,13 @@ Add credential to Vault
 
 ```h1 vault credential cert add | --vault VAULT --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE]```
 
-### Examples
-
-#### Add SSH key to Vault
+### Example
 
 ```bash
 h1 vault credential cert add --vault x --name my-key --sshkey Dell-Home
 ```
 
 ### Examples
-
-#### Add SSH key to Vault
 
 ```bash
 h1 vault credential cert add --vault x --name my-key --sshkey Dell-Home
@@ -383,17 +375,13 @@ Add password to Vault
 
 ```h1 vault credential password add | --vault VAULT --name NAME --password PASSWORD```
 
-### Examples
-
-#### Add password to Vault
+### Example
 
 ```bash
 h1 vault credential password add --name my-pass --password secret-password --vault my-vault
 ```
 
 ### Examples
-
-#### Add password to Vault
 
 ```bash
 h1 vault credential password add --name my-pass --password secret-password --vault my-vault
@@ -415,9 +403,7 @@ Connect to Vault using SSH
 
 ```h1 vault ssh | --vault VAULT```
 
-### Examples
-
-#### Connect to Vault using SSH
+### Example
 
 ```bash
 sh1 vault ssh --vault x
@@ -426,8 +412,6 @@ sh1 vault ssh --vault x
 Note: You need valid credentials to access Vault any way.
 
 ### Examples
-
-#### Connect to Vault using SSH
 
 ```bash
 sh1 vault ssh --vault x

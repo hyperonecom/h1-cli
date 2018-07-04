@@ -239,17 +239,13 @@ Open virtual machine console in web-browser
 
 ```h1 vm console | --vm VM```
 
-### Examples
-
-#### Open virtual machine console in web-browser
+### Example
 
 ```bash
 h1 vm console --vm test-vm
 ```
 
 ### Examples
-
-#### Open virtual machine console in web-browser
 
 ```bash
 h1 vm console --vm test-vm
@@ -475,9 +471,7 @@ Attach disk to disk
 
 ```h1 vm disk attach | --vm VM --disk DISK```
 
-### Examples
-
-#### Attach a disk
+### Example
 
 ```bash
 h1 vm disk attach --vm test-vm --disk my-disk-0
@@ -494,8 +488,6 @@ Note (4): Instead of adding a new disk, we suggest considering resize of availab
           This process can also be done on-line up to 1TB for each disk.
 
 ### Examples
-
-#### Attach a disk
 
 ```bash
 h1 vm disk attach --vm test-vm --disk my-disk-0
@@ -526,17 +518,13 @@ Detach disk from disk
 
 ```h1 vm disk detach | --vm VM --disk DISK```
 
-### Examples
-
-#### Detach a disk
+### Example
 
 ```bash
 h1 vm disk detach --vm test-vm --disk my-disk-0
 ```
 
 ### Examples
-
-#### Detach a disk
 
 ```bash
 h1 vm disk detach --vm test-vm --disk my-disk-0
@@ -867,9 +855,7 @@ Insert ISO into DVD drive of DVD
 
 ```h1 vm dvd insert | --vm VM --iso ISO```
 
-### Examples
-
-#### Insert a DVD
+### Example
 
 ```bash
 h1 vm dvd insert --vm test-vm --iso ubuntu-live
@@ -878,8 +864,6 @@ h1 vm dvd insert --vm test-vm --iso ubuntu-live
 Note: Use ```h1 iso list``` to list available ISO or ```h1 iso create``` to create a new one.
 
 ### Examples
-
-#### Insert a DVD
 
 ```bash
 h1 vm dvd insert --vm test-vm --iso ubuntu-live
@@ -902,17 +886,13 @@ Eject ISO from DVD drive of DVD
 
 ```h1 vm dvd eject | --vm VM```
 
-### Examples
-
-#### Eject a DVD
+### Example
 
 ```bash
 h1 vm dvd eject --vm test-vm
 ```
 
 ### Examples
-
-#### Eject a DVD
 
 ```bash
 h1 vm dvd eject --vm test-vm
@@ -962,17 +942,13 @@ Add a tag to Tag of virtual machine
 
 ```h1 vm tag add | --vm VM --tag TAG [--tag TAG ...]```
 
-### Examples
-
-#### Add tag to virtual machine
+### Example
 
 ```bash
 h1 vm tag add --vm test-vm --tag prod=true
 ```
 
 ### Examples
-
-#### Add tag to virtual machine
 
 ```bash
 h1 vm tag add --vm test-vm --tag prod=true
@@ -993,17 +969,13 @@ Add a tag of Tag of virtual machine
 
 ```h1 vm tag delete | --tag TAG --vm VM```
 
-### Examples
-
-#### Remove a tag
+### Example
 
 ```bash
 h1 vm tag delete --vm test-vm --tag prod
 ```
 
 ### Examples
-
-#### Remove a tag
 
 ```bash
 h1 vm tag delete --vm test-vm --tag prod
@@ -1111,17 +1083,13 @@ Log Serial Console buffer of virtual machine
 
 ```h1 vm serialport log | --vm VM [--port PORT]```
 
-### Examples
-
-#### Get serialport log
+### Example
 
 ```bash
 h1 vm serialport log --vm test-vm
 ```
 
 ### Examples
-
-#### Get serialport log
 
 ```bash
 h1 vm serialport log --vm test-vm
@@ -1147,17 +1115,13 @@ Password reset for virtual machine
 
 ```h1 vm passwordreset | --user USER --vm VM```
 
-### Examples
-
-#### Reset password  for virtual machine
+### Example
 
 ```bash
 h1 vm passwordreset --vm test-vm2 --user root
 ```
 
 ### Examples
-
-#### Reset password  for virtual machine
 
 ```bash
 h1 vm passwordreset --vm test-vm2 --user root
@@ -1180,7 +1144,7 @@ Get live metrics of virtual machine
 
 ### Examples
 
-#### View metrics of VM
+#### View metrics of Virtual machine
 
 ```bash
 h1 vm metrics --vm test-vm2
@@ -1188,7 +1152,7 @@ h1 vm metrics --vm test-vm2
 
 ### Examples
 
-#### View metrics of VM
+#### View metrics of Virtual machine
 
 ```bash
 h1 vm metrics --vm test-vm2

@@ -184,17 +184,13 @@ Create DNS zone
 
 ```h1 dns zone create | --name NAME```
 
-### Examples
-
-#### Create a new zone
+### Example
 
 ```bash
 h1 dns zone create --name my-domain.tld
 ```
 
 ### Examples
-
-#### Create a new zone
 
 ```bash
 h1 dns zone create --name my-domain.tld
@@ -214,17 +210,13 @@ Export DNS zone
 
 ```h1 dns zone export | --zone-name ZONE-NAME```
 
-### Examples
-
-#### Export all records of zone
+### Example
 
 ```bash
 h1 dns zone export --zone-name 'my-domain.tld'
 ```
 
 ### Examples
-
-#### Export all records of zone
 
 ```bash
 h1 dns zone export --zone-name 'my-domain.tld'

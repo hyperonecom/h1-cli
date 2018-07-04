@@ -1,5 +1,3 @@
-# Attach firewall to network 
-
 ```bash
 h1 firewall attach --firewall secure-zone-fw --network my-safe-net
 ```

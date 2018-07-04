@@ -1,5 +1,3 @@
-# Create a network gateway
-
 ```bash
 h1 netgw create --name my-netgw --ip 62.181.8.21
 ```

@@ -1,5 +1,3 @@
-# Cloud limits set for project
-
 ```bash
 h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```

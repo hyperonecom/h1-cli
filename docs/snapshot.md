@@ -147,17 +147,13 @@ Create a snapshot of Vault
 
 ```h1 snapshot create | --vault VAULT --name NAME```
 
-### Examples
-
-#### Perform a snapshot of a Vault
+### Example
 
 ```bash
 h1 snapshot create --vault my-vault --name
 ```
 
 ### Examples
-
-#### Perform a snapshot of a Vault
 
 ```bash
 h1 snapshot create --vault my-vault --name

@@ -12,17 +12,13 @@ Obtain your apiKey
 
 ```h1 login | --username USERNAME [--password PASSWORD]```
 
-### Examples
-
-#### Login
+### Example
 
 ```bash
 h1 login --username user@example.com
 ```
 
 ### Examples
-
-#### Login
 
 ```bash
 h1 login --username user@example.com

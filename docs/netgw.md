@@ -121,9 +121,7 @@ Network gateway create
 
 ```h1 netgw create | --name NAME --ip IP```
 
-### Examples
-
-#### Create a network gateway
+### Example
 
 ```bash
 h1 netgw create --name my-netgw --ip 62.181.8.21
@@ -132,8 +130,6 @@ h1 netgw create --name my-netgw --ip 62.181.8.21
 Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to create a new one.
 
 ### Examples
-
-#### Create a network gateway
 
 ```bash
 h1 netgw create --name my-netgw --ip 62.181.8.21
@@ -156,17 +152,13 @@ Network gateway detach from a network
 
 ```h1 netgw detach | --netgw NETGW```
 
-### Examples
-
-#### Detach network gateway from network
+### Example
 
 ```bash
 h1 netgw detach --netgw my-netgw
 ```
 
 ### Examples
-
-#### Detach network gateway from network
 
 ```bash
 h1 netgw detach --netgw my-netgw
@@ -186,9 +178,7 @@ Network gateway attach to a network
 
 ```h1 netgw attach | --netgw NETGW --network NETWORK```
 
-### Examples
-
-#### Attach network gateway to network
+### Example
 
 ```bash
 h1 netgw attach --netgw my-netgw --network my-safe-net
@@ -197,8 +187,6 @@ h1 netgw attach --netgw my-netgw --network my-safe-net
 Hint: Use ```h1 network list``` to list available network or ```h1 network create``` to create a new one.
 
 ### Examples
-
-#### Attach network gateway to network
 
 ```bash
 h1 netgw attach --netgw my-netgw --network my-safe-net

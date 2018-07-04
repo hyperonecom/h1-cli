@@ -150,17 +150,13 @@ Disassociate IP address
 
 ```h1 ip disassociate | --ip IP```
 
-### Examples
-
-#### Disassociate IP address
+### Example
 
 ```bash
 h1 ip disassociate --ip 62.181.8.21
 ```
 
 ### Examples
-
-#### Disassociate IP address
 
 ```bash
 h1 ip disassociate --ip 62.181.8.21
@@ -180,17 +176,13 @@ Update PTR record of IP address
 
 ```h1 ip ptr | --ip IP --value VALUE```
 
-### Examples
-
-#### Set PTR record for IP address
+### Example
 
 ```bash
 h1 ip ptr --ip 62.181.8.21 --value 'example.com'
 ```
 
 ### Examples
-
-#### Set PTR record for IP address
 
 ```bash
 h1 ip ptr --ip 62.181.8.21 --value 'example.com'
