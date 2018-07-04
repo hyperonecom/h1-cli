@@ -127,7 +127,7 @@ h1 project list
 ### Examples
 
 ```bash
-h1 project list --project 5af0bbbcb7802508ad844caa
+h1 project list
 ```
 
 ### Optional arguments
@@ -600,7 +600,7 @@ h1 project credentials list --project my-project
 ### Examples
 
 ```bash
-h1 project credentials list
+h1 project credentials list --project my-project
 ```
 
 ### Required arguments
@@ -626,7 +626,7 @@ h1 project credentials delete --credentials my-credentials --project my-project
 ### Examples
 
 ```bash
-h1 project credentials delete --credentials my-credentials
+h1 project credentials delete --credentials my-credentials --project my-project
 ```
 
 ### Required arguments
