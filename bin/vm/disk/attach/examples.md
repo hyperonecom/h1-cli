@@ -1,5 +1,5 @@
 ```bash
-h1 vm disk attach --vm test-vm --disk my-disk-0
+{{command_name}} --vm test-vm --disk my-disk-0
 ```
 
 Note (1): It is possible to connect up to 24 disks to one virtual machine.

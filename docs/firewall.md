@@ -308,32 +308,16 @@ List rule ingress of firewall
 
 ```h1 firewall ingress list | --firewall FIREWALL```
 
-### Examples
-
-#### List firewall ingress rules
+### Example
 
 ```bash
 h1 firewall ingress list --firewall secure-zone-fw
 ```
 
-#### List firewall egress rules
-
-```bash
-h1 firewall egress list --firewall secure-zone-fw
-```
-
 ### Examples
-
-#### List firewall ingress rules
 
 ```bash
 h1 firewall ingress list --firewall secure-zone-fw
-```
-
-#### List firewall egress rules
-
-```bash
-h1 firewall egress list --firewall secure-zone-fw
 ```
 
 ### Required arguments
@@ -546,29 +530,13 @@ List rule egress of firewall
 
 ```h1 firewall egress list | --firewall FIREWALL```
 
-### Examples
-
-#### List firewall ingress rules
-
-```bash
-h1 firewall ingress list --firewall secure-zone-fw
-```
-
-#### List firewall egress rules
+### Example
 
 ```bash
 h1 firewall egress list --firewall secure-zone-fw
 ```
 
 ### Examples
-
-#### List firewall ingress rules
-
-```bash
-h1 firewall ingress list --firewall secure-zone-fw
-```
-
-#### List firewall egress rules
 
 ```bash
 h1 firewall egress list --firewall secure-zone-fw

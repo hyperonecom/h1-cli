@@ -141,7 +141,7 @@ h1 image create --vm test-vm --name dev-image
 ### Examples
 
 ```bash
-$ h1 image create --vm test-vm --name dev-image
+h1 image create --vm test-vm --name dev-image
 ```
 
 ### Required arguments
@@ -217,7 +217,7 @@ h1 image disk --image dev-image
 ### Examples
 
 ```bash
-$ h1 image disk --image dev-image
+h1 image disk --image dev-image
 ```
 
 ### Required arguments

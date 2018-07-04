@@ -1,3 +1,3 @@
 ```bash
-h1 user create
+{{command_name}}
 ```

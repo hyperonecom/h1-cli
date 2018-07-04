@@ -143,7 +143,7 @@ Note (2): To identify available instance type use ```h1 service list --resource 
 Note (3): To list available SSH keys use ```h1 project credentials list``` or ```h1 user credentials list```.
 
 Note (4): To list available cloud-provided images use ```h1 image list --recommend```.
-          For them you can also ``<distro>[:<release>]``` as ID.
+          For them you can also ```<distro>[:<release>]``` as ID.
 
 #### Create a diskless virtual machine in private network
 
@@ -416,14 +416,14 @@ h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl 
 #### Set userdata for virtual machine
 
 ```bash
-echo "any-data" > data.txt
- h1 vm userdata --vm test-vm --userdata-file 'data.txt'
+$ echo "any-data" > data.txt
+$ h1 vm userdata --vm test-vm --userdata-file ./data.txt
 ```
 
  # Read userdata for virtual machine
  
 ```bash
-$ h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl base64 -d
+h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl base64 -d
 ```
 
 ### Required arguments
@@ -546,7 +546,7 @@ Manage your network adapter
 #### Get IP address of virtual machine
 
 ```bash
-h1 vm nic list --vm test-vm --output json --query "[].{ip:join(',', ip[].address)}" --output tsv
+h1 vm nicl list --vm test-vm --output json --query "[].{ip:join(',', ip[].address)}" --output tsv
 ```
 
 ### Examples
@@ -554,7 +554,7 @@ h1 vm nic list --vm test-vm --output json --query "[].{ip:join(',', ip[].address
 #### Get IP address of virtual machine
 
 ```bash
-h1 vm nic list --vm test-vm --output json --query "[].{ip:join(',', ip[].address)}" --output tsv
+h1 vm nicl list --vm test-vm --output json --query "[].{ip:join(',', ip[].address)}" --output tsv
 ```
 
 ## h1 vm nic list
@@ -1118,13 +1118,13 @@ Password reset for virtual machine
 ### Example
 
 ```bash
-h1 vm passwordreset --vm test-vm2 --user root
+h1 vm passwordreset --vm test-vm --user root
 ```
 
 ### Examples
 
 ```bash
-h1 vm passwordreset --vm test-vm2 --user root
+h1 vm passwordreset --vm test-vm --user root
 ```
 
 ### Required arguments
@@ -1149,8 +1149,6 @@ h1 vm metrics --vm test-vm2
 ```
 
 ### Examples
-
-#### View metrics of Virtual machine
 
 ```bash
 h1 vm metrics --vm test-vm2

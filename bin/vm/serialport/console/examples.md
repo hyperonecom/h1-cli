@@ -1,3 +1,3 @@
 ```bash
-h1 vm serialport console --vm my-vm
+{{command_name}} --vm my-vm
 ```

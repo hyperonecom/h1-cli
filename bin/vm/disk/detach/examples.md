@@ -1,3 +1,3 @@
 ```bash
-h1 vm disk detach --vm test-vm --disk my-disk-0
+{{command_name}} --vm test-vm --disk my-disk-0
 ```

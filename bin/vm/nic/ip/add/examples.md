@@ -1,7 +1,7 @@
 # Add IP address to network adapter
 
 ```bash
-h1 vm nic ip add --vm test-vm2 --nic 5b1f28ffdadb705edd76b411 --ip 5784e97be2627505227b584c
+{{command_name}} --vm test-vm2 --nic 5b1f28ffdadb705edd76b411 --ip 5784e97be2627505227b584c
 ```
 
 Note: Use ```h1 vm nic list --vm test-vm2``` to identify network adapter.

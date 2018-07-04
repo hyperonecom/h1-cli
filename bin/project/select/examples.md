@@ -1,3 +1,3 @@
 ```bash
-h1 project select --project 6oAoJqgyLZP4Le9UUNHrEOYP
+{{command_name}} --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```

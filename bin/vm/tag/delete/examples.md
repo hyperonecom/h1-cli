@@ -1,3 +1,3 @@
 ```bash
-h1 vm tag delete --vm test-vm --tag prod
+{{command_name}} --vm test-vm --tag prod
 ```

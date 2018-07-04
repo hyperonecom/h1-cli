@@ -150,13 +150,13 @@ Create a snapshot of Vault
 ### Example
 
 ```bash
-h1 snapshot create --vault my-vault --name
+h1 snapshot create --vault my-vault --name my-new-snapshot
 ```
 
 ### Examples
 
 ```bash
-h1 snapshot create --vault my-vault --name
+h1 snapshot create --vault my-vault --name my-new-snapshot
 ```
 
 ### Required arguments

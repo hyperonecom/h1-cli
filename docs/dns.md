@@ -344,7 +344,7 @@ h1 dns record-set a add-record --zone-name 'my-domain.tld' --name subdomain --va
 ### Examples
 
 ```bash
-$ h1 dns record-set a add-record --zone-name 'my-domain.tld' --name subdomain --value '8.8.3.3'
+h1 dns record-set a add-record --zone-name 'my-domain.tld' --name subdomain --value '8.8.3.3'
 ```
 
 ### Required arguments
@@ -495,7 +495,7 @@ h1 dns record-set cname add-record --zone-name 'my-domain.tld' --name subdomain 
 ### Examples
 
 ```bash
-$ h1 dns record-set cname add-record --zone-name 'my-domain.tld' --name subdomain --value 'cname-example.com'
+h1 dns record-set cname add-record --zone-name 'my-domain.tld' --name subdomain --value 'cname-example.com'
 ```
 
 ### Required arguments
@@ -646,7 +646,7 @@ h1 dns record-set txt add-record --zone-name 'my-domain.tld' --name subdomain --
 ### Examples
 
 ```bash
-$ h1 dns record-set txt add-record --zone-name 'my-domain.tld' --name subdomain --value '"some-text-value"'
+h1 dns record-set txt add-record --zone-name 'my-domain.tld' --name subdomain --value '"some-text-value"'
 ```
 
 ### Required arguments
@@ -797,7 +797,7 @@ h1 dns record-set mx add-record --zone-name 'my-domain.tld' --name subdomain --v
 ### Examples
 
 ```bash
-$ h1 dns record-set mx add-record --zone-name 'my-domain.tld' --name subdomain --value '10 mail.example.com'
+h1 dns record-set mx add-record --zone-name 'my-domain.tld' --name subdomain --value '10 mail.example.com'
 ```
 
 ### Required arguments
@@ -948,7 +948,7 @@ h1 dns record-set ns add-record --zone-name 'my-domain.tld' --name subdomain --v
 ### Examples
 
 ```bash
-$ h1 dns record-set ns add-record --zone-name 'my-domain.tld' --name subdomain --value 'ns1.example.com'
+h1 dns record-set ns add-record --zone-name 'my-domain.tld' --name subdomain --value 'ns1.example.com'
 ```
 
 ### Required arguments
@@ -1099,7 +1099,7 @@ h1 dns record-set srv add-record --zone-name 'my-domain.tld' --name subdomain --
 ### Examples
 
 ```bash
-$ h1 dns record-set srv add-record --zone-name 'my-domain.tld' --name subdomain --value '10 5 11 s1.example.com.'
+h1 dns record-set srv add-record --zone-name 'my-domain.tld' --name subdomain --value '10 5 11 s1.example.com.'
 ```
 
 ### Required arguments

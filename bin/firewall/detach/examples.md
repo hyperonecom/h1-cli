@@ -1,3 +1,3 @@
 ```bash
-h1 firewall detach --firewall secure-zone-fw
+{{command_name}} --firewall secure-zone-fw
 ```

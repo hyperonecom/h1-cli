@@ -424,7 +424,7 @@ h1 project token access list --project my-project --token my-token --access my-a
 ### Examples
 
 ```bash
-h1 project token access list --project my-project --token my-token --access my-access
+h1 project token access list --project my-project --token my-token --access my-access-id
 ```
 
 ### Required arguments
@@ -479,7 +479,7 @@ h1 project token access delete --access my-access --project my-project --token m
 ### Examples
 
 ```bash
-h1 project token access delete --access my-access --project my-project --token my-token --access my-access
+h1 project token access delete --access my-access --project my-project --token my-token --access my-access-id
 ```
 
 ### Required arguments

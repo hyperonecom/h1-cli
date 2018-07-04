@@ -1,3 +1,3 @@
 ```bash
-h1 firewall create --name secure-zone-fw
+{{command_name}} --name secure-zone-fw
 ```

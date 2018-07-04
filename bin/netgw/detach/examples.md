@@ -1,3 +1,3 @@
 ```bash
-h1 netgw detach --netgw my-netgw
+{{command_name}} --netgw my-netgw
 ```

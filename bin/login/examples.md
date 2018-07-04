@@ -1,3 +1,3 @@
 ```bash
-h1 login --username user@example.com
+{{command_name}} --username user@example.com
 ```

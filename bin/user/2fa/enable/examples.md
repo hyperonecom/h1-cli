@@ -1,7 +1,7 @@
 # Enable Time-Based One-Time Password (TOTP) factor
 
 ```bash
-h1 user 2fa enable
+{{command_name}}
 ```
 
 After scanning image in [Google Authenticator] or [Authy] applications, you will receive a 
@@ -13,5 +13,5 @@ token that will allow you to login to the site.
 # Enable One-time authorization Codes (OTAC) factor
 
 ```bash
-h1 user 2fa enable --type otac
+{{command_name}} --type otac
 ```

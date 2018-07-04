@@ -1,7 +1,7 @@
 # Create a Ubuntu virtual machine
 
 ```bash
-h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh
+{{command_name}} --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh
 ```
 
 Note (1): To identify available disk type use ```h1 service list --resource disk``` .
@@ -16,7 +16,7 @@ Note (4): To list available cloud-provided images use ```h1 image list --recomme
 # Create a diskless virtual machine in private network
 
 ```bash
-h1 vm create --name test-vm --type a1.nano --network my-network --ssh so-wp
+{{command_name}} --name test-vm --type a1.nano --network my-network --ssh so-wp
 ```
 
 Note: You can mount ISO disk and provide stateless services. 

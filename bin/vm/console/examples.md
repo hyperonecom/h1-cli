@@ -1,3 +1,3 @@
 ```bash
-h1 vm console --vm test-vm
+{{command_name}} --vm test-vm
 ```
