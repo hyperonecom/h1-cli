@@ -12,7 +12,7 @@ module.exports = resource => {
         params: resource.params,
         options: resource.options,
         context: resource.context,
-        resource: resource
+        resource: resource,
     });
 
     category.addChild(require('./add')(resource));
