@@ -1,14 +1,16 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
 module.exports = function(resource) {
 
     const commands =  ['grant', 'revoke', 'list'];
 
     const category = Cli.createCategory('access', {
-        description: `Manage your ${resource.name.toUpperCase()} Access Rights`,
-        defaultQuery: '[].{tenant:@}'
+        description: `Manage your ${resource.title} access rights`,
+        defaultQuery: '[].{tenant:@}',
+        context: resource.context,
+        resource: resource,
     });
 
     commands.forEach(cmd => category.addChild(require(`./${cmd}`)(resource)));

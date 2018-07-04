@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    build: .
+    environment:
+      SMTP_URL: 'smtp://mailhog:1025'
+      H1_USER: ${H1_USER}
+      H1_PASSWORD: ${H1_PASSWORD}
+      H1_PROJECT: ${H1_PROJECT}
+      MONITORING_EMAILS: 'fail@example.com'
+      MONITORING_SUCCESS_EMAILS: 'success@example.com'
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
+    expose:
+      - "1025/tcp"

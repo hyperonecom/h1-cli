@@ -4,13 +4,18 @@
   "description": "HyperOne Command Line Interface",
   "license": "MIT",
   "author": "",
-  "main": "bin/h1",
+  "main": "bin/h1.js",
   "bin": {
-    "h1": "./bin/h1"
+    "h1": "./bin/h1.js",
+    "rbx": "./bin/rbx.js"
   },
   "scripts": {
-    "start": "./bin/h1",
-    "build": "pkg --out-path ./dist ."
+    "start": "./bin/h1.js",
+    "build": "pkg --out-path ./dist .",
+    "lint": "eslint .",
+    "docs": "node scripts/print_docs.js docs/",
+    "docs_coverage": "node scripts/print_docs_coverage.js",
+    "test": "npx ava --verbose"
   },
   "dependencies": {
     "chalk": "^2.1.0",
@@ -18,11 +23,16 @@
     "inquirer": "^1.2.3",
     "jmespath": "^0.15.0",
     "lodash": "^4.17.5",
+    "marked": "^0.4.0",
+    "marked-terminal": "^3.0.0",
     "node-rsa": "^0.4.2",
     "opn": "^5.3.0",
     "progress": "^2.0.0",
-    "rbx-vhdx": "git+ssh://git@bitbucket.org/rbxcom/rbx-vhdx.git",
+    "qrcode": "^1.2.0",
+    "rbx-vhdx": "https://bitbucket.org/rbxcom/rbx-vhdx/get/master.tar.gz",
     "request": "^2.85.0",
+    "shell-quote": "^1.6.1",
+    "speakeasy": "^2.0.0",
     "ssh2": "^0.6.0",
     "structured-cli": "^1.0.5",
     "superagent": "^2.3.0",
@@ -36,15 +46,28 @@
       "lib/**/*.js",
       "bin/**/*.js"
     ],
+    "assets": [
+      "bin/**/*.md"
+    ],
     "targets": [
-      "node8-alpine",
-      "node8-linux",
-      "node8-macos",
-      "node8-win"
+      "node10-alpine",
+      "node10-linux",
+      "node10-macos",
+      "node10-win"
     ]
   },
   "keywords": [],
   "devDependencies": {
-    "pkg": "^4.3.1"
+    "ava": "1.0.0-beta.5.1",
+    "eslint": "^4.19.1",
+    "nodemailer": "^4.6.7",
+    "pkg": "^4.3.3"
+  },
+  "ava": {
+    "files": [
+      "bin/**/tests.js",
+      "lib/**/tests.js",
+      "!lib/tests.js"
+    ]
   }
 }

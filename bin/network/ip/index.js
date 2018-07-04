@@ -4,19 +4,25 @@ const genericResource = require('bin/generic');
 const defaults = require('bin/generic/defaults');
 
 const options = {
-    'network-id': {
-        description: 'network id'
-      , type: 'string'
-      , required: true
-    }
+    network: {
+        description: 'Network name or ID',
+        type: 'string',
+        required: true,
+    },
 };
 
 const resource = {
-    name: 'ip'
-  , defaultQuery: require('bin/ip').config.defaultQuery
-  , url: args => `network/${args['network-id']}/ip`
-  , plugins: defaults.plugins
-  , options: options
+    name: 'ip',
+    defaultQuery: require('bin/ip').config.defaultQuery,
+    url: args => `network/${args.network}/ip`,
+    plugins: defaults.plugins,
+    commands: ['list', 'show', 'delete'],
+    options: options,
+    title: 'IP address',
+    context: {
+        showParams: '--network my-network',
+        deleteParams: '--network my-network',
+    },
 };
 
 const category = genericResource(resource);

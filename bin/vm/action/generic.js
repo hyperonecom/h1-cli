@@ -1,42 +1,24 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
-const options = {};
+const text = require('lib/text');
 
-const params = {
-    id: {
-        description: 'VM id',
-        type: 'string',
-        required: true
-    }
-};
-
-
-module.exports = function(action) {
-    return Cli.createCommand(action, {
-        description: `VM action: ${action}`,
-        plugins: [
-            require('../../_plugins/loginRequired'),
-            require('../../_plugins/tenantRequired'),
-            require('../../_plugins/outputFormat'),
-            require('../../_plugins/api'),
-            require('../../_plugins/interactiveOptions')
-        ],
-        options: options,
-        params: params,
-        handler: genericVMAction(action)
-    });
-};
+module.exports = (resource, action) => Cli.createCommand(action, {
+    description: `${text.toTitleCase(action)} ${resource.title}`,
+    plugins: resource.plugins,
+    options: resource.options,
+    params: resource.params,
+    handler: genericVMAction(action),
+    dirname: `${__dirname}/${action}`,
+});
 
 function genericVMAction(action) {
 
-    return function(args) {
+    return function (args) {
         return args.helpers.api.post(`vm/${args.id}/actions`, {
-            name: action
+            name: action,
         })
-        .then(result => args.helpers.sendOutput(args, result));
+            .then(result => args.helpers.sendOutput(args, result));
     };
-
 }
-

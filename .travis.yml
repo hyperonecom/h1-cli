@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "10"
+script:
+  - npm run lint
+  - npm run docs
+  - git status
+  - git diff HEAD
+  - test -z "$(git status --porcelain docs)"
+  - scripts/markown_lint.sh
+  - npm run build
+  - dist/h1-cli-linux --help

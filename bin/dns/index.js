@@ -1,13 +1,15 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
 const resource = {
-    name: 'dns'
+    name: 'dns',
+    title: 'DNS',
 };
 
-const category = Cli.createCategory(resource.name, {
-    description: `Manage your ${resource.name.toUpperCase()}`
+const category = Cli.createCategory(resource.name.toLowerCase(), {
+    description: `Manage your ${resource.title} - zones and records`,
+    dirname: __dirname,
 });
 
 category.addChild(require('./zone'));

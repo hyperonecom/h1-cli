@@ -1,28 +1,35 @@
 'use strict';
 
-const Cli = require('structured-cli');
+const Cli = require('lib/cli');
 
 module.exports = (table, parent) => {
 
     const resource = {
-        name: table
+        name: table,
         // eslint-disable-next-line quotes
-      , defaultQuery: `[].{id:_id, name:name, priority:priority, action: action, filter:join(',',filter), external:join(',',external), internal:join(',',internal)}`
-      , plugins: parent.plugins
-      , params: {
-            id: {
-                description: 'Resource identifier'
-              , type: 'string'
-              , required: true
-            }
-        }
+        defaultQuery: `[].{id:_id, name:name, priority:priority, action: action, filter:join(',',filter), external:join(',',external), internal:join(',',internal)}`,
+        plugins: parent.plugins,
+        options: {
+            firewall: {
+                description: 'Firewall ID or name',
+                type: 'string',
+                required: true,
+            },
+        },
+        url: args => `firewall/${args.firewall}/${table}`,
+        title: `rule ${table} of ${parent.title}`,
     };
 
-    const category = Cli.createCategory(table, resource);
+    const category = Cli.createCategory(table, Object.assign({}, resource, {
+        description: `Manage ${table} rules of ${parent.title}`,
+        dirname: __dirname,
+    }));
 
     category.addChild(require('./list')(table, resource));
     category.addChild(require('./add')(table, resource));
-    category.addChild(require('./remove')(table, resource));
+    category.addChild(require('./delete')(table, resource));
+    category.addChild(require('bin/generic/show')(resource));
+
 
     return category;
 };

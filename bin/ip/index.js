@@ -4,14 +4,16 @@ const genericResource = require('bin/generic');
 
 const resource = {
     name: 'ip',
-    defaultQuery: '[].{id:_id,address:address,mac:mac,ptrRecord:ptrRecord,network:network,processing:processing,fip:associated.fip,state:state}'
+    title: 'IP address',
+    defaultQuery: '[].{id:_id,address:address,mac:mac,ptrRecord:ptrRecord,network:network,processing:processing,fip:associated.fip,state:state}',
+    commands: ['list', 'show', 'delete'],
 };
 
 const category = genericResource(resource);
 
-category.addChild(require('./disassociate'));
-category.addChild(require('./associate'));
-category.addChild(require('./create'));
-category.addChild(require('./ptr'));
+category.addChild(require('./create')(resource));
+category.addChild(require('./associate')(resource));
+category.addChild(require('./disassociate')(resource));
+category.addChild(require('./ptr')(resource));
 
 module.exports = category;
