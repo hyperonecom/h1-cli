@@ -35,7 +35,8 @@ const handler = async args => {
         process.stdin.setRawMode(true);
     }
 
-    const ws = await args.helpers.api.getWS(`/vm/${args.vm}/serialport/${args.port}`);
+    const vm = await args.helpers.api.get(`vm/${args.vm}`);
+    const ws = await args.helpers.api.getWS(`/vm/${vm._id}/serialport/${args.port}`);
 
     return new Promise((resolve, reject) => {
         console.log('exit using: ~. (tilde, followed by a period)');
