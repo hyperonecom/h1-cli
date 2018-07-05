@@ -69,8 +69,6 @@ module.exports = resource => Cli.createCommand('create', {
 
         let disk = await args.helpers.api.post(resource.url(args), body);
 
-        await new Promise(r => setTimeout(r, 10000)); //TODO use websocket
-
         if (args['source-file']) {
             const ws = await args.helpers.api.wsUpload(`disk/${disk._id}/upload`);
 
