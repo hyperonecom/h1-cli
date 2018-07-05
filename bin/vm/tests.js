@@ -120,7 +120,7 @@ ava.test.serial('vm nic life cycle', async t => {
     await tests.remove('network', network);
 });
 
-const subresourcLifeCycle = (type, options) => async t => {
+const subresourceLifeCycle = async (t, type, options) => {
     const actions = [
         {name: 'add', result: true},
         {name: 'delete', result: false, params: options.deleteParams || ''},
@@ -142,12 +142,12 @@ ava.test.serial('vm nic ip life cycle', async t => {
     const ip = await tests.run('ip create');
     const nic_list = await tests.run(`vm nic list --vm ${vm._id}`);
 
-    await subresourcLifeCycle('vm nic ip', {
+    await subresourceLifeCycle(t, 'vm nic ip', {
         commonParams: `--vm ${vm._id} --nic ${nic_list[0]._id}`,
         actionParams: `--ip ${ip.name}`,
         deleteParams: '--yes',
         test_fn: x => x.address === ip.address,
-    })(t);
+    });
 
     await tests.remove('ip', ip);
     await common.cleanup();
@@ -173,12 +173,12 @@ ava.test.serial('vm tag', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params}`);
 
-    await subresourcLifeCycle('vm tag', {
+    await subresourceLifeCycle(t, 'vm tag', {
         commonParams: `--vm ${vm._id}`,
         actionParams: '--tag PROD',
         entries: true,
         test_fn: ([k]) => k === 'PROD',
-    })(t);
+    });
 
     await common.cleanup();
 });
