@@ -27,33 +27,35 @@ module.exports = resource => Cli.createCommand('console', {
     dirname: __dirname,
 });
 
-const handler = args => {
+const handler = async args => {
 
     readline.emitKeypressEvents(process.stdin);
+
     if (process.stdin.isTTY) {
         process.stdin.setRawMode(true);
     }
 
-    return args.helpers.api.getWS(`/vm/${args.id}/serialport/${args.port}`)
-        .then(ws => new Promise((resolve, reject) => {
-            console.log('exit using: ~. (tilde, followed by a period)');
+    const ws = await args.helpers.api.getWS(`/vm/${args.vm}/serialport/${args.port}`);
 
-            let lastRaw = {};
-            process.stdin.on('keypress', (data, raw) => {
-                if (lastRaw.sequence === '~' && raw.sequence === '.') {
-                    return resolve();
-                }
+    return new Promise((resolve, reject) => {
+        console.log('exit using: ~. (tilde, followed by a period)');
 
-                lastRaw = raw;
+        let lastRaw = {};
+        process.stdin.on('keypress', (data, raw) => {
+            if (lastRaw.sequence === '~' && raw.sequence === '.') {
+                return resolve();
+            }
 
-                ws.send(raw.sequence);
-            });
+            lastRaw = raw;
 
-            ws.on('message', msg => {
-                process.stdout.write(msg);
-            });
+            ws.send(raw.sequence);
+        });
 
-            ws.on('close', resolve);
-            ws.on('error', reject);
-        }));
+        ws.on('message', msg => {
+            process.stdout.write(msg);
+        });
+
+        ws.on('close', resolve);
+        ws.on('error', reject);
+    });
 };
