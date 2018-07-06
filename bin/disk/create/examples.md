@@ -4,7 +4,8 @@
 {{command_name}} --name db-disk --type ssd --size 10
 ```
 
-# Create disk from .vkdx file
+# Create disk from .vhdx file
 
-TODO
-
+```bash
+{{command_name}} --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
+```

@@ -170,9 +170,11 @@ Create disk
 h1 disk create --name db-disk --type ssd --size 10
 ```
 
-#### Create disk from .vkdx file
+#### Create disk from .vhdx file
 
-TODO
+```bash
+h1 disk create --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
+```
 
 ### Required arguments
 
