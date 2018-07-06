@@ -69,7 +69,12 @@ const sendMail = async (config, success, report) => {
             subject: success ? 'Monitoring success report' : 'Monitoring failed report',
             text: report,
         });
-        console.log('Error mail send!');
+
+        if (success) {
+            console.log('Success mail send!');
+        } else {
+            console.log('Error mail send!');
+        }
     }
 
     await smtpTransport.close();
