@@ -1,7 +1,9 @@
 version: '3'
 services:
   web:
-    build: .
+    build:
+      context: ..
+      dockerfile: monitoring/Dockerfile
     environment:
       SMTP_URL: 'smtp://mailhog:1025'
       H1_USER: ${H1_USER}

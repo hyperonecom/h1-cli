@@ -49,7 +49,7 @@ const getConfig = () => {
             defaultValue: 60 * 30,
         },
     };
-    // TODO: How to write it in clear way object -> list of properties -> object?
+
     const config = {};
     Object.entries(specs).forEach(([name, options]) => {
         config[name] = getConfigValue(name, options);
