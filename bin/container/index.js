@@ -23,13 +23,18 @@ const childDefaults = Object.assign({}, resource, {
         },
     },
     url: args => `${resource.url(args)}/${args.id}`,
+    dirname: `${__dirname}/action`,
+});
+
+const actionDefault = Object.assign({}, childDefaults, {
+    dirname: `${__dirname}/action`,
 });
 
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
-category.addChild(genericAction(childDefaults, 'stop'));
-category.addChild(genericAction(childDefaults, 'start'));
+category.addChild(genericAction(actionDefault, 'stop'));
+category.addChild(genericAction(actionDefault, 'start'));
 category.addChild(require('./logs')(childDefaults));
 
 module.exports = category;
