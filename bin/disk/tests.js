@@ -36,10 +36,9 @@ ava.test.serial('disk add & download', async t => {
 
     await tests.remove('disk', fresh_disk);
 
-    // TODO: Fix https://github.com/hyperonecom/h1-cli/issues/44 to retest upload of disk
-    // const recreated_disk = await tests.run(`disk create ${createParams} --no-progress --source-file ${tmp_filename}`);
-    // t.true(recreated_disk.created);
-    // await tests.remove('disk', recreated_disk);
+    const recreated_disk = await tests.run(`disk create ${createParams} --no-progress --source-file ${tmp_filename}`);
+    t.true(recreated_disk.created);
+    await tests.remove('disk', recreated_disk);
 
     await fsPromises.unlink(tmp_filename);
     // TODO: Make the test that the re-downloaded disk is identical.
