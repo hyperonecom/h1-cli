@@ -267,4 +267,4 @@ Jeśli napotkasz jakiekolwiek błędy z narzędziem, proszę zgłosić problem p
 [Releases]: https://github.com/hyperonecom/h1-cli/releases/latest
 [repozytorium]: https://github.com/hyperonecom/h1-cli
 [Issues]: https://github.com/hyperonecom/h1-cli/issues
-[referencyjna dokumentacja]: docs/README.md
+[referencyjna dokumentacja]: docs/index.md
