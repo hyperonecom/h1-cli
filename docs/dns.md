@@ -76,30 +76,6 @@ h1 dns record-set mx create --name '.' --zone-name 'my-domain.tld' \
     --value "1 aspmx.l.google.com."
 ```
 
-### Examples
-
-#### Create a new zone
-
-```bash
-h1 dns zone create --name my-domain.tld
-```
-
-#### Create A record at top of domain
-
-```bash
-h1 dns record-set a create --name '.' --zone-name 'my-domain.tld' --value 127.0.0.1
-```
-
-#### Create MX record for Google Suite
-
-```bash
-h1 dns record-set mx create --name '.' --zone-name 'my-domain.tld' \
-    --value "10 alt1.aspmx.l.google.com." \
-    --value "20 aspmx2.googlemail.com." \
-    --value "10 alt2.aspmx.l.google.com." \
-    --value "1 aspmx.l.google.com."
-```
-
 ## h1 dns zone
 
 Manage your DNS zone
@@ -118,12 +94,6 @@ List DNS zone
 h1 dns zone list
 ```
 
-### Examples
-
-```bash
-h1 dns zone list
-```
-
 ## h1 dns zone show
 
 Show DNS zone
@@ -133,12 +103,6 @@ Show DNS zone
 ```h1 dns zone show | --zone ZONE```
 
 ### Example
-
-```bash
-h1 dns zone show --zone my-zone
-```
-
-### Examples
 
 ```bash
 h1 dns zone show --zone my-zone
@@ -164,12 +128,6 @@ Delete DNS zone
 h1 dns zone delete --zone my-zone
 ```
 
-### Examples
-
-```bash
-h1 dns zone delete --zone my-zone
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -190,12 +148,6 @@ Create DNS zone
 h1 dns zone create --name my-domain.tld
 ```
 
-### Examples
-
-```bash
-h1 dns zone create --name my-domain.tld
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -211,12 +163,6 @@ Export DNS zone
 ```h1 dns zone export | --zone-name ZONE-NAME```
 
 ### Example
-
-```bash
-h1 dns zone export --zone-name 'my-domain.tld'
-```
-
-### Examples
 
 ```bash
 h1 dns zone export --zone-name 'my-domain.tld'
@@ -250,12 +196,6 @@ List Record A
 h1 dns record-set a list --zone my-zone
 ```
 
-### Examples
-
-```bash
-h1 dns record-set a list --zone my-zone
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -271,14 +211,6 @@ Create record-set
 ```h1 dns record-set a create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Example
-
-```bash
-h1 dns record-set a create --name '.' --zone-name 'my-domain.tld' --value '8.8.3.3'
-```
-
-Note (1): Use ```--name '.'``` to put record at top of the zone.
-
-### Examples
 
 ```bash
 h1 dns record-set a create --name '.' --zone-name 'my-domain.tld' --value '8.8.3.3'
@@ -314,12 +246,6 @@ Delete record-set
 h1 dns record-set a delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Examples
-
-```bash
-h1 dns record-set a delete --zone-name 'my-domain.tld' --name www
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -336,12 +262,6 @@ Add record
 ```h1 dns record-set a add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
 
 ### Example
-
-```bash
-h1 dns record-set a add-record --zone-name 'my-domain.tld' --name subdomain --value '8.8.3.3'
-```
-
-### Examples
 
 ```bash
 h1 dns record-set a add-record --zone-name 'my-domain.tld' --name subdomain --value '8.8.3.3'
@@ -364,12 +284,6 @@ Delete record
 ```h1 dns record-set a delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
 
 ### Example
-
-```bash
-h1 dns record-set a delete-record --zone-name 'my-domain.tld' --name www --value '8.8.3.3'
-```
-
-### Examples
 
 ```bash
 h1 dns record-set a delete-record --zone-name 'my-domain.tld' --name www --value '8.8.3.3'
@@ -401,12 +315,6 @@ List Record CNAME
 h1 dns record-set cname list --zone my-zone
 ```
 
-### Examples
-
-```bash
-h1 dns record-set cname list --zone my-zone
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -422,14 +330,6 @@ Create record-set
 ```h1 dns record-set cname create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Example
-
-```bash
-h1 dns record-set cname create --name '.' --zone-name 'my-domain.tld' --value 'cname-example.com'
-```
-
-Note (1): Use ```--name '.'``` to put record at top of the zone.
-
-### Examples
 
 ```bash
 h1 dns record-set cname create --name '.' --zone-name 'my-domain.tld' --value 'cname-example.com'
@@ -465,12 +365,6 @@ Delete record-set
 h1 dns record-set cname delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Examples
-
-```bash
-h1 dns record-set cname delete --zone-name 'my-domain.tld' --name www
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -487,12 +381,6 @@ Add record
 ```h1 dns record-set cname add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
 
 ### Example
-
-```bash
-h1 dns record-set cname add-record --zone-name 'my-domain.tld' --name subdomain --value 'cname-example.com'
-```
-
-### Examples
 
 ```bash
 h1 dns record-set cname add-record --zone-name 'my-domain.tld' --name subdomain --value 'cname-example.com'
@@ -515,12 +403,6 @@ Delete record
 ```h1 dns record-set cname delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
 
 ### Example
-
-```bash
-h1 dns record-set cname delete-record --zone-name 'my-domain.tld' --name www --value 'cname-example.com'
-```
-
-### Examples
 
 ```bash
 h1 dns record-set cname delete-record --zone-name 'my-domain.tld' --name www --value 'cname-example.com'
@@ -552,12 +434,6 @@ List Record TXT
 h1 dns record-set txt list --zone my-zone
 ```
 
-### Examples
-
-```bash
-h1 dns record-set txt list --zone my-zone
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -573,14 +449,6 @@ Create record-set
 ```h1 dns record-set txt create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Example
-
-```bash
-h1 dns record-set txt create --name '.' --zone-name 'my-domain.tld' --value '"some-text-value"'
-```
-
-Note (1): Use ```--name '.'``` to put record at top of the zone.
-
-### Examples
 
 ```bash
 h1 dns record-set txt create --name '.' --zone-name 'my-domain.tld' --value '"some-text-value"'
@@ -616,12 +484,6 @@ Delete record-set
 h1 dns record-set txt delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Examples
-
-```bash
-h1 dns record-set txt delete --zone-name 'my-domain.tld' --name www
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -638,12 +500,6 @@ Add record
 ```h1 dns record-set txt add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
 
 ### Example
-
-```bash
-h1 dns record-set txt add-record --zone-name 'my-domain.tld' --name subdomain --value '"some-text-value"'
-```
-
-### Examples
 
 ```bash
 h1 dns record-set txt add-record --zone-name 'my-domain.tld' --name subdomain --value '"some-text-value"'
@@ -666,12 +522,6 @@ Delete record
 ```h1 dns record-set txt delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
 
 ### Example
-
-```bash
-h1 dns record-set txt delete-record --zone-name 'my-domain.tld' --name www --value '"some-text-value"'
-```
-
-### Examples
 
 ```bash
 h1 dns record-set txt delete-record --zone-name 'my-domain.tld' --name www --value '"some-text-value"'
@@ -703,12 +553,6 @@ List Record MX
 h1 dns record-set mx list --zone my-zone
 ```
 
-### Examples
-
-```bash
-h1 dns record-set mx list --zone my-zone
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -724,14 +568,6 @@ Create record-set
 ```h1 dns record-set mx create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Example
-
-```bash
-h1 dns record-set mx create --name '.' --zone-name 'my-domain.tld' --value '10 mail.example.com'
-```
-
-Note (1): Use ```--name '.'``` to put record at top of the zone.
-
-### Examples
 
 ```bash
 h1 dns record-set mx create --name '.' --zone-name 'my-domain.tld' --value '10 mail.example.com'
@@ -767,12 +603,6 @@ Delete record-set
 h1 dns record-set mx delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Examples
-
-```bash
-h1 dns record-set mx delete --zone-name 'my-domain.tld' --name www
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -789,12 +619,6 @@ Add record
 ```h1 dns record-set mx add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
 
 ### Example
-
-```bash
-h1 dns record-set mx add-record --zone-name 'my-domain.tld' --name subdomain --value '10 mail.example.com'
-```
-
-### Examples
 
 ```bash
 h1 dns record-set mx add-record --zone-name 'my-domain.tld' --name subdomain --value '10 mail.example.com'
@@ -817,12 +641,6 @@ Delete record
 ```h1 dns record-set mx delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
 
 ### Example
-
-```bash
-h1 dns record-set mx delete-record --zone-name 'my-domain.tld' --name www --value '10 mail.example.com'
-```
-
-### Examples
 
 ```bash
 h1 dns record-set mx delete-record --zone-name 'my-domain.tld' --name www --value '10 mail.example.com'
@@ -854,12 +672,6 @@ List Record NS
 h1 dns record-set ns list --zone my-zone
 ```
 
-### Examples
-
-```bash
-h1 dns record-set ns list --zone my-zone
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -875,14 +687,6 @@ Create record-set
 ```h1 dns record-set ns create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Example
-
-```bash
-h1 dns record-set ns create --name '.' --zone-name 'my-domain.tld' --value 'ns1.example.com'
-```
-
-Note (1): Use ```--name '.'``` to put record at top of the zone.
-
-### Examples
 
 ```bash
 h1 dns record-set ns create --name '.' --zone-name 'my-domain.tld' --value 'ns1.example.com'
@@ -918,12 +722,6 @@ Delete record-set
 h1 dns record-set ns delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Examples
-
-```bash
-h1 dns record-set ns delete --zone-name 'my-domain.tld' --name www
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -940,12 +738,6 @@ Add record
 ```h1 dns record-set ns add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
 
 ### Example
-
-```bash
-h1 dns record-set ns add-record --zone-name 'my-domain.tld' --name subdomain --value 'ns1.example.com'
-```
-
-### Examples
 
 ```bash
 h1 dns record-set ns add-record --zone-name 'my-domain.tld' --name subdomain --value 'ns1.example.com'
@@ -968,12 +760,6 @@ Delete record
 ```h1 dns record-set ns delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
 
 ### Example
-
-```bash
-h1 dns record-set ns delete-record --zone-name 'my-domain.tld' --name www --value 'ns1.example.com'
-```
-
-### Examples
 
 ```bash
 h1 dns record-set ns delete-record --zone-name 'my-domain.tld' --name www --value 'ns1.example.com'
@@ -1005,12 +791,6 @@ List Record SRV
 h1 dns record-set srv list --zone my-zone
 ```
 
-### Examples
-
-```bash
-h1 dns record-set srv list --zone my-zone
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -1026,14 +806,6 @@ Create record-set
 ```h1 dns record-set srv create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
 
 ### Example
-
-```bash
-h1 dns record-set srv create --name '.' --zone-name 'my-domain.tld' --value '10 5 11 s1.example.com.'
-```
-
-Note (1): Use ```--name '.'``` to put record at top of the zone.
-
-### Examples
 
 ```bash
 h1 dns record-set srv create --name '.' --zone-name 'my-domain.tld' --value '10 5 11 s1.example.com.'
@@ -1069,12 +841,6 @@ Delete record-set
 h1 dns record-set srv delete --zone-name 'my-domain.tld' --name www
 ```
 
-### Examples
-
-```bash
-h1 dns record-set srv delete --zone-name 'my-domain.tld' --name www
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -1091,12 +857,6 @@ Add record
 ```h1 dns record-set srv add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
 
 ### Example
-
-```bash
-h1 dns record-set srv add-record --zone-name 'my-domain.tld' --name subdomain --value '10 5 11 s1.example.com.'
-```
-
-### Examples
 
 ```bash
 h1 dns record-set srv add-record --zone-name 'my-domain.tld' --name subdomain --value '10 5 11 s1.example.com.'
@@ -1124,12 +884,6 @@ Delete record
 h1 dns record-set srv delete-record --zone-name 'my-domain.tld' --name www --value '10 5 11 s1.example.com.'
 ```
 
-### Examples
-
-```bash
-h1 dns record-set srv delete-record --zone-name 'my-domain.tld' --name www --value '10 5 11 s1.example.com.'
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -1147,12 +901,6 @@ List Record set
 ```h1 dns record-set list | --zone ZONE```
 
 ### Example
-
-```bash
-h1 dns record-set list
-```
-
-### Examples
 
 ```bash
 h1 dns record-set list

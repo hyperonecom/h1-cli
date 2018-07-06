@@ -46,12 +46,6 @@ Show project
 h1 project show --project my-project
 ```
 
-### Examples
-
-```bash
-h1 project show --project my-project
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -67,12 +61,6 @@ Delete project
 ```h1 project delete | --project PROJECT```
 
 ### Example
-
-```bash
-h1 project delete --project my-project
-```
-
-### Examples
 
 ```bash
 h1 project delete --project my-project
@@ -98,12 +86,6 @@ History of project
 h1 project history --project my-project
 ```
 
-### Examples
-
-```bash
-h1 project history --project my-project
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -119,12 +101,6 @@ List project
 ```h1 project list | [--all]```
 
 ### Example
-
-```bash
-h1 project list
-```
-
-### Examples
 
 ```bash
 h1 project list
@@ -149,12 +125,6 @@ Grant access rights for project
 ```h1 project access grant | --project PROJECT --email EMAIL [--role ROLE]```
 
 ### Example
-
-```bash
-h1 project access grant --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
-```
-
-### Examples
 
 ```bash
 h1 project access grant --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
@@ -187,12 +157,6 @@ Revoke access rights for project
 h1 project access revoke --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
 ```
 
-### Examples
-
-```bash
-h1 project access revoke --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -209,12 +173,6 @@ List project
 ```h1 project access list | --project PROJECT```
 
 ### Example
-
-```bash
-h1 project access list
-```
-
-### Examples
 
 ```bash
 h1 project access list
@@ -263,39 +221,6 @@ h1 project token access delete --project 6oAoJqgyLZP4Le9UUNHrEOYP --token d41d8c
 H1_TOKEN="d41d8cd98f00b204e9800998ecf8427e" h1 vault snapshot --vault x --name $(date +"%s")
 ```
 
-### Examples
-
-#### Create a token
-
-```bash
-h1 project token add --project 6oAoJqgyLZP4Le9UUNHrEOYP --name secret-token-1
-```
-
-#### Grant access to token for snapshots of selected Vault
-
-```bash
-h1 project token access add --project 6oAoJqgyLZP4Le9UUNHrEOYP --method POST --path 'vault/x/actions/snapshot' --token d41d8cd98f00b204e9800998ecf8427e
-```
-
-#### Verify access of token
-
-```
-h1 project token access list --project 6oAoJqgyLZP4Le9UUNHrEOYP \
-    --token d41d8cd98f00b204e9800998ecf8427e
-```
-
-#### Remove some access of token 
-
-```bash
-h1 project token access delete --project 6oAoJqgyLZP4Le9UUNHrEOYP --token d41d8cd98f00b204e9800998ecf8427e --access c4ca4238a0b923820dcc509a6f75849b
-```
-
-#### Perform a snapshot of Vault using API token
-
-```bash
-H1_TOKEN="d41d8cd98f00b204e9800998ecf8427e" h1 vault snapshot --vault x --name $(date +"%s")
-```
-
 ## h1 project token show
 
 Show token
@@ -305,12 +230,6 @@ Show token
 ```h1 project token show | --project PROJECT --token TOKEN```
 
 ### Example
-
-```bash
-h1 project token show --token my-token
-```
-
-### Examples
 
 ```bash
 h1 project token show --token my-token
@@ -337,12 +256,6 @@ List token
 h1 project token list
 ```
 
-### Examples
-
-```bash
-h1 project token list
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -358,12 +271,6 @@ Delete token
 ```h1 project token delete | --project PROJECT --token TOKEN```
 
 ### Example
-
-```bash
-h1 project token delete --token my-token --project my-project
-```
-
-### Examples
 
 ```bash
 h1 project token delete --token my-token --project my-project
@@ -385,12 +292,6 @@ Add token
 ```h1 project token add | --project PROJECT --name NAME```
 
 ### Example
-
-```bash
-h1 project token add --project 6oAoJqgyLZP4Le9UUNHrEOYP --name secret-token-1
-```
-
-### Examples
 
 ```bash
 h1 project token add --project 6oAoJqgyLZP4Le9UUNHrEOYP --name secret-token-1
@@ -421,12 +322,6 @@ List access rule
 h1 project token access list --project my-project --token my-token --access my-access-id
 ```
 
-### Examples
-
-```bash
-h1 project token access list --project my-project --token my-token --access my-access-id
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -443,12 +338,6 @@ Show access rule
 ```h1 project token access show | --token TOKEN --project PROJECT --access ACCESS```
 
 ### Example
-
-```bash
-h1 project token access show --access my-access
-```
-
-### Examples
 
 ```bash
 h1 project token access show --access my-access
@@ -476,12 +365,6 @@ Delete access rule
 h1 project token access delete --access my-access --project my-project --token my-token --access my-access-id
 ```
 
-### Examples
-
-```bash
-h1 project token access delete --access my-access --project my-project --token my-token --access my-access-id
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -497,14 +380,6 @@ Add access rule
 ### Syntax
 
 ```h1 project token access add | --method METHOD --path PATH --token TOKEN --project PROJECT```
-
-### Examples
-
-#### Grant access to token for snapshots of selected Vault
-
-```bash
-h1 project token access add --project 6oAoJqgyLZP4Le9UUNHrEOYP --method POST --path 'vault/x/actions/snapshot' --token d41d8cd98f00b204e9800998ecf8427e
-```
 
 ### Examples
 
@@ -537,12 +412,6 @@ Select project context
 h1 project select --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
 
-### Examples
-
-```bash
-h1 project select --project 6oAoJqgyLZP4Le9UUNHrEOYP
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -558,14 +427,6 @@ Cloud limits set for project
 ```h1 project limit | --project PROJECT```
 
 ### Example
-
-```bash
-h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
-```
-
-Contact technical support to request increase the limits.
-
-### Examples
 
 ```bash
 h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
@@ -597,12 +458,6 @@ List credentials
 h1 project credentials list --project my-project
 ```
 
-### Examples
-
-```bash
-h1 project credentials list --project my-project
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -618,12 +473,6 @@ Delete credentials
 ```h1 project credentials delete | --project PROJECT --credentials CREDENTIALS```
 
 ### Example
-
-```bash
-h1 project credentials delete --credentials my-credentials --project my-project
-```
-
-### Examples
 
 ```bash
 h1 project credentials delete --credentials my-credentials --project my-project
@@ -645,12 +494,6 @@ Add public SSH key for project
 ```h1 project credentials add | --project PROJECT --name NAME --sshkey-file SSHKEY-FILE```
 
 ### Example
-
-```bash
-h1 project credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub --project my-project
-```
-
-### Examples
 
 ```bash
 h1 project credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub --project my-project
