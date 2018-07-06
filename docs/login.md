@@ -18,12 +18,6 @@ Obtain your apiKey
 h1 login --username user@example.com
 ```
 
-### Examples
-
-```bash
-h1 login --username user@example.com
-```
-
 ### Required arguments
 
 | Name | Default | Description |

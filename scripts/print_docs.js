@@ -79,9 +79,7 @@ const writeCommandSpecs = (stream, entry, prefix) => {
         examples = examples.replace(/ +$/m, '');
         const header = examples.startsWith(code) ? 'Example' : 'Examples';
         stream.write(`### ${header}\n\n${examples}\n\n`);
-        stream.write(`### Examples\n\n${examples}\n\n`);
     }
-
     writeElements(stream, 'Required arguments', entry.optionGroups['Required arguments']);
     writeElements(stream, 'Optional arguments', entry.options);
 };

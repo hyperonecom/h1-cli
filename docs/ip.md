@@ -29,12 +29,6 @@ List IP address
 h1 ip list
 ```
 
-### Examples
-
-```bash
-h1 ip list
-```
-
 ## h1 ip show
 
 Show IP address
@@ -44,12 +38,6 @@ Show IP address
 ```h1 ip show | --ip IP```
 
 ### Example
-
-```bash
-h1 ip show --ip my-ip
-```
-
-### Examples
 
 ```bash
 h1 ip show --ip my-ip
@@ -70,12 +58,6 @@ Delete IP address
 ```h1 ip delete | --ip IP```
 
 ### Example
-
-```bash
-h1 ip delete --ip my-ip
-```
-
-### Examples
 
 ```bash
 h1 ip delete --ip my-ip
@@ -103,14 +85,6 @@ Create IP address
 h1 ip create
 ```
 
-### Examples
-
-#### Create a new public IP
-
-```bash
-h1 ip create
-```
-
 ## h1 ip associate
 
 Associate IP address
@@ -118,14 +92,6 @@ Associate IP address
 ### Syntax
 
 ```h1 ip associate | --ip IP --private-ip PRIVATE-IP```
-
-### Examples
-
-#### Associate public IP address to private IP network interface
-
-```bash
-h1 ip associate --ip 62.181.8.21 --private-ip 10.177.2.10 --output json
-```
 
 ### Examples
 
@@ -156,12 +122,6 @@ Disassociate IP address
 h1 ip disassociate --ip 62.181.8.21
 ```
 
-### Examples
-
-```bash
-h1 ip disassociate --ip 62.181.8.21
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -177,12 +137,6 @@ Update PTR record of IP address
 ```h1 ip ptr | --ip IP --value VALUE```
 
 ### Example
-
-```bash
-h1 ip ptr --ip 62.181.8.21 --value 'example.com'
-```
-
-### Examples
 
 ```bash
 h1 ip ptr --ip 62.181.8.21 --value 'example.com'

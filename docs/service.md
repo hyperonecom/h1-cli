@@ -24,12 +24,6 @@ Show service
 h1 service show --service my-service
 ```
 
-### Examples
-
-```bash
-h1 service show --service my-service
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -43,20 +37,6 @@ List service
 ### Syntax
 
 ```h1 service list | [--resource RESOURCE] [--type TYPE]```
-
-### Examples
-
-#### List services
-
-```bash
-h1 service list
-```
-
-#### List types of virtual machines
-
-```bash
-h1 service list --resource vm --type flavour 
-```
 
 ### Examples
 

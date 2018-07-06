@@ -28,12 +28,6 @@ List snapshot
 h1 snapshot list
 ```
 
-### Examples
-
-```bash
-h1 snapshot list
-```
-
 ## h1 snapshot show
 
 Show snapshot
@@ -43,12 +37,6 @@ Show snapshot
 ```h1 snapshot show | --snapshot SNAPSHOT```
 
 ### Example
-
-```bash
-h1 snapshot show --snapshot my-snapshot
-```
-
-### Examples
 
 ```bash
 h1 snapshot show --snapshot my-snapshot
@@ -74,12 +62,6 @@ Delete snapshot
 h1 snapshot delete --snapshot my-snapshot
 ```
 
-### Examples
-
-```bash
-h1 snapshot delete --snapshot my-snapshot
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -95,12 +77,6 @@ History of snapshot
 ```h1 snapshot history | --snapshot SNAPSHOT```
 
 ### Example
-
-```bash
-h1 snapshot history --snapshot my-snapshot
-```
-
-### Examples
 
 ```bash
 h1 snapshot history --snapshot my-snapshot
@@ -126,12 +102,6 @@ Rename snapshot
 h1 snapshot rename --snapshot my-snapshot --new-name my-renamed-snapshot
 ```
 
-### Examples
-
-```bash
-h1 snapshot rename --snapshot my-snapshot --new-name my-renamed-snapshot
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -148,12 +118,6 @@ Create a snapshot of Vault
 ```h1 snapshot create | --vault VAULT --name NAME```
 
 ### Example
-
-```bash
-h1 snapshot create --vault my-vault --name my-new-snapshot
-```
-
-### Examples
 
 ```bash
 h1 snapshot create --vault my-vault --name my-new-snapshot
