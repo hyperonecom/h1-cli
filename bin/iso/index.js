@@ -8,7 +8,6 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,size:size,state:state,processing:processing}',
     url: () => 'iso',
     plugins: genericDefaults.plugins,
-    extraCommands: ['rename'],
     title: 'ISO',
 };
 

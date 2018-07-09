@@ -6,7 +6,6 @@ const resource = {
     name: 'netgw',
     defaultQuery: '[].{id:_id,name:name,IP:primaryIP,processing:processing,network:network}',
     url: () => 'netgw',
-    extraCommands: ['rename'],
     title: 'network gateway',
 };
 
