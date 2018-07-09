@@ -13,7 +13,7 @@ const now = Date.now();
 
 const download = (resource, destination) => tests.run(`disk download
                                                        --disk ${resource._id}
-                                                       --destination-file ${destination}
+                                                       --destination-file '${destination}'
                                                        --no-progress`);
 
 ['archive', 'ssd', 'volume'].forEach(type => {
@@ -36,7 +36,7 @@ ava.test.serial('disk add & download', async t => {
 
     await tests.remove('disk', fresh_disk);
 
-    const recreated_disk = await tests.run(`disk create ${createParams} --no-progress --source-file ${tmp_filename}`);
+    const recreated_disk = await tests.run(`disk create ${createParams} --no-progress --source-file '${tmp_filename}'`);
     t.true(recreated_disk.created);
     await tests.remove('disk', recreated_disk);
 
