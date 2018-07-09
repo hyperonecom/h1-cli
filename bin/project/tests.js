@@ -9,6 +9,8 @@ const now = Date.now();
 
 const active_project = config.get('profile.project._id');
 
+const token_name = `test-project-token-${now}`;
+
 ava.test.todo('project delete');
 
 ava.test.todo('project select');
@@ -54,21 +56,33 @@ ava.test.serial('project list', async t => {
     });
 });
 
-ava.test.serial('project token life cycle', async t => {
-    const name = `test-project-token-${now}`;
 
+ava.test.serial('project token life cycle', async t => {
     const commonParams = `--project ${active_project}`;
-    const token = await tests.run(`project token add ${commonParams} --name ${name}`);
+    const token = await tests.run(`project token add ${commonParams} --name ${token_name}`);
 
     const tokenParams = `${commonParams} --token ${token._id}`;
 
     const token_list = await tests.run('project token list');
-    t.true(token_list.some(d => d.name === name));
-
-    await tests.run(`project token rename ${tokenParams} --new-name renamed-${name}`);
+    t.true(token_list.some(d => d.name === token_name));
 
     const refreshed_token = await tests.run(`project token show ${tokenParams}`);
     t.true(token._id === refreshed_token._id);
+
+    await tests.remove('project token', token);
+});
+
+ava.test.serial('project token rename', async t => {
+    const new_name = `renamed-${token_name}`;
+
+    const commonParams = `--project ${active_project}`;
+    const token = await tests.run(`project token add ${commonParams} --name ${token_name}`);
+
+    await tests.run(`project token rename --token ${token.name} --new-name ${new_name}`);
+
+    const refreshed_token = await tests.run(`project token show ${commonParams} --token ${new_name}`);
+    t.true(refreshed_token._id === token._id);
+    t.true(refreshed_token.name === new_name);
 
     await tests.remove('project token', token);
 });
