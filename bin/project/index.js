@@ -14,7 +14,7 @@ const resource = {
         require('bin/_plugins/api'),
     ],
     title: 'project',
-    commands: ['show', 'delete', 'history'],
+    commands: ['show', 'delete', 'history', 'rename'],
 };
 
 const category = genericResource(resource);
@@ -50,6 +50,7 @@ category.addChild(require('bin/generic/credentials')(Object.assign(
             addParams: '--project my-project',
             deleteParams:  '--project my-project',
             listParams: '--project my-project',
+            renameParams: '--project my-project'
         },
     }
 )));

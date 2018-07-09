@@ -8,7 +8,7 @@ module.exports = resource => {
         name: 'credentials',
         defaultQuery: '[].{id:_id,name:name,type:type,created:createdOn}',
         url: args => `${resource.url(args)}/certificate`,
-        commands: ['list', 'delete'],
+        commands: ['show', 'list', 'delete', 'rename'],
         params: resource.params,
         options: resource.options,
         context: resource.context,

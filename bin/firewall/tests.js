@@ -14,6 +14,8 @@ ava.test.serial('firewall life cycle', tests.resourceLifeCycle('firewall', {
     skipHistoryCreated: true,
 }));
 
+ava.test.serial('firewall rename', tests.resourceRename('firewall', createParams));
+
 ava.test.serial('firewall attach & detach', async t => {
     const network = await tests.run(`network create --name network-${name}`);
 

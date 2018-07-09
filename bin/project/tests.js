@@ -7,13 +7,27 @@ const config = require('lib/config');
 
 const now = Date.now();
 
-const project = config.get('profile.project._id');
-
-ava.test.todo('project show');
+const active_project = config.get('profile.project._id');
 
 ava.test.todo('project delete');
 
 ava.test.todo('project select');
+
+ava.test.serial('project show', async t => {
+    const project = await tests.run(`project show --project ${active_project}`);
+    t.true(project._id === active_project);
+});
+
+ava.test.serial('project rename', async t => {
+    const name = `Tenant for monitoring public API - ${now}`;
+
+    await tests.run(`project rename --project ${active_project} --new-name '${name}'`);
+
+    const project = await tests.run(`project show --project ${active_project}`);
+    t.true(project._id === active_project);
+    t.true(project.name === name);
+});
+
 
 ava.test.serial('project limits', async t => {
     const limits = await tests.run('project limit');
@@ -33,7 +47,7 @@ ava.test.serial('project list', async t => {
         ];
 
         for (const action of actions) {
-            await tests.run(`project access ${action.name} --email ${tests.RECIPIENT.user} --project ${project} ${action.params || ''}`);
+            await tests.run(`project access ${action.name} --email ${tests.RECIPIENT.user} --project ${active_project} ${action.params || ''}`);
             const list = await tests.run('project access list');
             t.true(list.some(d => d.role === role && d.id === tests.RECIPIENT.user) === action.result);
         }
@@ -43,23 +57,27 @@ ava.test.serial('project list', async t => {
 ava.test.serial('project token life cycle', async t => {
     const name = `test-project-token-${now}`;
 
-    // TODO: Remove get element via https://github.com/hyperonecom/h1-cli/issues/67
-    const token = await tests.run(`project token add --project ${project} --name ${name}`);
+    const commonParams = `--project ${active_project}`;
+    const token = await tests.run(`project token add ${commonParams} --name ${name}`);
+
+    const tokenParams = `${commonParams} --token ${token._id}`;
 
     const token_list = await tests.run('project token list');
     t.true(token_list.some(d => d.name === name));
 
-    const refreshed_token = await tests.run(`project token show --project ${project} --token ${name}`);
+    await tests.run(`project token rename ${tokenParams} --new-name renamed-${name}`);
+
+    const refreshed_token = await tests.run(`project token show ${tokenParams}`);
     t.true(token._id === refreshed_token._id);
 
     await tests.remove('project token', token);
 });
 
 ava.test.serial('project token access life cycle', async t => {
-    const token = await tests.run(`project token add --project ${project} --name test-project-token-${now}`);
-    const access = await tests.run(`project token access add --project ${project} --method POST --path 'vault/' --token ${token._id}`);
+    const token = await tests.run(`project token add --project ${active_project} --name test-project-token-${now}`);
+    const access = await tests.run(`project token access add --project ${active_project} --method POST --path 'vault/' --token ${token._id}`);
 
-    const tokenParams = `--project ${project} --token ${token._id}`;
+    const tokenParams = `--project ${active_project} --token ${token._id}`;
     const access_list = await tests.run(`project token access list ${tokenParams}`);
     t.true(access_list.some(d => d._id === access._id));
 
@@ -75,7 +93,7 @@ ava.test.serial('project token access life cycle', async t => {
 });
 
 
-ava.test.serial('project credentials cycle', tests.credentialsLifeCycle('project credentials', {
-    createParams: `--project ${project}`,
-    listParams: `--project ${project}`,
+ava.test.serial('project credentials life cycle', tests.credentialsLifeCycle('project credentials', {
+    createParams: `--project ${active_project}`,
+    listParams: `--project ${active_project}`,
 }));

@@ -4,6 +4,7 @@
   * [h1 firewall show](#h1-firewall-show) - Show firewall
   * [h1 firewall delete](#h1-firewall-delete) - Delete firewall
   * [h1 firewall history](#h1-firewall-history) - History of firewall
+  * [h1 firewall rename](#h1-firewall-rename) - Rename firewall
   * [h1 firewall create](#h1-firewall-create) - Create firewall
   * [h1 firewall attach](#h1-firewall-attach) - Attach firewall to a network
   * [h1 firewall detach](#h1-firewall-detach) - Detach firewall from network
@@ -98,6 +99,27 @@ h1 firewall history --firewall my-firewall
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
+
+## h1 firewall rename
+
+Rename firewall
+
+### Syntax
+
+```h1 firewall rename | --firewall FIREWALL --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 firewall rename --firewall my-firewall --new-name my-renamed-firewall
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 firewall create
 

@@ -8,7 +8,7 @@ module.exports = resource => {
         name: 'cert',
         defaultQuery: resource.defaultQuery,
         url: args => `${resource.url(args)}/certificate`,
-        commands: ['list', 'delete'],
+        commands: ['show', 'rename', 'list', 'delete'],
         options: resource.options,
         title: 'certificate to Vault',
         context: resource.context,
