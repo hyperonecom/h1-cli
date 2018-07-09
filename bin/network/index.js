@@ -6,6 +6,7 @@ const resource = {
     name: 'network',
     defaultQuery: '[].{id:_id,name:name,type:type,address:address,processing:processing}',
     title: 'network',
+    extraCommands: ['rename'],
 };
 
 const category = genericResource(resource);

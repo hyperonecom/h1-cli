@@ -9,6 +9,7 @@ const resource = {
     url: () => 'firewall',
     plugins: genericDefaults.plugins,
     title: 'firewall',
+    extraCommands: ['rename' ],
 };
 
 const category = genericResource(resource);

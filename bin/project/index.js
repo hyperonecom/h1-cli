@@ -14,7 +14,7 @@ const resource = {
         require('bin/_plugins/api'),
     ],
     title: 'project',
-    commands: ['show', 'delete', 'history'],
+    commands: ['show', 'delete', 'history', 'rename'],
 };
 
 const category = genericResource(resource);

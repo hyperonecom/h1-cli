@@ -8,6 +8,8 @@ const now = Date.now();
 
 ava.test.serial('network life cycle', tests.resourceLifeCycle('network', `--name network-test-${now}`));
 
+ava.test.serial('network rename', tests.resourceRename('network', `--name network-test-${now}`));
+
 ava.test.serial('network ip life cycle', async t => {
     const network = await tests.run(`network create --name network-test-${now}`);
     await tests.resourceLifeCycle('network ip', {
