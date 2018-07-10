@@ -16,14 +16,13 @@ const options = {
     },
 };
 
-module.exports = Cli.createCommand('create', {
+module.exports = resource => Cli.createCommand('create', {
     description: 'Create a snapshot of Vault',
     dirname: __dirname,
     plugins: genericDefaults.plugins,
     options: options,
-    handler: args => args.helpers.api.post(`vault/${args.vault}/actions/snapshot`, {
-        data: {
-            name: args.name,
-        },
+    handler: args => args.helpers.api.post(resource.url(args), {
+        name: args.name,
+        vault: args.vault,
     }).then(result => args.helpers.sendOutput(args, result)),
 });
