@@ -5,7 +5,6 @@
   * [h1 network delete](#h1-network-delete) - Delete network
   * [h1 network history](#h1-network-history) - History of network
   * [h1 network rename](#h1-network-rename) - Rename network
-  * [h1 network rename](#h1-network-rename) - Rename network
   * [h1 network create](#h1-network-create) - Create network
   * [h1 network ip](#h1-network-ip) - Manage your IP address
     * [h1 network ip list](#h1-network-ip-list) - List IP address
@@ -93,27 +92,6 @@ h1 network history --network my-network
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network ID or name |
-
-## h1 network rename
-
-Rename network
-
-### Syntax
-
-```h1 network rename | --network NETWORK --new-name NEW-NAME```
-
-### Example
-
-```bash
-h1 network rename --network my-network --new-name my-renamed-network
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--network NETWORK``` |  | Network ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 network rename
 
