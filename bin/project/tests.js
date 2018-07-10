@@ -21,7 +21,7 @@ ava.test.serial('project show', async t => {
 });
 
 ava.test.serial('project rename', async t => {
-    const name = `Tenant for monitoring public API - ${now}`;
+    const name = `Project for monitoring public API - ${now}`;
 
     await tests.run(`project rename --project ${active_project} --new-name '${name}'`);
 
