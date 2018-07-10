@@ -7,7 +7,7 @@ const config = require('lib/config');
 const resource = {
     name: 'project',
     defaultQuery: '[].{id:_id,name:name,billing:billing.company,active:active,processing:processing}',
-    url: () => 'tenant',
+    url: () => 'project',
     plugins: [
         require('bin/_plugins/loginRequired'),
         require('bin/_plugins/outputFormat'),
