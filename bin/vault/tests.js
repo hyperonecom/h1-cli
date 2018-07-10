@@ -44,7 +44,7 @@ ava.test.serial('vault credential credentials life cycle', async t => {
         createParams: `--vault ${vault._id}`,
         listParams: `--vault ${vault._id}`,
         deleteParams: `--vault ${vault._id}`,
-        renameParams: `--vault ${vault._id}`
+        renameParams: `--vault ${vault._id}`,
     })(t);
 
     await tests.remove('vault', vault);
@@ -64,7 +64,7 @@ ava.test.serial('vault credential password life cycle', async t => {
     await tests.run(`vault credential password show --vault ${vault._id} --password ${password._id}`);
 
     await tests.remove('vault credential password', password, {
-        deleteParams: `--vault ${vault._id}`
+        deleteParams: `--vault ${vault._id}`,
     });
     await tests.remove('vault', vault);
 });

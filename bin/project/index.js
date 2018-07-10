@@ -50,7 +50,7 @@ category.addChild(require('bin/generic/credentials')(Object.assign(
             addParams: '--project my-project',
             deleteParams:  '--project my-project',
             listParams: '--project my-project',
-            renameParams: '--project my-project'
+            renameParams: '--project my-project',
         },
     }
 )));
