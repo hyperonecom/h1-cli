@@ -19,16 +19,9 @@ module.exports = function(resource) {
         description: `List of access rights for ${resource.title}`,
         plugins: genericDefaults.plugins,
         options: Object.assign({}, resource.options, options),
-        handler: handleAccessList(resource),
         resource: resource,
+        handler: args => args.helpers.api
+            .get(`${resource.url(args)}/${args[resource.name]}/accessrights`)
+            .then(result => args.helpers.sendOutput(args, result)),
     });
-};
-
-function handleAccessList(resource) {
-
-    return function(args) {
-
-        return args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}/accessrights`)
-            .then(result => args.helpers.sendOutput(args, result));
-    };
 };

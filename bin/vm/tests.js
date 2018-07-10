@@ -72,7 +72,7 @@ ava.test.serial('vm userdata', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params}`);
 
-    await tests.run(`vm userdata --vm ${vm._id} --userdata-file ${tmp_file}`);
+    await tests.run(`vm userdata --vm ${vm._id} --userdata-file '${tmp_file}'`);
 
     const userdata_vm = await tests.run(`vm show --vm ${vm._id}`);
     const userdata_text = Buffer.from(userdata_vm.userMetadata, 'base64').toString('ascii');

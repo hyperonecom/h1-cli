@@ -1,6 +1,6 @@
 {
   "name": "h1-cli",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "description": "HyperOne Command Line Interface",
   "license": "MIT",
   "author": "",
@@ -44,7 +44,9 @@
   "pkg": {
     "scripts": [
       "lib/**/*.js",
-      "bin/**/*.js"
+      "bin/**/*.js",
+      "!bin/**/tests.js",
+      "!lib/**/tests.js"
     ],
     "assets": [
       "bin/**/*.md"

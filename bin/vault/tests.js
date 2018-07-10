@@ -11,7 +11,7 @@ const now = Date.now();
 const createUserCredentials = async () => {
     const file = tests.getRandomFile();
     const name = `vault-ssh-${now}`;
-    await tests.run(`user credentials add --name ${name} --sshkey-file ${file}`);
+    await tests.run(`user credentials add --name ${name} --sshkey-file '${file}'`);
     return {file: file, name: name};
 };
 
