@@ -46,30 +46,31 @@ const upload = (releaseId, filePath, name) => new Promise((resolve, reject) => {
     stream.pipe(req);
 });
 
-superagent
-    .post('https://api.github.com/repos/hyperonecom/h1-cli/releases')
-    .set('Authorization', `token ${process.env.GH_TOKEN}`)
-    .send({
-        tag_name: `v${info.version}`,
-        target_commitish: 'master',
-        name: `v${info.version}`,
-        body: 'Description of the release',
-        draft: true,
-        prerelease: false,
-    })
-    .end((err, rsp) => {
-        if (err) { throw err; }
+const main = async () => {
+    const release = await superagent
+        .post('https://api.github.com/repos/hyperonecom/h1-cli/releases')
+        .set('Authorization', `token ${process.env.GH_TOKEN}`)
+        .send({
+            tag_name: `v${info.version}`,
+            target_commitish: 'master',
+            name: `v${info.version}`,
+            body: 'Description of the release',
+            draft: true,
+            prerelease: false,
+        })
+        .then(rsp => rsp.body);
 
-        const release = rsp.body;
+    console.log(release);
 
-        console.log(release);
+    for (const fileName of fs.readdirSync(distPath)) {
+        const filePath = path.join(distPath, fileName);
+        await upload(release.id, filePath, fileName);
+    }
 
-        let p = Promise.resolve();
+    console.log('done');
+};
 
-        fs.readdirSync(distPath).forEach(fileName => {
-            const filePath = path.join(distPath, fileName);
-            p = p.then(() => upload(release.id, filePath, fileName));
-        });
-
-        p.then(() => console.log('done'));
-    });
+main().catch(err => {
+    console.error(err);
+    process.exit(-1);
+});
