@@ -13,3 +13,8 @@ ava.test.serial('service all', async t => {
     t.true(service.name === list[0].name);
     t.true(service._id === list[0]._id);
 });
+
+ava.test.serial('service project', async t => {
+    const list = await tests.run('service list --resource project');
+    t.true(list.length > 0);
+});
