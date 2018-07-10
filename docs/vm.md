@@ -130,7 +130,7 @@ Note (4): To list available cloud-provided images use ```h1 image list --recomme
 #### Create a diskless virtual machine in private network
 
 ```bash
-h1 vm create --name test-vm --type a1.nano --network my-network --ssh so-wp
+h1 vm create --name test-vm --type a1.nano --network my-network --ssh my-ssh
 ```
 
 Note: You can mount ISO disk and provide stateless services.
