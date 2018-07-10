@@ -7,7 +7,10 @@ const tests = require('../../lib/tests');
 
 const now = Date.now();
 
-ava.test.serial('ip life cycle', tests.resourceLifeCycle('ip', ''));
+ava.test.serial('ip life cycle', tests.resourceLifeCycle('ip', {
+    createParams: '',
+    skipHistoryCreated: true,
+}));
 
 ava.test.serial('ip ptr update', async t => {
     const fresh_ip = await tests.run('ip create');
