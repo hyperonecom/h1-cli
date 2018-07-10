@@ -28,6 +28,6 @@ module.exports = function(resource) {
         resource: resource,
         handler: args => args.helpers.api
             .post(`${resource.name}/${args[resource.name]}/accessrights`, { identity: args.project })
-            .then(result => args.helpers.sendOutput(args, result)),
+            .then(() => args.helpers.sendOutput(args, [args.project])),
     });
 };

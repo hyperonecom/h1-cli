@@ -5,7 +5,7 @@ const Cli = require('lib/cli');
 const genericDefaults = require('bin/generic/defaults');
 const text = require('lib/text');
 
-module.exports = function(resource) {
+module.exports = (resource) => {
     const options = {
         [resource.name]: {
             description: `${text.toTitleCase(resource.title)} ID or name`,
