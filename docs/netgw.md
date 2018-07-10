@@ -5,6 +5,7 @@
   * [h1 netgw delete](#h1-netgw-delete) - Delete network gateway
   * [h1 netgw history](#h1-netgw-history) - History of network gateway
   * [h1 netgw rename](#h1-netgw-rename) - Rename network gateway
+  * [h1 netgw rename](#h1-netgw-rename) - Rename network gateway
   * [h1 netgw create](#h1-netgw-create) - Network gateway create
   * [h1 netgw detach](#h1-netgw-detach) - Network gateway detach from a network
   * [h1 netgw attach](#h1-netgw-attach) - Network gateway attach to a network
@@ -89,6 +90,27 @@ h1 netgw history --netgw my-netgw
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
+
+## h1 netgw rename
+
+Rename network gateway
+
+### Syntax
+
+```h1 netgw rename | --netgw NETGW --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 netgw rename --netgw my-netgw --new-name my-renamed-netgw
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--netgw NETGW``` |  | Network gateway ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 netgw rename
 
