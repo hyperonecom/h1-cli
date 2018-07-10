@@ -5,9 +5,9 @@ const https = require('https');
 const path = require('path');
 const fs = require('fs');
 
-const distPath = path.join(__dirname, 'dist');
+const distPath = path.join(__dirname, '..', 'dist');
 
-const info = require('./package.json');
+const info = require('../package.json');
 
 const upload = (releaseId, filePath, name) => new Promise((resolve, reject) => {
     console.log('uploading...', name);
