@@ -25,14 +25,9 @@ module.exports = function(resource) {
         plugins: genericDefaults.plugins,
         params: resource.params,
         options: Object.assign({}, resource.options, options),
-        handler: handleAccessGrant(resource),
         resource: resource,
+        handler: args => args.helpers.api
+            .delete(`${resource.name}/${args[resource.name]}/accessrights/${args.project}`)
+            .then(result => args.helpers.sendOutput(args, result)),
     });
 };
-
-function handleAccessGrant(resource) {
-    return function(args) {
-        return args.helpers.api.delete(`${resource.name}/${args[resource.name]}/accessrights/${args.project}`)
-            .then(result => args.helpers.sendOutput(args, result));
-    };
-}

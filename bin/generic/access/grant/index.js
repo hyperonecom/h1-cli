@@ -26,15 +26,8 @@ module.exports = function(resource) {
         plugins: genericDefaults.plugins,
         options: options,
         resource: resource,
-        handler: handleAccessGrant(resource),
+        handler: args => args.helpers.api
+            .post(`${resource.name}/${args[resource.name]}/accessrights`, { identity: args.project })
+            .then(result => args.helpers.sendOutput(args, result)),
     });
 };
-
-function handleAccessGrant(resource) {
-    return function(args) {
-        return args.helpers.api.post(`${resource.name}/${args[resource.name]}/accessrights`, {
-            identity: args.project,
-        })
-            .then(result => args.helpers.sendOutput(args, result));
-    };
-}
