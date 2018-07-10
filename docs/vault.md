@@ -9,11 +9,15 @@
   * [h1 vault create](#h1-vault-create) - Create Vault
   * [h1 vault credential](#h1-vault-credential) - Manage your credentials to Vault
     * [h1 vault credential cert](#h1-vault-credential-cert) - Manage your certificate to Vault
+      * [h1 vault credential cert show](#h1-vault-credential-cert-show) - Show certificate to Vault
+      * [h1 vault credential cert rename](#h1-vault-credential-cert-rename) - Rename certificate to Vault
       * [h1 vault credential cert list](#h1-vault-credential-cert-list) - List certificate to Vault
       * [h1 vault credential cert delete](#h1-vault-credential-cert-delete) - Delete certificate to Vault
       * [h1 vault credential cert add](#h1-vault-credential-cert-add) - Add credential to Vault
     * [h1 vault credential password](#h1-vault-credential-password) - Manage your password to Vault
+      * [h1 vault credential password show](#h1-vault-credential-password-show) - Show password to Vault
       * [h1 vault credential password list](#h1-vault-credential-password-list) - List password to Vault
+      * [h1 vault credential password rename](#h1-vault-credential-password-rename) - Rename password to Vault
       * [h1 vault credential password delete](#h1-vault-credential-password-delete) - Delete password to Vault
       * [h1 vault credential password add](#h1-vault-credential-password-add) - Add password to Vault
   * [h1 vault ssh](#h1-vault-ssh) - Connect to Vault using SSH
@@ -179,6 +183,49 @@ Manage your credentials to Vault
 
 Manage your certificate to Vault
 
+## h1 vault credential cert show
+
+Show certificate to Vault
+
+### Syntax
+
+```h1 vault credential cert show | --vault VAULT --cert CERT```
+
+### Example
+
+```bash
+h1 vault credential cert show --cert my-cert
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+| ```--cert CERT``` |  | Certificate to Vault ID or name |
+
+## h1 vault credential cert rename
+
+Rename certificate to Vault
+
+### Syntax
+
+```h1 vault credential cert rename | --vault VAULT --cert CERT --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 vault credential cert rename --cert my-cert --new-name my-renamed-cert
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+| ```--cert CERT``` |  | Certificate to Vault ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
 ## h1 vault credential cert list
 
 List certificate to Vault
@@ -252,6 +299,27 @@ h1 vault credential cert add --vault my-vault --name my-key --sshkey my-home-ssh
 
 Manage your password to Vault
 
+## h1 vault credential password show
+
+Show password to Vault
+
+### Syntax
+
+```h1 vault credential password show | --vault VAULT --password PASSWORD```
+
+### Example
+
+```bash
+h1 vault credential password show --password my-password
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+| ```--password PASSWORD``` |  | Password to Vault ID or name |
+
 ## h1 vault credential password list
 
 List password to Vault
@@ -271,6 +339,28 @@ h1 vault credential password list --vault my-vault
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
+
+## h1 vault credential password rename
+
+Rename password to Vault
+
+### Syntax
+
+```h1 vault credential password rename | --vault VAULT --password PASSWORD --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 vault credential password rename --password my-password --new-name my-renamed-password
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+| ```--password PASSWORD``` |  | Password to Vault ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 vault credential password delete
 

@@ -8,7 +8,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,type:type,size:size,state:state,processing:processing}',
     url: () => 'disk',
     plugins: genericDefaults.plugins,
-    extraCommands: ['rename', 'resize', 'resume'],
+    extraCommands: ['resize', 'resume'],
     title: 'disk',
 };
 

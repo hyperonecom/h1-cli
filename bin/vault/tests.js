@@ -36,13 +36,15 @@ ava.test.serial('vault resize', tests.resourceResizeCycle('vault', {
     createParams: `--name vault-test-${now}`,
 }));
 
-ava.test.serial('vault credential cert life cycle', async t => {
+ava.test.serial('vault credential credentials life cycle', async t => {
     const vault = await tests.run(`vault create --name vault-test-${now} --size 10`);
 
     await tests.credentialsLifeCycle('vault credential cert', {
+        showParams: `--vault ${vault._id}`,
         createParams: `--vault ${vault._id}`,
         listParams: `--vault ${vault._id}`,
         deleteParams: `--vault ${vault._id}`,
+        renameParams: `--vault ${vault._id}`,
     })(t);
 
     await tests.remove('vault', vault);
@@ -55,9 +57,14 @@ ava.test.serial('vault credential password life cycle', async t => {
 
     await tests.run(`vault credential password add --name ${name} --password ${secret} --vault ${vault._id}`);
     const list = await tests.run(`vault credential password list --vault ${vault._id}`);
-    const password = list.find(p => p.name === name);
-    t.true(!!password);
+    t.true(list.some(p => p.name === name));
 
-    await tests.run(`vault credential password delete --password ${password._id} --vault ${vault._id} --yes`);
+    const password = await tests.run(`vault credential password show --vault ${vault._id} --password ${name}`);
+    await tests.run(`vault credential password rename --vault ${vault._id} --password ${name} --new-name secure-password`);
+    await tests.run(`vault credential password show --vault ${vault._id} --password ${password._id}`);
+
+    await tests.remove('vault credential password', password, {
+        deleteParams: `--vault ${vault._id}`,
+    });
     await tests.remove('vault', vault);
 });

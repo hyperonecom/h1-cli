@@ -8,7 +8,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,size:size,state:state,processing:processing}',
     url: () => 'vault',
     plugins: genericDefaults.plugins,
-    extraCommands: ['rename', 'resize'],
+    extraCommands: ['resize'],
     title: 'Vault',
 };
 

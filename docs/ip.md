@@ -3,6 +3,7 @@
   * [h1 ip list](#h1-ip-list) - List IP address
   * [h1 ip show](#h1-ip-show) - Show IP address
   * [h1 ip delete](#h1-ip-delete) - Delete IP address
+  * [h1 ip history](#h1-ip-history) - History of IP address
   * [h1 ip create](#h1-ip-create) - Create IP address
   * [h1 ip associate](#h1-ip-associate) - Associate IP address
   * [h1 ip disassociate](#h1-ip-disassociate) - Disassociate IP address
@@ -61,6 +62,26 @@ Delete IP address
 
 ```bash
 h1 ip delete --ip my-ip
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address ID or name |
+
+## h1 ip history
+
+History of IP address
+
+### Syntax
+
+```h1 ip history | --ip IP```
+
+### Example
+
+```bash
+h1 ip history --ip my-ip
 ```
 
 ### Required arguments

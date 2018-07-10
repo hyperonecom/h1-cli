@@ -2,8 +2,10 @@
 
   * [h1 user create](#h1-user-create) - Create an account
   * [h1 user credentials](#h1-user-credentials) - Manage your credentials
+    * [h1 user credentials show](#h1-user-credentials-show) - Show credentials
     * [h1 user credentials list](#h1-user-credentials-list) - List credentials
     * [h1 user credentials delete](#h1-user-credentials-delete) - Delete credentials
+    * [h1 user credentials rename](#h1-user-credentials-rename) - Rename credentials
     * [h1 user credentials add](#h1-user-credentials-add) - Add public SSH key for user
   * [h1 user 2fa](#h1-user-2fa) - Manage two factor authentication
     * [h1 user 2fa enable](#h1-user-2fa-enable) - Enable factor of authentication
@@ -34,6 +36,26 @@ h1 user create
 ## h1 user credentials
 
 Manage your credentials
+
+## h1 user credentials show
+
+Show credentials
+
+### Syntax
+
+```h1 user credentials show | --credentials CREDENTIALS```
+
+### Example
+
+```bash
+h1 user credentials show --credentials my-credentials
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
 ## h1 user credentials list
 
@@ -68,6 +90,27 @@ h1 user credentials delete --credentials my-credentials
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--credentials CREDENTIALS``` |  | Credentials ID or name |
+
+## h1 user credentials rename
+
+Rename credentials
+
+### Syntax
+
+```h1 user credentials rename | --credentials CREDENTIALS --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 user credentials rename --credentials my-credentials --new-name my-renamed-credentials
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 user credentials add
 

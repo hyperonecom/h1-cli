@@ -3,6 +3,7 @@
   * [h1 project show](#h1-project-show) - Show project
   * [h1 project delete](#h1-project-delete) - Delete project
   * [h1 project history](#h1-project-history) - History of project
+  * [h1 project rename](#h1-project-rename) - Rename project
   * [h1 project list](#h1-project-list) - List project
   * [h1 project access](#h1-project-access) - Manage your project access rights
     * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
@@ -12,6 +13,7 @@
     * [h1 project token show](#h1-project-token-show) - Show token
     * [h1 project token list](#h1-project-token-list) - List token
     * [h1 project token delete](#h1-project-token-delete) - Delete token
+    * [h1 project token rename](#h1-project-token-rename) - Rename token
     * [h1 project token add](#h1-project-token-add) - Add token
     * [h1 project token access](#h1-project-token-access) - Manage your token access
       * [h1 project token access list](#h1-project-token-access-list) - List access rule
@@ -21,8 +23,10 @@
   * [h1 project select](#h1-project-select) - Select project context
   * [h1 project limit](#h1-project-limit) - Cloud limits set for project
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
+    * [h1 project credentials show](#h1-project-credentials-show) - Show credentials
     * [h1 project credentials list](#h1-project-credentials-list) - List credentials
     * [h1 project credentials delete](#h1-project-credentials-delete) - Delete credentials
+    * [h1 project credentials rename](#h1-project-credentials-rename) - Rename credentials
     * [h1 project credentials add](#h1-project-credentials-add) - Add public SSH key for project
 
 
@@ -91,6 +95,27 @@ h1 project history --project my-project
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project rename
+
+Rename project
+
+### Syntax
+
+```h1 project rename | --project PROJECT --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 project rename --project my-project --new-name my-renamed-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 project list
 
@@ -283,6 +308,28 @@ h1 project token delete --token my-token --project my-project
 | ```--project PROJECT``` |  | Project ID or name |
 | ```--token TOKEN``` |  | Token ID or name |
 
+## h1 project token rename
+
+Rename token
+
+### Syntax
+
+```h1 project token rename | --project PROJECT --token TOKEN --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 project token rename --token my-token --new-name my-renamed-token
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+| ```--token TOKEN``` |  | Token ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
 ## h1 project token add
 
 Add token
@@ -444,6 +491,27 @@ Contact technical support to request increase the limits.
 
 Manage your credentials
 
+## h1 project credentials show
+
+Show credentials
+
+### Syntax
+
+```h1 project credentials show | --project PROJECT --credentials CREDENTIALS```
+
+### Example
+
+```bash
+h1 project credentials show --credentials my-credentials
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
+
 ## h1 project credentials list
 
 List credentials
@@ -484,6 +552,28 @@ h1 project credentials delete --credentials my-credentials --project my-project
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 | ```--credentials CREDENTIALS``` |  | Credentials ID or name |
+
+## h1 project credentials rename
+
+Rename credentials
+
+### Syntax
+
+```h1 project credentials rename | --project PROJECT --credentials CREDENTIALS --new-name NEW-NAME```
+
+### Example
+
+```bash
+h1 project credentials rename --credentials my-credentials --new-name my-renamed-credentials
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 project credentials add
 
