@@ -2,20 +2,19 @@
 
 const fs = require('fs');
 const path = require('path');
-const os = require('os');
 
-require('../scope/h1');
-
-process.env.H1_CONFIG_PATH = fs.mkdtempSync(path.join(os.tmpdir(), 'h1-doc-gen'));
+require(`../scope/${process.env.SCOPE_NAME || 'h1' }`);
 
 const cli = require('../bin');
 const lib = require('./lib');
+const Cli = require('lib/cli');
 const table = require('lib/table').table;
 
 const code = '```';
 
-const common_arguments_filename = 'common-arguments.md';
+const scope = process.env.SCOPE_NAME;
 
+const common_arguments_filename = 'common-arguments.md';
 
 function writeElements(output_stream, label, values = {}) {
     const entries = Object.entries(values || {});
@@ -44,7 +43,7 @@ const entry_filename = (entry) => `${entry.name}.md`;
 
 const writeCommandTOC = (stream, entry, prefix, depth) => {
     if (!entry.children) return;
-    entry.children.forEach(entry => {
+    entry.children.filter(entry => !entry.createOptions.skipDocumentation).forEach(entry => {
         const name = `${prefix} ${entry.name}`;
         const slug = name.replace(/ /g, '-').toLowerCase();
         const depth_prefix = ' '.repeat(depth * 2);
@@ -86,7 +85,7 @@ const writeCommandSpecs = (stream, entry, prefix) => {
 
 const writeSpecs = (stream, entry, prefix) => {
 
-    entry.children.forEach(entry => {
+    entry.children.filter(entry => !entry.createOptions.skipDocumentation).forEach(entry => {
         writeCommandSpecs(stream, entry, prefix);
 
         if (entry.children) {
@@ -103,7 +102,7 @@ const write_index = (output_dir) => {
     wstream.write(`* [Common arguments](${common_arguments_filename})\n`);
     wstream.write('* Commands\n');
     cli.children.map(entry => {
-        const name = `h1 ${entry.name}`;
+        const name = `${scope} ${entry.name}`;
         const slug = entry_filename(entry);
         wstream.write(`  * [${name}](${slug}) - ${entry.description}\n`);
     });
@@ -120,14 +119,14 @@ const write_commands_docs = (output_dir) => {
         const wstream = fs.createWriteStream(section_filename);
 
         wstream.write('# TOC\n\n');
-        writeCommandTOC(wstream, entry, `h1 ${entry.name}`, 1);
+        writeCommandTOC(wstream, entry, `${scope} ${entry.name}`, 1);
 
         wstream.write('\n\n');
 
         wstream.write('# Specification\n\n');
-        writeCommandSpecs(wstream, entry, 'h1');
+        writeCommandSpecs(wstream, entry, scope);
         if (entry.children) {
-            writeSpecs(wstream, entry, `h1 ${entry.name}`);
+            writeSpecs(wstream, entry, `${scope} ${entry.name}`);
         }
 
         wstream.end();
@@ -137,15 +136,8 @@ const write_commands_docs = (output_dir) => {
 };
 
 const list_active_plugins = () => {
-    const missing = [cli];
     const active_plugins = [];
-    while (missing.length > 0) {
-        const entry = missing.pop();
-        if (entry.children) {
-            missing.push(...entry.children);
-        }
-        entry.plugins.forEach(plugin => active_plugins.push(plugin));
-    }
+    Cli.flatten(cli).forEach(command => active_plugins.push(...command.plugins));
     return active_plugins.filter((x, i, a) => a.indexOf(x) === i);
 };
 
@@ -165,8 +157,6 @@ const write_global_parameter_docs = (output_dir) => {
 
     wstream.end();
     console.log('Saved', filename);
-
-
 };
 
 const main = async () => {

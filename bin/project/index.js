@@ -25,7 +25,7 @@ const active_project = config.get('profile.project._id');
 const childDefaults = Object.assign({}, resource, {
     options: {
         project: {
-            description: 'Project ID or name',
+            description: 'Project ID or name. Active project by default',
             type: 'string',
             required: !active_project,
             defaultValue: active_project,

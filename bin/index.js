@@ -2,10 +2,10 @@
 'use strict';
 require('../lib/injectPath');
 
-const Cli = require('lib/cli');
 const Chalk = require('chalk');
-const epilog = require('lib/epilog');
 
+const Cli = require('lib/cli');
+const epilog = require('lib/epilog');
 const config = require('lib/config');
 
 const Package = require('../package.json');
@@ -24,22 +24,23 @@ ${Chalk.underline('Sample usage:')}
 });
 
 cli.addChild(require('./config'));
-cli.addChild(require('./user'));
 cli.addChild(require('./login'));
-cli.addChild(require('./project'));
 
-cli.addChild(require('./disk'));
-cli.addChild(require('./vm'));
-cli.addChild(require('./image'));
-cli.addChild(require('./iso'));
-cli.addChild(require('./network'));
-cli.addChild(require('./ip'));
-cli.addChild(require('./dns'));
-cli.addChild(require('./service'));
-cli.addChild(require('./netgw'));
-cli.addChild(require('./firewall'));
-cli.addChild(require('./vault'));
-cli.addChild(require('./snapshot'));
+if (config.get('profile.apiKey') || process.env.NODE_ENV !== 'production') {
+    cli.addChild(require('./user'));
+    cli.addChild(require('./project'));
+    cli.addChild(require('./service'));
+}
+
+const cli_resources = ['vm', 'disk', 'image', 'iso', 'network', 'ip',
+    'dns', 'netgw', 'firewall', 'vault', 'snapshot'];
+
+
+const cli_config = config.get('cli', {});
+
+if ('resources' in cli_config) {
+    cli_resources.filter(resource => cli_config.resources.includes(resource)).forEach(resource => cli.addChild(require(`./${resource}`)));
+}
 
 // inject defaultValues from config defaults
 const applyDefault = (element, defaults) => {

@@ -2,7 +2,9 @@ language: node_js
 node_js:
   - "10"
 script:
+  - npm link
   - npm run lint
+  - h1 config cli
   - npm run docs
   - git status
   - git diff HEAD

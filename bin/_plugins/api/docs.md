@@ -5,7 +5,7 @@
 ### Displays the URL of the request to the API
 
 ```bash
-h1 image list --verbose
+{{scope}} image list --verbose
 ```
 
 # Argument ``--no-wait``
@@ -19,7 +19,7 @@ asynchronously, which can be used to optimize the execution time of scripts.
 
 ### Create virtual machine without waiting for the process to be completed
 ```bash
-h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh --no-wait
+{{scope}} vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh --no-wait
 ```
 
 # Argument ``--dry-run``
