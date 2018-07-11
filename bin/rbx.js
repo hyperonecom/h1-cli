@@ -2,4 +2,4 @@
 'use strict';
 
 require('../scope/rbx');
-require('./h1');
+require('./start');

@@ -9,7 +9,7 @@ Default output format, which can be overwritten by the environment variable ```H
 ### View all virtual machines in table format
 
 ```bash
-h1 vm list -o table
+{{scope}} vm list -o table
 ```
 
 # Argument ```--output tsv / -o tsv```
@@ -23,7 +23,7 @@ Output format which mostly works like tabular format, but without the header row
 ### View all disk in tsv format
 
 ```bash
-h1 disk list -o tsv
+{{scope}} disk list -o tsv
 ```
 
 # Argument ```--output list / -o list```
@@ -37,7 +37,7 @@ An output format that displays subsequent properties line by line.
 ### View all network in list format
 
 ```bash
-h1 network list -o list
+{{scope}} network list -o list
 ```
 
 # Argument ```--query```
@@ -54,32 +54,32 @@ See the documentation and examples published on [jmespath.org](https://jmespath.
 ### Calculates the total size of disks
 
 ```bash
-h1 disk list -o json --query 'sum([].size)'
+{{scope}} disk list -o json --query 'sum([].size)'
 ```
 
 ### Summarize image size
 
 ```bash
-h1 image list --query '[].{name:name,diskCount:length(disks),fileSize:fileSize}'
+{{scope}} image list --query '[].{name:name,diskCount:length(disks),fileSize:fileSize}'
 ```
 
 ### Attach all detached disk to VM
 
 ```bash
-h1 disk list --query "[?state=='Detached'].{id:_id}" -o tsv | xargs -r -n 1 h1 vm disk attach --vm test-vm --disk
+{{scope}} disk list --query "[?state=='Detached'].{id:_id}" -o tsv | xargs -r -n 1 {{scope}} vm disk attach --vm test-vm --disk
 ```
 
 ### Stop all running virtual machines
 
 ```bash
-h1 vm list --query "[?state=='Running'].{id:_id}" -o tsv | xargs -r -n 1 h1 vm stop --vm
+{{scope}} vm list --query "[?state=='Running'].{id:_id}" -o tsv | xargs -r -n 1 {{scope}} vm stop --vm
 ```
 
 ### Create new disk and attach to virtual machine
 
 ```
-$ DISK_ID=$(h1 disk create --name my-ambigious-name --type ssd --size 10 -o tsv --query '[].[_id]')
-$ h1 vm disk attach --vm test-vm --disk $DISK_ID
+$ DISK_ID=$({{scope}} disk create --name my-ambigious-name --type ssd --size 10 -o tsv --query '[].[_id]')
+$ {{scope}} vm disk attach --vm test-vm --disk $DISK_ID
 ```
 
 Note (1): In most cases, you can avoid using ID by naming resources uniquely.
