@@ -67,7 +67,13 @@ const sendMail = async (config, success, report) => {
             from: config.SMTP_SENDER,
             to: recipient,
             subject: success ? 'Monitoring success report' : 'Monitoring failed report',
-            text: report,
+            text: report.split('\n').filter(x => x.indexOf('node h1') === -1).join('\n'),
+            attachments: [
+                {
+                    filename: 'monitoring-report.txt',
+                    content: report,
+                },
+            ],
         });
 
         if (success) {
