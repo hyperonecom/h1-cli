@@ -1,5 +1,6 @@
 # h1-cli
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5e85806098ca486991d4bc1b568cb743)](https://app.codacy.com/app/hyperonecom/h1-cli?utm_source=github.com&utm_medium=referral&utm_content=hyperonecom/h1-cli&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/hyperonecom/h1-cli.svg?branch=master)](https://travis-ci.org/hyperonecom/h1-cli)
 
 h1-cli jest konsolowym narzędziem przeznaczonym do zarządzania infrastrukturą chmury HyperOne. Możesz go wykorzystywać zarówno do własnych prac administracyjnych, jak również podczas tworzenia  skryptów automatyzujących.
