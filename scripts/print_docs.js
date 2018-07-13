@@ -3,6 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
+process.env.H1_PROJECT = 'dummy-project';
 require(`../scope/${process.env.SCOPE_NAME || 'h1' }`);
 
 const cli = require('../bin');
