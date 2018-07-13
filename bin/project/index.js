@@ -20,7 +20,7 @@ const resource = {
 const category = genericResource(resource);
 category.addChild(require('./list')(resource));
 
-const active_project = config.get('profile.project._id');
+const active_project = process.env.H1_PROJECT || config.get('profile.project._id');
 
 const childDefaults = Object.assign({}, resource, {
     options: {

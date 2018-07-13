@@ -20,7 +20,7 @@ module.exports = {
 
         context.args.profile = Object.assign({}, profile);
 
-        if (process.env.H1_TOKEN) {
+        if (process.env.H1_TOKEN || process.env.H1_PROJECT) {
             return;
         }
 
