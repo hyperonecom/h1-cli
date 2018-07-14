@@ -2,6 +2,7 @@
 const mailer = require('nodemailer');
 const childProcess = require('child_process');
 const shell_quote = require('shell-quote');
+const tests = require('lib/tests');
 
 const getConfigValue = (name, options = {}) => {
     if (!process.env[name] && typeof options.defaultValue === 'undefined') {
@@ -139,6 +140,7 @@ const main = async () => {
     }
     try {
         await runProcess('/bin/bash ./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT});
+        await runProcess(`h1 project access revoke --email ${tests.RECIPIENT.user}`);
     } catch (err) {
         // This is just cleaning. If fails if there is no resources to clean up.
     }
