@@ -41,7 +41,7 @@ module.exports = resource => Cli.createCommand('create', {
         if (args.password) {
             passwords = [{
                 name: 'initial-cli',
-                type: 'sha512',
+                type: 'plain',
                 value: args.password,
             }];
         }
