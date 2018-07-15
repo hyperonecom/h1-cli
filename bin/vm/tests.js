@@ -219,7 +219,7 @@ ava.test.serial('vm serialport log', async t => {
         const ip_addreses = await getVmIp(common.name);
         console.log(`Attempt to connect to ${ip_addreses}`);
 
-        await tests.delay(90 * 1000);
+        await tests.delay(120 * 1000);
         const content = await tests.sshExecute('uptime', {
             host: ip_addreses[0],
             username: 'guru',
