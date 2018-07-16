@@ -5,10 +5,12 @@ const fs = require('fs');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
+const ssh = require('../../lib/ssh');
 
 const now = Date.now();
 
-const getCommon = async (test_name, type = 'a1.nano') => {
+const getCommon = async (test_name, options = {}) => {
+    const type = options.type || 'a1.nano';
     const vm_name = `vm-test-${test_name}-${now}`.replace(/[^\w]/g, '-');
     const token = await tests.getToken();
     const disk_name = `disk-${vm_name}`;
@@ -22,6 +24,11 @@ const getCommon = async (test_name, type = 'a1.nano') => {
             await tests.remove('disk', disk_name);
         },
     };
+};
+
+const getVmIp = async (vm_name) => {
+    const nic_list = await tests.run(`vm nic list --vm ${vm_name}`);
+    return [].concat(...nic_list.map(x => x.ip)).map(x => x.address);
 };
 
 ava.test.todo('vm queue');
@@ -104,7 +111,9 @@ ava.test.serial('vm disk attach & detach', async t => {
 });
 
 ava.test.serial('vm nic life cycle', async t => {
-    const common = await getCommon(t.title, 'm2.tiny');
+    const common = await getCommon(t.title, {
+        type: 'm2.tiny',
+    });
     const vm = await tests.run(`vm create --no-start ${common.params}`);
     const network = await tests.run(`network create --name network-vm-test-${now}`);
 
@@ -137,7 +146,9 @@ const subresourceLifeCycle = async (t, type, options) => {
 };
 
 ava.test.serial('vm nic ip life cycle', async t => {
-    const common = await getCommon(t.title, 'm2.tiny');
+    const common = await getCommon(t.title, {
+        type: 'm2.tiny',
+    });
     const vm = await tests.run(`vm create ${common.params}`);
     const ip = await tests.run('ip create');
     const nic_list = await tests.run(`vm nic list --vm ${vm._id}`);
@@ -191,4 +202,35 @@ ava.test.serial('vm serialport log', async t => {
     await tests.run(`vm serialport log --vm ${vm._id}`);
 
     await common.cleanup();
+});
+
+['project', 'user'].forEach(type => {
+    ava.test.serial(`vm ssh using ${type} ssh-key`, async t => {
+        const common = await getCommon(t.title);
+
+        const sshKeyPair = await ssh.generateKey();
+        const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
+
+        const ssh_name = `vm-ssh-key-${now}-${type}-key`;
+
+        const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${sshFilename}'`);
+
+        await tests.run(`vm create ${common.params} --ssh ${ssh_name}`);
+
+        const ip_addreses = await getVmIp(common.name);
+
+        console.log(`Attempt to connect to ${ip_addreses}`);
+
+        const content = await ssh.execute('uptime', {
+            host: ip_addreses[0],
+            username: 'guru',
+            privateKey: sshKeyPair.privateKey,
+            readyTimeout: 5 * 1000,
+        });
+        t.true(content.includes('load average'));
+        fs.unlinkSync(sshFilename);
+
+        await tests.remove(`${type} credentials`, credentials);
+        await common.cleanup();
+    });
 });

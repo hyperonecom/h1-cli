@@ -24,7 +24,7 @@ module.exports = resource => Cli.createCommand('add', {
     handler: args => args.helpers.api
         .post(args.$node.parent.config.url(args), {
             name: args.name,
-            type: 'sha512',
+            type: 'plain',
             value: args.password,
         })
         .then(result => args.helpers.sendOutput(args, result)),

@@ -21,7 +21,7 @@ ava.test.serial('project show', async t => {
 });
 
 ava.test.serial('project rename', async t => {
-    const name = `Tenant for monitoring public API - ${now}`;
+    const name = `Project for monitoring public API - ${now}`;
 
     await tests.run(`project rename --project ${active_project} --new-name '${name}'`);
 
@@ -106,6 +106,26 @@ ava.test.serial('project token access life cycle', async t => {
     await tests.remove('project token', token);
 });
 
+ava.test.serial('token was used if environment variable set', async t => {
+    const token = await tests.run(`project token add --name token-validates-${now} --project ${active_project}`);
+
+    // Clean up default access
+    const access_list = await tests.run(`project token access list --project ${active_project} --token ${token._id}`);
+    for (const access of access_list) {
+        await tests.run(`project token access delete --token ${token._id} --access ${access._id} --yes`);
+    }
+
+    await tests.run(`project token access add --token ${token._id} --method GET --path '/vm'`);
+
+    await t.throws(() => tests.run({
+        cmd: 'disk list',
+        env: {
+            H1_TOKEN: token._id,
+        },
+    }));
+
+    await tests.remove('project token', token);
+});
 
 ava.test.serial('project credentials life cycle', tests.credentialsLifeCycle('project credentials', {
     createParams: `--project ${active_project}`,

@@ -5,10 +5,11 @@ const Cli = require('lib/cli');
 const logger = require('lib/logger');
 const _ = require('lodash');
 const interactive = require('lib/interactive');
+const config = require('lib/config');
 
 const options = {
     username: {
-        description: 'Your h1 username',
+        description: 'Your username',
         type: 'string',
         required: true,
     },
@@ -18,7 +19,7 @@ const options = {
     },
 };
 
-const handler = args => {
+const handler = async args => {
     let p;
 
     if (args.password) {
@@ -26,7 +27,7 @@ const handler = args => {
     } else {
         p = args.helpers.api.getApiKeySSH(args.username)
             .catch(err => {
-                if (err.message.indexOf('host fingerprint verification failed') > -1) {
+                if (err.message.includes('host fingerprint verification failed')) {
                     throw Cli.error.serverError(err.message);
                 }
 
@@ -39,9 +40,13 @@ const handler = args => {
             });
     }
 
+    const p_config = args.helpers.api.get('/cli');
+
     return p
-        .then(() => logger('info', 'You successfully logged and stored your apiKey in config file'))
-        .catch(e => {
+        .then(() => {
+            p_config.then(cli_config => config.set('cli', cli_config));
+            return logger('info', 'You successfully logged and stored your apiKey in config file');
+        }).catch(e => {
             if (e.status === 404 || e.status === 401) {
                 return logger('error', `Your login or password is incorrect (${e.status})`);
             }

@@ -5,6 +5,7 @@ const fs = require('fs');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
+const ssh = require('../../lib/ssh');
 
 const now = Date.now();
 
@@ -66,5 +67,66 @@ ava.test.serial('vault credential password life cycle', async t => {
     await tests.remove('vault credential password', password, {
         deleteParams: `--vault ${vault._id}`,
     });
+    await tests.remove('vault', vault);
+});
+
+['project', 'user'].forEach(type => {
+    ava.test.serial(`vault credential ${type} ssh use`, async t => {
+        const name = `vault-ssh-${now}`;
+        const ssh_file = tests.getRandomFile();
+
+        const ssh_name = `${name}-${type}-key`;
+        const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${ssh_file}'`);
+        const vault = await tests.run(`vault create --name my-vault --size 10 --ssh ${ssh_name}`);
+
+        const list = await tests.run(`vault credential cert list --vault ${vault._id}`);
+        t.true(list.some(p => p.name === ssh_name));
+
+        await tests.remove(`${type} credentials`, credentials);
+        await tests.remove('vault', vault);
+
+        fs.unlinkSync(ssh_file);
+    });
+});
+
+['project', 'user'].forEach(type => {
+    ava.test.serial(`vault ssh using ${type} ssh-key`, async t => {
+        const sshKeyPair = await ssh.generateKey();
+        const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
+
+        const name = `vault-ssh-key-${now}`;
+        const ssh_name = `${name}-${type}-key`;
+
+        const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${sshFilename}'`);
+
+        const vault = await tests.run(`vault create --name ${name} --size 10 --ssh ${ssh_name}`);
+
+        const content = await ssh.execute('uptime', {
+            host: 'vault.pl-waw-1.hyperone.com',
+            username: vault._id,
+            privateKey: sshKeyPair.privateKey,
+        });
+        t.true(content.includes('load average'));
+
+        fs.unlinkSync(sshFilename);
+
+        await tests.remove(`${type} credentials`, credentials);
+        await tests.remove('vault', vault);
+    });
+});
+
+ava.test.serial('vault ssh using password', async t => {
+    const name = `vault-ssh-key-${now}`;
+    const secret = await tests.getToken();
+
+    const vault = await tests.run(`vault create --name ${name} --password ${secret} --size 10`);
+
+    const content = await ssh.execute('uptime', {
+        host: 'vault.pl-waw-1.hyperone.com',
+        username: vault._id,
+        password: secret,
+    });
+    t.true(content.includes('load average'));
+
     await tests.remove('vault', vault);
 });

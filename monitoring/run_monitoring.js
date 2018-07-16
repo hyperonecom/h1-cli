@@ -2,6 +2,7 @@
 const mailer = require('nodemailer');
 const childProcess = require('child_process');
 const shell_quote = require('shell-quote');
+const tests = require('lib/tests');
 
 const getConfigValue = (name, options = {}) => {
     if (!process.env[name] && typeof options.defaultValue === 'undefined') {
@@ -67,7 +68,13 @@ const sendMail = async (config, success, report) => {
             from: config.SMTP_SENDER,
             to: recipient,
             subject: success ? 'Monitoring success report' : 'Monitoring failed report',
-            text: report,
+            text: report.split('\n').filter(x => !x.includes('node h1')).join('\n'),
+            attachments: [
+                {
+                    filename: 'monitoring-report.txt',
+                    content: report,
+                },
+            ],
         });
 
         if (success) {
@@ -133,6 +140,7 @@ const main = async () => {
     }
     try {
         await runProcess('/bin/bash ./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT});
+        await runProcess(`h1 project access revoke --email ${tests.RECIPIENT.user}`);
     } catch (err) {
         // This is just cleaning. If fails if there is no resources to clean up.
     }

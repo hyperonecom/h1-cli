@@ -22,7 +22,7 @@ h1 login --username user@example.com
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--username USERNAME``` |  | Your h1 username |
+| ```--username USERNAME``` |  | Your username |
 
 ### Optional arguments
 
