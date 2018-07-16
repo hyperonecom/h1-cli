@@ -5,6 +5,7 @@ const fs = require('fs');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
+const ssh = require('../../lib/ssh');
 
 const now = Date.now();
 
@@ -90,7 +91,7 @@ ava.test.serial('vault credential password life cycle', async t => {
 
 ['project', 'user'].forEach(type => {
     ava.test.serial(`vault ssh using ${type} ssh-key`, async t => {
-        const sshKeyPair = await tests.generateSshKey();
+        const sshKeyPair = await ssh.generateKey();
         const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
 
         const name = `vault-ssh-key-${now}`;
@@ -100,7 +101,7 @@ ava.test.serial('vault credential password life cycle', async t => {
 
         const vault = await tests.run(`vault create --name ${name} --size 10 --ssh ${ssh_name}`);
 
-        const content = await tests.sshExecute('uptime', {
+        const content = await ssh.execute('uptime', {
             host: 'vault.pl-waw-1.hyperone.com',
             username: vault._id,
             privateKey: sshKeyPair.privateKey,
@@ -120,7 +121,7 @@ ava.test.serial('vault ssh using password', async t => {
 
     const vault = await tests.run(`vault create --name ${name} --password ${secret} --size 10`);
 
-    const content = await tests.sshExecute('uptime', {
+    const content = await ssh.execute('uptime', {
         host: 'vault.pl-waw-1.hyperone.com',
         username: vault._id,
         password: secret,

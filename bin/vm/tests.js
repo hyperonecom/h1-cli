@@ -5,6 +5,7 @@ const fs = require('fs');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
+const ssh = require('../../lib/ssh');
 
 const now = Date.now();
 
@@ -207,7 +208,7 @@ ava.test.serial('vm serialport log', async t => {
     ava.test.serial(`vm ssh using ${type} ssh-key`, async t => {
         const common = await getCommon(t.title);
 
-        const sshKeyPair = await tests.generateSshKey();
+        const sshKeyPair = await ssh.generateKey();
         const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
 
         const ssh_name = `vm-ssh-key-${now}-${type}-key`;
@@ -217,10 +218,10 @@ ava.test.serial('vm serialport log', async t => {
         await tests.run(`vm create ${common.params} --ssh ${ssh_name}`);
 
         const ip_addreses = await getVmIp(common.name);
+
         console.log(`Attempt to connect to ${ip_addreses}`);
 
-        await tests.delay(120 * 1000);
-        const content = await tests.sshExecute('uptime', {
+        const content = await ssh.execute('uptime', {
             host: ip_addreses[0],
             username: 'guru',
             privateKey: sshKeyPair.privateKey,
