@@ -6,12 +6,12 @@
   "author": "",
   "main": "bin/h1.js",
   "bin": {
-    "h1": "./bin/h1.js",
-    "rbx": "./bin/rbx.js"
+    "h1": "./bin/h1",
+    "rbx": "./bin/rbx"
   },
   "scripts": {
     "start": "./bin/h1.js",
-    "build": "pkg --out-path ./dist .",
+    "build": "pkg --out-path ./dist -c package.json ./bin/h1 && pkg --out-path ./dist -c package.json ./bin/rbx",
     "lint": "eslint .",
     "docs": "node scripts/print_docs.js docs/",
     "docs_coverage": "node scripts/print_docs_coverage.js",
