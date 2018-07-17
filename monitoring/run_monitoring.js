@@ -2,7 +2,7 @@
 const mailer = require('nodemailer');
 const childProcess = require('child_process');
 const shell_quote = require('shell-quote');
-const tests = require('lib/tests');
+const tests = require('../lib/tests');
 
 const getConfigValue = (name, options = {}) => {
     if (!process.env[name] && typeof options.defaultValue === 'undefined') {
