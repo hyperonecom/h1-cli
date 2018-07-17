@@ -88,19 +88,29 @@ ava.test.serial('project token rename', async t => {
 });
 
 ava.test.serial('project token access life cycle', async t => {
-    const token = await tests.run(`project token add --project ${active_project} --name test-project-token-${now}`);
-    const access = await tests.run(`project token access add --project ${active_project} --method POST --path 'vault/' --token ${token._id}`);
+    const history = [];
+
+    const run = cmd => tests.run({
+        cmd: cmd, history: history,
+    });
+    const token = await run(`project token add --project ${active_project} --name test-project-token-${now}`);
+
+    const access = await run(`project token access add --project ${active_project} --method POST --path 'vault/' --token ${token._id}`);
 
     const tokenParams = `--project ${active_project} --token ${token._id}`;
-    const access_list = await tests.run(`project token access list ${tokenParams}`);
+    const access_list = await run(`project token access list ${tokenParams}`);
+
     t.true(access_list.some(d => d._id === access._id));
 
-    const refreshed_access = await tests.run(`project token access show ${tokenParams} --access ${access._id}`);
+    const refreshed_access = await run(`project token access show ${tokenParams} --access ${access._id}`);
+
     t.true(access._id === refreshed_access._id);
 
-    await tests.run(`project token access delete ${tokenParams} --access ${access._id} --yes`);
+    await run(`project token access delete ${tokenParams} --access ${access._id} --yes`);
 
-    const access_list_deleted = await tests.run(`project token access list ${tokenParams}`);
+
+    const access_list_deleted = await run(`project token access list ${tokenParams}`);
+
     t.false(access_list_deleted.some(d => d._id === access._id));
 
     await tests.remove('project token', token);
