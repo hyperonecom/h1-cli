@@ -21,6 +21,7 @@
     "chalk": "^2.1.0",
     "cookie": "^0.3.1",
     "dns-zonefile": "^0.2.2",
+    "dateformat": "^3.0.3",
     "inquirer": "^1.2.3",
     "jmespath": "^0.15.0",
     "js-yaml": "^3.12.0",
