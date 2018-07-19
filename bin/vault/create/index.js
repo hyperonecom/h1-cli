@@ -25,6 +25,11 @@ const options = {
         type: 'string',
         required: false,
     },
+    snapshot: {
+        description: 'Snapshot ID or name',
+        type: 'string',
+        required: false,
+    },
 };
 
 
@@ -60,6 +65,10 @@ module.exports = resource => Cli.createCommand('create', {
                 certificate: certificates,
             },
         };
+
+        if (args.snapshot) {
+            body.snapshot = args.snapshot;
+        }
 
         return args.helpers.api
             .post(resource.url(args), body)
