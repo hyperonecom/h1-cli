@@ -151,15 +151,25 @@ Create Vault
 
 ### Syntax
 
-```h1 vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD]```
+```h1 vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD] [--snapshot SNAPSHOT]```
 
-### Example
+### Examples
+
+#### Create Vault with SSH credential
 
 ```bash
 h1 vault create --name my-vault --size 10 --ssh my-key
 ```
 
 Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
+
+#### Create Vault from snaphost
+
+```bash
+h1 vault create --name my-vault --size 10 --snapshot my-snapshot
+```
+
+Hint: Use ```h1 snapshot list``` to list available snapshots.
 
 ### Required arguments
 
@@ -174,6 +184,7 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ---- | ------- | ----------- |
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```--password PASSWORD``` |  | Password to access Vault. Recommend using SSH keys |
+| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 
 ## h1 vault credential
 
@@ -411,7 +422,7 @@ Connect to Vault using SSH
 
 ### Syntax
 
-```h1 vault ssh | --vault VAULT```
+```h1 vault ssh | --vault VAULT [--command COMMAND]```
 
 ### Example
 
@@ -426,4 +437,10 @@ Note: You need valid credentials to access Vault any way.
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--command COMMAND``` |  | Command to execute |
 
