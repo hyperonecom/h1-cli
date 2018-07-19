@@ -9,7 +9,6 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,state:state,processing:processing}',
     url: () => 'container',
     plugins: genericDefaults.plugins,
-    extraCommands: ['rename'],
     title: 'container',
 };
 

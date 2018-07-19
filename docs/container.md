@@ -1,13 +1,14 @@
 # TOC
 
- * [h1 container list](#h1-container-list) - List container
- * [h1 container show](#h1-container-show) - Show container
- * [h1 container delete](#h1-container-delete) - Delete container
- * [h1 container rename](#h1-container-rename) - Rename container
- * [h1 container create](#h1-container-create) - container create
- * [h1 container stop](#h1-container-stop) - Stop container
- * [h1 container start](#h1-container-start) - Start container
- * [h1 container logs](#h1-container-logs) - container logs
+  * [h1 container list](#h1-container-list) - List container
+  * [h1 container show](#h1-container-show) - Show container
+  * [h1 container delete](#h1-container-delete) - Delete container
+  * [h1 container history](#h1-container-history) - History of container
+  * [h1 container rename](#h1-container-rename) - Rename container
+  * [h1 container create](#h1-container-create) - container create
+  * [h1 container stop](#h1-container-stop) - Stop container
+  * [h1 container start](#h1-container-start) - Start container
+  * [h1 container logs](#h1-container-logs) - container logs
 
 
 # Specification
@@ -24,6 +25,12 @@ List container
 
 ```h1 container list | ```
 
+### Example
+
+```bash
+h1 container list
+```
+
 ## h1 container show
 
 Show container
@@ -32,9 +39,15 @@ Show container
 
 ```h1 container show | --container CONTAINER```
 
-### Required options
+### Example
 
-| Name | Default | Description | 
+```bash
+h1 container show --container my-container
+```
+
+### Required arguments
+
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | Container ID or name |
 
@@ -46,9 +59,35 @@ Delete container
 
 ```h1 container delete | --container CONTAINER```
 
-### Required options
+### Example
 
-| Name | Default | Description | 
+```bash
+h1 container delete --container my-container
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--container CONTAINER``` |  | Container ID or name |
+
+## h1 container history
+
+History of container
+
+### Syntax
+
+```h1 container history | --container CONTAINER```
+
+### Example
+
+```bash
+h1 container history --container my-container
+```
+
+### Required arguments
+
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | Container ID or name |
 
@@ -60,9 +99,15 @@ Rename container
 
 ```h1 container rename | --container CONTAINER --new-name NEW-NAME```
 
-### Required options
+### Example
 
-| Name | Default | Description | 
+```bash
+h1 container rename --container my-container --new-name my-renamed-container
+```
+
+### Required arguments
+
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | Container ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
@@ -75,16 +120,21 @@ container create
 
 ```h1 container create | --name NAME --image IMAGE --type TYPE [--expose EXPOSE] [--env ENV [--env ENV ...]] [--command COMMAND]```
 
-### Required options
+### Required arguments
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 | ```--image IMAGE``` |  | Image |
 | ```--type TYPE``` |  | Type |
-| ```[--expose EXPOSE]``` |  | Port to expose to the world using http/https |
-| ```[--env ENV [--env ENV ...]]``` |  | Add enviroment variable. The parameter may occur repeatedly |
-| ```[--command COMMAND]``` |  | Override the default command |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--expose EXPOSE``` |  | Port to expose to the world using http/https |
+| ```--env ENV [--env ENV ...]``` |  | Add enviroment variable. The parameter may occur repeatedly |
+| ```--command COMMAND``` |  | Override the default command |
 
 ## h1 container stop
 
@@ -94,9 +144,15 @@ Stop container
 
 ```h1 container stop | --container CONTAINER```
 
-### Required options
+### Example
 
-| Name | Default | Description | 
+```bash
+h1 container stop --container my-container
+```
+
+### Required arguments
+
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | container ID or name |
 
@@ -108,9 +164,15 @@ Start container
 
 ```h1 container start | --container CONTAINER```
 
-### Required options
+### Example
 
-| Name | Default | Description | 
+```bash
+h1 container start --container my-container
+```
+
+### Required arguments
+
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | container ID or name |
 
@@ -122,10 +184,15 @@ container logs
 
 ```h1 container logs | --container CONTAINER [--follow]```
 
-### Required options
+### Required arguments
 
-| Name | Default | Description | 
+| Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | container ID or name |
-| ```[--follow]``` |  | Follow log output |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--follow``` |  | Follow log output |
 
