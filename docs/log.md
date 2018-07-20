@@ -83,6 +83,12 @@ Create log archive
 ### Syntax
 
 ```h1 log create | --name NAME```
+### Example
+
+```bash
+h1 log create --name my-server-log
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -186,6 +192,12 @@ Stream log archive
 ### Syntax
 
 ```h1 log stream | --log LOG```
+### Example
+
+```bash
+h1 log stream --log my-server-log
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -199,6 +211,12 @@ Read log archive
 ### Syntax
 
 ```h1 log read | --log LOG [--since SINCE] [--until UNTIL]```
+### Example
+
+```bash
+h1 log read --log my-server-log
+```
+
 ### Required arguments
 
 | Name | Default | Description |
