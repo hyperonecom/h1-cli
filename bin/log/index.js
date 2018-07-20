@@ -6,12 +6,12 @@ const text = require('lib/text');
 const Cli = require('lib/cli');
 
 const resource = {
-    name: 'logs',
+    name: 'log',
     defaultQuery: '[].{id:_id,name:name,retention:retention}',
     commands: ['delete', 'rename', 'list', 'history'],
     plugins: genericDefaults.plugins,
     url: () => 'logArchive',
-    title: 'logs archive',
+    title: 'log archive',
 };
 
 const category = genericResource(resource);

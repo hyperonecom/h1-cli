@@ -32,7 +32,7 @@ if (config.get('profile.apiKey') || process.env.NODE_ENV !== 'production') {
     cli.addChild(require('./service'));
 }
 
-cli.addChild(require('./logs'));
+cli.addChild(require('./log'));
 
 const cli_resources = ['vm', 'disk', 'image', 'iso', 'network', 'ip',
     'dns', 'netgw', 'firewall', 'vault', 'snapshot'];
