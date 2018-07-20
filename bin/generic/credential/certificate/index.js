@@ -1,6 +1,6 @@
 'use strict';
 
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/index');
 
 module.exports = resource => {
 
@@ -12,9 +12,10 @@ module.exports = resource => {
         options: resource.options,
         title: 'certificate to Vault',
         context: resource.context,
+        resource: resource,
     });
 
-    category.addChild(require('./add')(resource));
+    category.addChild(require('./add/index')(resource));
 
     return category;
 };

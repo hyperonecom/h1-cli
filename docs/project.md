@@ -895,7 +895,7 @@ Rename credentials
 ### Example
 
 ```bash
-h1 project credentials rename --credentials my-credentials --new-name my-renamed-credentials
+h1 project credentials rename --credentials my-credentials --new-name my-renamed-credentials --project my-project
 ```
 
 ### Required arguments

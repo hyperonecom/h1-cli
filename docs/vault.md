@@ -17,7 +17,7 @@
       * [h1 vault credential cert rename](#h1-vault-credential-cert-rename) - Rename certificate to Vault
       * [h1 vault credential cert list](#h1-vault-credential-cert-list) - List certificate to Vault
       * [h1 vault credential cert delete](#h1-vault-credential-cert-delete) - Delete certificate to Vault
-      * [h1 vault credential cert add](#h1-vault-credential-cert-add) - Add credential to Vault
+      * [h1 vault credential cert add](#h1-vault-credential-cert-add) - Add certificate to Vault
     * [h1 vault credential password](#h1-vault-credential-password) - Manage your password to Vault
       * [h1 vault credential password show](#h1-vault-credential-password-show) - Show password to Vault
       * [h1 vault credential password list](#h1-vault-credential-password-list) - List password to Vault
@@ -293,7 +293,7 @@ Rename certificate to Vault
 ### Example
 
 ```bash
-h1 vault credential cert rename --cert my-cert --new-name my-renamed-cert
+h1 vault credential cert rename --cert my-cert --new-name my-renamed-cert --vault my-vault
 ```
 
 ### Required arguments
@@ -345,7 +345,7 @@ h1 vault credential cert delete --cert my-cert --vault my-vault
 
 ## h1 vault credential cert add
 
-Add credential to Vault
+Add certificate to Vault
 
 ### Syntax
 
@@ -423,7 +423,7 @@ Rename password to Vault
 ### Example
 
 ```bash
-h1 vault credential password rename --password my-password --new-name my-renamed-password
+h1 vault credential password rename --password my-password --new-name my-renamed-password --vault my-vault
 ```
 
 ### Required arguments
