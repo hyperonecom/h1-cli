@@ -35,7 +35,7 @@ module.exports = (resource, credential_types) => {
     const category = genericResource(defaults);
 
     for (const kind of credential_types) {
-        category.addChild(require(`./${kind}/index`)(defaults));
+        category.addChild(require(`./${kind}`)(defaults));
     }
 
     return category;

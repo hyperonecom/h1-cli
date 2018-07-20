@@ -15,7 +15,7 @@ module.exports = resource => {
         resource: resource,
     });
 
-    category.addChild(require('./add/index')(resource));
+    category.addChild(require('./add')(resource));
 
     return category;
 };
