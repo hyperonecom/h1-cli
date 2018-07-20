@@ -30,6 +30,12 @@ ava.test.serial('project rename', async t => {
     t.true(project.name === name);
 });
 
+ava.test.serial('project --project-select', async t => {
+    const project = await tests.run(`project show --project ${active_project}`);
+    const vm_list = await tests.run(`vm list --project-select ${project.name}`);
+    t.true(Array.isArray(vm_list));
+});
+
 
 ava.test.serial('project limits', async t => {
     const limits = await tests.run('project limit');
