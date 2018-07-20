@@ -143,4 +143,5 @@ module.exports = resource => Cli.createCommand('create', {
     options: options,
     dirname: __dirname,
     handler: handler,
+    priority: 25,
 });

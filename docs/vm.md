@@ -3,6 +3,10 @@
   * [h1 vm list](#h1-vm-list) - List virtual machine
   * [h1 vm show](#h1-vm-show) - Show virtual machine
   * [h1 vm history](#h1-vm-history) - History of virtual machine
+  * [h1 vm tag](#h1-vm-tag) - Manage your tag
+    * [h1 vm tag list](#h1-vm-tag-list) - List tag
+    * [h1 vm tag add](#h1-vm-tag-add) - Add a tag to virtual machine
+    * [h1 vm tag delete](#h1-vm-tag-delete) - Add a tag of virtual machine
   * [h1 vm create](#h1-vm-create) - Create virtual machine
   * [h1 vm delete](#h1-vm-delete) - Delete virtual machine
   * [h1 vm console](#h1-vm-console) - Open virtual machine console in web-browser
@@ -30,10 +34,6 @@
     * [h1 vm dvd list](#h1-vm-dvd-list) - List DVD
     * [h1 vm dvd insert](#h1-vm-dvd-insert) - Insert ISO into DVD drive of DVD
     * [h1 vm dvd eject](#h1-vm-dvd-eject) - Eject ISO from DVD drive of DVD
-  * [h1 vm tag](#h1-vm-tag) - Manage your tag
-    * [h1 vm tag list](#h1-vm-tag-list) - List tag
-    * [h1 vm tag add](#h1-vm-tag-add) - Add a tag to Tag of virtual machine
-    * [h1 vm tag delete](#h1-vm-tag-delete) - Add a tag of Tag of virtual machine
   * [h1 vm ssh](#h1-vm-ssh) - Connect to virtual machine using SSH
   * [h1 vm serialport](#h1-vm-serialport) - Serial Console
     * [h1 vm serialport console](#h1-vm-serialport-console) - Connect to virtual machine using Serial Console
@@ -100,6 +100,71 @@ h1 vm history --vm my-vm
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm tag
+
+Manage your tag
+
+## h1 vm tag list
+
+List tag
+
+### Syntax
+
+```h1 vm tag list | --vm VM```
+
+### Example
+
+```bash
+h1 vm tag list --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm tag add
+
+Add a tag to virtual machine
+
+### Syntax
+
+```h1 vm tag add | --tag TAG [--tag TAG ...]```
+
+### Example
+
+```bash
+h1 vm tag add --vm test-vm --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
+
+## h1 vm tag delete
+
+Add a tag of virtual machine
+
+### Syntax
+
+```h1 vm tag delete | --tag TAG --vm VM```
+
+### Example
+
+```bash
+h1 vm tag delete --vm test-vm --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm create
@@ -682,72 +747,6 @@ h1 vm dvd eject --vm test-vm
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
-
-## h1 vm tag
-
-Manage your tag
-
-## h1 vm tag list
-
-List tag
-
-### Syntax
-
-```h1 vm tag list | --vm VM```
-
-### Example
-
-```bash
-h1 vm tag list --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm tag add
-
-Add a tag to Tag of virtual machine
-
-### Syntax
-
-```h1 vm tag add | --vm VM --tag TAG [--tag TAG ...]```
-
-### Example
-
-```bash
-h1 vm tag add --vm test-vm --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-| ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
-
-## h1 vm tag delete
-
-Add a tag of Tag of virtual machine
-
-### Syntax
-
-```h1 vm tag delete | --tag TAG --vm VM```
-
-### Example
-
-```bash
-h1 vm tag delete --vm test-vm --tag prod
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
-| ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm ssh
 
