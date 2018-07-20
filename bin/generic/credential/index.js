@@ -24,6 +24,7 @@ module.exports = (resource, credential_types) => {
         description: `Manage your credentials to ${resource.title}`,
         resource: resource,
         title: resource.title,
+        priority: 75,
         context: {
             listParams: `--${resource.name} my-${resource.name}`,
             deleteParams: `--${resource.name} my-${resource.name}`,
@@ -34,9 +35,7 @@ module.exports = (resource, credential_types) => {
 
     const category = genericResource(defaults);
 
-    for (const kind of credential_types) {
-        category.addChild(require(`./${kind}`)(defaults));
-    }
+    credential_types.forEach(kind => category.addChild(require(`./${kind}`)(defaults)));
 
     return category;
 };

@@ -1,14 +1,5 @@
 # TOC
 
-  * [h1 project show](#h1-project-show) - Show project
-  * [h1 project delete](#h1-project-delete) - Delete project
-  * [h1 project history](#h1-project-history) - History of project
-  * [h1 project rename](#h1-project-rename) - Rename project
-  * [h1 project tag](#h1-project-tag) - Manage your tag
-    * [h1 project tag list](#h1-project-tag-list) - List tag
-    * [h1 project tag add](#h1-project-tag-add) - Add a tag to project
-    * [h1 project tag delete](#h1-project-tag-delete) - Delete a tag of project
-  * [h1 project list](#h1-project-list) - List project
   * [h1 project access](#h1-project-access) - Manage your project access rights
     * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
     * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for project
@@ -19,6 +10,12 @@
       * [h1 project access rule delete](#h1-project-access-rule-delete) - Delete network access rule
       * [h1 project access rule add](#h1-project-access-rule-add) - Add access rule for network access rule
     * [h1 project access list](#h1-project-access-list) - List project
+  * [h1 project show](#h1-project-show) - Show project
+  * [h1 project history](#h1-project-history) - History of project
+  * [h1 project rename](#h1-project-rename) - Rename project
+  * [h1 project limit](#h1-project-limit) - Cloud limits set for project
+  * [h1 project list](#h1-project-list) - List project
+  * [h1 project delete](#h1-project-delete) - Delete project
   * [h1 project token](#h1-project-token) - Manage your project tokens
     * [h1 project token show](#h1-project-token-show) - Show token
     * [h1 project token list](#h1-project-token-list) - List token
@@ -36,13 +33,16 @@
       * [h1 project notification credits list](#h1-project-notification-credits-list) - List credits limits
       * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limits
   * [h1 project select](#h1-project-select) - Select project context
-  * [h1 project limit](#h1-project-limit) - Cloud limits set for project
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
     * [h1 project credentials show](#h1-project-credentials-show) - Show credentials
     * [h1 project credentials list](#h1-project-credentials-list) - List credentials
     * [h1 project credentials delete](#h1-project-credentials-delete) - Delete credentials
     * [h1 project credentials rename](#h1-project-credentials-rename) - Rename credentials
     * [h1 project credentials add](#h1-project-credentials-add) - Add public SSH key for project
+  * [h1 project tag](#h1-project-tag) - Manage your tag
+    * [h1 project tag list](#h1-project-tag-list) - List tag
+    * [h1 project tag add](#h1-project-tag-add) - Add a tag to project
+    * [h1 project tag delete](#h1-project-tag-delete) - Delete a tag of project
 
 
 # Specification
@@ -50,170 +50,6 @@
 ## h1 project
 
 Manage your project
-
-## h1 project show
-
-Show project
-
-### Syntax
-
-```h1 project show | --project PROJECT```
-### Example
-
-```bash
-h1 project show --project my-project
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-
-## h1 project delete
-
-Delete project
-
-### Syntax
-
-```h1 project delete | --project PROJECT```
-### Example
-
-```bash
-h1 project delete --project my-project
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-
-## h1 project history
-
-History of project
-
-### Syntax
-
-```h1 project history | --project PROJECT```
-### Example
-
-```bash
-h1 project history --project my-project
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-
-## h1 project rename
-
-Rename project
-
-### Syntax
-
-```h1 project rename | --project PROJECT --new-name NEW-NAME```
-### Example
-
-```bash
-h1 project rename --project my-project --new-name my-renamed-project
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 project tag
-
-Manage your tag
-
-## h1 project tag list
-
-List tag
-
-### Syntax
-
-```h1 project tag list | --project PROJECT```
-### Example
-
-```bash
-h1 project tag list --project my-project
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-
-## h1 project tag add
-
-Add a tag to project
-
-### Syntax
-
-```h1 project tag add | --project PROJECT [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 project tag add --project test-project --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 project tag delete
-
-Delete a tag of project
-
-### Syntax
-
-```h1 project tag delete | --tag TAG --project PROJECT```
-### Example
-
-```bash
-h1 project tag delete --project test-project --tag prod
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
-| ```--project PROJECT``` |  | Project ID or name |
-
-## h1 project list
-
-List project
-
-### Syntax
-
-```h1 project list | [--all]```
-### Example
-
-```bash
-h1 project list
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--all``` |  | Display all projects |
 
 ## h1 project access
 
@@ -427,6 +263,123 @@ h1 project access list
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project show
+
+Show project
+
+### Syntax
+
+```h1 project show | --project PROJECT```
+### Example
+
+```bash
+h1 project show --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project history
+
+History of project
+
+### Syntax
+
+```h1 project history | --project PROJECT```
+### Example
+
+```bash
+h1 project history --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project rename
+
+Rename project
+
+### Syntax
+
+```h1 project rename | --project PROJECT --new-name NEW-NAME```
+### Example
+
+```bash
+h1 project rename --project my-project --new-name my-renamed-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+## h1 project limit
+
+Cloud limits set for project
+
+### Syntax
+
+```h1 project limit | [--project PROJECT]```
+### Example
+
+```bash
+h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
+```
+
+Contact technical support to request increase the limits.
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project list
+
+List project
+
+### Syntax
+
+```h1 project list | [--all]```
+### Example
+
+```bash
+h1 project list
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--all``` |  | Display all projects |
+
+## h1 project delete
+
+Delete project
+
+### Syntax
+
+```h1 project delete | --project PROJECT```
+### Example
+
+```bash
+h1 project delete --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project token
 
@@ -791,27 +744,6 @@ h1 project select --project 6oAoJqgyLZP4Le9UUNHrEOYP
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
-## h1 project limit
-
-Cloud limits set for project
-
-### Syntax
-
-```h1 project limit | [--project PROJECT]```
-### Example
-
-```bash
-h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
-```
-
-Contact technical support to request increase the limits.
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project credentials
 
 Manage your credentials
@@ -936,4 +868,72 @@ h1 project credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub --
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project tag
+
+Manage your tag
+
+## h1 project tag list
+
+List tag
+
+### Syntax
+
+```h1 project tag list | --project PROJECT```
+### Example
+
+```bash
+h1 project tag list --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project tag add
+
+Add a tag to project
+
+### Syntax
+
+```h1 project tag add | --project PROJECT [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 project tag add --project test-project --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 project tag delete
+
+Delete a tag of project
+
+### Syntax
+
+```h1 project tag delete | --tag TAG --project PROJECT```
+### Example
+
+```bash
+h1 project tag delete --project test-project --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--project PROJECT``` |  | Project ID or name |
 

@@ -13,6 +13,7 @@ const resource = {
         require('bin/_plugins/outputFormat'),
         require('bin/_plugins/api'),
     ],
+    priority: 15,
     title: 'project',
     commands: ['show', 'delete', 'history', 'rename', 'tag' ],
 };

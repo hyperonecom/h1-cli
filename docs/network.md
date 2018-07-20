@@ -5,10 +5,6 @@
   * [h1 network delete](#h1-network-delete) - Delete network
   * [h1 network history](#h1-network-history) - History of network
   * [h1 network rename](#h1-network-rename) - Rename network
-  * [h1 network tag](#h1-network-tag) - Manage your tag
-    * [h1 network tag list](#h1-network-tag-list) - List tag
-    * [h1 network tag add](#h1-network-tag-add) - Add a tag to network
-    * [h1 network tag delete](#h1-network-tag-delete) - Delete a tag of network
   * [h1 network create](#h1-network-create) - Create network
   * [h1 network ip](#h1-network-ip) - Manage your IP address
     * [h1 network ip list](#h1-network-ip-list) - List IP address
@@ -19,6 +15,10 @@
       * [h1 network ip tag list](#h1-network-ip-tag-list) - List tag
       * [h1 network ip tag add](#h1-network-ip-tag-add) - Add a tag to IP address
       * [h1 network ip tag delete](#h1-network-ip-tag-delete) - Delete a tag of IP address
+  * [h1 network tag](#h1-network-tag) - Manage your tag
+    * [h1 network tag list](#h1-network-tag-list) - List tag
+    * [h1 network tag add](#h1-network-tag-add) - Add a tag to network
+    * [h1 network tag delete](#h1-network-tag-delete) - Delete a tag of network
 
 
 # Specification
@@ -116,74 +116,6 @@ h1 network rename --network my-network --new-name my-renamed-network
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
-
-## h1 network tag
-
-Manage your tag
-
-## h1 network tag list
-
-List tag
-
-### Syntax
-
-```h1 network tag list | --network NETWORK```
-### Example
-
-```bash
-h1 network tag list --network my-network
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--network NETWORK``` |  | Network ID or name |
-
-## h1 network tag add
-
-Add a tag to network
-
-### Syntax
-
-```h1 network tag add | --network NETWORK [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 network tag add --network test-network --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--network NETWORK``` |  | Network ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 network tag delete
-
-Delete a tag of network
-
-### Syntax
-
-```h1 network tag delete | --tag TAG --network NETWORK```
-### Example
-
-```bash
-h1 network tag delete --network test-network --tag prod
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
-| ```--network NETWORK``` |  | Network ID or name |
 
 ## h1 network create
 
@@ -387,4 +319,72 @@ h1 network ip tag delete --ip test-ip --tag prod
 | ```--tag TAG``` |  | Tag |
 | ```--network NETWORK``` |  | Network name or ID |
 | ```--ip IP``` |  | IP address ID or name |
+
+## h1 network tag
+
+Manage your tag
+
+## h1 network tag list
+
+List tag
+
+### Syntax
+
+```h1 network tag list | --network NETWORK```
+### Example
+
+```bash
+h1 network tag list --network my-network
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network ID or name |
+
+## h1 network tag add
+
+Add a tag to network
+
+### Syntax
+
+```h1 network tag add | --network NETWORK [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 network tag add --network test-network --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 network tag delete
+
+Delete a tag of network
+
+### Syntax
+
+```h1 network tag delete | --tag TAG --network NETWORK```
+### Example
+
+```bash
+h1 network tag delete --network test-network --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--network NETWORK``` |  | Network ID or name |
 

@@ -21,6 +21,7 @@ module.exports = resource => Cli.createCommand('create', {
     dirname: __dirname,
     plugins: resource.plugins,
     options: options,
+    priority: 25,
     handler: args => args.helpers.api
         .post(resource.url(), {
             name: args.name,

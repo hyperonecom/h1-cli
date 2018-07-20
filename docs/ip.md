@@ -4,14 +4,14 @@
   * [h1 ip show](#h1-ip-show) - Show IP address
   * [h1 ip delete](#h1-ip-delete) - Delete IP address
   * [h1 ip history](#h1-ip-history) - History of IP address
-  * [h1 ip tag](#h1-ip-tag) - Manage your tag
-    * [h1 ip tag list](#h1-ip-tag-list) - List tag
-    * [h1 ip tag add](#h1-ip-tag-add) - Add a tag to IP address
-    * [h1 ip tag delete](#h1-ip-tag-delete) - Delete a tag of IP address
   * [h1 ip create](#h1-ip-create) - Create IP address
   * [h1 ip associate](#h1-ip-associate) - Associate IP address
   * [h1 ip disassociate](#h1-ip-disassociate) - Disassociate IP address
   * [h1 ip ptr](#h1-ip-ptr) - Update PTR record of IP address
+  * [h1 ip tag](#h1-ip-tag) - Manage your tag
+    * [h1 ip tag list](#h1-ip-tag-list) - List tag
+    * [h1 ip tag add](#h1-ip-tag-add) - Add a tag to IP address
+    * [h1 ip tag delete](#h1-ip-tag-delete) - Delete a tag of IP address
 
 
 # Specification
@@ -88,74 +88,6 @@ h1 ip history --ip my-ip
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ip IP``` |  | IP address ID or name |
-
-## h1 ip tag
-
-Manage your tag
-
-## h1 ip tag list
-
-List tag
-
-### Syntax
-
-```h1 ip tag list | --ip IP```
-### Example
-
-```bash
-h1 ip tag list --ip my-ip
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--ip IP``` |  | IP address ID or name |
-
-## h1 ip tag add
-
-Add a tag to IP address
-
-### Syntax
-
-```h1 ip tag add | --ip IP [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 ip tag add --ip test-ip --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--ip IP``` |  | IP address ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 ip tag delete
-
-Delete a tag of IP address
-
-### Syntax
-
-```h1 ip tag delete | --tag TAG --ip IP```
-### Example
-
-```bash
-h1 ip tag delete --ip test-ip --tag prod
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
 | ```--ip IP``` |  | IP address ID or name |
 
 ## h1 ip create
@@ -239,4 +171,72 @@ h1 ip ptr --ip 62.181.8.21 --value 'example.com'
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address or ID |
 | ```--value VALUE``` |  | PTR record |
+
+## h1 ip tag
+
+Manage your tag
+
+## h1 ip tag list
+
+List tag
+
+### Syntax
+
+```h1 ip tag list | --ip IP```
+### Example
+
+```bash
+h1 ip tag list --ip my-ip
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address ID or name |
+
+## h1 ip tag add
+
+Add a tag to IP address
+
+### Syntax
+
+```h1 ip tag add | --ip IP [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 ip tag add --ip test-ip --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 ip tag delete
+
+Delete a tag of IP address
+
+### Syntax
+
+```h1 ip tag delete | --tag TAG --ip IP```
+### Example
+
+```bash
+h1 ip tag delete --ip test-ip --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--ip IP``` |  | IP address ID or name |
 

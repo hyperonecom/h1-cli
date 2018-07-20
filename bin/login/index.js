@@ -60,6 +60,7 @@ module.exports = Cli.createCommand('login', {
     plugins: [
         require('../_plugins/api'),
     ],
+    priority: 10,
     options: options,
     handler: handler,
 });

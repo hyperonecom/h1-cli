@@ -1,12 +1,13 @@
 # TOC
 
+  * [h1 log create](#h1-log-create) - Create log archive
   * [h1 log show](#h1-log-show) - Show log archive
   * [h1 log delete](#h1-log-delete) - Delete log archive
   * [h1 log rename](#h1-log-rename) - Rename log archive
   * [h1 log list](#h1-log-list) - List log archive
   * [h1 log history](#h1-log-history) - History of log archive
-  * [h1 log create](#h1-log-create) - Create log archive
   * [h1 log stream](#h1-log-stream) - Stream log archive
+  * [h1 log read](#h1-log-read) - Read log archive
   * [h1 log credential](#h1-log-credential) - Manage your credentials to log archive
     * [h1 log credential password](#h1-log-credential-password) - Manage your password to log archive
       * [h1 log credential password show](#h1-log-credential-password-show) - Show password to log archive
@@ -14,7 +15,6 @@
       * [h1 log credential password rename](#h1-log-credential-password-rename) - Rename password to log archive
       * [h1 log credential password delete](#h1-log-credential-password-delete) - Delete password to log archive
       * [h1 log credential password add](#h1-log-credential-password-add) - Add password to log archive
-  * [h1 log read](#h1-log-read) - Read log archive
 
 
 # Specification
@@ -75,6 +75,19 @@ h1 log read --log my-server-log
 ```bash
 h1 log stream --log my-server-log
 ```
+
+## h1 log create
+
+Create log archive
+
+### Syntax
+
+```h1 log create | --name NAME```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Name of logs archive |
 
 ## h1 log show
 
@@ -166,19 +179,6 @@ h1 log history --log my-log
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
 
-## h1 log create
-
-Create log archive
-
-### Syntax
-
-```h1 log create | --name NAME```
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name of logs archive |
-
 ## h1 log stream
 
 Stream log archive
@@ -191,6 +191,26 @@ Stream log archive
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
+
+## h1 log read
+
+Read log archive
+
+### Syntax
+
+```h1 log read | --log LOG [--since SINCE] [--until UNTIL]```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log LOG``` |  | Log archive ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--since SINCE``` |  | Start of period for which you want to receive logs |
+| ```--until UNTIL``` |  | End of period for which you want to receive logs |
 
 ## h1 log credential
 
@@ -300,24 +320,4 @@ h1 log credential password add --name my-pass --password secret-password --log m
 | ```--log LOG``` |  | Log archive ID or name |
 | ```--name NAME``` |  | Name |
 | ```--password PASSWORD``` |  | Password |
-
-## h1 log read
-
-Read log archive
-
-### Syntax
-
-```h1 log read | --log LOG [--since SINCE] [--until UNTIL]```
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--since SINCE``` |  | Start of period for which you want to receive logs |
-| ```--until UNTIL``` |  | End of period for which you want to receive logs |
 
