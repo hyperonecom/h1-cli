@@ -23,10 +23,10 @@ const handler = args => {
         .then(result => args.helpers.sendOutput(args, result));
 };
 
-module.exports = resource => Cli.createCommand('add', {
+module.exports = (resource, subresource) => Cli.createCommand('add', {
     description: `Add a tag to ${resource.title}`,
-    plugins: resource.plugins,
-    params: resource.params,
+    plugins: subresource.plugins,
+    params: subresource.params,
     dirname: __dirname,
     options: Object.assign({}, resource.options, options),
     handler: handler,
