@@ -8,12 +8,12 @@ const options = {
         type: 'string',
         required: true,
     },
-    retention: {
-        description: 'Data retention period (in days)',
-        type: 'int',
-        required: true,
-        defaultValue: 30,
-    },
+    // retention: {
+    //     description: 'Data retention period (in days)',
+    //     type: 'int',
+    //     required: true,
+    //     defaultValue: 30,
+    // },
 };
 
 module.exports = resource => Cli.createCommand('create', {
@@ -24,7 +24,8 @@ module.exports = resource => Cli.createCommand('create', {
     handler: args => args.helpers.api
         .post(resource.url(), {
             name: args.name,
-            retention: args.retention,
+            // retention: args.retention,
+            retention: 30,
         })
         .then(result => args.helpers.sendOutput(args, result)),
 });
