@@ -1,6 +1,6 @@
 'use strict';
 
-const genericResource = require('bin/generic/index');
+const genericResource = require('bin/generic');
 
 module.exports = resource => {
 
