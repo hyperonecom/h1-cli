@@ -1,15 +1,34 @@
 language: node_js
 node_js:
-  - "10"
-script:
-  - npm link
-  - npm run lint
-  - h1 config cli
-  - npm run docs
-  - git status
-  - git diff HEAD
-  - test -z "$(git status --porcelain docs)"
-  - scripts/markown_lint.sh
-  - npm run build
-  - dist/h1-linux --help
-  - dist/rbx-linux --help
+- '10'
+jobs:
+  include:
+  - stage: test
+    script:
+    - npm link
+    - npm run lint
+    - h1 config cli
+    - npm run docs
+    - git status
+    - git diff HEAD
+    - test -z "$(git status --porcelain docs)"
+    - scripts/markown_lint.sh
+    - npm run build
+    - dist/h1-linux --help
+    - dist/rbx-linux --help
+  - stage: build & deploy
+    sudo: required
+    services:
+    - docker
+    script:
+    - cd ./monitoring
+    - ./deploy_image.sh
+    branches:
+      only:
+      - develop
+      - travis-stages
+env:
+  global:
+  - secure: 6l7DXSYURsfwoWF9UW0TAKcgBGr12NKVIaVceOvuFyyczFbCpTqhVbu/0pvjEziitdJ15zqG2DABxodLgr+8DiVJhmMXCobKtIIMpgiikvE+XeZmEobQJQ/KU4ftwrBqD7j8v3qIaKAvwGNAoi91dmjnroxs5u/hjOtw10y0HEnqZI/9HfLd2I5ho6WT56h276HKTXVZPZVitGPXxlRrSKNGb5mvAk/lUgnADDAEQ0KSQ1yn4utL2QIPq9+bSvS/2piaz0ELi8vvxxC6Vxsnhe4kKvQUmH/uqx+3UdRsOgJF7fG+iuoSnm3u527hpmYHx6GIvkfCrmxwvApcQr5kcF0NwnMy+VP0KkDtet95LsdnV6A9OgBa7y7xnwMNgamkwdnfnuojVIM/8StKZYt3d8sDxwNnA89/2I5QCRczp1FAyxSYb/rhnuP8WaCa2EsmwcYdevwD1iz+Dht4nz6MxmFOJU+AZUV+VRuCM4KNOcOcBjnkcJ6/WayxwtF08oSVXZJQ/U8S7UlhL+++Rf5BB9+9hkWrSdRmDV+8ib9nvy4I5NHXC4wE4fWWpGva72CZCOgdkfDozYM5qLFwQLKq8a2rNIE/R98GZdiol6E3X2k2hKtTCuMBmvMoOYO19yLxE0paCQia912eYRdRJGobLYQlrfI54CK+hO8vqUjeYbw=
+  - secure: y0OLxt2NJYFM6RclpBECc+KPgAtujeNwwEmuJ8Ocq+7isBmiKLa9nkXVLYmjdNDhoBjCGVLANgjcfxL0NGVeamzRlJhq56ws3qJSSkiNdMQ1stkNBUAmnSZXJQSrEbIEP8W7/l8H5uzxQMBAnC8URIglggHMMX18PPPIQGybLUGNeQ1/X6mNKlbVVSiQ7G1oW2LxQUZNnJE9tqdkktnsv43AIKy3qJ0tcVZsjU2ebslinyQfrjT6LmbtVT2oEqOV0xd40YTVgCllEmtW4q6ddGRnj9jNjwFMXR5RnlYTPHXUijXVbH7Az8K/FpE+iWmj69brlmSXwZ+OpXy3wsrZyspI0LMYchKGVZOxlJJeAeKBJsnYAvcfFEu5YGyl9Y7RIigtypIpWjbV9SyLPYsfSOmkV9QwGMG9KhNAn1+1e0HaCFzfDQ+n8UXLt41eU0XaqdVmW6rHqcVxuTn2b91rcAgiSPGY+4rZQ8WIPDLOiExXQEwIdpIL4ERiY5eOHvlaSgEC0gA/ZCjxwgx7JVIRHqNu/JCzNe7bcQEZOvz+pI3FVndeBGbaiP5kup5sfYxa6prDBBMo/iKcGFX/JhkBv5kUKJmZ2FWQ/ulziZTI88qPiH9LBm7MM95CwE4r/wfLVvrjVRN44aPrdf8mAUU0ED2FDyCfw1664Pxyv7VJFco=
+  - secure: SE6xqSO7MJlUBU2ltOOpHfhWqcvHYZlvaKYH4jlNXnasC+0MKEd2XoMKN5QZdnuz5kYWnClki0BSokzRnjTUZ9DSNPYNDZL9KpbU8vL0tTTZlKyjR4YsMwMlWj2nUv/Ry2qJJ2XnkBEvMhfJALjCGHa+Qxg1yCWkZeoVG+qWdVnc8OUoZFRj70YkFp78gs1xVeW5PIpWPP6265TC6tXihi6taAgTuCsHJPIKCDSLPFBlly+Nkn3qdYvnLD38l4laHD15NkzVvkxp6NtkIbcsdTcNoy0mA9vWI941wYDI4klFgxxeWTD9dj6FYIPEYVXMy2r9EsEtL/y5cwStNyFJImRpxyPqHZ3y+NaaLamnM1e+WY5Mz9qwQEA/U/Hspgn2Sfwa+JD9XFxPbvVeDMRF/Lvu7Q1aHAo+HFqGPqCHo9VM5en7hkcyqCFscJ7Edznwl1IsR3FyB9zXoqusMOtx2Ztz1FJ+YlRNnfViw4ERoRLjr88eWJxNxH6/SeM20YUS1VAk8TlcSEkXm56Jk6gN0GJNexmXAK0kKLegi4bTE/fzfp9Jn/R30Rz8kdvW2TTH3FqYT8TdO9dB+U2XKGdvPUTkVkrJLW7VtrOd7NzR6DExlDY+EykXAywo/IHhf/Zdizf14sxwFHSAcEZqjyyCsjR5OqfHb3uhR+oneQauXqE=
