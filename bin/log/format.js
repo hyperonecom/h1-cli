@@ -55,7 +55,7 @@ const outputOptions = {
         defaultValue: default_fields.join(','),
     },
     filter: {
-        description: 'Filter of logs',
+        description: 'Filter of events',
         type: 'string',
         action: 'append',
         defaultValue: [],

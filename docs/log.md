@@ -210,7 +210,7 @@ Read log archive
 
 ### Syntax
 
-```h1 log read | --log LOG [--since SINCE] [--until UNTIL]```
+```h1 log read | --log LOG [--since SINCE] [--until UNTIL] [--tail TAIL]```
 ### Example
 
 ```bash
@@ -229,6 +229,7 @@ h1 log read --log my-server-log
 | ---- | ------- | ----------- |
 | ```--since SINCE``` |  | Start of period for which you want to receive logs |
 | ```--until UNTIL``` |  | End of period for which you want to receive logs |
+| ```--tail TAIL``` |  | Number of lines to show from the end of the logs. All if skipped. |
 
 ## h1 log credential
 
