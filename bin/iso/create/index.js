@@ -43,14 +43,14 @@ module.exports = resource => Cli.createCommand('create', {
         if (args['source-url']) {
             iso = await args.helpers.api.post(resource.url(args), {name: args.name, source: args['source-url']});
         } else if (args['source-file']) {
-            const fileSize = fs.statSync(args.source).size;
+            const fileSize = fs.statSync(args['source-file']).size;
 
             iso = await args.helpers.api.post(resource.url(args), {
                 name: args.name,
                 size: fileSize / 1024 ** 3,
                 metadata: {
                     source: {
-                        filename: path.basename(args.source),
+                        filename: path.basename(args['source-file']),
                         size: fileSize,
                     },
                 },
@@ -58,7 +58,7 @@ module.exports = resource => Cli.createCommand('create', {
 
             const ws = await args.helpers.api.wsUpload(`iso/${iso._id}/upload`);
 
-            await websocketStream.upload(ws, args.source);
+            await websocketStream.upload(ws, args['source-file']);
 
             iso = await args.helpers.api.get(`${resource.url(args)}/${iso._id}`);
         }
