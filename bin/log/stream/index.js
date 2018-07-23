@@ -2,6 +2,8 @@
 
 const Cli = require('lib/cli');
 const text = require('lib/text');
+const format = require('./../format');
+const EventEmitter = require('events');
 
 
 module.exports = resource => {
@@ -14,17 +16,31 @@ module.exports = resource => {
         },
     };
 
-    return Cli.createCommand('stream', {
+    const cmd = Cli.createCommand('stream', {
         description: `Stream ${resource.title}`,
         dirname: __dirname,
-        plugins: resource.plugins,
         options: options,
-        handler: args => {
-            return args.helpers.api.stream(`${resource.url()}/${args[resource.name]}/stream`)
-                .then(emitter => new Promise((resolve, reject) => {
-                    emitter.on('jsonl', jsonl => console.log(jsonl));
-                    emitter.on('error', err => reject(err));
-                }));
+        plugins: [
+            require('bin/_plugins/loginRequired'),
+            require('bin/_plugins/api'),
+            require('bin/_plugins/projectRequired'),
+        ],
+        handler: async args => {
+            const url = `${resource.url()}/${args[resource.name]}/stream`;
+
+            const formatter = format.formatter(args);
+            formatter.print_header();
+
+            const emitter = new EventEmitter();
+
+            emitter.on('jsonl', jsonl => formatter.print_jsonl(jsonl));
+
+            await args.helpers.api.stream(url, {}, emitter);
+            await new Promise(() => {});
         },
     });
+
+    cmd.addOptionGroup('Output options', format.outputOptions);
+
+    return cmd;
 };

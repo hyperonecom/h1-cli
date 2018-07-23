@@ -3,9 +3,11 @@
 const Cli = require('lib/cli');
 const text = require('lib/text');
 const dateformat = require('dateformat');
+const range = require('../range');
+const format = require('../format');
+const EventEmitter = require('events');
 
 module.exports = resource => {
-
     const options = {
         [resource.name]: {
             description: `${text.toTitleCase(resource.title)} ID or name`,
@@ -22,24 +24,60 @@ module.exports = resource => {
             type: 'string',
             defaultValue: dateformat(new Date(), 'yyyy-mm-dd'),
         },
+        tail: {
+            description: 'Number of lines to show from the end of the logs. All if skipped.',
+            type: 'int',
+        },
     };
 
-    return Cli.createCommand('read', {
+
+    const cmd = Cli.createCommand('read', {
         description: `Read ${resource.title}`,
         dirname: __dirname,
-        plugins: resource.plugins,
+        plugins: [
+            require('bin/_plugins/loginRequired'),
+            require('bin/_plugins/api'),
+            require('bin/_plugins/projectRequired'),
+        ],
         options: options,
-        handler: args => {
+        handler: async args => {
             const query = {
                 since: args.since,
                 until: args.until,
             };
+            const url = `${resource.url()}/${args[resource.name]}/events`;
 
-            return args.helpers.api.stream(`${resource.url()}/${args[resource.name]}/events`, query)
-                .then(emitter => new Promise((resolve, reject) => {
-                    emitter.on('jsonl', jsonl => console.log(jsonl));
-                    emitter.on('error', err => reject(err));
-                }));
+            const formatter = format.formatter(args);
+
+            formatter.print_header();
+
+            if (args.tail) {
+                const file_head = await args.helpers.api.head(url).query(query);
+                const file_url = file_head.request.url;
+                const file_size = parseInt(file_head.headers['content-length']);
+                const lines = await range.fetch_lines(file_url, file_size, args.tail);
+
+                lines.map(line => JSON.parse(line)).map(jsonl => {
+                    formatter.print_jsonl(jsonl);
+                });
+            } else {
+                let counter = 0;
+                const emitter = new EventEmitter();
+                emitter.on('jsonl', jsonl => {
+                    formatter.print_jsonl(jsonl);
+                    counter += 1;
+                });
+                emitter.on('end', () => {
+                    console.log('JSON Emitter Counter', counter);
+                });
+
+                await args.helpers.api.stream(url, query, emitter);
+                await new Promise(() => {});
+            }
         },
     });
+
+    cmd.addOptionGroup('Output options', format.outputOptions);
+
+    return cmd;
 };
