@@ -5,7 +5,6 @@ const text = require('lib/text');
 const dateformat = require('dateformat');
 const range = require('../range');
 const format = require('../format');
-const EventEmitter = require('events');
 
 module.exports = resource => {
     const options = {
@@ -61,18 +60,12 @@ module.exports = resource => {
                     formatter.print_jsonl(jsonl);
                 });
             } else {
-                let counter = 0;
-                const emitter = new EventEmitter();
-                emitter.on('jsonl', jsonl => {
-                    formatter.print_jsonl(jsonl);
-                    counter += 1;
+                return new Promise((resolve, reject) => {
+                    args.helpers.api.stream(url, query)
+                        .on('jsonl', jsonl => formatter.print_jsonl(jsonl))
+                        .once('error', reject)
+                        .once('end', resolve);
                 });
-                emitter.on('end', () => {
-                    console.log('JSON Emitter Counter', counter);
-                });
-
-                await args.helpers.api.stream(url, query, emitter);
-                await new Promise(() => {});
             }
         },
     });

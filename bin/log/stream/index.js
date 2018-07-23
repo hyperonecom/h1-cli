@@ -3,8 +3,6 @@
 const Cli = require('lib/cli');
 const text = require('lib/text');
 const format = require('./../format');
-const EventEmitter = require('events');
-
 
 module.exports = resource => {
 
@@ -31,12 +29,12 @@ module.exports = resource => {
             const formatter = format.formatter(args);
             formatter.print_header();
 
-            const emitter = new EventEmitter();
-
-            emitter.on('jsonl', jsonl => formatter.print_jsonl(jsonl));
-
-            await args.helpers.api.stream(url, {}, emitter);
-            await new Promise(() => {});
+            return new Promise(async (resolve, reject) => {
+                args.helpers.api.stream(url, {})
+                    .on('jsonl', jsonl => formatter.print_jsonl(jsonl))
+                    .once('error', reject)
+                    .once('end', resolve);
+            });
         },
     });
 

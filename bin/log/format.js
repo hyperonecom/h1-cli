@@ -4,6 +4,9 @@ const default_fields = ['facility', 'level', 'ts', 'host', 'appName', 'pid', 'me
 const filters = require('./filters');
 
 const csv_encode = values => values.map(value => {
+    if (typeof value === 'undefined') {
+        return '-';
+    }
     if (typeof value !== 'string') {
         return value.toString();
     }
@@ -37,8 +40,8 @@ const outputFormat = {
         },
     },
     csv: {
-        header: (fields) => console.log(csv_encode(fields)),
-        row: (fields, row) => console.log(csv_encode(fields.map(field => row[field]))),
+        header: (fields) => csv_encode(fields),
+        row: (fields, row) => csv_encode(fields.map(field => row[field])),
     },
 };
 
@@ -58,6 +61,7 @@ const outputOptions = {
         description: 'Filter of events',
         type: 'string',
         action: 'append',
+        dest: 'filters',
         defaultValue: [],
     },
 };

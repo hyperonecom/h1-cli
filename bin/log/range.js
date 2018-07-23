@@ -2,7 +2,7 @@
 
 const superagent = require('superagent');
 
-const average_line_length = 20;
+const average_line_length = 1600;
 const chunk_size = average_line_length * 10;
 
 const range_content = (url, range_start, range_end) => new Promise((resolve, reject) => {
