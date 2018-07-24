@@ -28,6 +28,6 @@ module.exports = (resource, subresource) => Cli.createCommand('add', {
     plugins: subresource.plugins,
     params: subresource.params,
     dirname: __dirname,
-    options: Object.assign({}, resource.options, options),
+    options: Object.assign({}, subresource.options, options),
     handler: handler,
 });

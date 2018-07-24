@@ -18,7 +18,10 @@ const download = (resource, destination) => tests.run(`disk download
 
 ['archive', 'ssd', 'volume'].forEach(type => {
     const createParams = `--name disk-test-${now} --type ${type} --size 100`;
-    ava.test.serial(`disk life cycle ${type}`, tests.resourceLifeCycle('disk', createParams));
+    ava.test.serial(`disk life cycle ${type}`, tests.resourceLifeCycle('disk', {
+        createParams: createParams,
+        stateCreated: 'Detached',
+    }));
     ava.test.serial(`disk rename ${type}`, tests.resourceRename('disk', createParams));
 });
 
