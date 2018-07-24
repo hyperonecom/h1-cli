@@ -14,7 +14,11 @@ const getCommon = async (test_name, options = {}) => {
     const vm_name = `vm-test-${test_name}-${now}`.replace(/[^\w]/g, '-');
     const token = await tests.getToken();
     const disk_name = `disk-${vm_name}`;
-    const params = `--type ${type} --password ${token} --name ${vm_name} --image debian --os-disk ${disk_name},ssd,10`;
+    const params = {
+        createParams: `--type ${type} --password ${token} --name ${vm_name} --image debian --os-disk ${disk_name},ssd,10`,
+        stateCreated: 'Running',
+    };
+
     return {
         params: params,
         disk_name: disk_name,
@@ -52,7 +56,7 @@ ava.test.serial('vm rename', async t => {
 
 ava.test.serial('vm stop & start & turnoff', async t => {
     const common = await getCommon(t.title);
-    const vm = await tests.run(`vm create ${common.params}`);
+    const vm = await tests.run(`vm create ${common.params.createParams}`);
     t.true(vm.state === 'Running');
 
     const actions = [
@@ -77,7 +81,7 @@ ava.test.serial('vm userdata', async t => {
     const tmp_file = tests.getRandomFile(my_metadata);
 
     const common = await getCommon(t.title);
-    const vm = await tests.run(`vm create ${common.params}`);
+    const vm = await tests.run(`vm create ${common.params.createParams}`);
 
     await tests.run(`vm userdata --vm ${vm._id} --userdata-file '${tmp_file}'`);
 
@@ -92,7 +96,7 @@ ava.test.serial('vm userdata', async t => {
 
 ava.test.serial('vm disk attach & detach', async t => {
     const common = await getCommon(t.title);
-    const vm = await tests.run(`vm create ${common.params}`);
+    const vm = await tests.run(`vm create ${common.params.createParams}`);
     const disk = await tests.run(`disk create --name disk-extra-${common.name} --type ssd --size 10`);
 
     const actions = [
@@ -114,7 +118,7 @@ ava.test.serial('vm nic life cycle', async t => {
     const common = await getCommon(t.title, {
         type: 'm2.tiny',
     });
-    const vm = await tests.run(`vm create --no-start ${common.params}`);
+    const vm = await tests.run(`vm create --no-start ${common.params.createParams}`);
     const network = await tests.run(`network create --name network-vm-test-${now}`);
 
     await tests.resourceLifeCycle('vm nic', {
@@ -166,7 +170,7 @@ ava.test.serial('vm nic ip life cycle', async t => {
 
 ava.test.serial('vm dvd cycle', async t => {
     const common = await getCommon(t.title);
-    const vm = await tests.run(`vm create ${common.params}`);
+    const vm = await tests.run(`vm create ${common.params.createParams}`);
     const iso = await tests.run(`iso create --name iso-test-${now} --source-url ${tests.iso_url}`);
 
     await tests.run(`vm dvd insert --vm ${vm._id} --iso ${iso._id}`);
@@ -182,7 +186,7 @@ ava.test.serial('vm dvd cycle', async t => {
 
 ava.test.serial('vm tag', async t => {
     const common = await getCommon(t.title);
-    const vm = await tests.run(`vm create ${common.params}`);
+    const vm = await tests.run(`vm create ${common.params.createParams}`);
 
     await subresourceLifeCycle(t, 'vm tag', {
         commonParams: `--vm ${vm._id}`,
@@ -196,7 +200,7 @@ ava.test.serial('vm tag', async t => {
 
 ava.test.serial('vm serialport log', async t => {
     const common = await getCommon(t.title);
-    const vm = await tests.run(`vm create ${common.params}`);
+    const vm = await tests.run(`vm create ${common.params.createParams}`);
     t.true(vm.created);
 
     await tests.run(`vm serialport log --vm ${vm._id}`);
@@ -215,7 +219,7 @@ ava.test.serial('vm serialport log', async t => {
 
         const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${sshFilename}'`);
 
-        await tests.run(`vm create ${common.params} --ssh ${ssh_name}`);
+        await tests.run(`vm create ${common.params.createParams} --ssh ${ssh_name}`);
 
         const ip_addreses = await getVmIp(common.name);
 
