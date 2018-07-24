@@ -21,9 +21,8 @@ const options = {
         required: true,
     },
     size: {
-        description: 'Disk size in GB',
+        description: 'Disk size in GB. Required if no source file is specified',
         type: 'int',
-        required: true,
     },
     'source-file': {
         description: 'Path to .vhdx file to import',
@@ -49,27 +48,37 @@ module.exports = resource => Cli.createCommand('create', {
             size: args.size,
         };
 
+        if (args.size === null && !args['source-file']) {
+            throw Cli.error.cancelled('The \'--size\' parameter is required if no source file is specified');
+        }
+
         if (args['source-file']) {
+            const vhdxInfo = await util.promisify(vhdx.info)(args['source-file']);
+
+            if (body.size === null) {
+                body.size = Math.floor(vhdxInfo.size / 1024**3);
+            }
+
             body.metadata = {
                 source: {
                     filename: path.basename(args['source-file']),
                     size: fs.statSync(args['source-file']).size,
                 },
             };
-            const vhdxInfo = await util.promisify(vhdx.info)(args['source-file']);
 
             if (vhdxInfo.type !== 'dynamic') {
                 throw Cli.error.cancelled('<source-file> vhdx should be dynamic');
             }
 
-            if (vhdxInfo.size > args.size * 1024**3) {
-                throw Cli.error.cancelled(`<source-file> ${Math.ceil(vhdxInfo.size/1024 **3)}GB is bigger than ${args.size}GB`);
+            if (args.size !== null && vhdxInfo.size > body.size/1024 **3) {
+                throw Cli.error.cancelled(`<source-file> ${Math.ceil(vhdxInfo.size/1024 **3)}GB is bigger than ${body.size}GB`);
             }
         }
 
         let disk = await args.helpers.api.post(resource.url(args), body);
 
         if (args['source-file']) {
+
             const ws = await args.helpers.api.wsUpload(`disk/${disk._id}/upload`);
 
             await websocketStream.upload(ws, args['source-file'], {progress: !args['no-progress']});
