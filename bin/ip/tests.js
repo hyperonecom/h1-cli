@@ -10,6 +10,7 @@ const now = Date.now();
 ava.test.serial('ip life cycle', tests.resourceLifeCycle('ip', {
     createParams: '',
     skipHistoryCreated: true,
+    stateCreated: 'Unallocated',
 }));
 
 ava.test.serial('ip ptr update', async t => {

@@ -8,7 +8,10 @@ const now = Date.now();
 
 ava.test.serial('netgw life cycle', async t => {
     const ip = await tests.run('ip create');
-    await tests.resourceLifeCycle('netgw', `--name netgw-test-${now} --ip ${ip._id}`)(t);
+    await tests.resourceLifeCycle('netgw', {
+        createParams: `--name netgw-test-${now} --ip ${ip._id}`,
+        stateCreated: 'Detached',
+    })(t);
     await tests.remove('ip', ip);
 });
 

@@ -153,7 +153,7 @@ ava.test.serial('vm nic ip life cycle', async t => {
     const common = await getCommon(t.title, {
         type: 'm2.tiny',
     });
-    const vm = await tests.run(`vm create ${common.params}`);
+    const vm = await tests.run(`vm create ${common.params.createParams}`);
     const ip = await tests.run('ip create');
     const nic_list = await tests.run(`vm nic list --vm ${vm._id}`);
 
