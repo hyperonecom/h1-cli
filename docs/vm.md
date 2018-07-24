@@ -132,7 +132,7 @@ Add a tag to virtual machine
 
 ### Syntax
 
-```h1 vm tag add | --tag TAG [--tag TAG ...]```
+```h1 vm tag add | --vm VM --tag TAG [--tag TAG ...]```
 
 ### Example
 
@@ -144,6 +144,7 @@ h1 vm tag add --vm test-vm --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
 | ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
 
 ## h1 vm tag delete
