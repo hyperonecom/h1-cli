@@ -187,7 +187,7 @@ h1 disk create --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--size SIZE``` |  | Disk size in GB. Required if no source file is specified |
+| ```--size SIZE``` |  | Disk size in GiB. Required if no source file is specified |
 | ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
 | ```--no-progress``` |  | Disable progress bar |
 

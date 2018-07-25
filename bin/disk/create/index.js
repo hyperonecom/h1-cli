@@ -21,7 +21,7 @@ const options = {
         required: true,
     },
     size: {
-        description: 'Disk size in GB. Required if no source file is specified',
+        description: 'Disk size in GiB. Required if no source file is specified',
         type: 'int',
     },
     'source-file': {
@@ -45,7 +45,7 @@ module.exports = resource => Cli.createCommand('create', {
         const body = {
             name: args.name,
             service: args.type,
-            size: args.size,
+            size: args.size, // GiB
         };
 
         if (args.size === null && !args['source-file']) {
@@ -56,7 +56,7 @@ module.exports = resource => Cli.createCommand('create', {
             const vhdxInfo = await util.promisify(vhdx.info)(args['source-file']);
 
             if (body.size === null) {
-                body.size = Math.ceil(vhdxInfo.size / 1024**3);
+                body.size = Math.ceil(vhdxInfo.size / 1024**3); // B -> GiB
             }
 
             body.metadata = {
@@ -70,8 +70,9 @@ module.exports = resource => Cli.createCommand('create', {
                 throw Cli.error.cancelled('<source-file> vhdx should be dynamic');
             }
 
-            if (args.size !== null && vhdxInfo.size > body.size/1024 **3) {
-                throw Cli.error.cancelled(`<source-file> ${Math.ceil(vhdxInfo.size/1024 **3)}GB is bigger than ${body.size}GB`);
+            if (args.size !== null && vhdxInfo.size > body.size * 1024**3) { // B > (GB -> B)
+                // (B -> GiB); GiB
+                throw Cli.error.cancelled(`<source-file> ${Math.ceil(vhdxInfo.size/1024 **3)}GiB is bigger than ${body.size}GiB`);
             }
         }
 
