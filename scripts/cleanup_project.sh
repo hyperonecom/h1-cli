@@ -5,6 +5,7 @@ PROJECT=${H1_PROJECT:-$1}
 }
 
 h1 vm       list --output tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 vm       delete --yes --vm
+h1 image    list --output tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 image    delete --yes --image
 h1 disk     list --output tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 disk     delete --yes --disk
 h1 netgw    list --output tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 netgw    detach --netgw
 h1 netgw    list --output tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 netgw    delete --yes --netgw
