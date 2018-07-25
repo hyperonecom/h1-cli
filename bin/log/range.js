@@ -1,11 +1,13 @@
 'use strict';
 
 const superagent = require('superagent');
+const logger = require('../../lib/logger');
 
 const average_line_length = 1600;
 const chunk_size = average_line_length * 10;
 
 const range_content = (url, range_start, range_end) => new Promise((resolve, reject) => {
+    logger('verbose', `HEAD ${url} (Range: ${range_end} - ${range_end}`);
     let content = '';
 
     superagent
