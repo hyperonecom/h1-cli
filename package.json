@@ -35,7 +35,7 @@
     "speakeasy": "^2.0.0",
     "ssh2": "^0.6.0",
     "structured-cli": "^1.0.5",
-    "superagent": "^2.3.0",
+    "superagent": "^3.8.3",
     "tabula": "^1.10.0",
     "websocket-stream": "^5.1.2",
     "ws": "^6.0.0",
