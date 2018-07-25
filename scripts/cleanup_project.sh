@@ -16,3 +16,4 @@ h1 firewall list --output tsv --project-select $PROJECT --query '[].{id: _id}' |
 h1 dns zone list --output tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 dns zone delete --yes --zone
 h1 snapshot list --output tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 snapshot delete --yes --snapshot
 h1 vault    list --output tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 vault    delete --yes --vault
+h1 image    list --output tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 image    delete --yes --image
