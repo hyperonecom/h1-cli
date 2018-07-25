@@ -36,7 +36,7 @@ ava.test.serial('iso use in vm local uploaded', async t => {
     const vm_started = await tests.run(`vm show --vm ${vm._id}`);
 
     t.true(vm_started.state === 'Running');
-    await tests.run(`vm dvd eject --vm ${vm._id}`);
+    await tests.run(`vm dvd eject --yes --vm ${vm._id}`);
 
     await tests.remove('iso', iso);
     await tests.remove('vm', vm);
