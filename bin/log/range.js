@@ -1,13 +1,13 @@
 'use strict';
 
 const superagent = require('superagent');
-const logger = require('../../lib/logger');
+const logger = require('../../lib/logger').log;
 
 const average_line_length = 1600;
 const chunk_size = average_line_length * 10;
 
 const range_content = (url, range_start, range_end) => new Promise((resolve, reject) => {
-    logger('verbose', `HEAD ${url} (Range: ${range_end} - ${range_end}`);
+    logger('verbose', `HEAD ${url} (Range: ${range_start} - ${range_end}`);
     let content = '';
 
     superagent
@@ -32,12 +32,13 @@ exports.fetch_lines = async (url, size, line_count) => {
     let range_start = size - average_line_length * line_count;
     range_start = range_start > 0 ? range_start : 0;
 
-    // Download data in chunk until the n-lines or the whole file are completed.
-    for (; (!content || content.trimEnd().split('\n').length < line_count) && range_start > 0; range_start -= chunk_size) {
+    // Download data in chunk until collect n-lines or the whole file are downloaded.
+    do {
         const new_content = await range_content(url, range_start, range_end);
         content = new_content + content;
         range_end = range_start - 1;
-    }
+        range_start -= chunk_size;
+    } while (content.trimEnd().split('\n').length < line_count && range_start > 0);
 
     // Rejects potentially incomplete lines
     if (range_start > 0) {

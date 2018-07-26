@@ -2,10 +2,10 @@
 
 const Cli = require('lib/cli');
 const text = require('lib/text');
-const dateformat = require('dateformat');
 const range = require('../range');
 const format = require('../format');
-const logger = require('lib/logger');
+const logger = require('lib/logger').log;
+const dayjs = require('dayjs');
 
 module.exports = resource => {
     const options = {
@@ -15,24 +15,21 @@ module.exports = resource => {
             required: true,
         },
         since: {
-            description: 'Start of period for which you want to receive logs',
+            description: 'Start of period for which you want to receive logs. Format: YYYY-MM-DD',
             type: 'string',
-            defaultValue: dateformat(new Date(), 'yyyy-mm-dd'),
         },
         until: {
-            description: 'End of period for which you want to receive logs',
+            description: 'End of period for which you want to receive logs. Format: YYYY-MM-DD',
             type: 'string',
-            defaultValue: dateformat(new Date(), 'yyyy-mm-dd'),
         },
         tail: {
             description: 'Number of lines to show from the end of the logs. All if skipped.',
             type: 'int',
         },
         follow: {
-            description: 'Number of lines to show from the end of the logs. All if skipped.',
+            description: 'Output current messages in real time as they arrive',
             type: 'boolean',
         },
-
     };
 
 
@@ -45,30 +42,42 @@ module.exports = resource => {
             require('bin/_plugins/projectRequired'),
         ],
         options: options,
-        handler: async args => {
-            const query = {
-                since: args.since,
-                until: args.until,
-            };
+        handler: args => {
             const url = `${resource.url()}/${args[resource.name]}/stream`;
+
+            if (args.follow && (args.since || args.until)) {
+                throw Cli.error.cancelled('You can not show real and archived data at the same time.');
+            }
+
+            if (args.follow && args.tail) {
+                throw Cli.error.cancelled('We can not determine the end of log for data in real time.');
+            }
+
+            const query = {
+                since: args.since || dayjs().format('YYYY-MM-DD'),
+                until: args.until || dayjs().format('YYYY-MM-DD'),
+                follow: args.follow,
+            };
+            logger('verbose', `query ${JSON.stringify(query)}`);
 
             const formatter = format.formatter(args);
 
             formatter.print_header();
-            const req = args.helpers.api.head(url).ok(res => res.status === 302);
-            const file_head = await req;
-            const file_url = file_head.request.url;
-            logger('verbose', `Forward to ${file_url}`);
-            if (args.tail) {
-                const file_size = parseInt(file_head.headers['content-length']);
-                const lines = await range.fetch_lines(file_url, file_size, args.tail);
 
-                lines.map(line => JSON.parse(line)).map(jsonl => {
-                    formatter.print_jsonl(jsonl);
+            if (args.tail) {
+                args.helpers.api.head(url).query(query).then(file_head => {
+                    const file_url = file_head.request.url;
+                    logger('verbose', `Forwarded to ${file_url}`);
+                    const file_size = parseInt(file_head.headers['content-length']);
+                    range.fetch_lines(file_url, file_size, args.tail).then(lines => {
+                        lines.map(line => JSON.parse(line)).map(jsonl => {
+                            formatter.print_jsonl(jsonl);
+                        });
+                    });
                 });
             } else {
                 return new Promise((resolve, reject) => {
-                    args.helpers.api.stream(file_url, query)
+                    args.helpers.api.stream(url, query)
                         .on('jsonl', jsonl => formatter.print_jsonl(jsonl))
                         .once('error', reject)
                         .once('end', resolve);

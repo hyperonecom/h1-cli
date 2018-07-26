@@ -3,7 +3,7 @@
 const Cli = require('lib/cli');
 const config = require('lib/config');
 
-const logger = require('lib/logger');
+const logger = require('lib/logger').log;
 
 module.exports = resource => Cli.createCommand('select', {
     description: `Select ${resource.title} context`,

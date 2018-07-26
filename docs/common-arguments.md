@@ -1,12 +1,4 @@
 # Common arguments
-## Argument ```--verbose```
-#### Examples
-
-##### Displays the URL of the request to the API
-
-```bash
-h1 image list --verbose
-```
 ## Argument ```--no-wait```
 In case of queued event do not wait for completion. It allows you to perform operations
 asynchronously, which can be used to optimize the execution time of scripts.
@@ -115,4 +107,14 @@ A parameter intended for selecting an ad-hoc project for a single command.
 
 ```bash
 h1 vm list --output tsv --project-select MyProject
+```
+## Argument ```--verbose```
+#### Argument ```--verbose```
+
+##### Examples
+
+###### Displays the URL of the request to the API
+
+```bash
+h1 image list --verbose
 ```

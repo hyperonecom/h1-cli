@@ -2,7 +2,7 @@
 
 const Cli = require('lib/cli');
 
-const logger = require('lib/logger');
+const logger = require('lib/logger').log;
 const _ = require('lodash');
 const interactive = require('lib/interactive');
 const config = require('lib/config');

@@ -5,7 +5,7 @@ const Cli = require('lib/cli');
 const path = require('path');
 const fs = require('fs');
 
-const logger = require('lib/logger');
+const logger = require('lib/logger').log;
 
 const options = {
     name: {

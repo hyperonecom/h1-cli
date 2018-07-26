@@ -8,6 +8,7 @@ module.exports = {
         require('bin/_plugins/api'),
         require('bin/_plugins/projectRequired'),
         require('bin/_plugins/outputFormat'),
+        require('bin/_plugins/verbose'),
     ],
     extraCommands: [],
 };

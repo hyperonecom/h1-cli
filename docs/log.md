@@ -6,8 +6,7 @@
   * [h1 log rename](#h1-log-rename) - Rename log archive
   * [h1 log list](#h1-log-list) - List log archive
   * [h1 log history](#h1-log-history) - History of log archive
-  * [h1 log stream](#h1-log-stream) - Stream log archive
-  * [h1 log read](#h1-log-read) - Read log archive
+  * [h1 log stream](#h1-log-stream) - Stream or read messages of log archive
   * [h1 log credential](#h1-log-credential) - Manage your credentials to log archive
     * [h1 log credential password](#h1-log-credential-password) - Manage your password to log archive
       * [h1 log credential password show](#h1-log-credential-password-show) - Show password to log archive
@@ -187,11 +186,11 @@ h1 log history --log my-log
 
 ## h1 log stream
 
-Stream log archive
+Stream or read messages of log archive
 
 ### Syntax
 
-```h1 log stream | --log LOG```
+```h1 log stream | --log LOG [--since SINCE] [--until UNTIL] [--tail TAIL] [--follow]```
 ### Example
 
 ```bash
@@ -204,32 +203,14 @@ h1 log stream --log my-server-log
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
 
-## h1 log read
-
-Read log archive
-
-### Syntax
-
-```h1 log read | --log LOG [--since SINCE] [--until UNTIL] [--tail TAIL]```
-### Example
-
-```bash
-h1 log read --log my-server-log
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-
 ### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--since SINCE``` |  | Start of period for which you want to receive logs |
-| ```--until UNTIL``` |  | End of period for which you want to receive logs |
+| ```--since SINCE``` |  | Start of period for which you want to receive logs. Format: YYYY-MM-DD |
+| ```--until UNTIL``` |  | End of period for which you want to receive logs. Format: YYYY-MM-DD |
 | ```--tail TAIL``` |  | Number of lines to show from the end of the logs. All if skipped. |
+| ```--follow``` |  | Output current messages in real time as they arrive |
 
 ## h1 log credential
 
