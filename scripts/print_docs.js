@@ -13,11 +13,19 @@ const table = require('lib/table').table;
 
 const code = '```';
 
+const get_param = (name, defaultValue=undefined) => {
+    if(process.argv.indexOf(name) > -1)
+        return process.argv[process.argv.indexOf(name) + 1];
+    return defaultValue;
+};
+
+const theme_name =get_param('--theme', 'repo');
+
 const scope = process.env.SCOPE_NAME;
 
 const common_arguments_filename = 'common-arguments.md';
 
-function writeElements(output_stream, label, values = {}) {
+function writeArguments(output_stream, label, values = {}) {
     const entries = Object.entries(values || {});
 
     if (entries.length > 0) {
@@ -63,14 +71,14 @@ const update_markdown_header = (content, start_level = 1) => {
     return content;
 };
 
-const writeCommandSpecs = (stream, entry, prefix) => {
-    stream.write(`## ${prefix} ${entry.name}\n\n`);
+const writeCommandSpecs = (stream, entry) => {
+    stream.write(`## ${Cli.get_full_name(entry)}\n\n`);
 
     stream.write(`${entry.description}\n\n`);
 
     if (entry.handler) {
         stream.write('### Syntax\n\n');
-        stream.write(`${code}${lib.getCommandHeader(entry, prefix)}${code}\n\n`);
+        stream.write(`${code}${lib.getCommandHeader(entry)}${code}\n\n`);
     }
 
     if (entry.examples) {
@@ -80,20 +88,10 @@ const writeCommandSpecs = (stream, entry, prefix) => {
         const header = examples.startsWith(code) ? 'Example' : 'Examples';
         stream.write(`### ${header}\n\n${examples}\n\n`);
     }
-    writeElements(stream, 'Required arguments', entry.optionGroups['Required arguments']);
-    writeElements(stream, 'Optional arguments', entry.options);
+    writeArguments(stream, 'Required arguments', entry.optionGroups['Required arguments']);
+    writeArguments(stream, 'Optional arguments', entry.options);
 };
 
-const writeSpecs = (stream, entry, prefix) => {
-
-    entry.children.filter(entry => !entry.createOptions.skipDocumentation).forEach(entry => {
-        writeCommandSpecs(stream, entry, prefix);
-
-        if (entry.children) {
-            writeSpecs(stream, entry, `${prefix} ${entry.name}`);
-        }
-    });
-};
 
 const write_index = (output_dir) => {
     const index_filename = path.join(output_dir, 'index.md');
@@ -113,22 +111,25 @@ const write_index = (output_dir) => {
     console.log('Saved', index_filename);
 };
 
-const write_commands_docs = (output_dir) => {
+const write_resources_docs = (output_dir) => {
     cli.children.forEach(entry => {
         const section_filename = path.join(output_dir, entry_filename(entry));
 
         const wstream = fs.createWriteStream(section_filename);
 
-        wstream.write('# TOC\n\n');
-        writeCommandTOC(wstream, entry, `${scope} ${entry.name}`, 1);
+        if(theme_name !== 'site'){
+            wstream.write('# TOC\n\n');
+            writeCommandTOC(wstream, entry, `${scope} ${entry.name}`, 1);
 
-        wstream.write('\n\n');
+            wstream.write('\n\n');
 
-        wstream.write('# Specification\n\n');
-        writeCommandSpecs(wstream, entry, scope);
-        if (entry.children) {
-            writeSpecs(wstream, entry, `${scope} ${entry.name}`);
+            wstream.write('# Specification\n\n');
         }
+
+        Cli
+            .flatten(entry)
+            .filter(cmd => !cmd.createOptions.skipDocumentation)
+            .forEach(subcommand => writeCommandSpecs(wstream, subcommand));
 
         wstream.end();
 
@@ -167,7 +168,7 @@ const main = async () => {
     const output_dir = process.argv[2];
 
     write_global_parameter_docs(output_dir);
-    write_commands_docs(output_dir);
+    write_resources_docs(output_dir);
     write_index(output_dir);
 };
 

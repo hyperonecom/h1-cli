@@ -1,5 +1,7 @@
 'use strict';
 
+const Cli = require('../lib/cli');
+
 const getArgumentLabel = ([name, value]) => {
     let label;
     if (value.type !== 'boolean') {
@@ -15,13 +17,13 @@ const getArgumentLabel = ([name, value]) => {
 };
 
 
-const getCommandHeader = (entry, prefix) => {
+const getCommandHeader = (entry) => {
     const field = [
         ...Object.entries(entry.optionGroups['Required arguments'] || {}).map(getArgumentLabel),
         ...Object.entries(entry.options || {}).map(x => `[${getArgumentLabel(x)}]`),
     ];
     const field_help = field.join(' ');
-    return `${prefix} ${entry.name} | ${field_help}`;
+    return `${Cli.get_full_name(entry)} | ${field_help}`;
 };
 
 module.exports.getArgumentLabel = getArgumentLabel;
