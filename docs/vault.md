@@ -46,6 +46,7 @@ List Vault
 
 ### Example
 
+
 ```bash
 h1 vault list
 ```
@@ -59,6 +60,7 @@ Show Vault
 ```h1 vault show | --vault VAULT```
 
 ### Example
+
 
 ```bash
 h1 vault show --vault my-vault
@@ -80,6 +82,7 @@ Delete Vault
 
 ### Example
 
+
 ```bash
 h1 vault delete --vault my-vault
 ```
@@ -100,6 +103,7 @@ History of Vault
 
 ### Example
 
+
 ```bash
 h1 vault history --vault my-vault
 ```
@@ -119,6 +123,7 @@ Rename Vault
 ```h1 vault rename | --vault VAULT --new-name NEW-NAME```
 
 ### Example
+
 
 ```bash
 h1 vault rename --vault my-vault --new-name my-renamed-vault
@@ -145,6 +150,7 @@ List tag
 
 ### Example
 
+
 ```bash
 h1 vault tag list --vault my-vault
 ```
@@ -164,6 +170,7 @@ Add a tag to Vault
 ```h1 vault tag add | --vault VAULT [--tag TAG [--tag TAG ...]]```
 
 ### Example
+
 
 ```bash
 h1 vault tag add --vault test-vault --tag prod=true
@@ -191,6 +198,7 @@ Delete a tag of Vault
 
 ### Example
 
+
 ```bash
 h1 vault tag delete --vault test-vault --tag prod
 ```
@@ -212,6 +220,7 @@ Resize Vault
 
 ### Example
 
+
 ```bash
 h1 vault resize --vault my-vault --size 10
 ```
@@ -232,6 +241,7 @@ Create Vault
 ```h1 vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD] [--snapshot SNAPSHOT] [--tag TAG [--tag TAG ...]]```
 
 ### Examples
+
 
 #### Create Vault with SSH credential
 
@@ -283,6 +293,7 @@ Show certificate to Vault
 
 ### Example
 
+
 ```bash
 h1 vault credential cert show --cert my-cert
 ```
@@ -303,6 +314,7 @@ Rename certificate to Vault
 ```h1 vault credential cert rename | --vault VAULT --cert CERT --new-name NEW-NAME```
 
 ### Example
+
 
 ```bash
 h1 vault credential cert rename --cert my-cert --new-name my-renamed-cert
@@ -326,6 +338,7 @@ List certificate to Vault
 
 ### Example
 
+
 ```bash
 h1 vault credential cert list --vault my-vault
 ```
@@ -345,6 +358,7 @@ Delete certificate to Vault
 ```h1 vault credential cert delete | --vault VAULT --cert CERT```
 
 ### Example
+
 
 ```bash
 h1 vault credential cert delete --cert my-cert --vault my-vault
@@ -366,6 +380,7 @@ Add credential to Vault
 ```h1 vault credential cert add | --vault VAULT --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE]```
 
 ### Example
+
 
 ```bash
 h1 vault credential cert add --vault my-vault --name my-key --sshkey my-home-ssh
@@ -399,6 +414,7 @@ Show password to Vault
 
 ### Example
 
+
 ```bash
 h1 vault credential password show --password my-password
 ```
@@ -420,6 +436,7 @@ List password to Vault
 
 ### Example
 
+
 ```bash
 h1 vault credential password list --vault my-vault
 ```
@@ -439,6 +456,7 @@ Rename password to Vault
 ```h1 vault credential password rename | --vault VAULT --password PASSWORD --new-name NEW-NAME```
 
 ### Example
+
 
 ```bash
 h1 vault credential password rename --password my-password --new-name my-renamed-password
@@ -462,6 +480,7 @@ Delete password to Vault
 
 ### Example
 
+
 ```bash
 h1 vault credential password delete --password my-password --vault my-vault
 ```
@@ -482,6 +501,7 @@ Add password to Vault
 ```h1 vault credential password add | --vault VAULT --name NAME --password PASSWORD```
 
 ### Example
+
 
 ```bash
 h1 vault credential password add --name my-pass --password secret-password --vault my-vault
@@ -504,6 +524,7 @@ Connect to Vault using SSH
 ```h1 vault ssh | --vault VAULT [--command COMMAND]```
 
 ### Example
+
 
 ```bash
 h1 vault ssh --vault my-vault
@@ -533,6 +554,7 @@ Open Vault console in web-browser
 
 ### Example
 
+
 ```bash
 h1 vault console --vault test-vault
 ```
@@ -553,6 +575,7 @@ Stop Vault
 
 ### Example
 
+
 ```
 h1 vault stop --vault my-valut
 ```
@@ -566,6 +589,7 @@ Start Vault
 ```h1 vault start | ```
 
 ### Example
+
 
 ```
 h1 vault start --vault my-valut

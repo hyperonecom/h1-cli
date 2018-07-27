@@ -61,6 +61,7 @@ Show project
 
 ### Example
 
+
 ```bash
 h1 project show --project my-project
 ```
@@ -80,6 +81,7 @@ Delete project
 ```h1 project delete | --project PROJECT```
 
 ### Example
+
 
 ```bash
 h1 project delete --project my-project
@@ -101,6 +103,7 @@ History of project
 
 ### Example
 
+
 ```bash
 h1 project history --project my-project
 ```
@@ -120,6 +123,7 @@ Rename project
 ```h1 project rename | --project PROJECT --new-name NEW-NAME```
 
 ### Example
+
 
 ```bash
 h1 project rename --project my-project --new-name my-renamed-project
@@ -146,6 +150,7 @@ List tag
 
 ### Example
 
+
 ```bash
 h1 project tag list --project my-project
 ```
@@ -165,6 +170,7 @@ Add a tag to project
 ```h1 project tag add | --project PROJECT [--tag TAG [--tag TAG ...]]```
 
 ### Example
+
 
 ```bash
 h1 project tag add --project test-project --tag prod=true
@@ -192,6 +198,7 @@ Delete a tag of project
 
 ### Example
 
+
 ```bash
 h1 project tag delete --project test-project --tag prod
 ```
@@ -212,6 +219,7 @@ List project
 ```h1 project list | [--all]```
 
 ### Example
+
 
 ```bash
 h1 project list
@@ -236,6 +244,7 @@ Grant access rights for project
 ```h1 project access grant | --email EMAIL [--project PROJECT] [--role ROLE]```
 
 ### Example
+
 
 ```bash
 h1 project access grant --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
@@ -263,6 +272,7 @@ Revoke access rights for project
 ```h1 project access revoke | --email EMAIL [--project PROJECT]```
 
 ### Example
+
 
 ```bash
 h1 project access revoke --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
@@ -294,6 +304,7 @@ Show network access rule
 
 ### Example
 
+
 ```bash
 h1 project access rule show --rule my-rule
 ```
@@ -320,6 +331,7 @@ List network access rule
 
 ### Example
 
+
 ```bash
 h1 project access rule list
 ```
@@ -339,6 +351,7 @@ Rename network access rule
 ```h1 project access rule rename | --rule RULE --new-name NEW-NAME [--project PROJECT]```
 
 ### Example
+
 
 ```bash
 h1 project access rule rename --rule my-rule --new-name my-renamed-rule
@@ -367,6 +380,7 @@ Delete network access rule
 
 ### Example
 
+
 ```bash
 h1 project access rule delete --rule my-rule
 ```
@@ -392,6 +406,7 @@ Add access rule for network access rule
 ```h1 project access rule add | --name NAME --type TYPE --value VALUE [--project PROJECT]```
 
 ### Examples
+
 
 #### Add rule by geolocation
 ```bash
@@ -434,6 +449,7 @@ List project
 
 ### Example
 
+
 ```bash
 h1 project access list
 ```
@@ -449,6 +465,7 @@ h1 project access list
 Manage your project tokens
 
 ### Examples
+
 
 #### Create a token
 
@@ -491,6 +508,7 @@ Show token
 
 ### Example
 
+
 ```bash
 h1 project token show --token my-token
 ```
@@ -517,6 +535,7 @@ List token
 
 ### Example
 
+
 ```bash
 h1 project token list
 ```
@@ -536,6 +555,7 @@ Delete token
 ```h1 project token delete | --token TOKEN [--project PROJECT]```
 
 ### Example
+
 
 ```bash
 h1 project token delete --token my-token --project my-project
@@ -563,6 +583,7 @@ Rename token
 
 ### Example
 
+
 ```bash
 h1 project token rename --token my-token --new-name my-renamed-token
 ```
@@ -589,6 +610,7 @@ Add token
 ```h1 project token add | --name NAME [--project PROJECT]```
 
 ### Example
+
 
 ```bash
 h1 project token add --project 6oAoJqgyLZP4Le9UUNHrEOYP --name secret-token-1
@@ -620,6 +642,7 @@ List access rule
 
 ### Example
 
+
 ```bash
 h1 project token access list --project my-project --token my-token --access my-access-id
 ```
@@ -645,6 +668,7 @@ Show access rule
 ```h1 project token access show | --token TOKEN --access ACCESS [--project PROJECT]```
 
 ### Example
+
 
 ```bash
 h1 project token access show --access my-access
@@ -673,6 +697,7 @@ Delete access rule
 
 ### Example
 
+
 ```bash
 h1 project token access delete --access my-access --project my-project --token my-token --access my-access-id
 ```
@@ -699,6 +724,7 @@ Add access rule
 ```h1 project token access add | --method METHOD --path PATH --token TOKEN [--project PROJECT]```
 
 ### Examples
+
 
 #### Grant access to token for snapshots of selected Vault
 
@@ -738,6 +764,7 @@ Add credits limits
 
 ### Example
 
+
 ```
 h1 project notification credits add --limit 25
 ```
@@ -764,6 +791,7 @@ List credits limits
 
 ### Example
 
+
 ```bash
 h1 project notification credits list --project MyProject
 ```
@@ -783,6 +811,7 @@ Delete credits limits
 ```h1 project notification credits delete | --limit LIMIT [--project PROJECT]```
 
 ### Example
+
 
 ```
 h1 project notification credits delete --limit 25
@@ -810,6 +839,7 @@ Select project context
 
 ### Example
 
+
 ```bash
 h1 project select --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
@@ -829,6 +859,7 @@ Cloud limits set for project
 ```h1 project limit | [--project PROJECT]```
 
 ### Example
+
 
 ```bash
 h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
@@ -856,6 +887,7 @@ Show credentials
 
 ### Example
 
+
 ```bash
 h1 project credentials show --credentials my-credentials
 ```
@@ -882,6 +914,7 @@ List credentials
 
 ### Example
 
+
 ```bash
 h1 project credentials list --project my-project
 ```
@@ -901,6 +934,7 @@ Delete credentials
 ```h1 project credentials delete | --credentials CREDENTIALS [--project PROJECT]```
 
 ### Example
+
 
 ```bash
 h1 project credentials delete --credentials my-credentials --project my-project
@@ -928,6 +962,7 @@ Rename credentials
 
 ### Example
 
+
 ```bash
 h1 project credentials rename --credentials my-credentials --new-name my-renamed-credentials
 ```
@@ -954,6 +989,7 @@ Add public SSH key for project
 ```h1 project credentials add | --name NAME --sshkey-file SSHKEY-FILE [--project PROJECT]```
 
 ### Example
+
 
 ```bash
 h1 project credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub --project my-project

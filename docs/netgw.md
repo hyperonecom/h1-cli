@@ -30,6 +30,7 @@ List network gateway
 
 ### Example
 
+
 ```bash
 h1 netgw list
 ```
@@ -43,6 +44,7 @@ Show network gateway
 ```h1 netgw show | --netgw NETGW```
 
 ### Example
+
 
 ```bash
 h1 netgw show --netgw my-netgw
@@ -64,6 +66,7 @@ Delete network gateway
 
 ### Example
 
+
 ```bash
 h1 netgw delete --netgw my-netgw
 ```
@@ -84,6 +87,7 @@ History of network gateway
 
 ### Example
 
+
 ```bash
 h1 netgw history --netgw my-netgw
 ```
@@ -103,6 +107,7 @@ Rename network gateway
 ```h1 netgw rename | --netgw NETGW --new-name NEW-NAME```
 
 ### Example
+
 
 ```bash
 h1 netgw rename --netgw my-netgw --new-name my-renamed-netgw
@@ -129,6 +134,7 @@ List tag
 
 ### Example
 
+
 ```bash
 h1 netgw tag list --netgw my-netgw
 ```
@@ -148,6 +154,7 @@ Add a tag to network gateway
 ```h1 netgw tag add | --netgw NETGW [--tag TAG [--tag TAG ...]]```
 
 ### Example
+
 
 ```bash
 h1 netgw tag add --netgw test-netgw --tag prod=true
@@ -175,6 +182,7 @@ Delete a tag of network gateway
 
 ### Example
 
+
 ```bash
 h1 netgw tag delete --netgw test-netgw --tag prod
 ```
@@ -195,6 +203,7 @@ Network gateway create
 ```h1 netgw create | --name NAME --ip IP [--tag TAG [--tag TAG ...]]```
 
 ### Example
+
 
 ```bash
 h1 netgw create --name my-netgw --ip 62.181.8.21
@@ -225,6 +234,7 @@ Network gateway detach from a network
 
 ### Example
 
+
 ```bash
 h1 netgw detach --netgw my-netgw
 ```
@@ -244,6 +254,7 @@ Network gateway attach to a network
 ```h1 netgw attach | --netgw NETGW --network NETWORK```
 
 ### Example
+
 
 ```bash
 h1 netgw attach --netgw my-netgw --network my-safe-net

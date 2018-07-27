@@ -36,6 +36,7 @@ Create an account
 
 ### Example
 
+
 ```bash
 h1 user create
 ```
@@ -58,6 +59,7 @@ Show network access rule
 
 ### Example
 
+
 ```bash
 h1 user access rule show --rule my-rule
 ```
@@ -78,6 +80,7 @@ List network access rule
 
 ### Example
 
+
 ```bash
 h1 user access rule list
 ```
@@ -91,6 +94,7 @@ Rename network access rule
 ```h1 user access rule rename | --rule RULE --new-name NEW-NAME```
 
 ### Example
+
 
 ```bash
 h1 user access rule rename --rule my-rule --new-name my-renamed-rule
@@ -113,6 +117,7 @@ Delete network access rule
 
 ### Example
 
+
 ```bash
 h1 user access rule delete --rule my-rule
 ```
@@ -132,6 +137,7 @@ Add access rule for network access rule
 ```h1 user access rule add | --name NAME --type TYPE --value VALUE```
 
 ### Examples
+
 
 #### Add rule by geolocation
 ```bash
@@ -172,6 +178,7 @@ Show credentials
 
 ### Example
 
+
 ```bash
 h1 user credentials show --credentials my-credentials
 ```
@@ -192,6 +199,7 @@ List credentials
 
 ### Example
 
+
 ```bash
 h1 user credentials list
 ```
@@ -205,6 +213,7 @@ Delete credentials
 ```h1 user credentials delete | --credentials CREDENTIALS```
 
 ### Example
+
 
 ```bash
 h1 user credentials delete --credentials my-credentials
@@ -226,6 +235,7 @@ Rename credentials
 
 ### Example
 
+
 ```bash
 h1 user credentials rename --credentials my-credentials --new-name my-renamed-credentials
 ```
@@ -246,6 +256,7 @@ Add public SSH key for user
 ```h1 user credentials add | --name NAME --sshkey-file SSHKEY-FILE```
 
 ### Example
+
 
 ```bash
 h1 user credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub
@@ -271,6 +282,7 @@ Enable factor of authentication
 ```h1 user 2fa enable | [--type TYPE]```
 
 ### Examples
+
 
 #### Enable Time-Based One-Time Password (TOTP) factor
 
@@ -306,6 +318,7 @@ Disable factor of authentication
 
 ### Examples
 
+
 #### Disable OTAC codes
 
 ```bash
@@ -327,6 +340,7 @@ List authentication factory
 ```h1 user 2fa list | ```
 
 ### Example
+
 
 ```bash
 h1 user 2fa list

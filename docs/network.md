@@ -37,6 +37,7 @@ List network
 
 ### Example
 
+
 ```bash
 h1 network list
 ```
@@ -50,6 +51,7 @@ Show network
 ```h1 network show | --network NETWORK```
 
 ### Example
+
 
 ```bash
 h1 network show --network my-network
@@ -71,6 +73,7 @@ Delete network
 
 ### Example
 
+
 ```bash
 h1 network delete --network my-network
 ```
@@ -91,6 +94,7 @@ History of network
 
 ### Example
 
+
 ```bash
 h1 network history --network my-network
 ```
@@ -110,6 +114,7 @@ Rename network
 ```h1 network rename | --network NETWORK --new-name NEW-NAME```
 
 ### Example
+
 
 ```bash
 h1 network rename --network my-network --new-name my-renamed-network
@@ -136,6 +141,7 @@ List tag
 
 ### Example
 
+
 ```bash
 h1 network tag list --network my-network
 ```
@@ -155,6 +161,7 @@ Add a tag to network
 ```h1 network tag add | --network NETWORK [--tag TAG [--tag TAG ...]]```
 
 ### Example
+
 
 ```bash
 h1 network tag add --network test-network --tag prod=true
@@ -182,6 +189,7 @@ Delete a tag of network
 
 ### Example
 
+
 ```bash
 h1 network tag delete --network test-network --tag prod
 ```
@@ -202,6 +210,7 @@ Create network
 ```h1 network create | --name NAME [--address ADDRESS] [--gateway GATEWAY] [--tag TAG [--tag TAG ...]]```
 
 ### Examples
+
 
 #### Create a network
 
@@ -243,6 +252,7 @@ List IP address
 
 ### Example
 
+
 ```bash
 h1 network ip list
 ```
@@ -262,6 +272,7 @@ Show IP address
 ```h1 network ip show | --network NETWORK --ip IP```
 
 ### Example
+
 
 ```bash
 h1 network ip show --ip my-ip --network my-network
@@ -284,6 +295,7 @@ Delete IP address
 
 ### Example
 
+
 ```bash
 h1 network ip delete --ip my-ip --network my-network
 ```
@@ -304,6 +316,7 @@ Create IP address
 ```h1 network ip create | --network NETWORK [--address ADDRESS] [--tag TAG [--tag TAG ...]]```
 
 ### Examples
+
 
 #### Create a new IP address in network
 
@@ -344,6 +357,7 @@ List tag
 
 ### Example
 
+
 ```bash
 h1 network ip tag list --ip my-ip
 ```
@@ -364,6 +378,7 @@ Add a tag to IP address
 ```h1 network ip tag add | --network NETWORK --ip IP [--tag TAG [--tag TAG ...]]```
 
 ### Example
+
 
 ```bash
 h1 network ip tag add --ip test-ip --tag prod=true
@@ -391,6 +406,7 @@ Delete a tag of IP address
 ```h1 network ip tag delete | --tag TAG --network NETWORK --ip IP```
 
 ### Example
+
 
 ```bash
 h1 network ip tag delete --ip test-ip --tag prod

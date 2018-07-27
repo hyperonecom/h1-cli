@@ -40,6 +40,7 @@ List firewall
 
 ### Example
 
+
 ```bash
 h1 firewall list
 ```
@@ -53,6 +54,7 @@ Show firewall
 ```h1 firewall show | --firewall FIREWALL```
 
 ### Example
+
 
 ```bash
 h1 firewall show --firewall my-firewall
@@ -74,6 +76,7 @@ Delete firewall
 
 ### Example
 
+
 ```bash
 h1 firewall delete --firewall my-firewall
 ```
@@ -94,6 +97,7 @@ History of firewall
 
 ### Example
 
+
 ```bash
 h1 firewall history --firewall my-firewall
 ```
@@ -113,6 +117,7 @@ Rename firewall
 ```h1 firewall rename | --firewall FIREWALL --new-name NEW-NAME```
 
 ### Example
+
 
 ```bash
 h1 firewall rename --firewall my-firewall --new-name my-renamed-firewall
@@ -139,6 +144,7 @@ List tag
 
 ### Example
 
+
 ```bash
 h1 firewall tag list --firewall my-firewall
 ```
@@ -158,6 +164,7 @@ Add a tag to firewall
 ```h1 firewall tag add | --firewall FIREWALL [--tag TAG [--tag TAG ...]]```
 
 ### Example
+
 
 ```bash
 h1 firewall tag add --firewall test-firewall --tag prod=true
@@ -185,6 +192,7 @@ Delete a tag of firewall
 
 ### Example
 
+
 ```bash
 h1 firewall tag delete --firewall test-firewall --tag prod
 ```
@@ -205,6 +213,7 @@ Create firewall
 ```h1 firewall create | --name NAME [--tag TAG [--tag TAG ...]]```
 
 ### Example
+
 
 ```bash
 h1 firewall create --name secure-zone-fw
@@ -232,6 +241,7 @@ Attach firewall to a network
 
 ### Example
 
+
 ```bash
 h1 firewall attach --firewall secure-zone-fw --network my-safe-net
 ```
@@ -255,6 +265,7 @@ Detach firewall from network
 
 ### Example
 
+
 ```bash
 h1 firewall detach --firewall secure-zone-fw
 ```
@@ -270,6 +281,7 @@ h1 firewall detach --firewall secure-zone-fw
 Manage ingress rules of firewall
 
 ### Examples
+
 
 #### Create a firewall
 
@@ -327,6 +339,7 @@ List rule ingress of firewall
 
 ### Example
 
+
 ```bash
 h1 firewall ingress list --firewall secure-zone-fw
 ```
@@ -346,6 +359,7 @@ Add rule ingress of firewall
 ```h1 firewall ingress add | --firewall FIREWALL --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
 
 ### Examples
+
 
 #### Add firewall to allow any incoming HTTP traffic to 10.177.2.2
 
@@ -379,6 +393,7 @@ Add rule ingress of firewall
 
 ### Example
 
+
 ```bash
 h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51dc843
 ```
@@ -402,6 +417,7 @@ Show rule ingress of firewall
 
 ### Example
 
+
 ```bash
 h1 firewall ingress show --ingress my-ingress
 ```
@@ -418,6 +434,7 @@ h1 firewall ingress show --ingress my-ingress
 Manage egress rules of firewall
 
 ### Examples
+
 
 #### Create a firewall
 
@@ -475,6 +492,7 @@ List rule egress of firewall
 
 ### Example
 
+
 ```bash
 h1 firewall egress list --firewall secure-zone-fw
 ```
@@ -494,6 +512,7 @@ Add rule egress of firewall
 ```h1 firewall egress add | --firewall FIREWALL --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
 
 ### Examples
+
 
 #### Add firewall to allow any incoming HTTP traffic to 10.177.2.2
 
@@ -527,6 +546,7 @@ Add rule egress of firewall
 
 ### Example
 
+
 ```bash
 h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51dc843
 ```
@@ -549,6 +569,7 @@ Show rule egress of firewall
 ```h1 firewall egress show | --firewall FIREWALL --egress EGRESS```
 
 ### Example
+
 
 ```bash
 h1 firewall egress show --egress my-egress

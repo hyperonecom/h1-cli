@@ -20,6 +20,7 @@ Show service
 
 ### Example
 
+
 ```bash
 h1 service show --service my-service
 ```
@@ -39,6 +40,7 @@ List service
 ```h1 service list | [--resource RESOURCE] [--type TYPE]```
 
 ### Examples
+
 
 #### List services
 

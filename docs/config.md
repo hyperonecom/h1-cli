@@ -22,6 +22,7 @@ Show config
 
 ### Examples
 
+
 #### Get default SSH key for new virtual machine (if set)
 
 ```bash
@@ -37,6 +38,7 @@ Set config value
 ```h1 config set | --key KEY --value VALUE```
 
 ### Examples
+
 
 #### Set default SSH key for new virtual machine
 
@@ -67,6 +69,7 @@ Get config value
 
 ### Examples
 
+
 #### Get default virtual machine type for a new one
 
 ```bash
@@ -88,6 +91,7 @@ Unset config key
 ```h1 config unset | --key KEY```
 
 ### Examples
+
 
 #### Unset default SSH key for new virtual machine (if set)
 

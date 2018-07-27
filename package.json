@@ -13,7 +13,7 @@
     "start": "./bin/h1.js",
     "build": "pkg -c package.json -o ./dist/h1 ./bin/h1 && pkg -c package.json -o ./dist/rbx ./bin/rbx",
     "lint": "eslint .",
-    "docs": "node scripts/print_docs.js docs/",
+    "docs": "node scripts/print_docs/index.js docs/",
     "docs_coverage": "node scripts/print_docs_coverage.js",
     "test": "npx ava --verbose"
   },

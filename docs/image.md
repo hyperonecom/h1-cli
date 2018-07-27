@@ -33,6 +33,7 @@ Show image
 
 ### Example
 
+
 ```bash
 h1 image show --image my-image
 ```
@@ -52,6 +53,7 @@ Delete image
 ```h1 image delete | --image IMAGE```
 
 ### Example
+
 
 ```bash
 h1 image delete --image my-image
@@ -73,6 +75,7 @@ Rename image
 
 ### Example
 
+
 ```bash
 h1 image rename --image my-image --new-name my-renamed-image
 ```
@@ -93,6 +96,7 @@ History of image
 ```h1 image history | --image IMAGE```
 
 ### Example
+
 
 ```bash
 h1 image history --image my-image
@@ -118,6 +122,7 @@ List tag
 
 ### Example
 
+
 ```bash
 h1 image tag list --image my-image
 ```
@@ -137,6 +142,7 @@ Add a tag to image
 ```h1 image tag add | --image IMAGE [--tag TAG [--tag TAG ...]]```
 
 ### Example
+
 
 ```bash
 h1 image tag add --image test-image --tag prod=true
@@ -164,6 +170,7 @@ Delete a tag of image
 
 ### Example
 
+
 ```bash
 h1 image tag delete --image test-image --tag prod
 ```
@@ -184,6 +191,7 @@ Create image
 ```h1 image create | --name NAME --vm VM [--description DESCRIPTION] [--tag TAG [--tag TAG ...]]```
 
 ### Example
+
 
 ```bash
 h1 image create --vm test-vm --name dev-image
@@ -212,6 +220,7 @@ List image
 ```h1 image list | [--recommended] [--all]```
 
 ### Examples
+
 
 #### List all user images
 
@@ -242,6 +251,7 @@ List all disks of image
 
 ### Example
 
+
 ```bash
 h1 image disk --image dev-image
 ```
@@ -266,6 +276,7 @@ Grant access rights for image
 
 ### Example
 
+
 ```bash
 h1 image access grant --image test-image --project 5b28f7c9ddd5b3c5e9ec14c4
 ```
@@ -287,6 +298,7 @@ Revoke access rights for image
 
 ### Example
 
+
 ```bash
 h1 image access revoke --image test-image --project MyFavouriteProject
 ```
@@ -307,6 +319,7 @@ List of access rights for image
 ```h1 image access list | --image IMAGE```
 
 ### Example
+
 
 ```bash
 h1 image access list --image test-image
