@@ -37,14 +37,14 @@ Remember to restart rsyslog:
 sudo service rsyslog restart
 ```
 
-# Read logs
+# Display today's log entries
 
 ```bash
-{{scope}} log read --log my-server-log
+{{scope}} log stream --log my-server-log 
 ```
 
-# View stream logs
+# View live-stream of log entries
 
 ```bash
-{{scope}} log stream --log my-server-log
+{{scope}} log stream --log my-server-log --follow
 ```
