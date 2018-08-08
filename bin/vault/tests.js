@@ -13,7 +13,14 @@ const createUserCredentials = async () => {
     const file = tests.getRandomFile();
     const name = `vault-ssh-${now}`;
     await tests.run(`user credentials add --name ${name} --sshkey-file '${file}'`);
-    return {file: file, name: name};
+    return {
+        file: file,
+        name: name,
+        cleanup: async () => {
+            fs.unlinkSync(file);
+            await tests.remove('user credentials', name);
+        },
+    };
 };
 
 const sshVault = (vault, secret, cmd) => {
@@ -30,7 +37,7 @@ ava.test.serial('vault life cycle', async t => {
 
     await tests.resourceLifeCycle('vault', `--name vault-test-${now} --size 10 --ssh ${ssh.name}`)(t);
 
-    fs.unlinkSync(ssh.file);
+    await ssh.cleanup();
 });
 
 ava.test.serial('vault rename', async t => {
@@ -38,7 +45,7 @@ ava.test.serial('vault rename', async t => {
 
     await tests.resourceRename('vault', `--name vault-test-${now} --size 10 --ssh ${ssh.name}`)(t);
 
-    fs.unlinkSync(ssh.file);
+    await ssh.cleanup();
 });
 
 
