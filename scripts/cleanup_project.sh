@@ -21,4 +21,4 @@ h1 firewall list -o tsv --project-select $PROJECT --query '[].{id: _id}' | xargs
 h1 dns zone list -o tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 dns zone delete --yes --zone
 h1 snapshot list -o tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 snapshot delete --yes --snapshot
 h1 vault    list -o tsv --project-select $PROJECT --query '[].{id: _id}' | xargs -r -n 1 -P 8 h1 vault    delete --yes --vault
-h1 user credentials list -o tsv --query '[].{id: _id}' | grep -v "$SKIPPED_CREDENTIALS" | xargs -n 1 -P 8 h1 user credentials delete --yes --credentials
+h1 user credentials list -o tsv --query '[].{id: _id}' | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 -P 8 h1 user credentials delete --yes --credentials
