@@ -30,6 +30,13 @@ const options = {
         defaultValue: [],
         required: false,
     },
+    vault: {
+        description: 'Bind mount a vault',
+        type: 'string',
+        action: 'append',
+        defaultValue: [],
+        required: false,
+    },
     command: {
         description: 'Override the default command',
         type: 'string',
@@ -56,6 +63,16 @@ module.exports = resource => Cli.createCommand('create', {
             expose: args.expose,
             env: env,
             command: args.command,
+            volumes: args.vault.map(v => {
+                const [sourceFull, target] = v.split(':');
+                const [source, ...sourcePath] = sourceFull.split('/');
+
+                return {
+                    sourcePath: ['', ...sourcePath].join('/'),
+                    source,
+                    target,
+                };
+            }),
         };
 
         return args.helpers.api

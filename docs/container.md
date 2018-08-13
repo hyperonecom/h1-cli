@@ -118,7 +118,7 @@ container create
 
 ### Syntax
 
-```h1 container create | --name NAME --image IMAGE --type TYPE [--expose EXPOSE] [--env ENV [--env ENV ...]] [--command COMMAND]```
+```h1 container create | --name NAME --image IMAGE --type TYPE [--expose EXPOSE] [--env ENV [--env ENV ...]] [--vault VAULT [--vault VAULT ...]] [--command COMMAND]```
 
 ### Required arguments
 
@@ -134,6 +134,7 @@ container create
 | ---- | ------- | ----------- |
 | ```--expose EXPOSE``` |  | Port to expose to the world using http/https |
 | ```--env ENV [--env ENV ...]``` |  | Add enviroment variable. The parameter may occur repeatedly |
+| ```--vault VAULT [--vault VAULT ...]``` |  | Bind mount a vault. The parameter may occur repeatedly |
 | ```--command COMMAND``` |  | Override the default command |
 
 ## h1 container stop
