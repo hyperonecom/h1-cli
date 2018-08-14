@@ -39,7 +39,10 @@ const cli_resources = ['vm', 'disk', 'image', 'iso', 'network', 'ip',
 const cli_config = config.get('cli', {});
 
 if ('resources' in cli_config) {
-    cli_resources.filter(resource => cli_config.resources.includes(resource)).forEach(resource => cli.addChild(require(`./${resource}`)));
+    cli_resources
+        .filter(resource => cli_config.resources.includes(resource))
+        .forEach(resource => cli.addChild(require(`./${resource}`)))
+    ;
 }
 
 // inject defaultValues from config defaults
