@@ -45,6 +45,7 @@ const outputFormat = {
         ;
     },
     json: (args, result) => args.query ? queryFilter(args, result) : result,
+    ids: (args, result) => queryFilter(args, result).map(x => x._id || x.id).join('\n'),
 };
 
 const options = {
