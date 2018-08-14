@@ -21,7 +21,7 @@ sudo nano /etc/rsyslog.d/50-hyperone.conf
 Paste in this configuration:
 
 ```
-$template HyperOneFormat,"<%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [{log_id}:{secret}@HyperOne tag=\"Rsyslog\"] %msg%\n"
+$template HyperOneFormat,"<%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [{log_id}:{secret}@HyperOne tag=\"Rsyslog\"]%msg%\n"
 
 *.* @@{log_id}.log.pl-waw-1.hyperone.com:6514; HyperOneFormat
 ```
