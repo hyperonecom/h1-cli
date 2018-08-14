@@ -40,6 +40,7 @@ module.exports = resource => {
             require('bin/_plugins/loginRequired'),
             require('bin/_plugins/api'),
             require('bin/_plugins/projectRequired'),
+            require('bin/_plugins/verbose'),
         ],
         options: options,
         handler: args => {
