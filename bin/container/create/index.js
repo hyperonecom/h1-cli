@@ -1,6 +1,7 @@
 'use strict';
 
 const Cli = require('lib/cli');
+const fs = require('fs');
 
 const options = {
     name: {
@@ -30,6 +31,10 @@ const options = {
         defaultValue: [],
         required: false,
     },
+    'env-file': {
+        description: 'Read from a file of environment variables',
+        type: 'string',
+    },
     vault: {
         description: 'Bind mount a vault',
         type: 'string',
@@ -44,24 +49,35 @@ const options = {
     },
 };
 
+function parse_env_vars(args) {
+    const env = {};
+
+    args.env.forEach(value => {
+        const [k, v] = value.split('=');
+        env[k] = v;
+    });
+
+    if (args['env-file']) {
+        fs.readFileSync(args['env-file']).toString().split('\n').forEach(value => {
+            const [k, v] = value.split('=');
+            env[k] = v;
+        });
+    }
+    return env;
+}
+
 module.exports = resource => Cli.createCommand('create', {
     description: `${resource.title} create`,
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options),
     handler: args => {
 
-        const env = {};
-        args.env.forEach(value => {
-            const [k, v] = value.split('=');
-            env[k] = v;
-        });
-
         const body = {
             name: args.name,
             image: args.image,
             service: args.type,
             expose: args.expose,
-            env: env,
+            env: parse_env_vars(args),
             command: args.command,
             volumes: args.vault.map(v => {
                 const [sourceFull, target] = v.split(':');
