@@ -34,6 +34,7 @@ const category = genericResource(resource);
 category.addChild(require('./create')(resource));
 category.addChild(genericAction(actionDefault, 'stop'));
 category.addChild(genericAction(actionDefault, 'start'));
+category.addChild(genericAction(actionDefault, 'restart'));
 category.addChild(require('./logs')(childDefaults));
 
 module.exports = category;

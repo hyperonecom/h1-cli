@@ -8,6 +8,7 @@
   * [h1 container create](#h1-container-create) - container create
   * [h1 container stop](#h1-container-stop) - Stop container
   * [h1 container start](#h1-container-start) - Start container
+  * [h1 container restart](#h1-container-restart) - Restart container
   * [h1 container logs](#h1-container-logs) - container logs
 
 
@@ -169,6 +170,26 @@ Start container
 
 ```bash
 h1 container start --container my-container
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--container CONTAINER``` |  | container ID or name |
+
+## h1 container restart
+
+Restart container
+
+### Syntax
+
+```h1 container restart | --container CONTAINER```
+
+### Example
+
+```bash
+h1 container restart --container my-container
 ```
 
 ### Required arguments
