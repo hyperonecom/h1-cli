@@ -221,7 +221,7 @@ Note: You can mount ISO disk and provide stateless services.
 | ```--os-disk-name OS-DISK-NAME``` |  | OS disk name |
 | ```--os-disk-type OS-DISK-TYPE``` |  | OS disk type |
 | ```--os-disk-size OS-DISK-SIZE``` |  | OS disk size |
-| ```--os-disk OS-DISK``` |  | OS disk: name,service,size |
+| ```--os-disk OS-DISK``` |  | OS disk: name,type,size |
 | ```--network NETWORK``` |  | Network ID or name to attach |
 | ```--ip IP``` |  | IP address for Virtual machine |
 | ```--no-start``` |  | Do not start Virtual machine after creation |
