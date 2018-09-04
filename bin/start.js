@@ -3,6 +3,8 @@
 const cli = require('./index');
 const logger = require('lib/logger');
 
+process.env.NODE_ENV = process.pkg ? 'production' : process.env.NODE_ENV;
+
 const matches = (prop, value, callback) => err => {
     if (err[prop] === value) {
         return callback(err);
