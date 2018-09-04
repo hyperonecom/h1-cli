@@ -72,7 +72,7 @@ See the documentation and examples published on [jmespath.org](https://jmespath.
 ### Stop all virtual machines
 
 ```bash
-{{scope}} vm list -o ids | xargs -r -n 1 {{scope}} vm stop --vm
+{{scope}} vm list -o id | xargs -r -n 1 {{scope}} vm stop --vm
 ```
 
 ### Create new disk and attach to virtual machine
