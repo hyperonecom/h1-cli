@@ -22,5 +22,14 @@ jobs:
     services:
     - docker
     script:
-    - cd ./monitoring
-    - ./deploy_image.sh
+    - >
+      if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+        export TAG_NAME="${TRAVIS_BRANCH}";
+
+        if [[ "${TRAVIS_BRANCH}" == "master" ]]; then
+            export TAG_NAME="latest";
+        fi;
+
+        cd ./monitoring;
+        ./deploy_image.sh
+      fi;
