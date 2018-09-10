@@ -1,3 +1,3 @@
 ```bash
-{{command_name}} --zone-name 'my-domain.tld'
+{{command_name}} --zone 'my-domain.tld'
 ```

@@ -3,6 +3,7 @@
 const Cli = require('lib/cli');
 
 const defaults = require('bin/generic/defaults');
+const recordTypes = require('../recordTypes');
 
 const resource = {
     name: 'record-set',
@@ -17,27 +18,6 @@ const resource = {
         },
     },
     title: 'Record set',
-};
-
-const recordTypes = {
-    a: {
-        value: '8.8.3.3',
-    },
-    cname: {
-        value: 'cname-example.com',
-    },
-    txt: {
-        value: '"some-text-value"',
-    },
-    mx: {
-        value: '10 mail.example.com',
-    },
-    ns: {
-        value: 'ns1.example.com',
-    },
-    srv: {
-        value: '10 5 11 s1.example.com.',
-    },
 };
 
 const category = (resource) => {

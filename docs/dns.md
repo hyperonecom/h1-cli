@@ -5,7 +5,8 @@
     * [h1 dns zone show](#h1-dns-zone-show) - Show DNS zone
     * [h1 dns zone delete](#h1-dns-zone-delete) - Delete DNS zone
     * [h1 dns zone create](#h1-dns-zone-create) - Create DNS zone
-    * [h1 dns zone export](#h1-dns-zone-export) - Export DNS zone
+    * [h1 dns zone import](#h1-dns-zone-import) - Import DNS zone from BIND-compatible format
+    * [h1 dns zone export](#h1-dns-zone-export) - Export DNS zone in BIND-compatible format
   * [h1 dns record-set](#h1-dns-record-set) - Manage your record-set
     * [h1 dns record-set a](#h1-dns-record-set-a) - Manage record set type A
       * [h1 dns record-set a list](#h1-dns-record-set-a-list) - List Record A
@@ -154,25 +155,52 @@ h1 dns zone create --name my-domain.tld
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | DNS zone name |
 
-## h1 dns zone export
+## h1 dns zone import
 
-Export DNS zone
+Import DNS zone from BIND-compatible format
 
 ### Syntax
 
-```h1 dns zone export | --zone-name ZONE-NAME```
+```h1 dns zone import | --zone ZONE --zone-file ZONE-FILE [--delete]```
 
 ### Example
 
 ```bash
-h1 dns zone export --zone-name 'my-domain.tld'
+h1 dns zone import --zone 'my-domain.tld' --zone-file my-zone-export.txt
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--zone-name ZONE-NAME``` |  | DNS zone name |
+| ```--zone ZONE``` |  | DNS zone name |
+| ```--zone-file ZONE-FILE``` |  | File of zone in BIND-compatbile format |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--delete``` |  | Delete remote record-sets that do not exist locally |
+
+## h1 dns zone export
+
+Export DNS zone in BIND-compatible format
+
+### Syntax
+
+```h1 dns zone export | --zone ZONE```
+
+### Example
+
+```bash
+h1 dns zone export --zone 'my-domain.tld'
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--zone ZONE``` |  | DNS zone name |
 
 ## h1 dns record-set
 

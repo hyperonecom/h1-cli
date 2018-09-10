@@ -1,31 +1,61 @@
 'use strict';
 
+const zonefile = require('dns-zonefile');
+
 const Cli = require('lib/cli');
+const recordTypes = require('../../recordTypes');
 
 const options = {
-    'zone-name': {
+    zone: {
         description: 'DNS zone name',
         type: 'string',
         required: true,
     },
 };
 
-const handle = (args) => {
-    const url = `${args.$node.parent.config.url(args)}/${args['zone-name']}`;
 
-    return args.helpers.api.get(url, {
-        name: args['zone-name'],
+const handle = (args) => args.helpers.api.get(
+    `${args.$node.parent.config.url(args)}/${args.zone}`, {
+        name: args.zone,
     }).then(result => {
-        return result.rrsets.map(item => {
-            return item.records.filter(r=>!r.disabled).map(r => {
-                return [item.name, 'IN', item.ttl, item.type, r.content].join('\t');
-            }).join('\n');
-        }).join('\n');
+
+    const zone = {
+        $origin: result.name,
+        $ttl: 3600,
+    };
+
+    const soa_rrset = result.rrsets.find(x => x.type === 'SOA');
+
+    if (soa_rrset && soa_rrset.records) {
+        const parts = soa_rrset.records[0].content.split(' ');
+        zone.soa = {
+            mname: parts[0],
+            rname: parts[1],
+            serial: parts[2],
+            refresh: parts[3],
+            retry: parts[4],
+            expire: parts[5],
+            minimum: parts[6],
+        };
+    }
+
+    Object.keys(recordTypes).forEach(type => {
+        zone[type] = [];
+        result.rrsets.filter(x => x.type === type.toUpperCase()).map(rrset => {
+            zone[type].push(...rrset.records.map(record => Object.assign(
+                {
+                    ttl: rrset.ttl,
+                    name: rrset.name !== result.name ? rrset.name : null,
+                },
+                recordTypes[type].to_bind(record.content)
+            )));
+        });
     });
-};
+    return zonefile.generate(zone);
+});
 
 module.exports = (resource) => Cli.createCommand('export', {
-    description: `Export ${resource.title}`,
+    description: `Export ${resource.title} in BIND-compatible format`,
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options),
     handler: handle,
