@@ -37,7 +37,7 @@ const childDefaults = Object.assign({}, resource, {
 
 category.addChild(require('./access')(childDefaults));
 category.addChild(require('./token')(childDefaults));
-
+category.addChild(require('./notification')(childDefaults));
 category.addChild(require('./select')(childDefaults));
 category.addChild(require('./limits')(childDefaults));
 
