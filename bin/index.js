@@ -41,8 +41,7 @@ const cli_config = config.get('cli', {});
 if ('resources' in cli_config) {
     cli_resources
         .filter(resource => cli_config.resources.includes(resource))
-        .forEach(resource => cli.addChild(require(`./${resource}`)))
-    ;
+        .forEach(resource => cli.addChild(require(`./${resource}`)));
 }
 
 // inject defaultValues from config defaults
@@ -75,6 +74,7 @@ Cli.flatten(cli).forEach(node => {
     let context = {
         command_name: Cli.get_full_name(node),
         scope: scope,
+        scope_uppercase: scope.toUpperCase(),
     };
     if (node.parent) {
         context.category_name = Cli.get_full_name(node.parent);
