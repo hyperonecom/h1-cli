@@ -22,7 +22,7 @@
       * [h1 project token access add](#h1-project-token-access-add) - Add access rule
   * [h1 project notification](#h1-project-notification) - Manage your notifications
     * [h1 project notification credits](#h1-project-notification-credits) - Manage your threshold of credit limits
-      * [h1 project notification credits add](#h1-project-notification-credits-add) - Delete credits limits
+      * [h1 project notification credits add](#h1-project-notification-credits-add) - Add credits limits
       * [h1 project notification credits list](#h1-project-notification-credits-list) - List credits limits
       * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limits
   * [h1 project select](#h1-project-select) - Select project context
@@ -505,7 +505,7 @@ Manage your threshold of credit limits
 
 ## h1 project notification credits add
 
-Delete credits limits
+Add credits limits
 
 ### Syntax
 
