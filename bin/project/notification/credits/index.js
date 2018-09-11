@@ -4,7 +4,7 @@ const Cli = require('lib/cli');
 
 module.exports = resource => {
     const category = Cli.createCategory('credits', {
-        description: 'Manage your threshold of credit limits.',
+        description: 'Manage your threshold of credit limits',
         defaultQuery: '[].{limit: @}',
     });
 

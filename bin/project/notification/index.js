@@ -4,7 +4,7 @@ const Cli = require('lib/cli');
 
 module.exports = resource => {
     const category = Cli.createCategory('notification', {
-        description: 'Manage your notifications.',
+        description: 'Manage your notifications',
     });
 
     category.addChild(require('./credits')(resource));

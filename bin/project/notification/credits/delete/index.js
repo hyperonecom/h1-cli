@@ -11,7 +11,7 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('delete', {
-    description: `Select ${resource.title} context`,
+    description: 'Delete credits limits',
     dirname: __dirname,
     plugins: [
         require('bin/_plugins/loginRequired'),

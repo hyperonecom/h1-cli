@@ -3,7 +3,7 @@
 const Cli = require('lib/cli');
 
 module.exports = resource => Cli.createCommand('list', {
-    description: `Select ${resource.title} context`,
+    description: 'List credits limits',
     dirname: __dirname,
     plugins: [
         require('bin/_plugins/loginRequired'),
