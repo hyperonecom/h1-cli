@@ -5,13 +5,12 @@ const Cli = require('lib/cli');
 const options = {
     limit: {
         description: 'New limit of credits',
-        type: 'int',
         required: true,
     },
 };
 
 module.exports = resource => Cli.createCommand('add', {
-    description: 'Delete credits limits',
+    description: 'Add credits limits',
     dirname: __dirname,
     plugins: [
         require('bin/_plugins/loginRequired'),
