@@ -2,6 +2,7 @@
 
 const jmespath = require('jmespath');
 const tabula = require('tabula');
+const yaml = require('js-yaml');
 
 const queryFilter = (args, result) => {
 
@@ -46,6 +47,7 @@ const outputFormat = {
     },
     json: (args, result) => args.query ? queryFilter(args, result) : result,
     id: (args, result) => queryFilter(args, result).map(x => x._id || x.id).join('\n'),
+    yaml: (args, result) => yaml.safeDump(args.query ? queryFilter(args, result) : result),
 };
 
 const options = {
