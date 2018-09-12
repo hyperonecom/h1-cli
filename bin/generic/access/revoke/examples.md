@@ -1,3 +1,3 @@
 ```bash
-{{command_name}} --{{type}} test-image
+{{command_name}} --{{type}} test-{{type}} --project MyFavouriteProject
 ```

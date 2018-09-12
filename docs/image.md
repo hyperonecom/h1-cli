@@ -212,7 +212,7 @@ Revoke access rights for image
 ### Example
 
 ```bash
-h1 image access revoke --image test-image
+h1 image access revoke --image test-image --project MyFavouriteProject
 ```
 
 ### Required arguments
