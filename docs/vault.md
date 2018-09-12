@@ -21,6 +21,9 @@
       * [h1 vault credential password delete](#h1-vault-credential-password-delete) - Delete password to Vault
       * [h1 vault credential password add](#h1-vault-credential-password-add) - Add password to Vault
   * [h1 vault ssh](#h1-vault-ssh) - Connect to Vault using SSH
+  * [h1 vault console](#h1-vault-console) - Open Vault console in web-browser
+  * [h1 vault stop](#h1-vault-stop) - Stop Vault
+  * [h1 vault start](#h1-vault-start) - Start Vault
 
 
 # Specification
@@ -443,4 +446,52 @@ Note: You need valid credentials to access Vault any way.
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--command COMMAND``` |  | Command to execute |
+
+## h1 vault console
+
+Open Vault console in web-browser
+
+### Syntax
+
+```h1 vault console | --vault VAULT```
+
+### Example
+
+```bash
+h1 vault console --vault test-vault
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+
+## h1 vault stop
+
+Stop Vault
+
+### Syntax
+
+```h1 vault stop | ```
+
+### Example
+
+```
+h1 vault stop --vault my-valut
+```
+
+## h1 vault start
+
+Start Vault
+
+### Syntax
+
+```h1 vault start | ```
+
+### Example
+
+```
+h1 vault start --vault my-valut
+```
 
