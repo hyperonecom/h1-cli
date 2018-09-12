@@ -29,14 +29,16 @@ module.exports = Cli.createCommand('create', {
             type: 'password',
         });
 
-        await api.post('user', {
-            email: email,
-            password: password,
+        const body = {
+            email: email.value,
+            password: password.value,
             verification: {
-                email: {id: emailVerification.id, code: emailCode},
-                phone: {id: phoneVerification.id, code: phoneCode},
+                email: {id: emailVerification.id, code: emailCode.value},
+                phone: {id: phoneVerification.id, code: phoneCode.value},
             },
-        });
+        };
+
+        await api.post('user', body);
 
         return logger('info', 'User successfully created!');
     },
