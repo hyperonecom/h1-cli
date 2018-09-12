@@ -8,12 +8,13 @@ module.exports = {
         }),
         to_content: record => record.ip,
     },
-    // aaaa: {
-    //     to_bind: content => ({
-    //         ip: content,
-    //     }),
-    //     to_content: record => record.ip
-    // },
+    aaaa: {
+        value: 'fdda:5cc1:23:4::1f',
+        to_bind: content => ({
+            ip: content,
+        }),
+        to_content: record => record.ip,
+    },
     cname: {
         value: 'cname-example.com',
         to_bind: content => ({
