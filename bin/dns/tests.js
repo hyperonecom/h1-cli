@@ -3,8 +3,16 @@ const ava = require('ava');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
+const fs = require('fs');
 
 const now = Date.now();
+
+const fsPromiseUnlink = path => new Promise((resolve, reject) => {
+    fs.unlink(path, (err) => {
+        if (err) return reject(err);
+        resolve(true);
+    });
+});
 
 ava.test.serial('dns zone life cycle', tests.resourceLifeCycle('dns zone', {
     createParams: `--name dns-zone-${now}.com`,
@@ -62,5 +70,31 @@ Object.entries(recordTypes).forEach(([type, values]) => {
 
         // Clean up
         await tests.remove('dns zone', zone);
+    });
+
+    ava.test.serial(`dns exports-import record type ${type}`, async t => {
+        const zone = await tests.run(`dns zone create --name ${type}.export-${now}.com`);
+        const zone_import = await tests.run(`dns zone create --name ${type}.import-${now}.com`);
+        const name = `${type}-${now}`;
+
+        await tests.run(`dns record-set ${type} create --name ${name} --zone ${zone.name}
+                         --value '${values[0]}' --value '${values[1]}'`);
+
+        // Validates that export works
+        const content = await tests.run(`dns zone export --zone ${zone.name}`);
+        t.true(content.includes(values[0].replace(/ /g, '\t')));
+        t.true(content.includes(values[1].replace(/ /g, '\t')));
+
+        const zone_file = tests.getRandomFile(content.replace(new RegExp(zone.name, 'g'), zone_import.name));
+        await tests.run(`dns zone import --zone ${zone_import.name} --zone-file ${zone_file}`);
+
+        // Validates that import works via validated export
+        const content_export = await tests.run(`dns zone export --zone ${zone_import.name}`);
+        t.true(content_export.includes(values[0].replace(/ /g, '\t')));
+        t.true(content_export.includes(values[1].replace(/ /g, '\t')));
+
+        await fsPromiseUnlink(zone_file);
+        await tests.remove('dns zone', zone);
+        await tests.remove('dns zone', zone_import);
     });
 });
