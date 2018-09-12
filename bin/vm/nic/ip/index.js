@@ -35,6 +35,8 @@ const resource = {
 const category = genericResource(resource);
 
 category.addChild(require('./add')(resource));
+category.addChild(require('./replace')(resource));
+category.addChild(require('./persistent')(resource));
 
 module.exports = category;
 
