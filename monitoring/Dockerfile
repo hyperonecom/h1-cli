@@ -1,4 +1,4 @@
-FROM node:10.5.0-slim
+FROM node:10-alpine
 MAINTAINER hyperone@jawnosc.tk
 WORKDIR /src
 COPY package.json package-lock.json ./
