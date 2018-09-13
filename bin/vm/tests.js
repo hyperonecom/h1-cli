@@ -168,6 +168,46 @@ ava.test.serial('vm nic ip life cycle', async t => {
     await common.cleanup();
 });
 
+ava.test.serial('vm nic ip replace', async t => {
+    const common = await getCommon(t.title, {
+        type: 'm2.tiny',
+    });
+    const vm = await tests.run(`vm create ${common.params.createParams}`);
+    const ip = await tests.run('ip create');
+    const new_ip = await tests.run('ip create');
+
+    const nic_list = await tests.run(`vm nic list --vm ${vm._id}`);
+    await tests.run(`vm nic ip add --vm ${vm._id} --nic ${nic_list[0]._id} --ip ${ip._id}`);
+    await tests.run(`vm nic ip replace --vm ${vm._id} --nic ${nic_list[0]._id} --ip ${ip._id} --new-ip ${new_ip._id}`);
+    const new_nic = await tests.run(`vm nic show --vm ${vm._id} --nic ${nic_list[0]._id}`);
+    t.true(new_nic.ip.some(x => x._id === new_ip._id));
+
+    await common.cleanup();
+    await tests.remove('ip', ip);
+    await tests.remove('ip', new_ip);
+});
+
+ava.test.serial('vm nic ip persistent', async t => {
+    const common = await getCommon(t.title, {
+        type: 'm2.tiny',
+    });
+    const vm = await tests.run(`vm create ${common.params.createParams}`);
+
+    const nic_list = await tests.run(`vm nic list --vm ${vm._id}`);
+    const ip = nic_list[0].ip[0];
+
+    const ip_list = await tests.run('ip list');
+    t.true(!ip_list.some(x => x._id === ip._id));
+
+    await tests.run(`vm nic ip persistent --vm ${vm._id} --nic ${nic_list[0]._id} --ip ${ip._id}`);
+
+    const new_ip_list = await tests.run('ip list');
+    t.true(new_ip_list.some(x => x._id === ip._id));
+
+    await common.cleanup();
+    await tests.remove('ip', ip);
+});
+
 ava.test.serial('vm dvd cycle', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params.createParams}`);

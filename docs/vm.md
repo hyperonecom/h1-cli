@@ -30,6 +30,8 @@
       * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP address of network adapter
       * [h1 vm nic ip delete](#h1-vm-nic-ip-delete) - Delete IP address of network adapter
       * [h1 vm nic ip add](#h1-vm-nic-ip-add) - Add IP address to IP address of network adapter
+      * [h1 vm nic ip replace](#h1-vm-nic-ip-replace) - Replace IP address of network adapter
+      * [h1 vm nic ip persistent](#h1-vm-nic-ip-persistent) - Persistent IP address of network adapter
   * [h1 vm dvd](#h1-vm-dvd) - Manage your DVD
     * [h1 vm dvd list](#h1-vm-dvd-list) - List DVD
     * [h1 vm dvd insert](#h1-vm-dvd-insert) - Insert ISO into DVD drive of DVD
@@ -681,6 +683,57 @@ Note: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID |
 | ```--ip IP``` |  | Public IP address or ID of IP |
+
+## h1 vm nic ip replace
+
+Replace IP address of network adapter
+
+### Syntax
+
+```h1 vm nic ip replace | --vm VM --nic NIC --ip IP --new-ip NEW-IP```
+
+### Examples
+
+#### Add IP address to network adapter
+
+```bash
+h1 vm nic ip replace --vm test-vm2 --nic 5b1f28ffdadb705edd76b411 --ip 5784e97be2627505227b584c
+```
+
+Note: Use ```h1 vm nic list --vm test-vm2``` to identify network adapter.
+
+Note: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to create a new one.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID |
+| ```--ip IP``` |  | IP address or ID of attached IP |
+| ```--new-ip NEW-IP``` |  | New public IP address or ID of IP |
+
+## h1 vm nic ip persistent
+
+Persistent IP address of network adapter
+
+### Syntax
+
+```h1 vm nic ip persistent | --vm VM --nic NIC --ip IP```
+
+### Example
+
+```
+h1 vm nic ip persistent --vm test-vm --nic 5b994d0cab228cb79e8576c9 --ip 5784e97be2627505227b584c
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID |
+| ```--ip IP``` |  | IP address or ID of public IP |
 
 ## h1 vm dvd
 
