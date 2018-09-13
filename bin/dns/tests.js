@@ -30,6 +30,7 @@ ava.test.serial('dns zone export', async t => {
 
 const recordTypes = {
     a: ['127.0.0.2', '127.0.0.3'],
+    aaaa: ['fdda:5cc1:23:4::1f', 'fdda:5cc1:23:4::1e'],
     cname: ['cname.example.com.', 'cname2.example.com.'],
     txt: ['"txt.example.com"', '"txt2.example.com"'],
     mx: ['10 mx.example.com.', '5 mx2.example.com.'],
