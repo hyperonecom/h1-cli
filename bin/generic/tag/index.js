@@ -28,7 +28,7 @@ module.exports = resource => {
     const category = genericResource({
         name: 'tag',
         defaultQuery: '[].{key:key, value:value}',
-        url: args => `${resource.url()}/${args.vm}/tag`,
+        url: args => `${resource.url()}/${args[resource.name]}/tag`,
         transform: data => Object.entries(data).map(([key, value]) => ({key, value})),
         commands: ['list'],
         options: subresource.options,
