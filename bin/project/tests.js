@@ -87,6 +87,28 @@ ava.test.serial('project token rename', async t => {
     await tests.remove('project token', token);
 });
 
+ava.test.serial('project notification credits', async t => {
+    const commonParams = `--project ${active_project}`;
+    const limit = Math.round(Math.random() * 1000000);
+
+    // Verify randomness of limit
+    const limits = await tests.run(`project notification credits list ${commonParams}`);
+    t.true(!limits.includes(limit));
+
+    // Add limit
+    await tests.run(`project notification credits add ${commonParams} --limit ${limit}`);
+
+    const new_limits = await tests.run(`project notification credits list ${commonParams}`);
+    t.true(new_limits.includes(limit));
+
+    // Delete limit (cleanup)
+    await tests.run(`project notification credits delete ${commonParams} --limit ${limit}`);
+
+    const newest_limits = await tests.run(`project notification credits list ${commonParams}`);
+    t.true(!newest_limits.includes(limit));
+});
+
+
 ava.test.serial('project token access life cycle', async t => {
     const history = [];
 
