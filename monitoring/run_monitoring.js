@@ -2,6 +2,9 @@
 const mailer = require('nodemailer');
 const childProcess = require('child_process');
 const shell_quote = require('shell-quote');
+
+require('../scope/scope/h1');
+
 const tests = require('../lib/tests');
 
 const getConfigValue = (name, options = {}) => {
