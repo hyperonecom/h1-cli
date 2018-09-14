@@ -5,6 +5,10 @@
   * [h1 firewall delete](#h1-firewall-delete) - Delete firewall
   * [h1 firewall history](#h1-firewall-history) - History of firewall
   * [h1 firewall rename](#h1-firewall-rename) - Rename firewall
+  * [h1 firewall tag](#h1-firewall-tag) - Manage your tag
+    * [h1 firewall tag list](#h1-firewall-tag-list) - List tag
+    * [h1 firewall tag add](#h1-firewall-tag-add) - Add a tag to firewall
+    * [h1 firewall tag delete](#h1-firewall-tag-delete) - Delete a tag of firewall
   * [h1 firewall create](#h1-firewall-create) - Create firewall
   * [h1 firewall attach](#h1-firewall-attach) - Attach firewall to a network
   * [h1 firewall detach](#h1-firewall-detach) - Detach firewall from network
@@ -120,6 +124,72 @@ h1 firewall rename --firewall my-firewall --new-name my-renamed-firewall
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
+
+## h1 firewall tag
+
+Manage your tag
+
+## h1 firewall tag list
+
+List tag
+
+### Syntax
+
+```h1 firewall tag list | --firewall FIREWALL```
+
+### Example
+
+```bash
+h1 firewall tag list --firewall my-firewall
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+
+## h1 firewall tag add
+
+Add a tag to firewall
+
+### Syntax
+
+```h1 firewall tag add | --firewall FIREWALL --tag TAG [--tag TAG ...]```
+
+### Example
+
+```bash
+h1 firewall tag add --firewall test-firewall --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+| ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
+
+## h1 firewall tag delete
+
+Delete a tag of firewall
+
+### Syntax
+
+```h1 firewall tag delete | --tag TAG --firewall FIREWALL```
+
+### Example
+
+```bash
+h1 firewall tag delete --vm test-vm --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 
 ## h1 firewall create
 

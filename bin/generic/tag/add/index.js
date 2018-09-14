@@ -30,4 +30,5 @@ module.exports = (resource, subresource) => Cli.createCommand('add', {
     dirname: __dirname,
     options: Object.assign({}, subresource.options, options),
     handler: handler,
+    resource: resource,
 });

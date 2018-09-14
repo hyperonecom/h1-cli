@@ -1,3 +1,3 @@
 ```bash
-{{command_name}} --vm test-vm --tag prod=true
+{{command_name}} --{{type}} test-{{type}} --tag prod=true
 ```
