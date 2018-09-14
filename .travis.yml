@@ -2,6 +2,9 @@ language: node_js
 
 node_js: 10
 
+services:
+  - docker
+
 jobs:
   include:
   - stage: test
@@ -16,11 +19,11 @@ jobs:
     - scripts/markown_lint.sh
     - npm run build
     - dist/h1-linux --help
+    - docker run --rm -v $(pwd)/dist/h1-alpine:/usr/local/bin/h1 alpine ash -c 'apk add libstdc++ && h1 --help'
     - dist/rbx-linux --help
+    - docker run --rm -v $(pwd)/dist/rbx-alpine:/usr/local/bin/rbx alpine ash -c 'apk add libstdc++ && rbx --help'
   - stage: build & deploy
     sudo: required
-    services:
-    - docker
     script:
     - >
       if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
