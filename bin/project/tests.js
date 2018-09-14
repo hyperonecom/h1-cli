@@ -1,6 +1,6 @@
 'use strict';
 const ava = require('ava');
-const URL = require('url');
+const { URL } = require('url');
 const Imap = require('imap');
 
 require('../../scope/h1');

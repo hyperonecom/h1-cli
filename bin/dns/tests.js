@@ -23,7 +23,7 @@ ava.test.serial('dns zone life cycle', tests.resourceLifeCycle('dns zone', {
 ava.test.serial('dns zone export', async t => {
     const name = `dns-export-${now}.com`;
     const zone = await tests.run(`dns zone create --name ${name}`);
-    const export_content = await tests.run(`dns zone export --zone-name ${name}`);
+    const export_content = await tests.run(`dns zone export --zone ${name}`);
     t.true(export_content.includes('hostmaster.hyperone.com.'));
     await tests.remove('dns zone', zone);
 });

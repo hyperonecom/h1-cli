@@ -20,7 +20,7 @@ module.exports = {
 
         context.args.profile = Object.assign({}, profile);
 
-        if (config.TOKEN || config.PROJECT) {
+        if (config.get_token()|| config.get_project()) {
             return;
         }
 
