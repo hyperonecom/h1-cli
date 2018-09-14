@@ -5,4 +5,4 @@ COPY package.json package-lock.json ./
 RUN npm install .
 COPY . ./
 RUN npm link
-CMD ["nodejs", "./monitoring/run_monitoring.js"]
+CMD ["node", "./monitoring/run_monitoring.js"]
