@@ -12,8 +12,8 @@ module.exports = {
     onBeforeHandler: context => {
         const profile = config.get('profile', {});
 
-        if (process.env.H1_TOKEN) {
-            console.debug('Skip log in. Using H1_TOKEN from environment variable');
+        if (config.get_token()) {
+            console.debug(`Skip log in. Using ${config.scope()}_TOKEN from environment variable`);
             return;
         }
 

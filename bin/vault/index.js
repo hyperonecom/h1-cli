@@ -2,6 +2,7 @@
 
 const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
+const genericAction = require('bin/generic/action');
 
 const resource = {
     name: 'vault',
@@ -12,6 +13,10 @@ const resource = {
     title: 'Vault',
 };
 
+const actionDefault = Object.assign({}, resource, {
+    dirname: __dirname,
+});
+
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
@@ -19,5 +24,8 @@ category.addChild(require('./create')(resource));
 category.addChild(require('./credential')(resource));
 
 category.addChild(require('./ssh')(resource));
+category.addChild(require('./console')(resource));
+category.addChild(genericAction(actionDefault, 'stop'));
+category.addChild(genericAction(actionDefault, 'start'));
 
 module.exports = category;

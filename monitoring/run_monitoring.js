@@ -2,7 +2,10 @@
 const mailer = require('nodemailer');
 const childProcess = require('child_process');
 const shell_quote = require('shell-quote');
-const tests = require('lib/tests');
+
+require('../scope/h1');
+
+const tests = require('../lib/tests');
 
 const getConfigValue = (name, options = {}) => {
     if (!process.env[name] && typeof options.defaultValue === 'undefined') {
@@ -68,7 +71,7 @@ const sendMail = async (config, success, report) => {
             from: config.SMTP_SENDER,
             to: recipient,
             subject: success ? 'Monitoring success report' : 'Monitoring failed report',
-            text: report.split('\n').filter(x => !x.includes('node h1')).join('\n'),
+            text: report.split('\n').filter(x => x.includes(' bin ') || x.includes(' tests ')).join('\n'),
             attachments: [
                 {
                     filename: 'monitoring-report.txt',
@@ -129,11 +132,11 @@ const runProcess = async (cmd = [], env = {}, timeout = 60 * 30) => new Promise(
 
 const main = async () => {
     const config = getConfig();
-    await runProcess(`h1 login --username ${config.H1_USER} --password ${config.H1_PASSWORD}`);
-    await runProcess(`h1 project select --project ${config.H1_PROJECT}`);
 
     try {
-        const output = await runProcess(config.MONITORING_CMD, {}, config.MONITORING_TIMEOUT);
+        let output = await runProcess(`h1 login --username ${config.H1_USER} --password ${config.H1_PASSWORD}`);
+        output += await runProcess(`h1 project select --project ${config.H1_PROJECT}`);
+        output += await runProcess(config.MONITORING_CMD, {}, config.MONITORING_TIMEOUT);
         await sendMail(config, true, output);
     } catch (err) {
         await sendMail(config, false, `${err.message}\n${err.output}\n${err.message}`);

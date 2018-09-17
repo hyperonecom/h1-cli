@@ -20,6 +20,11 @@
       * [h1 project token access show](#h1-project-token-access-show) - Show access rule
       * [h1 project token access delete](#h1-project-token-access-delete) - Delete access rule
       * [h1 project token access add](#h1-project-token-access-add) - Add access rule
+  * [h1 project notification](#h1-project-notification) - Manage your notifications
+    * [h1 project notification credits](#h1-project-notification-credits) - Manage your threshold of credit limits
+      * [h1 project notification credits add](#h1-project-notification-credits-add) - Add credits limits
+      * [h1 project notification credits list](#h1-project-notification-credits-list) - List credits limits
+      * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limits
   * [h1 project select](#h1-project-select) - Select project context
   * [h1 project limit](#h1-project-limit) - Cloud limits set for project
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
@@ -483,6 +488,86 @@ h1 project token access add --project 6oAoJqgyLZP4Le9UUNHrEOYP --method POST --p
 | ```--method METHOD``` |  | HTTP method. eg: GET, POST..., ALL (to allow all methods) |
 | ```--path PATH``` |  | URL path, eg: /disk |
 | ```--token TOKEN``` |  | Token ID |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project notification
+
+Manage your notifications
+
+## h1 project notification credits
+
+Manage your threshold of credit limits
+
+## h1 project notification credits add
+
+Add credits limits
+
+### Syntax
+
+```h1 project notification credits add | --limit LIMIT [--project PROJECT]```
+
+### Example
+
+```
+h1 project notification credits add --limit 25
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--limit LIMIT``` |  | New limit of credits |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project notification credits list
+
+List credits limits
+
+### Syntax
+
+```h1 project notification credits list | [--project PROJECT]```
+
+### Example
+
+```bash
+h1 project notification credits list --project MyProject
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project notification credits delete
+
+Delete credits limits
+
+### Syntax
+
+```h1 project notification credits delete | --limit LIMIT [--project PROJECT]```
+
+### Example
+
+```
+h1 project notification credits delete --limit 25
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--limit LIMIT``` |  | Deleted limit of credits |
 
 ### Optional arguments
 

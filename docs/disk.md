@@ -160,7 +160,7 @@ Create disk
 
 ### Syntax
 
-```h1 disk create | --name NAME --type TYPE --size SIZE [--source-file SOURCE-FILE] [--no-progress]```
+```h1 disk create | --name NAME --type TYPE [--size SIZE] [--source-file SOURCE-FILE] [--no-progress]```
 
 ### Examples
 
@@ -182,12 +182,12 @@ h1 disk create --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Disk name |
 | ```--type TYPE``` |  | Disk type ID or name |
-| ```--size SIZE``` |  | Disk size in GB |
 
 ### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--size SIZE``` |  | Disk size in GiB. Required if no source file is specified |
 | ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
 | ```--no-progress``` |  | Disable progress bar |
 

@@ -1,14 +1,39 @@
 language: node_js
-node_js:
-  - "10"
-script:
-  - npm link
-  - npm run lint
-  - h1 config cli
-  - npm run docs
-  - git status
-  - git diff HEAD
-  - test -z "$(git status --porcelain docs)"
-  - scripts/markown_lint.sh
-  - npm run build
-  - dist/h1-cli-linux --help
+
+node_js: 10
+
+services:
+  - docker
+
+jobs:
+  include:
+  - stage: test
+    script:
+    - npm link
+    - npm run lint
+    - h1 config cli
+    - npm run docs
+    - git status
+    - git diff HEAD
+    - test -z "$(git status --porcelain docs)"
+    - scripts/markown_lint.sh
+  - stage: build & deploy
+    sudo: required
+    script:
+    - >
+      if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+        export TAG_NAME="${TRAVIS_BRANCH}";
+
+        if [[ "${TRAVIS_BRANCH}" == "master" ]]; then
+            export TAG_NAME="latest";
+        fi;
+
+        echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin "${DOCKER_REGISTRY}"
+        docker build . -t "${DOCKER_REGISTRY}/hyperone/cli:${TAG_NAME}"
+        docker push "${DOCKER_REGISTRY}/hyperone/cli:${TAG_NAME}"
+
+        docker run --rm "${DOCKER_REGISTRY}/hyperone/cli:${TAG_NAME}" -- --help
+
+        cd ./monitoring;
+        ./deploy_image.sh
+      fi;

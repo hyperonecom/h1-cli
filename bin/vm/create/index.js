@@ -51,7 +51,7 @@ const options = {
         type: 'int',
     },
     'os-disk': {
-        description: 'OS disk: name,service,size',
+        description: 'OS disk: name,type,size',
         type: 'string',
     },
 
@@ -143,4 +143,5 @@ module.exports = resource => Cli.createCommand('create', {
     options: options,
     dirname: __dirname,
     handler: handler,
+    priority: 25,
 });

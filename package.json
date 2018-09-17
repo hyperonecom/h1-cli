@@ -6,12 +6,12 @@
   "author": "",
   "main": "bin/h1.js",
   "bin": {
-    "h1": "./bin/h1.js",
-    "rbx": "./bin/rbx.js"
+    "h1": "./bin/h1",
+    "rbx": "./bin/rbx"
   },
   "scripts": {
     "start": "./bin/h1.js",
-    "build": "pkg --out-path ./dist .",
+    "build": "pkg -c package.json -o ./dist/h1 ./bin/h1 && pkg -c package.json -o ./dist/rbx ./bin/rbx",
     "lint": "eslint .",
     "docs": "node scripts/print_docs.js docs/",
     "docs_coverage": "node scripts/print_docs_coverage.js",
@@ -20,25 +20,27 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "cookie": "^0.3.1",
+    "dns-zonefile": "^0.2.2",
     "inquirer": "^1.2.3",
     "jmespath": "^0.15.0",
-    "lodash": "^4.17.5",
+    "js-yaml": "^3.12.0",
+    "lodash": "^4.17.11",
     "marked": "^0.4.0",
-    "marked-terminal": "^3.0.0",
+    "marked-terminal": "^3.1.1",
     "node-rsa": "^0.4.2",
     "opn": "^5.3.0",
     "progress": "^2.0.0",
-    "qrcode": "^1.2.0",
+    "qrcode": "^1.2.2",
     "rbx-vhdx": "https://bitbucket.org/rbxcom/rbx-vhdx/get/master.tar.gz",
-    "request": "^2.85.0",
+    "request": "^2.88.0",
     "shell-quote": "^1.6.1",
     "speakeasy": "^2.0.0",
-    "ssh2": "^0.6.0",
+    "ssh2": "^0.6.1",
     "structured-cli": "^1.0.5",
-    "superagent": "^2.3.0",
+    "superagent": "^3.8.3",
     "tabula": "^1.10.0",
     "websocket-stream": "^5.1.2",
-    "ws": "^5.1.1",
+    "ws": "^6.0.0",
     "ws-streamify": "^0.1.3"
   },
   "pkg": {
@@ -63,9 +65,10 @@
     "@hyperone/eslint-config": "^1.0.3",
     "ava": "1.0.0-beta.5.1",
     "eslint": "^4.19.1",
-    "node-forge": "^0.7.5",
-    "nodemailer": "^4.6.7",
-    "pkg": "^4.3.3"
+    "imap": "^0.8.19",
+    "node-forge": "^0.7.6",
+    "nodemailer": "^4.6.8",
+    "pkg": "^4.3.4"
   },
   "ava": {
     "files": [

@@ -8,6 +8,10 @@ const options = {
         type: 'string',
         required: true,
     },
+    command: {
+        description: 'Command to execute',
+        type: 'string',
+    },
 };
 
 
@@ -23,6 +27,10 @@ module.exports = resource => Cli.createCommand('ssh', {
             const sshArgs = [
                 `${result._id}@vault.pl-waw-1.hyperone.com`,
             ];
+
+            if (args.command) {
+                sshArgs.push(args.command);
+            }
 
             console.log(`ssh ${sshArgs.join(' ')}`);
 

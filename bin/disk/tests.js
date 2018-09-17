@@ -1,5 +1,5 @@
 'use strict';
-
+const fs = require('fs');
 const path = require('path');
 const os = require('os');
 const fsPromises = require('fs').promises;
@@ -18,7 +18,10 @@ const download = (resource, destination) => tests.run(`disk download
 
 ['archive', 'ssd', 'volume'].forEach(type => {
     const createParams = `--name disk-test-${now} --type ${type} --size 100`;
-    ava.test.serial(`disk life cycle ${type}`, tests.resourceLifeCycle('disk', createParams));
+    ava.test.serial(`disk life cycle ${type}`, tests.resourceLifeCycle('disk', {
+        createParams: createParams,
+        stateCreated: 'Detached',
+    }));
     ava.test.serial(`disk rename ${type}`, tests.resourceRename('disk', createParams));
 });
 
@@ -43,6 +46,15 @@ ava.test.serial('disk add & download', async t => {
     await fsPromises.unlink(tmp_filename);
     // TODO: Make the test that the re-downloaded disk is identical.
     // Take into account that the file will differ in metadata.
+});
+
+ava.test.serial('disk local upload', async t => {
+    const filename = await tests.downloadFile(tests.disk_url);
+
+    const disk = await tests.run(`disk create --name disk-upload-${now} --no-progress --type ssd --source-file '${filename}'`);
+    t.true(disk.state === 'Detached');
+    await tests.remove('disk', disk);
+    fs.unlinkSync(filename);
 });
 
 ava.test.serial('disk resize', tests.resourceResizeCycle('disk', {

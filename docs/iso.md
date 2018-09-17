@@ -150,7 +150,7 @@ Revoke access rights for ISO
 ### Example
 
 ```bash
-h1 iso access revoke --iso test-image
+h1 iso access revoke --iso test-iso --project MyFavouriteProject
 ```
 
 ### Required arguments

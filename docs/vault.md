@@ -21,6 +21,9 @@
       * [h1 vault credential password delete](#h1-vault-credential-password-delete) - Delete password to Vault
       * [h1 vault credential password add](#h1-vault-credential-password-add) - Add password to Vault
   * [h1 vault ssh](#h1-vault-ssh) - Connect to Vault using SSH
+  * [h1 vault console](#h1-vault-console) - Open Vault console in web-browser
+  * [h1 vault stop](#h1-vault-stop) - Stop Vault
+  * [h1 vault start](#h1-vault-start) - Start Vault
 
 
 # Specification
@@ -151,15 +154,25 @@ Create Vault
 
 ### Syntax
 
-```h1 vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD]```
+```h1 vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD] [--snapshot SNAPSHOT]```
 
-### Example
+### Examples
+
+#### Create Vault with SSH credential
 
 ```bash
 h1 vault create --name my-vault --size 10 --ssh my-key
 ```
 
 Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
+
+#### Create Vault from snaphost
+
+```bash
+h1 vault create --name my-vault --size 10 --snapshot my-snapshot
+```
+
+Hint: Use ```h1 snapshot list``` to list available snapshots.
 
 ### Required arguments
 
@@ -174,6 +187,7 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ---- | ------- | ----------- |
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```--password PASSWORD``` |  | Password to access Vault. Recommend using SSH keys |
+| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 
 ## h1 vault credential
 
@@ -411,7 +425,7 @@ Connect to Vault using SSH
 
 ### Syntax
 
-```h1 vault ssh | --vault VAULT```
+```h1 vault ssh | --vault VAULT [--command COMMAND]```
 
 ### Example
 
@@ -426,4 +440,58 @@ Note: You need valid credentials to access Vault any way.
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--command COMMAND``` |  | Command to execute |
+
+## h1 vault console
+
+Open Vault console in web-browser
+
+### Syntax
+
+```h1 vault console | --vault VAULT```
+
+### Example
+
+```bash
+h1 vault console --vault test-vault
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+
+## h1 vault stop
+
+Stop Vault
+
+### Syntax
+
+```h1 vault stop | ```
+
+### Example
+
+```
+h1 vault stop --vault my-valut
+```
+
+## h1 vault start
+
+Start Vault
+
+### Syntax
+
+```h1 vault start | ```
+
+### Example
+
+```
+h1 vault start --vault my-valut
+```
 

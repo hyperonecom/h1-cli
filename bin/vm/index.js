@@ -10,7 +10,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,flavour:flavour,state:state,processing:processing,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'vm',
     plugins: genericDefaults.plugins,
-    commands: [ 'list', 'show', 'history'],
+    commands: [ 'list', 'show', 'history', 'tag'],
     title: 'virtual machine',
 };
 
@@ -29,14 +29,12 @@ const childDefaults = Object.assign({}, resource, {
 
 const actionDefault = Object.assign({}, childDefaults, {
     dirname: `${__dirname}/action`,
-}
-);
+});
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
 category.addChild(require('./delete')(resource));
-
-category.addChild(require('./console')(childDefaults));
+category.addChild(require('./console')(resource));
 
 category.addChild(genericAction(actionDefault, 'stop'));
 category.addChild(genericAction(actionDefault, 'start'));
@@ -48,7 +46,6 @@ category.addChild(require('./action/userdata')(actionDefault));
 category.addChild(require('./disk'));
 category.addChild(require('./nic'));
 category.addChild(require('./dvd'));
-category.addChild(require('./tag'));
 
 category.addChild(require('./ssh/ssh')(childDefaults));
 category.addChild(require('./serialport')(resource));

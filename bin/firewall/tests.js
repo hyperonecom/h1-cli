@@ -12,6 +12,7 @@ const createParams = `--name ${name}`;
 ava.test.serial('firewall life cycle', tests.resourceLifeCycle('firewall', {
     createParams: createParams,
     skipHistoryCreated: true,
+    stateCreated: 'Detached',
 }));
 
 ava.test.serial('firewall rename', tests.resourceRename('firewall', createParams));

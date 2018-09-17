@@ -20,7 +20,7 @@ const resource = {
 const category = genericResource(resource);
 category.addChild(require('./list')(resource));
 
-const active_project = process.env.H1_PROJECT || config.get('profile.project._id');
+const active_project = config.get_project() || config.get('profile.project._id');
 
 const childDefaults = Object.assign({}, resource, {
     options: {
@@ -37,7 +37,7 @@ const childDefaults = Object.assign({}, resource, {
 
 category.addChild(require('./access')(childDefaults));
 category.addChild(require('./token')(childDefaults));
-
+category.addChild(require('./notification')(childDefaults));
 category.addChild(require('./select')(childDefaults));
 category.addChild(require('./limits')(childDefaults));
 

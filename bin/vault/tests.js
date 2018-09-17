@@ -13,7 +13,23 @@ const createUserCredentials = async () => {
     const file = tests.getRandomFile();
     const name = `vault-ssh-${now}`;
     await tests.run(`user credentials add --name ${name} --sshkey-file '${file}'`);
-    return {file: file, name: name};
+    return {
+        file: file,
+        name: name,
+        cleanup: async () => {
+            fs.unlinkSync(file);
+            await tests.remove('user credentials', name);
+        },
+    };
+};
+
+const sshVault = (vault, secret, cmd) => {
+    console.log(new Date().toISOString(), `[vault: ${vault._id}]`, cmd);
+    return ssh.execute(cmd, {
+        host: 'vault.pl-waw-1.hyperone.com',
+        username: vault._id,
+        password: secret,
+    });
 };
 
 ava.test.serial('vault life cycle', async t => {
@@ -21,7 +37,7 @@ ava.test.serial('vault life cycle', async t => {
 
     await tests.resourceLifeCycle('vault', `--name vault-test-${now} --size 10 --ssh ${ssh.name}`)(t);
 
-    fs.unlinkSync(ssh.file);
+    await ssh.cleanup();
 });
 
 ava.test.serial('vault rename', async t => {
@@ -29,7 +45,7 @@ ava.test.serial('vault rename', async t => {
 
     await tests.resourceRename('vault', `--name vault-test-${now} --size 10 --ssh ${ssh.name}`)(t);
 
-    fs.unlinkSync(ssh.file);
+    await ssh.cleanup();
 });
 
 
@@ -48,6 +64,27 @@ ava.test.serial('vault credential credentials life cycle', async t => {
         renameParams: `--vault ${vault._id}`,
     })(t);
 
+    await tests.remove('vault', vault);
+});
+
+ava.test.serial('vault recreate from snapshot', async t => {
+    const name = `vault-test-${now}`;
+    const secret = await tests.getToken();
+    const vault = await tests.run(`vault create --name ${name} --size 10 --password ${secret}`);
+
+    const filename = 'my-secret-file.txt';
+    await sshVault(vault, secret, `touch ~/${filename}`);
+
+    const snapshot = await tests.run(`snapshot create --vault ${vault._id} --name snapshot-${name}`);
+
+    const recreated_vault = await tests.run(`vault create --name ${name} --size 10 --snapshot ${snapshot.name} --password ${secret}`);
+    t.true(recreated_vault.created);
+
+    const content = await sshVault(recreated_vault, secret, 'ls -lah ~/');
+    t.true(content.includes(filename));
+
+    await tests.remove('vault', recreated_vault);
+    await tests.remove('snapshot', snapshot);
     await tests.remove('vault', vault);
 });
 
@@ -121,11 +158,7 @@ ava.test.serial('vault ssh using password', async t => {
 
     const vault = await tests.run(`vault create --name ${name} --password ${secret} --size 10`);
 
-    const content = await ssh.execute('uptime', {
-        host: 'vault.pl-waw-1.hyperone.com',
-        username: vault._id,
-        password: secret,
-    });
+    const content = await sshVault(vault, secret, 'uptime');
     t.true(content.includes('load average'));
 
     await tests.remove('vault', vault);
