@@ -13,7 +13,7 @@ module.exports = {
         const profile = config.get('profile', {});
 
         if (config.get_token()) {
-            console.debug('Skip log in. Using H1_TOKEN from environment variable');
+            console.debug(`Skip log in. Using ${config.scope()}_TOKEN from environment variable`);
             return;
         }
 
