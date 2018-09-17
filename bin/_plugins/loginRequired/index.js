@@ -12,7 +12,7 @@ module.exports = {
     onBeforeHandler: context => {
         const profile = config.get('profile', {});
 
-        if (config.TOKEN) {
+        if (config.get_token()) {
             console.debug('Skip log in. Using H1_TOKEN from environment variable');
             return;
         }
