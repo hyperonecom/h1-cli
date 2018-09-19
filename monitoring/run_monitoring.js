@@ -142,7 +142,7 @@ const main = async () => {
         await sendMail(config, false, `${err.message}\n${err.output}\n${err.message}`);
     }
     try {
-        await runProcess('/bin/bash ./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT});
+        await runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT});
         await runProcess(`h1 project access revoke --email ${tests.RECIPIENT.user}`);
     } catch (err) {
         // This is just cleaning. If fails if there is no resources to clean up.
