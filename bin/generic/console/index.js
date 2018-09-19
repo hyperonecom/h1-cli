@@ -21,7 +21,6 @@ module.exports = (resource, url_func) => {
         options: Object.assign({}, resource.options, options),
         handler: async args => {
             const instance = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);
-            console.log(instance);
             const url = url_func(args, instance);
 
             console.log('Attempting to open the following url in your browser: ');
