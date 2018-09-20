@@ -143,7 +143,7 @@ Add a tag to snapshot
 
 ### Syntax
 
-```h1 snapshot tag add | --snapshot SNAPSHOT --tag TAG [--tag TAG ...]```
+```h1 snapshot tag add | --snapshot SNAPSHOT [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -156,7 +156,12 @@ h1 snapshot tag add --snapshot test-snapshot --tag prod=true
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
-| ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 snapshot tag delete
 
@@ -185,7 +190,7 @@ Create a snapshot of Vault
 
 ### Syntax
 
-```h1 snapshot create | --vault VAULT --name NAME```
+```h1 snapshot create | --vault VAULT --name NAME [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -199,4 +204,10 @@ h1 snapshot create --vault my-vault --name my-new-snapshot
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--name NAME``` |  | Snapshot name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 

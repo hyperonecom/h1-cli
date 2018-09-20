@@ -20,9 +20,11 @@ module.exports = resource => Cli.createCommand('create', {
     description: 'Create a snapshot of Vault',
     dirname: __dirname,
     plugins: genericDefaults.plugins,
+    genericOptions: ['tag'],
     options: options,
     handler: args => args.helpers.api.post(resource.url(args), {
         name: args.name,
         vault: args.vault,
+        tag: require('lib/tags').createTagObject(args.tag),
     }).then(result => args.helpers.sendOutput(args, result)),
 });

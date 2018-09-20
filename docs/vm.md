@@ -134,7 +134,7 @@ Add a tag to virtual machine
 
 ### Syntax
 
-```h1 vm tag add | --vm VM --tag TAG [--tag TAG ...]```
+```h1 vm tag add | --vm VM [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -147,7 +147,12 @@ h1 vm tag add --vm test-vm --tag prod=true
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
-| ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 vm tag delete
 
@@ -176,7 +181,7 @@ Create virtual machine
 
 ### Syntax
 
-```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE]```
+```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--tag TAG [--tag TAG ...]]```
 
 ### Examples
 
@@ -228,6 +233,7 @@ Note: You can mount ISO disk and provide stateless services.
 | ```--ip IP``` |  | IP address for Virtual machine |
 | ```--no-start``` |  | Do not start Virtual machine after creation |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 vm delete
 

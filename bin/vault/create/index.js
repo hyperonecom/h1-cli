@@ -36,6 +36,7 @@ const options = {
 module.exports = resource => Cli.createCommand('create', {
     description: `Create ${resource.title}`,
     plugins: resource.plugins,
+    genericOptions: ['tag'],
     dirname: __dirname,
     options: Object.assign({}, options, resource.options),
     handler: args => {
@@ -60,6 +61,7 @@ module.exports = resource => Cli.createCommand('create', {
         const body = {
             name: args.name,
             size: args.size,
+            tag: require('lib/tags').createTagObject(args.tag),
             credential: {
                 password: passwords,
                 certificate: certificates,

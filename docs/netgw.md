@@ -145,7 +145,7 @@ Add a tag to network gateway
 
 ### Syntax
 
-```h1 netgw tag add | --netgw NETGW --tag TAG [--tag TAG ...]```
+```h1 netgw tag add | --netgw NETGW [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -158,7 +158,12 @@ h1 netgw tag add --netgw test-netgw --tag prod=true
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
-| ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 netgw tag delete
 

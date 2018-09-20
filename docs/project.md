@@ -156,7 +156,7 @@ Add a tag to project
 
 ### Syntax
 
-```h1 project tag add | --project PROJECT --tag TAG [--tag TAG ...]```
+```h1 project tag add | --project PROJECT [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -169,7 +169,12 @@ h1 project tag add --project test-project --tag prod=true
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
-| ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 project tag delete
 

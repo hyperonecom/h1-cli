@@ -38,6 +38,7 @@ const options = {
 
 module.exports = resource => Cli.createCommand('create', {
     description: `Create ${resource.title}`,
+    genericOptions: ['tag' ],
     dirname: __dirname,
     plugins: resource.plugins,
     options: options,
@@ -46,6 +47,7 @@ module.exports = resource => Cli.createCommand('create', {
             name: args.name,
             service: args.type,
             size: args.size, // GiB
+            tag: require('lib/tags').createTagObject(args.tag),
         };
 
         if (args.size === null && !args['source-file']) {

@@ -26,6 +26,7 @@ const options = {
 
 module.exports = resource => Cli.createCommand('create', {
     description: 'ISO import',
+    genericOptions: ['tag'],
     dirname: __dirname,
     plugins: resource.plugins,
     options: options,
@@ -41,13 +42,18 @@ module.exports = resource => Cli.createCommand('create', {
         }
 
         if (args['source-url']) {
-            iso = await args.helpers.api.post(resource.url(args), {name: args.name, source: args['source-url']});
+            iso = await args.helpers.api.post(resource.url(args), {
+                name: args.name,
+                source: args['source-url'],
+                tag: require('lib/tags').createTagObject(args.tag),
+            });
         } else if (args['source-file']) {
             const fileSize = fs.statSync(args['source-file']).size;
 
             iso = await args.helpers.api.post(resource.url(args), {
                 name: args.name,
                 size: fileSize / 1024 ** 3,
+                tag: require('lib/tags').createTagObject(args.tag),
                 metadata: {
                     source: {
                         filename: path.basename(args['source-file']),

@@ -124,7 +124,7 @@ Add a tag to IP address
 
 ### Syntax
 
-```h1 ip tag add | --ip IP --tag TAG [--tag TAG ...]```
+```h1 ip tag add | --ip IP [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -137,7 +137,12 @@ h1 ip tag add --ip test-ip --tag prod=true
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address ID or name |
-| ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 ip tag delete
 
@@ -166,7 +171,7 @@ Create IP address
 
 ### Syntax
 
-```h1 ip create | ```
+```h1 ip create | [--tag TAG [--tag TAG ...]]```
 
 ### Examples
 
@@ -175,6 +180,12 @@ Create IP address
 ```bash
 h1 ip create
 ```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 ip associate
 

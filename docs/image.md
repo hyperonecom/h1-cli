@@ -134,7 +134,7 @@ Add a tag to image
 
 ### Syntax
 
-```h1 image tag add | --image IMAGE --tag TAG [--tag TAG ...]```
+```h1 image tag add | --image IMAGE [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -147,7 +147,12 @@ h1 image tag add --image test-image --tag prod=true
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
-| ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 image tag delete
 
@@ -176,7 +181,7 @@ Create image
 
 ### Syntax
 
-```h1 image create | --name NAME --vm VM [--description DESCRIPTION]```
+```h1 image create | --name NAME --vm VM [--description DESCRIPTION] [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -196,6 +201,7 @@ h1 image create --vm test-vm --name dev-image
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--description DESCRIPTION``` |  | Description of image |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 image list
 

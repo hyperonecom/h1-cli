@@ -155,7 +155,7 @@ Add a tag to firewall
 
 ### Syntax
 
-```h1 firewall tag add | --firewall FIREWALL --tag TAG [--tag TAG ...]```
+```h1 firewall tag add | --firewall FIREWALL [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -168,7 +168,12 @@ h1 firewall tag add --firewall test-firewall --tag prod=true
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
-| ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 firewall tag delete
 
@@ -197,7 +202,7 @@ Create firewall
 
 ### Syntax
 
-```h1 firewall create | --name NAME```
+```h1 firewall create | --name NAME [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -210,6 +215,12 @@ h1 firewall create --name secure-zone-fw
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 firewall attach
 

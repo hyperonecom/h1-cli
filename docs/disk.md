@@ -146,7 +146,7 @@ Add a tag to disk
 
 ### Syntax
 
-```h1 disk tag add | --disk DISK --tag TAG [--tag TAG ...]```
+```h1 disk tag add | --disk DISK [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -159,7 +159,12 @@ h1 disk tag add --disk test-disk --tag prod=true
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
-| ```--tag TAG [--tag TAG ...]``` |  | New tag. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 disk tag delete
 
@@ -230,7 +235,7 @@ Create disk
 
 ### Syntax
 
-```h1 disk create | --name NAME --type TYPE [--size SIZE] [--source-file SOURCE-FILE] [--no-progress]```
+```h1 disk create | --name NAME --type TYPE [--size SIZE] [--source-file SOURCE-FILE] [--no-progress] [--tag TAG [--tag TAG ...]]```
 
 ### Examples
 
@@ -260,6 +265,7 @@ h1 disk create --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
 | ```--size SIZE``` |  | Disk size in GiB. Required if no source file is specified |
 | ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
 | ```--no-progress``` |  | Disable progress bar |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 disk download
 
