@@ -212,14 +212,14 @@ ava.test.serial('project notification credits integration test', async t => {
 
     let received_mail = false;
     for (let i=0; i<10; i++) {
-        await tests.delay(30*1000); // to delivery messages to mailbox
+        await tests.delay(15*1000); // to delivery messages to mailbox
         const latest_date = await getLatestImapMessageDate(query, options);
         if (dateDiffMinutes(new Date(), new Date(latest_date)) < 5) {
             received_mail = true;
             break;
         }
     }
-    t.true(received_mail, `Timeout ${30*10} seconds to receive mail.`);
+    t.true(received_mail, `Timeout ${15*10} seconds to receive mail.`);
 });
 
 ava.test.serial('project token access life cycle', async t => {
