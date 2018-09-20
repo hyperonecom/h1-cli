@@ -5,7 +5,7 @@ const genericResource = require('bin/generic');
 
 const resource = {
     name: 'iso',
-    defaultQuery: '[].{id:_id,name:name,size:size,state:state,processing:processing}',
+    defaultQuery: '[].{id:_id,name:name,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'iso',
     plugins: genericDefaults.plugins,
     title: 'ISO',

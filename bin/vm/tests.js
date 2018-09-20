@@ -224,20 +224,6 @@ ava.test.serial('vm dvd cycle', async t => {
     await common.cleanup();
 });
 
-ava.test.serial('vm tag', async t => {
-    const common = await getCommon(t.title);
-    const vm = await tests.run(`vm create ${common.params.createParams}`);
-
-    await subresourceLifeCycle(t, 'vm tag', {
-        commonParams: `--vm ${vm._id}`,
-        actionParams: '--tag PROD',
-        entries: true,
-        test_fn: ([k]) => k === 'PROD',
-    });
-
-    await common.cleanup();
-});
-
 ava.test.serial('vm serialport log', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params.createParams}`);

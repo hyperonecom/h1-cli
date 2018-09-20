@@ -33,6 +33,7 @@ module.exports = resource => {
         commands: ['list'],
         options: subresource.options,
         priority: 80,
+        resource: resource,
         context: {
             listParams: `--${resource.name} my-${resource.name}`,
         },

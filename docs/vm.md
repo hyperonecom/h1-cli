@@ -6,7 +6,7 @@
   * [h1 vm tag](#h1-vm-tag) - Manage your tag
     * [h1 vm tag list](#h1-vm-tag-list) - List tag
     * [h1 vm tag add](#h1-vm-tag-add) - Add a tag to virtual machine
-    * [h1 vm tag delete](#h1-vm-tag-delete) - Add a tag of virtual machine
+    * [h1 vm tag delete](#h1-vm-tag-delete) - Delete a tag of virtual machine
   * [h1 vm create](#h1-vm-create) - Create virtual machine
   * [h1 vm delete](#h1-vm-delete) - Delete virtual machine
   * [h1 vm console](#h1-vm-console) - Open virtual machine console in web-browser
@@ -151,7 +151,7 @@ h1 vm tag add --vm test-vm --tag prod=true
 
 ## h1 vm tag delete
 
-Add a tag of virtual machine
+Delete a tag of virtual machine
 
 ### Syntax
 

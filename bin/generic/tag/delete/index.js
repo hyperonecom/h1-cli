@@ -12,7 +12,7 @@ const options = {
 
 module.exports = (resource, subresource) => Cli.createCommand('delete', {
     dirname: __dirname,
-    description: `Add a tag of ${resource.title}`,
+    description: `Delete a tag of ${resource.title}`,
     plugins: subresource.plugins,
     params: subresource.params,
     options: Object.assign({}, options, subresource.options),
