@@ -5,6 +5,10 @@
   * [h1 disk delete](#h1-disk-delete) - Delete disk
   * [h1 disk history](#h1-disk-history) - History of disk
   * [h1 disk rename](#h1-disk-rename) - Rename disk
+  * [h1 disk tag](#h1-disk-tag) - Manage your tag
+    * [h1 disk tag list](#h1-disk-tag-list) - List tag
+    * [h1 disk tag add](#h1-disk-tag-add) - Add a tag to disk
+    * [h1 disk tag delete](#h1-disk-tag-delete) - Delete a tag of disk
   * [h1 disk resize](#h1-disk-resize) - Resize disk
   * [h1 disk resume](#h1-disk-resume) - Resume create upload of disk
   * [h1 disk create](#h1-disk-create) - Create disk
@@ -112,6 +116,77 @@ h1 disk rename --disk my-disk --new-name my-renamed-disk
 | ```--disk DISK``` |  | Disk ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
+## h1 disk tag
+
+Manage your tag
+
+## h1 disk tag list
+
+List tag
+
+### Syntax
+
+```h1 disk tag list | --disk DISK```
+
+### Example
+
+```bash
+h1 disk tag list --disk my-disk
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
+
+## h1 disk tag add
+
+Add a tag to disk
+
+### Syntax
+
+```h1 disk tag add | --disk DISK [--tag TAG [--tag TAG ...]]```
+
+### Example
+
+```bash
+h1 disk tag add --disk test-disk --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 disk tag delete
+
+Delete a tag of disk
+
+### Syntax
+
+```h1 disk tag delete | --tag TAG --disk DISK```
+
+### Example
+
+```bash
+h1 disk tag delete --vm test-vm --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--disk DISK``` |  | Disk ID or name |
+
 ## h1 disk resize
 
 Resize disk
@@ -160,7 +235,7 @@ Create disk
 
 ### Syntax
 
-```h1 disk create | --name NAME --type TYPE [--size SIZE] [--source-file SOURCE-FILE] [--no-progress]```
+```h1 disk create | --name NAME --type TYPE [--size SIZE] [--source-file SOURCE-FILE] [--no-progress] [--tag TAG [--tag TAG ...]]```
 
 ### Examples
 
@@ -190,6 +265,7 @@ h1 disk create --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
 | ```--size SIZE``` |  | Disk size in GiB. Required if no source file is specified |
 | ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
 | ```--no-progress``` |  | Disable progress bar |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 disk download
 

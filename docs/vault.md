@@ -5,6 +5,10 @@
   * [h1 vault delete](#h1-vault-delete) - Delete Vault
   * [h1 vault history](#h1-vault-history) - History of Vault
   * [h1 vault rename](#h1-vault-rename) - Rename Vault
+  * [h1 vault tag](#h1-vault-tag) - Manage your tag
+    * [h1 vault tag list](#h1-vault-tag-list) - List tag
+    * [h1 vault tag add](#h1-vault-tag-add) - Add a tag to Vault
+    * [h1 vault tag delete](#h1-vault-tag-delete) - Delete a tag of Vault
   * [h1 vault resize](#h1-vault-resize) - Resize Vault
   * [h1 vault create](#h1-vault-create) - Create Vault
   * [h1 vault credential](#h1-vault-credential) - Manage your credentials to Vault
@@ -127,6 +131,77 @@ h1 vault rename --vault my-vault --new-name my-renamed-vault
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
+## h1 vault tag
+
+Manage your tag
+
+## h1 vault tag list
+
+List tag
+
+### Syntax
+
+```h1 vault tag list | --vault VAULT```
+
+### Example
+
+```bash
+h1 vault tag list --vault my-vault
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+
+## h1 vault tag add
+
+Add a tag to Vault
+
+### Syntax
+
+```h1 vault tag add | --vault VAULT [--tag TAG [--tag TAG ...]]```
+
+### Example
+
+```bash
+h1 vault tag add --vault test-vault --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 vault tag delete
+
+Delete a tag of Vault
+
+### Syntax
+
+```h1 vault tag delete | --tag TAG --vault VAULT```
+
+### Example
+
+```bash
+h1 vault tag delete --vm test-vm --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--vault VAULT``` |  | Vault ID or name |
+
 ## h1 vault resize
 
 Resize Vault
@@ -154,7 +229,7 @@ Create Vault
 
 ### Syntax
 
-```h1 vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD] [--snapshot SNAPSHOT]```
+```h1 vault create | --name NAME --size SIZE [--ssh SSH [--ssh SSH ...]] [--password PASSWORD] [--snapshot SNAPSHOT] [--tag TAG [--tag TAG ...]]```
 
 ### Examples
 
@@ -188,6 +263,7 @@ Hint: Use ```h1 snapshot list``` to list available snapshots.
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```--password PASSWORD``` |  | Password to access Vault. Recommend using SSH keys |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 vault credential
 

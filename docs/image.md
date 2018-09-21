@@ -4,6 +4,10 @@
   * [h1 image delete](#h1-image-delete) - Delete image
   * [h1 image rename](#h1-image-rename) - Rename image
   * [h1 image history](#h1-image-history) - History of image
+  * [h1 image tag](#h1-image-tag) - Manage your tag
+    * [h1 image tag list](#h1-image-tag-list) - List tag
+    * [h1 image tag add](#h1-image-tag-add) - Add a tag to image
+    * [h1 image tag delete](#h1-image-tag-delete) - Delete a tag of image
   * [h1 image create](#h1-image-create) - Create image
   * [h1 image list](#h1-image-list) - List image
   * [h1 image disk](#h1-image-disk) - List all disks of image
@@ -100,13 +104,84 @@ h1 image history --image my-image
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 
+## h1 image tag
+
+Manage your tag
+
+## h1 image tag list
+
+List tag
+
+### Syntax
+
+```h1 image tag list | --image IMAGE```
+
+### Example
+
+```bash
+h1 image tag list --image my-image
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
+
+## h1 image tag add
+
+Add a tag to image
+
+### Syntax
+
+```h1 image tag add | --image IMAGE [--tag TAG [--tag TAG ...]]```
+
+### Example
+
+```bash
+h1 image tag add --image test-image --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 image tag delete
+
+Delete a tag of image
+
+### Syntax
+
+```h1 image tag delete | --tag TAG --image IMAGE```
+
+### Example
+
+```bash
+h1 image tag delete --vm test-vm --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--image IMAGE``` |  | Image ID or name |
+
 ## h1 image create
 
 Create image
 
 ### Syntax
 
-```h1 image create | --name NAME --vm VM [--description DESCRIPTION]```
+```h1 image create | --name NAME --vm VM [--description DESCRIPTION] [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -126,6 +201,7 @@ h1 image create --vm test-vm --name dev-image
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--description DESCRIPTION``` |  | Description of image |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 image list
 

@@ -4,6 +4,10 @@
   * [h1 project delete](#h1-project-delete) - Delete project
   * [h1 project history](#h1-project-history) - History of project
   * [h1 project rename](#h1-project-rename) - Rename project
+  * [h1 project tag](#h1-project-tag) - Manage your tag
+    * [h1 project tag list](#h1-project-tag-list) - List tag
+    * [h1 project tag add](#h1-project-tag-add) - Add a tag to project
+    * [h1 project tag delete](#h1-project-tag-delete) - Delete a tag of project
   * [h1 project list](#h1-project-list) - List project
   * [h1 project access](#h1-project-access) - Manage your project access rights
     * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
@@ -121,6 +125,77 @@ h1 project rename --project my-project --new-name my-renamed-project
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
+
+## h1 project tag
+
+Manage your tag
+
+## h1 project tag list
+
+List tag
+
+### Syntax
+
+```h1 project tag list | --project PROJECT```
+
+### Example
+
+```bash
+h1 project tag list --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project tag add
+
+Add a tag to project
+
+### Syntax
+
+```h1 project tag add | --project PROJECT [--tag TAG [--tag TAG ...]]```
+
+### Example
+
+```bash
+h1 project tag add --project test-project --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 project tag delete
+
+Delete a tag of project
+
+### Syntax
+
+```h1 project tag delete | --tag TAG --project PROJECT```
+
+### Example
+
+```bash
+h1 project tag delete --vm test-vm --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project list
 

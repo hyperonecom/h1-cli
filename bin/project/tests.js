@@ -187,6 +187,7 @@ ava.test.serial('project notification credits integration test', async t => {
     const disk = await tests.run(`disk create --name credits-apply-${now} --type ssd --size 20`);
     let charged = false;
     for (let i=0; i<20; i++) {
+        await tests.delay(1000); // to apply charges from the queue
         const charged_project = await tests.run(`project show ${commonParams}`);
         const charged_credits = charged_project.billing.credits;
         if (credits !== charged_credits) {
@@ -194,9 +195,8 @@ ava.test.serial('project notification credits integration test', async t => {
             charged = true;
             break;
         }
-        await tests.delay(1000); // to apply charges from the queue
     }
-    t.true(charged);
+    t.true(charged, 'Timeout 10 seconds to apply charges.');
     await tests.run(`project notification credits delete ${commonParams} --limit ${limit}`);
     await tests.remove('disk', disk);
 
@@ -212,14 +212,14 @@ ava.test.serial('project notification credits integration test', async t => {
 
     let received_mail = false;
     for (let i=0; i<10; i++) {
+        await tests.delay(15*1000); // to delivery messages to mailbox
         const latest_date = await getLatestImapMessageDate(query, options);
         if (dateDiffMinutes(new Date(), new Date(latest_date)) < 5) {
             received_mail = true;
             break;
         }
-        await tests.delay(15*1000); // to delivery messages to mailbox
     }
-    t.true(received_mail);
+    t.true(received_mail, `Timeout ${15*10} seconds to receive mail.`);
 });
 
 ava.test.serial('project token access life cycle', async t => {

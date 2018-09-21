@@ -6,7 +6,7 @@ const genericAction = require('bin/generic/action');
 
 const resource = {
     name: 'vault',
-    defaultQuery: '[].{id:_id,name:name,size:size,state:state,processing:processing}',
+    defaultQuery: '[].{id:_id,name:name,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'vault',
     plugins: genericDefaults.plugins,
     extraCommands: ['resize'],

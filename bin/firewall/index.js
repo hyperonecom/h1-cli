@@ -5,7 +5,7 @@ const genericDefaults = require('bin/generic/defaults');
 
 const resource = {
     name: 'firewall',
-    defaultQuery: '[].{id:_id,name:name,network:network,state:state,processing:processing}',
+    defaultQuery: '[].{id:_id,name:name,network:network,state:state,tags:join(\',\',keys(tag || `{}`) )}',
     url: () => 'firewall',
     plugins: genericDefaults.plugins,
     title: 'firewall',

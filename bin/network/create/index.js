@@ -25,10 +25,14 @@ const options = {
 module.exports = resource => Cli.createCommand('create', {
     description: `Create ${resource.title}`,
     dirname: __dirname,
+    genericOptions: ['tag'],
     plugins: genericDefaults.plugins,
     options: options,
     handler: (args) => {
-        const network = { name: args.name };
+        const network = {
+            name: args.name,
+            tag: require('lib/tags').createTagObject(args.tag),
+        };
 
         if (args.gateway && !args.address) {
             throw Cli.error.cancelled('IP address of network gateway must be within the network address space');
