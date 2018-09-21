@@ -7,7 +7,7 @@ const text = require('lib/text');
 
 const resource = {
     name: 'vm',
-    defaultQuery: '[].{id:_id,name:name,flavour:flavour,state:state,processing:processing,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:_id,name:name,flavour:flavour,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'vm',
     plugins: genericDefaults.plugins,
     commands: [ 'list', 'show', 'history', 'tag'],
@@ -30,6 +30,7 @@ const childDefaults = Object.assign({}, resource, {
 const actionDefault = Object.assign({}, childDefaults, {
     dirname: `${__dirname}/action`,
 });
+
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));

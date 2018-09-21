@@ -6,7 +6,7 @@ const config = require('lib/config');
 
 const resource = {
     name: 'project',
-    defaultQuery: '[].{id:_id,name:name,billing:billing.company,active:active,processing:processing}',
+    defaultQuery: '[].{id:_id,name:name,billing:billing.company,active:active,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'project',
     plugins: [
         require('bin/_plugins/loginRequired'),
@@ -14,7 +14,7 @@ const resource = {
         require('bin/_plugins/api'),
     ],
     title: 'project',
-    commands: ['show', 'delete', 'history', 'rename'],
+    commands: ['show', 'delete', 'history', 'rename', 'tag' ],
 };
 
 const category = genericResource(resource);
