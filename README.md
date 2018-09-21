@@ -58,6 +58,14 @@ $ h1
 
 > Wprowadzenie dla systemu macOS wymaga opracowania z uwzględnieniem specyfiki platformy.
 
+### W kontenerze Docker
+
+Możliwe jest uruchomienie CLI jako kontener Docker z wykorzystaniem następującego polecenia:
+
+```bash
+docker run -it -v ~/.h1-cli:/root/.h1-cli quay.io/hyperone/cli:master h1 vm list
+```
+
 ## Użycie
 
 Polecenia zbudowane są z następujących składowych:

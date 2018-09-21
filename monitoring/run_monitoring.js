@@ -61,17 +61,21 @@ const getConfig = () => {
     return config;
 };
 
+const keywordsMatches = (keywords, str) => Array.some(keywords.map(keyword => str.includes(keyword)));
+
 const sendMail = async (config, success, report) => {
     const smtpTransport = mailer.createTransport(config.SMTP_URL);
 
     const recipient = success ? config.MONITORING_SUCCESS_EMAILS : config.MONITORING_EMAILS;
+
+    const keywords = [' bin ', ' tests ', 'text: ', 'statusCode: '];
 
     if (recipient.length > 0) {
         await smtpTransport.sendMail({
             from: config.SMTP_SENDER,
             to: recipient,
             subject: success ? 'Monitoring success report' : 'Monitoring failed report',
-            text: report.split('\n').filter(x => x.includes(' bin ') || x.includes(' tests ')).join('\n'),
+            text: report.split('\n').filter(line => keywordsMatches(keywords, line)).join('\n'),
             attachments: [
                 {
                     filename: 'monitoring-report.txt',
@@ -133,13 +137,15 @@ const runProcess = async (cmd = [], env = {}, timeout = 60 * 30) => new Promise(
 const main = async () => {
     const config = getConfig();
 
+    const versionText = `NodeJS version: ${process.version}`;
+
     try {
         let output = await runProcess(`h1 login --username ${config.H1_USER} --password ${config.H1_PASSWORD}`);
         output += await runProcess(`h1 project select --project ${config.H1_PROJECT}`);
         output += await runProcess(config.MONITORING_CMD, {}, config.MONITORING_TIMEOUT);
-        await sendMail(config, true, output);
+        await sendMail(config, true, `${versionText}\n${output}`);
     } catch (err) {
-        await sendMail(config, false, `${err.message}\n${err.output}\n${err.message}`);
+        await sendMail(config, false, `${versionText}\n${err.message}\n${err.output}\n${err.message}`);
     }
     try {
         await runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT});
