@@ -173,6 +173,10 @@ const dateDiffMinutes = (date1, date2) => {
 };
 
 ava.test.serial('project notification credits integration test', async t => {
+    // The total execution time of test should not exceed 300 seconds (5 minutes).
+    // Now the maximum timeout is 20 * 1 + 15 * 10 = 20 + 150 = 170
+    // Otherwise an following error will occur:
+    // Exited because no new tests completed within the last 300000ms of inactivity
     const commonParams = `--project ${active_project}`;
     const project = await tests.run(`project show ${commonParams}`);
 
@@ -208,7 +212,7 @@ ava.test.serial('project notification credits integration test', async t => {
 
     let received_mail = false;
     for (let i=0; i<10; i++) {
-        await tests.delay(30*1000); // to delivery messages to mailbox
+        await tests.delay(15*1000); // to delivery messages to mailbox
         const latest_date = await getLatestImapMessageDate(query, options);
         if (dateDiffMinutes(new Date(), new Date(latest_date)) < 5) {
             received_mail = true;
