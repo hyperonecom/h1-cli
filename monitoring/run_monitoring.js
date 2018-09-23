@@ -61,7 +61,7 @@ const getConfig = () => {
     return config;
 };
 
-const keywordsMatches = (keywords, str) => keywords.some(keyword => str.includes(keyword)));
+const keywordsMatches = (keywords, str) => keywords.some(keyword => str.includes(keyword));
 
 const sendMail = async (config, success, report) => {
     const smtpTransport = mailer.createTransport(config.SMTP_URL);
