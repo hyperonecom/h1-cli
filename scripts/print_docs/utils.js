@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports.entry_filename = (entry) => `${entry.name}.md`;
 
 module.exports.code = '```';

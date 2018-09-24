@@ -9,6 +9,10 @@ module.exports = (options) => {
 
     const wstream = fs.createWriteStream(index_filename);
 
+    if (options.theme.indexTitle) {
+        wstream.write(`# ${process.env.SCOPE_NAME}-cli\n\n`);
+    }
+
     wstream.write(`* [Common arguments](${options.common_arguments})\n`);
     wstream.write('* Commands\n');
 

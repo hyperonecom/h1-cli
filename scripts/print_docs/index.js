@@ -23,9 +23,9 @@ const themes = {
     site: {
         tableOfContent: false,
         showScope: false,
-        metatitle: true,
         shortArgumentTitle: true,
         skipScopeInHeader: true,
+        indexTitle: true,
     },
 };
 
