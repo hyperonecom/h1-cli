@@ -72,7 +72,7 @@ ava.test.serial('vault recreate from snapshot', async t => {
     const secret = await tests.getToken();
     const vault = await tests.run(`vault create --name ${name} --size 10 --password ${secret}`);
 
-    const filename = 'my-secret-file.txt';
+    const filename = `my-secret-file-${now}.txt`;
     await sshVault(vault, secret, `touch ~/${filename}`);
 
     const snapshot = await tests.run(`snapshot create --vault ${vault._id} --name snapshot-${name}`);
