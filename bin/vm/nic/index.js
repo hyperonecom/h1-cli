@@ -14,12 +14,12 @@ const options = {
 const resource = {
     name: 'nic',
     // eslint-disable-next-line quotes
-    defaultQuery: "[].{id:_id,mac:macaddress,speed:speed,ipaddress:join(',',ip[].address),processing:processing}",
+    defaultQuery: "[].{id:_id,mac:macaddress,speed:speed,ipaddress:join(',',ip[].address),tags:join(',',keys(tag || `{}`) )}",
     url: args => `vm/${args.vm}/netadp`,
     options: options,
     plugins: defaults.plugins,
     title: 'network adapter',
-    commands: ['list', 'show', 'delete'],
+    commands: ['list', 'show', 'delete', 'tag'],
     dirname: __dirname,
     context: {
         listParams: '--vm test-vm',

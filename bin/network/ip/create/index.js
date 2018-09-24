@@ -14,9 +14,12 @@ module.exports = resource => Cli.createCommand('create', {
     dirname: __dirname,
     description: `Create ${resource.title}`,
     plugins: resource.plugins,
+    genericOptions: ['tag'],
     options: Object.assign({}, resource.options, options),
     handler: (args) => {
-        const body = {};
+        const body = {
+            tag: require('lib/tags').createTagObject(args.tag),
+        };
 
         if (args.address) {
             body.address = args.address;

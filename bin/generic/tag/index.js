@@ -7,13 +7,13 @@ const text = require('lib/text');
 
 module.exports = resource => {
 
-    const options = {
+    const options = Object.assign({}, resource.options, {
         [resource.name]: {
             description: `${text.toTitleCase(resource.title)} ID or name`,
             type: 'string',
             required: true,
         },
-    };
+    });
 
     const subresource = {
         name: 'tag',
@@ -28,7 +28,7 @@ module.exports = resource => {
     const category = genericResource({
         name: 'tag',
         defaultQuery: '[].{key:key, value:value}',
-        url: args => `${resource.url()}/${args[resource.name]}/tag`,
+        url: args => `${resource.url(args)}/${args[resource.name]}/tag`,
         transform: data => Object.entries(data).map(([key, value]) => ({key, value})),
         commands: ['list'],
         options: subresource.options,

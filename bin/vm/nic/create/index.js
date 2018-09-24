@@ -29,10 +29,12 @@ module.exports = (resource) => {
         description: `Create ${resource.title}`,
         plugins: resource.plugins,
         options: options,
+        genericOptions: ['tag'],
         dirname: __dirname,
         handler: (args) => {
             const body = {
                 type: args.type,
+                tag: require('lib/tags').createTagObject(args.tag),
             };
             if (args.network) {
                 body.network = args.network;

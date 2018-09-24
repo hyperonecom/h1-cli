@@ -15,6 +15,10 @@
     * [h1 network ip show](#h1-network-ip-show) - Show IP address
     * [h1 network ip delete](#h1-network-ip-delete) - Delete IP address
     * [h1 network ip create](#h1-network-ip-create) - Create IP address
+    * [h1 network ip tag](#h1-network-ip-tag) - Manage your tag
+      * [h1 network ip tag list](#h1-network-ip-tag-list) - List tag
+      * [h1 network ip tag add](#h1-network-ip-tag-add) - Add a tag to IP address
+      * [h1 network ip tag delete](#h1-network-ip-tag-delete) - Delete a tag of IP address
 
 
 # Specification
@@ -297,7 +301,7 @@ Create IP address
 
 ### Syntax
 
-```h1 network ip create | --network NETWORK [--address ADDRESS]```
+```h1 network ip create | --network NETWORK [--address ADDRESS] [--tag TAG [--tag TAG ...]]```
 
 ### Examples
 
@@ -324,4 +328,79 @@ h1 network ip create --name my-ip-network --address 10.214.180.10
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--address ADDRESS``` |  | IP address |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 network ip tag
+
+Manage your tag
+
+## h1 network ip tag list
+
+List tag
+
+### Syntax
+
+```h1 network ip tag list | --network NETWORK --ip IP```
+
+### Example
+
+```bash
+h1 network ip tag list --ip my-ip
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network name or ID |
+| ```--ip IP``` |  | IP address ID or name |
+
+## h1 network ip tag add
+
+Add a tag to IP address
+
+### Syntax
+
+```h1 network ip tag add | --network NETWORK --ip IP [--tag TAG [--tag TAG ...]]```
+
+### Example
+
+```bash
+h1 network ip tag add --ip test-ip --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network name or ID |
+| ```--ip IP``` |  | IP address ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 network ip tag delete
+
+Delete a tag of IP address
+
+### Syntax
+
+```h1 network ip tag delete | --tag TAG --network NETWORK --ip IP```
+
+### Example
+
+```bash
+h1 network ip tag delete --vm test-vm --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--network NETWORK``` |  | Network name or ID |
+| ```--ip IP``` |  | IP address ID or name |
 
