@@ -24,6 +24,10 @@
     * [h1 vm nic list](#h1-vm-nic-list) - List network adapter
     * [h1 vm nic show](#h1-vm-nic-show) - Show network adapter
     * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
+    * [h1 vm nic tag](#h1-vm-nic-tag) - Manage your tag
+      * [h1 vm nic tag list](#h1-vm-nic-tag-list) - List tag
+      * [h1 vm nic tag add](#h1-vm-nic-tag-add) - Add a tag to network adapter
+      * [h1 vm nic tag delete](#h1-vm-nic-tag-delete) - Delete a tag of network adapter
     * [h1 vm nic create](#h1-vm-nic-create) - Create network adapter
     * [h1 vm nic history](#h1-vm-nic-history) - History of network adapter
     * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP address of network adapter
@@ -556,13 +560,87 @@ h1 vm nic delete --nic my-nic --vm test-vm
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
 
+## h1 vm nic tag
+
+Manage your tag
+
+## h1 vm nic tag list
+
+List tag
+
+### Syntax
+
+```h1 vm nic tag list | --vm VM --nic NIC```
+
+### Example
+
+```bash
+h1 vm nic tag list --nic my-nic
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID or name |
+
+## h1 vm nic tag add
+
+Add a tag to network adapter
+
+### Syntax
+
+```h1 vm nic tag add | --vm VM --nic NIC [--tag TAG [--tag TAG ...]]```
+
+### Example
+
+```bash
+h1 vm nic tag add --nic test-nic --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 vm nic tag delete
+
+Delete a tag of network adapter
+
+### Syntax
+
+```h1 vm nic tag delete | --tag TAG --vm VM --nic NIC```
+
+### Example
+
+```bash
+h1 vm nic tag delete --vm test-vm --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID or name |
+
 ## h1 vm nic create
 
 Create network adapter
 
 ### Syntax
 
-```h1 vm nic create | --type TYPE --vm VM [--network NETWORK] [--ip IP]```
+```h1 vm nic create | --type TYPE --vm VM [--network NETWORK] [--ip IP] [--tag TAG [--tag TAG ...]]```
 
 ### Examples
 
@@ -593,6 +671,7 @@ Note (4): To list available networks use ```h1 network list```.
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network connected to network adapter |
 | ```--ip IP``` |  | IP to assign from network |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 vm nic history
 

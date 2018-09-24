@@ -1,5 +1,6 @@
 'use strict';
 
+const text = require('lib/text');
 const genericResource = require('bin/generic');
 const defaults = require('bin/generic/defaults');
 
@@ -27,6 +28,21 @@ const resource = {
 
 const category = genericResource(resource);
 
+const childDefaults = Object.assign({}, resource, {
+    options: Object.assign({}, options, {
+        ip: {
+            description: `${text.toTitleCase(resource.title)} ID or name`,
+            type: 'string',
+            required: true,
+        },
+    }),
+    dirname: __dirname,
+});
+
+
 category.addChild(require('./create')(resource));
+category.addChild(require('bin/generic/tag')(Object.assign({}, childDefaults, {
+    url: () => 'ip',
+})));
 
 module.exports = category;
