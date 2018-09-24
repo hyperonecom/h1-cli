@@ -36,6 +36,7 @@
       * [h1 vm nic ip add](#h1-vm-nic-ip-add) - Add IP address to IP address of network adapter
       * [h1 vm nic ip replace](#h1-vm-nic-ip-replace) - Replace IP address of network adapter
       * [h1 vm nic ip persistent](#h1-vm-nic-ip-persistent) - Persistent IP address of network adapter
+      * [h1 vm nic ip show](#h1-vm-nic-ip-show) - Show IP address of network adapter
   * [h1 vm dvd](#h1-vm-dvd) - Manage your DVD
     * [h1 vm dvd list](#h1-vm-dvd-list) - List DVD
     * [h1 vm dvd insert](#h1-vm-dvd-insert) - Insert ISO into DVD drive of DVD
@@ -819,6 +820,28 @@ h1 vm nic ip persistent --vm test-vm --nic 5b994d0cab228cb79e8576c9 --ip 5784e97
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID |
 | ```--ip IP``` |  | IP address or ID of public IP |
+
+## h1 vm nic ip show
+
+Show IP address of network adapter
+
+### Syntax
+
+```h1 vm nic ip show | --vm VM --nic NIC --ip IP```
+
+### Example
+
+```bash
+h1 vm nic ip show --ip my-ip
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID |
+| ```--ip IP``` |  | IP address of network adapter ID or name |
 
 ## h1 vm dvd
 
