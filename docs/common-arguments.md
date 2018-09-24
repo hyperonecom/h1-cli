@@ -87,7 +87,11 @@ asynchronously, which can be used to optimize the execution time of scripts.
 h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh --no-wait
 ```
 ## Argument ```--dry-run```
-Try to perform operations without making any real changes.
+Try to perform operations without making any real changes:
+
+```
+h1 disk create --name xxxx.com --type ssd --size 25 --dry-run
+```
 ## Argument ```--yes```
 Perform action without additional confirmation
 
