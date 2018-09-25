@@ -192,7 +192,7 @@ Network gateway create
 
 ### Syntax
 
-```h1 netgw create | --name NAME --ip IP```
+```h1 netgw create | --name NAME --ip IP [--tag TAG [--tag TAG ...]]```
 
 ### Example
 
@@ -208,6 +208,12 @@ Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Network gateway name or ID |
 | ```--ip IP``` |  | Primary IP for the outgoing traffic |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 netgw detach
 
