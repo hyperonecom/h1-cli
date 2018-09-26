@@ -108,10 +108,10 @@ See the documentation and examples published on [jmespath.org](https://jmespath.
 {{scope}} disk list --query "[?state=='Detached'].{id:_id}" -o tsv | xargs -r -n 1 {{scope}} vm disk attach --vm test-vm --disk
 ```
 
-#### Stop all running virtual machines
+#### Stop all virtual machines
 
 ```bash
-{{scope}} vm list --query "[?state=='Running'].{id:_id}" -o tsv | xargs -r -n 1 {{scope}} vm stop --vm
+{{scope}} vm list -o id | xargs -r -n 1 {{scope}} vm stop --vm
 ```
 
 #### Create new disk and attach to virtual machine

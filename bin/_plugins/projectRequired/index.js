@@ -20,11 +20,11 @@ module.exports = {
 
         context.args.profile = Object.assign({}, profile);
 
-        if (process.env.H1_TOKEN) {
+        if (config.get_token() || config.get_project()) {
             return;
         }
 
-        const project_id = process.env.H1_PROJECT || context.args['project-select'];
+        const project_id = process.env.get_project() || context.args['project-select'];
 
         if (project_id) {
             context.args.profile.project = await context.args.helpers.api.get(`project/${project_id}`);

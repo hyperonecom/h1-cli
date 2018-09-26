@@ -21,6 +21,7 @@ const options = {
 
 module.exports = resource => Cli.createCommand('create', {
     description: `Create ${resource.title}`,
+    genericOptions: ['tag'],
     dirname: __dirname,
     plugins: resource.plugins,
     options: options,
@@ -29,6 +30,7 @@ module.exports = resource => Cli.createCommand('create', {
             name: args.name,
             vm: args.vm,
             description: args.description,
+            tag: require('lib/tags').createTagObject(args.tag),
         })
         .then(result => args.helpers.sendOutput(args, result)),
 });

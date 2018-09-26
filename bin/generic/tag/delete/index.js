@@ -10,12 +10,12 @@ const options = {
     },
 };
 
-module.exports = resource => Cli.createCommand('delete', {
+module.exports = (resource, subresource) => Cli.createCommand('delete', {
     dirname: __dirname,
-    description: `Add a tag of ${resource.title}`,
-    plugins: resource.plugins,
-    params: resource.params,
-    options: Object.assign(options, resource.options),
+    description: `Delete a tag of ${resource.title}`,
+    plugins: subresource.plugins,
+    params: subresource.params,
+    options: Object.assign({}, options, subresource.options),
     handler: args => args.helpers.api
         .delete(`${args.$node.parent.config.url(args)}/${args.tag.split('=')[0]}`)
         .then(result => args.helpers.sendOutput(args, result)),

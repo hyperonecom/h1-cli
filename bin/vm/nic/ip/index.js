@@ -18,7 +18,7 @@ const options = {
 
 const resource = {
     name: 'ip',
-    defaultQuery: '[].{id:_id,address:address,mac:mac,ptrRecord:ptrRecord,network:network,processing:processing,fip:associated.fip,state:state}',
+    defaultQuery: '[].{id:_id,address:address,mac:mac,ptrRecord:ptrRecord,network:network,fip:associated.fip,state:state}',
     url: args => `vm/${args.vm}/netadp/${args.nic}/ip`,
     plugins: defaults.plugins,
     options: Object.assign({}, defaults.options, options),
@@ -35,6 +35,8 @@ const resource = {
 const category = genericResource(resource);
 
 category.addChild(require('./add')(resource));
+category.addChild(require('./replace')(resource));
+category.addChild(require('./persistent')(resource));
 
 module.exports = category;
 
