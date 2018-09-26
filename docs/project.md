@@ -394,15 +394,21 @@ Add access rule for network access rule
 ### Examples
 
 #### Add rule by geolocation
+```bash
 h1 project access rule add --type geo --value PL
+```
 
 #### Add rule by subnet
 
+```bash
 h1 project access rule add --type subnet --value 82.0.0.2/24
+```
 
 #### Add rule by IP address
 
+```bash
 h1 project access rule add --type subnet --value 82.123.123.2/32
+```
 
 ### Required arguments
 

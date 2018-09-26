@@ -272,21 +272,8 @@ ava.test.serial('token was used if environment variable set', async t => {
     await tests.remove('project token', token);
 });
 
-
 ava.test.serial('project access rule life cycle', async t => {
-    const name=`rule-${now}`;
-    const type = 'project access rule';
-    const resource = await tests.run(`${type} add --project ${active_project} --name ${name} --type geo --value PL`);
-
-    const tester = x => x._id === resource._id;
-    const list = await tests.run(`${type} list --project ${active_project}`);
-    t.true(list.some(tester));
-
-    await tests.run(`${type} show --project ${active_project} --rule ${resource._id}`);
-
-    await tests.run(`${type} delete --project ${active_project} --yes --rule ${resource._id}`);
-    const updated_list = await tests.run(`${type} list --project ${active_project}`);
-    t.true(!updated_list.some(tester));
+    await tests.accessRuleLifeCycle(t, 'project access rule', `--project ${active_project}`);
 });
 
 ava.test.serial('project credentials life cycle', tests.credentialsLifeCycle('project credentials', {
