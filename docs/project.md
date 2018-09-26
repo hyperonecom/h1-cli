@@ -193,7 +193,7 @@ Delete a tag of project
 ### Example
 
 ```bash
-h1 project tag delete --vm test-vm --tag prod
+h1 project tag delete --project test-project --tag prod
 ```
 
 ### Required arguments

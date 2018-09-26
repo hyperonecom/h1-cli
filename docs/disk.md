@@ -177,7 +177,7 @@ Delete a tag of disk
 ### Example
 
 ```bash
-h1 disk tag delete --vm test-vm --tag prod
+h1 disk tag delete --disk test-disk --tag prod
 ```
 
 ### Required arguments

@@ -179,7 +179,7 @@ Delete a tag of ISO
 ### Example
 
 ```bash
-h1 iso tag delete --vm test-vm --tag prod
+h1 iso tag delete --iso test-iso --tag prod
 ```
 
 ### Required arguments

@@ -186,7 +186,7 @@ Delete a tag of firewall
 ### Example
 
 ```bash
-h1 firewall tag delete --vm test-vm --tag prod
+h1 firewall tag delete --firewall test-firewall --tag prod
 ```
 
 ### Required arguments

@@ -176,7 +176,7 @@ Delete a tag of network gateway
 ### Example
 
 ```bash
-h1 netgw tag delete --vm test-vm --tag prod
+h1 netgw tag delete --netgw test-netgw --tag prod
 ```
 
 ### Required arguments

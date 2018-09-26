@@ -16,6 +16,7 @@ module.exports = (resource, subresource) => Cli.createCommand('add', {
     plugins: subresource.plugins,
     params: subresource.params,
     genericOptions: ['tag'],
+    resource: resource,
     dirname: __dirname,
     options: Object.assign({}, subresource.options, options),
     handler: args => args.helpers.api
@@ -23,6 +24,6 @@ module.exports = (resource, subresource) => Cli.createCommand('add', {
             args.$node.parent.config.url(args),
             require('lib/tags').createTagObject(args.tag)
         )
+        .then(result => Object.entries(result).map(([key, value])=> ({key, value})))
         .then(result => args.helpers.sendOutput(args, result)),
-    resource: resource,
 });

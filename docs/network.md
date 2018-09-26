@@ -183,7 +183,7 @@ Delete a tag of network
 ### Example
 
 ```bash
-h1 network tag delete --vm test-vm --tag prod
+h1 network tag delete --network test-network --tag prod
 ```
 
 ### Required arguments
@@ -393,7 +393,7 @@ Delete a tag of IP address
 ### Example
 
 ```bash
-h1 network ip tag delete --vm test-vm --tag prod
+h1 network ip tag delete --ip test-ip --tag prod
 ```
 
 ### Required arguments
