@@ -4,10 +4,12 @@ Specify output format of command.
 
 #### Available formats
 
-* ```table``` - Tabular (default).
+* ```table``` - Simple results as tabular (default).
 * ```list``` - Subsequent properties line by line.
 * ```tsv``` - Mostly works like tabular format, but without the header row. Efficiently usable in ```awk``` and shell.
 * ```json``` - Raw response of API
+* ```yaml``` - Full response displayed as YAML
+* ```id``` - Just resource ID line by line
 
 ##### Examples
 
