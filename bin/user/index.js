@@ -7,20 +7,21 @@ const resource = {
     title: 'user',
 };
 
-const childDefaults = {
+const childDefaults = Object.assign({}, resource, {
     url: () => 'user/me',
     plugins: [
         require('bin/_plugins/loginRequired'),
         require('bin/_plugins/outputFormat'),
         require('bin/_plugins/api'),
     ],
-};
+});
 
 const category = Cli.createCategory(resource.name, {
     description: `Manage your ${resource.title}`,
 });
 
 category.addChild(require('./create'));
+category.addChild(require('./access')(childDefaults));
 
 category.addChild(require('bin/generic/credentials')(Object.assign(
     {},

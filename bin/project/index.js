@@ -29,10 +29,9 @@ const childDefaults = Object.assign({}, resource, {
             type: 'string',
             required: !active_project,
             defaultValue: active_project,
-            dest: 'id',
         },
     },
-    url: args => `${resource.url(args)}/${args.id}`,
+    url: args => `${resource.url(args)}/${args.project}`,
 });
 
 category.addChild(require('./access')(childDefaults));

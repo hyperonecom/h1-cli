@@ -1,6 +1,6 @@
 'use strict';
 
-const genericResource = require('bin/generic/index');
+const genericResource = require('bin/generic');
 const genericDefaults = require('bin/generic/defaults');
 const text = require('lib/text');
 

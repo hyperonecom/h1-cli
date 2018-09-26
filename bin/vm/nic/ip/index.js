@@ -38,5 +38,9 @@ category.addChild(require('./add')(resource));
 category.addChild(require('./replace')(resource));
 category.addChild(require('./persistent')(resource));
 
+category.addChild(require('bin/generic/show')(Object.assign({}, resource, {
+    url: () => 'ip',
+})));
+
 module.exports = category;
 

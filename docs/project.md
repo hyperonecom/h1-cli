@@ -12,6 +12,12 @@
   * [h1 project access](#h1-project-access) - Manage your project access rights
     * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
     * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for project
+    * [h1 project access rule](#h1-project-access-rule) - Manage your project network access control rule
+      * [h1 project access rule show](#h1-project-access-rule-show) - Show network access rule
+      * [h1 project access rule list](#h1-project-access-rule-list) - List network access rule
+      * [h1 project access rule rename](#h1-project-access-rule-rename) - Rename network access rule
+      * [h1 project access rule delete](#h1-project-access-rule-delete) - Delete network access rule
+      * [h1 project access rule add](#h1-project-access-rule-add) - Add access rule for network access rule
     * [h1 project access list](#h1-project-access-list) - List project
   * [h1 project token](#h1-project-token) - Manage your project tokens
     * [h1 project token show](#h1-project-token-show) - Show token
@@ -267,6 +273,150 @@ h1 project access revoke --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--email EMAIL``` |  | User email (eg: user@example.org) |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project access rule
+
+Manage your project network access control rule
+
+## h1 project access rule show
+
+Show network access rule
+
+### Syntax
+
+```h1 project access rule show | --rule RULE [--project PROJECT]```
+
+### Example
+
+```bash
+h1 project access rule show --rule my-rule
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--rule RULE``` |  | Network access rule ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project access rule list
+
+List network access rule
+
+### Syntax
+
+```h1 project access rule list | [--project PROJECT]```
+
+### Example
+
+```bash
+h1 project access rule list
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project access rule rename
+
+Rename network access rule
+
+### Syntax
+
+```h1 project access rule rename | --rule RULE --new-name NEW-NAME [--project PROJECT]```
+
+### Example
+
+```bash
+h1 project access rule rename --rule my-rule --new-name my-renamed-rule
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--rule RULE``` |  | Network access rule ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project access rule delete
+
+Delete network access rule
+
+### Syntax
+
+```h1 project access rule delete | --rule RULE [--project PROJECT]```
+
+### Example
+
+```bash
+h1 project access rule delete --rule my-rule
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--rule RULE``` |  | Network access rule ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project access rule add
+
+Add access rule for network access rule
+
+### Syntax
+
+```h1 project access rule add | --name NAME --type TYPE --value VALUE [--project PROJECT]```
+
+### Examples
+
+#### Add rule by geolocation
+```bash
+h1 project access rule add --type geo --value PL
+```
+
+#### Add rule by subnet
+
+```bash
+h1 project access rule add --type subnet --value 82.0.0.2/24
+```
+
+#### Add rule by IP address
+
+```bash
+h1 project access rule add --type subnet --value 82.123.123.2/32
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Name |
+| ```--type TYPE``` |  | Type of rule |
+| ```--value VALUE``` |  | Value of the rule that is appropriate for the type selected |
 
 ### Optional arguments
 
