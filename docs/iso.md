@@ -33,11 +33,9 @@ List ISO
 
 ### Example
 
-
 ```bash
 h1 iso list
 ```
-
 ## h1 iso show
 
 Show ISO
@@ -48,11 +46,9 @@ Show ISO
 
 ### Example
 
-
 ```bash
 h1 iso show --iso my-iso
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -69,11 +65,9 @@ Delete ISO
 
 ### Example
 
-
 ```bash
 h1 iso delete --iso my-iso
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -90,11 +84,9 @@ History of ISO
 
 ### Example
 
-
 ```bash
 h1 iso history --iso my-iso
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -111,11 +103,9 @@ Rename ISO
 
 ### Example
 
-
 ```bash
 h1 iso rename --iso my-iso --new-name my-renamed-iso
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -137,11 +127,9 @@ List tag
 
 ### Example
 
-
 ```bash
 h1 iso tag list --iso my-iso
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -158,11 +146,9 @@ Add a tag to ISO
 
 ### Example
 
-
 ```bash
 h1 iso tag add --iso test-iso --tag prod=true
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -185,11 +171,9 @@ Delete a tag of ISO
 
 ### Example
 
-
 ```bash
 h1 iso tag delete --iso test-iso --tag prod
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -211,11 +195,9 @@ Grant access rights for ISO
 
 ### Example
 
-
 ```bash
 h1 iso access grant --iso test-image --project 5b28f7c9ddd5b3c5e9ec14c4
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -233,11 +215,9 @@ Revoke access rights for ISO
 
 ### Example
 
-
 ```bash
 h1 iso access revoke --iso test-iso --project MyFavouriteProject
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -255,11 +235,9 @@ List of access rights for ISO
 
 ### Example
 
-
 ```bash
 h1 iso access list --iso test-image
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -276,11 +254,9 @@ Resume create upload of ISO
 
 ### Example
 
-
 ```bash
 h1 iso resume --iso my-iso --source-file ./my-iso.vhdx
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -298,7 +274,6 @@ ISO import
 
 ### Examples
 
-
 #### Create an ISO using a local file
 
 ```bash
@@ -309,7 +284,6 @@ h1 iso create --name myiso --source-file my.iso
 ```bash
 h1 iso create --name myiso --source-url http://example.com/some.iso
 ```
-
 ### Required arguments
 
 | Name | Default | Description |

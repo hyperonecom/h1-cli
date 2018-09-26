@@ -37,11 +37,9 @@ List network
 
 ### Example
 
-
 ```bash
 h1 network list
 ```
-
 ## h1 network show
 
 Show network
@@ -52,11 +50,9 @@ Show network
 
 ### Example
 
-
 ```bash
 h1 network show --network my-network
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -73,11 +69,9 @@ Delete network
 
 ### Example
 
-
 ```bash
 h1 network delete --network my-network
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -94,11 +88,9 @@ History of network
 
 ### Example
 
-
 ```bash
 h1 network history --network my-network
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -115,11 +107,9 @@ Rename network
 
 ### Example
 
-
 ```bash
 h1 network rename --network my-network --new-name my-renamed-network
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -141,11 +131,9 @@ List tag
 
 ### Example
 
-
 ```bash
 h1 network tag list --network my-network
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -162,11 +150,9 @@ Add a tag to network
 
 ### Example
 
-
 ```bash
 h1 network tag add --network test-network --tag prod=true
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -189,11 +175,9 @@ Delete a tag of network
 
 ### Example
 
-
 ```bash
 h1 network tag delete --network test-network --tag prod
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -211,7 +195,6 @@ Create network
 
 ### Examples
 
-
 #### Create a network
 
 ```bash
@@ -223,7 +206,6 @@ h1 network create --name my-safe-net
 ```bash
 h1 network create --name my-ip-network --address 10.214.180.0/24 --gateway 10.214.180.10
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -252,11 +234,9 @@ List IP address
 
 ### Example
 
-
 ```bash
 h1 network ip list
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -273,11 +253,9 @@ Show IP address
 
 ### Example
 
-
 ```bash
 h1 network ip show --ip my-ip --network my-network
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -295,11 +273,9 @@ Delete IP address
 
 ### Example
 
-
 ```bash
 h1 network ip delete --ip my-ip --network my-network
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -317,7 +293,6 @@ Create IP address
 
 ### Examples
 
-
 #### Create a new IP address in network
 
 ```bash
@@ -329,7 +304,6 @@ h1 network ip create --network my-safe-net
 ```bash
 h1 network ip create --name my-ip-network --address 10.214.180.10
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -357,11 +331,9 @@ List tag
 
 ### Example
 
-
 ```bash
 h1 network ip tag list --ip my-ip
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -379,11 +351,9 @@ Add a tag to IP address
 
 ### Example
 
-
 ```bash
 h1 network ip tag add --ip test-ip --tag prod=true
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -407,11 +377,9 @@ Delete a tag of IP address
 
 ### Example
 
-
 ```bash
 h1 network ip tag delete --ip test-ip --tag prod
 ```
-
 ### Required arguments
 
 | Name | Default | Description |

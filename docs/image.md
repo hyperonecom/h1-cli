@@ -33,11 +33,9 @@ Show image
 
 ### Example
 
-
 ```bash
 h1 image show --image my-image
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -54,11 +52,9 @@ Delete image
 
 ### Example
 
-
 ```bash
 h1 image delete --image my-image
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -75,11 +71,9 @@ Rename image
 
 ### Example
 
-
 ```bash
 h1 image rename --image my-image --new-name my-renamed-image
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -97,11 +91,9 @@ History of image
 
 ### Example
 
-
 ```bash
 h1 image history --image my-image
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -122,11 +114,9 @@ List tag
 
 ### Example
 
-
 ```bash
 h1 image tag list --image my-image
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -143,11 +133,9 @@ Add a tag to image
 
 ### Example
 
-
 ```bash
 h1 image tag add --image test-image --tag prod=true
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -170,11 +158,9 @@ Delete a tag of image
 
 ### Example
 
-
 ```bash
 h1 image tag delete --image test-image --tag prod
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -192,11 +178,9 @@ Create image
 
 ### Example
 
-
 ```bash
 h1 image create --vm test-vm --name dev-image
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -221,7 +205,6 @@ List image
 
 ### Examples
 
-
 #### List all user images
 
 ```bash
@@ -233,7 +216,6 @@ h1 image list
 ```bash
 h1 image list --recommended
 ```
-
 ### Optional arguments
 
 | Name | Default | Description |
@@ -251,11 +233,9 @@ List all disks of image
 
 ### Example
 
-
 ```bash
 h1 image disk --image dev-image
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -276,11 +256,9 @@ Grant access rights for image
 
 ### Example
 
-
 ```bash
 h1 image access grant --image test-image --project 5b28f7c9ddd5b3c5e9ec14c4
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -298,11 +276,9 @@ Revoke access rights for image
 
 ### Example
 
-
 ```bash
 h1 image access revoke --image test-image --project MyFavouriteProject
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -320,11 +296,9 @@ List of access rights for image
 
 ### Example
 
-
 ```bash
 h1 image access list --image test-image
 ```
-
 ### Required arguments
 
 | Name | Default | Description |

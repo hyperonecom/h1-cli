@@ -10,11 +10,9 @@ Obtain your apiKey
 
 ## Example
 
-
 ```bash
 h1 login --username user@example.com
 ```
-
 ### Required arguments
 
 | Name | Default | Description |

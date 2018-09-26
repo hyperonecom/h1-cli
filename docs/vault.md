@@ -46,11 +46,9 @@ List Vault
 
 ### Example
 
-
 ```bash
 h1 vault list
 ```
-
 ## h1 vault show
 
 Show Vault
@@ -61,11 +59,9 @@ Show Vault
 
 ### Example
 
-
 ```bash
 h1 vault show --vault my-vault
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -82,11 +78,9 @@ Delete Vault
 
 ### Example
 
-
 ```bash
 h1 vault delete --vault my-vault
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -103,11 +97,9 @@ History of Vault
 
 ### Example
 
-
 ```bash
 h1 vault history --vault my-vault
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -124,11 +116,9 @@ Rename Vault
 
 ### Example
 
-
 ```bash
 h1 vault rename --vault my-vault --new-name my-renamed-vault
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -150,11 +140,9 @@ List tag
 
 ### Example
 
-
 ```bash
 h1 vault tag list --vault my-vault
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -171,11 +159,9 @@ Add a tag to Vault
 
 ### Example
 
-
 ```bash
 h1 vault tag add --vault test-vault --tag prod=true
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -198,11 +184,9 @@ Delete a tag of Vault
 
 ### Example
 
-
 ```bash
 h1 vault tag delete --vault test-vault --tag prod
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -220,11 +204,9 @@ Resize Vault
 
 ### Example
 
-
 ```bash
 h1 vault resize --vault my-vault --size 10
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -242,7 +224,6 @@ Create Vault
 
 ### Examples
 
-
 #### Create Vault with SSH credential
 
 ```bash
@@ -258,7 +239,6 @@ h1 vault create --name my-vault --size 10 --snapshot my-snapshot
 ```
 
 Hint: Use ```h1 snapshot list``` to list available snapshots.
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -293,11 +273,9 @@ Show certificate to Vault
 
 ### Example
 
-
 ```bash
 h1 vault credential cert show --cert my-cert
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -315,11 +293,9 @@ Rename certificate to Vault
 
 ### Example
 
-
 ```bash
 h1 vault credential cert rename --cert my-cert --new-name my-renamed-cert
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -338,11 +314,9 @@ List certificate to Vault
 
 ### Example
 
-
 ```bash
 h1 vault credential cert list --vault my-vault
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -359,11 +333,9 @@ Delete certificate to Vault
 
 ### Example
 
-
 ```bash
 h1 vault credential cert delete --cert my-cert --vault my-vault
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -381,11 +353,9 @@ Add credential to Vault
 
 ### Example
 
-
 ```bash
 h1 vault credential cert add --vault my-vault --name my-key --sshkey my-home-ssh
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -414,11 +384,9 @@ Show password to Vault
 
 ### Example
 
-
 ```bash
 h1 vault credential password show --password my-password
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -436,11 +404,9 @@ List password to Vault
 
 ### Example
 
-
 ```bash
 h1 vault credential password list --vault my-vault
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -457,11 +423,9 @@ Rename password to Vault
 
 ### Example
 
-
 ```bash
 h1 vault credential password rename --password my-password --new-name my-renamed-password
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -480,11 +444,9 @@ Delete password to Vault
 
 ### Example
 
-
 ```bash
 h1 vault credential password delete --password my-password --vault my-vault
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -502,11 +464,9 @@ Add password to Vault
 
 ### Example
 
-
 ```bash
 h1 vault credential password add --name my-pass --password secret-password --vault my-vault
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -525,13 +485,11 @@ Connect to Vault using SSH
 
 ### Example
 
-
 ```bash
 h1 vault ssh --vault my-vault
 ```
 
 Note: You need valid credentials to access Vault any way.
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -554,11 +512,9 @@ Open Vault console in web-browser
 
 ### Example
 
-
 ```bash
 h1 vault console --vault test-vault
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -575,11 +531,9 @@ Stop Vault
 
 ### Example
 
-
 ```
 h1 vault stop --vault my-valut
 ```
-
 ## h1 vault start
 
 Start Vault
@@ -590,8 +544,6 @@ Start Vault
 
 ### Example
 
-
 ```
 h1 vault start --vault my-valut
 ```
-

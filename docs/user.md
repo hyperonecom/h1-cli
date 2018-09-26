@@ -36,11 +36,9 @@ Create an account
 
 ### Example
 
-
 ```bash
 h1 user create
 ```
-
 ## h1 user access
 
 Manage your user access rights
@@ -59,11 +57,9 @@ Show network access rule
 
 ### Example
 
-
 ```bash
 h1 user access rule show --rule my-rule
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -80,11 +76,9 @@ List network access rule
 
 ### Example
 
-
 ```bash
 h1 user access rule list
 ```
-
 ## h1 user access rule rename
 
 Rename network access rule
@@ -95,11 +89,9 @@ Rename network access rule
 
 ### Example
 
-
 ```bash
 h1 user access rule rename --rule my-rule --new-name my-renamed-rule
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -117,11 +109,9 @@ Delete network access rule
 
 ### Example
 
-
 ```bash
 h1 user access rule delete --rule my-rule
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -137,7 +127,6 @@ Add access rule for network access rule
 ```h1 user access rule add | --name NAME --type TYPE --value VALUE```
 
 ### Examples
-
 
 #### Add rule by geolocation
 ```bash
@@ -155,7 +144,6 @@ h1 user access rule add --type subnet --value 82.0.0.2/24
 ```bash
 h1 user access rule add --type subnet --value 82.123.123.2/32
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -178,11 +166,9 @@ Show credentials
 
 ### Example
 
-
 ```bash
 h1 user credentials show --credentials my-credentials
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -199,11 +185,9 @@ List credentials
 
 ### Example
 
-
 ```bash
 h1 user credentials list
 ```
-
 ## h1 user credentials delete
 
 Delete credentials
@@ -214,11 +198,9 @@ Delete credentials
 
 ### Example
 
-
 ```bash
 h1 user credentials delete --credentials my-credentials
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -235,11 +217,9 @@ Rename credentials
 
 ### Example
 
-
 ```bash
 h1 user credentials rename --credentials my-credentials --new-name my-renamed-credentials
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -257,11 +237,9 @@ Add public SSH key for user
 
 ### Example
 
-
 ```bash
 h1 user credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -283,7 +261,6 @@ Enable factor of authentication
 
 ### Examples
 
-
 #### Enable Time-Based One-Time Password (TOTP) factor
 
 ```bash
@@ -301,7 +278,6 @@ token that will allow you to login to the site.
 ```bash
 h1 user 2fa enable --type otac
 ```
-
 ### Optional arguments
 
 | Name | Default | Description |
@@ -318,13 +294,11 @@ Disable factor of authentication
 
 ### Examples
 
-
 #### Disable OTAC codes
 
 ```bash
 h1 user 2fa disable --type otac
 ```
-
 ### Optional arguments
 
 | Name | Default | Description |
@@ -341,8 +315,6 @@ List authentication factory
 
 ### Example
 
-
 ```bash
 h1 user 2fa list
 ```
-

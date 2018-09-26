@@ -28,11 +28,9 @@ List snapshot
 
 ### Example
 
-
 ```bash
 h1 snapshot list
 ```
-
 ## h1 snapshot show
 
 Show snapshot
@@ -43,11 +41,9 @@ Show snapshot
 
 ### Example
 
-
 ```bash
 h1 snapshot show --snapshot my-snapshot
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -64,11 +60,9 @@ Delete snapshot
 
 ### Example
 
-
 ```bash
 h1 snapshot delete --snapshot my-snapshot
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -85,11 +79,9 @@ History of snapshot
 
 ### Example
 
-
 ```bash
 h1 snapshot history --snapshot my-snapshot
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -106,11 +98,9 @@ Rename snapshot
 
 ### Example
 
-
 ```bash
 h1 snapshot rename --snapshot my-snapshot --new-name my-renamed-snapshot
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -132,11 +122,9 @@ List tag
 
 ### Example
 
-
 ```bash
 h1 snapshot tag list --snapshot my-snapshot
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -153,11 +141,9 @@ Add a tag to snapshot
 
 ### Example
 
-
 ```bash
 h1 snapshot tag add --snapshot test-snapshot --tag prod=true
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -180,11 +166,9 @@ Delete a tag of snapshot
 
 ### Example
 
-
 ```bash
 h1 snapshot tag delete --snapshot test-snapshot --tag prod
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -202,11 +186,9 @@ Create a snapshot of Vault
 
 ### Example
 
-
 ```bash
 h1 snapshot create --vault my-vault --name my-new-snapshot
 ```
-
 ### Required arguments
 
 | Name | Default | Description |

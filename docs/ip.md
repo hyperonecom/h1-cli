@@ -30,11 +30,9 @@ List IP address
 
 ### Example
 
-
 ```bash
 h1 ip list
 ```
-
 ## h1 ip show
 
 Show IP address
@@ -45,11 +43,9 @@ Show IP address
 
 ### Example
 
-
 ```bash
 h1 ip show --ip my-ip
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -66,11 +62,9 @@ Delete IP address
 
 ### Example
 
-
 ```bash
 h1 ip delete --ip my-ip
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -87,11 +81,9 @@ History of IP address
 
 ### Example
 
-
 ```bash
 h1 ip history --ip my-ip
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -112,11 +104,9 @@ List tag
 
 ### Example
 
-
 ```bash
 h1 ip tag list --ip my-ip
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -133,11 +123,9 @@ Add a tag to IP address
 
 ### Example
 
-
 ```bash
 h1 ip tag add --ip test-ip --tag prod=true
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -160,11 +148,9 @@ Delete a tag of IP address
 
 ### Example
 
-
 ```bash
 h1 ip tag delete --ip test-ip --tag prod
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -182,13 +168,11 @@ Create IP address
 
 ### Examples
 
-
 #### Create a new public IP
 
 ```bash
 h1 ip create
 ```
-
 ### Optional arguments
 
 | Name | Default | Description |
@@ -205,13 +189,11 @@ Associate IP address
 
 ### Examples
 
-
 #### Associate public IP address to private IP network interface
 
 ```bash
 h1 ip associate --ip 62.181.8.21 --private-ip 10.177.2.10 --output json
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -229,11 +211,9 @@ Disassociate IP address
 
 ### Example
 
-
 ```bash
 h1 ip disassociate --ip 62.181.8.21
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -250,11 +230,9 @@ Update PTR record of IP address
 
 ### Example
 
-
 ```bash
 h1 ip ptr --ip 62.181.8.21 --value 'example.com'
 ```
-
 ### Required arguments
 
 | Name | Default | Description |

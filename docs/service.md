@@ -20,11 +20,9 @@ Show service
 
 ### Example
 
-
 ```bash
 h1 service show --service my-service
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -41,7 +39,6 @@ List service
 
 ### Examples
 
-
 #### List services
 
 ```bash
@@ -53,7 +50,6 @@ h1 service list
 ```bash
 h1 service list --resource vm --type flavour 
 ```
-
 ### Optional arguments
 
 | Name | Default | Description |

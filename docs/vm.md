@@ -65,11 +65,9 @@ List virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm list
 ```
-
 ## h1 vm show
 
 Show virtual machine
@@ -80,11 +78,9 @@ Show virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm show --vm my-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -101,11 +97,9 @@ History of virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm history --vm my-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -126,11 +120,9 @@ List tag
 
 ### Example
 
-
 ```bash
 h1 vm tag list --vm my-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -147,11 +139,9 @@ Add a tag to virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm tag add --vm test-vm --tag prod=true
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -174,11 +164,9 @@ Delete a tag of virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm tag delete --vm test-vm --tag prod
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -195,7 +183,6 @@ Create virtual machine
 ```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--tag TAG [--tag TAG ...]]```
 
 ### Examples
-
 
 #### Create a Ubuntu virtual machine
 
@@ -220,7 +207,6 @@ h1 vm create --name test-vm --type a1.nano --network my-network --ssh my-ssh
 
 Note: You can mount ISO disk and provide stateless services.
       This allows you to reduce the costs of server disks.
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -257,11 +243,9 @@ Delete virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm delete --vm my-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -278,11 +262,9 @@ Open virtual machine console in web-browser
 
 ### Example
 
-
 ```bash
 h1 vm console --vm test-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -299,11 +281,9 @@ Stop virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm stop --vm my-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -320,11 +300,9 @@ Start virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm start --vm my-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -341,11 +319,9 @@ Restart virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm restart --vm my-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -362,11 +338,9 @@ Turnoff virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm turnoff --vm my-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -383,11 +357,9 @@ Rename virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm rename --vm my-vm --new-name my-renamed-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -405,7 +377,6 @@ Manage userdata for virtual machine
 
 ### Examples
 
-
 #### Set userdata for virtual machine
 
 ```bash
@@ -418,7 +389,6 @@ $ h1 vm userdata --vm test-vm --userdata-file ./data.txt
 ```bash
 h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl base64 -d
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -440,11 +410,9 @@ List disk
 
 ### Example
 
-
 ```bash
 h1 vm disk list
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -461,7 +429,6 @@ Attach disk to disk
 
 ### Example
 
-
 ```bash
 h1 vm disk attach --vm test-vm --disk my-disk-0
 ```
@@ -475,7 +442,6 @@ Note (3): Each disk can be connected to one virtual machine at a time.
 
 Note (4): Instead of adding a new disk, we suggest considering resize of available disk.
           This process can also be done on-line up to 1TB for each disk.
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -493,11 +459,9 @@ Detach disk from disk
 
 ### Example
 
-
 ```bash
 h1 vm disk detach --vm test-vm --disk my-disk-0
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -511,13 +475,11 @@ Manage your network adapter
 
 ### Examples
 
-
 #### Get IP address of virtual machine
 
 ```bash
 h1 vm nicl list --vm test-vm --output json --query "[].{ip:join(',', ip[].address)}" --output tsv
 ```
-
 ## h1 vm nic list
 
 List network adapter
@@ -528,11 +490,9 @@ List network adapter
 
 ### Example
 
-
 ```bash
 h1 vm nic list --vm test-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -549,11 +509,9 @@ Show network adapter
 
 ### Example
 
-
 ```bash
 h1 vm nic show --nic my-nic
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -571,11 +529,9 @@ Delete network adapter
 
 ### Example
 
-
 ```bash
 h1 vm nic delete --nic my-nic --vm test-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -593,7 +549,6 @@ Create network adapter
 
 ### Examples
 
-
 #### Create network adapter with public IP
 
 ```bash
@@ -607,7 +562,6 @@ h1 vm nic create --vm test-vm2 --network my-network --type private
 ```
 
 Note (4): To list available networks use ```h1 network list```.
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -633,11 +587,9 @@ History of network adapter
 
 ### Example
 
-
 ```bash
 h1 vm nic history --nic my-nic --vm test-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -659,11 +611,9 @@ List tag
 
 ### Example
 
-
 ```bash
 h1 vm nic tag list --nic my-nic
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -681,11 +631,9 @@ Add a tag to network adapter
 
 ### Example
 
-
 ```bash
 h1 vm nic tag add --nic test-nic --tag prod=true
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -709,11 +657,9 @@ Delete a tag of network adapter
 
 ### Example
 
-
 ```bash
 h1 vm nic tag delete --nic test-nic --tag prod
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -736,11 +682,9 @@ List IP address of network adapter
 
 ### Example
 
-
 ```bash
 h1 vm nic ip list --vm my-vm --nic nic-of-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -758,11 +702,9 @@ Delete IP address of network adapter
 
 ### Example
 
-
 ```bash
 h1 vm nic ip delete --ip my-ip --vm my-vm --nic nic-of-vm --ip 123.0.0.50
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -781,7 +723,6 @@ Add IP address to IP address of network adapter
 
 ### Examples
 
-
 #### Add IP address to network adapter
 
 ```bash
@@ -791,7 +732,6 @@ h1 vm nic ip add --vm test-vm2 --nic 5b1f28ffdadb705edd76b411 --ip 5784e97be2627
 Note: Use ```h1 vm nic list --vm test-vm2``` to identify network adapter.
 
 Note: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to create a new one.
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -810,7 +750,6 @@ Replace IP address of network adapter
 
 ### Examples
 
-
 #### Add IP address to network adapter
 
 ```bash
@@ -820,7 +759,6 @@ h1 vm nic ip replace --vm test-vm2 --nic 5b1f28ffdadb705edd76b411 --ip 5784e97be
 Note: Use ```h1 vm nic list --vm test-vm2``` to identify network adapter.
 
 Note: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to create a new one.
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -840,11 +778,9 @@ Persistent IP address of network adapter
 
 ### Example
 
-
 ```
 h1 vm nic ip persistent --vm test-vm --nic 5b994d0cab228cb79e8576c9 --ip 5784e97be2627505227b584c
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -863,11 +799,9 @@ Show IP address of network adapter
 
 ### Example
 
-
 ```bash
 h1 vm nic ip show --ip my-ip
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -890,11 +824,9 @@ List DVD
 
 ### Example
 
-
 ```bash
 h1 vm dvd list --vm my-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -911,13 +843,11 @@ Insert ISO into DVD drive of DVD
 
 ### Example
 
-
 ```bash
 h1 vm dvd insert --vm test-vm --iso ubuntu-live
 ```
 
 Note: Use ```h1 iso list``` to list available ISO or ```h1 iso create``` to create a new one.
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -935,11 +865,9 @@ Eject ISO from DVD drive of DVD
 
 ### Example
 
-
 ```bash
 h1 vm dvd eject --vm test-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -956,7 +884,6 @@ Connect to virtual machine using SSH
 
 ### Examples
 
-
 #### Connect to virtual machine via SSH
 
 ```bash
@@ -968,7 +895,6 @@ h1 vm ssh --vm test-vm
 ```bash
 h1 vm ssh --vm test-vm --command 'id'
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -998,11 +924,9 @@ Connect to virtual machine using Serial Console
 
 ### Example
 
-
 ```bash
 h1 vm serialport console --vm my-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -1025,11 +949,9 @@ Log Serial Console buffer of virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm serialport log --vm test-vm
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -1052,11 +974,9 @@ Password reset for virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm passwordreset --vm test-vm --user root
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -1074,11 +994,9 @@ Get live metrics of virtual machine
 
 ### Example
 
-
 ```bash
 h1 vm metrics --vm test-vm2
 ```
-
 ### Required arguments
 
 | Name | Default | Description |
