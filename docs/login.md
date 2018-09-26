@@ -7,7 +7,6 @@ Obtain your apiKey
 ## Syntax
 
 ```h1 login | --username USERNAME [--password PASSWORD]```
-
 ## Example
 
 ```bash

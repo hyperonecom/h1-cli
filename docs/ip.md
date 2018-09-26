@@ -27,7 +27,6 @@ List IP address
 ### Syntax
 
 ```h1 ip list | ```
-
 ### Example
 
 ```bash
@@ -40,7 +39,6 @@ Show IP address
 ### Syntax
 
 ```h1 ip show | --ip IP```
-
 ### Example
 
 ```bash
@@ -59,7 +57,6 @@ Delete IP address
 ### Syntax
 
 ```h1 ip delete | --ip IP```
-
 ### Example
 
 ```bash
@@ -78,7 +75,6 @@ History of IP address
 ### Syntax
 
 ```h1 ip history | --ip IP```
-
 ### Example
 
 ```bash
@@ -101,7 +97,6 @@ List tag
 ### Syntax
 
 ```h1 ip tag list | --ip IP```
-
 ### Example
 
 ```bash
@@ -120,7 +115,6 @@ Add a tag to IP address
 ### Syntax
 
 ```h1 ip tag add | --ip IP [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash
@@ -145,7 +139,6 @@ Delete a tag of IP address
 ### Syntax
 
 ```h1 ip tag delete | --tag TAG --ip IP```
-
 ### Example
 
 ```bash
@@ -165,7 +158,6 @@ Create IP address
 ### Syntax
 
 ```h1 ip create | [--tag TAG [--tag TAG ...]]```
-
 ### Examples
 
 #### Create a new public IP
@@ -186,7 +178,6 @@ Associate IP address
 ### Syntax
 
 ```h1 ip associate | --ip IP --private-ip PRIVATE-IP```
-
 ### Examples
 
 #### Associate public IP address to private IP network interface
@@ -208,7 +199,6 @@ Disassociate IP address
 ### Syntax
 
 ```h1 ip disassociate | --ip IP```
-
 ### Example
 
 ```bash
@@ -227,7 +217,6 @@ Update PTR record of IP address
 ### Syntax
 
 ```h1 ip ptr | --ip IP --value VALUE```
-
 ### Example
 
 ```bash

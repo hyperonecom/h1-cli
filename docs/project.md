@@ -58,7 +58,6 @@ Show project
 ### Syntax
 
 ```h1 project show | --project PROJECT```
-
 ### Example
 
 ```bash
@@ -77,7 +76,6 @@ Delete project
 ### Syntax
 
 ```h1 project delete | --project PROJECT```
-
 ### Example
 
 ```bash
@@ -96,7 +94,6 @@ History of project
 ### Syntax
 
 ```h1 project history | --project PROJECT```
-
 ### Example
 
 ```bash
@@ -115,7 +112,6 @@ Rename project
 ### Syntax
 
 ```h1 project rename | --project PROJECT --new-name NEW-NAME```
-
 ### Example
 
 ```bash
@@ -139,7 +135,6 @@ List tag
 ### Syntax
 
 ```h1 project tag list | --project PROJECT```
-
 ### Example
 
 ```bash
@@ -158,7 +153,6 @@ Add a tag to project
 ### Syntax
 
 ```h1 project tag add | --project PROJECT [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash
@@ -183,7 +177,6 @@ Delete a tag of project
 ### Syntax
 
 ```h1 project tag delete | --tag TAG --project PROJECT```
-
 ### Example
 
 ```bash
@@ -203,7 +196,6 @@ List project
 ### Syntax
 
 ```h1 project list | [--all]```
-
 ### Example
 
 ```bash
@@ -226,7 +218,6 @@ Grant access rights for project
 ### Syntax
 
 ```h1 project access grant | --email EMAIL [--project PROJECT] [--role ROLE]```
-
 ### Example
 
 ```bash
@@ -252,7 +243,6 @@ Revoke access rights for project
 ### Syntax
 
 ```h1 project access revoke | --email EMAIL [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -281,7 +271,6 @@ Show network access rule
 ### Syntax
 
 ```h1 project access rule show | --rule RULE [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -306,7 +295,6 @@ List network access rule
 ### Syntax
 
 ```h1 project access rule list | [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -325,7 +313,6 @@ Rename network access rule
 ### Syntax
 
 ```h1 project access rule rename | --rule RULE --new-name NEW-NAME [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -351,7 +338,6 @@ Delete network access rule
 ### Syntax
 
 ```h1 project access rule delete | --rule RULE [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -376,7 +362,6 @@ Add access rule for network access rule
 ### Syntax
 
 ```h1 project access rule add | --name NAME --type TYPE --value VALUE [--project PROJECT]```
-
 ### Examples
 
 #### Add rule by geolocation
@@ -416,7 +401,6 @@ List project
 ### Syntax
 
 ```h1 project access list | [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -471,7 +455,6 @@ Show token
 ### Syntax
 
 ```h1 project token show | --token TOKEN [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -496,7 +479,6 @@ List token
 ### Syntax
 
 ```h1 project token list | [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -515,7 +497,6 @@ Delete token
 ### Syntax
 
 ```h1 project token delete | --token TOKEN [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -540,7 +521,6 @@ Rename token
 ### Syntax
 
 ```h1 project token rename | --token TOKEN --new-name NEW-NAME [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -566,7 +546,6 @@ Add token
 ### Syntax
 
 ```h1 project token add | --name NAME [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -595,7 +574,6 @@ List access rule
 ### Syntax
 
 ```h1 project token access list | --token TOKEN [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -620,7 +598,6 @@ Show access rule
 ### Syntax
 
 ```h1 project token access show | --token TOKEN --access ACCESS [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -646,7 +623,6 @@ Delete access rule
 ### Syntax
 
 ```h1 project token access delete | --token TOKEN --access ACCESS [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -672,7 +648,6 @@ Add access rule
 ### Syntax
 
 ```h1 project token access add | --method METHOD --path PATH --token TOKEN [--project PROJECT]```
-
 ### Examples
 
 #### Grant access to token for snapshots of selected Vault
@@ -709,7 +684,6 @@ Add credits limits
 ### Syntax
 
 ```h1 project notification credits add | --limit LIMIT [--project PROJECT]```
-
 ### Example
 
 ```
@@ -734,7 +708,6 @@ List credits limits
 ### Syntax
 
 ```h1 project notification credits list | [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -753,7 +726,6 @@ Delete credits limits
 ### Syntax
 
 ```h1 project notification credits delete | --limit LIMIT [--project PROJECT]```
-
 ### Example
 
 ```
@@ -778,7 +750,6 @@ Select project context
 ### Syntax
 
 ```h1 project select | [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -797,7 +768,6 @@ Cloud limits set for project
 ### Syntax
 
 ```h1 project limit | [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -822,7 +792,6 @@ Show credentials
 ### Syntax
 
 ```h1 project credentials show | --credentials CREDENTIALS [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -847,7 +816,6 @@ List credentials
 ### Syntax
 
 ```h1 project credentials list | [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -866,7 +834,6 @@ Delete credentials
 ### Syntax
 
 ```h1 project credentials delete | --credentials CREDENTIALS [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -891,7 +858,6 @@ Rename credentials
 ### Syntax
 
 ```h1 project credentials rename | --credentials CREDENTIALS --new-name NEW-NAME [--project PROJECT]```
-
 ### Example
 
 ```bash
@@ -917,7 +883,6 @@ Add public SSH key for project
 ### Syntax
 
 ```h1 project credentials add | --name NAME --sshkey-file SSHKEY-FILE [--project PROJECT]```
-
 ### Example
 
 ```bash

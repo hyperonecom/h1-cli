@@ -28,7 +28,6 @@ List disk
 ### Syntax
 
 ```h1 disk list | ```
-
 ### Example
 
 ```bash
@@ -41,7 +40,6 @@ Show disk
 ### Syntax
 
 ```h1 disk show | --disk DISK```
-
 ### Example
 
 ```bash
@@ -60,7 +58,6 @@ Delete disk
 ### Syntax
 
 ```h1 disk delete | --disk DISK```
-
 ### Example
 
 ```bash
@@ -79,7 +76,6 @@ History of disk
 ### Syntax
 
 ```h1 disk history | --disk DISK```
-
 ### Example
 
 ```bash
@@ -98,7 +94,6 @@ Rename disk
 ### Syntax
 
 ```h1 disk rename | --disk DISK --new-name NEW-NAME```
-
 ### Example
 
 ```bash
@@ -122,7 +117,6 @@ List tag
 ### Syntax
 
 ```h1 disk tag list | --disk DISK```
-
 ### Example
 
 ```bash
@@ -141,7 +135,6 @@ Add a tag to disk
 ### Syntax
 
 ```h1 disk tag add | --disk DISK [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash
@@ -166,7 +159,6 @@ Delete a tag of disk
 ### Syntax
 
 ```h1 disk tag delete | --tag TAG --disk DISK```
-
 ### Example
 
 ```bash
@@ -186,7 +178,6 @@ Resize disk
 ### Syntax
 
 ```h1 disk resize | --disk DISK --size SIZE```
-
 ### Example
 
 ```bash
@@ -206,7 +197,6 @@ Resume create upload of disk
 ### Syntax
 
 ```h1 disk resume | --disk DISK --source-file SOURCE-FILE```
-
 ### Example
 
 ```bash
@@ -226,7 +216,6 @@ Create disk
 ### Syntax
 
 ```h1 disk create | --name NAME --type TYPE [--size SIZE] [--source-file SOURCE-FILE] [--no-progress] [--tag TAG [--tag TAG ...]]```
-
 ### Examples
 
 #### Create 10 GB SSD disk
@@ -263,7 +252,6 @@ Download disk to a .vhdx file
 ### Syntax
 
 ```h1 disk download | --disk DISK --destination-file DESTINATION-FILE [--no-progress]```
-
 ### Example
 
 ```bash

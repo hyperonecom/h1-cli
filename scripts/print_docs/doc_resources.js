@@ -42,7 +42,7 @@ const writeCommandSpecs = (wstream, entry, options, depth=1) => {
 
     if (entry.handler) {
         wstream.write(utils.getHeader(depth + 1, 'Syntax'));
-        wstream.write(`${utils.code}${lib.getCommandHeader(entry)}${utils.code}\n\n`);
+        wstream.write(`${utils.code}${lib.getCommandHeader(entry)}${utils.code}\n`);
     }
 
     if (entry.examples) {

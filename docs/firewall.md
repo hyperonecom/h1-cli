@@ -37,7 +37,6 @@ List firewall
 ### Syntax
 
 ```h1 firewall list | ```
-
 ### Example
 
 ```bash
@@ -50,7 +49,6 @@ Show firewall
 ### Syntax
 
 ```h1 firewall show | --firewall FIREWALL```
-
 ### Example
 
 ```bash
@@ -69,7 +67,6 @@ Delete firewall
 ### Syntax
 
 ```h1 firewall delete | --firewall FIREWALL```
-
 ### Example
 
 ```bash
@@ -88,7 +85,6 @@ History of firewall
 ### Syntax
 
 ```h1 firewall history | --firewall FIREWALL```
-
 ### Example
 
 ```bash
@@ -107,7 +103,6 @@ Rename firewall
 ### Syntax
 
 ```h1 firewall rename | --firewall FIREWALL --new-name NEW-NAME```
-
 ### Example
 
 ```bash
@@ -131,7 +126,6 @@ List tag
 ### Syntax
 
 ```h1 firewall tag list | --firewall FIREWALL```
-
 ### Example
 
 ```bash
@@ -150,7 +144,6 @@ Add a tag to firewall
 ### Syntax
 
 ```h1 firewall tag add | --firewall FIREWALL [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash
@@ -175,7 +168,6 @@ Delete a tag of firewall
 ### Syntax
 
 ```h1 firewall tag delete | --tag TAG --firewall FIREWALL```
-
 ### Example
 
 ```bash
@@ -195,7 +187,6 @@ Create firewall
 ### Syntax
 
 ```h1 firewall create | --name NAME [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash
@@ -220,7 +211,6 @@ Attach firewall to a network
 ### Syntax
 
 ```h1 firewall attach | --firewall FIREWALL --network NETWORK```
-
 ### Example
 
 ```bash
@@ -242,7 +232,6 @@ Detach firewall from network
 ### Syntax
 
 ```h1 firewall detach | --firewall FIREWALL```
-
 ### Example
 
 ```bash
@@ -312,7 +301,6 @@ List rule ingress of firewall
 ### Syntax
 
 ```h1 firewall ingress list | --firewall FIREWALL```
-
 ### Example
 
 ```bash
@@ -331,7 +319,6 @@ Add rule ingress of firewall
 ### Syntax
 
 ```h1 firewall ingress add | --firewall FIREWALL --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
-
 ### Examples
 
 #### Add firewall to allow any incoming HTTP traffic to 10.177.2.2
@@ -362,7 +349,6 @@ Add rule ingress of firewall
 ### Syntax
 
 ```h1 firewall ingress delete | --firewall FIREWALL --rule RULE```
-
 ### Example
 
 ```bash
@@ -384,7 +370,6 @@ Show rule ingress of firewall
 ### Syntax
 
 ```h1 firewall ingress show | --firewall FIREWALL --ingress INGRESS```
-
 ### Example
 
 ```bash
@@ -455,7 +440,6 @@ List rule egress of firewall
 ### Syntax
 
 ```h1 firewall egress list | --firewall FIREWALL```
-
 ### Example
 
 ```bash
@@ -474,7 +458,6 @@ Add rule egress of firewall
 ### Syntax
 
 ```h1 firewall egress add | --firewall FIREWALL --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
-
 ### Examples
 
 #### Add firewall to allow any incoming HTTP traffic to 10.177.2.2
@@ -505,7 +488,6 @@ Add rule egress of firewall
 ### Syntax
 
 ```h1 firewall egress delete | --firewall FIREWALL --rule RULE```
-
 ### Example
 
 ```bash
@@ -527,7 +509,6 @@ Show rule egress of firewall
 ### Syntax
 
 ```h1 firewall egress show | --firewall FIREWALL --egress EGRESS```
-
 ### Example
 
 ```bash
