@@ -155,7 +155,7 @@ Delete a tag of IP address
 ### Example
 
 ```bash
-h1 ip tag delete --vm test-vm --tag prod
+h1 ip tag delete --ip test-ip --tag prod
 ```
 
 ### Required arguments

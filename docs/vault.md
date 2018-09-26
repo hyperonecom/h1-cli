@@ -192,7 +192,7 @@ Delete a tag of Vault
 ### Example
 
 ```bash
-h1 vault tag delete --vm test-vm --tag prod
+h1 vault tag delete --vault test-vault --tag prod
 ```
 
 ### Required arguments

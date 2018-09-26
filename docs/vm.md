@@ -24,12 +24,12 @@
     * [h1 vm nic list](#h1-vm-nic-list) - List network adapter
     * [h1 vm nic show](#h1-vm-nic-show) - Show network adapter
     * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
+    * [h1 vm nic create](#h1-vm-nic-create) - Create network adapter
+    * [h1 vm nic history](#h1-vm-nic-history) - History of network adapter
     * [h1 vm nic tag](#h1-vm-nic-tag) - Manage your tag
       * [h1 vm nic tag list](#h1-vm-nic-tag-list) - List tag
       * [h1 vm nic tag add](#h1-vm-nic-tag-add) - Add a tag to network adapter
       * [h1 vm nic tag delete](#h1-vm-nic-tag-delete) - Delete a tag of network adapter
-    * [h1 vm nic create](#h1-vm-nic-create) - Create network adapter
-    * [h1 vm nic history](#h1-vm-nic-history) - History of network adapter
     * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP address of network adapter
       * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP address of network adapter
       * [h1 vm nic ip delete](#h1-vm-nic-ip-delete) - Delete IP address of network adapter
@@ -561,6 +561,66 @@ h1 vm nic delete --nic my-nic --vm test-vm
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
 
+## h1 vm nic create
+
+Create network adapter
+
+### Syntax
+
+```h1 vm nic create | --type TYPE --vm VM [--network NETWORK] [--ip IP] [--tag TAG [--tag TAG ...]]```
+
+### Examples
+
+#### Create network adapter with public IP
+
+```bash
+h1 vm nic create --vm test-vm2 --type public
+```
+
+#### Create network adapter and private network
+
+```bash
+h1 vm nic create --vm test-vm2 --network my-network --type private
+```
+
+Note (4): To list available networks use ```h1 network list```.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--type TYPE``` |  | Type of network adapter |
+| ```--vm VM``` |  | Virtual machine name or ID |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network connected to network adapter |
+| ```--ip IP``` |  | IP to assign from network |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 vm nic history
+
+History of network adapter
+
+### Syntax
+
+```h1 vm nic history | --nic NIC --vm VM```
+
+### Example
+
+```bash
+h1 vm nic history --nic my-nic --vm test-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--nic NIC``` |  | Network adapter ID or name |
+| ```--vm VM``` |  | Virtual machine name or ID |
+
 ## h1 vm nic tag
 
 Manage your tag
@@ -624,7 +684,7 @@ Delete a tag of network adapter
 ### Example
 
 ```bash
-h1 vm nic tag delete --vm test-vm --tag prod
+h1 vm nic tag delete --nic test-nic --tag prod
 ```
 
 ### Required arguments
@@ -634,66 +694,6 @@ h1 vm nic tag delete --vm test-vm --tag prod
 | ```--tag TAG``` |  | Tag |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
-
-## h1 vm nic create
-
-Create network adapter
-
-### Syntax
-
-```h1 vm nic create | --type TYPE --vm VM [--network NETWORK] [--ip IP] [--tag TAG [--tag TAG ...]]```
-
-### Examples
-
-#### Create network adapter with public IP
-
-```bash
-h1 vm nic create --vm test-vm2 --type public
-```
-
-#### Create network adapter and private network
-
-```bash
-h1 vm nic create --vm test-vm2 --network my-network --type private
-```
-
-Note (4): To list available networks use ```h1 network list```.
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--type TYPE``` |  | Type of network adapter |
-| ```--vm VM``` |  | Virtual machine name or ID |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--network NETWORK``` |  | Network connected to network adapter |
-| ```--ip IP``` |  | IP to assign from network |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 vm nic history
-
-History of network adapter
-
-### Syntax
-
-```h1 vm nic history | --nic NIC --vm VM```
-
-### Example
-
-```bash
-h1 vm nic history --nic my-nic --vm test-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--nic NIC``` |  | Network adapter ID or name |
-| ```--vm VM``` |  | Virtual machine name or ID |
 
 ## h1 vm nic ip
 

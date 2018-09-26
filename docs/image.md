@@ -165,7 +165,7 @@ Delete a tag of image
 ### Example
 
 ```bash
-h1 image tag delete --vm test-vm --tag prod
+h1 image tag delete --image test-image --tag prod
 ```
 
 ### Required arguments

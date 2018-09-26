@@ -125,6 +125,7 @@ ava.test.serial('vm nic life cycle', async t => {
         createParams: `--vm ${vm._id} --type private --network ${network._id}`,
         listParams: `--vm ${vm._id}`,
         showParams: `--vm ${vm._id}`,
+        tagParams: `--vm ${vm._id}`,
         deleteParams: `--vm ${vm._id}`,
         historyParams: `--vm ${vm._id}`,
     })(t);

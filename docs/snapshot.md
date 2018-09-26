@@ -174,7 +174,7 @@ Delete a tag of snapshot
 ### Example
 
 ```bash
-h1 snapshot tag delete --vm test-vm --tag prod
+h1 snapshot tag delete --snapshot test-snapshot --tag prod
 ```
 
 ### Required arguments

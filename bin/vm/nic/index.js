@@ -19,7 +19,7 @@ const resource = {
     options: options,
     plugins: defaults.plugins,
     title: 'network adapter',
-    commands: ['list', 'show', 'delete', 'tag'],
+    commands: ['list', 'show', 'delete'],
     dirname: __dirname,
     context: {
         listParams: '--vm test-vm',
@@ -28,13 +28,16 @@ const resource = {
     },
 };
 
+const rootChildResource = Object.assign({}, resource, {
+    url: () => 'netadp',
+});
+
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
 
-category.addChild(require('bin/generic/history')(Object.assign({}, resource, {
-    url: () => 'netadp',
-})));
+category.addChild(require('bin/generic/history')(rootChildResource));
+category.addChild(require('bin/generic/tag')(rootChildResource));
 
 category.addChild(require('./ip'));
 
