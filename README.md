@@ -4,110 +4,118 @@
 [![Build Status](https://travis-ci.org/hyperonecom/h1-cli.svg?branch=master)](https://travis-ci.org/hyperonecom/h1-cli)
 [![Docker Repository on Quay](https://quay.io/repository/hyperone/cli/status "Docker Repository on Quay")](https://quay.io/repository/hyperone/cli)
 
-h1-cli jest konsolowym narzędziem przeznaczonym do zarządzania infrastrukturą chmury HyperOne. Możesz go wykorzystywać zarówno do własnych prac administracyjnych, jak również podczas tworzenia  skryptów automatyzujących.
+h1-cli is a console tool designed to manage the HyperOne cloud infrastructure. You can use it for your own administrative work as well as for creating automation scripts.
 
-## Przegląd funkcjonalności
+## Features overview
 
+* control of all resources provided by the platform, in particular:
 
-* kontrola wszystkich zasobów udostępnianych przez panel administracyjny, w szczególności:
+   * changing server - creating, stoping and deleting them,
+   * manipulation of IP addresses - associate them, modification of the PTR record,
+   * modifying disks - creating, detach / attach from the server, resize,
+   * update DNS zone - add DNS records, import & exports whole zone
 
-  * zmiana konfiguracji serwerów - ich tworzenie, wyłączanie i kasowanie,
-  * manipulacja adresami IP - ich przepinanie, modyfikacja rekordu PTR,
-  * modyfikowanie dysków - utworzenie, odłączenie / dołączenie od serwera, rozszerzenie, wykonanie migawki.
+* various forms of authentication,
+* choice of output format, in order to use it in additional tools.
 
-* różnorodne formy uwierzytelniania,
-* wybór formatu wyjścia, w celu wykorzystania go w dodatkowych narzędziach.
+The [reference documentation] contains a complete set of information on the possible actions to be taken and their options.
 
-[Referencyjna dokumentacja] zawiera komplet informacji na temat możliwych do wykonania akcji i ich opcji.
+## Installation
 
-## Instalacja
+The installation is basically limited to downloading the executable copy of the software, which is available in the [Releases] tab of the [repository].
 
-Instalacja zasadniczo ogranicza się pobrania wykonywalnej kopii oprogramowania, która jest dostępna w zakładce [Releases] repozytorium.
+### Linux environment
 
-### W środowisku systemu Linux
-
-Uruchom dostarczony plik binarny po nadaniu uprawnień wykonywalnych:
+Run the downloaded binary file after granting executables rights:
 
 ```bash
 $ chmod +x h1_client.bin
 $ ./h1_client.bin
 ```
 
-Aplikacja powinna działać poprawnie bez instalacji dodatkowych bibliotek / pakietów.
+The application should work correctly without installing additional libraries / packages.
 
-Jeżeli zamierzasz z oprogramowania stale korzystać możesz dokonać instalacja dla użytkownika lub na poziomie systemu.
+If you intend to use the software constantly, you can install for the user or at the system level.
 
-Instalacja dla użytkownika może zostać przeprowadzona poprzez:
+Installation for the user can be carried out by:
 
 ```bash
 $ cp h1_client.bin ~/.local/bin/h1
 $ h1
 ```
 
-Instalacja na poziomie sytemu może zostać przeprowadzona poprzez:
+Installation at the system level can be carried out by:
 
 ```bash
 $ cp h1_client.bin /usr/local/bin/h1
 $ h1
 ```
 
-### W środowisku systemu Windows
+### Windows environment
 
-> Wprowadzenie dla systemu Windows wymaga opracowania z uwzględnieniem specyfiki platformy.
+> Introduction for Windows requires development taking into account the specificity of the platform.
 
-### W środowisku systemu macOS
+### macOS environment
 
-> Wprowadzenie dla systemu macOS wymaga opracowania z uwzględnieniem specyfiki platformy.
+> Introduction for the macOS system requires development taking into account the specificity of the platform.
 
-### W kontenerze Docker
+### Docker container
 
-Możliwe jest uruchomienie CLI jako kontener Docker z wykorzystaniem następującego polecenia:
+It is possible to run CLI as a Docker container using the following command:
 
 ```bash
 docker run -it -v ~/.h1-cli:/root/.h1-cli quay.io/hyperone/cli:master h1 vm list
 ```
 
+For long-term use, we recommend append to ``~/.bashrc`` following function:
+
+```bash
+function h1() {
+	docker run -it -v ~/.h1-cli:/root/.h1-cli -v /tmp/:/mnt quay.io/hyperone/cli:latest h1 "$@";
+}
+```
+
 ## Użycie
 
-Polecenia zbudowane są z następujących składowych:
+The commands are composed of the following components:
 
 ```bash
-$ h1 [kategoria] polecenie [[argument] ...]
+$ h1 [category [...]] commands [[options] ...]
 ```
 
-Struktura ta powtarza się w wszystkich poleceniach aplikacji.
+This structure is repeated in all application commands.
 
-Aby rozpocząć prace powinieneś zalogować się poprzez polecenie:
+To start the work you should log in via the command:
 
 ```bash
-$ h1 login --username {{adres_email}}
+$ h1 login --username {{user_email}}
 ```
 
-Zostaniesz poproszony o wprowadzenie hasła:
+You will be asked to enter the password:
 
 > ? Password: ********************
 
-Po poprawnym logowaniu otrzymasz komunikat o uzyskaniu klucza API dla sesji:
+After correctly logging in, you will receive a message about obtaining the API key for the session:
 
 > info: You successfully logged and stored your apiKey in config file
 
-Dane uwierzytelniające zostały zapisane w ``$HOME/.h1-cli/conf.json``. Należy zapewnić poufność tych plików.
+The credentials have been saved in ``$HOME/.h1-cli/conf.json``. You must ensure the confidentiality of these files.
 
-Jeżeli wykorzystujesz więcej niż 1 project musisz dokonać wyboru aktywnie używanego poprzez pobranie identyfikatora właściwego::
+If you use more than 1 project you must select actively used by downloading the proper identifier:
 
 ```bash
 $ h1 project list
 ```
 
-Następnie zatwierdzenia tego wyboru::
+Then, confirm this choice:
 
 ```bash
-h1 project select --project {{project}}
+$ h1 project select --project {{project}}
 ```
 
-### Utworzenie serwera
+### Creating a server
 
-Poniżej przedstawiona jest przykładowa sesja przedstawiająca podstawową akcje - utworzenie serwera
+Below is an example session presenting the basic actions - creating a server
 
 ```bash
 $ h1 vm list
@@ -129,77 +137,76 @@ ID                        NAME           FLAVOUR    STATE    PROCESSING  TAGS
 5b44b43511b0b1e6f24eb623  vm-tutorial    a1.micro   Running  false       
 ```
 
-Omówienie parametrów zasadniczego polecenia ``h1 vm create --name vm-tutorial --ssh my-ssh --image ubuntu:18.04 --type a1.micro --os-disk ssd,10``:
+Description of the basic command parameters``h1 vm create --name vm-tutorial --ssh my-ssh --image ubuntu:18.04 --type a1.micro --os-disk ssd,10``:
 
-* ``--name vm-tutorial`` - własny identyfikator użytkownika dla serwera,
-* ``--sshkey my-ssh`` - identyfikator klucza SSH możliwy do uzyskania poprzez ``h1 credentials list``,
-* ``--image ubuntu:18.04`` - identyfikator obrazu systemu możliwy do uzyskania popzez ``h1 image list --recommended``,
-* ``--type a1.micro`` - identyfikator typu instancji możliwy do uzyskania poprzez ``h1 service list --resource vm --type flavour``,
-* ``--os-disk ssd,10`` - typ i rozmiar dysku systemowego.
+* ``--name vm-tutorial`` - server name chosen by the user
+* ``--sshkey my-ssh`` - SSH key name can be listed through ``h1 user credentials list`` or ```h1 project credentials list```,
+* ``--image ubuntu:18.04`` - the system operating image identifier possible to obtain through``h1 image list --recommended``,
+* ``--type a1.micro`` - virtual machine type that can be obtained via ``h1 service list --resource vm --type flavour``,
+* ``--os-disk ssd,10`` - the type and size of the system disk.
 
-Klucz SSH jest dostępny po wcześniejszym zaimportowaniu go np. poprzez polecenie ``h1 user credentials add --sshkey-file ~/.ssh/id_rsa.pub --name $(hostname)``.
+The SSH key is available after importing it. For example via the command ``h1 user credentials add --sshkey-file ~/.ssh/id_rsa.pub --name $(hostname)``..
 
-### Zarządzanie serwerami
+### Servers managements
 
-Poniżej przedstawiono podstawowe akcje możliwe do wykonania z serwerami w postaci przykładowych poleceń:
+The following are the basic actions that can be performed with servers in the form of example commands:
 
-* ``h1 vm list`` - wypisuje istniejące serwery,
-* ``h1 vm show --vm vm-tutorial`` - wypisuje szczegółowe informacje o serwerze ``vm-tutorial``,
-* ``h1 vm stop --vm vm-tutorial`` - zatrzymuje serwery ``vm-tutorial`` bez jego usuwania,
-* ``h1 vm start --vm vm-tutorial`` - uruchamia serwer ``vm-tutorial``,
-* ``h1 vm turnoff --vm vm-tutorial`` - wyłącza serwer ``vm-tutorial`` bez jego usuwania,
-* ``h1 vm destroy --vm vm-tutorial`` - kasuje serwer ``vm-tutorial``.
+* ``h1 vm list`` - list available servers
+* ``h1 vm show --vm vm-tutorial`` - show details about server ``vm-tutorial``,
+* ``h1 vm stop --vm vm-tutorial`` - stop server ``vm-tutorial`` without removing them,
+* ``h1 vm start --vm vm-tutorial`` - start server ``vm-tutorial``,
+* ``h1 vm turnoff --vm vm-tutorial`` - turn off server ``vm-tutorial`` without removing them,
+* ``h1 vm destroy --vm vm-tutorial`` - delete server``vm-tutorial``.
 
-Możliwe jest także wprowadzanie zmian dotyczących dysków podłączonych do serwera:
+It is also possible to make changes regarding disks attached to the server:
 
-* ``h1 vm disk attach --vm vm-tutorial --disk vm-disk-2`` - dołącza do instancji wcześniej utworzony dysk np. poprzez ``h1 disk create --name 'vm-disk-2' --type ssd --size 1``,
-* ``h1 vm disk detach --vm vm-tutorial --disk vm-disk-2`` - odłącza od instancji dysk bez usuwania go.
+* ``h1 vm disk attach --vm vm-tutorial --disk vm-disk-2`` - attach a previously created disk, e.g. via``h1 disk create --name 'vm-disk-2' --type ssd --size 1``,
+* ``h1 vm disk detach --vm vm-tutorial --disk vm-disk-2`` - detach dysk without removing them.
 
-Operacje te nie wymagają wyłączenia wirtualnych maszyn, w przypadku dysków innych niż systemowy.
+These operations do not require disabling virtual machines for non-system disks.
 
-### Zarządzanie dyskami
+### Disks managements
 
-Dyski stanowią nośniki danych dla serwerów. Możliwe jest ich przełączanie i modyfikowanie w trakcie pracy maszyn wirtualnych.
+Disks are data carriers for servers. It is possible to switch them and modify them during the operation of virtual machines.
 
-Poniżej przedstawiono podstawowe akcje możliwe do wykonania z dyskami w postaci przykładowych poleceń:
+The following are the basic actions that can be performed with disks in the form of example commands:
 
-* ``h1 disk list`` - wypisuje dostępne dyski
-* ``h1 disk show --disk vm-disk-2`` - wypisuje parametry dysku ``vm-disk-2``, w tym identyfikator serwera,
-* ``h1 disk delete --disk vm-disk-2`` - usuwa dysk ``vm-disk-2``,
-* ``h1 disk rename --disk vm-disk-2 --new-name vm-disk-new`` - zmienia nazwę dysku ``vm-disk-2`` na ``vm-disk-new``,
-* ``h1 disk create --name vm-disk-4 --type ssd --size 25`` - tworzy dysk SSD o rozmiarze 25 GB i nazwie ``vm-disk-4``,
-* ``h1 disk resize --disk vm-disk-4 --size 30`` - rozszerza dysk ``vm-disk-4`` do rozmiaru 30 GB,
+* ``h1 disk list`` - list available disk
+* ``h1 disk show --disk vm-disk-2`` - show details about vm ``vm-disk-2``,
+* ``h1 disk delete --disk vm-disk-2`` - delete disk``vm-disk-2``,
+* ``h1 disk rename --disk vm-disk-2 --new-name vm-disk-new`` - changes name of disk ``vm-disk-2`` to ``vm-disk-new``,
+* ``h1 disk create --name vm-disk-4 --type ssd --size 25`` - create disk SSD with size 25 GB and name ``vm-disk-4``,
+* ``h1 disk resize --disk vm-disk-4 --size 30`` - resize ``vm-disk-4`` to 30 GB.
 
-Rozszerzenie dysku nie jest możliwe w przypadku dysków systemowych maszyn uruchomionych. W przypadku dysku systemowego konieczne jest wcześniejsze wyłączenie serwera. W pozostałych przypadkach możliwe jest rozszerzenie dysku w trakcie pracy maszyny. Dla wykorzystania pełni potencjału zalecamy wykorzystanie LVM dla dysków niesystemowych.
+Disk extension is not possible for system disks on running server. In the case of a system disk, you have to shut down the server first. In other cases you can resize disk when virtual machine and operating system is running.
 
-### Zarządzanie obrazami
+### Images management
 
-Możliwe jest utworzenie obrazków instancji, a także nimi zarządzenie. Obrazy pozwalają na utworzenie serwerów z identyczną konfiguracjąlub lub utworzenie tymczasowej kopii instancji np. dla zabezpieczenia stanu systemu przed znacznymi aktualizacjami.
+You can create virtual machine images as well as manage them. The image allow you to create servers with the same configuration or to create a temporary copy of the instance, e.g. to protect the system state from significant updates.
 
-Poniżej przedstawiono podstawowe akcje możliwe do wykonania z obrazami w postaci przykładowych poleceń:
+The following are the basic actions that can be taken with images in the form of example commands:
 
-* ``h1 image create --vm vm-tutorial --name vm-tutorial-$(date +"%Y-%m-%d")`` - tworzy obraz serwera i zapisuje go z podaną nazwą,
-* ``h1 image list`` - wypisuje twoje obrazy,
-* ``h1 image list --recommended`` - wypisuje nasze rekomendowane obrazy,
-* ``h1 image delete --image vm-tutorial-2017-09-15`` - kasuje obraz ``vm-tutorial-2017-09-15``,
-* ``h1 image show --image vm-tutorial-2017-09-15`` - wyświetla informacje o obrazie ``vm-tutorial-2017-09-15``,
+* ``h1 image create --vm vm-tutorial --name vm-tutorial-$(date +"%Y-%m-%d")`` - will create image and save it with the given name,
+* ``h1 image list`` - list your images
+* ``h1 image list --recommended`` - list images provided & recommended by platform
+* ``h1 image delete --image vm-tutorial-2017-09-15`` - remove image``vm-tutorial-2017-09-15``,
+* ``h1 image show --image vm-tutorial-2017-09-15`` - show details about image ``vm-tutorial-2017-09-15``,
 
-### Zarządzanie innymi zasobami
+### Managing other resources
 
-Warto zwrócić uwagę na:
+It is worth paying attention to:
 
-* ``h1 vm nic list --vm vm-id`` - wypisuje m. in. adresy IP wirtualnej maszyny.
+* ``h1 vm nic list --vm vm-id`` - lists, among others virtual machine IP addresses.
 
-W przypadku pozostałych zasobów warto korzystać z przełącznika ``h1 -h``, który w sposób pełny i najbardziej aktualny dokumentuje możliwości klienta.
+For other resources, use the ``--help`` parameter, which documents the CLI functionalities in a full and up-to-date manner.
  
-W repozytorium dostępna jest [referencyjna dokumentacja] pozostałych komend.
-
+The [reference documentation] of the other commands is available in the repository.
 
 ### Zgłaszanie problemów i uwag
 
 Jeśli napotkasz jakiekolwiek błędy z narzędziem, proszę zgłosić problem poprzez system zgłoszeń w panelu administracyjnym lub zakładkę [Issues] w repozytorium.
 
 [Releases]: https://github.com/hyperonecom/h1-cli/releases/latest
-[repozytorium]: https://github.com/hyperonecom/h1-cli
+[repository]: https://github.com/hyperonecom/h1-cli
 [Issues]: https://github.com/hyperonecom/h1-cli/issues
-[referencyjna dokumentacja]: docs/index.md
+[reference documentation]: docs/index.md
