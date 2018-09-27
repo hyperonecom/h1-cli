@@ -6,7 +6,7 @@ const tests = require('../../lib/tests');
 
 const now = Date.now();
 
-ava.test('config set & get & show & unset', async t => {
+ava('config set & get & show & unset', async t => {
     const key = 'vm.create.name';
     const value = `my-home-${now}`;
     await tests.run(`config set --key ${key} --value ${value}`);

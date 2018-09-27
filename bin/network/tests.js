@@ -6,11 +6,11 @@ const tests = require('../../lib/tests');
 
 const now = Date.now();
 
-ava.test.serial('network life cycle', tests.resourceLifeCycle('network', `--name network-test-${now}`));
+ava.serial('network life cycle', tests.resourceLifeCycle('network', `--name network-test-${now}`));
 
-ava.test.serial('network rename', tests.resourceRename('network', `--name network-test-${now}`));
+ava.serial('network rename', tests.resourceRename('network', `--name network-test-${now}`));
 
-ava.test.serial('network ip life cycle', async t => {
+ava.serial('network ip life cycle', async t => {
     const network = await tests.run(`network create --name network-test-${now}`);
     await tests.resourceLifeCycle('network ip', {
         createParams: `--network ${network._id}`,
@@ -24,7 +24,7 @@ ava.test.serial('network ip life cycle', async t => {
     await tests.remove('network', network);
 });
 
-ava.test.serial('network using custom ip', async t => {
+ava.serial('network using custom ip', async t => {
     const private_ip = '10.214.180.10';
     const name = `my-ip-network-${now}`;
     const network = await tests.run(`network create --name ${name}  --address 10.214.180.0/24 --gateway ${private_ip}`);

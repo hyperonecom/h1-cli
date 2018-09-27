@@ -7,20 +7,20 @@ const tests = require('../../lib/tests');
 
 const now = Date.now();
 
-ava.test.serial('ip life cycle', tests.resourceLifeCycle('ip', {
+ava.serial('ip life cycle', tests.resourceLifeCycle('ip', {
     createParams: '',
     skipHistoryCreated: true,
     stateCreated: 'Unallocated',
 }));
 
-ava.test.serial('ip ptr update', async t => {
+ava.serial('ip ptr update', async t => {
     const fresh_ip = await tests.run('ip create');
     const updated_ip = await tests.run(`ip ptr --ip ${fresh_ip._id} --value mail.host.example.com`);
     t.true(updated_ip.ptrRecord === 'mail.host.example.com');
     await tests.remove('ip', updated_ip);
 });
 
-ava.test.serial('ip associate & disassociate', async t => {
+ava.serial('ip associate & disassociate', async t => {
     const ip = await tests.run('ip create');
 
     const password = await tests.getToken();

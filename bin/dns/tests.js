@@ -14,14 +14,14 @@ const fsPromiseUnlink = path => new Promise((resolve, reject) => {
     });
 });
 
-ava.test.serial('dns zone life cycle', tests.resourceLifeCycle('dns zone', {
+ava.serial('dns zone life cycle', tests.resourceLifeCycle('dns zone', {
     createParams: `--name dns-zone-${now}.com`,
     skipCreated: true,
     skipHistory: true,
     skipTag: true,
 }));
 
-ava.test.serial('dns zone export', async t => {
+ava.serial('dns zone export', async t => {
     const name = `dns-export-${now}.com`;
     const zone = await tests.run(`dns zone create --name ${name}`);
     const export_content = await tests.run(`dns zone export --zone ${name}`);
@@ -48,7 +48,7 @@ const test_record_values = async (t, zone, type, name, expected_values) => {
 };
 
 Object.entries(recordTypes).forEach(([type, values]) => {
-    ava.test.serial(`dns zone record-set ${type} life cycle`, async t => {
+    ava.serial(`dns zone record-set ${type} life cycle`, async t => {
         const zone = await tests.run(`dns zone create --name ${type}.dns-record-set-${now}.com`);
         const name = `${type}-${now}`;
         const full_name = `${name}.${zone.name}`;
@@ -74,7 +74,7 @@ Object.entries(recordTypes).forEach(([type, values]) => {
         await tests.remove('dns zone', zone);
     });
 
-    ava.test.serial(`dns exports-import record type ${type}`, async t => {
+    ava.serial(`dns exports-import record type ${type}`, async t => {
         const zone = await tests.run(`dns zone create --name ${type}.export-${now}.com`);
         const zone_import = await tests.run(`dns zone create --name ${type}.import-${now}.com`);
         const name = `${type}-${now}`;

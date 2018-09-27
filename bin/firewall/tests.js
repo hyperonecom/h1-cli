@@ -9,15 +9,15 @@ const now = Date.now();
 const name = `firewall-test-${now}`;
 const createParams = `--name ${name}`;
 
-ava.test.serial('firewall life cycle', tests.resourceLifeCycle('firewall', {
+ava.serial('firewall life cycle', tests.resourceLifeCycle('firewall', {
     createParams: createParams,
     skipHistoryCreated: true,
     stateCreated: 'Detached',
 }));
 
-ava.test.serial('firewall rename', tests.resourceRename('firewall', createParams));
+ava.serial('firewall rename', tests.resourceRename('firewall', createParams));
 
-ava.test.serial('firewall attach & detach', async t => {
+ava.serial('firewall attach & detach', async t => {
     const network = await tests.run(`network create --name network-${name}`);
 
     const firewall = await tests.run(`firewall create ${createParams}`);
@@ -35,7 +35,7 @@ ava.test.serial('firewall attach & detach', async t => {
 });
 
 ['ingress', 'egress'].forEach(table => {
-    ava.test.serial(`firewall rule ${table} life cycle`, async t => {
+    ava.serial(`firewall rule ${table} life cycle`, async t => {
         const firewall = await tests.run(`firewall create ${createParams}`);
         const name = `${now}-${table}`;
 

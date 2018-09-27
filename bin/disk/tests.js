@@ -18,17 +18,17 @@ const download = (resource, destination) => tests.run(`disk download
 
 ['archive', 'ssd', 'volume'].forEach(type => {
     const createParams = `--name disk-test-${now} --type ${type} --size 100`;
-    ava.test.serial(`disk life cycle ${type}`, tests.resourceLifeCycle('disk', {
+    ava.serial(`disk life cycle ${type}`, tests.resourceLifeCycle('disk', {
         createParams: createParams,
         stateCreated: 'Detached',
     }));
-    ava.test.serial(`disk rename ${type}`, tests.resourceRename('disk', createParams));
+    ava.serial(`disk rename ${type}`, tests.resourceRename('disk', createParams));
 });
 
 // TODO find a way to stop disk upload
-ava.test.todo('disk resume');
+ava.todo('disk resume');
 
-ava.test.serial('disk add & download', async t => {
+ava.serial('disk add & download', async t => {
     const tmp_filename = path.join(os.tmpdir(), `cli-disk-${now}.vhdx`);
     const createParams = `--name disk-test-${now} --size 1 --type ssd`;
     const fresh_disk = await tests.run(`disk create ${createParams}`);
@@ -48,7 +48,7 @@ ava.test.serial('disk add & download', async t => {
     // Take into account that the file will differ in metadata.
 });
 
-ava.test.serial('disk local upload', async t => {
+ava.serial('disk local upload', async t => {
     const filename = await tests.downloadFile(tests.disk_url);
 
     const disk = await tests.run(`disk create --name disk-upload-${now} --no-progress --type ssd --source-file '${filename}'`);
@@ -57,6 +57,6 @@ ava.test.serial('disk local upload', async t => {
     fs.unlinkSync(filename);
 });
 
-ava.test.serial('disk resize', tests.resourceResizeCycle('disk', {
+ava.serial('disk resize', tests.resourceResizeCycle('disk', {
     createParams: `--name disk-test-${now} --type ssd`,
 }));
