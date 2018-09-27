@@ -63,6 +63,7 @@ Show project
 ```bash
 h1 project show --project my-project
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -81,6 +82,7 @@ Delete project
 ```bash
 h1 project delete --project my-project
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -99,6 +101,7 @@ History of project
 ```bash
 h1 project history --project my-project
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -117,6 +120,7 @@ Rename project
 ```bash
 h1 project rename --project my-project --new-name my-renamed-project
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -140,6 +144,7 @@ List tag
 ```bash
 h1 project tag list --project my-project
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -158,6 +163,7 @@ Add a tag to project
 ```bash
 h1 project tag add --project test-project --tag prod=true
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -182,6 +188,7 @@ Delete a tag of project
 ```bash
 h1 project tag delete --project test-project --tag prod
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -201,6 +208,7 @@ List project
 ```bash
 h1 project list
 ```
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -223,6 +231,7 @@ Grant access rights for project
 ```bash
 h1 project access grant --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -248,6 +257,7 @@ Revoke access rights for project
 ```bash
 h1 project access revoke --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -276,6 +286,7 @@ Show network access rule
 ```bash
 h1 project access rule show --rule my-rule
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -300,6 +311,7 @@ List network access rule
 ```bash
 h1 project access rule list
 ```
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -318,6 +330,7 @@ Rename network access rule
 ```bash
 h1 project access rule rename --rule my-rule --new-name my-renamed-rule
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -343,6 +356,7 @@ Delete network access rule
 ```bash
 h1 project access rule delete --rule my-rule
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -380,6 +394,7 @@ h1 project access rule add --type subnet --value 82.0.0.2/24
 ```bash
 h1 project access rule add --type subnet --value 82.123.123.2/32
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -406,6 +421,7 @@ List project
 ```bash
 h1 project access list
 ```
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -448,6 +464,7 @@ h1 project token access delete --project 6oAoJqgyLZP4Le9UUNHrEOYP --token d41d8c
 ```bash
 H1_TOKEN="d41d8cd98f00b204e9800998ecf8427e" h1 vault snapshot --vault x --name $(date +"%s")
 ```
+
 ## h1 project token show
 
 Show token
@@ -460,6 +477,7 @@ Show token
 ```bash
 h1 project token show --token my-token
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -484,6 +502,7 @@ List token
 ```bash
 h1 project token list
 ```
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -502,6 +521,7 @@ Delete token
 ```bash
 h1 project token delete --token my-token --project my-project
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -526,6 +546,7 @@ Rename token
 ```bash
 h1 project token rename --token my-token --new-name my-renamed-token
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -551,6 +572,7 @@ Add token
 ```bash
 h1 project token add --project 6oAoJqgyLZP4Le9UUNHrEOYP --name secret-token-1
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -579,6 +601,7 @@ List access rule
 ```bash
 h1 project token access list --project my-project --token my-token --access my-access-id
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -603,6 +626,7 @@ Show access rule
 ```bash
 h1 project token access show --access my-access
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -628,6 +652,7 @@ Delete access rule
 ```bash
 h1 project token access delete --access my-access --project my-project --token my-token --access my-access-id
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -655,6 +680,7 @@ Add access rule
 ```bash
 h1 project token access add --project 6oAoJqgyLZP4Le9UUNHrEOYP --method POST --path 'vault/x/actions/snapshot' --token d41d8cd98f00b204e9800998ecf8427e
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -689,6 +715,7 @@ Add credits limits
 ```
 h1 project notification credits add --limit 25
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -713,6 +740,7 @@ List credits limits
 ```bash
 h1 project notification credits list --project MyProject
 ```
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -731,6 +759,7 @@ Delete credits limits
 ```
 h1 project notification credits delete --limit 25
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -755,6 +784,7 @@ Select project context
 ```bash
 h1 project select --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -775,6 +805,7 @@ h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
 
 Contact technical support to request increase the limits.
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -797,6 +828,7 @@ Show credentials
 ```bash
 h1 project credentials show --credentials my-credentials
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -821,6 +853,7 @@ List credentials
 ```bash
 h1 project credentials list --project my-project
 ```
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -839,6 +872,7 @@ Delete credentials
 ```bash
 h1 project credentials delete --credentials my-credentials --project my-project
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -863,6 +897,7 @@ Rename credentials
 ```bash
 h1 project credentials rename --credentials my-credentials --new-name my-renamed-credentials
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -888,6 +923,7 @@ Add public SSH key for project
 ```bash
 h1 project credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub --project my-project
 ```
+
 ### Required arguments
 
 | Name | Default | Description |

@@ -50,7 +50,7 @@ const writeCommandSpecs = (wstream, entry, options, depth=1) => {
         examples = utils.update_markdown_header(examples, depth + 1);
         examples = examples.replace(/ +$/m, '');
         const header = examples.startsWith(utils.code) ? 'Example' : 'Examples';
-        wstream.write(`${utils.getHeader(depth + 1, header)}${examples}\n`);
+        wstream.write(`${utils.getHeader(depth + 1, header)}${examples}\n\n`);
     }
 
     writeArguments(wstream, 'Required arguments', entry.optionGroups['Required arguments']);

@@ -42,6 +42,7 @@ List firewall
 ```bash
 h1 firewall list
 ```
+
 ## h1 firewall show
 
 Show firewall
@@ -54,6 +55,7 @@ Show firewall
 ```bash
 h1 firewall show --firewall my-firewall
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -72,6 +74,7 @@ Delete firewall
 ```bash
 h1 firewall delete --firewall my-firewall
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -90,6 +93,7 @@ History of firewall
 ```bash
 h1 firewall history --firewall my-firewall
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -108,6 +112,7 @@ Rename firewall
 ```bash
 h1 firewall rename --firewall my-firewall --new-name my-renamed-firewall
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -131,6 +136,7 @@ List tag
 ```bash
 h1 firewall tag list --firewall my-firewall
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -149,6 +155,7 @@ Add a tag to firewall
 ```bash
 h1 firewall tag add --firewall test-firewall --tag prod=true
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -173,6 +180,7 @@ Delete a tag of firewall
 ```bash
 h1 firewall tag delete --firewall test-firewall --tag prod
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -192,6 +200,7 @@ Create firewall
 ```bash
 h1 firewall create --name secure-zone-fw
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -218,6 +227,7 @@ h1 firewall attach --firewall secure-zone-fw --network my-safe-net
 ```
 
 Hint: Use ```h1 network list``` to list available networks or ```h1 network create``` to create a new one.
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -237,6 +247,7 @@ Detach firewall from network
 ```bash
 h1 firewall detach --firewall secure-zone-fw
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -288,6 +299,7 @@ Note (2): The following rules apply implicitly:
 
  - ingress has deny policy,
  - egress has allow policy, but the server can not receive a response to any packets that have not passed any egress rule.
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -306,6 +318,7 @@ List rule ingress of firewall
 ```bash
 h1 firewall ingress list --firewall secure-zone-fw
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -330,6 +343,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --external 0.0.0.0/0 --internal 10.177.2.2 \
     --name 'Allow HTTP'
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -356,6 +370,7 @@ h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51d
 ```
 
 Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to list available rules.
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -375,6 +390,7 @@ Show rule ingress of firewall
 ```bash
 h1 firewall ingress show --ingress my-ingress
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -427,6 +443,7 @@ Note (2): The following rules apply implicitly:
 
  - ingress has deny policy,
  - egress has allow policy, but the server can not receive a response to any packets that have not passed any egress rule.
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -445,6 +462,7 @@ List rule egress of firewall
 ```bash
 h1 firewall egress list --firewall secure-zone-fw
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -469,6 +487,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
     --external 0.0.0.0/0 --internal 10.177.2.2 \
     --name 'Allow HTTP'
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -495,6 +514,7 @@ h1 firewall ingress delete --firewall secure-zone-fw --rule 5b1e8988cdfb072cb51d
 ```
 
 Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to list available rules.
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -514,6 +534,7 @@ Show rule egress of firewall
 ```bash
 h1 firewall egress show --egress my-egress
 ```
+
 ### Required arguments
 
 | Name | Default | Description |

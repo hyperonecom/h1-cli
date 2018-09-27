@@ -33,6 +33,7 @@ List disk
 ```bash
 h1 disk list
 ```
+
 ## h1 disk show
 
 Show disk
@@ -45,6 +46,7 @@ Show disk
 ```bash
 h1 disk show --disk my-disk
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -63,6 +65,7 @@ Delete disk
 ```bash
 h1 disk delete --disk my-disk
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -81,6 +84,7 @@ History of disk
 ```bash
 h1 disk history --disk my-disk
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -99,6 +103,7 @@ Rename disk
 ```bash
 h1 disk rename --disk my-disk --new-name my-renamed-disk
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -122,6 +127,7 @@ List tag
 ```bash
 h1 disk tag list --disk my-disk
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -140,6 +146,7 @@ Add a tag to disk
 ```bash
 h1 disk tag add --disk test-disk --tag prod=true
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -164,6 +171,7 @@ Delete a tag of disk
 ```bash
 h1 disk tag delete --disk test-disk --tag prod
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -183,6 +191,7 @@ Resize disk
 ```bash
 h1 disk resize --disk my-disk --size 10
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -202,6 +211,7 @@ Resume create upload of disk
 ```bash
 h1 disk resume --disk my-disk --source-file ./my-disk.vhdx
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -229,6 +239,7 @@ h1 disk create --name db-disk --type ssd --size 10
 ```bash
 h1 disk create --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -257,6 +268,7 @@ Download disk to a .vhdx file
 ```bash
 h1 disk download --disk db-disk --destination-file ./my-disk.vhdx
 ```
+
 ### Required arguments
 
 | Name | Default | Description |

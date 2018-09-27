@@ -32,6 +32,7 @@ List network gateway
 ```bash
 h1 netgw list
 ```
+
 ## h1 netgw show
 
 Show network gateway
@@ -44,6 +45,7 @@ Show network gateway
 ```bash
 h1 netgw show --netgw my-netgw
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -62,6 +64,7 @@ Delete network gateway
 ```bash
 h1 netgw delete --netgw my-netgw
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -80,6 +83,7 @@ History of network gateway
 ```bash
 h1 netgw history --netgw my-netgw
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -98,6 +102,7 @@ Rename network gateway
 ```bash
 h1 netgw rename --netgw my-netgw --new-name my-renamed-netgw
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -121,6 +126,7 @@ List tag
 ```bash
 h1 netgw tag list --netgw my-netgw
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -139,6 +145,7 @@ Add a tag to network gateway
 ```bash
 h1 netgw tag add --netgw test-netgw --tag prod=true
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -163,6 +170,7 @@ Delete a tag of network gateway
 ```bash
 h1 netgw tag delete --netgw test-netgw --tag prod
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -184,6 +192,7 @@ h1 netgw create --name my-netgw --ip 62.181.8.21
 ```
 
 Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to create a new one.
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -209,6 +218,7 @@ Network gateway detach from a network
 ```bash
 h1 netgw detach --netgw my-netgw
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -229,6 +239,7 @@ h1 netgw attach --netgw my-netgw --network my-safe-net
 ```
 
 Hint: Use ```h1 network list``` to list available network or ```h1 network create``` to create a new one.
+
 ### Required arguments
 
 | Name | Default | Description |

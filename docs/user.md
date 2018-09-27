@@ -38,6 +38,7 @@ Create an account
 ```bash
 h1 user create
 ```
+
 ## h1 user access
 
 Manage your user access rights
@@ -58,6 +59,7 @@ Show network access rule
 ```bash
 h1 user access rule show --rule my-rule
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -76,6 +78,7 @@ List network access rule
 ```bash
 h1 user access rule list
 ```
+
 ## h1 user access rule rename
 
 Rename network access rule
@@ -88,6 +91,7 @@ Rename network access rule
 ```bash
 h1 user access rule rename --rule my-rule --new-name my-renamed-rule
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -107,6 +111,7 @@ Delete network access rule
 ```bash
 h1 user access rule delete --rule my-rule
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -138,6 +143,7 @@ h1 user access rule add --type subnet --value 82.0.0.2/24
 ```bash
 h1 user access rule add --type subnet --value 82.123.123.2/32
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -162,6 +168,7 @@ Show credentials
 ```bash
 h1 user credentials show --credentials my-credentials
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -180,6 +187,7 @@ List credentials
 ```bash
 h1 user credentials list
 ```
+
 ## h1 user credentials delete
 
 Delete credentials
@@ -192,6 +200,7 @@ Delete credentials
 ```bash
 h1 user credentials delete --credentials my-credentials
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -210,6 +219,7 @@ Rename credentials
 ```bash
 h1 user credentials rename --credentials my-credentials --new-name my-renamed-credentials
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -229,6 +239,7 @@ Add public SSH key for user
 ```bash
 h1 user credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -266,6 +277,7 @@ token that will allow you to login to the site.
 ```bash
 h1 user 2fa enable --type otac
 ```
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -286,6 +298,7 @@ Disable factor of authentication
 ```bash
 h1 user 2fa disable --type otac
 ```
+
 ### Optional arguments
 
 | Name | Default | Description |
@@ -304,3 +317,4 @@ List authentication factory
 ```bash
 h1 user 2fa list
 ```
+

@@ -26,6 +26,7 @@ Show config
 ```bash
 h1 config show --key vm.create.ssh
 ```
+
 ## h1 config set
 
 Set config value
@@ -46,6 +47,7 @@ h1 config set --key vm.create.ssh --value 'my-home'
 ```bash
 h1 config set --key vm.create.type --value 'a1.nano'
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -67,6 +69,7 @@ Get config value
 ```bash
 h1 config get --key vm.create.type
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -87,6 +90,7 @@ Unset config key
 ```bash
 h1 config unset --key vm.create.ssh
 ```
+
 ### Required arguments
 
 | Name | Default | Description |
