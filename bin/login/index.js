@@ -45,7 +45,7 @@ const handler = async args => {
     return p
         .then(() => {
             p_config.then(cli_config => config.set('cli', cli_config));
-            return logger('info', 'You successfully logged and stored your apiKey in config file');
+            return logger('info', 'You successfully logged and stored your session identifier in config file');
         }).catch(e => {
             if (e.status === 404 || e.status === 401) {
                 return logger('error', `Your login or password is incorrect (${e.status})`);
