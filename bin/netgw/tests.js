@@ -6,7 +6,7 @@ const tests = require('../../lib/tests');
 
 const now = Date.now();
 
-ava.test.serial('netgw life cycle', async t => {
+ava.serial('netgw life cycle', async t => {
     const ip = await tests.run('ip create');
     await tests.resourceLifeCycle('netgw', {
         createParams: `--name netgw-test-${now} --ip ${ip._id}`,
@@ -15,13 +15,13 @@ ava.test.serial('netgw life cycle', async t => {
     await tests.remove('ip', ip);
 });
 
-ava.test.serial('netgw rename', async t => {
+ava.serial('netgw rename', async t => {
     const ip = await tests.run('ip create');
     await tests.resourceRename('netgw', `--name netgw-test-${now} --ip ${ip._id}`)(t);
     await tests.remove('ip', ip);
 });
 
-ava.test.serial('netgw attach & detach', async t => {
+ava.serial('netgw attach & detach', async t => {
     const ip = await tests.run('ip create');
     const network = await tests.run(`network create --name netgw-test-${now}`);
     const netgw = await tests.run(`netgw create --name netgw-test-${now} --ip ${ip._id}`);

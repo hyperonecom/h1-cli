@@ -24,7 +24,7 @@ const getCommon = async (test_name, options = {}) => {
     };
 };
 
-ava.test.serial('image rename', async t => {
+ava.serial('image rename', async t => {
     const common = await getCommon(t.title);
 
     await tests.resourceRename('image', {
@@ -34,7 +34,7 @@ ava.test.serial('image rename', async t => {
     await common.cleanup();
 });
 
-ava.test.serial('image disk list', async t => {
+ava.serial('image disk list', async t => {
     const common = await getCommon(t.title);
     const image = await tests.run(`image create --vm ${common.vm._id} --name ${name}`);
 
@@ -46,7 +46,7 @@ ava.test.serial('image disk list', async t => {
 
 });
 
-ava.test.serial('image access', async t => {
+ava.serial('image access', async t => {
     const common = await getCommon(t.title);
 
     await tests.resourceAccessCycle('image', `--vm ${common.vm._id} --name ${name}`)(t);
@@ -54,7 +54,7 @@ ava.test.serial('image access', async t => {
     await common.cleanup();
 });
 
-ava.test.serial('image resolver prefer server', async t => {
+ava.serial('image resolver prefer server', async t => {
     const image = await tests.run('image show --image ubuntu');
     const description = JSON.parse(image.description);
     t.true(description.edition === 'server');

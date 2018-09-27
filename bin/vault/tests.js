@@ -32,7 +32,7 @@ const sshVault = (vault, secret, cmd) => {
     });
 };
 
-ava.test.serial('vault life cycle', async t => {
+ava.serial('vault life cycle', async t => {
     const ssh = await createUserCredentials();
 
     await tests.resourceLifeCycle('vault', `--name vault-test-${now} --size 10 --ssh ${ssh.name}`)(t);
@@ -40,7 +40,7 @@ ava.test.serial('vault life cycle', async t => {
     await ssh.cleanup();
 });
 
-ava.test.serial('vault rename', async t => {
+ava.serial('vault rename', async t => {
     const ssh = await createUserCredentials();
 
     await tests.resourceRename('vault', `--name vault-test-${now} --size 10 --ssh ${ssh.name}`)(t);
@@ -49,11 +49,11 @@ ava.test.serial('vault rename', async t => {
 });
 
 
-ava.test.serial('vault resize', tests.resourceResizeCycle('vault', {
+ava.serial('vault resize', tests.resourceResizeCycle('vault', {
     createParams: `--name vault-test-${now}`,
 }));
 
-ava.test.serial('vault credential credentials life cycle', async t => {
+ava.serial('vault credential credentials life cycle', async t => {
     const vault = await tests.run(`vault create --name vault-test-${now} --size 10`);
 
     await tests.credentialsLifeCycle('vault credential cert', {
@@ -67,7 +67,7 @@ ava.test.serial('vault credential credentials life cycle', async t => {
     await tests.remove('vault', vault);
 });
 
-ava.test.serial('vault recreate from snapshot', async t => {
+ava.serial('vault recreate from snapshot', async t => {
     const name = `vault-test-${now}`;
     const secret = await tests.getToken();
     const vault = await tests.run(`vault create --name ${name} --size 10 --password ${secret}`);
@@ -88,7 +88,7 @@ ava.test.serial('vault recreate from snapshot', async t => {
     await tests.remove('vault', vault);
 });
 
-ava.test.serial('vault credential password life cycle', async t => {
+ava.serial('vault credential password life cycle', async t => {
     const vault = await tests.run(`vault create --name vault-test-${now} --size 10`);
     const name = `vault-password-${now}`;
     const secret = await tests.getToken();
@@ -108,7 +108,7 @@ ava.test.serial('vault credential password life cycle', async t => {
 });
 
 ['project', 'user'].forEach(type => {
-    ava.test.serial(`vault credential ${type} ssh use`, async t => {
+    ava.serial(`vault credential ${type} ssh use`, async t => {
         const name = `vault-ssh-${now}`;
         const ssh_file = tests.getRandomFile();
 
@@ -127,7 +127,7 @@ ava.test.serial('vault credential password life cycle', async t => {
 });
 
 ['project', 'user'].forEach(type => {
-    ava.test.serial(`vault ssh using ${type} ssh-key`, async t => {
+    ava.serial(`vault ssh using ${type} ssh-key`, async t => {
         const sshKeyPair = await ssh.generateKey();
         const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
 
@@ -152,7 +152,7 @@ ava.test.serial('vault credential password life cycle', async t => {
     });
 });
 
-ava.test.serial('vault ssh using password', async t => {
+ava.serial('vault ssh using password', async t => {
     const name = `vault-ssh-key-${now}`;
     const secret = await tests.getToken();
 

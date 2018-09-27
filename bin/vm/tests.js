@@ -35,26 +35,26 @@ const getVmIp = async (vm_name) => {
     return [].concat(...nic_list.map(x => x.ip)).map(x => x.address);
 };
 
-ava.test.todo('vm queue');
-ava.test.todo('vm console');
-ava.test.todo('vm serialport console');
-ava.test.todo('vm passwordreset');
+ava.todo('vm queue');
+ava.todo('vm console');
+ava.todo('vm serialport console');
+ava.todo('vm passwordreset');
 
 ['a1.nano', 'm2.tiny', 'm2.medium'].forEach(flavour => {
-    ava.test.serial(`vm life cycle ${flavour}`, async t => {
+    ava.serial(`vm life cycle ${flavour}`, async t => {
         const common = await getCommon(t.title);
         await tests.resourceLifeCycle('vm', common.params)(t);
         await tests.remove('disk', common.disk_name);
     });
 });
 
-ava.test.serial('vm rename', async t => {
+ava.serial('vm rename', async t => {
     const common = await getCommon(t.title);
     await tests.resourceRename('vm', common.params)(t);
     await tests.remove('disk', common.disk_name);
 });
 
-ava.test.serial('vm stop & start & turnoff', async t => {
+ava.serial('vm stop & start & turnoff', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params.createParams}`);
     t.true(vm.state === 'Running');
@@ -76,7 +76,7 @@ ava.test.serial('vm stop & start & turnoff', async t => {
     await common.cleanup();
 });
 
-ava.test.serial('vm userdata', async t => {
+ava.serial('vm userdata', async t => {
     const my_metadata = 'my-config';
     const tmp_file = tests.getRandomFile(my_metadata);
 
@@ -94,7 +94,7 @@ ava.test.serial('vm userdata', async t => {
     await common.cleanup();
 });
 
-ava.test.serial('vm disk attach & detach', async t => {
+ava.serial('vm disk attach & detach', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params.createParams}`);
     const disk = await tests.run(`disk create --name disk-extra-${common.name} --type ssd --size 10`);
@@ -114,7 +114,7 @@ ava.test.serial('vm disk attach & detach', async t => {
     await tests.remove('disk', disk);
 });
 
-ava.test.serial('vm nic life cycle', async t => {
+ava.serial('vm nic life cycle', async t => {
     const common = await getCommon(t.title, {
         type: 'm2.tiny',
     });
@@ -150,7 +150,7 @@ const subresourceLifeCycle = async (t, type, options) => {
     }
 };
 
-ava.test.serial('vm nic ip life cycle', async t => {
+ava.serial('vm nic ip life cycle', async t => {
     const common = await getCommon(t.title, {
         type: 'm2.tiny',
     });
@@ -169,7 +169,7 @@ ava.test.serial('vm nic ip life cycle', async t => {
     await common.cleanup();
 });
 
-ava.test.serial('vm nic ip replace', async t => {
+ava.serial('vm nic ip replace', async t => {
     const common = await getCommon(t.title, {
         type: 'm2.tiny',
     });
@@ -188,7 +188,7 @@ ava.test.serial('vm nic ip replace', async t => {
     await tests.remove('ip', new_ip);
 });
 
-ava.test.serial('vm nic ip persistent', async t => {
+ava.serial('vm nic ip persistent', async t => {
     const common = await getCommon(t.title, {
         type: 'm2.tiny',
     });
@@ -209,7 +209,7 @@ ava.test.serial('vm nic ip persistent', async t => {
     await tests.remove('ip', ip);
 });
 
-ava.test.serial('vm dvd cycle', async t => {
+ava.serial('vm dvd cycle', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params.createParams}`);
     const iso = await tests.run(`iso create --name iso-test-${now} --source-url ${tests.iso_url}`);
@@ -225,7 +225,7 @@ ava.test.serial('vm dvd cycle', async t => {
     await common.cleanup();
 });
 
-ava.test.serial('vm serialport log', async t => {
+ava.serial('vm serialport log', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params.createParams}`);
     t.true(vm.created);
@@ -236,7 +236,7 @@ ava.test.serial('vm serialport log', async t => {
 });
 
 ['project', 'user'].forEach(type => {
-    ava.test.serial(`vm ssh using ${type} ssh-key`, async t => {
+    ava.serial(`vm ssh using ${type} ssh-key`, async t => {
         const common = await getCommon(t.title);
 
         const sshKeyPair = await ssh.generateKey();

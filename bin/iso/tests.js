@@ -11,19 +11,19 @@ const now = Date.now();
 const createParams = `--name iso-test-${now} --source-url ${tests.iso_url}`;
 
 
-ava.test.serial('iso life cycle', tests.resourceLifeCycle('iso', createParams));
+ava.serial('iso life cycle', tests.resourceLifeCycle('iso', createParams));
 
-ava.test.serial('iso rename', tests.resourceRename('iso', createParams));
+ava.serial('iso rename', tests.resourceRename('iso', createParams));
 
-ava.test.serial('iso access', tests.resourceAccessCycle('iso', createParams));
+ava.serial('iso access', tests.resourceAccessCycle('iso', createParams));
 
-ava.test.serial('iso local upload', async t => {
+ava.serial('iso local upload', async t => {
     const filename = await tests.downloadFile(tests.iso_url);
     await tests.resourceLifeCycle('iso', `--name iso-test-${now} --source-file ${filename}`)(t);
     fs.unlinkSync(filename);
 });
 
-ava.test.serial('iso use in vm local uploaded', async t => {
+ava.serial('iso use in vm local uploaded', async t => {
     const filename = await tests.downloadFile(tests.iso_url);
 
     const iso = await tests.run(`iso create --name iso-test-${now} --source-file ${filename}`);
