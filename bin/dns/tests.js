@@ -37,6 +37,10 @@ const recordTypes = {
     mx: ['10 mx.example.com.', '5 mx2.example.com.'],
     ns: ['ns3.example.com.', 'ns4.example.com.'],
     srv: ['10 5 11 s1.example.com.', '10 5 11 s2.example.com.'],
+    soa: [
+        'pns.hyperone.com. hostmaster.hyperone.com. 2018092401 15 180 1209600 1800',
+        'pns.hyperone.com. hostmaster.hyperone.com. 2018092401 15 90 1209600 1800',
+    ],
 };
 
 

@@ -54,4 +54,7 @@ module.exports = {
         }),
         to_content: record => `${record.priority} ${record.weight} ${record.port} ${record.target}`,
     },
+    soa: {
+        value: 'pns.hyperone.com. hostmaster.hyperone.com. 2018093002 15 180 1209600 1800',
+    },
 };

@@ -24,17 +24,24 @@ const options = {
 
 const set_difference = (set1, set2) => new Set([...set1].filter(x => !set2.has(x)));
 
+const supported_types = Object
+    .keys(recordTypes)
+    .filter(x => recordTypes[x].to_content);
+
+const supported_label = supported_types
+    .map(x => x.toUpperCase())
+    .join(', ');
+
 const handle = (args) => args.helpers.api
     .get(`${args.$node.parent.config.url(args)}/${args.zone}`)
     .then(async remote_result => {
         const local_zone = zonefile.parse(fs.readFileSync(args['zone-file'], 'utf-8'));
         const requests = [];
 
-        Object.keys(recordTypes).forEach(type => {
+        supported_types.forEach(type => {
             const remote_rrset_names = new Set(remote_result.rrsets
                 .filter(rrset => rrset.type === type.toUpperCase())
                 .map(record => record.name === remote_result.name ? '@' : record.name));
-
             const local_rrset_type = local_zone[type] || [];
             const local_rrset_names = new Set(local_rrset_type.map(x => x.name));
 
@@ -58,7 +65,7 @@ const handle = (args) => args.helpers.api
                         disabled: false,
                     }));
 
-                const ttl = local_rrset_type.find(rrset => rrset.name === rrset_name).ttl;
+                const ttl = local_rrset_type.find(rrset => rrset.name === rrset_name).ttl | local_zone.$ttl;
 
                 const data = {
                     name: remote_name,
@@ -77,7 +84,7 @@ const handle = (args) => args.helpers.api
     });
 
 module.exports = (resource) => Cli.createCommand('import', {
-    description: `Import ${resource.title} from BIND-compatible format`,
+    description: `Import ${supported_label} records of ${resource.title} from BIND-compatible format`,
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options),
     handler: handle,

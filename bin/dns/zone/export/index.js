@@ -13,6 +13,13 @@ const options = {
     },
 };
 
+const supported_types = Object
+    .keys(recordTypes)
+    .filter(x => recordTypes[x].to_bind);
+
+const supported_label = [...supported_types, 'soa']
+    .map(x => x.toUpperCase())
+    .join(', ');
 
 const handle = (args) => args.helpers.api.get(
     `${args.$node.parent.config.url(args)}/${args.zone}`, {
@@ -39,23 +46,27 @@ const handle = (args) => args.helpers.api.get(
         };
     }
 
-    Object.keys(recordTypes).forEach(type => {
-        zone[type] = [];
-        result.rrsets.filter(x => x.type === type.toUpperCase()).map(rrset => {
-            zone[type].push(...rrset.records.map(record => Object.assign(
-                {
-                    ttl: rrset.ttl,
-                    name: rrset.name !== result.name ? rrset.name : null,
-                },
-                recordTypes[type].to_bind(record.content)
-            )));
+    supported_types
+        .forEach(type => {
+            zone[type] = [];
+            result.rrsets
+                .filter(x => x.type === type.toUpperCase())
+                .filter(x => recordTypes[x].to_bind)
+                .map(rrset => {
+                    zone[type].push(...rrset.records.map(record => Object.assign(
+                        {
+                            ttl: rrset.ttl,
+                            name: rrset.name !== result.name ? rrset.name : null,
+                        },
+                        recordTypes[type].to_bind(record.content)
+                    )));
+                });
         });
-    });
     return zonefile.generate(zone);
 });
 
 module.exports = (resource) => Cli.createCommand('export', {
-    description: `Export ${resource.title} in BIND-compatible format`,
+    description: `Export ${supported_label} records of ${resource.title} in BIND-compatible format`,
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options),
     handler: handle,
