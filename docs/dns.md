@@ -967,7 +967,7 @@ Create record-set
 ### Example
 
 ```bash
-h1 dns record-set srv create --name '.' --zone 'my-domain.tld' --value 'pns.hyperone.com. hostmaster.hyperone.com. 2018092401 15 180 1209600 1800'
+h1 dns record-set srv create --name '.' --zone 'my-domain.tld' --value '10 5 11 s1.example.com.'
 ```
 
 Note (1): Use ```--name '.'``` to put record at top of the zone.
@@ -1018,7 +1018,7 @@ Add record
 ### Example
 
 ```bash
-h1 dns record-set srv add-record --zone 'my-domain.tld' --name subdomain --value 'pns.hyperone.com. hostmaster.hyperone.com. 2018092401 15 180 1209600 1800'
+h1 dns record-set srv add-record --zone 'my-domain.tld' --name subdomain --value '10 5 11 s1.example.com.'
 ```
 
 ### Required arguments
@@ -1040,7 +1040,7 @@ Delete record
 ### Example
 
 ```bash
-h1 dns record-set srv delete-record --zone 'my-domain.tld' --name www --value 'pns.hyperone.com. hostmaster.hyperone.com. 2018092401 15 180 1209600 1800'
+h1 dns record-set srv delete-record --zone 'my-domain.tld' --name www --value '10 5 11 s1.example.com.'
 ```
 
 ### Required arguments
