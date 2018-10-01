@@ -30,7 +30,7 @@ ava.serial('ip associate & disassociate', async t => {
     const nic_list = await tests.run(`vm nic list --vm ${vm._id}`);
     const ip_private = nic_list[0].ip[0];
 
-    const result = await tests.run(`ip associate --ip ${ip.address} --private-ip ${ip_private.address}`);
+    const result = await tests.run(`ip associate --ip ${ip.address} --private-ip ${ip_private._id}`);
 
     t.true(result.state === 'Associated');
 
