@@ -75,12 +75,12 @@ function h1() {
 }
 ```
 
-## Użycie
+## Usage
 
 The commands are composed of the following components:
 
 ```bash
-$ h1 [category [...]] commands [[options] ...]
+$ h1 [categories [...]] command [[options] ...]
 ```
 
 This structure is repeated in all application commands.
@@ -198,13 +198,13 @@ It is worth paying attention to:
 
 * ``h1 vm nic list --vm vm-id`` - lists, among others virtual machine IP addresses.
 
-For other resources, use the ``--help`` parameter, which documents the CLI functionalities in a full and up-to-date manner.
+For other resources, use the ``--help`` parameter, which documents the CLI features in a full and up-to-date manner.
  
 The [reference documentation] of the other commands is available in the repository.
 
-### Zgłaszanie problemów i uwag
+### Reporting problems and comments
 
-Jeśli napotkasz jakiekolwiek błędy z narzędziem, proszę zgłosić problem poprzez system zgłoszeń w panelu administracyjnym lub zakładkę [Issues] w repozytorium.
+If you encounter any errors with the tool, please report the problem through the notification system in the administration panel or the [Issues] tab in the [repository].
 
 [Releases]: https://github.com/hyperonecom/h1-cli/releases/latest
 [repository]: https://github.com/hyperonecom/h1-cli
