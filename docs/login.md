@@ -1,18 +1,13 @@
-# TOC
-
-
-
 # Specification
 
-## h1 login
+# h1 login
 
 Obtain your apiKey
 
-### Syntax
+## Syntax
 
 ```h1 login | --username USERNAME [--password PASSWORD]```
-
-### Example
+## Example
 
 ```bash
 h1 login --username user@example.com

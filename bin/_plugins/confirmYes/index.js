@@ -2,7 +2,7 @@
 
 const options = {
     yes: {
-        description: 'Confirm yes',
+        description: 'Perform action without additional confirmation',
         type: 'boolean',
     },
 };

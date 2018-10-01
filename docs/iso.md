@@ -30,7 +30,6 @@ List ISO
 ### Syntax
 
 ```h1 iso list | ```
-
 ### Example
 
 ```bash
@@ -44,7 +43,6 @@ Show ISO
 ### Syntax
 
 ```h1 iso show | --iso ISO```
-
 ### Example
 
 ```bash
@@ -64,7 +62,6 @@ Delete ISO
 ### Syntax
 
 ```h1 iso delete | --iso ISO```
-
 ### Example
 
 ```bash
@@ -84,7 +81,6 @@ History of ISO
 ### Syntax
 
 ```h1 iso history | --iso ISO```
-
 ### Example
 
 ```bash
@@ -104,7 +100,6 @@ Rename ISO
 ### Syntax
 
 ```h1 iso rename | --iso ISO --new-name NEW-NAME```
-
 ### Example
 
 ```bash
@@ -129,7 +124,6 @@ List tag
 ### Syntax
 
 ```h1 iso tag list | --iso ISO```
-
 ### Example
 
 ```bash
@@ -149,7 +143,6 @@ Add a tag to ISO
 ### Syntax
 
 ```h1 iso tag add | --iso ISO [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash
@@ -175,7 +168,6 @@ Delete a tag of ISO
 ### Syntax
 
 ```h1 iso tag delete | --tag TAG --iso ISO```
-
 ### Example
 
 ```bash
@@ -200,7 +192,6 @@ Grant access rights for ISO
 ### Syntax
 
 ```h1 iso access grant | --iso ISO --project PROJECT```
-
 ### Example
 
 ```bash
@@ -221,7 +212,6 @@ Revoke access rights for ISO
 ### Syntax
 
 ```h1 iso access revoke | --iso ISO --project PROJECT```
-
 ### Example
 
 ```bash
@@ -242,7 +232,6 @@ List of access rights for ISO
 ### Syntax
 
 ```h1 iso access list | --iso ISO```
-
 ### Example
 
 ```bash
@@ -262,7 +251,6 @@ Resume create upload of ISO
 ### Syntax
 
 ```h1 iso resume | --iso ISO --source-file SOURCE-FILE```
-
 ### Example
 
 ```bash
@@ -283,7 +271,6 @@ ISO import
 ### Syntax
 
 ```h1 iso create | --name NAME [--source-file SOURCE-FILE] [--source-url SOURCE-URL] [--tag TAG [--tag TAG ...]]```
-
 ### Examples
 
 #### Create an ISO using a local file

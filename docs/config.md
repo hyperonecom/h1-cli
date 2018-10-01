@@ -19,7 +19,6 @@ Show config
 ### Syntax
 
 ```h1 config show | ```
-
 ### Examples
 
 #### Get default SSH key for new virtual machine (if set)
@@ -35,7 +34,6 @@ Set config value
 ### Syntax
 
 ```h1 config set | --key KEY --value VALUE```
-
 ### Examples
 
 #### Set default SSH key for new virtual machine
@@ -64,7 +62,6 @@ Get config value
 ### Syntax
 
 ```h1 config get | --key KEY```
-
 ### Examples
 
 #### Get default virtual machine type for a new one
@@ -86,7 +83,6 @@ Unset config key
 ### Syntax
 
 ```h1 config unset | --key KEY```
-
 ### Examples
 
 #### Unset default SSH key for new virtual machine (if set)

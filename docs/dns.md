@@ -94,7 +94,6 @@ List DNS zone
 ### Syntax
 
 ```h1 dns zone list | ```
-
 ### Example
 
 ```bash
@@ -108,7 +107,6 @@ Show DNS zone
 ### Syntax
 
 ```h1 dns zone show | --zone ZONE```
-
 ### Example
 
 ```bash
@@ -128,7 +126,6 @@ Delete DNS zone
 ### Syntax
 
 ```h1 dns zone delete | --zone ZONE```
-
 ### Example
 
 ```bash
@@ -148,7 +145,6 @@ Create DNS zone
 ### Syntax
 
 ```h1 dns zone create | --name NAME```
-
 ### Example
 
 ```bash
@@ -168,7 +164,6 @@ Import DNS zone from BIND-compatible format
 ### Syntax
 
 ```h1 dns zone import | --zone ZONE --zone-file ZONE-FILE [--delete]```
-
 ### Example
 
 ```bash
@@ -195,7 +190,6 @@ Export DNS zone in BIND-compatible format
 ### Syntax
 
 ```h1 dns zone export | --zone ZONE```
-
 ### Example
 
 ```bash
@@ -223,7 +217,6 @@ List Record A
 ### Syntax
 
 ```h1 dns record-set a list | --zone ZONE```
-
 ### Example
 
 ```bash
@@ -243,7 +236,6 @@ Create record-set
 ### Syntax
 
 ```h1 dns record-set a create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
-
 ### Example
 
 ```bash
@@ -273,7 +265,6 @@ Delete record-set
 ### Syntax
 
 ```h1 dns record-set a delete | --name NAME --zone ZONE```
-
 ### Example
 
 ```bash
@@ -294,7 +285,6 @@ Add record
 ### Syntax
 
 ```h1 dns record-set a add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -316,7 +306,6 @@ Delete record
 ### Syntax
 
 ```h1 dns record-set a delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -342,7 +331,6 @@ List Record AAAA
 ### Syntax
 
 ```h1 dns record-set aaaa list | --zone ZONE```
-
 ### Example
 
 ```bash
@@ -362,7 +350,6 @@ Create record-set
 ### Syntax
 
 ```h1 dns record-set aaaa create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
-
 ### Example
 
 ```bash
@@ -392,7 +379,6 @@ Delete record-set
 ### Syntax
 
 ```h1 dns record-set aaaa delete | --name NAME --zone ZONE```
-
 ### Example
 
 ```bash
@@ -413,7 +399,6 @@ Add record
 ### Syntax
 
 ```h1 dns record-set aaaa add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -435,7 +420,6 @@ Delete record
 ### Syntax
 
 ```h1 dns record-set aaaa delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -461,7 +445,6 @@ List Record CNAME
 ### Syntax
 
 ```h1 dns record-set cname list | --zone ZONE```
-
 ### Example
 
 ```bash
@@ -481,7 +464,6 @@ Create record-set
 ### Syntax
 
 ```h1 dns record-set cname create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
-
 ### Example
 
 ```bash
@@ -511,7 +493,6 @@ Delete record-set
 ### Syntax
 
 ```h1 dns record-set cname delete | --name NAME --zone ZONE```
-
 ### Example
 
 ```bash
@@ -532,7 +513,6 @@ Add record
 ### Syntax
 
 ```h1 dns record-set cname add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -554,7 +534,6 @@ Delete record
 ### Syntax
 
 ```h1 dns record-set cname delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -580,7 +559,6 @@ List Record TXT
 ### Syntax
 
 ```h1 dns record-set txt list | --zone ZONE```
-
 ### Example
 
 ```bash
@@ -600,7 +578,6 @@ Create record-set
 ### Syntax
 
 ```h1 dns record-set txt create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
-
 ### Example
 
 ```bash
@@ -630,7 +607,6 @@ Delete record-set
 ### Syntax
 
 ```h1 dns record-set txt delete | --name NAME --zone ZONE```
-
 ### Example
 
 ```bash
@@ -651,7 +627,6 @@ Add record
 ### Syntax
 
 ```h1 dns record-set txt add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -673,7 +648,6 @@ Delete record
 ### Syntax
 
 ```h1 dns record-set txt delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -699,7 +673,6 @@ List Record MX
 ### Syntax
 
 ```h1 dns record-set mx list | --zone ZONE```
-
 ### Example
 
 ```bash
@@ -719,7 +692,6 @@ Create record-set
 ### Syntax
 
 ```h1 dns record-set mx create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
-
 ### Example
 
 ```bash
@@ -749,7 +721,6 @@ Delete record-set
 ### Syntax
 
 ```h1 dns record-set mx delete | --name NAME --zone ZONE```
-
 ### Example
 
 ```bash
@@ -770,7 +741,6 @@ Add record
 ### Syntax
 
 ```h1 dns record-set mx add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -792,7 +762,6 @@ Delete record
 ### Syntax
 
 ```h1 dns record-set mx delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -818,7 +787,6 @@ List Record NS
 ### Syntax
 
 ```h1 dns record-set ns list | --zone ZONE```
-
 ### Example
 
 ```bash
@@ -838,7 +806,6 @@ Create record-set
 ### Syntax
 
 ```h1 dns record-set ns create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
-
 ### Example
 
 ```bash
@@ -868,7 +835,6 @@ Delete record-set
 ### Syntax
 
 ```h1 dns record-set ns delete | --name NAME --zone ZONE```
-
 ### Example
 
 ```bash
@@ -889,7 +855,6 @@ Add record
 ### Syntax
 
 ```h1 dns record-set ns add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -911,7 +876,6 @@ Delete record
 ### Syntax
 
 ```h1 dns record-set ns delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -937,7 +901,6 @@ List Record SRV
 ### Syntax
 
 ```h1 dns record-set srv list | --zone ZONE```
-
 ### Example
 
 ```bash
@@ -957,7 +920,6 @@ Create record-set
 ### Syntax
 
 ```h1 dns record-set srv create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
-
 ### Example
 
 ```bash
@@ -987,7 +949,6 @@ Delete record-set
 ### Syntax
 
 ```h1 dns record-set srv delete | --name NAME --zone ZONE```
-
 ### Example
 
 ```bash
@@ -1008,7 +969,6 @@ Add record
 ### Syntax
 
 ```h1 dns record-set srv add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -1030,7 +990,6 @@ Delete record
 ### Syntax
 
 ```h1 dns record-set srv delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -1052,7 +1011,6 @@ List Record set
 ### Syntax
 
 ```h1 dns record-set list | --zone ZONE```
-
 ### Example
 
 ```bash

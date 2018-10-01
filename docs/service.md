@@ -17,7 +17,6 @@ Show service
 ### Syntax
 
 ```h1 service show | --service SERVICE```
-
 ### Example
 
 ```bash
@@ -37,7 +36,6 @@ List service
 ### Syntax
 
 ```h1 service list | [--resource RESOURCE] [--type TYPE]```
-
 ### Examples
 
 #### List services

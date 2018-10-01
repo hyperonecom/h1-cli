@@ -33,7 +33,6 @@ Create an account
 ### Syntax
 
 ```h1 user create | ```
-
 ### Example
 
 ```bash
@@ -55,7 +54,6 @@ Show network access rule
 ### Syntax
 
 ```h1 user access rule show | --rule RULE```
-
 ### Example
 
 ```bash
@@ -75,7 +73,6 @@ List network access rule
 ### Syntax
 
 ```h1 user access rule list | ```
-
 ### Example
 
 ```bash
@@ -89,7 +86,6 @@ Rename network access rule
 ### Syntax
 
 ```h1 user access rule rename | --rule RULE --new-name NEW-NAME```
-
 ### Example
 
 ```bash
@@ -110,7 +106,6 @@ Delete network access rule
 ### Syntax
 
 ```h1 user access rule delete | --rule RULE```
-
 ### Example
 
 ```bash
@@ -130,7 +125,6 @@ Add access rule for network access rule
 ### Syntax
 
 ```h1 user access rule add | --name NAME --type TYPE --value VALUE```
-
 ### Examples
 
 #### Add rule by geolocation
@@ -169,7 +163,6 @@ Show credentials
 ### Syntax
 
 ```h1 user credentials show | --credentials CREDENTIALS```
-
 ### Example
 
 ```bash
@@ -189,7 +182,6 @@ List credentials
 ### Syntax
 
 ```h1 user credentials list | ```
-
 ### Example
 
 ```bash
@@ -203,7 +195,6 @@ Delete credentials
 ### Syntax
 
 ```h1 user credentials delete | --credentials CREDENTIALS```
-
 ### Example
 
 ```bash
@@ -223,7 +214,6 @@ Rename credentials
 ### Syntax
 
 ```h1 user credentials rename | --credentials CREDENTIALS --new-name NEW-NAME```
-
 ### Example
 
 ```bash
@@ -244,7 +234,6 @@ Add public SSH key for user
 ### Syntax
 
 ```h1 user credentials add | --name NAME --sshkey-file SSHKEY-FILE```
-
 ### Example
 
 ```bash
@@ -269,7 +258,6 @@ Enable factor of authentication
 ### Syntax
 
 ```h1 user 2fa enable | [--type TYPE]```
-
 ### Examples
 
 #### Enable Time-Based One-Time Password (TOTP) factor
@@ -303,7 +291,6 @@ Disable factor of authentication
 ### Syntax
 
 ```h1 user 2fa disable | [--type TYPE]```
-
 ### Examples
 
 #### Disable OTAC codes
@@ -325,7 +312,6 @@ List authentication factory
 ### Syntax
 
 ```h1 user 2fa list | ```
-
 ### Example
 
 ```bash

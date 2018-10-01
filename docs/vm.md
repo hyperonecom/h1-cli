@@ -62,7 +62,6 @@ List virtual machine
 ### Syntax
 
 ```h1 vm list | ```
-
 ### Example
 
 ```bash
@@ -76,7 +75,6 @@ Show virtual machine
 ### Syntax
 
 ```h1 vm show | --vm VM```
-
 ### Example
 
 ```bash
@@ -96,7 +94,6 @@ History of virtual machine
 ### Syntax
 
 ```h1 vm history | --vm VM```
-
 ### Example
 
 ```bash
@@ -120,7 +117,6 @@ List tag
 ### Syntax
 
 ```h1 vm tag list | --vm VM```
-
 ### Example
 
 ```bash
@@ -140,7 +136,6 @@ Add a tag to virtual machine
 ### Syntax
 
 ```h1 vm tag add | --vm VM [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash
@@ -166,7 +161,6 @@ Delete a tag of virtual machine
 ### Syntax
 
 ```h1 vm tag delete | --tag TAG --vm VM```
-
 ### Example
 
 ```bash
@@ -187,7 +181,6 @@ Create virtual machine
 ### Syntax
 
 ```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--tag TAG [--tag TAG ...]]```
-
 ### Examples
 
 #### Create a Ubuntu virtual machine
@@ -247,7 +240,6 @@ Delete virtual machine
 ### Syntax
 
 ```h1 vm delete | --vm VM```
-
 ### Example
 
 ```bash
@@ -267,7 +259,6 @@ Open virtual machine console in web-browser
 ### Syntax
 
 ```h1 vm console | --vm VM```
-
 ### Example
 
 ```bash
@@ -287,7 +278,6 @@ Stop virtual machine
 ### Syntax
 
 ```h1 vm stop | --vm VM```
-
 ### Example
 
 ```bash
@@ -307,7 +297,6 @@ Start virtual machine
 ### Syntax
 
 ```h1 vm start | --vm VM```
-
 ### Example
 
 ```bash
@@ -327,7 +316,6 @@ Restart virtual machine
 ### Syntax
 
 ```h1 vm restart | --vm VM```
-
 ### Example
 
 ```bash
@@ -347,7 +335,6 @@ Turnoff virtual machine
 ### Syntax
 
 ```h1 vm turnoff | --vm VM```
-
 ### Example
 
 ```bash
@@ -367,7 +354,6 @@ Rename virtual machine
 ### Syntax
 
 ```h1 vm rename | --vm VM --new-name NEW-NAME```
-
 ### Example
 
 ```bash
@@ -388,7 +374,6 @@ Manage userdata for virtual machine
 ### Syntax
 
 ```h1 vm userdata | --vm VM --userdata-file USERDATA-FILE```
-
 ### Examples
 
 #### Set userdata for virtual machine
@@ -422,7 +407,6 @@ List disk
 ### Syntax
 
 ```h1 vm disk list | --vm VM```
-
 ### Example
 
 ```bash
@@ -442,7 +426,6 @@ Attach disk to disk
 ### Syntax
 
 ```h1 vm disk attach | --vm VM --disk DISK```
-
 ### Example
 
 ```bash
@@ -473,7 +456,6 @@ Detach disk from disk
 ### Syntax
 
 ```h1 vm disk detach | --vm VM --disk DISK```
-
 ### Example
 
 ```bash
@@ -506,7 +488,6 @@ List network adapter
 ### Syntax
 
 ```h1 vm nic list | --vm VM```
-
 ### Example
 
 ```bash
@@ -526,7 +507,6 @@ Show network adapter
 ### Syntax
 
 ```h1 vm nic show | --vm VM --nic NIC```
-
 ### Example
 
 ```bash
@@ -547,7 +527,6 @@ Delete network adapter
 ### Syntax
 
 ```h1 vm nic delete | --vm VM --nic NIC```
-
 ### Example
 
 ```bash
@@ -568,7 +547,6 @@ Create network adapter
 ### Syntax
 
 ```h1 vm nic create | --type TYPE --vm VM [--network NETWORK] [--ip IP] [--tag TAG [--tag TAG ...]]```
-
 ### Examples
 
 #### Create network adapter with public IP
@@ -607,7 +585,6 @@ History of network adapter
 ### Syntax
 
 ```h1 vm nic history | --nic NIC --vm VM```
-
 ### Example
 
 ```bash
@@ -632,7 +609,6 @@ List tag
 ### Syntax
 
 ```h1 vm nic tag list | --vm VM --nic NIC```
-
 ### Example
 
 ```bash
@@ -653,7 +629,6 @@ Add a tag to network adapter
 ### Syntax
 
 ```h1 vm nic tag add | --vm VM --nic NIC [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash
@@ -680,7 +655,6 @@ Delete a tag of network adapter
 ### Syntax
 
 ```h1 vm nic tag delete | --tag TAG --vm VM --nic NIC```
-
 ### Example
 
 ```bash
@@ -706,7 +680,6 @@ List IP address of network adapter
 ### Syntax
 
 ```h1 vm nic ip list | --vm VM --nic NIC```
-
 ### Example
 
 ```bash
@@ -727,7 +700,6 @@ Delete IP address of network adapter
 ### Syntax
 
 ```h1 vm nic ip delete | --vm VM --nic NIC --ip IP```
-
 ### Example
 
 ```bash
@@ -749,7 +721,6 @@ Add IP address to IP address of network adapter
 ### Syntax
 
 ```h1 vm nic ip add | --vm VM --nic NIC --ip IP```
-
 ### Examples
 
 #### Add IP address to network adapter
@@ -777,7 +748,6 @@ Replace IP address of network adapter
 ### Syntax
 
 ```h1 vm nic ip replace | --vm VM --nic NIC --ip IP --new-ip NEW-IP```
-
 ### Examples
 
 #### Add IP address to network adapter
@@ -806,7 +776,6 @@ Persistent IP address of network adapter
 ### Syntax
 
 ```h1 vm nic ip persistent | --vm VM --nic NIC --ip IP```
-
 ### Example
 
 ```
@@ -828,7 +797,6 @@ Show IP address of network adapter
 ### Syntax
 
 ```h1 vm nic ip show | --vm VM --nic NIC --ip IP```
-
 ### Example
 
 ```bash
@@ -854,7 +822,6 @@ List DVD
 ### Syntax
 
 ```h1 vm dvd list | --vm VM```
-
 ### Example
 
 ```bash
@@ -874,7 +841,6 @@ Insert ISO into DVD drive of DVD
 ### Syntax
 
 ```h1 vm dvd insert | --vm VM --iso ISO```
-
 ### Example
 
 ```bash
@@ -897,7 +863,6 @@ Eject ISO from DVD drive of DVD
 ### Syntax
 
 ```h1 vm dvd eject | --vm VM```
-
 ### Example
 
 ```bash
@@ -917,7 +882,6 @@ Connect to virtual machine using SSH
 ### Syntax
 
 ```h1 vm ssh | --vm VM [--username USERNAME] [--port PORT] [--private] [--command COMMAND]```
-
 ### Examples
 
 #### Connect to virtual machine via SSH
@@ -958,7 +922,6 @@ Connect to virtual machine using Serial Console
 ### Syntax
 
 ```h1 vm serialport console | --vm VM [--port PORT]```
-
 ### Example
 
 ```bash
@@ -984,7 +947,6 @@ Log Serial Console buffer of virtual machine
 ### Syntax
 
 ```h1 vm serialport log | --vm VM [--port PORT]```
-
 ### Example
 
 ```bash
@@ -1010,7 +972,6 @@ Password reset for virtual machine
 ### Syntax
 
 ```h1 vm passwordreset | --user USER --vm VM```
-
 ### Example
 
 ```bash
@@ -1031,7 +992,6 @@ Get live metrics of virtual machine
 ### Syntax
 
 ```h1 vm metrics | --vm VM```
-
 ### Example
 
 ```bash

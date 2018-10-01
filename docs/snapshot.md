@@ -25,7 +25,6 @@ List snapshot
 ### Syntax
 
 ```h1 snapshot list | ```
-
 ### Example
 
 ```bash
@@ -39,7 +38,6 @@ Show snapshot
 ### Syntax
 
 ```h1 snapshot show | --snapshot SNAPSHOT```
-
 ### Example
 
 ```bash
@@ -59,7 +57,6 @@ Delete snapshot
 ### Syntax
 
 ```h1 snapshot delete | --snapshot SNAPSHOT```
-
 ### Example
 
 ```bash
@@ -79,7 +76,6 @@ History of snapshot
 ### Syntax
 
 ```h1 snapshot history | --snapshot SNAPSHOT```
-
 ### Example
 
 ```bash
@@ -99,7 +95,6 @@ Rename snapshot
 ### Syntax
 
 ```h1 snapshot rename | --snapshot SNAPSHOT --new-name NEW-NAME```
-
 ### Example
 
 ```bash
@@ -124,7 +119,6 @@ List tag
 ### Syntax
 
 ```h1 snapshot tag list | --snapshot SNAPSHOT```
-
 ### Example
 
 ```bash
@@ -144,7 +138,6 @@ Add a tag to snapshot
 ### Syntax
 
 ```h1 snapshot tag add | --snapshot SNAPSHOT [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash
@@ -170,7 +163,6 @@ Delete a tag of snapshot
 ### Syntax
 
 ```h1 snapshot tag delete | --tag TAG --snapshot SNAPSHOT```
-
 ### Example
 
 ```bash
@@ -191,7 +183,6 @@ Create a snapshot of Vault
 ### Syntax
 
 ```h1 snapshot create | --vault VAULT --name NAME [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash

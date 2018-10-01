@@ -30,7 +30,6 @@ Show image
 ### Syntax
 
 ```h1 image show | --image IMAGE```
-
 ### Example
 
 ```bash
@@ -50,7 +49,6 @@ Delete image
 ### Syntax
 
 ```h1 image delete | --image IMAGE```
-
 ### Example
 
 ```bash
@@ -70,7 +68,6 @@ Rename image
 ### Syntax
 
 ```h1 image rename | --image IMAGE --new-name NEW-NAME```
-
 ### Example
 
 ```bash
@@ -91,7 +88,6 @@ History of image
 ### Syntax
 
 ```h1 image history | --image IMAGE```
-
 ### Example
 
 ```bash
@@ -115,7 +111,6 @@ List tag
 ### Syntax
 
 ```h1 image tag list | --image IMAGE```
-
 ### Example
 
 ```bash
@@ -135,7 +130,6 @@ Add a tag to image
 ### Syntax
 
 ```h1 image tag add | --image IMAGE [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash
@@ -161,7 +155,6 @@ Delete a tag of image
 ### Syntax
 
 ```h1 image tag delete | --tag TAG --image IMAGE```
-
 ### Example
 
 ```bash
@@ -182,7 +175,6 @@ Create image
 ### Syntax
 
 ```h1 image create | --name NAME --vm VM [--description DESCRIPTION] [--tag TAG [--tag TAG ...]]```
-
 ### Example
 
 ```bash
@@ -210,7 +202,6 @@ List image
 ### Syntax
 
 ```h1 image list | [--recommended] [--all]```
-
 ### Examples
 
 #### List all user images
@@ -239,7 +230,6 @@ List all disks of image
 ### Syntax
 
 ```h1 image disk | --image IMAGE```
-
 ### Example
 
 ```bash
@@ -263,7 +253,6 @@ Grant access rights for image
 ### Syntax
 
 ```h1 image access grant | --image IMAGE --project PROJECT```
-
 ### Example
 
 ```bash
@@ -284,7 +273,6 @@ Revoke access rights for image
 ### Syntax
 
 ```h1 image access revoke | --image IMAGE --project PROJECT```
-
 ### Example
 
 ```bash
@@ -305,7 +293,6 @@ List of access rights for image
 ### Syntax
 
 ```h1 image access list | --image IMAGE```
-
 ### Example
 
 ```bash

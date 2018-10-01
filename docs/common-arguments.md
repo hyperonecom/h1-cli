@@ -1,132 +1,118 @@
 # Common arguments
-## Argument ```--project-select {project_id}```
+## Argument ```--output```
+Specify output format of command.
 
-A parameter intended for selecting an ad-hoc project for a single command.
+#### Available formats
 
-###Examples
+* ```table``` - Simple results as tabular (default).
+* ```list``` - Subsequent properties line by line.
+* ```tsv``` - Mostly works like tabular format, but without the header row. Efficiently usable in ```awk``` and shell.
+* ```json``` - Raw response of API
+* ```yaml``` - Full response displayed as YAML
+* ```id``` - Just resource ID line by line
 
-#### List virtual machine on selected project
+##### Examples
 
-```bash
-{{scope}} vm list --output tsv --project-select 5b34c27bddd5b3c5e9fbaab0
-```
-## Argument ```--output table / -o table```
-
-### Description
-
-Default output format, which can be overwritten by the environment variable ```H1_DEFAULT_OUTPUT``` also.
-
-### Examples
-
-#### View all virtual machines in table format
+###### View all disks in tsv format
 
 ```bash
-{{scope}} vm list -o table
+h1 disk list -o tsv
 ```
 
-## Argument ```--output tsv / -o tsv```
-
-### Description
-
-Output format which mostly works like tabular format, but without the header row. Efficiently usable in ```awk``` and shell.
-
-### Examples
-
-#### View all disk in tsv format
+###### View all networks in list format
 
 ```bash
-{{scope}} disk list -o tsv
+h1 network list -o list
 ```
 
-## Argument ```--output list / -o list```
-
-### Description
-
-An output format that displays subsequent properties line by line.
-
-### Examples
-
-#### View all network in list format
+###### View all virtual machines in table format
 
 ```bash
-{{scope}} network list -o list
+h1 vm list -o table
 ```
-
 ## Argument ```--query```
-
-### Description
-
 Argument ```--query``` mean JMESPath query string. It is quite a powerful tool that allows you to efficiently 
     obtain specific information about resources.
     
 See the documentation and examples published on [jmespath.org](https://jmespath.org) for details about syntax.
     
-### Examples
+#### Examples
 
-#### Calculates the total size of disks
-
-```bash
-{{scope}} disk list -o json --query 'sum([].size)'
-```
-
-#### Summarize image size
+##### Calculates the total size of disks
 
 ```bash
-{{scope}} image list --query '[].{name:name,diskCount:length(disks),fileSize:fileSize}'
+h1 disk list -o json --query 'sum([].size)'
 ```
 
-#### Attach all detached disk to VM
+##### Summarize image size
 
 ```bash
-{{scope}} disk list --query "[?state=='Detached'].{id:_id}" -o tsv | xargs -r -n 1 {{scope}} vm disk attach --vm test-vm --disk
+h1 image list --query '[].{name:name,diskCount:length(disks),fileSize:fileSize}'
 ```
 
-#### Stop all virtual machines
+##### Attach all detached disk to VM
 
 ```bash
-{{scope}} vm list -o id | xargs -r -n 1 {{scope}} vm stop --vm
+h1 disk list --query "[?state=='Detached'].{id:_id}" -o tsv | xargs -r -n 1 h1 vm disk attach --vm test-vm --disk
 ```
 
-#### Create new disk and attach to virtual machine
+##### Stop all running virtual machines
+
+```bash
+h1 vm list --query "[?state=='Running'].{id:_id}" -o tsv | xargs -r -n 1 h1 vm stop --vm
+```
+
+##### Create new disk and attach to virtual machine
 
 ```
-$ DISK_ID=$({{scope}} disk create --name my-ambigious-name --type ssd --size 10 -o tsv --query '[].[_id]')
-$ {{scope}} vm disk attach --vm test-vm --disk $DISK_ID
+$ DISK_ID=$(h1 disk create --name my-ambigious-name --type ssd --size 10 -o tsv --query '[].[_id]')
+$ h1 vm disk attach --vm test-vm --disk $DISK_ID
 ```
 
 Note (1): In most cases, you can avoid using ID by naming resources uniquely.
 ## Argument ```--verbose```
+#### Examples
 
-### Examples
-
-#### Displays the URL of the request to the API
+##### Displays the URL of the request to the API
 
 ```bash
-{{scope}} image list --verbose
+h1 image list --verbose
 ```
-
-## Argument ``--no-wait``
-
-### Description
-
+## Argument ```--no-wait```
 In case of queued event do not wait for completion. It allows you to perform operations
 asynchronously, which can be used to optimize the execution time of scripts.
 
-### Examples
+#### Examples
 
-#### Create virtual machine without waiting for the process to be completed
+##### Create virtual machine without waiting for the process to be completed
 ```bash
-{{scope}} vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh --no-wait
+h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh --no-wait
 ```
+## Argument ```--dry-run```
+Try to perform operations without making any real changes:
 
-## Argument ``--dry-run``
-
-Try to perform operations without making any real changes.
+```
+h1 disk create --name xxxx.com --type ssd --size 25 --dry-run
+```
 ## Argument ```--yes```
-### Remove disk without additional confirmation
+Perform action without additional confirmation
+
+#### Examples
+
+##### Remove disk without additional confirmation
 
 ```bash
-{{scope}} disk delete --disk test-disk --yes
+h1 disk delete --disk test-disk --yes
 ```
 
 Note (1): Pretty useful when writing automatic scripts.
+## Argument ```--project-select```
+A parameter intended for selecting an ad-hoc project for a single command.
+
+#### Examples
+
+##### List virtual machine on selected project
+
+```bash
+h1 vm list --output tsv --project-select MyProject
+```
