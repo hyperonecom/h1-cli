@@ -45,6 +45,12 @@
       * [h1 dns record-set ns delete](#h1-dns-record-set-ns-delete) - Delete record-set
       * [h1 dns record-set ns add-record](#h1-dns-record-set-ns-add-record) - Add record
       * [h1 dns record-set ns delete-record](#h1-dns-record-set-ns-delete-record) - Delete record
+    * [h1 dns record-set alias](#h1-dns-record-set-alias) - Manage record set type ALIAS
+      * [h1 dns record-set alias list](#h1-dns-record-set-alias-list) - List Record ALIAS
+      * [h1 dns record-set alias create](#h1-dns-record-set-alias-create) - Create record-set
+      * [h1 dns record-set alias delete](#h1-dns-record-set-alias-delete) - Delete record-set
+      * [h1 dns record-set alias add-record](#h1-dns-record-set-alias-add-record) - Add record
+      * [h1 dns record-set alias delete-record](#h1-dns-record-set-alias-delete-record) - Delete record
     * [h1 dns record-set srv](#h1-dns-record-set-srv) - Manage record set type SRV
       * [h1 dns record-set srv list](#h1-dns-record-set-srv-list) - List Record SRV
       * [h1 dns record-set srv create](#h1-dns-record-set-srv-create) - Create record-set
@@ -911,6 +917,124 @@ Delete record
 
 ```bash
 h1 dns record-set ns delete-record --zone 'my-domain.tld' --name www --value 'ns1.example.com'
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record Set name |
+| ```--zone ZONE``` |  | DNS zone name |
+| ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+## h1 dns record-set alias
+
+Manage record set type ALIAS
+
+### Note
+
+The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a backward-incompatible manner.
+
+## h1 dns record-set alias list
+
+List Record ALIAS
+
+### Syntax
+
+```h1 dns record-set alias list | --zone ZONE```
+### Example
+
+```bash
+h1 dns record-set alias list --zone my-zone
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--zone ZONE``` |  | DNS zone name |
+
+## h1 dns record-set alias create
+
+Create record-set
+
+### Syntax
+
+```h1 dns record-set alias create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
+### Example
+
+```bash
+h1 dns record-set alias create --name '.' --zone 'my-domain.tld' --value 'service.com.'
+```
+
+Note (1): Use ```--name '.'``` to put record at top of the zone.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record Set name |
+| ```--zone ZONE``` |  | DNS zone name |
+| ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
+
+## h1 dns record-set alias delete
+
+Delete record-set
+
+### Syntax
+
+```h1 dns record-set alias delete | --name NAME --zone ZONE```
+### Example
+
+```bash
+h1 dns record-set alias delete --zone 'my-domain.tld' --name www
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record Set name |
+| ```--zone ZONE``` |  | DNS zone name |
+
+## h1 dns record-set alias add-record
+
+Add record
+
+### Syntax
+
+```h1 dns record-set alias add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
+### Example
+
+```bash
+h1 dns record-set alias add-record --zone 'my-domain.tld' --name subdomain --value 'service.com.'
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record Set name |
+| ```--zone ZONE``` |  | DNS zone name |
+| ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+## h1 dns record-set alias delete-record
+
+Delete record
+
+### Syntax
+
+```h1 dns record-set alias delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
+### Example
+
+```bash
+h1 dns record-set alias delete-record --zone 'my-domain.tld' --name www --value 'service.com.'
 ```
 
 ### Required arguments

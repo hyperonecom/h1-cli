@@ -46,6 +46,12 @@ module.exports = {
         }),
         to_content: (record, zone) => formatRecordName(record.host, zone.name),
     },
+    alias: {
+        value: 'service.com.',
+        categoryOptions: {
+            earlyAdoptersOnly: true,
+        },
+    },
     srv: {
         value: '10 5 11 s1.example.com.',
         to_bind: content => ({

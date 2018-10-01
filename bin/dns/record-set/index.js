@@ -42,11 +42,12 @@ const category = (resource) => {
 };
 
 const record = (type, resource) => {
-    const category = Cli.createCategory(type, {
+
+    const category = Cli.createCategory(type, Object.assign({}, recordTypes[type].categoryOptions, {
         description: `Manage record set type ${type.toUpperCase()}`,
         defaultQuery: `[?type=='${type.toUpperCase()}'][].{name:name, type:type, ttl:ttl, records:join(',',records[].content)}`,
         url: args => `${resource.url(args)}/rrsets/${type.toUpperCase()}`,
-    });
+    }));
 
     resource = Object.assign({}, resource, {
         title: `Record ${type.toUpperCase()}`,
