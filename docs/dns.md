@@ -5,8 +5,8 @@
     * [h1 dns zone show](#h1-dns-zone-show) - Show DNS zone
     * [h1 dns zone delete](#h1-dns-zone-delete) - Delete DNS zone
     * [h1 dns zone create](#h1-dns-zone-create) - Create DNS zone
-    * [h1 dns zone import](#h1-dns-zone-import) - Import DNS zone from BIND-compatible format
-    * [h1 dns zone export](#h1-dns-zone-export) - Export DNS zone in BIND-compatible format
+    * [h1 dns zone import](#h1-dns-zone-import) - Import A, AAAA, CNAME, TXT, MX, NS, SRV records of DNS zone from BIND-compatible format
+    * [h1 dns zone export](#h1-dns-zone-export) - Export A, AAAA, CNAME, TXT, MX, NS, SRV, SOA records of DNS zone in BIND-compatible format
   * [h1 dns record-set](#h1-dns-record-set) - Manage your record-set
     * [h1 dns record-set a](#h1-dns-record-set-a) - Manage record set type A
       * [h1 dns record-set a list](#h1-dns-record-set-a-list) - List Record A
@@ -50,6 +50,12 @@
       * [h1 dns record-set srv delete](#h1-dns-record-set-srv-delete) - Delete record-set
       * [h1 dns record-set srv add-record](#h1-dns-record-set-srv-add-record) - Add record
       * [h1 dns record-set srv delete-record](#h1-dns-record-set-srv-delete-record) - Delete record
+    * [h1 dns record-set soa](#h1-dns-record-set-soa) - Manage record set type SOA
+      * [h1 dns record-set soa list](#h1-dns-record-set-soa-list) - List Record SOA
+      * [h1 dns record-set soa create](#h1-dns-record-set-soa-create) - Create record-set
+      * [h1 dns record-set soa delete](#h1-dns-record-set-soa-delete) - Delete record-set
+      * [h1 dns record-set soa add-record](#h1-dns-record-set-soa-add-record) - Add record
+      * [h1 dns record-set soa delete-record](#h1-dns-record-set-soa-delete-record) - Delete record
     * [h1 dns record-set list](#h1-dns-record-set-list) - List Record set
 
 
@@ -159,7 +165,7 @@ h1 dns zone create --name my-domain.tld
 
 ## h1 dns zone import
 
-Import DNS zone from BIND-compatible format
+Import A, AAAA, CNAME, TXT, MX, NS, SRV records of DNS zone from BIND-compatible format
 
 ### Syntax
 
@@ -185,7 +191,7 @@ h1 dns zone import --zone 'my-domain.tld' --zone-file my-zone-export.txt
 
 ## h1 dns zone export
 
-Export DNS zone in BIND-compatible format
+Export A, AAAA, CNAME, TXT, MX, NS, SRV, SOA records of DNS zone in BIND-compatible format
 
 ### Syntax
 
@@ -994,6 +1000,125 @@ Delete record
 
 ```bash
 h1 dns record-set srv delete-record --zone 'my-domain.tld' --name www --value '10 5 11 s1.example.com.'
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record Set name |
+| ```--zone ZONE``` |  | DNS zone name |
+| ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+## h1 dns record-set soa
+
+Manage record set type SOA
+
+## h1 dns record-set soa list
+
+List Record SOA
+
+### Syntax
+
+```h1 dns record-set soa list | --zone ZONE```
+
+### Example
+
+```bash
+h1 dns record-set soa list --zone my-zone
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--zone ZONE``` |  | DNS zone name |
+
+## h1 dns record-set soa create
+
+Create record-set
+
+### Syntax
+
+```h1 dns record-set soa create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
+
+### Example
+
+```bash
+h1 dns record-set soa create --name '.' --zone 'my-domain.tld' --value 'pns.hyperone.com. hostmaster.hyperone.com. 2018093002 15 180 1209600 1800'
+```
+
+Note (1): Use ```--name '.'``` to put record at top of the zone.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record Set name |
+| ```--zone ZONE``` |  | DNS zone name |
+| ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
+
+## h1 dns record-set soa delete
+
+Delete record-set
+
+### Syntax
+
+```h1 dns record-set soa delete | --name NAME --zone ZONE```
+
+### Example
+
+```bash
+h1 dns record-set soa delete --zone 'my-domain.tld' --name www
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record Set name |
+| ```--zone ZONE``` |  | DNS zone name |
+
+## h1 dns record-set soa add-record
+
+Add record
+
+### Syntax
+
+```h1 dns record-set soa add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
+
+### Example
+
+```bash
+h1 dns record-set soa add-record --zone 'my-domain.tld' --name subdomain --value 'pns.hyperone.com. hostmaster.hyperone.com. 2018093002 15 180 1209600 1800'
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record Set name |
+| ```--zone ZONE``` |  | DNS zone name |
+| ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+## h1 dns record-set soa delete-record
+
+Delete record
+
+### Syntax
+
+```h1 dns record-set soa delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
+
+### Example
+
+```bash
+h1 dns record-set soa delete-record --zone 'my-domain.tld' --name www --value 'pns.hyperone.com. hostmaster.hyperone.com. 2018093002 15 180 1209600 1800'
 ```
 
 ### Required arguments
