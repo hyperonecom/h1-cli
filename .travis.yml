@@ -9,6 +9,7 @@ jobs:
   include:
   - stage: test
     script:
+    - npm ci
     - npm link
     - npm run lint
     - h1 config cli
