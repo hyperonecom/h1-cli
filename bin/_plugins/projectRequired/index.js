@@ -15,7 +15,7 @@ module.exports = {
     options: options,
     dirname: __dirname,
     onBeforeConfigure: context => Object.entries(options).forEach(([k, v]) => context.node.addOption(k, v)),
-    onBeforeHandler: context => {
+    onBeforeHandler: async context => {
         const profile = config.get('profile', {});
 
         context.args.profile = Object.assign({}, profile);
@@ -24,13 +24,15 @@ module.exports = {
             return;
         }
 
+        const project_id = process.env.H1_PROJECT || context.args['project-select'];
+
+        if (project_id) {
+            context.args.profile.project = await context.args.helpers.api.get(`project/${project_id}`);
+        }
+
         if (!profile.project || !profile.project._id) {
             throw Cli.error.cancelled('You need to select project before you can manage your resources');
         }
-
-        if (context.args['project-select']) {
-            context.args.profile.project.name = '';
-            context.args.profile.project._id = context.args['project-select'];
-        }
+        context.args.helpers.api.setProject(context.args.profile.project._id);
     },
 };

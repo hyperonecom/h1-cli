@@ -16,12 +16,13 @@ const resource = {
 const actionDefault = Object.assign({}, resource, {
     dirname: __dirname,
 });
+const credential_type = ['certificate', 'password'];
 
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
 
-category.addChild(require('./credential')(resource));
+category.addChild(require('../generic/credential')(resource, credential_type));
 
 category.addChild(require('./ssh')(resource));
 category.addChild(require('./console')(resource));

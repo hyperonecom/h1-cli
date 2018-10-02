@@ -18,6 +18,7 @@ const childDefaults = Object.assign({}, resource, {
 
 const category = Cli.createCategory(resource.name, {
     description: `Manage your ${resource.title}`,
+    priority: 15,
 });
 
 category.addChild(require('./create'));

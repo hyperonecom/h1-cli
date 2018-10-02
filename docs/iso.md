@@ -5,16 +5,16 @@
   * [h1 iso delete](#h1-iso-delete) - Delete ISO
   * [h1 iso history](#h1-iso-history) - History of ISO
   * [h1 iso rename](#h1-iso-rename) - Rename ISO
-  * [h1 iso tag](#h1-iso-tag) - Manage your tag
-    * [h1 iso tag list](#h1-iso-tag-list) - List tag
-    * [h1 iso tag add](#h1-iso-tag-add) - Add a tag to ISO
-    * [h1 iso tag delete](#h1-iso-tag-delete) - Delete a tag of ISO
   * [h1 iso access](#h1-iso-access) - Manage your ISO access rights
     * [h1 iso access grant](#h1-iso-access-grant) - Grant access rights for ISO
     * [h1 iso access revoke](#h1-iso-access-revoke) - Revoke access rights for ISO
     * [h1 iso access list](#h1-iso-access-list) - List of access rights for ISO
   * [h1 iso resume](#h1-iso-resume) - Resume create upload of ISO
   * [h1 iso create](#h1-iso-create) - ISO import
+  * [h1 iso tag](#h1-iso-tag) - Manage your tag
+    * [h1 iso tag list](#h1-iso-tag-list) - List tag
+    * [h1 iso tag add](#h1-iso-tag-add) - Add a tag to ISO
+    * [h1 iso tag delete](#h1-iso-tag-delete) - Delete a tag of ISO
 
 
 # Specification
@@ -112,74 +112,6 @@ h1 iso rename --iso my-iso --new-name my-renamed-iso
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
-
-## h1 iso tag
-
-Manage your tag
-
-## h1 iso tag list
-
-List tag
-
-### Syntax
-
-```h1 iso tag list | --iso ISO```
-### Example
-
-```bash
-h1 iso tag list --iso my-iso
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--iso ISO``` |  | ISO ID or name |
-
-## h1 iso tag add
-
-Add a tag to ISO
-
-### Syntax
-
-```h1 iso tag add | --iso ISO [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 iso tag add --iso test-iso --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--iso ISO``` |  | ISO ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 iso tag delete
-
-Delete a tag of ISO
-
-### Syntax
-
-```h1 iso tag delete | --tag TAG --iso ISO```
-### Example
-
-```bash
-h1 iso tag delete --iso test-iso --tag prod
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
-| ```--iso ISO``` |  | ISO ID or name |
 
 ## h1 iso access
 
@@ -297,4 +229,72 @@ h1 iso create --name myiso --source-url http://example.com/some.iso
 | ```--source-file SOURCE-FILE``` |  | Source file for ISO import. |
 | ```--source-url SOURCE-URL``` |  | Source url for ISO import. Required if source-file is not specified. |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 iso tag
+
+Manage your tag
+
+## h1 iso tag list
+
+List tag
+
+### Syntax
+
+```h1 iso tag list | --iso ISO```
+### Example
+
+```bash
+h1 iso tag list --iso my-iso
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--iso ISO``` |  | ISO ID or name |
+
+## h1 iso tag add
+
+Add a tag to ISO
+
+### Syntax
+
+```h1 iso tag add | --iso ISO [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 iso tag add --iso test-iso --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--iso ISO``` |  | ISO ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 iso tag delete
+
+Delete a tag of ISO
+
+### Syntax
+
+```h1 iso tag delete | --tag TAG --iso ISO```
+### Example
+
+```bash
+h1 iso tag delete --iso test-iso --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--iso ISO``` |  | ISO ID or name |
 

@@ -2,7 +2,7 @@
 
 const Cli = require('lib/cli');
 const config = require('lib/config');
-const logger = require('lib/logger');
+const logger = require('lib/logger').log;
 
 const getApp = args =>{
     let elem = args.$node;

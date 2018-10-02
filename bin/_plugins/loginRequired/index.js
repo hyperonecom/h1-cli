@@ -2,7 +2,7 @@
 
 const config = require('lib/config');
 const Cli = require('lib/cli');
-const logger = require('lib/logger');
+const logger = require('lib/logger').log;
 
 const login = require('bin/login');
 

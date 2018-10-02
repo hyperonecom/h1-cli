@@ -4,7 +4,7 @@ const Cli = require('lib/cli');
 
 const interactive = require('lib/interactive');
 
-const logger = require('lib/logger');
+const logger = require('lib/logger').log;
 
 
 module.exports = Cli.createCommand('create', {

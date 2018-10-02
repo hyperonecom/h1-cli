@@ -32,6 +32,8 @@ if (config.get('profile.apiKey') || process.env.NODE_ENV !== 'production') {
     cli.addChild(require('./service'));
 }
 
+cli.addChild(require('./log'));
+
 const cli_resources = ['vm', 'disk', 'image', 'iso', 'network', 'ip',
     'dns', 'netgw', 'firewall', 'vault', 'snapshot'];
 
@@ -98,6 +100,16 @@ Cli.flatten(cli).forEach(node => {
     }
 });
 
+// sort child commands by priority
+Cli.flatten(cli).filter(node => node.children).forEach(node => {
+    const get_key = (node) => {
+        if (!node.createOptions)
+            return 50;
+        return node.createOptions.priority || 50;
+    };
+
+    node.children.sort((a, b) => get_key(a) - get_key(b));
+});
 
 applyDefault(cli, config.get('defaults', {}));
 

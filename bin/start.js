@@ -1,7 +1,7 @@
 'use strict';
 
 const cli = require('./index');
-const logger = require('lib/logger');
+const logger = require('lib/logger').log;
 
 process.env.NODE_ENV = process.pkg ? 'production' : process.env.NODE_ENV;
 
@@ -62,5 +62,4 @@ cli.run()
         logger('error', err.stack);
 
         process.exit(99);
-    })
-    .then(() => process.exit(0));
+    });

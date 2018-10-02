@@ -17,9 +17,8 @@ const options = {
 
 module.exports = resource => Cli.createCommand('add', {
     dirname: __dirname,
-    description: 'Add password to Vault',
-    plugins: resource.plugins,
-    params: resource.params,
+    description: `Add password to ${resource.title}`,
+    resource: resource,
     options: Object.assign({}, resource.options, options),
     handler: args => args.helpers.api
         .post(args.$node.parent.config.url(args), {
