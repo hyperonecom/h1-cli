@@ -88,16 +88,16 @@ Object.entries(recordTypes).forEach(([type, values]) => {
 
         // Validates that export works
         const content = await tests.run(`dns zone export --zone ${zone.name}`);
-        t.true(content.includes(values[0].replace(/ /g, '\t')));
-        t.true(content.includes(values[1].replace(/ /g, '\t')));
+        t.true(content.includes(values[0].split(/\s+/)[0].replace(/ /g, '\t')));
+        t.true(content.includes(values[1].split(/\s+/)[0].replace(/ /g, '\t')));
 
         const zone_file = tests.getRandomFile(content.replace(new RegExp(zone.name, 'g'), zone_import.name));
         await tests.run(`dns zone import --zone ${zone_import.name} --zone-file ${zone_file}`);
 
         // Validates that import works via validated export
         const content_export = await tests.run(`dns zone export --zone ${zone_import.name}`);
-        t.true(content_export.includes(values[0].replace(/ /g, '\t')));
-        t.true(content_export.includes(values[1].replace(/ /g, '\t')));
+        t.true(content_export.includes(values[0].split(/\s+/)[0].replace(/ /g, '\t')));
+        t.true(content_export.includes(values[1].split(/\s+/)[0].replace(/ /g, '\t')));
 
         await fsPromiseUnlink(zone_file);
         await tests.remove('dns zone', zone);
