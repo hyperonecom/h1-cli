@@ -51,7 +51,6 @@ const handle = (args) => args.helpers.api.get(
             zone[type] = [];
             result.rrsets
                 .filter(x => x.type === type.toUpperCase())
-                .filter(x => recordTypes[x].to_bind)
                 .map(rrset => {
                     zone[type].push(...rrset.records.map(record => Object.assign(
                         {
