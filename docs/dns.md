@@ -1021,7 +1021,6 @@ List Record SOA
 ### Syntax
 
 ```h1 dns record-set soa list | --zone ZONE```
-
 ### Example
 
 ```bash
@@ -1041,7 +1040,6 @@ Create record-set
 ### Syntax
 
 ```h1 dns record-set soa create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
-
 ### Example
 
 ```bash
@@ -1071,7 +1069,6 @@ Delete record-set
 ### Syntax
 
 ```h1 dns record-set soa delete | --name NAME --zone ZONE```
-
 ### Example
 
 ```bash
@@ -1092,7 +1089,6 @@ Add record
 ### Syntax
 
 ```h1 dns record-set soa add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
@@ -1114,7 +1110,6 @@ Delete record
 ### Syntax
 
 ```h1 dns record-set soa delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
-
 ### Example
 
 ```bash
