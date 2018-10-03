@@ -14,7 +14,6 @@ module.exports = parent => {
         commands: ['show', 'list', 'delete' ],
         plugins: parent.plugins,
         title: 'validated domain',
-        dirname: __dirname,
         context: {
             deleteParams: '--project my-project',
             showParams: '--project my-project',

@@ -41,7 +41,6 @@
     * [h1 project domain show](#h1-project-domain-show) - Show validated domain
     * [h1 project domain list](#h1-project-domain-list) - List validated domain
     * [h1 project domain delete](#h1-project-domain-delete) - Delete validated domain
-    * [h1 project domain rename](#h1-project-domain-rename) - Rename validated domain
     * [h1 project domain add](#h1-project-domain-add) - Add validated domain
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
     * [h1 project credentials show](#h1-project-credentials-show) - Show credentials
@@ -832,7 +831,7 @@ Show validated domain
 ### Example
 
 ```bash
-h1 project domain show --domain my-domain
+h1 project domain show --domain my-domain --project my-project
 ```
 
 ### Required arguments
@@ -857,7 +856,7 @@ List validated domain
 ### Example
 
 ```bash
-h1 project domain list
+h1 project domain list --project my-project
 ```
 
 ### Optional arguments
@@ -891,32 +890,6 @@ h1 project domain delete --domain my-domain --project my-project
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
-## h1 project domain rename
-
-Rename validated domain
-
-### Syntax
-
-```h1 project domain rename | --domain DOMAIN --new-name NEW-NAME [--project PROJECT]```
-### Example
-
-```bash
-h1 project domain rename --domain my-domain --new-name my-renamed-domain
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--domain DOMAIN``` |  | Validated domain ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project domain add
 
 Add validated domain
@@ -924,6 +897,10 @@ Add validated domain
 ### Syntax
 
 ```h1 project domain add | --name NAME [--project PROJECT]```
+### Examples
+
+h1 project domain add --name some.domain.com. --project AdamDobrawy
+
 ### Required arguments
 
 | Name | Default | Description |
