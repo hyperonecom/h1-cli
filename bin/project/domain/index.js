@@ -5,26 +5,26 @@ const genericResource = require('bin/generic');
 module.exports = parent => {
 
     const resource = {
-        name: 'token',
-        description: `Manage your ${parent.title} tokens`,
-        defaultQuery: '[].{token:_id,name:name,createdOn:createdOn,createdBy:createdBy}',
-        url: args => `${parent.url(args)}/credential/authtoken`,
+        name: 'domain',
+        description: `Manage your ${parent.title} domains`,
+        defaultQuery: '[].{_id:_id,name:name,challenge:challenge}',
+        url: args => `${parent.url(args)}/domainVerification`,
         params: parent.params,
         options: parent.options,
-        commands: ['show', 'list', 'delete', 'rename'],
+        commands: ['show', 'list', 'delete' ],
         plugins: parent.plugins,
-        title: 'token',
+        title: 'validated domain',
         dirname: __dirname,
         context: {
-            historyParams: '--project my-project',
             deleteParams: '--project my-project',
+            showParams: '--project my-project',
+            listParams: '--project my-project',
         },
     };
 
     const category = genericResource(resource);
 
     category.addChild(require('./add')(resource));
-    category.addChild(require('./access')(resource));
 
     return category;
 };
