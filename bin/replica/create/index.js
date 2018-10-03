@@ -48,6 +48,10 @@ module.exports = resource => Cli.createCommand('create', {
     plugins: resource.plugins,
     options: options,
     handler: async args => {
+        if (process.platform !== 'win32') {
+            throw Cli.error.cancelled('You must perform this command on the Windows platform. ' +
+                'We do not support remote connection to Hyper-V.', undefined);
+        }
 
         const code = await spawn(
             'powershell'
