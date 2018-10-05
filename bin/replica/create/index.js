@@ -14,6 +14,11 @@ const options = {
         type: 'string',
         required: true,
     },
+    autostart: {
+        description: 'Automatically start replication immediately after configuration',
+        type: 'boolean',
+        defaultValue: false,
+    },
 };
 
 const spawn = (command, args, options) => new Promise((resolve, reject) => {
@@ -91,6 +96,10 @@ module.exports = resource => Cli.createCommand('create', {
             '-Secret',
             secret,
         ];
+
+        if (args.autostart) {
+            psArgs.push('-Autostart');
+        }
 
         return spawn('powershell', psArgs, { stdio: [ 'ignore', 'inherit', 'inherit' ] });
     },

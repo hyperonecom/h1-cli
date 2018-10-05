@@ -5,7 +5,7 @@ const genericResource = require('bin/generic');
 
 const resource = {
     name: 'replica',
-    defaultQuery: '[].{id:_id,name:name}',
+    defaultQuery: '[].{id:_id, name:name, state:state, tags:join(\',\',keys(tag || `{}`) )}',
     url: () => 'replica',
     plugins: genericDefaults.plugins,
 };

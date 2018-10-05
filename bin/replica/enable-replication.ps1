@@ -18,6 +18,8 @@ Param(
     [parameter(Mandatory=$true)]
     [ValidateNotNullOrEmpty()]
     [string]$Secret
+
+    [switch]$Autostart
 )
 
 $ErrorActionPreference = "Stop"
@@ -113,4 +115,12 @@ if( $? ) {
     }
 
     Write-Host "Replication successfully enabled"
+
+    if ($Autostart){
+        Start-VMInitialReplication -VMName $VM
+        Write-Host "Replication successfully started"
+
+    }
+
+
 }

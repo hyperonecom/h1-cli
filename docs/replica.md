@@ -182,10 +182,16 @@ Setup VM replication
 
 ### Syntax
 
-```h1 replica create | --local-vm LOCAL-VM```
+```h1 replica create | --local-vm LOCAL-VM [--autostart]```
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--local-vm LOCAL-VM``` |  | Local virtual machine ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--autostart``` |  | Automatically start replication immediately after configuration |
 
