@@ -174,7 +174,7 @@ Create image
 
 ### Syntax
 
-```h1 image create | --name NAME --vm VM [--description DESCRIPTION] [--tag TAG [--tag TAG ...]]```
+```h1 image create | --name NAME [--description DESCRIPTION] [--vm VM] [--replica REPLICA] [--tag TAG [--tag TAG ...]]```
 ### Example
 
 ```bash
@@ -186,13 +186,14 @@ h1 image create --vm test-vm --name dev-image
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name of image |
-| ```--vm VM``` |  | Virtual machine name or ID |
 
 ### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--description DESCRIPTION``` |  | Description of image |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--replica REPLICA``` |  | Replica name or ID |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 image list
