@@ -37,6 +37,11 @@
       * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limits
   * [h1 project select](#h1-project-select) - Select project context
   * [h1 project limit](#h1-project-limit) - Cloud limits set for project
+  * [h1 project domain](#h1-project-domain) - Manage your project domains
+    * [h1 project domain show](#h1-project-domain-show) - Show validated domain
+    * [h1 project domain list](#h1-project-domain-list) - List validated domain
+    * [h1 project domain delete](#h1-project-domain-delete) - Delete validated domain
+    * [h1 project domain add](#h1-project-domain-add) - Add validated domain
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
     * [h1 project credentials show](#h1-project-credentials-show) - Show credentials
     * [h1 project credentials list](#h1-project-credentials-list) - List credentials
@@ -805,6 +810,102 @@ h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
 
 Contact technical support to request increase the limits.
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project domain
+
+Manage your project domains
+
+## h1 project domain show
+
+Show validated domain
+
+### Syntax
+
+```h1 project domain show | --domain DOMAIN [--project PROJECT]```
+### Example
+
+```bash
+h1 project domain show --domain my-domain --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN``` |  | Validated domain ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project domain list
+
+List validated domain
+
+### Syntax
+
+```h1 project domain list | [--project PROJECT]```
+### Example
+
+```bash
+h1 project domain list --project my-project
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project domain delete
+
+Delete validated domain
+
+### Syntax
+
+```h1 project domain delete | --domain DOMAIN [--project PROJECT]```
+### Example
+
+```bash
+h1 project domain delete --domain my-domain --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN``` |  | Validated domain ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project domain add
+
+Add validated domain
+
+### Syntax
+
+```h1 project domain add | --name NAME [--project PROJECT]```
+### Examples
+
+h1 project domain add --name some.domain.com. --project AdamDobrawy
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Name |
 
 ### Optional arguments
 

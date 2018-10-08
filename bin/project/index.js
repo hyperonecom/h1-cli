@@ -39,6 +39,7 @@ category.addChild(require('./token')(childDefaults));
 category.addChild(require('./notification')(childDefaults));
 category.addChild(require('./select')(childDefaults));
 category.addChild(require('./limits')(childDefaults));
+category.addChild(require('./domain')(childDefaults));
 
 category.addChild(require('bin/generic/credentials')(Object.assign(
     {}

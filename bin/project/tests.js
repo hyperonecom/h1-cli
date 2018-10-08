@@ -243,7 +243,6 @@ ava.serial('project token access life cycle', async t => {
 
     await run(`project token access delete ${tokenParams} --access ${access._id} --yes`);
 
-
     const access_list_deleted = await run(`project token access list ${tokenParams}`);
 
     t.false(access_list_deleted.some(d => d._id === access._id));
@@ -280,3 +279,21 @@ ava.serial('project credentials life cycle', tests.credentialsLifeCycle('project
     createParams: `--project ${active_project}`,
     listParams: `--project ${active_project}`,
 }));
+
+ava.serial('project domain life cycle', async t => {
+    const commonParams = `--project ${active_project}`;
+    const name = `test-${now}.com.`;
+
+    await tests.run(`project domain add ${commonParams} --name ${name}`);
+
+    const list = await tests.run(`project domain list ${commonParams}`);
+    t.true(list.some(x => x.name === name));
+
+    await tests.run(`project domain show ${commonParams} --domain ${name}`);
+
+    await tests.run(`project domain delete ${commonParams} --yes --domain ${name} `);
+    const new_list = await tests.run(`project domain list ${commonParams}`);
+    t.true(!new_list.some(x => x.name === name));
+
+
+});

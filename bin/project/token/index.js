@@ -28,4 +28,3 @@ module.exports = parent => {
 
     return category;
 };
-
