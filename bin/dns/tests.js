@@ -104,3 +104,22 @@ Object.entries(recordTypes).forEach(([type, values]) => {
         await tests.remove('dns zone', zone_import);
     });
 });
+
+ava.serial('import zone from file', async t => {
+    const zone_file = tests.getRandomFile(`$TTL 7600
+@                   IN SOA     ns1.example.com.    hostmaster.ns.webcorp.co.uk. ( 2004080901 21600 7200 1209600 172800 )
+                    IN NS      ns1.example.com.
+                    IN NS      ns2.example.com.
+                    IN MX      0 mx0.example.com.
+*                   IN A       123.123.123.123
+@                   IN A       121.121.121.121`);
+
+    const zone = await tests.run(`dns zone create --name import-file-${now}.com`);
+    await tests.run(`dns zone import --zone ${zone.name} --zone-file ${zone_file}`);
+
+    await test_record_values(t, zone, 'a', `*.${zone.name}`, ['123.123.123.123']);
+    await test_record_values(t, zone, 'a', zone.name, ['121.121.121.121']);
+    await test_record_values(t, zone, 'mx', zone.name, ['0 mx0.example.com.']);
+    await tests.remove('dns zone', zone);
+    await fsPromiseUnlink(zone_file);
+});
