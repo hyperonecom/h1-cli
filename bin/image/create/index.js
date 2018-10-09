@@ -29,22 +29,20 @@ module.exports = resource => Cli.createCommand('create', {
     plugins: resource.plugins,
     options: options,
     handler: args => {
+
+        Cli.mutually_exclusive_validate(args, 'replica', 'vm');
+
         const body = {
             name: args.name,
             description: args.description,
             tag: require('lib/tags').createTagObject(args.tag),
         };
 
-        if (!args.vm && !args.replica) {
-            throw Cli.error.cancelled('Providing either vm or replica is required.');
-        }
-        if (args.vm && args.replica) {
-            throw Cli.error.cancelled('Providing either vm or replica is required.');
-        }
-
         if (args.vm) {
             body.vm = args.vm;
-        } else if (args.replica) {
+        }
+
+        if (args.replica) {
             body.replica = args.replica;
         }
 
