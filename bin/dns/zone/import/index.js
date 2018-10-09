@@ -37,9 +37,8 @@ const handle = (args) => args.helpers.api
     .get(`${args.$node.parent.config.url(args)}/${args.zone}`)
     .then(async remote_zone => {
         const local_zone = zonefile.parse(fs.readFileSync(args['zone-file'], 'utf-8'));
-        const requests = new Set();
 
-        supported_types.forEach(type => {
+        for (const type of supported_types) {
             const remote_rrset_names = new Set(remote_zone.rrsets
                 .filter(rrset => rrset.type === type.toUpperCase())
                 .map(record => record.name === remote_zone.name ? '@' : record.name));
@@ -49,18 +48,18 @@ const handle = (args) => args.helpers.api
             const need_to_remove = set_difference(remote_rrset_names, local_rrset_names);
 
             if (args.delete) {
-                need_to_remove.forEach(rrset_name => {
+                for (const rrset_name of need_to_remove) {
                     const remote_name = rrset_name === '@' ? remote_zone.name : rrset_name;
                     const url = `${args.$node.parent.config.url(args)}/${args.zone}/rrsets/${type.toUpperCase()}/${remote_name}`;
-                    requests.push(args.helpers.api.delete(url));
-                });
+                    await args.helpers.api.delete(url);
+                }
             }
 
-            local_rrset_names.forEach(rrset_name => {
+            for (const rrset_name of local_rrset_names) {
                 const remote_name = rrset_name === '@' ? remote_zone.name : rrset_name;
                 const records = local_rrset_type
                     .filter(rrset => rrset.name === rrset_name)
-                    .map(recordTypes[type].to_content)
+                    .map(record => recordTypes[type].to_content(record, remote_zone))
                     .map(content => ({
                         content: content,
                         disabled: false,
@@ -75,11 +74,9 @@ const handle = (args) => args.helpers.api
                 };
 
                 const url = `${args.$node.parent.config.url(args)}/${args.zone}/rrsets/${type.toUpperCase()}`;
-                const req = args.helpers.api.post(url, data);
-                requests.add(req.then(() => requests.delete(req)));
-            });
-        });
-        await Promise.all(requests);
+                await args.helpers.api.post(url, data);
+            }
+        }
         return args.helpers.api
             .get(`${args.$node.parent.config.url(args)}/${args.zone}`)
             .then(result => args.helpers.sendOutput(args, result));

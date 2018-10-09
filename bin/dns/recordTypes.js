@@ -1,4 +1,5 @@
 'use strict';
+const formatRecordName = require('./lib').formatRecordName;
 
 module.exports = {
     a: {
@@ -42,7 +43,7 @@ module.exports = {
         to_bind: content => ({
             host: content,
         }),
-        to_content: record => record.host,
+        to_content: (record, zone) => formatRecordName(record.host, zone.name),
     },
     srv: {
         value: '10 5 11 s1.example.com.',
