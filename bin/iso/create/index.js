@@ -32,14 +32,9 @@ module.exports = resource => Cli.createCommand('create', {
     options: options,
     handler: async args => {
 
-        let iso;
+        Cli.mutually_exclusive_validate(args, 'source-url', 'source-file');
 
-        if (!args['source-url'] && !args['source-file']) {
-            throw Cli.error.cancelled('Providing either source-file or source-url is required.');
-        }
-        if (args['source-url'] && args['source-file']) {
-            throw Cli.error.cancelled('Providing either source-file or source-url is required.');
-        }
+        let iso;
 
         if (args['source-url']) {
             iso = await args.helpers.api.post(resource.url(args), {
@@ -47,7 +42,9 @@ module.exports = resource => Cli.createCommand('create', {
                 source: args['source-url'],
                 tag: require('lib/tags').createTagObject(args.tag),
             });
-        } else if (args['source-file']) {
+        }
+
+        if (args['source-file']) {
             const fileSize = fs.statSync(args['source-file']).size;
 
             iso = await args.helpers.api.post(resource.url(args), {
