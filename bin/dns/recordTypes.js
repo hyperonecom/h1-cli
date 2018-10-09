@@ -8,6 +8,7 @@ module.exports = {
             ip: content,
         }),
         to_content: record => record.ip,
+        extraCommand: ['dynamicDns'],
     },
     aaaa: {
         value: 'fdda:5cc1:23:4::1f',

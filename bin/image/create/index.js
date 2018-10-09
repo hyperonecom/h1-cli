@@ -15,7 +15,10 @@ const options = {
     vm: {
         description: 'Virtual machine name or ID',
         type: 'string',
-        required: true,
+    },
+    replica: {
+        description: 'Replica name or ID',
+        type: 'string',
     },
 };
 
@@ -25,12 +28,28 @@ module.exports = resource => Cli.createCommand('create', {
     dirname: __dirname,
     plugins: resource.plugins,
     options: options,
-    handler: args => args.helpers.api
-        .post('image', {
+    handler: args => {
+        const body = {
             name: args.name,
-            vm: args.vm,
             description: args.description,
             tag: require('lib/tags').createTagObject(args.tag),
-        })
-        .then(result => args.helpers.sendOutput(args, result)),
+        };
+
+        if (!args.vm && !args.replica) {
+            throw Cli.error.cancelled('Providing either vm or replica is required.');
+        }
+        if (args.vm && args.replica) {
+            throw Cli.error.cancelled('Providing either vm or replica is required.');
+        }
+
+        if (args.vm) {
+            body.vm = args.vm;
+        } else if (args.replica) {
+            body.replica = args.replica;
+        }
+
+        return args.helpers.api
+            .post('image', body)
+            .then(result => args.helpers.sendOutput(args, result));
+    },
 });

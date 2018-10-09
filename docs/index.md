@@ -16,3 +16,4 @@
   * [h1 firewall](firewall.md) - Manage your firewall
   * [h1 vault](vault.md) - Manage your Vault
   * [h1 snapshot](snapshot.md) - Manage your snapshot
+  * [h1 replica](replica.md) - Manage your replica
