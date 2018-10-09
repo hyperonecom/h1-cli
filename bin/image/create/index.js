@@ -35,12 +35,17 @@ module.exports = resource => Cli.createCommand('create', {
             tag: require('lib/tags').createTagObject(args.tag),
         };
 
+        if (!args.vm && !args.replica) {
+            throw Cli.error.cancelled('Providing either vm or replica is required.');
+        }
+        if (args.vm && args.replica) {
+            throw Cli.error.cancelled('Providing either vm or replica is required.');
+        }
+
         if (args.vm) {
             body.vm = args.vm;
         } else if (args.replica) {
             body.replica = args.replica;
-        } else {
-            throw Cli.error.cancelled('You can not create an image simultaneously from a virtual machine and from a replica.');
         }
 
         return args.helpers.api
