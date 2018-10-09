@@ -63,6 +63,11 @@ const record = (type, resource) => {
     category.addChild(require('./addRecord')(resource));
     category.addChild(require('./deleteRecord')(resource));
 
+    if (recordTypes[type].extraCommand) {
+        recordTypes[type].extraCommand.forEach(
+            cmd => category.addChild(require(`./${cmd}`)(resource))
+        );
+    }
     return category;
 };
 
