@@ -36,7 +36,7 @@ module.exports = resource => Cli.createCommand('create', {
         };
 
         if (args.vm) {
-            body.vm = args.replica;
+            body.vm = args.vm;
         } else if (args.replica) {
             body.replica = args.replica;
         } else {
