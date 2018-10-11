@@ -19,6 +19,7 @@ module.exports = (options) => {
     wstream.write('# Common arguments\n');
 
     list_active_plugins(options.cli)
+        .sort()
         .filter(x => x.dirname)
         .forEach(plugin => {
             Object.keys(plugin.options).forEach(argument => {

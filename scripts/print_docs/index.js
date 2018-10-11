@@ -1,8 +1,10 @@
 'use strict';
 
 process.env.H1_PROJECT = 'dummy-project';
+process.env.NODE_ENV = 'production';
 
 require(`../../scope/${process.env.SCOPE_NAME || 'h1' }`);
+
 const cli = require('../../bin/index');
 
 const doc_global_parameters = require('./doc_global_parameters');
