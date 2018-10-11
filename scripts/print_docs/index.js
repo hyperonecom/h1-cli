@@ -1,7 +1,6 @@
 'use strict';
 
 process.env.H1_PROJECT = 'dummy-project';
-process.env.NODE_ENV = 'production';
 
 require(`../../scope/${process.env.SCOPE_NAME || 'h1' }`);
 

@@ -14,9 +14,7 @@ module.exports = (resource) => {
     category.addChild(require('./revoke')(resource));
     category.addChild(require('bin/generic/list')(resource));
 
-    if (process.env.NODE_ENV !== 'production') {
-        category.addChild(require('bin/generic/rule')(resource));
-    }
+    // category.addChild(require('bin/generic/rule')(resource));
 
     return category;
 };
