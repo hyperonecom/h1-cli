@@ -1,6 +1,6 @@
 'use strict';
 const ava = require('ava');
-const requests = require('superagent');
+// const requests = require('superagent');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
@@ -125,12 +125,12 @@ ava.serial('import zone from file', async t => {
     await fsPromiseUnlink(zone_file);
 });
 
-ava.serial('dns record-set a dynamic-dns', async t => {
-    const zone = await tests.run(`dns zone create --name ddns-${now}.com`);
-    await tests.run(`dns record-set a dynamic-dns --name my-home --zone ${zone.name}`);
-    const ip = await requests.get('https://api.ipify.org?format=json')
-        .then(resp => resp.body.ip);
-    await test_record_values(t, zone, 'a', `my-home.${zone.name}`, [ip]);
-
-    await tests.remove('dns zone', zone);
-});
+// ava.serial('dns record-set a dynamic-dns', async t => {
+//     const zone = await tests.run(`dns zone create --name ddns-${now}.com`);
+//     await tests.run(`dns record-set a dynamic-dns --name my-home --zone ${zone.name}`);
+//     const ip = await requests.get('https://api.ipify.org?format=json')
+//         .then(resp => resp.body.ip);
+//     await test_record_values(t, zone, 'a', `my-home.${zone.name}`, [ip]);
+//
+//     await tests.remove('dns zone', zone);
+// });
