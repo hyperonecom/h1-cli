@@ -11,6 +11,6 @@ ava.serial('user credentials life cycle', tests.credentialsLifeCycle('user crede
 
 ava.todo('user 2fa');
 
-ava.serial('user access rule life cycle', async t => {
-    await tests.accessRuleLifeCycle(t, 'user access rule');
-});
+// ava.serial('user access rule life cycle', async t => {
+//     await tests.accessRuleLifeCycle(t, 'user access rule');
+// });
