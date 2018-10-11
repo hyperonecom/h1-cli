@@ -187,7 +187,7 @@ Setup VM replication
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--local-vm LOCAL-VM``` |  | Local virtual machine ID or name |
+| ```--local-vm LOCAL-VM``` |  | Local virtual machine name |
 
 ### Optional arguments
 
