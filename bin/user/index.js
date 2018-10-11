@@ -21,7 +21,8 @@ const category = Cli.createCategory(resource.name, {
 });
 
 category.addChild(require('./create'));
-category.addChild(require('./access')(childDefaults));
+
+// category.addChild(require('./access')(childDefaults));
 
 category.addChild(require('bin/generic/credentials')(Object.assign(
     {},

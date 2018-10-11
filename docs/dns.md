@@ -14,7 +14,6 @@
       * [h1 dns record-set a delete](#h1-dns-record-set-a-delete) - Delete record-set
       * [h1 dns record-set a add-record](#h1-dns-record-set-a-add-record) - Add record
       * [h1 dns record-set a delete-record](#h1-dns-record-set-a-delete-record) - Delete record
-      * [h1 dns record-set a dynamic-dns](#h1-dns-record-set-a-dynamic-dns) - Replaces the record-set with the client ip address
     * [h1 dns record-set aaaa](#h1-dns-record-set-aaaa) - Manage record set type AAAA
       * [h1 dns record-set aaaa list](#h1-dns-record-set-aaaa-list) - List Record AAAA
       * [h1 dns record-set aaaa create](#h1-dns-record-set-aaaa-create) - Create record-set
@@ -326,26 +325,6 @@ h1 dns record-set a delete-record --zone 'my-domain.tld' --name www --value '8.8
 | ```--name NAME``` |  | Record Set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
-
-## h1 dns record-set a dynamic-dns
-
-Replaces the record-set with the client ip address
-
-### Syntax
-
-```h1 dns record-set a dynamic-dns | --name NAME --zone ZONE```
-### Example
-
-```bash
-h1 dns record-set a dynamic-dns --name my-home --zone example.com.
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
-| ```--zone ZONE``` |  | DNS zone name |
 
 ## h1 dns record-set aaaa
 

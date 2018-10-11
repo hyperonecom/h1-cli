@@ -1,13 +1,6 @@
 # TOC
 
   * [h1 user create](#h1-user-create) - Create an account
-  * [h1 user access](#h1-user-access) - Manage your user access rights
-    * [h1 user access rule](#h1-user-access-rule) - Manage your user network access control rule
-      * [h1 user access rule show](#h1-user-access-rule-show) - Show network access rule
-      * [h1 user access rule list](#h1-user-access-rule-list) - List network access rule
-      * [h1 user access rule rename](#h1-user-access-rule-rename) - Rename network access rule
-      * [h1 user access rule delete](#h1-user-access-rule-delete) - Delete network access rule
-      * [h1 user access rule add](#h1-user-access-rule-add) - Add access rule for network access rule
   * [h1 user credentials](#h1-user-credentials) - Manage your credentials
     * [h1 user credentials show](#h1-user-credentials-show) - Show credentials
     * [h1 user credentials list](#h1-user-credentials-list) - List credentials
@@ -38,119 +31,6 @@ Create an account
 ```bash
 h1 user create
 ```
-
-## h1 user access
-
-Manage your user access rights
-
-## h1 user access rule
-
-Manage your user network access control rule
-
-## h1 user access rule show
-
-Show network access rule
-
-### Syntax
-
-```h1 user access rule show | --rule RULE```
-### Example
-
-```bash
-h1 user access rule show --rule my-rule
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--rule RULE``` |  | Network access rule ID or name |
-
-## h1 user access rule list
-
-List network access rule
-
-### Syntax
-
-```h1 user access rule list | ```
-### Example
-
-```bash
-h1 user access rule list
-```
-
-## h1 user access rule rename
-
-Rename network access rule
-
-### Syntax
-
-```h1 user access rule rename | --rule RULE --new-name NEW-NAME```
-### Example
-
-```bash
-h1 user access rule rename --rule my-rule --new-name my-renamed-rule
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--rule RULE``` |  | Network access rule ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 user access rule delete
-
-Delete network access rule
-
-### Syntax
-
-```h1 user access rule delete | --rule RULE```
-### Example
-
-```bash
-h1 user access rule delete --rule my-rule
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--rule RULE``` |  | Network access rule ID or name |
-
-## h1 user access rule add
-
-Add access rule for network access rule
-
-### Syntax
-
-```h1 user access rule add | --name NAME --type TYPE --value VALUE```
-### Examples
-
-#### Add rule by geolocation
-```bash
-h1 user access rule add --type geo --value PL
-```
-
-#### Add rule by subnet
-
-```bash
-h1 user access rule add --type subnet --value 82.0.0.2/24
-```
-
-#### Add rule by IP address
-
-```bash
-h1 user access rule add --type subnet --value 82.123.123.2/32
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name |
-| ```--type TYPE``` |  | Type of rule |
-| ```--value VALUE``` |  | Value of the rule that is appropriate for the type selected |
 
 ## h1 user credentials
 

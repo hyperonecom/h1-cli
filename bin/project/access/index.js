@@ -12,8 +12,9 @@ module.exports = (resource) => {
 
     category.addChild(require('./grant')(resource));
     category.addChild(require('./revoke')(resource));
-    category.addChild(require('bin/generic/rule')(resource));
     category.addChild(require('bin/generic/list')(resource));
+
+    // category.addChild(require('bin/generic/rule')(resource));
 
     return category;
 };

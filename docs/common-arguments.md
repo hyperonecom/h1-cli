@@ -94,6 +94,16 @@ Try to perform operations without making any real changes:
 ```
 h1 disk create --name xxxx.com --type ssd --size 25 --dry-run
 ```
+## Argument ```--project-select```
+A parameter intended for selecting an ad-hoc project for a single command.
+
+#### Examples
+
+##### List virtual machine on selected project
+
+```bash
+h1 vm list --output tsv --project-select MyProject
+```
 ## Argument ```--yes```
 Perform action without additional confirmation
 
@@ -106,13 +116,3 @@ h1 disk delete --disk test-disk --yes
 ```
 
 Note (1): Pretty useful when writing automatic scripts.
-## Argument ```--project-select```
-A parameter intended for selecting an ad-hoc project for a single command.
-
-#### Examples
-
-##### List virtual machine on selected project
-
-```bash
-h1 vm list --output tsv --project-select MyProject
-```
