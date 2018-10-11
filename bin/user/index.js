@@ -21,7 +21,10 @@ const category = Cli.createCategory(resource.name, {
 });
 
 category.addChild(require('./create'));
-category.addChild(require('./access')(childDefaults));
+
+if (process.env.NODE_ENV !== 'production') {
+    category.addChild(require('./access')(childDefaults));
+}
 
 category.addChild(require('bin/generic/credentials')(Object.assign(
     {},
