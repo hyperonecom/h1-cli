@@ -51,7 +51,9 @@
       "!lib/**/tests.js"
     ],
     "assets": [
-      "bin/**/*.md"
+      "bin/**/*.md",
+      "bin/**/*.ps",
+      "bin/replica/create/HyperOneCa.cer"
     ],
     "targets": [
       "node10-alpine",

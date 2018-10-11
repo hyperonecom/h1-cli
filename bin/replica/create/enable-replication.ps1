@@ -17,7 +17,7 @@ Param(
 
     [parameter(Mandatory=$true)]
     [ValidateNotNullOrEmpty()]
-    [string]$Secret
+    [string]$Secret,
 
     [switch]$Autostart
 )
@@ -116,11 +116,8 @@ if( $? ) {
 
     Write-Host "Replication successfully enabled"
 
-    if ($Autostart){
+    if ($Autostart -eq $true){
         Start-VMInitialReplication -VMName $VM
         Write-Host "Replication successfully started"
-
     }
-
-
 }
