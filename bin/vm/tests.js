@@ -274,6 +274,7 @@ ava.serial('vm flavour', async t => {
     await tests.run(`vm flavour --vm ${vm._id} --new-flavour m2.medium`);
     const started_vm = await tests.run(`vm start --vm ${vm._id}`);
 
+    t.true(vm.flavour === 'm2.medium', 'Flavor has not been updated');
     t.true(vm.cpu === 2, 'Unexpected number of CPUs of the updated virtual machine.');
     t.true(vm.memory === 4, 'Unexpected memory size of the updated virtual machine.');
     await verify_vm_size_match(t, started_vm, password);
