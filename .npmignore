@@ -1,0 +1,18 @@
+docs
+scripts
+monitoring
+
+# Build files
+dist
+*.tgz
+
+# Common files
+Dockerfile
+*.log
+logs
+.travis.*
+.gitattributes
+.eslintrc
+.eslintrc.js
+.dockerignore
+.idea
