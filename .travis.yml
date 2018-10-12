@@ -18,6 +18,7 @@ jobs:
     - git diff HEAD
     - test -z "$(git status --porcelain docs)"
     - scripts/markown_lint.sh
+    - npm publish --dry-run
   - stage: build & deploy
     sudo: required
     script:
