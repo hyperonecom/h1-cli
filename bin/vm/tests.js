@@ -21,6 +21,7 @@ const getCommon = async (test_name, options = {}) => {
 
     return {
         params: params,
+        password: token,
         disk_name: disk_name,
         name: vm_name,
         cleanup: async () => {
@@ -231,6 +232,51 @@ ava.serial('vm serialport log', async t => {
     t.true(vm.created);
 
     await tests.run(`vm serialport log --vm ${vm._id}`);
+
+    await common.cleanup();
+});
+
+const sshVmPassword = (ip, password, command) => ssh.execute(command, {
+    host: ip,
+    username: 'guru',
+    password: password,
+    readyTimeout: 5 * 1000,
+});
+
+function round_step(value, step=0.5) {
+    const inv = 1.0 / step;
+    return Math.round(value * inv) / inv;
+}
+
+async function verify_vm_size_match(t, vm, password) {
+    const ip = (await getVmIp(vm._id))[0];
+    t.true(parseInt(await sshVmPassword(ip, password, 'nproc')) === vm.cpu,
+        'The number of processors does not match the number declared');
+    const content = await sshVmPassword(ip, password, 'cat /proc/meminfo');
+    const memory_kb = content.match(/MemTotal:\s+([0-9]+)\s+/)[1];
+    const memory_gb = round_step(parseInt(memory_kb) / 10 ** 6);
+    t.true(memory_gb === vm.memory,
+        `The memory size delivered (${memory_gb} GB) does not match
+        the size declared (${vm.memory} GB)`
+    );
+}
+
+ava.serial('vm flavour', async t => {
+    const common = await getCommon(t.title, {type: 'a1.nano'});
+    const password = common.password;
+    const vm = await tests.run(`vm create ${common.params.createParams}`);
+
+    t.true(vm.cpu === 1, 'Unexpected number of CPUs of the created virtual machine.');
+    t.true(vm.memory === 0.5, 'Unexpected memory size of the created virtual machine.');
+    await verify_vm_size_match(t, vm, password);
+
+    await tests.run(`vm stop --vm ${vm._id}`);
+    await tests.run(`vm flavour --vm ${vm._id} --new-flavour m2.medium`);
+    const started_vm = await tests.run(`vm start --vm ${vm._id}`);
+
+    t.true(vm.cpu === 2, 'Unexpected number of CPUs of the updated virtual machine.');
+    t.true(vm.memory === 4, 'Unexpected memory size of the updated virtual machine.');
+    await verify_vm_size_match(t, started_vm, password);
 
     await common.cleanup();
 });
