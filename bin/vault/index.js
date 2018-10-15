@@ -1,5 +1,5 @@
 'use strict';
-
+const text = require('lib/text');
 const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
 const genericAction = require('bin/generic/action');
@@ -14,6 +14,15 @@ const resource = {
 };
 
 const actionDefault = Object.assign({}, resource, {
+    options: {
+        vault: {
+            description: `${text.toTitleCase(resource.title)} ID or name`,
+            type: 'string',
+            required: true,
+            dest: 'vault',
+        },
+    },
+    url: args => `${resource.url(args)}/${args.vault}`,
     dirname: __dirname,
 });
 
