@@ -48,6 +48,21 @@ ava.serial('vault rename', async t => {
     await ssh.cleanup();
 });
 
+ava.serial('vault stop & start', async t => {
+    const vault = await tests.run(`vault create --name vault-test-${now} --size 10`);
+
+    await tests.run(`vault stop --vault ${vault._id}`);
+    const vault_stopped = await tests.run(`vault show --vault ${vault._id}`);
+    t.true(vault_stopped.state === 'Off');
+
+    await tests.run(`vault start --vault ${vault._id}`);
+    const vault_started = await tests.run(`vault show --vault ${vault._id}`);
+    t.true(vault_started.state === 'Online');
+
+    await tests.remove('vault', vault);
+
+});
+
 
 ava.serial('vault resize', tests.resourceResizeCycle('vault', {
     createParams: `--name vault-test-${now}`,
