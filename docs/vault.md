@@ -527,12 +527,18 @@ Stop Vault
 
 ### Syntax
 
-```h1 vault stop | ```
+```h1 vault stop | --vault VAULT```
 ### Example
 
 ```
 h1 vault stop --vault my-valut
 ```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
 
 ## h1 vault start
 
@@ -540,10 +546,16 @@ Start Vault
 
 ### Syntax
 
-```h1 vault start | ```
+```h1 vault start | --vault VAULT```
 ### Example
 
 ```
 h1 vault start --vault my-valut
 ```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
 
