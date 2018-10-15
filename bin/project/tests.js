@@ -186,7 +186,8 @@ ava.serial('project notification credits integration test', async t => {
     await tests.run(`project notification credits add ${commonParams} --limit ${limit}`);
     const disk = await tests.run(`disk create --name credits-apply-${now} --type ssd --size 20`);
     let charged = false;
-    for (let i=0; i<20; i++) {
+    let charge_timeout = 60;
+    for (let i=0; i<charge_timeout; i++) {
         await tests.delay(1000); // to apply charges from the queue
         const charged_project = await tests.run(`project show ${commonParams}`);
         const charged_credits = charged_project.billing.credits;
@@ -196,7 +197,7 @@ ava.serial('project notification credits integration test', async t => {
             break;
         }
     }
-    t.true(charged, 'Timeout 10 seconds to apply charges.');
+    t.true(charged, `Timeout ${charge_timeout} seconds to apply charges.`);
     await tests.run(`project notification credits delete ${commonParams} --limit ${limit}`);
     await tests.remove('disk', disk);
 
