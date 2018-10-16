@@ -8,6 +8,7 @@
     * [h1 image tag list](#h1-image-tag-list) - List tag
     * [h1 image tag add](#h1-image-tag-add) - Add a tag to image
     * [h1 image tag delete](#h1-image-tag-delete) - Delete a tag of image
+  * [h1 image transfer](#h1-image-transfer) - Transfer image to other project
   * [h1 image create](#h1-image-create) - Create image
   * [h1 image list](#h1-image-list) - List image
   * [h1 image disk](#h1-image-disk) - List all disks of image
@@ -167,6 +168,26 @@ h1 image tag delete --image test-image --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--image IMAGE``` |  | Image ID or name |
+
+## h1 image transfer
+
+Transfer image to other project
+
+### Syntax
+
+```h1 image transfer | --image IMAGE --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 image transfer --image test-image --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 image create
 

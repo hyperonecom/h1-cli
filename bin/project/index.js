@@ -14,13 +14,14 @@ const resource = {
         require('bin/_plugins/api'),
     ],
     title: 'project',
-    commands: ['show', 'delete', 'history', 'rename', 'tag' ],
+    commands: ['show', 'delete', 'history', 'rename', 'tag'],
+
 };
 
 const category = genericResource(resource);
 category.addChild(require('./list')(resource));
 
-const active_project = config.get_project() || config.get('profile.project._id');
+const active_project = config.get_active_project();
 
 const childDefaults = Object.assign({}, resource, {
     options: {
@@ -47,7 +48,7 @@ category.addChild(require('bin/generic/credentials')(Object.assign(
         url: args => `${childDefaults.url(args)}/credentialStore`,
         context: {
             addParams: '--project my-project',
-            deleteParams:  '--project my-project',
+            deleteParams: '--project my-project',
             listParams: '--project my-project',
             renameParams: '--project my-project',
         },

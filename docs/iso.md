@@ -9,6 +9,7 @@
     * [h1 iso tag list](#h1-iso-tag-list) - List tag
     * [h1 iso tag add](#h1-iso-tag-add) - Add a tag to ISO
     * [h1 iso tag delete](#h1-iso-tag-delete) - Delete a tag of ISO
+  * [h1 iso transfer](#h1-iso-transfer) - Transfer ISO to other project
   * [h1 iso access](#h1-iso-access) - Manage your ISO access rights
     * [h1 iso access grant](#h1-iso-access-grant) - Grant access rights for ISO
     * [h1 iso access revoke](#h1-iso-access-revoke) - Revoke access rights for ISO
@@ -180,6 +181,26 @@ h1 iso tag delete --iso test-iso --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--iso ISO``` |  | ISO ID or name |
+
+## h1 iso transfer
+
+Transfer ISO to other project
+
+### Syntax
+
+```h1 iso transfer | --iso ISO --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 iso transfer --iso test-iso --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--iso ISO``` |  | ISO ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 iso access
 

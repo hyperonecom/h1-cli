@@ -11,6 +11,7 @@
     * [h1 disk tag delete](#h1-disk-tag-delete) - Delete a tag of disk
   * [h1 disk resize](#h1-disk-resize) - Resize disk
   * [h1 disk resume](#h1-disk-resume) - Resume create upload of disk
+  * [h1 disk transfer](#h1-disk-transfer) - Transfer disk to other project
   * [h1 disk create](#h1-disk-create) - Create disk
   * [h1 disk download](#h1-disk-download) - Download disk to a .vhdx file
 
@@ -218,6 +219,26 @@ h1 disk resume --disk my-disk --source-file ./my-disk.vhdx
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 | ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
+
+## h1 disk transfer
+
+Transfer disk to other project
+
+### Syntax
+
+```h1 disk transfer | --disk DISK --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 disk transfer --disk test-disk --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 disk create
 

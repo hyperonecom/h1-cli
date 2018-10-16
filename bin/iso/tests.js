@@ -42,3 +42,8 @@ ava.serial('iso use in vm local uploaded', async t => {
     await tests.remove('vm', vm);
     fs.unlinkSync(filename);
 });
+
+
+ava.serial('iso transfer', tests.transferLifeCycle('iso', {
+    createParams: createParams,
+}));

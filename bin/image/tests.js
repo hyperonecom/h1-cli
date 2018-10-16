@@ -60,3 +60,15 @@ ava.serial('image resolver prefer server', async t => {
     t.true(description.edition === 'server');
     t.true(description.distro === 'ubuntu');
 });
+
+ava.serial('image transfer', async t => {
+    const common = await getCommon(t.title);
+
+    try {
+        await tests.transferLifeCycle('image', {
+            createParams: `--vm ${common.vm._id} --name ${name}-transfer`,
+        })(t);
+    } finally {
+        await common.cleanup();
+    }
+});

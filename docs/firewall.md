@@ -9,6 +9,7 @@
     * [h1 firewall tag list](#h1-firewall-tag-list) - List tag
     * [h1 firewall tag add](#h1-firewall-tag-add) - Add a tag to firewall
     * [h1 firewall tag delete](#h1-firewall-tag-delete) - Delete a tag of firewall
+  * [h1 firewall transfer](#h1-firewall-transfer) - Transfer firewall to other project
   * [h1 firewall create](#h1-firewall-create) - Create firewall
   * [h1 firewall attach](#h1-firewall-attach) - Attach firewall to a network
   * [h1 firewall detach](#h1-firewall-detach) - Detach firewall from network
@@ -187,6 +188,26 @@ h1 firewall tag delete --firewall test-firewall --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
+
+## h1 firewall transfer
+
+Transfer firewall to other project
+
+### Syntax
+
+```h1 firewall transfer | --firewall FIREWALL --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 firewall transfer --firewall test-firewall --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 firewall create
 

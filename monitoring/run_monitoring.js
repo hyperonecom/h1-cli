@@ -27,8 +27,11 @@ const getConfig = () => {
         H1_PASSWORD: {
             label: 'HyperOne password',
         },
-        H1_PROJECT: {
+        H1_PROJECT_MASTER: {
             label: 'HyperOne project ID or name',
+        },
+        H1_PROJECT_SLAVE: {
+            label: 'HyperOne slave project ID or name',
         },
         MONITORING_EMAILS: {
             label: 'Recipients of monitoring notification',
@@ -141,14 +144,15 @@ const main = async () => {
 
     try {
         let output = await runProcess(`h1 login --username ${config.H1_USER} --password ${config.H1_PASSWORD}`);
-        output += await runProcess(`h1 project select --project ${config.H1_PROJECT}`);
+        output += await runProcess(`h1 project select --project ${config.H1_PROJECT_MASTER}`);
         output += await runProcess(config.MONITORING_CMD, {}, config.MONITORING_TIMEOUT);
         await sendMail(config, true, `${versionText}\n${output}`);
     } catch (err) {
         await sendMail(config, false, `${versionText}\n${err.message}\n${err.output}\n${err.message}`);
     }
     try {
-        await runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT});
+        await runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT_MASTER});
+        await runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT_SLAVE});
         await runProcess(`h1 project access revoke --email ${tests.RECIPIENT.user}`);
     } catch (err) {
         // This is just cleaning. If fails if there is no resources to clean up.
