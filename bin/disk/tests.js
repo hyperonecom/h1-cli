@@ -60,3 +60,7 @@ ava.serial('disk local upload', async t => {
 ava.serial('disk resize', tests.resourceResizeCycle('disk', {
     createParams: `--name disk-test-${now} --type ssd`,
 }));
+
+ava.serial('disk transfer', tests.transferLifeCycle('disk', {
+    createParams: `--name disk-test-${now} --size 1 --type ssd`,
+}));

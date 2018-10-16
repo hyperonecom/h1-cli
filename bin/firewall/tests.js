@@ -55,3 +55,7 @@ ava.serial('firewall attach & detach', async t => {
         await tests.remove('firewall', firewall);
     });
 });
+
+ava.serial('firewall transfer', tests.transferLifeCycle('firewall', {
+    createParams: createParams,
+}));

@@ -8,6 +8,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,network:network,state:state,tags:join(\',\',keys(tag || `{}`) )}',
     url: () => 'firewall',
     plugins: genericDefaults.plugins,
+    extraCommands: ['transfer'],
     title: 'firewall',
 };
 

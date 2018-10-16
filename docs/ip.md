@@ -8,6 +8,7 @@
     * [h1 ip tag list](#h1-ip-tag-list) - List tag
     * [h1 ip tag add](#h1-ip-tag-add) - Add a tag to IP address
     * [h1 ip tag delete](#h1-ip-tag-delete) - Delete a tag of IP address
+  * [h1 ip transfer](#h1-ip-transfer) - Transfer IP address to other project
   * [h1 ip create](#h1-ip-create) - Create IP address
   * [h1 ip associate](#h1-ip-associate) - Associate IP address
   * [h1 ip disassociate](#h1-ip-disassociate) - Disassociate IP address
@@ -157,6 +158,26 @@ h1 ip tag delete --ip test-ip --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--ip IP``` |  | IP address ID or name |
+
+## h1 ip transfer
+
+Transfer IP address to other project
+
+### Syntax
+
+```h1 ip transfer | --ip IP --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 ip transfer --ip test-ip --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 ip create
 

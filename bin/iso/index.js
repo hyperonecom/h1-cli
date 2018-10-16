@@ -8,6 +8,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'iso',
     plugins: genericDefaults.plugins,
+    extraCommands: ['transfer'],
     title: 'ISO',
 };
 
