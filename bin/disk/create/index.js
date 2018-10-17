@@ -2,8 +2,7 @@
 
 
 const websocketStream = require('lib/websocketStream');
-const vhdx = require('rbx-vhdx');
-const util = require('util');
+const vhdx = require('@hyperone/vhdx').promises;
 const path = require('path');
 const fs = require('fs');
 
@@ -55,7 +54,7 @@ module.exports = resource => Cli.createCommand('create', {
         }
 
         if (args['source-file']) {
-            const vhdxInfo = await util.promisify(vhdx.info)(args['source-file']);
+            const vhdxInfo = await vhdx.info(['source-file']);
 
             if (body.size === null) {
                 body.size = Math.ceil(vhdxInfo.size / 1024**3); // B -> GiB

@@ -18,6 +18,7 @@
     "test": "npx ava --verbose"
   },
   "dependencies": {
+    "@hyperone/vhdx": "^1.0.1",
     "chalk": "^2.1.0",
     "cookie": "^0.3.1",
     "dns-zonefile": "^0.2.2",
@@ -31,7 +32,6 @@
     "opn": "^5.3.0",
     "progress": "^2.0.0",
     "qrcode": "^1.2.2",
-    "rbx-vhdx": "https://bitbucket.org/rbxcom/rbx-vhdx/get/master.tar.gz",
     "request": "^2.88.0",
     "shell-quote": "^1.6.1",
     "speakeasy": "^2.0.0",
