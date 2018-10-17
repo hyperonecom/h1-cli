@@ -10,7 +10,7 @@ const Cli = require('lib/cli');
 
 const options = {
     'local-vm': {
-        description: 'Local virtual machine ID or name',
+        description: 'Local virtual machine name',
         type: 'string',
         required: true,
     },
@@ -59,9 +59,9 @@ module.exports = resource => Cli.createCommand('create', {
         }
 
         const code = await spawn(
-            'powershell'
-            , ['-Command', `& { Get-VM -Name ${args['local-vm']} ; Exit(!$?) }`]
-            , { stdio: [ 'ignore', 'inherit', 'inherit' ] }
+            'powershell',
+            ['-Command', `& { Get-VM -Name "${args['local-vm']}" ; Exit(!$?) }`],
+            { stdio: [ 'ignore', 'inherit', 'inherit' ] }
         );
 
         if (code !== 0) {
