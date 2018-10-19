@@ -24,6 +24,7 @@
       * [h1 project token access show](#h1-project-token-access-show) - Show access rule
       * [h1 project token access delete](#h1-project-token-access-delete) - Delete access rule
       * [h1 project token access add](#h1-project-token-access-add) - Add access rule
+    * [h1 project token edit](#h1-project-token-edit) - Edit token
   * [h1 project notification](#h1-project-notification) - Manage your notifications
     * [h1 project notification credits](#h1-project-notification-credits) - Manage your threshold of credit limits
       * [h1 project notification credits add](#h1-project-notification-credits-add) - Add credits limits
@@ -543,6 +544,25 @@ h1 project token access add --project 6oAoJqgyLZP4Le9UUNHrEOYP --method POST --p
 | ```--method METHOD``` |  | HTTP method. eg: GET, POST..., ALL (to allow all methods) |
 | ```--path PATH``` |  | URL path, eg: /disk |
 | ```--token TOKEN``` |  | Token ID |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project token edit
+
+Edit token
+
+### Syntax
+
+```h1 project token edit | --token TOKEN [--project PROJECT]```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--token TOKEN``` |  | token ID |
 
 ### Optional arguments
 

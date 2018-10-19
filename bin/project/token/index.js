@@ -25,6 +25,7 @@ module.exports = parent => {
 
     category.addChild(require('./add')(resource));
     category.addChild(require('./access')(resource));
+    category.addChild(require('./edit')(resource));
 
     return category;
 };
