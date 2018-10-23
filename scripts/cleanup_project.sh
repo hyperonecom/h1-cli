@@ -23,3 +23,4 @@ h1 snapshot list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 snapsho
 h1 vault    list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 vault    delete --yes --vault
 h1 user credentials list -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 h1 user credentials delete --yes --credentials
 h1 project credentials list --project "$PROJECT" -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 h1 project credentials delete --yes --project "$PROJECT" --credentials
+h1 project notification credits list --project "$PROJECT" -o tsv | xargs -r -n 1 h1 project notification credits delete --project "$PROJECT" --limit
