@@ -5,7 +5,7 @@ const Cli = require('lib/cli');
 const options = {
     limit: {
         description: 'Deleted limit of credits',
-        type: 'int',
+        type: 'float',
         required: true,
     },
 };
