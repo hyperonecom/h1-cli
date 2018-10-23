@@ -1,5 +1,5 @@
 {
-  "name": "h1-cli",
+  "name": "@hyperone/cli",
   "version": "1.2.0",
   "description": "HyperOne Command Line Interface",
   "license": "MIT",
