@@ -10,6 +10,8 @@
     * [h1 replica tag add](#h1-replica-tag-add) - Add a tag to replica
     * [h1 replica tag delete](#h1-replica-tag-delete) - Delete a tag of replica
   * [h1 replica create](#h1-replica-create) - Setup VM replication
+  * [h1 replica disk](#h1-replica-disk) - Manage your disk of replica
+    * [h1 replica disk list](#h1-replica-disk-list) - List disk of replica
 
 
 # Specification
@@ -194,4 +196,27 @@ Setup VM replication
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--autostart``` |  | Automatically start replication immediately after configuration |
+
+## h1 replica disk
+
+Manage your disk of replica
+
+## h1 replica disk list
+
+List disk of replica
+
+### Syntax
+
+```h1 replica disk list | --replica REPLICA```
+### Example
+
+```bash
+h1 replica disk list
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--replica REPLICA``` |  | Replica name or ID |
 
