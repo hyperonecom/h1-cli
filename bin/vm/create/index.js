@@ -90,7 +90,7 @@ module.exports = resource => Cli.createCommand('create', {
         };
 
         if (args.password) {
-            newVM.password = cryptography.hashPassword(args.password);
+            newVM.password = cryptography.unix(args.password);
         }
 
         if (args.username) {
