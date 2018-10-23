@@ -1,6 +1,7 @@
 'use strict';
 
 const Cli = require('lib/cli');
+const cryptography = require('lib/cryptography');
 
 const options = {
     name: {
@@ -45,11 +46,7 @@ module.exports = resource => Cli.createCommand('create', {
         let passwords = [];
 
         if (args.password) {
-            passwords = [{
-                name: 'initial-cli',
-                type: 'plain',
-                value: args.password,
-            }];
+            passwords = [Object.assign({name: 'initial-cli'}, cryptography.hashPassword(args.password))];
         }
 
         const certificates = args.ssh.map(x => ({

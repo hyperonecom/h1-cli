@@ -2,6 +2,7 @@
 
 const Cli = require('lib/cli');
 const fs = require('lib/fs');
+const cryptography = require('lib/cryptography');
 const genericDefaults = require('bin/generic/defaults');
 
 const options = {
@@ -89,7 +90,7 @@ module.exports = resource => Cli.createCommand('create', {
         };
 
         if (args.password) {
-            newVM.password = args.password;
+            newVM.password = cryptography.hashPassword(args.password);
         }
 
         if (args.username) {

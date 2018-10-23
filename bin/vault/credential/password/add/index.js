@@ -1,6 +1,7 @@
 'use strict';
 
 const Cli = require('lib/cli');
+const cryptography = require('lib/cryptography');
 
 const options = {
     name: {
@@ -22,10 +23,9 @@ module.exports = resource => Cli.createCommand('add', {
     params: resource.params,
     options: Object.assign({}, resource.options, options),
     handler: args => args.helpers.api
-        .post(args.$node.parent.config.url(args), {
-            name: args.name,
-            type: 'plain',
-            value: args.password,
-        })
+        .post(args.$node.parent.config.url(args), Object.assign({},
+            cryptography.hashPassword(args.password), {
+                name: args.name,
+            }))
         .then(result => args.helpers.sendOutput(args, result)),
 });
