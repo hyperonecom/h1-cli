@@ -15,8 +15,6 @@ const token_name = `test-project-token-${now}`;
 
 ava.todo('project delete');
 
-ava.todo('project select');
-
 ava.serial('project show', async t => {
     const project = await tests.run(`project show --project ${active_project}`);
     t.true(project._id === active_project);
@@ -276,6 +274,15 @@ ava.serial('token was used if environment variable set', async t => {
 // ava.serial('project access rule life cycle', async t => {
 //     await tests.accessRuleLifeCycle(t, 'project access rule', `--project ${active_project}`);
 // });
+
+ava.serial('project select', tests.requireSlaveProject(async (t, projects) => {
+    const new_ip = await tests.run('ip create');
+    await tests.run(`project select --project ${projects.slave}`);
+    const ip_list = await tests.run('ip list');
+    await tests.run(`project select --project ${projects.master}`);
+    t.true(!ip_list.some(ip => ip._id === new_ip._id));
+    await tests.remove('ip', new_ip);
+}));
 
 ava.serial('project credentials life cycle', tests.credentialsLifeCycle('project credentials', {
     createParams: `--project ${active_project}`,
