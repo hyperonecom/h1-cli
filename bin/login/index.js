@@ -40,11 +40,9 @@ const handler = async args => {
             });
     }
 
-    const p_config = args.helpers.api.get('/cli');
-
     return p
-        .then(() => {
-            p_config.then(cli_config => config.set('cli', cli_config));
+        .then(async () => {
+            config.set('cli', await args.helpers.api.get('/cli'));
             return logger('info', 'You successfully logged and stored your session identifier in config file');
         }).catch(e => {
             if (e.status === 404 || e.status === 401) {
