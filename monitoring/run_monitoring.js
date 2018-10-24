@@ -37,6 +37,10 @@ const getConfig = () => {
             label: 'Recipients of monitoring notification',
             parse: v => v.split(','),
         },
+        MONITORING_NAME: {
+            label: 'Name of tests runner',
+            defaultValue: 'Unknown',
+        },
         MONITORING_SUCCESS_EMAILS: {
             label: 'Recipients of progress notification',
             parse: v => v.split(',').filter(x => !!x),
@@ -73,11 +77,12 @@ const sendMail = async (config, success, report) => {
 
     const keywordsWhiteList = [' bin ', ' tests ', 'text: ', 'statusCode: ', 'exited with a non-zero exit'];
     const keywordsBlackList = ['  ✔ '];
+    const subject = success ? 'Monitoring success report' : 'Monitoring failed report';
     if (recipient.length > 0) {
         await smtpTransport.sendMail({
             from: config.SMTP_SENDER,
             to: recipient,
-            subject: success ? 'Monitoring success report' : 'Monitoring failed report',
+            subject: `${config.MONITORING_NAME} ${subject}`,
             text: report.split('\n').filter(line =>
                 keywordsMatches(keywordsWhiteList, line) && !keywordsMatches(keywordsBlackList, line)
             ).join('\n'),
