@@ -20,6 +20,7 @@ ava.serial('dns zone life cycle', tests.resourceLifeCycle('dns zone', {
     skipCreated: true,
     skipHistory: true,
     skipTag: true,
+    skipService: true,
 }));
 
 ava.serial('dns zone export', async t => {

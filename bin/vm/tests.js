@@ -36,7 +36,6 @@ const getVmIp = async (vm_name) => {
     return [].concat(...nic_list.map(x => x.ip)).map(x => x.address);
 };
 
-ava.todo('vm queue');
 ava.todo('vm console');
 ava.todo('vm serialport console');
 ava.todo('vm passwordreset');
