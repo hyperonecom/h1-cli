@@ -71,14 +71,16 @@ const sendMail = async (config, success, report) => {
 
     const recipient = success ? config.MONITORING_SUCCESS_EMAILS : config.MONITORING_EMAILS;
 
-    const keywords = [' bin ', ' tests ', 'text: ', 'statusCode: '];
-
+    const keywordsWhiteList = [' bin ', ' tests ', 'text: ', 'statusCode: ', 'exited with a non-zero exit'];
+    const keywordsBlackList = ['  ✔ '];
     if (recipient.length > 0) {
         await smtpTransport.sendMail({
             from: config.SMTP_SENDER,
             to: recipient,
             subject: success ? 'Monitoring success report' : 'Monitoring failed report',
-            text: report.split('\n').filter(line => keywordsMatches(keywords, line)).join('\n'),
+            text: report.split('\n').filter(line =>
+                keywordsMatches(keywordsWhiteList, line) && !keywordsMatches(keywordsBlackList, line)
+            ).join('\n'),
             attachments: [
                 {
                     filename: 'monitoring-report.txt',
