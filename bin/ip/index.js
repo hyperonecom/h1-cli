@@ -6,7 +6,7 @@ const resource = {
     name: 'ip',
     title: 'IP address',
     defaultQuery: '[].{id:_id,address:address,mac:mac,ptrRecord:ptrRecord,network:network,fip:associated.fip,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
-    commands: ['list', 'show', 'delete', 'history', 'tag', 'transfer'],
+    commands: ['list', 'show', 'delete', 'history', 'tag', 'transfer', 'service'],
 };
 
 const category = genericResource(resource);

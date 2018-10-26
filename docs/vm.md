@@ -7,6 +7,10 @@
     * [h1 vm tag list](#h1-vm-tag-list) - List tag
     * [h1 vm tag add](#h1-vm-tag-add) - Add a tag to virtual machine
     * [h1 vm tag delete](#h1-vm-tag-delete) - Delete a tag of virtual machine
+  * [h1 vm service](#h1-vm-service) - Manage your services of virtual machine
+    * [h1 vm service list](#h1-vm-service-list) - List service for virtual machine
+    * [h1 vm service show](#h1-vm-service-show) - Show service for virtual machine
+    * [h1 vm service change](#h1-vm-service-change) - Change type of service for virtual machine
   * [h1 vm create](#h1-vm-create) - Create virtual machine
   * [h1 vm delete](#h1-vm-delete) - Delete virtual machine
   * [h1 vm console](#h1-vm-console) - Open virtual machine console in web-browser
@@ -16,7 +20,6 @@
   * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff virtual machine
   * [h1 vm rename](#h1-vm-rename) - Rename virtual machine
   * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for virtual machine
-  * [h1 vm flavour](#h1-vm-flavour) - Change flavour of virtual machine
   * [h1 vm disk](#h1-vm-disk) - Manage your disk
     * [h1 vm disk list](#h1-vm-disk-list) - List disk
     * [h1 vm disk attach](#h1-vm-disk-attach) - Attach disk to disk
@@ -174,6 +177,69 @@ h1 vm tag delete --vm test-vm --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm service
+
+Manage your services of virtual machine
+
+## h1 vm service list
+
+List service for virtual machine
+
+### Syntax
+
+```h1 vm service list | --vm VM```
+### Example
+
+```bash
+h1 vm service list --vm test-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm service show
+
+Show service for virtual machine
+
+### Syntax
+
+```h1 vm service show | --vm VM --service SERVICE```
+### Example
+
+```bash
+h1 vm service show --service my-service --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--service SERVICE``` |  | Service for virtual machine ID or name |
+
+## h1 vm service change
+
+Change type of service for virtual machine
+
+### Syntax
+
+```h1 vm service change | --vm VM --new-type NEW-TYPE```
+### Example
+
+```bash
+h1 vm service change --vm my-vm --new-type m2.medium
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--new-type NEW-TYPE``` |  | New type |
 
 ## h1 vm create
 
@@ -396,26 +462,6 @@ h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
-
-## h1 vm flavour
-
-Change flavour of virtual machine
-
-### Syntax
-
-```h1 vm flavour | --vm VM --new-flavour NEW-FLAVOUR```
-### Example
-
-```bash
-h1 vm flavour --vm my-vm --new-flavour m2.medium
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-| ```--new-flavour NEW-FLAVOUR``` |  | New flavour  |
 
 ## h1 vm disk
 

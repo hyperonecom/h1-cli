@@ -9,11 +9,17 @@
     * [h1 network tag list](#h1-network-tag-list) - List tag
     * [h1 network tag add](#h1-network-tag-add) - Add a tag to network
     * [h1 network tag delete](#h1-network-tag-delete) - Delete a tag of network
+  * [h1 network service](#h1-network-service) - Manage your services of network
+    * [h1 network service list](#h1-network-service-list) - List service for network
+    * [h1 network service show](#h1-network-service-show) - Show service for network
   * [h1 network create](#h1-network-create) - Create network
   * [h1 network ip](#h1-network-ip) - Manage your IP address
     * [h1 network ip list](#h1-network-ip-list) - List IP address
     * [h1 network ip show](#h1-network-ip-show) - Show IP address
     * [h1 network ip delete](#h1-network-ip-delete) - Delete IP address
+    * [h1 network ip service](#h1-network-ip-service) - Manage your services of IP address
+      * [h1 network ip service list](#h1-network-ip-service-list) - List service for IP address
+      * [h1 network ip service show](#h1-network-ip-service-show) - Show service for IP address
     * [h1 network ip create](#h1-network-ip-create) - Create IP address
     * [h1 network ip tag](#h1-network-ip-tag) - Manage your tag
       * [h1 network ip tag list](#h1-network-ip-tag-list) - List tag
@@ -185,6 +191,49 @@ h1 network tag delete --network test-network --tag prod
 | ```--tag TAG``` |  | Tag |
 | ```--network NETWORK``` |  | Network ID or name |
 
+## h1 network service
+
+Manage your services of network
+
+## h1 network service list
+
+List service for network
+
+### Syntax
+
+```h1 network service list | --network NETWORK```
+### Example
+
+```bash
+h1 network service list --network test-network
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network ID or name |
+
+## h1 network service show
+
+Show service for network
+
+### Syntax
+
+```h1 network service show | --network NETWORK --service SERVICE```
+### Example
+
+```bash
+h1 network service show --service my-service --network my-network
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network ID or name |
+| ```--service SERVICE``` |  | Service for network ID or name |
+
 ## h1 network create
 
 Create network
@@ -282,6 +331,49 @@ h1 network ip delete --ip my-ip --network my-network
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network name or ID |
 | ```--ip IP``` |  | IP address ID or name |
+
+## h1 network ip service
+
+Manage your services of IP address
+
+## h1 network ip service list
+
+List service for IP address
+
+### Syntax
+
+```h1 network ip service list | --ip IP```
+### Example
+
+```bash
+h1 network ip service list --ip test-ip
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address ID or name |
+
+## h1 network ip service show
+
+Show service for IP address
+
+### Syntax
+
+```h1 network ip service show | --ip IP --service SERVICE```
+### Example
+
+```bash
+h1 network ip service show --service my-service --ip my-ip
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address ID or name |
+| ```--service SERVICE``` |  | Service for IP address ID or name |
 
 ## h1 network ip create
 

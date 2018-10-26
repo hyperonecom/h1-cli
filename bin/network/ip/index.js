@@ -17,7 +17,7 @@ const resource = {
     defaultQuery: require('bin/ip').config.defaultQuery,
     url: args => `network/${args.network}/ip`,
     plugins: defaults.plugins,
-    commands: ['list', 'show', 'delete'],
+    commands: ['list', 'show', 'delete', 'service'],
     options: options,
     title: 'IP address',
     context: {

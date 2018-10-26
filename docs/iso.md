@@ -9,6 +9,9 @@
     * [h1 iso tag list](#h1-iso-tag-list) - List tag
     * [h1 iso tag add](#h1-iso-tag-add) - Add a tag to ISO
     * [h1 iso tag delete](#h1-iso-tag-delete) - Delete a tag of ISO
+  * [h1 iso service](#h1-iso-service) - Manage your services of ISO
+    * [h1 iso service list](#h1-iso-service-list) - List service for ISO
+    * [h1 iso service show](#h1-iso-service-show) - Show service for ISO
   * [h1 iso transfer](#h1-iso-transfer) - Transfer ISO to other project
   * [h1 iso access](#h1-iso-access) - Manage your ISO access rights
     * [h1 iso access grant](#h1-iso-access-grant) - Grant access rights for ISO
@@ -181,6 +184,49 @@ h1 iso tag delete --iso test-iso --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--iso ISO``` |  | ISO ID or name |
+
+## h1 iso service
+
+Manage your services of ISO
+
+## h1 iso service list
+
+List service for ISO
+
+### Syntax
+
+```h1 iso service list | --iso ISO```
+### Example
+
+```bash
+h1 iso service list --iso test-iso
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--iso ISO``` |  | ISO ID or name |
+
+## h1 iso service show
+
+Show service for ISO
+
+### Syntax
+
+```h1 iso service show | --iso ISO --service SERVICE```
+### Example
+
+```bash
+h1 iso service show --service my-service --iso my-iso
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--iso ISO``` |  | ISO ID or name |
+| ```--service SERVICE``` |  | Service for ISO ID or name |
 
 ## h1 iso transfer
 

@@ -9,6 +9,9 @@
     * [h1 disk tag list](#h1-disk-tag-list) - List tag
     * [h1 disk tag add](#h1-disk-tag-add) - Add a tag to disk
     * [h1 disk tag delete](#h1-disk-tag-delete) - Delete a tag of disk
+  * [h1 disk service](#h1-disk-service) - Manage your services of disk
+    * [h1 disk service list](#h1-disk-service-list) - List service for disk
+    * [h1 disk service show](#h1-disk-service-show) - Show service for disk
   * [h1 disk resize](#h1-disk-resize) - Resize disk
   * [h1 disk resume](#h1-disk-resume) - Resume create upload of disk
   * [h1 disk transfer](#h1-disk-transfer) - Transfer disk to other project
@@ -179,6 +182,49 @@ h1 disk tag delete --disk test-disk --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--disk DISK``` |  | Disk ID or name |
+
+## h1 disk service
+
+Manage your services of disk
+
+## h1 disk service list
+
+List service for disk
+
+### Syntax
+
+```h1 disk service list | --disk DISK```
+### Example
+
+```bash
+h1 disk service list --disk test-disk
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
+
+## h1 disk service show
+
+Show service for disk
+
+### Syntax
+
+```h1 disk service show | --disk DISK --service SERVICE```
+### Example
+
+```bash
+h1 disk service show --service my-service --disk my-disk
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
+| ```--service SERVICE``` |  | Service for disk ID or name |
 
 ## h1 disk resize
 
