@@ -9,6 +9,9 @@
     * [h1 image tag add](#h1-image-tag-add) - Add a tag to image
     * [h1 image tag delete](#h1-image-tag-delete) - Delete a tag of image
   * [h1 image transfer](#h1-image-transfer) - Transfer image to other project
+  * [h1 image service](#h1-image-service) - Manage your services of image
+    * [h1 image service list](#h1-image-service-list) - List service for image
+    * [h1 image service show](#h1-image-service-show) - Show service for image
   * [h1 image create](#h1-image-create) - Create image
   * [h1 image list](#h1-image-list) - List image
   * [h1 image disk](#h1-image-disk) - List all disks of image
@@ -188,6 +191,49 @@ h1 image transfer --image test-image --new-project OtherProject
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
+
+## h1 image service
+
+Manage your services of image
+
+## h1 image service list
+
+List service for image
+
+### Syntax
+
+```h1 image service list | --image IMAGE```
+### Example
+
+```bash
+h1 image service list --image test-image
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
+
+## h1 image service show
+
+Show service for image
+
+### Syntax
+
+```h1 image service show | --image IMAGE --service SERVICE```
+### Example
+
+```bash
+h1 image service show --service my-service --image my-image
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
+| ```--service SERVICE``` |  | Service for image ID or name |
 
 ## h1 image create
 

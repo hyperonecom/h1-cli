@@ -9,6 +9,9 @@
     * [h1 netgw tag list](#h1-netgw-tag-list) - List tag
     * [h1 netgw tag add](#h1-netgw-tag-add) - Add a tag to network gateway
     * [h1 netgw tag delete](#h1-netgw-tag-delete) - Delete a tag of network gateway
+  * [h1 netgw service](#h1-netgw-service) - Manage your services of network gateway
+    * [h1 netgw service list](#h1-netgw-service-list) - List service for network gateway
+    * [h1 netgw service show](#h1-netgw-service-show) - Show service for network gateway
   * [h1 netgw create](#h1-netgw-create) - Network gateway create
   * [h1 netgw detach](#h1-netgw-detach) - Network gateway detach from a network
   * [h1 netgw attach](#h1-netgw-attach) - Network gateway attach to a network
@@ -177,6 +180,49 @@ h1 netgw tag delete --netgw test-netgw --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
+
+## h1 netgw service
+
+Manage your services of network gateway
+
+## h1 netgw service list
+
+List service for network gateway
+
+### Syntax
+
+```h1 netgw service list | --netgw NETGW```
+### Example
+
+```bash
+h1 netgw service list --netgw test-netgw
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--netgw NETGW``` |  | Network gateway ID or name |
+
+## h1 netgw service show
+
+Show service for network gateway
+
+### Syntax
+
+```h1 netgw service show | --netgw NETGW --service SERVICE```
+### Example
+
+```bash
+h1 netgw service show --service my-service --netgw my-netgw
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--netgw NETGW``` |  | Network gateway ID or name |
+| ```--service SERVICE``` |  | Service for network gateway ID or name |
 
 ## h1 netgw create
 

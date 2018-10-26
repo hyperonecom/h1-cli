@@ -9,6 +9,9 @@
     * [h1 vault tag list](#h1-vault-tag-list) - List tag
     * [h1 vault tag add](#h1-vault-tag-add) - Add a tag to Vault
     * [h1 vault tag delete](#h1-vault-tag-delete) - Delete a tag of Vault
+  * [h1 vault service](#h1-vault-service) - Manage your services of Vault
+    * [h1 vault service list](#h1-vault-service-list) - List service for Vault
+    * [h1 vault service show](#h1-vault-service-show) - Show service for Vault
   * [h1 vault resize](#h1-vault-resize) - Resize Vault
   * [h1 vault create](#h1-vault-create) - Create Vault
   * [h1 vault credential](#h1-vault-credential) - Manage your credentials to Vault
@@ -193,6 +196,49 @@ h1 vault tag delete --vault test-vault --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--vault VAULT``` |  | Vault ID or name |
+
+## h1 vault service
+
+Manage your services of Vault
+
+## h1 vault service list
+
+List service for Vault
+
+### Syntax
+
+```h1 vault service list | --vault VAULT```
+### Example
+
+```bash
+h1 vault service list --vault test-vault
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+
+## h1 vault service show
+
+Show service for Vault
+
+### Syntax
+
+```h1 vault service show | --vault VAULT --service SERVICE```
+### Example
+
+```bash
+h1 vault service show --service my-service --vault my-vault
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+| ```--service SERVICE``` |  | Service for Vault ID or name |
 
 ## h1 vault resize
 

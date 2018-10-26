@@ -9,6 +9,9 @@
     * [h1 firewall tag list](#h1-firewall-tag-list) - List tag
     * [h1 firewall tag add](#h1-firewall-tag-add) - Add a tag to firewall
     * [h1 firewall tag delete](#h1-firewall-tag-delete) - Delete a tag of firewall
+  * [h1 firewall service](#h1-firewall-service) - Manage your services of firewall
+    * [h1 firewall service list](#h1-firewall-service-list) - List service for firewall
+    * [h1 firewall service show](#h1-firewall-service-show) - Show service for firewall
   * [h1 firewall transfer](#h1-firewall-transfer) - Transfer firewall to other project
   * [h1 firewall create](#h1-firewall-create) - Create firewall
   * [h1 firewall attach](#h1-firewall-attach) - Attach firewall to a network
@@ -188,6 +191,49 @@ h1 firewall tag delete --firewall test-firewall --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
+
+## h1 firewall service
+
+Manage your services of firewall
+
+## h1 firewall service list
+
+List service for firewall
+
+### Syntax
+
+```h1 firewall service list | --firewall FIREWALL```
+### Example
+
+```bash
+h1 firewall service list --firewall test-firewall
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+
+## h1 firewall service show
+
+Show service for firewall
+
+### Syntax
+
+```h1 firewall service show | --firewall FIREWALL --service SERVICE```
+### Example
+
+```bash
+h1 firewall service show --service my-service --firewall my-firewall
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+| ```--service SERVICE``` |  | Service for firewall ID or name |
 
 ## h1 firewall transfer
 

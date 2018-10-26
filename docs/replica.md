@@ -9,6 +9,9 @@
     * [h1 replica tag list](#h1-replica-tag-list) - List tag
     * [h1 replica tag add](#h1-replica-tag-add) - Add a tag to replica
     * [h1 replica tag delete](#h1-replica-tag-delete) - Delete a tag of replica
+  * [h1 replica service](#h1-replica-service) - Manage your services of replica
+    * [h1 replica service list](#h1-replica-service-list) - List service for replica
+    * [h1 replica service show](#h1-replica-service-show) - Show service for replica
   * [h1 replica create](#h1-replica-create) - Setup VM replication
   * [h1 replica disk](#h1-replica-disk) - Manage your disk of replica
     * [h1 replica disk list](#h1-replica-disk-list) - List disk of replica
@@ -177,6 +180,49 @@ h1 replica tag delete --replica test-replica --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--replica REPLICA``` |  | Replica ID or name |
+
+## h1 replica service
+
+Manage your services of replica
+
+## h1 replica service list
+
+List service for replica
+
+### Syntax
+
+```h1 replica service list | --replica REPLICA```
+### Example
+
+```bash
+h1 replica service list --replica test-replica
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--replica REPLICA``` |  | Replica ID or name |
+
+## h1 replica service show
+
+Show service for replica
+
+### Syntax
+
+```h1 replica service show | --replica REPLICA --service SERVICE```
+### Example
+
+```bash
+h1 replica service show --service my-service --replica my-replica
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--replica REPLICA``` |  | Replica ID or name |
+| ```--service SERVICE``` |  | Service for replica ID or name |
 
 ## h1 replica create
 
