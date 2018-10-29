@@ -18,6 +18,8 @@ ava.serial('network ip life cycle', async t => {
         showParams: `--network ${network._id}`,
         deleteParams: `--network ${network._id}`,
         tagParams: `--network ${network._id}`,
+        serviceListParams: `--network ${network._id}`,
+        serviceShowParams: `--network ${network._id}`,
         skipHistory: true,
         stateCreated: 'Unallocated',
     })(t);

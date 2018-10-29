@@ -26,17 +26,17 @@ module.exports = (parent) => {
         url: args => `${parent.url(args)}/${args[parent.name]}/services`,
         commands: ['show', 'list'],
         plugins: genericDefaults.plugins,
-        context: {
+        context: Object.assign({}, parent.context, {
             parent_name: parent.name,
             showParams: `--${parent.name} my-${parent.name}`,
-        },
-        options: {
+        }),
+        options: Object.assign({}, parent.options, {
             [parent.name]: {
                 description: `${text.toTitleCase(parent.title)} ID or name`,
                 type: 'string',
                 required: true,
             },
-        },
+        }),
     };
 
     const cmd = parent.serviceCommands || ['list', 'show'];

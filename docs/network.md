@@ -342,17 +342,18 @@ List service for IP address
 
 ### Syntax
 
-```h1 network ip service list | --ip IP```
+```h1 network ip service list | --network NETWORK --ip IP```
 ### Example
 
 ```bash
-h1 network ip service list --ip test-ip
+h1 network ip service list --ip test-ip --network my-network
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network name or ID |
 | ```--ip IP``` |  | IP address ID or name |
 
 ## h1 network ip service show
@@ -361,7 +362,7 @@ Show service for IP address
 
 ### Syntax
 
-```h1 network ip service show | --ip IP --service SERVICE```
+```h1 network ip service show | --network NETWORK --ip IP --service SERVICE```
 ### Example
 
 ```bash
@@ -372,6 +373,7 @@ h1 network ip service show --service my-service --ip my-ip
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network name or ID |
 | ```--ip IP``` |  | IP address ID or name |
 | ```--service SERVICE``` |  | Service for IP address ID or name |
 
