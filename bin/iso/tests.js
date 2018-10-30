@@ -8,25 +8,25 @@ const tests = require('../../lib/tests');
 
 const now = Date.now();
 
-const createParams = `--name iso-test-${now} --source-url ${tests.iso_url}`;
+const createParams = `--source-url ${tests.iso_url}`;
 
 
-ava.serial('iso life cycle', tests.resourceLifeCycle('iso', createParams));
+ava.serial('iso life cycle', tests.resourceLifeCycle('iso', `--name iso-life-cycle-${now}  ${createParams}`));
 
-ava.serial('iso rename', tests.resourceRename('iso', createParams));
+ava.serial('iso rename', tests.resourceRename('iso', `--name iso-rename-${now}  ${createParams}`));
 
-ava.serial('iso access', tests.resourceAccessCycle('iso', createParams));
+ava.serial('iso access', tests.resourceAccessCycle('iso', `--name iso-access-${now}  ${createParams}`));
 
 ava.serial('iso local upload', async t => {
     const filename = await tests.downloadFile(tests.iso_url);
-    await tests.resourceLifeCycle('iso', `--name iso-test-${now} --source-file ${filename}`)(t);
+    await tests.resourceLifeCycle('iso', `--name iso-local-upload-${now} --source-file ${filename}`)(t);
     fs.unlinkSync(filename);
 });
 
 ava.serial('iso use in vm local uploaded', async t => {
     const filename = await tests.downloadFile(tests.iso_url);
 
-    const iso = await tests.run(`iso create --name iso-test-${now} --source-file ${filename}`);
+    const iso = await tests.run(`iso create --name iso-use-vm-${now} --source-file ${filename}`);
     const secret = await tests.getToken();
 
     const vm = await tests.run(`vm create --name test-vm --type a1.nano --password ${secret} --no-start`);
@@ -45,5 +45,5 @@ ava.serial('iso use in vm local uploaded', async t => {
 
 
 ava.serial('iso transfer', tests.transferLifeCycle('iso', {
-    createParams: createParams,
+    createParams: `--name iso-transfer-${now}  ${createParams}`,
 }));
