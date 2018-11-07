@@ -4,7 +4,7 @@
   "description": "HyperOne Command Line Interface",
   "license": "MIT",
   "author": "",
-  "main": "bin/h1.js",
+  "main": "bin/start",
   "bin": {
     "h1": "./bin/h1",
     "rbx": "./bin/rbx"
