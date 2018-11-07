@@ -17,12 +17,13 @@ const resource = {
     defaultQuery: require('bin/ip').config.defaultQuery,
     url: args => `network/${args.network}/ip`,
     plugins: defaults.plugins,
-    commands: ['list', 'show', 'delete', 'service'],
+    commands: ['list', 'show', 'delete'],
     options: options,
     title: 'IP address',
     context: {
         showParams: '--network my-network',
         deleteParams: '--network my-network',
+        serviceListParams: '--network my-network',
     },
 };
 
@@ -40,9 +41,12 @@ const childDefaults = Object.assign({}, resource, {
 });
 
 
-category.addChild(require('./create')(resource));
-category.addChild(require('bin/generic/tag')(Object.assign({}, childDefaults, {
+const childIpDefaults = Object.assign({}, childDefaults, {
     url: () => 'ip',
-})));
+});
+
+category.addChild(require('./create')(resource));
+category.addChild(require('bin/generic/tag')(childIpDefaults));
+category.addChild(require('bin/generic/service')(childIpDefaults));
 
 module.exports = category;
