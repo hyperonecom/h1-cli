@@ -158,7 +158,7 @@ ava.serial('vault credential password life cycle', async t => {
             username: vault._id,
             privateKey: sshKeyPair.privateKey,
         });
-        t.true(content.includes('load average'));
+        t.true(content.includes('load average'), content);
 
         fs.unlinkSync(sshFilename);
 
