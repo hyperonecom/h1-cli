@@ -31,6 +31,10 @@
       * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limits
   * [h1 project select](#h1-project-select) - Select project context
   * [h1 project limit](#h1-project-limit) - Cloud limits set for project
+  * [h1 project logging](#h1-project-logging) - Manage your compilance logging
+    * [h1 project logging enable](#h1-project-logging-enable) - Enable compilance log
+    * [h1 project logging disable](#h1-project-logging-disable) - Disable compilance log
+    * [h1 project logging show](#h1-project-logging-show) - Show compilance log
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
     * [h1 project credentials show](#h1-project-credentials-show) - Show credentials
     * [h1 project credentials list](#h1-project-credentials-list) - List credentials
@@ -660,6 +664,78 @@ h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
 
 Contact technical support to request increase the limits.
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project logging
+
+Manage your compilance logging
+
+### Note
+
+The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
+
+## h1 project logging enable
+
+Enable compilance log
+
+### Syntax
+
+```h1 project logging enable | --logArchive LOGARCHIVE --password PASSWORD [--project PROJECT]```
+### Example
+
+```
+h1 project logging enable --project MyProject --logArchive 5beabe03680cffd11f0e653d  --password StrongPassword
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--logArchive LOGARCHIVE``` |  | ID of LogArchive |
+| ```--password PASSWORD``` |  | Credentials of type "password" to access logArchive |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project logging disable
+
+Disable compilance log
+
+### Syntax
+
+```h1 project logging disable | [--project PROJECT]```
+### Example
+
+```
+h1 project logging disable --project MyProject
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project logging show
+
+Show compilance log
+
+### Syntax
+
+```h1 project logging show | [--project PROJECT]```
+### Example
+
+```
+h1 project logging show --project MyProject
+```
 
 ### Optional arguments
 
