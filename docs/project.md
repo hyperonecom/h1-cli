@@ -558,6 +558,12 @@ Edit token
 ### Syntax
 
 ```h1 project token edit | --token TOKEN [--project PROJECT]```
+### Example
+
+```bash
+h1 project token edit --token 5bec35a2680cffd11f0f1be5
+```
+
 ### Required arguments
 
 | Name | Default | Description |
