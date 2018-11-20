@@ -1,6 +1,7 @@
 'use strict';
 
 process.env.H1_PROJECT = 'dummy-project';
+process.env.H1_EARLY_ADOPTERS = '1';
 
 require(`../../scope/${process.env.SCOPE_NAME || 'h1' }`);
 
