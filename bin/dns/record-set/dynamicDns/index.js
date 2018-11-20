@@ -20,6 +20,7 @@ module.exports = resource => Cli.createCommand('dynamic-dns', {
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options),
     resource: resource,
+    earlyAdoptersOnly: true,
     handler: args => {
 
         args.zone = addTrailingDot(args.zone);

@@ -99,6 +99,10 @@ Cli.flatten(cli).forEach(node => {
     if (options.dirname) {
         epilog.examples(node, options.dirname, context);
     }
+
+    if (node.createOptions.earlyAdoptersOnly && !config.is_early_adopters()) {
+        node.parent.children = node.parent.children.filter(x => x.name !== node.name);
+    }
 });
 
 

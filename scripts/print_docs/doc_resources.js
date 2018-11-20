@@ -40,6 +40,11 @@ const writeCommandSpecs = (wstream, entry, options, depth=1) => {
 
     wstream.write(`${entry.description}\n\n`);
 
+    if (entry.createOptions.earlyAdoptersOnly) {
+        wstream.write(utils.getHeader(depth + 1, 'Note'));
+        wstream.write('The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.\n\n');
+    }
+
     if (entry.handler) {
         wstream.write(utils.getHeader(depth + 1, 'Syntax'));
         wstream.write(`${utils.code}${lib.getCommandHeader(entry)}${utils.code}\n`);
