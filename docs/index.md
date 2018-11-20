@@ -2,6 +2,7 @@
 * Commands
   * [h1 config](config.md) - Manage config of CLI
   * [h1 login](login.md) - Obtain your apiKey
+  * [h1 reservation](reservation.md) - Manage your reservation
   * [h1 user](user.md) - Manage your user
   * [h1 project](project.md) - Manage your project
   * [h1 service](service.md) - Manage your service

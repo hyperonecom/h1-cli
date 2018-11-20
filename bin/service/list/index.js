@@ -6,12 +6,10 @@ const genericDefaults = require('bin/generic/defaults');
 const options = {
     resource: {
         type: String,
-        choices: [ 'disk', 'image', 'ip', 'iso', 'netadp', 'network', 'project', 'vault', 'vm'],
         description: 'Kind of resource',
     },
     type: {
         type: String,
-        choices: [ 'flavour', 'ipv4', 'license', 'metric', 'standard', 'support' ],
         description: 'Kind of type of resource',
     },
 };
