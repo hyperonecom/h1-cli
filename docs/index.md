@@ -5,7 +5,7 @@
   * [h1 reservation](reservation.md) - Manage your reservation
   * [h1 user](user.md) - Manage your user
   * [h1 project](project.md) - Manage your project
-  * [h1 service](service.md) - Manage your service
+  * [h1 service](service.md) - Explore available services
   * [h1 vm](vm.md) - Manage your virtual machine
   * [h1 disk](disk.md) - Manage your disk
   * [h1 image](image.md) - Manage your image
