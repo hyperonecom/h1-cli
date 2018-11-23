@@ -8,7 +8,7 @@
 
 ## h1 service
 
-Manage your service
+Explore available services
 
 ## h1 service show
 
