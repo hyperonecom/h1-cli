@@ -13,6 +13,12 @@ const options = {
         type: 'string',
         required: true,
     },
+    mode: {
+        choices: ['basic', 'full'],
+        description: 'Logging mode (determines the scope of registered information)',
+        type: 'string',
+        defaultValue: 'full',
+    },
 };
 
 module.exports = resource => Cli.createCommand('enable', {
@@ -28,5 +34,6 @@ module.exports = resource => Cli.createCommand('enable', {
         .put(resource.url(args), {
             logArchive: args.logArchive,
             password: args.password,
+            mode: args.mode,
         }).then(result => args.helpers.sendOutput(args, result)),
 });
