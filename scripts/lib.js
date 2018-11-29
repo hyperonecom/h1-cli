@@ -4,7 +4,9 @@ const Cli = require('../lib/cli');
 
 const getArgumentLabel = ([name, value]) => {
     let label;
-    if (value.type !== 'boolean') {
+    if (value.choices) {
+        label = `--${name} \{${value.choices.join(',')}\}`;
+    } else if (value.type !== 'boolean') {
         label = `--${name} ${name.toUpperCase()}`;
     } else {
         label = `--${name}`;

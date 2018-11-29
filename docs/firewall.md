@@ -398,7 +398,7 @@ Add rule ingress of firewall
 
 ### Syntax
 
-```h1 firewall ingress add | --firewall FIREWALL --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
+```h1 firewall ingress add | --firewall FIREWALL --name NAME --action {allow,deny} --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
 ### Examples
 
 #### Add firewall to allow any incoming HTTP traffic to 10.177.2.2
@@ -417,7 +417,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--name NAME``` |  | Name |
-| ```--action ACTION``` |  | Action |
+| ```--action {allow,deny}``` |  | Action |
 | ```--priority PRIORITY``` |  | Number between 100 and 999 representing priority |
 | ```--filter FILTER [--filter FILTER ...]``` |  | The filter rule in the form of "protocol:format [, protocol:format...]". Protocol as "icmp" / "udp" / "tcp" / "any". Port as numeric value. Example: "tcp:83". The parameter may occur repeatedly |
 | ```--external EXTERNAL [--external EXTERNAL ...]``` |  | IP address or network on external side. The parameter may occur repeatedly |
@@ -542,7 +542,7 @@ Add rule egress of firewall
 
 ### Syntax
 
-```h1 firewall egress add | --firewall FIREWALL --name NAME --action ACTION --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
+```h1 firewall egress add | --firewall FIREWALL --name NAME --action {allow,deny} --priority PRIORITY --filter FILTER [--filter FILTER ...] --external EXTERNAL [--external EXTERNAL ...] --internal INTERNAL [--internal INTERNAL ...]```
 ### Examples
 
 #### Add firewall to allow any incoming HTTP traffic to 10.177.2.2
@@ -561,7 +561,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--name NAME``` |  | Name |
-| ```--action ACTION``` |  | Action |
+| ```--action {allow,deny}``` |  | Action |
 | ```--priority PRIORITY``` |  | Number between 100 and 999 representing priority |
 | ```--filter FILTER [--filter FILTER ...]``` |  | The filter rule in the form of "protocol:format [, protocol:format...]". Protocol as "icmp" / "udp" / "tcp" / "any". Port as numeric value. Example: "tcp:83". The parameter may occur repeatedly |
 | ```--external EXTERNAL [--external EXTERNAL ...]``` |  | IP address or network on external side. The parameter may occur repeatedly |

@@ -223,7 +223,7 @@ Grant access rights for project
 
 ### Syntax
 
-```h1 project access grant | --email EMAIL [--project PROJECT] [--role ROLE]```
+```h1 project access grant | --email EMAIL [--project PROJECT] [--role {owner,billing,user}]```
 ### Example
 
 ```bash
@@ -241,7 +241,7 @@ h1 project access grant --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
-| ```--role ROLE``` |  | Role |
+| ```--role {owner,billing,user}``` |  | Role |
 
 ## h1 project access revoke
 
@@ -685,7 +685,7 @@ Enable compilance log
 
 ### Syntax
 
-```h1 project logging enable | --logArchive LOGARCHIVE --password PASSWORD [--project PROJECT]```
+```h1 project logging enable | --logArchive LOGARCHIVE --password PASSWORD [--project PROJECT] [--mode {basic,full}]```
 ### Example
 
 ```
@@ -704,6 +704,7 @@ h1 project logging enable --project MyProject --logArchive 5beabe03680cffd11f0e6
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
+| ```--mode {basic,full}``` |  | Logging mode (determines the scope of registered information) |
 
 ## h1 project logging disable
 
