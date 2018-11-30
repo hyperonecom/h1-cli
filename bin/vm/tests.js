@@ -94,6 +94,22 @@ ava.serial('vm userdata', async t => {
     await common.cleanup();
 });
 
+ava.serial('vm usermetadata execute in cloud-init', async t => {
+    const token = await tests.getToken();
+    const remote_tmp_path = '/tmp/cloud-init-usermetadata.txt';
+    const my_metadata = `#!/bin/sh\necho -n "${token}" > ${remote_tmp_path};`;
+    const tmp_file = tests.getRandomFile(my_metadata);
+    const common = await getCommon(t.title);
+    const vm = await tests.run(`vm create ${common.params.createParams} --userdata-file ${tmp_file}`);
+
+    fs.unlinkSync(tmp_file);
+
+    const ip = (await getVmIp(vm._id))[0];
+    const content = await sshVmPassword(ip, common.password, `cat ${remote_tmp_path}`);
+    t.true(content === token);
+    await common.cleanup();
+});
+
 ava.serial('vm disk attach & detach', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params.createParams}`);
@@ -243,7 +259,7 @@ const sshVmPassword = (ip, password, command) => ssh.execute(command, {
     readyTimeout: 5 * 1000,
 });
 
-function round_step(value, step=0.5) {
+function round_step(value, step = 0.5) {
     const inv = 1.0 / step;
     return Math.round(value * inv) / inv;
 }
