@@ -1,6 +1,6 @@
 'use strict';
 const ava = require('ava');
-const { URL } = require('url');
+const {URL} = require('url');
 const Imap = require('imap');
 
 require('../../scope/h1');
@@ -13,13 +13,46 @@ const active_project = config.get('profile.project._id');
 
 const token_name = `test-project-token-${now}`;
 
-ava.todo('project delete');
+ava.serial('project life cycle', async t => {
+    const project = await tests.run(`project show --project ${active_project}`);
+    const active_organisation = project.organisation;
+    const createParams = `--name project-life-cycle-${now} --organisation ${active_organisation}`;
+
+    await tests.resourceLifeCycle('project', {
+        createParams: createParams,
+        stateCreated: undefined,
+        skipHistoryCreated: true,
+        skipService: true,
+        skipTag: true,
+    })(t);
+});
 
 ava.serial('project show', async t => {
     const project = await tests.run(`project show --project ${active_project}`);
     t.true(project._id === active_project);
 });
 
+ava.serial('project transfer', tests.requireSlaveProject(async (t, projects) => {
+    const active_organisation = (await tests.run(`project show --project ${active_project}`)).organisation;
+
+    const slave_project = await tests.run(`project show --project ${projects.slave}`);
+    const slave_organisation = slave_project.organisation;
+    console.log({slave_organisation, active_organisation});
+    const project = await tests.run(`project create --name project-transfer-${now} --organisation ${active_organisation}`);
+    console.log(project);
+    await tests.run(`project transfer --project ${project._id} --organisation ${slave_organisation}`);
+    const transfer_list = await tests.run(`organisation transfer list --organisation ${slave_organisation}`);
+    t.true(transfer_list.some(x => x._id === project._id));
+
+    const payment_list = await tests.run(`organisation payment list --organisation ${slave_organisation}`);
+    const free_payments = payment_list.filter(x => x.creditsFree === x.credits);
+    const payment_selected = free_payments[Math.floor(Math.random()*free_payments.length)];
+    await tests.run(`organisation transfer accept --organisation ${slave_organisation} --project ${project._id} --payment ${payment_selected._id}`);
+    const transfered_project = await tests.run(`project show --project ${project._id}`);
+    t.true(transfered_project.organisation === slave_organisation);
+
+    await tests.remove('project', project);
+}));
 ava.serial('project rename', async t => {
     const name = `Project for monitoring public API - ${now}`;
 
@@ -61,13 +94,12 @@ ava.serial('project token life cycle', async t => {
     const commonParams = `--project ${active_project}`;
     const token = await tests.run(`project token add ${commonParams} --name ${token_name}`);
 
-    const tokenParams = `${commonParams} --token ${token._id}`;
-
-    const token_list = await tests.run('project token list');
-    t.true(token_list.some(d => d.name === token_name));
-
-    const refreshed_token = await tests.run(`project token show ${tokenParams}`);
-    t.true(token._id === refreshed_token._id);
+    await tests.subresourceLifeCycle({
+        resourceType: 'project',
+        resourceId: active_project,
+        type: 'token',
+        skipRename: false,
+    })(t);
 
     await tests.remove('project token', token);
 });
