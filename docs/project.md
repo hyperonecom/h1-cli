@@ -9,10 +9,18 @@
     * [h1 project tag add](#h1-project-tag-add) - Add a tag to project
     * [h1 project tag delete](#h1-project-tag-delete) - Delete a tag of project
   * [h1 project list](#h1-project-list) - List project
+  * [h1 project service](#h1-project-service) - Manage your services of project
+    * [h1 project service list](#h1-project-service-list) - List service for project
+    * [h1 project service show](#h1-project-service-show) - Show service for project
+  * [h1 project payment](#h1-project-payment) - Manage your payment for project
+    * [h1 project payment show](#h1-project-payment-show) - Show payment
+    * [h1 project payment list](#h1-project-payment-list) - List payment
+  * [h1 project create](#h1-project-create) - Create project
   * [h1 project access](#h1-project-access) - Manage your project access rights
     * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
     * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for project
     * [h1 project access list](#h1-project-access-list) - List project
+  * [h1 project transfer](#h1-project-transfer) - Transfer project to other organisation
   * [h1 project token](#h1-project-token) - Manage your project tokens
     * [h1 project token show](#h1-project-token-show) - Show token
     * [h1 project token list](#h1-project-token-list) - List token
@@ -200,18 +208,124 @@ List project
 
 ### Syntax
 
-```h1 project list | [--all]```
+```h1 project list | ```
 ### Example
 
 ```bash
 h1 project list
 ```
 
+## h1 project service
+
+Manage your services of project
+
+## h1 project service list
+
+List service for project
+
+### Syntax
+
+```h1 project service list | --project PROJECT```
+### Example
+
+```bash
+h1 project service list --project test-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project service show
+
+Show service for project
+
+### Syntax
+
+```h1 project service show | --project PROJECT --service SERVICE```
+### Example
+
+```bash
+h1 project service show --service my-service --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+| ```--service SERVICE``` |  | Service for project ID or name |
+
+## h1 project payment
+
+Manage your payment for project
+
+## h1 project payment show
+
+Show payment
+
+### Syntax
+
+```h1 project payment show | --project PROJECT --payment PAYMENT```
+### Example
+
+```bash
+h1 project payment show --payment my-payment
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+| ```--payment PAYMENT``` |  | Payment ID or name |
+
+## h1 project payment list
+
+List payment
+
+### Syntax
+
+```h1 project payment list | --project PROJECT```
+### Example
+
+```bash
+h1 project payment list
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project create
+
+Create project
+
+### Syntax
+
+```h1 project create | --name NAME --organisation ORGANISATION [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 project create --name project --organizatiton MyCompany
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | ISO name |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
+
 ### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--all``` |  | Display all projects |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 project access
 
@@ -286,6 +400,26 @@ h1 project access list
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project transfer
+
+Transfer project to other organisation
+
+### Syntax
+
+```h1 project transfer | --project PROJECT --organisation ORGANISATION```
+### Example
+
+```bash
+h1 project transfer --project test-project --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+| ```--organisation ORGANISATION``` |  | New organisation |
 
 ## h1 project token
 
