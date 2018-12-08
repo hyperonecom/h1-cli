@@ -20,6 +20,10 @@ function writeArguments(wstream, label, values = {}) {
             if (value.action === 'append') {
                 description = `${description}. The parameter may occur repeatedly`;
             }
+            if (value.alias) {
+                description = `${description}. Also available as \`-${value.alias}\`.`;
+            }
+
             return {
                 Name: `${utils.code}${label}${utils.code}`,
                 Default: value.default || '',

@@ -328,3 +328,16 @@ ava.serial('vm service change', async t => {
         await common.cleanup();
     });
 });
+
+ava.serial('vm create with multiple disk', async t => {
+    const token = await tests.getToken();
+    const vm = await tests.run(`vm create --name test-vm --disk ssd,10 --disk ssd,25 --type a1.nano --image debian --password ${token}`);
+    const disk_list = await tests.run(`vm disk list --vm ${vm._id}`);
+    t.true(disk_list.length === 2);
+
+    await tests.remove('vm', vm);
+    for (const ctrl of disk_list) {
+        await tests.remove('disk', ctrl.disk._id);
+    }
+
+});

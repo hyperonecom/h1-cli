@@ -247,7 +247,7 @@ Create virtual machine
 
 ### Syntax
 
-```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--tag TAG [--tag TAG ...]]```
+```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--disk DISK [--disk DISK ...]] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create a Ubuntu virtual machine
@@ -293,7 +293,7 @@ Note: You can mount ISO disk and provide stateless services.
 | ```--os-disk-name OS-DISK-NAME``` |  | OS disk name |
 | ```--os-disk-type OS-DISK-TYPE``` |  | OS disk type |
 | ```--os-disk-size OS-DISK-SIZE``` |  | OS disk size |
-| ```--os-disk OS-DISK``` |  | OS disk: name,type,size |
+| ```--disk DISK [--disk DISK ...]``` |  | Disk: name,type,size. The parameter may occur repeatedly. Also available as `--os-disk`. |
 | ```--network NETWORK``` |  | Network ID or name to attach |
 | ```--ip IP``` |  | IP address for Virtual machine |
 | ```--no-start``` |  | Do not start Virtual machine after creation |

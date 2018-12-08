@@ -51,11 +51,12 @@ const options = {
         description: 'OS disk size',
         type: 'int',
     },
-    'os-disk': {
-        description: 'OS disk: name,type,size',
+    disk: {
+        description: 'Disk: name,type,size',
         type: 'string',
+        action: 'append',
+        alias: '-os-disk', // hack for backward compatibility
     },
-
     network: {
         description: 'Network ID or name to attach',
         type: 'string',
@@ -74,6 +75,31 @@ const options = {
     },
 };
 
+const parseDisks = (args) => {
+    const disks = [];
+
+    if (args['os-disk-name'] && args['os-disk-type'] && args['os-disk-size']) {
+        disks.push({
+            name: args['os-disk-name'],
+            service: args['os-disk-type'],
+            size: args['os-disk-size'],
+        });
+    }
+    if (args.disk) {
+        args.disk.forEach((disk, index) => {
+            let osDisk = disk.split(',');
+            const postfix = index > 0 ? `data-${index}` : 'os';
+            osDisk = osDisk.length === 2 ? [`${args.name}-${postfix}`, ...osDisk] : osDisk;
+            disks.push({
+                name: osDisk[0],
+                service: osDisk[1],
+                size: osDisk[2],
+            });
+        });
+    }
+    return disks;
+};
+
 module.exports = resource => Cli.createCommand('create', {
     description: `Create ${resource.title}`,
     plugins: genericDefaults.plugins,
@@ -82,7 +108,6 @@ module.exports = resource => Cli.createCommand('create', {
     dirname: __dirname,
     priority: 25,
     handler: async (args) => {
-
         const newVM = {
             name: args.name,
             service: args.type,
@@ -117,17 +142,10 @@ module.exports = resource => Cli.createCommand('create', {
         if (args['no-start']) {
             newVM.boot = false;
         }
+        const disk = parseDisks(args);
 
-        if (args['os-disk'] || args['os-disk-name'] && args['os-disk-type'] && args['os-disk-size']) {
-            newVM.disk = [];
-
-            let osDisk = args['os-disk'] ? args['os-disk'].split(',') : [];
-            osDisk = osDisk.length === 2 ? [`${args.name}-os`, ...osDisk] : osDisk;
-            newVM.disk.push({
-                name: osDisk[0] || args['os-disk-name'],
-                service: osDisk[1] || args['os-disk-type'],
-                size: osDisk[2] || args['os-disk-size'],
-            });
+        if (disk) {
+            newVM.disk = disk;
         }
 
         ['iso', 'image', 'sshKeys'].forEach(param => {
