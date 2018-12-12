@@ -31,10 +31,10 @@
       * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limits
   * [h1 project select](#h1-project-select) - Select project context
   * [h1 project limit](#h1-project-limit) - Cloud limits set for project
-  * [h1 project logging](#h1-project-logging) - Manage your compilance logging
-    * [h1 project logging enable](#h1-project-logging-enable) - Enable compilance log
-    * [h1 project logging disable](#h1-project-logging-disable) - Disable compilance log
-    * [h1 project logging show](#h1-project-logging-show) - Show compilance log
+  * [h1 project logging](#h1-project-logging) - Manage your compliance logging
+    * [h1 project logging enable](#h1-project-logging-enable) - Enable compliance log
+    * [h1 project logging disable](#h1-project-logging-disable) - Disable compliance log
+    * [h1 project logging show](#h1-project-logging-show) - Show compliance log
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
     * [h1 project credentials show](#h1-project-credentials-show) - Show credentials
     * [h1 project credentials list](#h1-project-credentials-list) - List credentials
@@ -673,7 +673,7 @@ Contact technical support to request increase the limits.
 
 ## h1 project logging
 
-Manage your compilance logging
+Manage your compliance logging
 
 ### Note
 
@@ -681,7 +681,7 @@ The functionality is available as part of the *Early adopters* program. Operatio
 
 ## h1 project logging enable
 
-Enable compilance log
+Enable compliance log
 
 ### Syntax
 
@@ -708,7 +708,7 @@ h1 project logging enable --project MyProject --logArchive 5beabe03680cffd11f0e6
 
 ## h1 project logging disable
 
-Disable compilance log
+Disable compliance log
 
 ### Syntax
 
@@ -727,7 +727,7 @@ h1 project logging disable --project MyProject
 
 ## h1 project logging show
 
-Show compilance log
+Show compliance log
 
 ### Syntax
 

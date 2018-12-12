@@ -6,13 +6,13 @@ module.exports = parent => {
 
     const resource = {
         name: 'logging',
-        description: 'Manage your compilance logging',
+        description: 'Manage your compliance logging',
         defaultQuery: '[]',
         url: args => `${parent.url(args)}/compliance`,
         params: parent.params,
         options: parent.options,
         commands: [],
-        title: 'compilance log',
+        title: 'compliance log',
         earlyAdoptersOnly: true,
         // dirname: __dirname,
     };
