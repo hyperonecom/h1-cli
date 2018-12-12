@@ -24,11 +24,11 @@ const getCommon = async (test_name, options = {}) => {
     };
 };
 
-ava.serial('image rename', async t => {
+ava.serial('image life cycle', async t => {
     const common = await getCommon(t.title);
-
-    await tests.resourceRename('image', {
+    await tests.resourceLifeCycle('image', {
         createParams: `--vm ${common.vm._id} --name ${name}`,
+        stateCreated: 'Online',
     })(t);
 
     await common.cleanup();
