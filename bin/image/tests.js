@@ -34,16 +34,12 @@ ava.serial('image life cycle', async t => {
     await common.cleanup();
 });
 
-ava.serial('image disk list', async t => {
+ava.serial('image rename', async t => {
     const common = await getCommon(t.title);
-    const image = await tests.run(`image create --vm ${common.vm._id} --name ${name}`);
 
-    const list = await tests.run(`image disk --image ${image._id}`);
-    t.true(list.some(d => d.type === 'ssd' && d.size === 10));
+    await tests.resourceRename('image', `--vm ${common.vm._id} --name ${name}`)(t);
 
     await common.cleanup();
-    await tests.remove('image', image);
-
 });
 
 ava.serial('image access', async t => {
