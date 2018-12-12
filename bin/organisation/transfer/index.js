@@ -14,7 +14,6 @@ module.exports = parent => {
         commands: ['show', 'list'],
         plugins: parent.plugins,
         title: 'transfer',
-        dirname: __dirname,
     };
 
     const category = genericResource(resource);

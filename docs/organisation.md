@@ -176,7 +176,7 @@ Show payment
 ### Example
 
 ```bash
-h1 organisation payment show --payment my-payment
+h1 organisation payment show --payment my-payment --organisation my-organisation
 ```
 
 ### Required arguments
@@ -196,7 +196,7 @@ List payment
 ### Example
 
 ```bash
-h1 organisation payment list
+h1 organisation payment list --organisation my-organisation
 ```
 
 ### Required arguments
@@ -258,7 +258,7 @@ Accept transfer
 ### Example
 
 ```bash
-h1 organisation transfer accept --project 6oAoJqgyLZP4Le9UUNHrEOYP --name secret-token-1
+h1 organisation transfer accept --organisation MyOrganisation --project AcceptedProject --payment 583867ca5452f7020e63b4c6
 ```
 
 ### Required arguments
