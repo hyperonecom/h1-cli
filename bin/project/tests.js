@@ -185,7 +185,7 @@ ava.serial('project notification credits integration test', async t => {
     const disk = await tests.run(`disk create --name credits-apply-${now} --type ssd --size 20`);
     let charged = false;
     const charge_timeout = 60;
-    for (let i=0; i<charge_timeout; i++) {
+    for (let i = 0; i < charge_timeout; i++) {
         await tests.delay(1000); // to apply charges from the queue
         const charged_project = await tests.run(`project show ${commonParams}`);
         const charged_credits = charged_project.billing.credits;
@@ -199,7 +199,7 @@ ava.serial('project notification credits integration test', async t => {
     await tests.run(`project notification credits delete ${commonParams} --limit ${limit}`);
     await tests.remove('disk', disk);
 
-    const month = new Date().toLocaleString('en-us', { month: 'long' });
+    const month = new Date().toLocaleString('en-us', {month: 'long'});
     const day = new Date().getDay();
     const year = new Date().getMonth();
     const query = ['ALL',
@@ -210,15 +210,15 @@ ava.serial('project notification credits integration test', async t => {
     const options = getImapOptions(process.env.IMAP_URL);
 
     let received_mail = false;
-    for (let i=0; i<10; i++) {
-        await tests.delay(15*1000); // to delivery messages to mailbox
+    for (let i = 0; i < 10; i++) {
+        await tests.delay(15 * 1000); // to delivery messages to mailbox
         const latest_date = await getLatestImapMessageDate(query, options);
         if (dateDiffMinutes(new Date(), new Date(latest_date)) < 5) {
             received_mail = true;
             break;
         }
     }
-    t.true(received_mail, `Timeout ${15*10} seconds to receive mail.`);
+    t.true(received_mail, `Timeout ${15 * 10} seconds to receive mail.`);
 });
 
 ava.serial('project token access life cycle', async t => {

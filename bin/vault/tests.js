@@ -35,7 +35,10 @@ const sshVault = (vault, secret, cmd) => {
 ava.serial('vault life cycle', async t => {
     const ssh = await createUserCredentials();
 
-    await tests.resourceLifeCycle('vault', `--name vault-test-${now} --size 10 --ssh ${ssh.name}`)(t);
+    await tests.resourceLifeCycle('vault', {
+        stateCreated: 'Online',
+        createParams: `--name vault-test-${now} --size 10 --ssh ${ssh.name}`,
+    })(t);
 
     await ssh.cleanup();
 });

@@ -17,6 +17,7 @@ const fsPromiseUnlink = path => new Promise((resolve, reject) => {
 
 ava.serial('dns zone life cycle', tests.resourceLifeCycle('dns zone', {
     createParams: `--name dns-zone-${now}.com`,
+    stateCreated: 'Online',
     skipCreated: true,
     skipHistory: true,
     skipTag: true,
