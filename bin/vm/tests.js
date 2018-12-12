@@ -138,6 +138,7 @@ ava.serial('vm nic life cycle', async t => {
     const network = await tests.run(`network create --name network-vm-test-${now}`);
 
     await tests.resourceLifeCycle('vm nic', {
+        stateCreated: 'Online',
         createParams: `--vm ${vm._id} --type private --network ${network._id}`,
         listParams: `--vm ${vm._id}`,
         showParams: `--vm ${vm._id}`,

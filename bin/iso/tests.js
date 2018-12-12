@@ -11,7 +11,10 @@ const now = Date.now();
 const createParams = `--source-url ${tests.iso_url}`;
 
 
-ava.serial('iso life cycle', tests.resourceLifeCycle('iso', `--name iso-life-cycle-${now}  ${createParams}`));
+ava.serial('iso life cycle', tests.resourceLifeCycle('iso', {
+    createParams: `--name iso-life-cycle-${now}  ${createParams}`,
+    stateCreated: 'Online',
+}));
 
 ava.serial('iso rename', tests.resourceRename('iso', `--name iso-rename-${now}  ${createParams}`));
 
@@ -19,7 +22,10 @@ ava.serial('iso access', tests.resourceAccessCycle('iso', `--name iso-access-${n
 
 ava.serial('iso local upload', async t => {
     const filename = await tests.downloadFile(tests.iso_url);
-    await tests.resourceLifeCycle('iso', `--name iso-local-upload-${now} --source-file ${filename}`)(t);
+    await tests.resourceLifeCycle('iso', {
+        stateCreated: 'Online',
+        createParams: `--name iso-local-upload-${now} --source-file ${filename}`,
+    })(t);
     fs.unlinkSync(filename);
 });
 
