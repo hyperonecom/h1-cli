@@ -22,7 +22,11 @@ module.exports = parent => {
         commands: ['show', 'list'],
         plugins: parent.plugins,
         title: 'payment',
-        dirname: __dirname,
+        // dirname: __dirname,
+        context: {
+            showParams: `--${parent.title} my-${parent.title}`,
+            listParams: `--${parent.title} my-${parent.title}`,
+        },
     };
 
     return genericResource(resource);

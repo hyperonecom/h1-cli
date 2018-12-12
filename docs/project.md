@@ -272,7 +272,7 @@ Show payment
 ### Example
 
 ```bash
-h1 project payment show --payment my-payment
+h1 project payment show --payment my-payment --project my-project
 ```
 
 ### Required arguments
@@ -292,7 +292,7 @@ List payment
 ### Example
 
 ```bash
-h1 project payment list
+h1 project payment list --project my-project
 ```
 
 ### Required arguments
@@ -411,7 +411,7 @@ Transfer project to other organisation
 ### Example
 
 ```bash
-h1 project transfer --project test-project --new-project OtherProject
+h1 project transfer --project test-project --organisation target-organisation
 ```
 
 ### Required arguments
