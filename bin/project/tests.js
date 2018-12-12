@@ -104,21 +104,6 @@ ava.serial('project token life cycle', async t => {
     await tests.remove('project token', token);
 });
 
-ava.serial('project token rename', async t => {
-    const new_name = `renamed-${token_name}`;
-
-    const commonParams = `--project ${active_project}`;
-    const token = await tests.run(`project token add ${commonParams} --name ${token_name}`);
-
-    await tests.run(`project token rename --token ${token.name} --new-name ${new_name}`);
-
-    const refreshed_token = await tests.run(`project token show ${commonParams} --token ${new_name}`);
-    t.true(refreshed_token._id === token._id);
-    t.true(refreshed_token.name === new_name);
-
-    await tests.remove('project token', token);
-});
-
 ava.serial('project notification credits edit', async t => {
     const commonParams = `--project ${active_project}`;
     const limit = Math.round(Math.random() * 1000000);
@@ -254,30 +239,20 @@ ava.serial('project notification credits integration test', async t => {
 });
 
 ava.serial('project token access life cycle', async t => {
-    const history = [];
+    const token = await tests.run(`project token add --project ${active_project} --name test-project-token-${now}`);
+    const access = await tests.run(`project token access add --project ${active_project} --method POST --path 'vault/' --token ${token._id}`);
 
-    const run = cmd => tests.run({
-        cmd: cmd, history: history,
+    await tests.subresourceLifeCycle({
+        resourceId: token._id,
+        resourceType: 'project token',
+        type: 'access',
+        skipRename: true,
+        commonParams: `--project ${active_project}`,
+    })(t);
+
+    await tests.remove('project token access', access, {
+        deleteParams: `--project ${active_project} --token ${token._id}`,
     });
-    const token = await run(`project token add --project ${active_project} --name test-project-token-${now}`);
-
-    const access = await run(`project token access add --project ${active_project} --method POST --path 'vault/' --token ${token._id}`);
-
-    const tokenParams = `--project ${active_project} --token ${token._id}`;
-    const access_list = await run(`project token access list ${tokenParams}`);
-
-    t.true(access_list.some(d => d._id === access._id));
-
-    const refreshed_access = await run(`project token access show ${tokenParams} --access ${access._id}`);
-
-    t.true(access._id === refreshed_access._id);
-
-    await run(`project token access delete ${tokenParams} --access ${access._id} --yes`);
-
-
-    const access_list_deleted = await run(`project token access list ${tokenParams}`);
-
-    t.false(access_list_deleted.some(d => d._id === access._id));
 
     await tests.remove('project token', token);
 });
