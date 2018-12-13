@@ -53,7 +53,7 @@ module.exports = resource => {
         handler: args => args.helpers.api
             .get(`${resource.url(args)}/${args[resource.name]}`)
             .then(log => new Promise((resolve, reject) => {
-                const url = `http://${log._id}.log.pl-waw-1.hyperone.com/event`;
+                const url = `https://${log._id}.log.pl-waw-1.hyperone.com/event`;
                 const requests = new Set();
                 let count = 0;
                 const lineReader = readline.createInterface({
