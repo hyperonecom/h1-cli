@@ -1,13 +1,13 @@
 # TOC
 
+  * [h1 project create](#h1-project-create) - Create project
   * [h1 project show](#h1-project-show) - Show project
-  * [h1 project delete](#h1-project-delete) - Delete project
   * [h1 project history](#h1-project-history) - History of project
   * [h1 project rename](#h1-project-rename) - Rename project
-  * [h1 project tag](#h1-project-tag) - Manage your tag
-    * [h1 project tag list](#h1-project-tag-list) - List tag
-    * [h1 project tag add](#h1-project-tag-add) - Add a tag to project
-    * [h1 project tag delete](#h1-project-tag-delete) - Delete a tag of project
+  * [h1 project logging](#h1-project-logging) - Manage your compliance logging
+    * [h1 project logging enable](#h1-project-logging-enable) - Enable compliance log
+    * [h1 project logging disable](#h1-project-logging-disable) - Disable compliance log
+    * [h1 project logging show](#h1-project-logging-show) - Show compliance log
   * [h1 project service](#h1-project-service) - Manage your services of project
     * [h1 project service list](#h1-project-service-list) - List service for project
     * [h1 project service show](#h1-project-service-show) - Show service for project
@@ -15,7 +15,7 @@
     * [h1 project payment show](#h1-project-payment-show) - Show payment
     * [h1 project payment list](#h1-project-payment-list) - List payment
   * [h1 project list](#h1-project-list) - List project
-  * [h1 project create](#h1-project-create) - Create project
+  * [h1 project delete](#h1-project-delete) - Delete project
   * [h1 project access](#h1-project-access) - Manage your project access rights
     * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
     * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for project
@@ -39,16 +39,16 @@
       * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limits
   * [h1 project select](#h1-project-select) - Select project context
   * [h1 project limit](#h1-project-limit) - Cloud limits set for project
-  * [h1 project logging](#h1-project-logging) - Manage your compliance logging
-    * [h1 project logging enable](#h1-project-logging-enable) - Enable compliance log
-    * [h1 project logging disable](#h1-project-logging-disable) - Disable compliance log
-    * [h1 project logging show](#h1-project-logging-show) - Show compliance log
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
     * [h1 project credentials show](#h1-project-credentials-show) - Show credentials
     * [h1 project credentials list](#h1-project-credentials-list) - List credentials
     * [h1 project credentials delete](#h1-project-credentials-delete) - Delete credentials
     * [h1 project credentials rename](#h1-project-credentials-rename) - Rename credentials
     * [h1 project credentials add](#h1-project-credentials-add) - Add public SSH key for project
+  * [h1 project tag](#h1-project-tag) - Manage your tag
+    * [h1 project tag list](#h1-project-tag-list) - List tag
+    * [h1 project tag add](#h1-project-tag-add) - Add a tag to project
+    * [h1 project tag delete](#h1-project-tag-delete) - Delete a tag of project
 
 
 # Specification
@@ -56,6 +56,32 @@
 ## h1 project
 
 Manage your project
+
+## h1 project create
+
+Create project
+
+### Syntax
+
+```h1 project create | --name NAME --organisation ORGANISATION [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 project create --name project --organizatiton MyCompany
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | ISO name |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 project show
 
@@ -68,25 +94,6 @@ Show project
 
 ```bash
 h1 project show --project my-project
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-
-## h1 project delete
-
-Delete project
-
-### Syntax
-
-```h1 project delete | --project PROJECT```
-### Example
-
-```bash
-h1 project delete --project my-project
 ```
 
 ### Required arguments
@@ -134,73 +141,78 @@ h1 project rename --project my-project --new-name my-renamed-project
 | ```--project PROJECT``` |  | Project ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
-## h1 project tag
+## h1 project logging
 
-Manage your tag
+Manage your compliance logging
 
-## h1 project tag list
+### Note
 
-List tag
+The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
+
+## h1 project logging enable
+
+Enable compliance log
 
 ### Syntax
 
-```h1 project tag list | --project PROJECT```
+```h1 project logging enable | --log LOG --password PASSWORD [--project PROJECT] [--mode {basic,full}]```
 ### Example
 
-```bash
-h1 project tag list --project my-project
+```
+h1 project logging enable --project MyProject --logArchive 5beabe03680cffd11f0e653d  --password StrongPassword
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-
-## h1 project tag add
-
-Add a tag to project
-
-### Syntax
-
-```h1 project tag add | --project PROJECT [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 project tag add --project test-project --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
+| ```--log LOG``` |  | ID of LogArchive |
+| ```--password PASSWORD``` |  | Credentials of type "password" to access logArchive |
 
 ### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+| ```--mode {basic,full}``` |  | Logging mode (determines the scope of registered information) |
 
-## h1 project tag delete
+## h1 project logging disable
 
-Delete a tag of project
+Disable compliance log
 
 ### Syntax
 
-```h1 project tag delete | --tag TAG --project PROJECT```
+```h1 project logging disable | [--project PROJECT]```
 ### Example
 
-```bash
-h1 project tag delete --project test-project --tag prod
+```
+h1 project logging disable --project MyProject
 ```
 
-### Required arguments
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
-| ```--project PROJECT``` |  | Project ID or name |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project logging show
+
+Show compliance log
+
+### Syntax
+
+```h1 project logging show | [--project PROJECT]```
+### Example
+
+```
+h1 project logging show --project MyProject
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project service
 
@@ -307,31 +319,24 @@ h1 project list
 | ---- | ------- | ----------- |
 | ```--all``` |  | Include inactive projects |
 
-## h1 project create
+## h1 project delete
 
-Create project
+Delete project
 
 ### Syntax
 
-```h1 project create | --name NAME --organisation ORGANISATION [--tag TAG [--tag TAG ...]]```
+```h1 project delete | --project PROJECT```
 ### Example
 
 ```bash
-h1 project create --name project --organizatiton MyCompany
+h1 project delete --project my-project
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | ISO name |
-| ```--organisation ORGANISATION``` |  | Organisation ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project access
 
@@ -811,79 +816,6 @@ Contact technical support to request increase the limits.
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
-## h1 project logging
-
-Manage your compliance logging
-
-### Note
-
-The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
-
-## h1 project logging enable
-
-Enable compliance log
-
-### Syntax
-
-```h1 project logging enable | --log LOG --password PASSWORD [--project PROJECT] [--mode {basic,full}]```
-### Example
-
-```
-h1 project logging enable --project MyProject --logArchive 5beabe03680cffd11f0e653d  --password StrongPassword
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | ID of LogArchive |
-| ```--password PASSWORD``` |  | Credentials of type "password" to access logArchive |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-| ```--mode {basic,full}``` |  | Logging mode (determines the scope of registered information) |
-
-## h1 project logging disable
-
-Disable compliance log
-
-### Syntax
-
-```h1 project logging disable | [--project PROJECT]```
-### Example
-
-```
-h1 project logging disable --project MyProject
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
-## h1 project logging show
-
-Show compliance log
-
-### Syntax
-
-```h1 project logging show | [--project PROJECT]```
-### Example
-
-```
-h1 project logging show --project MyProject
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project credentials
 
 Manage your credentials
@@ -967,7 +899,7 @@ Rename credentials
 ### Example
 
 ```bash
-h1 project credentials rename --credentials my-credentials --new-name my-renamed-credentials
+h1 project credentials rename --credentials my-credentials --new-name my-renamed-credentials --project my-project
 ```
 
 ### Required arguments
@@ -1008,4 +940,72 @@ h1 project credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub --
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project tag
+
+Manage your tag
+
+## h1 project tag list
+
+List tag
+
+### Syntax
+
+```h1 project tag list | --project PROJECT```
+### Example
+
+```bash
+h1 project tag list --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project tag add
+
+Add a tag to project
+
+### Syntax
+
+```h1 project tag add | --project PROJECT [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 project tag add --project test-project --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 project tag delete
+
+Delete a tag of project
+
+### Syntax
+
+```h1 project tag delete | --tag TAG --project PROJECT```
+### Example
+
+```bash
+h1 project tag delete --project test-project --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--project PROJECT``` |  | Project ID or name |
 
