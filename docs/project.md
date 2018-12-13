@@ -685,7 +685,7 @@ Enable compliance log
 
 ### Syntax
 
-```h1 project logging enable | --logArchive LOGARCHIVE --password PASSWORD [--project PROJECT] [--mode {basic,full}]```
+```h1 project logging enable | --log LOG --password PASSWORD [--project PROJECT] [--mode {basic,full}]```
 ### Example
 
 ```
@@ -696,7 +696,7 @@ h1 project logging enable --project MyProject --logArchive 5beabe03680cffd11f0e6
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--logArchive LOGARCHIVE``` |  | ID of LogArchive |
+| ```--log LOG``` |  | ID of LogArchive |
 | ```--password PASSWORD``` |  | Credentials of type "password" to access logArchive |
 
 ### Optional arguments

@@ -3,7 +3,7 @@
 const Cli = require('lib/cli');
 
 const options = {
-    logArchive: {
+    log: {
         description: 'ID of LogArchive',
         type: 'string',
         required: true,
@@ -32,7 +32,7 @@ module.exports = resource => Cli.createCommand('enable', {
     options: Object.assign({}, resource.options, options),
     handler: args => args.helpers.api
         .put(resource.url(args), {
-            logArchive: args.logArchive,
+            logArchive: args.log,
             password: args.password,
             mode: args.mode,
         }).then(result => args.helpers.sendOutput(args, result)),
