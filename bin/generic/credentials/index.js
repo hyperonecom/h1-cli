@@ -12,6 +12,7 @@ module.exports = resource => {
         params: resource.params,
         options: resource.options,
         context: resource.context,
+        plugins: resource.plugins,
         resource: resource,
     });
 
