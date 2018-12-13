@@ -7,11 +7,14 @@ const _ = require('lodash');
 const interactive = require('lib/interactive');
 const config = require('lib/config');
 
+const username = config.get('profile.user');
+
 const options = {
     username: {
-        description: 'Your username',
+        description: 'Your username. By default, it uses the last username used.',
         type: 'string',
-        required: true,
+        required: !username,
+        defaultValue: username,
     },
     password: {
         description: 'Password',
