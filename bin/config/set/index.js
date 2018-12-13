@@ -53,8 +53,7 @@ module.exports = Cli.createCommand('set', {
         if (!cmd) {
             return console.log('command for key not found');
         }
-
-        const option = Cli.get_commnad_option(cmd, option_name);
+        const option = Cli.get_command_option(cmd, option_name);
 
         if (!option) {
             logger('info', `There is no valid command option for '${args.key}' currently.`);
