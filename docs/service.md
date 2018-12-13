@@ -35,7 +35,7 @@ List service
 
 ### Syntax
 
-```h1 service list | [--resource {disk,image,ip,iso,netadp,network,project,vault,vm}] [--type {flavour,ipv4,license,metric,standard,support}]```
+```h1 service list | [--resource RESOURCE] [--type TYPE]```
 ### Examples
 
 #### List services
@@ -54,6 +54,6 @@ h1 service list --resource vm --type flavour
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--resource {disk,image,ip,iso,netadp,network,project,vault,vm}``` |  | Kind of resource |
-| ```--type {flavour,ipv4,license,metric,standard,support}``` |  | Kind of type of resource |
+| ```--resource RESOURCE``` |  | Kind of resource |
+| ```--type TYPE``` |  | Kind of type of resource |
 
