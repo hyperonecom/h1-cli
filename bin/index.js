@@ -62,7 +62,7 @@ const applyDefault = (element, defaults) => {
         }
 
         Object.entries(values).forEach(([key, value]) => {
-            const option = Cli.get_commnad_option(children, key);
+            const option = Cli.get_command_option(children, key);
             if (!option) {
                 return;
             }
