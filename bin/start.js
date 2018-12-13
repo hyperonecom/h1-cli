@@ -62,5 +62,4 @@ cli.run()
         logger('error', err.stack);
 
         process.exit(99);
-    })
-    .then(() => process.exit(0));
+    });
