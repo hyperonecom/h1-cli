@@ -11,7 +11,7 @@ const now = Date.now();
 
 const getCommon = async (test_name, options = {}) => {
     const type = options.type || 'a1.nano';
-    const vm_name = `vm-test-${test_name}-${now}`.replace(/[^\w]/g, '-');
+    const vm_name = tests.getName(`vm-test-${test_name}-${now}`);
     const token = await tests.getToken();
     const disk_name = `disk-${vm_name}`;
     const params = {
