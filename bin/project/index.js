@@ -6,7 +6,7 @@ const config = require('lib/config');
 
 const resource = {
     name: 'project',
-    defaultQuery: '[].{id:_id,name:name,tags:join(\',\',keys(tag || `{}`) ), organisation:organisation }',
+    defaultQuery: '[].{id:_id,name:name,tags:join(\',\',keys(tag || `{}`) ), active: active, organisation:organisation }',
     url: () => 'project',
     plugins: [
         require('bin/_plugins/loginRequired'),
@@ -14,10 +14,10 @@ const resource = {
         require('bin/_plugins/api'),
     ],
     title: 'project',
-    commands: ['show', 'delete', 'history', 'rename', 'tag', 'list', 'service', 'payment'],
+    commands: ['show', 'delete', 'history', 'rename', 'tag', 'service', 'payment'],
 };
-
 const category = genericResource(resource);
+
 
 const active_project = config.get_active_project();
 
@@ -33,6 +33,7 @@ const childDefaults = Object.assign({}, resource, {
     url: args => `${resource.url(args)}/${args.project}`,
 });
 
+category.addChild(require('./list')(resource));
 category.addChild(require('./create')(childDefaults));
 category.addChild(require('./access')(childDefaults));
 category.addChild(require('./transfer')(childDefaults));
