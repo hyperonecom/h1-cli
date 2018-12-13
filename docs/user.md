@@ -137,7 +137,7 @@ Enable factor of authentication
 
 ### Syntax
 
-```h1 user 2fa enable | [--type TYPE]```
+```h1 user 2fa enable | [--type {totp,otac}]```
 ### Examples
 
 #### Enable Time-Based One-Time Password (TOTP) factor
@@ -162,7 +162,7 @@ h1 user 2fa enable --type otac
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--type TYPE``` |  | type |
+| ```--type {totp,otac}``` |  | type |
 
 ## h1 user 2fa disable
 
@@ -170,7 +170,7 @@ Disable factor of authentication
 
 ### Syntax
 
-```h1 user 2fa disable | [--type TYPE]```
+```h1 user 2fa disable | [--type {totp,otac}]```
 ### Examples
 
 #### Disable OTAC codes
@@ -183,7 +183,7 @@ h1 user 2fa disable --type otac
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--type TYPE``` |  | type |
+| ```--type {totp,otac}``` |  | type |
 
 ## h1 user 2fa list
 

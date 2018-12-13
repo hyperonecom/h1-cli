@@ -31,6 +31,10 @@
       * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limits
   * [h1 project select](#h1-project-select) - Select project context
   * [h1 project limit](#h1-project-limit) - Cloud limits set for project
+  * [h1 project logging](#h1-project-logging) - Manage your compliance logging
+    * [h1 project logging enable](#h1-project-logging-enable) - Enable compliance log
+    * [h1 project logging disable](#h1-project-logging-disable) - Disable compliance log
+    * [h1 project logging show](#h1-project-logging-show) - Show compliance log
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
     * [h1 project credentials show](#h1-project-credentials-show) - Show credentials
     * [h1 project credentials list](#h1-project-credentials-list) - List credentials
@@ -219,7 +223,7 @@ Grant access rights for project
 
 ### Syntax
 
-```h1 project access grant | --email EMAIL [--project PROJECT] [--role ROLE]```
+```h1 project access grant | --email EMAIL [--project PROJECT] [--role {owner,billing,user}]```
 ### Example
 
 ```bash
@@ -237,7 +241,7 @@ h1 project access grant --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
-| ```--role ROLE``` |  | Role |
+| ```--role {owner,billing,user}``` |  | Role |
 
 ## h1 project access revoke
 
@@ -660,6 +664,79 @@ h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
 
 Contact technical support to request increase the limits.
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project logging
+
+Manage your compliance logging
+
+### Note
+
+The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
+
+## h1 project logging enable
+
+Enable compliance log
+
+### Syntax
+
+```h1 project logging enable | --log LOG --password PASSWORD [--project PROJECT] [--mode {basic,full}]```
+### Example
+
+```
+h1 project logging enable --project MyProject --logArchive 5beabe03680cffd11f0e653d  --password StrongPassword
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log LOG``` |  | ID of LogArchive |
+| ```--password PASSWORD``` |  | Credentials of type "password" to access logArchive |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+| ```--mode {basic,full}``` |  | Logging mode (determines the scope of registered information) |
+
+## h1 project logging disable
+
+Disable compliance log
+
+### Syntax
+
+```h1 project logging disable | [--project PROJECT]```
+### Example
+
+```
+h1 project logging disable --project MyProject
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project logging show
+
+Show compliance log
+
+### Syntax
+
+```h1 project logging show | [--project PROJECT]```
+### Example
+
+```
+h1 project logging show --project MyProject
+```
 
 ### Optional arguments
 

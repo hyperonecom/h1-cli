@@ -288,3 +288,5 @@ ava.serial('project credentials life cycle', tests.credentialsLifeCycle('project
     createParams: `--project ${active_project}`,
     listParams: `--project ${active_project}`,
 }));
+
+ava.todo('project logging');
