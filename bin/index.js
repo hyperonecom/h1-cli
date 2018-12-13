@@ -34,21 +34,12 @@ if (config.get('profile.apiKey') || process.env.NODE_ENV !== 'production') {
     cli.addChild(require('./organisation'));
 }
 
-cli.addChild(require('./log'));
-
 const cli_resources = [
-    'vm', 'disk', 'image', 'iso', 'network', 'ip',
-    'dns', 'netgw', 'firewall', 'vault', 'snapshot',
-    'replica',
+    'vm', 'disk', 'replica',  'iso', 'network', 'ip', 'dns', 'netgw', 'firewall',
+    'vault', 'snapshot', 'image', 'reservation', 'log',
 ];
 
-const cli_config = config.get('cli', {});
-
-if ('resources' in cli_config) {
-    cli_resources
-        .filter(resource => cli_config.resources.includes(resource))
-        .forEach(resource => cli.addChild(require(`./${resource}`)));
-}
+cli_resources.forEach(resource => cli.addChild(require(`./${resource}`)));
 
 // inject defaultValues from config defaults
 const applyDefault = (element, defaults) => {

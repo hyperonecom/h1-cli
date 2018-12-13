@@ -12,7 +12,6 @@ jobs:
     - npm ci
     - npm link
     - npm run lint
-    - h1 config cli
     - npm run docs
     - git status
     - git diff HEAD

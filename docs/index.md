@@ -7,11 +7,10 @@
   * [h1 reservation](reservation.md) - Manage your reservation
   * [h1 service](service.md) - Explore available services
   * [h1 organisation](organisation.md) - Manage your organisation
-  * [h1 log](log.md) - Manage your log archive
   * [h1 vm](vm.md) - Manage your virtual machine
   * [h1 disk](disk.md) - Manage your disk
   * [h1 replica](replica.md) - Manage your replica
-  * [h1 iso](iso.md) - Manage your ISO
+  * [h1 log](log.md) - Manage your log archive
   * [h1 network](network.md) - Manage your network
   * [h1 ip](ip.md) - Manage your IP address
   * [h1 dns](dns.md) - Manage your DNS - zones and records
@@ -20,3 +19,5 @@
   * [h1 vault](vault.md) - Manage your Vault
   * [h1 snapshot](snapshot.md) - Manage your snapshot
   * [h1 image](image.md) - Manage your image
+  * [h1 reservation](reservation.md) - Manage your reservation
+  * [h1 iso](iso.md) - Manage your ISO
