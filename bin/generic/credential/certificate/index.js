@@ -5,17 +5,17 @@ const genericResource = require('bin/generic');
 module.exports = resource => {
 
     const category = genericResource({
-        name: 'password',
+        name: 'cert',
         defaultQuery: resource.defaultQuery,
-        url: args => `${resource.url(args)}/password`,
-        commands: ['show', 'list', 'rename', 'delete'],
+        url: args => `${resource.url(args)}/certificate`,
+        commands: ['show', 'rename', 'list', 'delete'],
         options: resource.options,
-        title: 'password to Vault',
+        title: 'certificate to Vault',
         context: resource.context,
+        resource: resource,
     });
 
     category.addChild(require('./add')(resource));
 
     return category;
 };
-
