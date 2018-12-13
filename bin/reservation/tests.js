@@ -13,6 +13,10 @@ ava.serial('reservation life cycle', tests.resourceLifeCycle('reservation', {
     createParams: `--name reservation-life-cycle-${now} --type "${reservation_flavour}"`,
     stateCreated: 'Detached',
     skipDelete: true,
+    // The resource is available earlier than it will be charged.
+    // The resource is not in an optimal state before charging.
+    // We wait a certain period for charging.
+    delayStateTest: 10 * 1000,
 }));
 
 ava.serial('reservation assign limits', async t => {
