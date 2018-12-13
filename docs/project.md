@@ -8,13 +8,13 @@
     * [h1 project tag list](#h1-project-tag-list) - List tag
     * [h1 project tag add](#h1-project-tag-add) - Add a tag to project
     * [h1 project tag delete](#h1-project-tag-delete) - Delete a tag of project
-  * [h1 project list](#h1-project-list) - List project
   * [h1 project service](#h1-project-service) - Manage your services of project
     * [h1 project service list](#h1-project-service-list) - List service for project
     * [h1 project service show](#h1-project-service-show) - Show service for project
   * [h1 project payment](#h1-project-payment) - Manage your payment for project
     * [h1 project payment show](#h1-project-payment-show) - Show payment
     * [h1 project payment list](#h1-project-payment-list) - List payment
+  * [h1 project list](#h1-project-list) - List project
   * [h1 project create](#h1-project-create) - Create project
   * [h1 project access](#h1-project-access) - Manage your project access rights
     * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
@@ -202,19 +202,6 @@ h1 project tag delete --project test-project --tag prod
 | ```--tag TAG``` |  | Tag |
 | ```--project PROJECT``` |  | Project ID or name |
 
-## h1 project list
-
-List project
-
-### Syntax
-
-```h1 project list | ```
-### Example
-
-```bash
-h1 project list
-```
-
 ## h1 project service
 
 Manage your services of project
@@ -300,6 +287,25 @@ h1 project payment list --project my-project
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project list
+
+List project
+
+### Syntax
+
+```h1 project list | [--all]```
+### Example
+
+```bash
+h1 project list
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--all``` |  | Include inactive projects |
 
 ## h1 project create
 
