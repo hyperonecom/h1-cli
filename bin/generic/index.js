@@ -21,6 +21,7 @@ module.exports = function(resource) {
         dirname: resource.dirname,
         resource: resource,
         earlyAdoptersOnly: resource.earlyAdoptersOnly,
+        priority: resource.priority,
     });
 
     resource.commands = [

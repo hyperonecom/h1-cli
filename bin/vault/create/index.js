@@ -39,6 +39,7 @@ module.exports = resource => Cli.createCommand('create', {
     plugins: resource.plugins,
     genericOptions: ['tag'],
     dirname: __dirname,
+    priority: 25,
     options: Object.assign({}, options, resource.options),
     handler: args => {
 
