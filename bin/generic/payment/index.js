@@ -15,7 +15,7 @@ module.exports = parent => {
     const resource = {
         name: 'payment',
         description: `Manage your payment for ${parent.title}`,
-        defaultQuery: '[].{id:_id, creditsFree:creditsFree, credits:credits, channel:channel, type:type, createdOn:createdOn}',
+        defaultQuery: '[].{id:_id, creditsFree:creditsFree, credits:credits, channel:channel, type:type, project:project, createdOn:createdOn}',
         url: args => `${parent.url(args)}/${args[parent.name]}/payment`,
         params: parent.params,
         options: Object.assign({}, parent.options, options),

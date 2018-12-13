@@ -37,17 +37,17 @@ ava.serial('project transfer', tests.requireSlaveProject(async (t, projects) => 
 
     const slave_project = await tests.run(`project show --project ${projects.slave}`);
     const slave_organisation = slave_project.organisation;
-    console.log({slave_organisation, active_organisation});
+
     const project = await tests.run(`project create --name project-transfer-${now} --organisation ${active_organisation}`);
-    console.log(project);
+
     await tests.run(`project transfer --project ${project._id} --organisation ${slave_organisation}`);
     const transfer_list = await tests.run(`organisation transfer list --organisation ${slave_organisation}`);
     t.true(transfer_list.some(x => x._id === project._id));
 
     const payment_list = await tests.run(`organisation payment list --organisation ${slave_organisation}`);
-    const free_payments = payment_list.filter(x => x.creditsFree === x.credits);
-    const payment_selected = free_payments[Math.floor(Math.random()*free_payments.length)];
-    await tests.run(`organisation transfer accept --organisation ${slave_organisation} --project ${project._id} --payment ${payment_selected._id}`);
+    const free_payment = payment_list.find(x => !x.project);
+    t.true(!!free_payment, `No free payment on organization ${slave_organisation}`);
+    await tests.run(`organisation transfer accept --organisation ${slave_organisation} --project ${project._id} --payment ${free_payment._id}`);
     const transfered_project = await tests.run(`project show --project ${project._id}`);
     t.true(transfered_project.organisation === slave_organisation);
 
