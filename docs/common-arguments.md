@@ -1,4 +1,38 @@
 # Common arguments
+## Argument ```--verbose```
+#### Examples
+
+##### Displays the URL of the request to the API
+
+```bash
+h1 image list --verbose
+```
+## Argument ```--no-wait```
+In case of queued event do not wait for completion. It allows you to perform operations
+asynchronously, which can be used to optimize the execution time of scripts.
+
+#### Examples
+
+##### Create virtual machine without waiting for the process to be completed
+```bash
+h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh --no-wait
+```
+## Argument ```--dry-run```
+Try to perform operations without making any real changes:
+
+```
+h1 disk create --name xxxx.com --type ssd --size 25 --dry-run
+```
+## Argument ```--project-select```
+A parameter intended for selecting an ad-hoc project for a single command.
+
+#### Examples
+
+##### List virtual machine on selected project
+
+```bash
+h1 vm list --output tsv --project-select MyProject
+```
 ## Argument ```--output```
 Specify output format of command.
 
@@ -70,40 +104,6 @@ $ h1 vm disk attach --vm test-vm --disk $DISK_ID
 ```
 
 Note (1): In most cases, you can avoid using ID by naming resources uniquely.
-## Argument ```--verbose```
-#### Examples
-
-##### Displays the URL of the request to the API
-
-```bash
-h1 image list --verbose
-```
-## Argument ```--no-wait```
-In case of queued event do not wait for completion. It allows you to perform operations
-asynchronously, which can be used to optimize the execution time of scripts.
-
-#### Examples
-
-##### Create virtual machine without waiting for the process to be completed
-```bash
-h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh --no-wait
-```
-## Argument ```--dry-run```
-Try to perform operations without making any real changes:
-
-```
-h1 disk create --name xxxx.com --type ssd --size 25 --dry-run
-```
-## Argument ```--project-select```
-A parameter intended for selecting an ad-hoc project for a single command.
-
-#### Examples
-
-##### List virtual machine on selected project
-
-```bash
-h1 vm list --output tsv --project-select MyProject
-```
 ## Argument ```--yes```
 Perform action without additional confirmation
 

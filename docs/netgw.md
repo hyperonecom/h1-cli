@@ -5,16 +5,16 @@
   * [h1 netgw delete](#h1-netgw-delete) - Delete network gateway
   * [h1 netgw history](#h1-netgw-history) - History of network gateway
   * [h1 netgw rename](#h1-netgw-rename) - Rename network gateway
-  * [h1 netgw tag](#h1-netgw-tag) - Manage your tag
-    * [h1 netgw tag list](#h1-netgw-tag-list) - List tag
-    * [h1 netgw tag add](#h1-netgw-tag-add) - Add a tag to network gateway
-    * [h1 netgw tag delete](#h1-netgw-tag-delete) - Delete a tag of network gateway
   * [h1 netgw service](#h1-netgw-service) - Manage your services of network gateway
     * [h1 netgw service list](#h1-netgw-service-list) - List service for network gateway
     * [h1 netgw service show](#h1-netgw-service-show) - Show service for network gateway
   * [h1 netgw create](#h1-netgw-create) - Network gateway create
   * [h1 netgw detach](#h1-netgw-detach) - Network gateway detach from a network
   * [h1 netgw attach](#h1-netgw-attach) - Network gateway attach to a network
+  * [h1 netgw tag](#h1-netgw-tag) - Manage your tag
+    * [h1 netgw tag list](#h1-netgw-tag-list) - List tag
+    * [h1 netgw tag add](#h1-netgw-tag-add) - Add a tag to network gateway
+    * [h1 netgw tag delete](#h1-netgw-tag-delete) - Delete a tag of network gateway
 
 
 # Specification
@@ -112,74 +112,6 @@ h1 netgw rename --netgw my-netgw --new-name my-renamed-netgw
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
-
-## h1 netgw tag
-
-Manage your tag
-
-## h1 netgw tag list
-
-List tag
-
-### Syntax
-
-```h1 netgw tag list | --netgw NETGW```
-### Example
-
-```bash
-h1 netgw tag list --netgw my-netgw
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway ID or name |
-
-## h1 netgw tag add
-
-Add a tag to network gateway
-
-### Syntax
-
-```h1 netgw tag add | --netgw NETGW [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 netgw tag add --netgw test-netgw --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 netgw tag delete
-
-Delete a tag of network gateway
-
-### Syntax
-
-```h1 netgw tag delete | --tag TAG --netgw NETGW```
-### Example
-
-```bash
-h1 netgw tag delete --netgw test-netgw --tag prod
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
-| ```--netgw NETGW``` |  | Network gateway ID or name |
 
 ## h1 netgw service
 
@@ -292,4 +224,72 @@ Hint: Use ```h1 network list``` to list available network or ```h1 network creat
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway name or ID |
 | ```--network NETWORK``` |  | Network name or ID |
+
+## h1 netgw tag
+
+Manage your tag
+
+## h1 netgw tag list
+
+List tag
+
+### Syntax
+
+```h1 netgw tag list | --netgw NETGW```
+### Example
+
+```bash
+h1 netgw tag list --netgw my-netgw
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--netgw NETGW``` |  | Network gateway ID or name |
+
+## h1 netgw tag add
+
+Add a tag to network gateway
+
+### Syntax
+
+```h1 netgw tag add | --netgw NETGW [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 netgw tag add --netgw test-netgw --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--netgw NETGW``` |  | Network gateway ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 netgw tag delete
+
+Delete a tag of network gateway
+
+### Syntax
+
+```h1 netgw tag delete | --tag TAG --netgw NETGW```
+### Example
+
+```bash
+h1 netgw tag delete --netgw test-netgw --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--netgw NETGW``` |  | Network gateway ID or name |
 
