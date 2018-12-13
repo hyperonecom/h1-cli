@@ -56,11 +56,17 @@ ava.serial('project transfer', tests.requireSlaveProject(async (t, projects) => 
 ava.serial('project rename', async t => {
     const name = `Project for monitoring public API - ${now}`;
 
-    await tests.run(`project rename --project ${active_project} --new-name '${name}'`);
+    await tests.run(`project rename --project '${active_project}' --new-name '${name}'`);
 
     const project = await tests.run(`project show --project ${active_project}`);
     t.true(project._id === active_project);
     t.true(project.name === name);
+});
+
+ava.serial('project --project-select', async t => {
+    const project = await tests.run(`project show --project '${active_project}'`);
+    const vm_list = await tests.run(`vm list --project-select '${project.name}'`);
+    t.true(Array.isArray(vm_list));
 });
 
 
