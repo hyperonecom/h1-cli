@@ -290,9 +290,9 @@ ava.serial('token was used if environment variable set', async t => {
 
 ava.serial('project select', tests.requireSlaveProject(async (t, projects) => {
     const new_ip = await tests.run('ip create');
-    await tests.run(`project select --project ${projects.slave}`);
+    await tests.run(`project select --project '${projects.slave}'`);
     const ip_list = await tests.run('ip list');
-    await tests.run(`project select --project ${projects.master}`);
+    await tests.run(`project select --project '${projects.master}'`);
     t.true(!ip_list.some(ip => ip._id === new_ip._id));
     await tests.remove('ip', new_ip);
 }));
