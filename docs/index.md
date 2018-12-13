@@ -7,6 +7,7 @@
   * [h1 reservation](reservation.md) - Manage your reservation
   * [h1 service](service.md) - Explore available services
   * [h1 organisation](organisation.md) - Manage your organisation
+  * [h1 logout](logout.md) - Remove user session
   * [h1 vm](vm.md) - Manage your virtual machine
   * [h1 disk](disk.md) - Manage your disk
   * [h1 replica](replica.md) - Manage your replica

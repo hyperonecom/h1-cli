@@ -32,6 +32,7 @@ if (config.get('profile.apiKey') || process.env.NODE_ENV !== 'production') {
     cli.addChild(require('./project'));
     cli.addChild(require('./service'));
     cli.addChild(require('./organisation'));
+    cli.addChild(require('./logout'));
 }
 
 const cli_resources = [
