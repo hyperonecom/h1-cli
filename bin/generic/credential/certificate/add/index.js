@@ -25,9 +25,10 @@ const options = {
 
 module.exports = resource => Cli.createCommand('add', {
     dirname: __dirname,
-    description: `Add ${resource.title}`,
+    description: `Add certificate to ${resource.title}`,
     plugins: resource.plugins,
     params: resource.params,
+    resource: resource,
     options: Object.assign({}, resource.options, options),
     handler: args => {
 
