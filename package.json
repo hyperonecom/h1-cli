@@ -23,6 +23,7 @@
     "cookie": "^0.3.1",
     "dns-zonefile": "^0.2.2",
     "inquirer": "^6.2.0",
+    "dayjs": "^1.7.4",
     "jmespath": "^0.15.0",
     "js-yaml": "^3.12.0",
     "lodash": "^4.17.11",
