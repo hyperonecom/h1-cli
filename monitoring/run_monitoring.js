@@ -4,7 +4,7 @@ const childProcess = require('child_process');
 const shell_quote = require('shell-quote');
 
 require('../scope/h1');
-
+process.env[`${process.env.SCOPE_NAME.toUpperCase()}_EARLY_ADOPTERS`] = '1';
 const tests = require('../lib/tests');
 
 const getConfigValue = (name, options = {}) => {
