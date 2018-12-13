@@ -22,7 +22,6 @@ module.exports = function(resource) {
         resource: resource,
         earlyAdoptersOnly: resource.earlyAdoptersOnly,
         priority: resource.priority,
-        earlyAdoptersOnly: resource.earlyAdoptersOnly,
     });
 
     resource.commands = [
