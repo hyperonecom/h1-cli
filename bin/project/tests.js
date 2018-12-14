@@ -37,11 +37,11 @@ const getOrganisationForProject = async projectId => (await tests.run(`project s
 ava.serial('project transfer', tests.requireSlaveProject(async (t, projects) => {
     let active_organisation, slave_organisation;
     if (Math.floor(Math.random() * 2) === 0) {
-        active_organisation = getOrganisationForProject(active_project);
-        slave_organisation = getOrganisationForProject(projects.slave);
+        active_organisation = await getOrganisationForProject(active_project);
+        slave_organisation = await getOrganisationForProject(projects.slave);
     } else {
-        active_organisation = getOrganisationForProject(projects.slave);
-        slave_organisation = getOrganisationForProject(active_project);
+        active_organisation = await getOrganisationForProject(projects.slave);
+        slave_organisation = await getOrganisationForProject(active_project);
     }
 
     const project = await tests.run(`project create --name project-transfer-${now} --organisation ${active_organisation}`);
