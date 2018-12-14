@@ -32,11 +32,17 @@ ava.serial('project show', async t => {
     t.true(project._id === active_project);
 });
 
-ava.serial('project transfer', tests.requireSlaveProject(async (t, projects) => {
-    const active_organisation = (await tests.run(`project show --project ${active_project}`)).organisation;
+const getOrganisationForProject = async projectId => (await tests.run(`project show --project '${projectId}'`)).organisation;
 
-    const slave_project = await tests.run(`project show --project ${projects.slave}`);
-    const slave_organisation = slave_project.organisation;
+ava.serial('project transfer', tests.requireSlaveProject(async (t, projects) => {
+    let active_organisation, slave_organisation;
+    if (Math.floor(Math.random() * 2) === 0) {
+        active_organisation = getOrganisationForProject(active_project);
+        slave_organisation = getOrganisationForProject(projects.slave);
+    } else {
+        active_organisation = getOrganisationForProject(projects.slave);
+        slave_organisation = getOrganisationForProject(active_project);
+    }
 
     const project = await tests.run(`project create --name project-transfer-${now} --organisation ${active_organisation}`);
 
@@ -53,6 +59,7 @@ ava.serial('project transfer', tests.requireSlaveProject(async (t, projects) => 
 
     await tests.remove('project', project);
 }));
+
 ava.serial('project rename', async t => {
     const name = `Project for monitoring public API - ${now}`;
 
