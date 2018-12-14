@@ -6,7 +6,13 @@ const text = require('lib/text');
 const range = require('../range');
 const format = require('../format');
 const logger = require('lib/logger');
-const dayjs = require('dayjs');
+
+const current_date = () => {
+    const now = new Date();
+    const month = (now.getUTCMonth() + 1).toString().padStart(2, '0');
+    const day = now.getUTCDate().toString().padStart(2, '0');
+    return `${now.getUTCFullYear()}-${month}-${day}`;
+};
 
 module.exports = resource => {
     const options = {
@@ -59,8 +65,8 @@ module.exports = resource => {
             }
 
             const query = {
-                since: args.since || dayjs().format('YYYY-MM-DD'),
-                until: args.until || dayjs().format('YYYY-MM-DD'),
+                since: args.since || current_date(),
+                until: args.until || current_date(),
                 follow: args.follow,
             };
             if (args.verbose) {
