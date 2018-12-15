@@ -28,7 +28,7 @@ ava.serial('reservation assign limits', async t => {
     const vm_wrong_type = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} ${common_vm_params}`);
     const vm_valid = await tests.run(`vm create --name ${tests.getName(t.title, 'vm valid')} ${common_vm_params} `);
     const vm_over_limit = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} ${common_vm_params}`);
-
+    await tests.delay(4 * 60 * 1000);
     await tests.run(`reservation assign --reservation ${reservation.name} --resource ${vm_valid._id}`);
     await t.throwsAsync(() => tests.run(`reservation assign --reservation ${reservation.name} --resource ${vm_over_limit._id}`));
     await t.throwsAsync(() => tests.run(`reservation assign --reservation ${reservation.name} --resource ${vm_wrong_type._id}`));
@@ -44,6 +44,7 @@ ava.serial('reservation assign limits', async t => {
 
 ava.serial('reservation extend', async t => {
     const reservation = await tests.run(`reservation create --name ${tests.getName(t.title, 'vm-wrong-type')} --type '${reservation_flavour}'`);
+    await tests.delay(4 * 60 * 1000);
     t.true(reservation.state === 'Detached');
     await tests.run(`reservation extend --reservation ${reservation.name}`);
     await t.throwsAsync(() => tests.run(`reservation extend --reservation ${reservation.name}`));
