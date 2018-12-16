@@ -17,7 +17,7 @@ ava.serial('reservation life cycle', tests.resourceLifeCycle('reservation', {
     delayStateTest: 4 * 60 * 1000,
 }));
 
-ava.serial('reservation assign limits', async t => {
+ava.skip('reservation assign limits', async t => {
     const reservation = await tests.run(`reservation create --name ${tests.getName(t.title)} --type '${reservation_flavour}'`);
 
     const reversation_list = await tests.run('reservation list');
@@ -42,7 +42,7 @@ ava.serial('reservation assign limits', async t => {
     await tests.remove('vm', vm_wrong_type);
 });
 
-ava.serial('reservation extend', async t => {
+ava.skip('reservation extend', async t => {
     const reservation = await tests.run(`reservation create --name ${tests.getName(t.title, 'vm-wrong-type')} --type '${reservation_flavour}'`);
     await tests.delay(4 * 60 * 1000);
     t.true(reservation.state === 'Detached');
