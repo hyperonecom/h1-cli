@@ -8,14 +8,11 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'iso',
     plugins: genericDefaults.plugins,
-    extraCommands: ['transfer'],
+    extraCommands: ['transfer', 'access/project', 'resume'],
     title: 'ISO',
 };
 
 const category = genericResource(resource);
-
-category.addChild(require('bin/generic/access')(resource));
-category.addChild(require('bin/generic/resume')(resource));
 
 category.addChild(require('./create')(resource));
 

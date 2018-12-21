@@ -2,6 +2,10 @@
 
   * [h1 organisation show](#h1-organisation-show) - Show organisation
   * [h1 organisation history](#h1-organisation-history) - History of organisation
+  * [h1 organisation access](#h1-organisation-access) - Manage your organisation access rights
+    * [h1 organisation access grant](#h1-organisation-access-grant) - Grant access rights for organisation
+    * [h1 organisation access revoke](#h1-organisation-access-revoke) - Revoke access rights for organisation
+    * [h1 organisation access list](#h1-organisation-access-list) - List access rights for organisation
   * [h1 organisation list](#h1-organisation-list) - List organisation
   * [h1 organisation rename](#h1-organisation-rename) - Rename organisation
   * [h1 organisation payment](#h1-organisation-payment) - Manage your payment for organisation
@@ -53,6 +57,81 @@ History of organisation
 
 ```bash
 h1 organisation history --organisation my-organisation
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
+
+## h1 organisation access
+
+Manage your organisation access rights
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
+
+## h1 organisation access grant
+
+Grant access rights for organisation
+
+### Syntax
+
+```h1 organisation access grant | --organisation ORGANISATION --email EMAIL [--role {owner,billing,user}]```
+### Example
+
+```bash
+h1 organisation access grant --organisation my-organisation --email user@example.com
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
+| ```--email EMAIL``` |  | User email (eg: user@example.org) |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--role {owner,billing,user}``` |  | Role |
+
+## h1 organisation access revoke
+
+Revoke access rights for organisation
+
+### Syntax
+
+```h1 organisation access revoke | --organisation ORGANISATION --email EMAIL```
+### Example
+
+```bash
+h1 organisation access revoke --organisation my-organisation --email user@example.com
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
+| ```--email EMAIL``` |  | User email (eg: user@example.org) |
+
+## h1 organisation access list
+
+List access rights for organisation
+
+### Syntax
+
+```h1 organisation access list | --organisation ORGANISATION```
+### Example
+
+```bash
+h1 organisation access list --organisation my-organisation
 ```
 
 ### Required arguments

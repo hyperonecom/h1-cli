@@ -15,10 +15,9 @@ const resource = {
     ],
     priority: 15,
     title: 'project',
-    commands: ['show', 'delete', 'history', 'rename', 'tag', 'service', 'payment'],
+    commands: ['show', 'delete', 'access/user', 'history', 'rename', 'tag', 'service', 'payment'],
 };
 const category = genericResource(resource);
-
 
 const active_project = config.get_active_project();
 
@@ -36,7 +35,6 @@ const childDefaults = Object.assign({}, resource, {
 
 category.addChild(require('./list')(resource));
 category.addChild(require('./create')(childDefaults));
-category.addChild(require('./access')(childDefaults));
 category.addChild(require('./transfer')(childDefaults));
 category.addChild(require('./token')(childDefaults));
 category.addChild(require('./notification')(childDefaults));

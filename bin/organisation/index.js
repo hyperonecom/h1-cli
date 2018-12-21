@@ -12,7 +12,7 @@ const resource = {
         require('bin/_plugins/api'),
     ],
     title: 'organisation',
-    commands: ['show', 'history', 'list', 'rename', 'tag', 'payment'],
+    commands: ['show', 'history', 'access/user', 'list', 'rename', 'tag', 'payment'],
 };
 
 const category = genericResource(resource);

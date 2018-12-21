@@ -1,7 +1,11 @@
 # TOC
 
-  * [h1 project create](#h1-project-create) - Create project
+  * [h1 project list](#h1-project-list) - List project
   * [h1 project show](#h1-project-show) - Show project
+  * [h1 project access](#h1-project-access) - Manage your project access rights
+    * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
+    * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for project
+    * [h1 project access list](#h1-project-access-list) - List access rights for project
   * [h1 project history](#h1-project-history) - History of project
   * [h1 project rename](#h1-project-rename) - Rename project
   * [h1 project logging](#h1-project-logging) - Manage your compliance logging
@@ -14,12 +18,8 @@
   * [h1 project payment](#h1-project-payment) - Manage your payment for project
     * [h1 project payment show](#h1-project-payment-show) - Show payment
     * [h1 project payment list](#h1-project-payment-list) - List payment
-  * [h1 project list](#h1-project-list) - List project
   * [h1 project delete](#h1-project-delete) - Delete project
-  * [h1 project access](#h1-project-access) - Manage your project access rights
-    * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
-    * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for project
-    * [h1 project access list](#h1-project-access-list) - List project
+  * [h1 project create](#h1-project-create) - Create project
   * [h1 project transfer](#h1-project-transfer) - Transfer project to other organisation
   * [h1 project token](#h1-project-token) - Manage your project tokens
     * [h1 project token show](#h1-project-token-show) - Show token
@@ -57,31 +57,24 @@
 
 Manage your project
 
-## h1 project create
+## h1 project list
 
-Create project
+List project
 
 ### Syntax
 
-```h1 project create | --name NAME --organisation ORGANISATION [--tag TAG [--tag TAG ...]]```
+```h1 project list | [--all]```
 ### Example
 
 ```bash
-h1 project create --name project --organizatiton MyCompany
+h1 project list
 ```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | ISO name |
-| ```--organisation ORGANISATION``` |  | Organisation ID or name |
 
 ### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--all``` |  | Include inactive projects |
 
 ## h1 project show
 
@@ -101,6 +94,86 @@ h1 project show --project my-project
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project access
+
+Manage your project access rights
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project access grant
+
+Grant access rights for project
+
+### Syntax
+
+```h1 project access grant | --email EMAIL [--project PROJECT] [--role {owner,billing,user}]```
+### Example
+
+```bash
+h1 project access grant --project my-project --email user@example.com
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--email EMAIL``` |  | User email (eg: user@example.org) |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+| ```--role {owner,billing,user}``` |  | Role |
+
+## h1 project access revoke
+
+Revoke access rights for project
+
+### Syntax
+
+```h1 project access revoke | --email EMAIL [--project PROJECT]```
+### Example
+
+```bash
+h1 project access revoke --project my-project --email user@example.com
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--email EMAIL``` |  | User email (eg: user@example.org) |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project access list
+
+List access rights for project
+
+### Syntax
+
+```h1 project access list | [--project PROJECT]```
+### Example
+
+```bash
+h1 project access list --project my-project
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project history
 
@@ -300,25 +373,6 @@ h1 project payment list --project my-project
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 
-## h1 project list
-
-List project
-
-### Syntax
-
-```h1 project list | [--all]```
-### Example
-
-```bash
-h1 project list
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--all``` |  | Include inactive projects |
-
 ## h1 project delete
 
 Delete project
@@ -338,79 +392,31 @@ h1 project delete --project my-project
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 
-## h1 project access
+## h1 project create
 
-Manage your project access rights
-
-## h1 project access grant
-
-Grant access rights for project
+Create project
 
 ### Syntax
 
-```h1 project access grant | --email EMAIL [--project PROJECT] [--role {owner,billing,user}]```
+```h1 project create | --name NAME --organisation ORGANISATION [--tag TAG [--tag TAG ...]]```
 ### Example
 
 ```bash
-h1 project access grant --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
+h1 project create --name project --organizatiton MyCompany
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--email EMAIL``` |  | User email (eg: user@example.org) |
+| ```--name NAME``` |  | ISO name |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
 
 ### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-| ```--role {owner,billing,user}``` |  | Role |
-
-## h1 project access revoke
-
-Revoke access rights for project
-
-### Syntax
-
-```h1 project access revoke | --email EMAIL [--project PROJECT]```
-### Example
-
-```bash
-h1 project access revoke --project 6oAoJqgyLZP4Le9UUNHrEOYP --email user@example.com
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--email EMAIL``` |  | User email (eg: user@example.org) |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
-## h1 project access list
-
-List project
-
-### Syntax
-
-```h1 project access list | [--project PROJECT]```
-### Example
-
-```bash
-h1 project access list
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 project transfer
 
