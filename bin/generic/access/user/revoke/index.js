@@ -11,10 +11,11 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('revoke', {
-    description: `Revoke access rights for ${resource.title}`,
+    description: `Revoke ${resource.title}`,
     dirname: __dirname,
     plugins: resource.plugins,
     params: resource.params,
+    context: resource.context,
     options: Object.assign({}, resource.options, options),
     handler: args => args.helpers.api
         .delete(`${resource.url(args)}/accessrights/${args.email}`)

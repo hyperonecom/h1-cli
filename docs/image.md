@@ -4,17 +4,17 @@
   * [h1 image show](#h1-image-show) - Show image
   * [h1 image rename](#h1-image-rename) - Rename image
   * [h1 image history](#h1-image-history) - History of image
-  * [h1 image disk](#h1-image-disk) - List all disks of image
+  * [h1 image list](#h1-image-list) - List image
   * [h1 image delete](#h1-image-delete) - Delete image
   * [h1 image service](#h1-image-service) - Manage your services of image
     * [h1 image service list](#h1-image-service-list) - List service for image
     * [h1 image service show](#h1-image-service-show) - Show service for image
-  * [h1 image create](#h1-image-create) - Create image
-  * [h1 image list](#h1-image-list) - List image
   * [h1 image access](#h1-image-access) - Manage your image access rights
     * [h1 image access grant](#h1-image-access-grant) - Grant access rights for image
     * [h1 image access revoke](#h1-image-access-revoke) - Revoke access rights for image
     * [h1 image access list](#h1-image-access-list) - List of access rights for image
+  * [h1 image create](#h1-image-create) - Create image
+  * [h1 image disk](#h1-image-disk) - List all disks of image
   * [h1 image tag](#h1-image-tag) - Manage your tag
     * [h1 image tag list](#h1-image-tag-list) - List tag
     * [h1 image tag add](#h1-image-tag-add) - Add a tag to image
@@ -105,24 +105,33 @@ h1 image history --image my-image
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 
-## h1 image disk
+## h1 image list
 
-List all disks of image
+List image
 
 ### Syntax
 
-```h1 image disk | --image IMAGE```
-### Example
+```h1 image list | [--recommended] [--all]```
+### Examples
+
+#### List all user images
 
 ```bash
-h1 image disk --image dev-image
+h1 image list
 ```
 
-### Required arguments
+#### List public images recommended by platform
+
+```bash
+h1 image list --recommended
+```
+
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--image IMAGE``` |  | Image ID or name |
+| ```--recommended``` |  | Display recommended images |
+| ```--all``` |  | Display all images |
 
 ## h1 image delete
 
@@ -186,62 +195,6 @@ h1 image service show --service my-service --image my-image
 | ```--image IMAGE``` |  | Image ID or name |
 | ```--service SERVICE``` |  | Service for image ID or name |
 
-## h1 image create
-
-Create image
-
-### Syntax
-
-```h1 image create | --name NAME [--description DESCRIPTION] [--vm VM] [--replica REPLICA] [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 image create --vm test-vm --name dev-image
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name of image |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--description DESCRIPTION``` |  | Description of image |
-| ```--vm VM``` |  | Virtual machine name or ID |
-| ```--replica REPLICA``` |  | Replica name or ID |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 image list
-
-List image
-
-### Syntax
-
-```h1 image list | [--recommended] [--all]```
-### Examples
-
-#### List all user images
-
-```bash
-h1 image list
-```
-
-#### List public images recommended by platform
-
-```bash
-h1 image list --recommended
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--recommended``` |  | Display recommended images |
-| ```--all``` |  | Display all images |
-
 ## h1 image access
 
 Manage your image access rights
@@ -297,6 +250,53 @@ List of access rights for image
 
 ```bash
 h1 image access list --image test-image
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
+
+## h1 image create
+
+Create image
+
+### Syntax
+
+```h1 image create | --name NAME [--description DESCRIPTION] [--vm VM] [--replica REPLICA] [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 image create --vm test-vm --name dev-image
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Name of image |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--description DESCRIPTION``` |  | Description of image |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--replica REPLICA``` |  | Replica name or ID |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 image disk
+
+List all disks of image
+
+### Syntax
+
+```h1 image disk | --image IMAGE```
+### Example
+
+```bash
+h1 image disk --image dev-image
 ```
 
 ### Required arguments

@@ -17,10 +17,11 @@ const options = {
 };
 
 module.exports = resource => Cli.createCommand('grant', {
-    description: `Grant access rights for ${resource.title}`,
+    description: `Grant ${resource.title}`,
     dirname: __dirname,
     plugins: resource.plugins,
     params: resource.params,
+    context: resource.context,
     options: Object.assign({}, resource.options, options),
     handler: args => {
         const data = {
