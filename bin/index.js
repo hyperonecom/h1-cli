@@ -26,6 +26,8 @@ ${Chalk.underline('Sample usage:')}
 cli.addChild(require('./config'));
 cli.addChild(require('./login'));
 cli.addChild(require('./reservation'));
+cli.addChild(require('./volume'));
+cli.addChild(require('./container'));
 
 if (config.get('profile.apiKey') || process.env.NODE_ENV !== 'production') {
     cli.addChild(require('./user'));

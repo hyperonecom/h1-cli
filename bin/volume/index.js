@@ -4,17 +4,16 @@ const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
 
 const resource = {
-    name: 'disk',
-    defaultQuery: '[].{id:_id,name:name,type:type,size:size,state:state,volumeId:tag.volumeId,tags:join(\',\',keys(tag || `{}`) ) }',
-    url: () => 'disk',
+    name: 'volume',
+    defaultQuery: '[].{id:_id,name:name,type:type,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    url: () => 'volume',
     plugins: genericDefaults.plugins,
-    extraCommands: ['resize', 'resume', 'transfer'],
-    title: 'disk',
+    extraCommands: ['resize'],
+    title: 'volume',
 };
 
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
-category.addChild(require('./download')(resource));
 
 module.exports = category;
