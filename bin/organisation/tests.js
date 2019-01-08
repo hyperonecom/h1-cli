@@ -14,10 +14,17 @@ ava.serial('organisation life cycle', async t => {
 
     await tests.resourceLifeCycle('organisation', {
         resource: organisation,
-        stateCreated: undefined,
+        stateCreated: 'Active',
         skipHistoryCreated: true,
         skipService: true,
         skipCreate: true,
         skipDelete: true,
     })(t);
+});
+
+ava.serial('organization access of user cycle', async t => {
+    const project = await tests.run(`project show --project ${active_project}`);
+    const organization_id = project.organisation;
+
+    await tests.resourceAccessOfUser('organisation', `--organisation ${organization_id}`)(t);
 });
