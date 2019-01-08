@@ -2,6 +2,7 @@
 
 const Cli = require('lib/cli');
 const text = require('lib/text');
+const defaults = require('bin/generic/defaults');
 const config = require('lib/config');
 
 module.exports = (parent) => {
@@ -28,6 +29,7 @@ module.exports = (parent) => {
         description: `Manage your ${parent.title} access rights`,
         defaultQuery: '[].{id:id,role:role}',
         url: args => `${parent.url(args)}/accessrights`,
+        plugins: defaults.plugins,
         options: options,
         context: {
             grantParams: `--${parent.name} my-${parent.name}`,
