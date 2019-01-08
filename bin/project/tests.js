@@ -16,7 +16,7 @@ ava.serial('project life cycle', async t => {
 
     await tests.resourceLifeCycle('project', {
         createParams: createParams,
-        stateCreated: undefined,
+        stateCreated: 'Active',
         skipHistoryCreated: true,
         skipService: true,
         skipTag: true,
@@ -28,33 +28,33 @@ ava.serial('project show', async t => {
     t.true(project._id === active_project);
 });
 
-// const getOrganisationForProject = async projectId => (await tests.run(`project show --project '${projectId}'`)).organisation;
-//
-// ava.serial('project transfer', tests.requireSlaveProject(async (t, projects) => {
-//     let active_organisation, slave_organisation;
-//     if (Math.floor(Math.random() * 2) === 0) {
-//         active_organisation = await getOrganisationForProject(active_project);
-//         slave_organisation = await getOrganisationForProject(projects.slave);
-//     } else {
-//         active_organisation = await getOrganisationForProject(projects.slave);
-//         slave_organisation = await getOrganisationForProject(active_project);
-//     }
-//
-//     const project = await tests.run(`project create --name ${tests.getName('project-transfer')} --organisation ${active_organisation}`);
-//
-//     await tests.run(`project transfer --project ${project._id} --organisation ${slave_organisation}`);
-//     const transfer_list = await tests.run(`organisation transfer list --organisation ${slave_organisation}`);
-//     t.true(transfer_list.some(x => x._id === project._id));
-//
-//     const payment_list = await tests.run(`organisation payment list --organisation ${slave_organisation}`);
-//     const free_payment = payment_list.find(x => !x.project);
-//     t.true(!!free_payment, `No free payment on organization ${slave_organisation}`);
-//     await tests.run(`organisation transfer accept --organisation ${slave_organisation} --project ${project._id} --payment ${free_payment._id}`);
-//     const transfered_project = await tests.run(`project show --project ${project._id}`);
-//     t.true(transfered_project.organisation === slave_organisation);
-//
-//     await tests.remove('project', project);
-// }));
+const getOrganisationForProject = async projectId => (await tests.run(`project show --project '${projectId}'`)).organisation;
+
+ava.serial('project transfer', tests.requireSlaveProject(async (t, projects) => {
+    let active_organisation, slave_organisation;
+    if (Math.floor(Math.random() * 2) === 0) {
+        active_organisation = await getOrganisationForProject(active_project);
+        slave_organisation = await getOrganisationForProject(projects.slave);
+    } else {
+        active_organisation = await getOrganisationForProject(projects.slave);
+        slave_organisation = await getOrganisationForProject(active_project);
+    }
+
+    const project = await tests.run(`project create --name ${tests.getName('project-transfer')} --organisation ${active_organisation}`);
+
+    await tests.run(`project transfer --project ${project._id} --organisation ${slave_organisation}`);
+    const transfer_list = await tests.run(`organisation transfer list --organisation ${slave_organisation}`);
+    t.true(transfer_list.some(x => x._id === project._id));
+
+    const payment_list = await tests.run(`organisation payment list --organisation ${slave_organisation}`);
+    const free_payment = payment_list.find(x => !x.project);
+    t.true(!!free_payment, `No free payment on organization ${slave_organisation}`);
+    await tests.run(`organisation transfer accept --organisation ${slave_organisation} --project ${project._id} --payment ${free_payment._id}`);
+    const transfered_project = await tests.run(`project show --project ${project._id}`);
+    t.true(transfered_project.organisation === slave_organisation);
+
+    await tests.remove('project', project);
+}));
 
 ava.todo('project transfer');
 
@@ -78,21 +78,7 @@ ava.serial('project list', async t => {
     t.true(list.length > 0);
 });
 
-['user', 'owner', 'billing'].forEach(role => {
-    ava.serial(`project access ${role} cycle`, async t => {
-        const actions = [
-            {name: 'grant', result: true, params: `--role ${role}`},
-            {name: 'revoke', result: false},
-        ];
-
-        for (const action of actions) {
-            await tests.run(`project access ${action.name} --email ${tests.RECIPIENT.user} --project ${active_project} ${action.params || ''}`);
-            const list = await tests.run('project access list');
-            t.true(list.some(d => d.role === role && d.id === tests.RECIPIENT.user) === action.result);
-        }
-    });
-});
-
+ava.serial('project access of user cycle', tests.resourceAccessOfUser('project', `--project ${active_project}`));
 
 ava.serial('project token life cycle', async t => {
     const commonParams = `--project '${active_project}'`;
