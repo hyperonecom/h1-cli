@@ -65,7 +65,7 @@ Create virtual machine
 
 ### Syntax
 
-```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--tag TAG [--tag TAG ...]]```
+```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create a Ubuntu virtual machine
@@ -116,6 +116,7 @@ Note: You can mount ISO disk and provide stateless services.
 | ```--ip IP``` |  | IP address for Virtual machine |
 | ```--no-start``` |  | Do not start Virtual machine after creation |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
+| ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH from file. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 vm restart

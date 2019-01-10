@@ -72,6 +72,11 @@ const options = {
         description: 'Read userdata from file',
         type: 'string',
     },
+    'ssh-file': {
+        action: 'append',
+        description: 'Read SSH key from file',
+        type: 'string',
+    },
 };
 
 module.exports = resource => Cli.createCommand('create', {
@@ -135,6 +140,17 @@ module.exports = resource => Cli.createCommand('create', {
                 newVM[param] = args[param];
             }
         });
+
+
+        if (args['ssh-file']) {
+            const sshKeys = newVM.sshKeys || [];
+            sshKeys.push(
+                ...await Promise.all(
+                    args['ssh-file'].map(fs.getFileContent)
+                ).then(keys => keys.map(x => x.toString('utf-8')))
+            );
+            newVM.sshKeys = sshKeys;
+        }
 
         if (args['userdata-file']) {
             const content = await fs.getFileContent(args['userdata-file']);
