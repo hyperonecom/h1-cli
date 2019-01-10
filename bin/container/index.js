@@ -39,5 +39,8 @@ const actionDefault = Object.assign({}, resource, childDefault, {
 });
 category.addChild(genericAction(actionDefault, 'recreate'));
 category.addChild(genericAction(actionDefault, 'recreateHost'));
+category.addChild(genericAction(actionDefault, 'stop'));
+category.addChild(genericAction(actionDefault, 'start'));
+category.addChild(genericAction(actionDefault, 'restart'));
 
 module.exports = category;
