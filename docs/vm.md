@@ -116,7 +116,7 @@ Note: You can mount ISO disk and provide stateless services.
 | ```--ip IP``` |  | IP address for Virtual machine |
 | ```--no-start``` |  | Do not start Virtual machine after creation |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
-| ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH from file. The parameter may occur repeatedly |
+| ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 vm restart
