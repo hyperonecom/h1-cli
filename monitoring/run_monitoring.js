@@ -75,7 +75,10 @@ const sendMail = async (config, success, report) => {
 
     const recipient = success ? config.MONITORING_SUCCESS_EMAILS : config.MONITORING_EMAILS;
 
-    const keywordsWhiteList = [' bin ', ' tests ', 'text: ', 'statusCode: ', 'exited with a non-zero exit'];
+    const keywordsWhiteList = [
+        ' bin ', ' tests ', 'text: ', 'statusCode: ', 'exited with a non-zero exit',
+        'message: ', 'schemaPath: ', 'dataPath: ',
+    ];
     const keywordsBlackList = ['  ✔ '];
     const subject = success ? 'Monitoring success report' : 'Monitoring failed report';
     if (recipient.length > 0) {
