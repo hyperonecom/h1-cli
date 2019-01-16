@@ -28,9 +28,9 @@ module.exports = (parent) => {
         title: `access rights for ${parent.title}`,
         description: `Manage your ${parent.title} access rights`,
         defaultQuery: '[].{id:id,role:role}',
-        url: args => `${parent.url(args)}/accessrights`,
-        plugins: defaults.plugins,
+        url: args => `${parent.url(args)}/${args[parent.name]}/accessrights`,
         options: options,
+        plugins: defaults.plugins,
         context: {
             grantParams: `--${parent.name} my-${parent.name}`,
             revokeParams: `--${parent.name} my-${parent.name}`,
