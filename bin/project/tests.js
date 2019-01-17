@@ -56,8 +56,6 @@ ava.serial('project transfer', tests.requireSlaveProject(async (t, projects) => 
     await tests.remove('project', project);
 }));
 
-ava.todo('project transfer');
-
 ava.serial('project rename', async t => {
     const name = tests.getName('Project for monitoring public API');
 
