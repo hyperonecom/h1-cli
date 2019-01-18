@@ -22,6 +22,7 @@ ava.serial('network ip life cycle', async t => {
         serviceShowParams: `--network ${network._id}`,
         skipHistory: true,
         stateCreated: 'Unallocated',
+        schemaRef: '#/components/schemas/ip',
     })(t);
     await tests.remove('network', network);
 });
