@@ -19,7 +19,7 @@ const resource = {
     options: options,
     plugins: defaults.plugins,
     title: 'network adapter',
-    commands: ['list', 'show', 'delete'],
+    commands: ['list', 'delete'],
     dirname: __dirname,
     context: {
         listParams: '--vm test-vm',
@@ -36,6 +36,7 @@ const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
 
+category.addChild(require('bin/generic/show')(rootChildResource));
 category.addChild(require('bin/generic/history')(rootChildResource));
 category.addChild(require('bin/generic/tag')(rootChildResource));
 

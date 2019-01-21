@@ -34,9 +34,12 @@ module.exports = resource => Cli.createCommand('create', {
 
         const body = {
             name: args.name,
-            description: args.description,
             tag: require('lib/tags').createTagObject(args.tag),
         };
+
+        if (args.description) {
+            body.description = args.description;
+        }
 
         if (args.vm) {
             body.vm = args.vm;
