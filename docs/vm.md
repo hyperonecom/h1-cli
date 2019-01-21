@@ -23,9 +23,9 @@
     * [h1 vm disk detach](#h1-vm-disk-detach) - Detach disk from disk
   * [h1 vm nic](#h1-vm-nic) - Manage your network adapter
     * [h1 vm nic list](#h1-vm-nic-list) - List network adapter
-    * [h1 vm nic show](#h1-vm-nic-show) - Show network adapter
     * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
     * [h1 vm nic create](#h1-vm-nic-create) - Create network adapter
+    * [h1 vm nic show](#h1-vm-nic-show) - Show network adapter
     * [h1 vm nic history](#h1-vm-nic-history) - History of network adapter
     * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP address of network adapter
       * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP address of network adapter
@@ -520,26 +520,6 @@ h1 vm nic list --vm test-vm
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 
-## h1 vm nic show
-
-Show network adapter
-
-### Syntax
-
-```h1 vm nic show | --vm VM --nic NIC```
-### Example
-
-```bash
-h1 vm nic show --nic my-nic
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine name or ID |
-| ```--nic NIC``` |  | Network adapter ID or name |
-
 ## h1 vm nic delete
 
 Delete network adapter
@@ -597,6 +577,26 @@ Note (4): To list available networks use ```h1 network list```.
 | ```--network NETWORK``` |  | Network connected to network adapter |
 | ```--ip IP``` |  | IP to assign from network |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 vm nic show
+
+Show network adapter
+
+### Syntax
+
+```h1 vm nic show | --vm VM --nic NIC```
+### Example
+
+```bash
+h1 vm nic show --nic my-nic
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID or name |
 
 ## h1 vm nic history
 
