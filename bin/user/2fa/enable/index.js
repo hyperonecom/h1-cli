@@ -51,8 +51,8 @@ const enableOTAC = async (resource, args) => {
         name: 'One-time authorization Codes',
     });
 
-    console.log('Here are your codes');
-    console.log();
+    console.error('Here are your codes');
+    console.error();
 
     codes.match(/(\w+ \w+ \w+ \w+)+/g).forEach(e => console.log(e));
 };

@@ -23,11 +23,11 @@ module.exports = (resource, url_func) => {
             const instance = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);
             const url = url_func(args, instance);
 
-            console.log('Attempting to open the following url in your browser: ');
-            console.log();
+            console.error('Attempting to open the following url in your browser: ');
+            console.error();
             console.log(Chalk.underline(url));
-            console.log();
-            console.log('If the console does not automatically open, please copy this address and paste it into your browser.');
+            console.error();
+            console.error('If the console does not automatically open, please copy this address and paste it into your browser.');
 
             return Open(url).then(() => {});
         },
