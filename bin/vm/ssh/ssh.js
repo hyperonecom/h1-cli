@@ -57,7 +57,7 @@ module.exports = resource => Cli.createCommand('ssh', {
             sshArgs.push(args.command);
         }
 
-        console.log(`ssh ${sshArgs.join(' ')}`);
+        console.error(`ssh ${sshArgs.join(' ')}`);
 
         const spawn = require('child_process').spawn;
 

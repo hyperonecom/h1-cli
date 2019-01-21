@@ -51,7 +51,7 @@ const handler = args => {
                 data = JSON.parse(line);
             } catch (e) {
                 console.log('Invalid response from agent. Unable to reset password.');
-                console.debug('Response: ', data);
+                console.log('Response: ', data);
                 process.exit(-1);
             }
             if (data.modulus !== modulus) {

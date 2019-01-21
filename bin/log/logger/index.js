@@ -72,23 +72,23 @@ module.exports = resource => {
                             count+=1;
                             requests.delete(req);
                             if (args.verbose) {
-                                console.log(`Queue size is ${requests.size}`);
+                                console.error(`Queue size is ${requests.size}`);
                             }
                             if (requests.size < 500) {
                                 lineReader.resume();
                                 if (args.verbose) {
-                                    console.log('lineReader resumed');
+                                    console.error('lineReader resumed');
                                 }
                             }
                         });
                     requests.add(req);
                     if (args.verbose) {
-                        console.log(`Queue size is ${requests.size}`);
+                        console.error(`Queue size is ${requests.size}`);
                     }
                     if (requests.size > 2000) {
                         lineReader.pause();
                         if (args.verbose) {
-                            console.log('lineReader paused.');
+                            console.error('lineReader paused.');
                         }
                     }
                 });
