@@ -9,9 +9,9 @@ const ssh = require('../../lib/ssh');
 
 const now = Date.now();
 
-const createUserCredentials = async () => {
+const createUserCredentials = async (t) => {
     const file = tests.getRandomFile();
-    const name = `vault-ssh-${now}`;
+    const name = tests.getName(t.title, 'user-cred');
     await tests.run(`user credentials add --name ${name} --sshkey-file '${file}'`);
     return {
         file: file,
@@ -33,26 +33,26 @@ const sshVault = (vault, secret, cmd) => {
 };
 
 ava.serial('vault life cycle', async t => {
-    const ssh = await createUserCredentials();
+    const ssh = await createUserCredentials(t);
 
     await tests.resourceLifeCycle('vault', {
         stateCreated: 'Online',
-        createParams: `--name vault-test-${now} --size 10 --ssh ${ssh.name}`,
+        createParams: `--name ${tests.getName(t.title)} --size 10 --ssh ${ssh.name}`,
     })(t);
 
     await ssh.cleanup();
 });
 
 ava.serial('vault rename', async t => {
-    const ssh = await createUserCredentials();
+    const ssh = await createUserCredentials(t);
 
-    await tests.resourceRename('vault', `--name vault-test-${now} --size 10 --ssh ${ssh.name}`)(t);
+    await tests.resourceRename('vault', `--name ${tests.getName(t.title)} --size 10 --ssh ${ssh.name}`)(t);
 
     await ssh.cleanup();
 });
 
 ava.serial('vault stop & start', async t => {
-    const vault = await tests.run(`vault create --name vault-test-${now} --size 10`);
+    const vault = await tests.run(`vault create --name ${tests.getName(t.title)} --size 10`);
 
     await tests.run(`vault stop --vault ${vault._id}`);
     const vault_stopped = await tests.run(`vault show --vault ${vault._id}`);
@@ -68,11 +68,11 @@ ava.serial('vault stop & start', async t => {
 
 
 ava.serial('vault resize', tests.resourceResizeCycle('vault', {
-    createParams: `--name vault-test-${now}`,
+    createParams: `--name ${tests.getName('vault-resize')}`,
 }));
 
 ava.serial('vault credential credentials life cycle', async t => {
-    const vault = await tests.run(`vault create --name vault-test-${now} --size 10`);
+    const vault = await tests.run(`vault create --name ${tests.getName(t.title)} --size 10`);
 
     await tests.credentialsLifeCycle('vault credential cert', {
         showParams: `--vault ${vault._id}`,
@@ -86,7 +86,7 @@ ava.serial('vault credential credentials life cycle', async t => {
 });
 
 ava.serial('vault recreate from snapshot', async t => {
-    const name = `vault-test-${now}`;
+    const name = tests.getName(t.title);
     const secret = await tests.getToken();
     const vault = await tests.run(`vault create --name ${name} --size 10 --password ${secret}`);
 
@@ -107,14 +107,14 @@ ava.serial('vault recreate from snapshot', async t => {
 });
 
 ava.serial('vault credential password life cycle', async t => {
-    const vault = await tests.run(`vault create --name vault-test-${now} --size 10`);
+    const vault = await tests.run(`vault create --name ${tests.getName(t.title)} --size 10`);
     await tests.passwordLifeCycle(t, 'vault', vault);
     await tests.remove('vault', vault);
 });
 
 ['project', 'user'].forEach(type => {
     ava.serial(`vault credential ${type} ssh use`, async t => {
-        const name = `vault-ssh-${now}`;
+        const name = tests.getName(t.title);
         const ssh_file = tests.getRandomFile();
 
         const ssh_name = `${name}-${type}-key`;
@@ -136,7 +136,7 @@ ava.serial('vault credential password life cycle', async t => {
         const sshKeyPair = await ssh.generateKey();
         const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
 
-        const name = `vault-ssh-key-${now}`;
+        const name = tests.getName(t.title);
         const ssh_name = `${name}-${type}-key`;
 
         const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${sshFilename}'`);
@@ -158,7 +158,7 @@ ava.serial('vault credential password life cycle', async t => {
 });
 
 ava.serial('vault ssh using password', async t => {
-    const name = `vault-ssh-key-${now}`;
+    const name = tests.getName(t.title);
     const secret = await tests.getToken();
 
     const vault = await tests.run(`vault create --name ${name} --password ${secret} --size 10`);
