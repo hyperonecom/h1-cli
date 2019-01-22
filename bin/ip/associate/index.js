@@ -16,16 +16,13 @@ const options = {
     },
 };
 
-const handler = args => args.helpers.api
-    .post(`ip/${args.ip}/actions`, { name: 'associate', data: { ip: args['private-ip'] } })
-    .then(result => args.helpers.sendOutput(args, result));
-
-
 module.exports = resource => Cli.createCommand('associate', {
     dirname: __dirname,
     description: `Associate ${resource.title}`,
     plugins: genericDefaults.plugins,
     defaultQuery: resource.defaultQuery,
     options: Object.assign({}, resource.options, options),
-    handler: handler,
+    handler: args => args.helpers.api
+        .post(`ip/${args.ip}/actions/associate`, {ip: args['private-ip']})
+        .then(result => args.helpers.sendOutput(args, result)),
 });
