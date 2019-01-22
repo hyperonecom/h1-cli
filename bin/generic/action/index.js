@@ -9,6 +9,6 @@ module.exports = (resource, action) => Cli.createCommand(action, {
     dirname:  `${resource.dirname || __dirname}/${action}/`,
     resource: resource,
     handler: args => args.helpers.api
-        .post(`${resource.url(args)}/actions`, { name: action })
+        .post(`${resource.url(args)}/actions/${action}`, { })
         .then(result => args.helpers.sendOutput(args, result)),
 });
