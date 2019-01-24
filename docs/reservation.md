@@ -6,6 +6,7 @@
     * [h1 reservation service list](#h1-reservation-service-list) - List service for reservation
     * [h1 reservation service show](#h1-reservation-service-show) - Show service for reservation
   * [h1 reservation history](#h1-reservation-history) - History of reservation
+  * [h1 reservation delete](#h1-reservation-delete) - Delete reservation
   * [h1 reservation create](#h1-reservation-create) - Create reservation
   * [h1 reservation assign](#h1-reservation-assign) - Assign reservation to resource
   * [h1 reservation extend](#h1-reservation-extend) - Extend reservation
@@ -107,6 +108,25 @@ History of reservation
 
 ```bash
 h1 reservation history --reservation my-reservation
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--reservation RESERVATION``` |  | Reservation ID or name |
+
+## h1 reservation delete
+
+Delete reservation
+
+### Syntax
+
+```h1 reservation delete | --reservation RESERVATION```
+### Example
+
+```bash
+h1 reservation delete --reservation my-reservation
 ```
 
 ### Required arguments

@@ -18,6 +18,6 @@ module.exports = resource => Cli.createCommand('revoke', {
     context: resource.context,
     options: Object.assign({}, resource.options, options),
     handler: args => args.helpers.api
-        .delete(`${resource.url(args)}/accessrights/${args.email}`)
+        .delete(`${resource.url(args)}/${args.email}`)
         .then(result => args.helpers.sendOutput(args, result)),
 });
