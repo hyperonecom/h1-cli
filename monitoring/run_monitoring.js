@@ -107,7 +107,8 @@ const sendMail = async (config, success, report) => {
     await smtpTransport.close();
 };
 
-const runProcess = async (cmd = [], env = {}, timeout = 60 * 30) => new Promise((resolve, reject) => {
+const runProcess = async (cmd, env = {}, timeout = 60 * 30) => new Promise((resolve, reject) => {
+    console.log(`Started process: ${cmd}`);
     const arg = shell_quote.parse(cmd);
 
     const proc = childProcess.spawn(arg[0], arg.slice(1), {
@@ -163,7 +164,8 @@ const main = async () => {
     try {
         await runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT_MASTER});
         await runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT_SLAVE});
-        await runProcess(`h1 project access revoke --email ${tests.RECIPIENT.user}`);
+        await runProcess(`./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_MASTER}`);
+        await runProcess(`./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_SLAVE}`);
     } catch (err) {
         // This is just cleaning. If fails if there is no resources to clean up.
     }
