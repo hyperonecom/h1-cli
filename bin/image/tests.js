@@ -4,52 +4,53 @@ const ava = require('ava');
 require('../../scope/h1');
 const tests = require('../../lib/tests');
 
-const now = Date.now();
-
-const name = `image-test-${now}`;
-
-const getCommon = async (test_name, options = {}) => {
+const getCommon = async (t, options = {}) => {
     const image = options.image || 'debian';
-    const name = `image-test-${test_name}-${now}`.replace(/[^\w]/g, '-');
+    const vm_name = tests.getName('vm', t.title);
+    const disk_name = tests.getName('disk', t.title);
     const password = await tests.getToken();
-    const disk_name = `disk-${name}`;
     return {
-        vm: await tests.run(`vm create --name ${name} --password ${password} --os-disk ${disk_name},ssd,10 --type a1.nano --image ${image}`),
+        vm: await tests.run(`vm create --name ${vm_name} --password ${password} --os-disk ${disk_name},ssd,10 --type a1.nano --image ${image}`),
         disk_name: disk_name,
-        vm_name: name,
+        vm_name: vm_name,
         cleanup: async () => {
-            await tests.remove('vm', name);
+            await tests.remove('vm', vm_name);
             await tests.remove('disk', disk_name);
         },
     };
 };
 
 ava.serial('image life cycle', async t => {
-    const common = await getCommon(t.title);
-    await tests.resourceLifeCycle('image', {
-        createParams: `--vm ${common.vm._id} --name ${name}`,
-        stateCreated: 'Online',
-    })(t);
-
-    await common.cleanup();
+    const common = await getCommon(t);
+    try {
+        await tests.resourceLifeCycle('image', {
+            createParams: `--vm ${common.vm._id} --name ${tests.getName(t.title)}`,
+            stateCreated: 'Online',
+        })(t);
+    } finally {
+        await common.cleanup();
+    }
 });
 
 ava.serial('image rename', async t => {
-    const common = await getCommon(t.title);
-
-    await tests.resourceRename('image', `--vm ${common.vm._id} --name ${name}`)(t);
-
-    await common.cleanup();
+    const common = await getCommon(t);
+    try {
+        await tests.resourceRename('image', `--vm ${common.vm._id} --name ${tests.getName(t.title)}`)(t);
+    } finally {
+        await common.cleanup();
+    }
 });
 
-ava.serial('image access', async t => {
-    const common = await getCommon(t.title);
-
-    await tests.resourceAccessCycle('image', `--vm ${common.vm._id} --name ${name}`)(t);
-
-    await common.cleanup();
-});
-
+for (const project of [tests.RECIPIENT.project, '*']) {
+    ava.serial(`image access: ${project}`, async t => {
+        const common = await getCommon(t);
+        try {
+            await tests.resourceAccessCycle('image', project, `--vm ${common.vm._id} --name ${tests.getName(t.title)}`)(t);
+        } finally {
+            await common.cleanup();
+        }
+    });
+}
 ava.serial('image resolver prefer server', async t => {
     const image = await tests.run('image show --image ubuntu');
     const description = JSON.parse(image.description);
@@ -58,11 +59,11 @@ ava.serial('image resolver prefer server', async t => {
 });
 
 ava.serial('image transfer', async t => {
-    const common = await getCommon(t.title);
+    const common = await getCommon(t);
 
     try {
         await tests.transferLifeCycle('image', {
-            createParams: `--vm ${common.vm._id} --name ${name}-transfer`,
+            createParams: `--vm ${common.vm._id} --name ${tests.getName(t.title)}`,
         })(t);
     } finally {
         await common.cleanup();
