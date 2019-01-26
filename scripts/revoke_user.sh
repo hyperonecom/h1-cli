@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -eux
 USERNAME="$1"
 PROJECT="$2";
