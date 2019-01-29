@@ -9,12 +9,11 @@ const getCommon = async (t, options = {}) => {
     const vm_name = tests.getName('vm', t.title);
     const disk_name = tests.getName('disk', t.title);
     const password = await tests.getToken();
+    const vm = await tests.run(`vm create --name ${vm_name} --password ${password} --os-disk ${disk_name},ssd,10 --type a1.nano --image ${image}`);
     return {
-        vm: await tests.run(`vm create --name ${vm_name} --password ${password} --os-disk ${disk_name},ssd,10 --type a1.nano --image ${image}`),
-        disk_name: disk_name,
-        vm_name: vm_name,
+        vm, disk_name, vm_name,
         cleanup: async () => {
-            await tests.remove('vm', vm_name);
+            await tests.remove('vm', vm._id);
             await tests.remove('disk', disk_name);
         },
     };
@@ -41,9 +40,10 @@ ava.serial('image rename', async t => {
     }
 });
 
-for (const project of [tests.RECIPIENT.project, '*']) {
-    ava.serial(`image access: ${project}`, async t => {
+for (const [name, project] of Object.entries(tests.access_test_case)) {
+    ava.serial(`image access: ${name}`, async t => {
         const common = await getCommon(t);
+        console.log({vm: common.vm});
         try {
             await tests.resourceAccessCycle('image', project, `--vm ${common.vm._id} --name ${tests.getName(t.title)}`)(t);
         } finally {

@@ -138,7 +138,7 @@ const getLatestImapMessageDate = (query, options) => new Promise((resolve, rejec
         imap.openBox('INBOX', true, err => {
             if (err) return reject(err);
             const dates = [];
-
+            console.log(new Date().toISOString(), 'Query IMAP', {query});
             imap.search(query, function (err, results) {
                 if (err) return reject(err);
                 const f = imap.fetch(results, {
