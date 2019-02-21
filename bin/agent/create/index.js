@@ -1,7 +1,7 @@
 'use strict';
 
 const Cli = require('lib/cli');
-const fs = require('fs');
+const fs = require('lib/fs');
 
 const options = {
     name: {
@@ -52,7 +52,7 @@ module.exports = resource => Cli.createCommand('create', {
         }
         const body = {
             name: args.name,
-            type: args.type,
+            service: args.type,
             tag: require('lib/tags').createTagObject(args.tag),
             credential: {
                 certificate: certificates,
