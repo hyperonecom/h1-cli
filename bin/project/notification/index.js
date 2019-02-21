@@ -7,7 +7,9 @@ module.exports = resource => {
         description: 'Manage your notifications',
     });
 
-    category.addChild(require('./credits')(resource));
+    category.addChild(require('./credits')(Object.assign({}, resource, {
+        url: args => `${resource.url(args)}/threshold/credits/levels`,
+    })));
 
     return category;
 };
