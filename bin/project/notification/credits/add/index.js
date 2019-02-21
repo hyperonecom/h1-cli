@@ -20,12 +20,10 @@ module.exports = resource => Cli.createCommand('add', {
     options: Object.assign({}, resource.options, options),
     handler: args => args.helpers.api
         .get(resource.url(args))
-        .then(project => {
-            const levels = project.threshold.credits.levels;
-            levels.push(args.limit);
-            return levels;
-        })
-        .then(levels => args.helpers.api
-            .put(`${resource.url(args)}/threshold/credits/levels`, levels))
+        .then(levels => [
+            ...levels,
+            args.limit,
+        ])
+        .then(levels => args.helpers.api.put(resource.url(args), levels))
         .then(result => args.helpers.sendOutput(args, result)),
 });

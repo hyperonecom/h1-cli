@@ -21,15 +21,7 @@ module.exports = resource => Cli.createCommand('delete', {
     options: Object.assign({}, resource.options, options),
     handler: args => args.helpers.api
         .get(resource.url(args))
-        .then(project => {
-            const levels = project.threshold.credits.levels;
-            const index = levels.indexOf(args.limit);
-            if (index > -1) {
-                levels.splice(index, 1);
-            }
-            return levels;
-        })
-        .then(levels => args.helpers.api
-            .put(`${resource.url(args)}/threshold/credits/levels`, levels))
+        .then(levels => levels.filter(x => x !== args.limit))
+        .then(levels => args.helpers.api.put(resource.url(args), levels))
         .then(result => args.helpers.sendOutput(args, result)),
 });

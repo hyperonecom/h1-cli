@@ -13,6 +13,5 @@ module.exports = resource => Cli.createCommand('list', {
     options: resource.options,
     handler: args => args.helpers.api
         .get(resource.url(args))
-        .then(project =>  project.threshold.credits.levels)
         .then(result => args.helpers.sendOutput(args, result)),
 });
