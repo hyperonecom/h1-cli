@@ -31,8 +31,9 @@ const options = {
     expose: {
         description: 'Mapping port to expose to the world as internal:external',
         type: 'string',
-        required: false,
         action: 'append',
+        defaultValue: [],
+        required: false,
     },
     env: {
         description: 'Add environment variable',
@@ -69,7 +70,7 @@ module.exports = resource => Cli.createCommand('create', {
             expose: args.expose,
             env: args.env,
             command: args.command,
-            volumes: args.vault.map(v => {
+            volumes: args.volumes.map(v => {
                 const [sourceFull, target] = v.split(':');
                 const [source, ...sourcePath] = sourceFull.split('/');
 
