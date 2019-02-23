@@ -67,7 +67,6 @@ module.exports = resource => Cli.createCommand('create', {
             name: args.name,
             image: args.image,
             service: args.type,
-            expose: args.expose,
             env: args.env,
             command: args.command,
             volumes: args.volumes.map(v => {
@@ -85,8 +84,8 @@ module.exports = resource => Cli.createCommand('create', {
                 const internal = parseInt(parts[0]);
                 const external= parseInt(parts[1] || parts[1]);
                 return {
-                    internal: internal,
-                    external: external,
+                    internal: `${internal}/tcp`,
+                    external: `${external}/tcp`,
                 };
             }),
             tag: require('lib/tags').createTagObject(args.tag),
