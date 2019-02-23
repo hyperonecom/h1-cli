@@ -15,9 +15,9 @@ const options = {
     size: {
         description: 'Disk size in GiB. Required if no source file is specified',
         type: 'int',
+        required: true,
     },
 };
-
 
 module.exports = resource => Cli.createCommand('create', {
     description: `Create ${resource.title}`,
