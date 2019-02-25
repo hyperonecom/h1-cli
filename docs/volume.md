@@ -181,7 +181,7 @@ Create volume
 
 ### Syntax
 
-```h1 volume create | --name NAME --type TYPE [--size SIZE] [--tag TAG [--tag TAG ...]]```
+```h1 volume create | --name NAME --type TYPE --size SIZE [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create 10 GB SSD disk
@@ -202,12 +202,12 @@ h1 volume create --name new-disk --size 1 --type ssd --source-file ./my-disk.vhd
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Disk name |
 | ```--type TYPE``` |  | Disk type ID or name |
+| ```--size SIZE``` |  | Disk size in GiB |
 
 ### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--size SIZE``` |  | Disk size in GiB. Required if no source file is specified |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 volume tag

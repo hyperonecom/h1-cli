@@ -13,7 +13,7 @@ const options = {
         required: true,
     },
     size: {
-        description: 'Disk size in GiB. Required if no source file is specified',
+        description: 'Disk size in GiB',
         type: 'int',
         required: true,
     },
