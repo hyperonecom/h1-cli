@@ -34,7 +34,21 @@ container create
 
 ### Syntax
 
-```h1 container create | --name NAME --image IMAGE --type TYPE [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volumes VOLUMES [--volumes VOLUMES ...]] [--command COMMAND] [--tag TAG [--tag TAG ...]]```
+```h1 container create | --name NAME --image IMAGE --type TYPE [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volumes VOLUMES [--volumes VOLUMES ...]] [--command COMMAND] [--tag TAG [--tag TAG ...]]```
+### Examples
+
+#### Create nginx container
+
+```bash
+h1 container create --name nginx --type container --image nginx --expose 80:80
+```
+
+#### Create container from image stored in private docker registry
+
+```bash
+h1 container create --name nginx --type container --image registry.example.com/my-app --expose80:80 --registry-dockercfg reach
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -47,8 +61,9 @@ container create
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--registry-username REGISTRY-USERNAME``` |  | Username to access Docker Registry |
-| ```--registry-password REGISTRY-PASSWORD``` |  | Username to access Docker Registry |
+| ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
+| ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
+| ```--registry-dockercfg``` |  | Use credentials from .dockercfg |
 | ```--expose EXPOSE [--expose EXPOSE ...]``` |  | Mapping port to expose to the world as internal:external. The parameter may occur repeatedly |
 | ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
 | ```--volumes VOLUMES [--volumes VOLUMES ...]``` |  | Attach a volume as volumeId/volumePath:imagePath. The parameter may occur repeatedly |
