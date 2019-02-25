@@ -1,11 +1,11 @@
-# Create 10 GB SSD disk
+# Create nginx container
 
 ```bash
-{{command_name}} --name db-disk --type ssd --size 10
+{{command_name}} --name nginx --type container --image nginx --expose 80:80
 ```
 
-# Create disk from .vhdx file
+# Create container from image stored in private docker registry
 
 ```bash
-{{command_name}} --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
+{{command_name}} --name nginx --type container --image registry.example.com/my-app --expose80:80 --registry-dockercfg reach
 ```

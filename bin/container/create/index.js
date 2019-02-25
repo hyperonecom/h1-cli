@@ -1,6 +1,11 @@
 'use strict';
 
 const Cli = require('lib/cli');
+const os = require('os');
+const path = require('path');
+const fs = require('fs');
+const util = require('util');
+const readFile = util.promisify(fs.readFile);
 
 const options = {
     name: {
@@ -19,14 +24,20 @@ const options = {
         required: true,
     },
     ['registry-username']: {
-        description: 'Username to access Docker Registry',
+        description: 'Username to access container registry',
         type: 'string',
-        required:false,
+        required: false,
     },
     ['registry-password']: {
-        description: 'Username to access Docker Registry',
+        description: 'Username to access container registry',
         type: 'string',
-        required:false,
+        required: false,
+    },
+    ['registry-dockercfg']: {
+        description: 'Use credentials from .dockercfg',
+        type: 'boolean',
+        required: false,
+        defaultValue: false,
     },
     expose: {
         description: 'Mapping port to expose to the world as internal:external',
@@ -56,12 +67,62 @@ const options = {
     },
 };
 
+const config_files = [
+    path.join(process.cwd(), '.dockercfg'),
+    path.join(os.homedir(), '.dockercfg'),
+    path.join(os.homedir(), '.docker/config.json'),
+];
+
+const getRegistryName = args => {
+    const parts = args.image.split('/');
+    if (parts.length > 1) {
+        return parts[0];
+    }
+};
+const getRegistry = async args => {
+    const registry_name = getRegistryName(args);
+
+    if (!registry_name) {
+        return;
+    }
+
+    if (args['registry-username']) {
+        return {
+            username: args['registry-username'],
+            password: args['registry-password'],
+        };
+    }
+
+    if (!args['registry-dockercfg']) {
+        return;
+    }
+
+    for (const config of config_files) {
+        let content;
+        try {
+            content = await readFile(config, {encoding: 'utf-8'});
+        } catch (err) {
+            continue;
+        }
+        const dockercfg = JSON.parse(content);
+
+        if (!dockercfg.auths || !dockercfg.auths[registry_name] || !dockercfg.auths[registry_name].auth) continue;
+
+        return {
+            token: dockercfg.auths[registry_name].auth,
+        };
+    }
+
+};
+
 module.exports = resource => Cli.createCommand('create', {
     description: `${resource.title} create`,
     plugins: resource.plugins,
-    genericOptions: ['tag' ],
+    genericOptions: ['tag'],
     options: Object.assign({}, options, resource.options),
-    handler: args => {
+    dirname: __dirname,
+    handler: async args => {
+        const registry = await getRegistry(args);
 
         const body = {
             name: args.name,
@@ -82,7 +143,7 @@ module.exports = resource => Cli.createCommand('create', {
             ports: args.expose.map(p => {
                 const parts = p.split(':');
                 const internal = parseInt(parts[0]);
-                const external= parseInt(parts[1] || parts[1]);
+                const external = parseInt(parts[1] || parts[1]);
                 return {
                     internal: `${internal}/tcp`,
                     external: `${external}/tcp`,
@@ -91,11 +152,8 @@ module.exports = resource => Cli.createCommand('create', {
             tag: require('lib/tags').createTagObject(args.tag),
         };
 
-        if (args['registry-username']) {
-            body.registry = {
-                username: args['registry-username'],
-                password: args['registry-password'],
-            };
+        if (registry) {
+            body.registry = registry;
         }
 
         return args.helpers.api
