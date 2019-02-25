@@ -33,10 +33,10 @@
       * [h1 project token access delete](#h1-project-token-access-delete) - Delete access rule
       * [h1 project token access add](#h1-project-token-access-add) - Add access rule
   * [h1 project notification](#h1-project-notification) - Manage your notifications
-    * [h1 project notification credits](#h1-project-notification-credits) - Manage your threshold of credit limits
-      * [h1 project notification credits add](#h1-project-notification-credits-add) - Add credits limits
-      * [h1 project notification credits list](#h1-project-notification-credits-list) - List credits limits
-      * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limits
+    * [h1 project notification credits](#h1-project-notification-credits) - Manage your credits limit
+      * [h1 project notification credits add](#h1-project-notification-credits-add) - Add credits limit
+      * [h1 project notification credits list](#h1-project-notification-credits-list) - List credits limit
+      * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limit
   * [h1 project select](#h1-project-select) - Select project context
   * [h1 project limit](#h1-project-limit) - Cloud limits set for project
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
@@ -711,11 +711,11 @@ Manage your notifications
 
 ## h1 project notification credits
 
-Manage your threshold of credit limits
+Manage your credits limit
 
 ## h1 project notification credits add
 
-Add credits limits
+Add credits limit
 
 ### Syntax
 
@@ -723,14 +723,14 @@ Add credits limits
 ### Example
 
 ```
-h1 project notification credits add --limit 25
+h1 project notification credits add --project my-project --limit value
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--limit LIMIT``` |  | New limit of credits |
+| ```--limit LIMIT``` |  | New credits limit |
 
 ### Optional arguments
 
@@ -740,7 +740,7 @@ h1 project notification credits add --limit 25
 
 ## h1 project notification credits list
 
-List credits limits
+List credits limit
 
 ### Syntax
 
@@ -748,7 +748,7 @@ List credits limits
 ### Example
 
 ```bash
-h1 project notification credits list --project MyProject
+h1 project notification credits list --project my-project
 ```
 
 ### Optional arguments
@@ -759,7 +759,7 @@ h1 project notification credits list --project MyProject
 
 ## h1 project notification credits delete
 
-Delete credits limits
+Delete credits limit
 
 ### Syntax
 
@@ -767,14 +767,14 @@ Delete credits limits
 ### Example
 
 ```
-h1 project notification credits delete --limit 25
+h1 project notification credits delete --project my-project --limit value
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--limit LIMIT``` |  | Deleted limit of credits |
+| ```--limit LIMIT``` |  | Deleted credits limit |
 
 ### Optional arguments
 
