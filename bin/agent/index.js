@@ -13,16 +13,16 @@ const resource = {
     title: 'Agent',
 };
 
+
 const actionDefault = Object.assign({}, resource, {
     options: {
-        vault: {
+        [resource.name]: {
             description: `${text.toTitleCase(resource.title)} ID or name`,
             type: 'string',
             required: true,
-            dest: 'vault',
         },
     },
-    url: args => `${resource.url(args)}/${args.vault}`,
+    url: args => `${resource.url(args)}/${args[resource.name]}`,
     dirname: __dirname,
 });
 const credential_type = ['certificate'];
@@ -32,6 +32,18 @@ const category = genericResource(resource);
 category.addChild(require('./create')(resource));
 
 category.addChild(require('../generic/credential')(resource, credential_type));
+
+category.addChild(require('bin/generic/set-update')(Object.assign({}, actionDefault, {
+    url: args => `${actionDefault.url(args)}/enabledServices`,
+    title: 'enabled service',
+    name: 'enabled-service',
+    update_name: 'service',
+    context: {
+        addParams: `--${resource.name} my-${resource.name}`,
+        listParams: `--${resource.name} my-${resource.name}`,
+        deleteParams: `--${resource.name} my-${resource.name}`,
+    },
+})));
 
 category.addChild(genericAction(actionDefault, 'suspend'));
 category.addChild(genericAction(actionDefault, 'start'));
