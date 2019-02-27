@@ -28,7 +28,11 @@ module.exports = resource => {
         handler: args => args.helpers.api
             .get(resource.url(args))
             .then(values => values.filter(x => x !== args[resource.parameter_name]))
-            .then(values => args.helpers.api.put(resource.url(args), values))
+            .then(values => {
+                console.log({values});
+
+                return args.helpers.api.put(resource.url(args), values);
+            })
             .then(values => args.helpers.sendOutput(args, values)),
     });
 };
