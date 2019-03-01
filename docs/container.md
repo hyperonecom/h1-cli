@@ -226,6 +226,12 @@ Logs of container
 ### Syntax
 
 ```h1 container log | --container CONTAINER```
+### Example
+
+```
+h1 container log --agent my-container
+```
+
 ### Required arguments
 
 | Name | Default | Description |
