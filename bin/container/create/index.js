@@ -140,7 +140,7 @@ module.exports = resource => Cli.createCommand('create', {
                     target,
                 };
             }),
-            ports: args.expose.map(p => {
+            expose: args.expose.map(p => {
                 const parts = p.split(':');
                 const internal = parseInt(parts[0]);
                 const external = parseInt(parts[1] || parts[1]);
