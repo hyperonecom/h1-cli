@@ -71,7 +71,7 @@ module.exports = resource => {
             };
             if (args.verbose) {
                 logger('verbose', `query ${JSON.stringify(query)}`);
-            };
+            }
             const formatter = format.formatter(args);
 
             formatter.print_header();

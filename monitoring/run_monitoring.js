@@ -137,12 +137,12 @@ const runProcess = async (cmd, env = {}, timeout = 60 * 30) => new Promise((reso
     });
 
     proc.stdout.on('data', (data) => {
-        console.log(`${  data}`);
+        console.log(`${data}`);
         output += data;
     });
 
     proc.stderr.on('data', (data) => {
-        console.error(`${  data}`);
+        console.error(`${data}`);
         output += data;
     });
 });
@@ -161,14 +161,19 @@ const main = async () => {
     } catch (err) {
         await sendMail(config, false, `${versionText}\n${err.message}\n${err.output}\n${err.message}`);
     }
-    try {
-        await runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT_MASTER});
-        await runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT_SLAVE});
-        await runProcess(`./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_MASTER}`);
-        await runProcess(`./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_SLAVE}`);
-    } catch (err) {
-        // This is just cleaning. If fails if there is no resources to clean up.
+    for (const p of [
+        runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT_MASTER}),
+        runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT_SLAVE}),
+        runProcess(`./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_MASTER}`),
+        runProcess(`./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_SLAVE}`),
+    ]) {
+        try {
+            await p;
+        } catch (err) {
+            // This is just cleaning. If fails if there is no resources to clean up.
+        }
     }
+
 };
 
 main().catch((err) => {

@@ -27,7 +27,7 @@ h1 user credentials list -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 
 h1 project credentials list --project "$PROJECT" -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 h1 project credentials delete --yes --project "$PROJECT" --credentials
 h1 project notification credits list --project "$PROJECT" -o id | xargs -r -n 1 h1 project notification credits delete --project "$PROJECT" --limit
 [ -n "$H1_PROJECT_SLAVE" ] && [ -z "$H1_PROJECT_MASTER" ] && {
-	h1 project delete credits list --project "$PROJECT" -o tsv  | \
+	h1 project list --project "$PROJECT" -o tsv  | \
 	grep -v -e "$H1_PROJECT_SLAVE" -e "$H1_PROJECT_MASTER" | \
 	awk '{print $1}' | \
 	xargs -r -n 1 h1 project delete --yes --project
