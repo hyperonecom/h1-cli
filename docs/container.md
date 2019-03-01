@@ -1,19 +1,16 @@
 # TOC
 
-  * [h1 container create](#h1-container-create) - container create
+  * [h1 container service](#h1-container-service) - Manage your services of container
+    * [h1 container service list](#h1-container-service-list) - List service for container
+    * [h1 container service show](#h1-container-service-show) - Show service for container
   * [h1 container list](#h1-container-list) - List container
   * [h1 container delete](#h1-container-delete) - Delete container
   * [h1 container history](#h1-container-history) - History of container
   * [h1 container rename](#h1-container-rename) - Rename container
   * [h1 container start](#h1-container-start) - Start container
-  * [h1 container service](#h1-container-service) - Manage your services of container
-    * [h1 container service list](#h1-container-service-list) - List service for container
-    * [h1 container service show](#h1-container-service-show) - Show service for container
   * [h1 container show](#h1-container-show) - Show container
-  * [h1 container ps](#h1-container-ps) - Process list of container
-  * [h1 container attach](#h1-container-attach) - Attach to terminal of container
-  * [h1 container recreate](#h1-container-recreate) - Recreate container
-  * [h1 container recreateHost](#h1-container-recreatehost) - RecreateHost container
+  * [h1 container create](#h1-container-create) - container create
+  * [h1 container log](#h1-container-log) - Logs of container
   * [h1 container stop](#h1-container-stop) - Stop container
   * [h1 container restart](#h1-container-restart) - Restart container
   * [h1 container tag](#h1-container-tag) - Manage your tag
@@ -28,47 +25,48 @@
 
 Manage your container
 
-## h1 container create
+## h1 container service
 
-container create
+Manage your services of container
+
+## h1 container service list
+
+List service for container
 
 ### Syntax
 
-```h1 container create | --name NAME --image IMAGE --type TYPE [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volumes VOLUMES [--volumes VOLUMES ...]] [--command COMMAND] [--tag TAG [--tag TAG ...]]```
-### Examples
-
-#### Create nginx container
+```h1 container service list | --container CONTAINER```
+### Example
 
 ```bash
-h1 container create --name nginx --type container --image nginx --expose 80:80
-```
-
-#### Create container from image stored in private docker registry
-
-```bash
-h1 container create --name nginx --type container --image registry.example.com/my-app --expose80:80 --registry-dockercfg reach
+h1 container service list --container test-container
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name |
-| ```--image IMAGE``` |  | Image |
-| ```--type TYPE``` |  | Type |
+| ```--container CONTAINER``` |  | Container ID or name |
 
-### Optional arguments
+## h1 container service show
+
+Show service for container
+
+### Syntax
+
+```h1 container service show | --container CONTAINER --service SERVICE```
+### Example
+
+```bash
+h1 container service show --service my-service --container my-container
+```
+
+### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
-| ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
-| ```--registry-dockercfg``` |  | Use credentials from .dockercfg |
-| ```--expose EXPOSE [--expose EXPOSE ...]``` |  | Mapping port to expose to the world as internal:external. The parameter may occur repeatedly |
-| ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
-| ```--volumes VOLUMES [--volumes VOLUMES ...]``` |  | Attach a volume as volumeId/volumePath:imagePath. The parameter may occur repeatedly |
-| ```--command COMMAND``` |  | Override the default command |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--container CONTAINER``` |  | Container ID or name |
+| ```--service SERVICE``` |  | Service for container ID or name |
 
 ## h1 container list
 
@@ -148,27 +146,10 @@ Start container
 ### Syntax
 
 ```h1 container start | --container CONTAINER```
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--container CONTAINER``` |  | Container ID or name |
-
-## h1 container service
-
-Manage your services of container
-
-## h1 container service list
-
-List service for container
-
-### Syntax
-
-```h1 container service list | --container CONTAINER```
 ### Example
 
-```bash
-h1 container service list --container test-container
+```
+h1 container start --agent my-container
 ```
 
 ### Required arguments
@@ -176,26 +157,6 @@ h1 container service list --container test-container
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | Container ID or name |
-
-## h1 container service show
-
-Show service for container
-
-### Syntax
-
-```h1 container service show | --container CONTAINER --service SERVICE```
-### Example
-
-```bash
-h1 container service show --service my-service --container my-container
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--container CONTAINER``` |  | Container ID or name |
-| ```--service SERVICE``` |  | Service for container ID or name |
 
 ## h1 container show
 
@@ -216,52 +177,55 @@ h1 container show --container my-container
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | Container ID or name |
 
-## h1 container ps
+## h1 container create
 
-Process list of container
+container create
 
 ### Syntax
 
-```h1 container ps | --container CONTAINER```
+```h1 container create | --name NAME --image IMAGE --type TYPE [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volumes VOLUMES [--volumes VOLUMES ...]] [--command COMMAND] [--tag TAG [--tag TAG ...]]```
+### Examples
+
+#### Create nginx container
+
+```bash
+h1 container create --name nginx --type container --image nginx --expose 80:80
+```
+
+#### Create container from image stored in private docker registry
+
+```bash
+h1 container create --name nginx --type container --image registry.example.com/my-app --expose80:80 --registry-dockercfg reach
+```
+
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--container CONTAINER``` |  | Container ID or name |
+| ```--name NAME``` |  | Name |
+| ```--image IMAGE``` |  | Image |
+| ```--type TYPE``` |  | Type |
 
-## h1 container attach
-
-Attach to terminal of container
-
-### Syntax
-
-```h1 container attach | --container CONTAINER```
-### Required arguments
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--container CONTAINER``` |  | Container ID or name |
+| ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
+| ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
+| ```--registry-dockercfg``` |  | Use credentials from .dockercfg |
+| ```--expose EXPOSE [--expose EXPOSE ...]``` |  | Mapping port to expose to the world as internal:external. The parameter may occur repeatedly |
+| ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
+| ```--volumes VOLUMES [--volumes VOLUMES ...]``` |  | Attach a volume as volumeId/volumePath:imagePath. The parameter may occur repeatedly |
+| ```--command COMMAND``` |  | Override the default command |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
-## h1 container recreate
+## h1 container log
 
-Recreate container
-
-### Syntax
-
-```h1 container recreate | --container CONTAINER```
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--container CONTAINER``` |  | Container ID or name |
-
-## h1 container recreateHost
-
-RecreateHost container
+Logs of container
 
 ### Syntax
 
-```h1 container recreateHost | --container CONTAINER```
+```h1 container log | --container CONTAINER```
 ### Required arguments
 
 | Name | Default | Description |
@@ -275,6 +239,12 @@ Stop container
 ### Syntax
 
 ```h1 container stop | --container CONTAINER```
+### Example
+
+```
+h1 container stop --agent my-container
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -288,6 +258,12 @@ Restart container
 ### Syntax
 
 ```h1 container restart | --container CONTAINER```
+### Example
+
+```
+h1 container restart --agent my-container
+```
+
 ### Required arguments
 
 | Name | Default | Description |
