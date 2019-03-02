@@ -16,7 +16,7 @@ ava.serial('project life cycle', async t => {
 
     await tests.resourceLifeCycle('project', {
         createParams: createParams,
-        stateCreated: 'Offline',
+        stateCreated: 'Limited',
         skipHistoryCreated: true,
         skipService: true,
         skipTag: true,
