@@ -142,8 +142,8 @@ module.exports = resource => Cli.createCommand('create', {
             }),
             expose: args.expose.map(p => {
                 const parts = p.split(':');
-                const internal = parseInt(parts[0]);
-                const external = parseInt(parts[1] || parts[1]);
+                const internal = parseInt(parts[1] || parts[0]);
+                const external = parseInt(parts[0]);
                 return {
                     internal: `${internal}/tcp`,
                     external: `${external}/tcp`,
