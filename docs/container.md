@@ -10,6 +10,7 @@
   * [h1 container start](#h1-container-start) - Start container
   * [h1 container show](#h1-container-show) - Show container
   * [h1 container create](#h1-container-create) - container create
+  * [h1 container attach](#h1-container-attach) - Attach to terminal of container
   * [h1 container log](#h1-container-log) - Logs of container
   * [h1 container stop](#h1-container-stop) - Stop container
   * [h1 container restart](#h1-container-restart) - Restart container
@@ -218,6 +219,25 @@ h1 container create --name nginx --type container --image registry.example.com/m
 | ```--volumes VOLUMES [--volumes VOLUMES ...]``` |  | Attach a volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
 | ```--command COMMAND``` |  | Override the default command |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 container attach
+
+Attach to terminal of container
+
+### Syntax
+
+```h1 container attach | --container CONTAINER```
+### Example
+
+```
+h1 container attach --agent my-container
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--container CONTAINER``` |  | Container ID or name |
 
 ## h1 container log
 
