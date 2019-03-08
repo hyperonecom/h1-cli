@@ -213,9 +213,9 @@ h1 container create --name nginx --type container --image registry.example.com/m
 | ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
 | ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
 | ```--registry-dockercfg``` |  | Use credentials from .dockercfg |
-| ```--expose EXPOSE [--expose EXPOSE ...]``` |  | Mapping port to expose to the world as internal:external. The parameter may occur repeatedly |
+| ```--expose EXPOSE [--expose EXPOSE ...]``` |  | Mapping port to expose to the world as external:internal. The parameter may occur repeatedly |
 | ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
-| ```--volumes VOLUMES [--volumes VOLUMES ...]``` |  | Attach a volume as volumeId/volumePath:imagePath. The parameter may occur repeatedly |
+| ```--volumes VOLUMES [--volumes VOLUMES ...]``` |  | Attach a volume ass volumeId/volumePath:containerPath. The parameter may occur repeatedly |
 | ```--command COMMAND``` |  | Override the default command |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
@@ -225,7 +225,7 @@ Logs of container
 
 ### Syntax
 
-```h1 container log | --container CONTAINER```
+```h1 container log | --container CONTAINER [--follow]```
 ### Example
 
 ```
@@ -237,6 +237,12 @@ h1 container log --agent my-container
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | Container ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--follow``` |  | Output current messages in real time as they arrive |
 
 ## h1 container stop
 
