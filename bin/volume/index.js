@@ -9,6 +9,7 @@ const resource = {
     url: () => 'volume',
     plugins: genericDefaults.plugins,
     extraCommands: ['resize'],
+    earlyAdoptersOnly: true,
     title: 'volume',
 };
 

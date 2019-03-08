@@ -10,7 +10,6 @@
   * [h1 container start](#h1-container-start) - Start container
   * [h1 container show](#h1-container-show) - Show container
   * [h1 container create](#h1-container-create) - container create
-  * [h1 container attach](#h1-container-attach) - Attach to terminal of container
   * [h1 container log](#h1-container-log) - Logs of container
   * [h1 container stop](#h1-container-stop) - Stop container
   * [h1 container restart](#h1-container-restart) - Restart container
@@ -25,6 +24,10 @@
 ## h1 container
 
 Manage your container
+
+### Note
+
+The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
 
 ## h1 container service
 
@@ -184,7 +187,7 @@ container create
 
 ### Syntax
 
-```h1 container create | --name NAME --image IMAGE --type TYPE [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volumes VOLUMES [--volumes VOLUMES ...]] [--command COMMAND] [--tag TAG [--tag TAG ...]]```
+```h1 container create | --name NAME --image IMAGE --type TYPE [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volume VOLUME [--volume VOLUME ...]] [--command COMMAND] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create nginx container
@@ -216,28 +219,9 @@ h1 container create --name nginx --type container --image registry.example.com/m
 | ```--registry-dockercfg``` |  | Use credentials from .dockercfg |
 | ```--expose EXPOSE [--expose EXPOSE ...]``` |  | Mapping port to expose to the world as external:internal. The parameter may occur repeatedly |
 | ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
-| ```--volumes VOLUMES [--volumes VOLUMES ...]``` |  | Attach a volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
+| ```--volume VOLUME [--volume VOLUME ...]``` |  | Attach a volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
 | ```--command COMMAND``` |  | Override the default command |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 container attach
-
-Attach to terminal of container
-
-### Syntax
-
-```h1 container attach | --container CONTAINER```
-### Example
-
-```
-h1 container attach --agent my-container
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--container CONTAINER``` |  | Container ID or name |
 
 ## h1 container log
 
@@ -245,7 +229,7 @@ Logs of container
 
 ### Syntax
 
-```h1 container log | --container CONTAINER [--follow]```
+```h1 container log | --container CONTAINER [--follow] [--log-file LOG-FILE]```
 ### Example
 
 ```
@@ -263,6 +247,7 @@ h1 container log --agent my-container
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--follow``` |  | Output current messages in real time as they arrive |
+| ```--log-file LOG-FILE``` |  | Path of output .jsonl file (disables all format option; default: stdout) |
 
 ## h1 container stop
 
