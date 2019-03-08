@@ -215,7 +215,7 @@ h1 container create --name nginx --type container --image registry.example.com/m
 | ```--registry-dockercfg``` |  | Use credentials from .dockercfg |
 | ```--expose EXPOSE [--expose EXPOSE ...]``` |  | Mapping port to expose to the world as external:internal. The parameter may occur repeatedly |
 | ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
-| ```--volumes VOLUMES [--volumes VOLUMES ...]``` |  | Attach a volume ass volumeId/volumePath:containerPath. The parameter may occur repeatedly |
+| ```--volumes VOLUMES [--volumes VOLUMES ...]``` |  | Attach a volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
 | ```--command COMMAND``` |  | Override the default command |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 

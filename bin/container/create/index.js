@@ -40,7 +40,7 @@ const options = {
         defaultValue: false,
     },
     expose: {
-        description: 'Mapping port to expose to the world as internal:external',
+        description: 'Mapping port to expose to the world as external:internal',
         type: 'string',
         action: 'append',
         defaultValue: [],
@@ -54,7 +54,7 @@ const options = {
         required: false,
     },
     volumes: {
-        description: 'Attach a volume as volumeId/volumePath:imagePath',
+        description: 'Attach a volume as volumeId/volumePath:containerPath',
         type: 'string',
         action: 'append',
         defaultValue: [],
@@ -142,11 +142,11 @@ module.exports = resource => Cli.createCommand('create', {
             }),
             expose: args.expose.map(p => {
                 const parts = p.split(':');
-                const internal = parseInt(parts[1] || parts[0]);
                 const external = parseInt(parts[0]);
+                const internal = parseInt(parts[1] || parts[0]);
                 return {
-                    internal: `${internal}/tcp`,
                     external: `${external}/tcp`,
+                    internal: `${internal}/tcp`,
                 };
             }),
             tag: require('lib/tags').createTagObject(args.tag),
