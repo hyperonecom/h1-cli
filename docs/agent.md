@@ -10,6 +10,9 @@
   * [h1 agent suspend](#h1-agent-suspend) - Suspend Agent
   * [h1 agent show](#h1-agent-show) - Show Agent
   * [h1 agent list](#h1-agent-list) - List Agent
+  * [h1 agent resource](#h1-agent-resource) - Manage your Resource of Agent
+    * [h1 agent resource list](#h1-agent-resource-list) - List Resource of Agent
+    * [h1 agent resource inspect](#h1-agent-resource-inspect) - Inspect of Resource of Agent
   * [h1 agent enabled-service](#h1-agent-enabled-service) - Manage your enabled service
     * [h1 agent enabled-service add](#h1-agent-enabled-service-add) - Add enabled service
     * [h1 agent enabled-service list](#h1-agent-enabled-service-list) - List enabled service
@@ -215,6 +218,49 @@ List Agent
 ```bash
 h1 agent list
 ```
+
+## h1 agent resource
+
+Manage your Resource of Agent
+
+## h1 agent resource list
+
+List Resource of Agent
+
+### Syntax
+
+```h1 agent resource list | --agent AGENT```
+### Example
+
+```bash
+h1 agent resource list
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent resource inspect
+
+Inspect of Resource of Agent
+
+### Syntax
+
+```h1 agent resource inspect | --agent AGENT --resource RESOURCE```
+### Example
+
+```bash
+h1 agent resource inspect --resource my-resource --source-file ./my-resource.vhdx
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--resource RESOURCE``` |  | Resource of Agent ID or name |
 
 ## h1 agent enabled-service
 
