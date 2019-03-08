@@ -53,7 +53,7 @@ const options = {
         defaultValue: [],
         required: false,
     },
-    volumes: {
+    volume: {
         description: 'Attach a volume as volumeId/volumePath:containerPath',
         type: 'string',
         action: 'append',
@@ -130,7 +130,7 @@ module.exports = resource => Cli.createCommand('create', {
             service: args.type,
             env: args.env,
             command: args.command,
-            volumes: args.volumes.map(v => {
+            volumes: args.volume.map(v => {
                 const [sourceFull, target] = v.split(':');
                 const [source, ...sourcePath] = sourceFull.split('/');
 

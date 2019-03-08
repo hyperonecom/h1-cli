@@ -11,6 +11,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,image:image,state:state }',
     url: () => 'container',
     plugins: genericDefaults.plugins,
+    earlyAdoptersOnly: true,
     title: 'container',
 };
 
@@ -32,7 +33,7 @@ const childDefault = Object.assign({}, resource, {
 });
 
 // category.addChild(require('./ps')(childDefault));
-category.addChild(require('./attach')(childDefault));
+// category.addChild(require('./attach')(childDefault));
 category.addChild(require('./log')(childDefault));
 const actionDefault = Object.assign({}, resource, childDefault, {
     dirname: `${__dirname}/action`,
