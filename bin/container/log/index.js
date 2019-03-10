@@ -1,6 +1,7 @@
 'use strict';
 const Cli = require('lib/cli');
 const fs = require('fs');
+const request = require('superagent');
 
 const options = {
     follow: {
@@ -22,21 +23,22 @@ module.exports = resource => Cli.createCommand('log', {
     handler: async args => {
         if (args.follow) {
             console.log('Get WS url!');
-            const resp = await args.helpers.api
-                .head(`${resource.url(args)}/log`, {})
-                .query({ws: 1})
-                .redirects(0)
-                .ok(res => res.status < 400);
-            const ws = await args.helpers.api.getWS(resp.headers.location, '');
+            const url = await args.helpers.api
+                .redirect_url(`${resource.url(args)}/log`, {ws: 1});
+            const ws = await args.helpers.api.getWS(url, '');
             return new Promise((resolve, reject) => {
                 ws.on('message', msg => args['log-file'].write(msg));
                 ws.on('close', resolve);
                 ws.on('error', reject);
             });
         }
-        return args.helpers.api.api('GET', `${resource.url(args)}/log`).buffer(false)
-            .then(resp => resp.pipe(args['log-file']))
-            .then(() => {
-            });
+        const url = await args.helpers.api
+            .redirect_url(`${resource.url(args)}/log`);
+        await new Promise(async (resolve, reject) => request
+            .get(url)
+            .buffer(false)
+            .on('end', resolve)
+            .on('error', reject)
+            .pipe(args['log-file']));
     },
 });

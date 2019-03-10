@@ -45,7 +45,7 @@ ava.serial('container log', async t => {
         const dnsName = `${container._id}.container.${container.project}.pl-waw-1.hyperone.cloud`;
         const token = await tests.getToken();
         const fileName = await tests.randomFileName();
-        await request.get(`http://${dnsName}/?${token}`);
+        await request.get(`http://${dnsName}/`).query({token});
         await tests.run(`container log --container ${container.name} --log-file ${fileName}`);
         const content = await readFile(fileName, {encoding: 'utf-8'});
         t.true(content.includes(token));
@@ -57,7 +57,7 @@ ava.serial('container log', async t => {
 ava.serial('container create with volume', async t => {
     const volume = await tests.run(`volume create --name ${tests.getName(t.title, 'volume')} --type volume --size 1`);
     try {
-        const container = await tests.run(`container create -v --name ${tests.getName(t.title)} ${createParams} --expose 80:80 --volume ${volume._id}/path:/usr/share/nginx/html`);
+        const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams} --expose 80:80 --volume ${volume._id}/path:/usr/share/nginx/html`);
         try {
             const dnsName = `${container._id}.container.${container.project}.pl-waw-1.hyperone.cloud`;
             const res = await request.get(`http://${dnsName}/`).ok(res => res.status === 403);
