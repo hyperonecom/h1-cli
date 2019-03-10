@@ -19,9 +19,8 @@ ava.serial('container life cycle', tests.resourceLifeCycle('container', {
     skipOpenApi: true,
 }));
 
-ava.serial('container start stop restart', async t => {
+ava.serial('container start stop', async t => {
     const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams}`);
-
     try {
         await tests.run(`container stop --container ${container.name}`);
         const container_stop = await tests.run(`container show --container ${container.name}`);
@@ -30,7 +29,15 @@ ava.serial('container start stop restart', async t => {
         await tests.run(`container start --container ${container.name}`);
         const container_start = await tests.run(`container show --container ${container.name}`);
         t.true(container_start.state === 'Running');
+    } finally {
+        await tests.remove('container', container);
+    }
+});
 
+
+ava.serial('container restart', async t => {
+    const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams}`);
+    try {
         await tests.run(`container restart --container ${container.name}`);
         const container_restart = await tests.run(`container show --container ${container.name}`);
         t.true(container_restart.state === 'Running');
@@ -38,6 +45,7 @@ ava.serial('container start stop restart', async t => {
         await tests.remove('container', container);
     }
 });
+
 
 ava.serial('container log', async t => {
     const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams} --expose 80:80`);
