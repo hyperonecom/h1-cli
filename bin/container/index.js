@@ -29,7 +29,6 @@ const childDefault = Object.assign({}, resource, {
     },
     url: args => `${resource.url(args)}/${args[resource.name]}`,
     // dirname: __dirname,
-
 });
 
 // category.addChild(require('./ps')(childDefault));
