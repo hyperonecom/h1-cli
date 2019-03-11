@@ -16,7 +16,6 @@ const createParams = '--image nginx --type container';
 ava.serial('container life cycle', tests.resourceLifeCycle('container', {
     createParams: `--name ${name} ${createParams}`,
     stateCreated: 'Running',
-    skipOpenApi: true,
 }));
 
 ava.serial('container start stop', async t => {

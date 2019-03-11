@@ -7,5 +7,10 @@ module.exports = resource => Cli.createCommand('attach', {
     dirname: __dirname,
     plugins: resource.plugins,
     options: resource.options,
-    handler: args => websocketTerminal(`/container/${args.container}/attach`),
+    handler: args => args.helpers.api
+        .redirect_url(`${resource.url(args)}/attach`, {ws:1})
+        .then(url => {
+            console.log(url);
+            return websocketTerminal(url, '');
+        }),
 });
