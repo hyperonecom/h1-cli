@@ -77,7 +77,7 @@ const sendMail = async (config, success, report) => {
 
     const keywordsWhiteList = [
         ' bin ', ' tests ', 'text: ', 'statusCode: ', 'exited with a non-zero exit',
-        'message: ', 'schemaPath: ', 'dataPath: ',
+        'message: ', 'schemaPath: ', 'dataPath: ', 'Process timed out after ',
     ];
     const keywordsBlackList = ['  ✔ '];
     const subject = success ? 'Monitoring success report' : 'Monitoring failed report';
