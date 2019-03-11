@@ -2,10 +2,13 @@
 const mailer = require('nodemailer');
 const childProcess = require('child_process');
 const shell_quote = require('shell-quote');
-
 require('../scope/h1');
 process.env[`${process.env.SCOPE_NAME.toUpperCase()}_EARLY_ADOPTERS`] = '1';
 const tests = require('../lib/tests');
+const fg = require('fast-glob');
+const util = require('util');
+const fs = require('fs');
+const mkDir = util.promisify(fs.mkdir);
 
 const getConfigValue = (name, options = {}) => {
     if (!process.env[name] && typeof options.defaultValue === 'undefined') {
@@ -15,6 +18,7 @@ const getConfigValue = (name, options = {}) => {
     const fn = options.parse || (v => v);
     return fn(process.env[name] || options.defaultValue);
 };
+
 
 const getConfig = () => {
     const specs = {
@@ -45,6 +49,10 @@ const getConfig = () => {
             label: 'Recipients of progress notification',
             parse: v => v.split(',').filter(x => !!x),
             defaultValue: '',
+        },
+        MONITORING_GLOB: {
+            label: 'Pattern to match test case files',
+            defaultValue: './bin/**/tests.js',
         },
         MONITORING_CMD: {
             label: 'Monitored executable',
@@ -78,6 +86,7 @@ const sendMail = async (config, success, report) => {
     const keywordsWhiteList = [
         ' bin ', ' tests ', 'text: ', 'statusCode: ', 'exited with a non-zero exit',
         'message: ', 'schemaPath: ', 'dataPath: ', 'Process timed out after ',
+        'tests.js',
     ];
     const keywordsBlackList = ['  ✔ '];
     const subject = success ? 'Monitoring success report' : 'Monitoring failed report';
@@ -137,43 +146,53 @@ const runProcess = async (cmd, env = {}, timeout = 60 * 30) => new Promise((reso
     });
 
     proc.stdout.on('data', (data) => {
-        console.log(`${data}`);
+        process.stdout.write(data);
         output += data;
     });
 
     proc.stderr.on('data', (data) => {
-        console.error(`${data}`);
+        process.stderr.write(data);
         output += data;
     });
 });
-
+const runIsolated = async (config, cmd, options={}) => {
+    const project = options.project || config.H1_PROJECT_MASTER;
+    const env = options.env || {};
+    const config_dir = `/tmp/${Math.random()}/`;
+    await mkDir(config_dir);
+    const envIsolate = Object.assign({}, env, {H1_CONFIG_PATH: config_dir});
+    await runProcess(`h1 login --username ${config.H1_USER} --password ${config.H1_PASSWORD}`, envIsolate);
+    await runProcess(`h1 project select --project ${project}`, envIsolate);
+    return runProcess(cmd, envIsolate, config.MONITORING_TIMEOUT);
+};
 
 const main = async () => {
     const config = getConfig();
-
     const versionText = `NodeJS version: ${process.version}`;
 
-    try {
-        let output = await runProcess(`h1 login --username ${config.H1_USER} --password ${config.H1_PASSWORD}`);
-        output += await runProcess(`h1 project select --project ${config.H1_PROJECT_MASTER}`);
-        output += await runProcess(config.MONITORING_CMD, {}, config.MONITORING_TIMEOUT);
-        await sendMail(config, true, `${versionText}\n${output}`);
-    } catch (err) {
-        await sendMail(config, false, `${versionText}\n${err.message}\n${err.output}\n${err.message}`);
-    }
-    for (const p of [
-        runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT_MASTER}),
-        runProcess('./scripts/cleanup_project.sh', {H1_PROJECT: config.H1_PROJECT_SLAVE}),
-        runProcess(`./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_MASTER}`),
-        runProcess(`./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_SLAVE}`),
-    ]) {
-        try {
-            await p;
-        } catch (err) {
-            // This is just cleaning. If fails if there is no resources to clean up.
-        }
-    }
+    const files = await fg(config.MONITORING_GLOB);
 
+    let all_pass = true;
+    const runTest = async test_path => {
+        let output = `== ${test_path} ==\n`;
+        try {
+            output+= await runIsolated(config, `${config.MONITORING_CMD} ${test_path}`);
+        } catch (err) {
+            all_pass = false;
+            output += `${err.message}\n${err.output}\n${err.message}`;
+        }
+        return output;
+    };
+
+    const outputs = await Promise.all(files.map(runTest));
+    await sendMail(config, all_pass, `${versionText}\n${outputs.join('===\n')}`);
+    const cleanup = [
+        runIsolated(config, './scripts/cleanup_project.sh',  {project: config.H1_PROJECT_MASTER}),
+        runIsolated(config, './scripts/cleanup_project.sh', {project: config.H1_PROJECT_SLAVE}),
+        runIsolated(config, `./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_MASTER}`),
+        runIsolated(config, `./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_SLAVE}`),
+    ];
+    await Promise.all(cleanup.map(p => p.catch(() => {})));
 };
 
 main().catch((err) => {

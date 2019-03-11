@@ -45,6 +45,16 @@ ava.serial('container restart', async t => {
     }
 });
 
+ava.serial('container process list', async t => {
+    const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams}`);
+    try {
+        await tests.run(`container process list --container ${container.name}`);
+        const ps = await tests.run(`container process list --container ${container.name}`);
+        t.true(ps.length > 1);
+    } finally {
+        await tests.remove('container', container);
+    }
+});
 
 ava.serial('container log', async t => {
     const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams} --expose 80:80`);
