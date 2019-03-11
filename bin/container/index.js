@@ -31,8 +31,8 @@ const childDefault = Object.assign({}, resource, {
     // dirname: __dirname,
 });
 
-// category.addChild(require('./ps')(childDefault));
-// category.addChild(require('./attach')(childDefault));
+category.addChild(require('./attach')(childDefault));
+category.addChild(require('./process')(childDefault));
 category.addChild(require('./log')(childDefault));
 const actionDefault = Object.assign({}, resource, childDefault, {
     dirname: `${__dirname}/action`,

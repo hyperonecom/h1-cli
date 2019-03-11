@@ -129,7 +129,6 @@ module.exports = resource => Cli.createCommand('create', {
             image: args.image,
             service: args.type,
             env: args.env,
-            command: args.command,
             volumes: args.volume.map(v => {
                 const [sourceFull, target] = v.split(':');
                 const [source, ...sourcePath] = sourceFull.split('/');
@@ -154,6 +153,10 @@ module.exports = resource => Cli.createCommand('create', {
 
         if (registry) {
             body.registry = registry;
+        }
+
+        if (args.command) {
+            body.command = args.command;
         }
 
         return args.helpers.api
