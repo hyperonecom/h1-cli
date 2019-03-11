@@ -84,9 +84,17 @@ const sendMail = async (config, success, report) => {
     const recipient = success ? config.MONITORING_SUCCESS_EMAILS : config.MONITORING_EMAILS;
 
     const keywordsWhiteList = [
-        ' bin ', ' tests ', 'text: ', 'statusCode: ', 'exited with a non-zero exit',
-        'message: ', 'schemaPath: ', 'dataPath: ', 'Process timed out after ',
-        'tests.js',
+        // useful ava exception & result
+        ' bin ', ' tests ', ' test ', 'text: ', 'statusCode: ',
+        'message: ', 'schemaPath: ', 'dataPath: ',
+        // ava process error
+        'exited with a non-zero exit',
+        // own error
+        'Process exited with code ',  'Process timed out after ',
+        // header of files
+        'tests.js ==',
+        // CLI
+        'error: ',
     ];
     const keywordsBlackList = ['  ✔ '];
     const subject = success ? 'Monitoring success report' : 'Monitoring failed report';
@@ -128,7 +136,7 @@ const runProcess = async (cmd, env = {}, timeout = 60 * 30) => new Promise((reso
 
     const killer = setTimeout(() => {
         proc.kill();
-        const error = new Error(`Process timed out after ${timeout} seconds.`);
+        const error = new Error(`Process ${arg[0]} timed out after ${timeout} seconds.`);
         error.output = output;
         return reject(error);
     }, timeout * 1000);
@@ -137,7 +145,7 @@ const runProcess = async (cmd, env = {}, timeout = 60 * 30) => new Promise((reso
         clearTimeout(killer);
 
         if (code !== 0) {
-            const error = new Error(`Process exited with code ${code}`);
+            const error = new Error(`Process ${arg[0]} exited with code ${code}.`);
             error.code = code;
             error.output = output;
             return reject(error);
@@ -179,13 +187,13 @@ const main = async () => {
             output+= await runIsolated(config, `${config.MONITORING_CMD} ${test_path}`);
         } catch (err) {
             all_pass = false;
-            output += `${err.message}\n${err.output}\n${err.message}`;
+            output += `${err.message}\n${err.output}\n${err.message}\n`;
         }
         return output;
     };
 
     const outputs = await Promise.all(files.map(runTest));
-    await sendMail(config, all_pass, `${versionText}\n${outputs.join('===\n')}`);
+    await sendMail(config, all_pass, `${versionText}\n${outputs.join('\n')}`);
     const cleanup = [
         runIsolated(config, './scripts/cleanup_project.sh',  {project: config.H1_PROJECT_MASTER}),
         runIsolated(config, './scripts/cleanup_project.sh', {project: config.H1_PROJECT_SLAVE}),
