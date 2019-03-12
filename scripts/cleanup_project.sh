@@ -6,7 +6,7 @@ PROJECT=${H1_PROJECT:-$1}
 SKIPPED_CREDENTIALS=${H1_USER_CREDENTIALS:--}
 
 [ -z "$PROJECT" ] && {
-    echo "Missing argument or environment variable H1_PROJECT"; exit -1;
+    echo "Missing argument or environment variable H1_PROJECT"; exit 64;
 }
 
 h1 vm           list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 vm          delete --yes --vm
