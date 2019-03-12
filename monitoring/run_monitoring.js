@@ -87,6 +87,8 @@ const sendMail = async (config, success, report) => {
         // useful ava exception & result
         ' bin ', ' tests ', ' test ', 'text: ', 'statusCode: ',
         'message: ', 'schemaPath: ', 'dataPath: ',
+        // ava test result
+        ' ◌ ', ' ✖ ',
         // ava process error
         'exited with a non-zero exit',
         // own error
