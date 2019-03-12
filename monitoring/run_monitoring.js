@@ -165,10 +165,9 @@ const runProcess = async (cmd, env = {}, timeout = 60 * 30) => new Promise((reso
 });
 const runIsolated = async (config, cmd, options={}) => {
     const project = options.project || config.H1_PROJECT_MASTER;
-    const env = options.env || {};
     const config_dir = `/tmp/${Math.random()}/`;
     await mkDir(config_dir);
-    const envIsolate = Object.assign({}, env, {H1_CONFIG_PATH: config_dir});
+    const envIsolate = {H1_CONFIG_PATH: config_dir};
     await runProcess(`h1 login --username ${config.H1_USER} --password ${config.H1_PASSWORD}`, envIsolate);
     await runProcess(`h1 project select --project ${project}`, envIsolate);
     return runProcess(cmd, envIsolate, config.MONITORING_TIMEOUT);
@@ -195,8 +194,8 @@ const main = async () => {
     const outputs = await Promise.all(files.map(runTest));
     await sendMail(config, all_pass, `${versionText}\n${outputs.join('\n')}`);
     const cleanup = [
-        runIsolated(config, './scripts/cleanup_project.sh',  {project: config.H1_PROJECT_MASTER}),
-        runIsolated(config, './scripts/cleanup_project.sh', {project: config.H1_PROJECT_SLAVE}),
+        runIsolated(config, `./scripts/cleanup_project.sh ${config.H1_PROJECT_MASTER}`),
+        runIsolated(config, `./scripts/cleanup_project.sh ${config.H1_PROJECT_SLAVE}`),
         runIsolated(config, `./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_MASTER}`),
         runIsolated(config, `./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_SLAVE}`),
     ];
