@@ -1,15 +1,16 @@
 # TOC
 
-  * [h1 container service](#h1-container-service) - Manage your services of container
-    * [h1 container service list](#h1-container-service-list) - List service for container
-    * [h1 container service show](#h1-container-service-show) - Show service for container
+  * [h1 container create](#h1-container-create) - Create container
   * [h1 container list](#h1-container-list) - List container
   * [h1 container delete](#h1-container-delete) - Delete container
   * [h1 container history](#h1-container-history) - History of container
   * [h1 container rename](#h1-container-rename) - Rename container
   * [h1 container start](#h1-container-start) - Start container
+  * [h1 container service](#h1-container-service) - Manage your services of container
+    * [h1 container service list](#h1-container-service-list) - List service for container
+    * [h1 container service show](#h1-container-service-show) - Show service for container
   * [h1 container show](#h1-container-show) - Show container
-  * [h1 container create](#h1-container-create) - container create
+  * [h1 container attach](#h1-container-attach) - Attach to terminal of container
   * [h1 container process](#h1-container-process) - Manage your process in container
     * [h1 container process list](#h1-container-process-list) - List process in container
   * [h1 container log](#h1-container-log) - Logs of container
@@ -31,48 +32,47 @@ Manage your container
 
 The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
 
-## h1 container service
+## h1 container create
 
-Manage your services of container
-
-## h1 container service list
-
-List service for container
+Create container
 
 ### Syntax
 
-```h1 container service list | --container CONTAINER```
-### Example
+```h1 container create | --name NAME --image IMAGE --type TYPE [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volume VOLUME [--volume VOLUME ...]] [--command COMMAND] [--tag TAG [--tag TAG ...]]```
+### Examples
+
+#### Create nginx container
 
 ```bash
-h1 container service list --container test-container
+h1 container create --name nginx --type container --image nginx --expose 80:80
+```
+
+#### Create container from image stored in private docker registry
+
+```bash
+h1 container create --name nginx --type container --image registry.example.com/my-app --expose 80:80 --registry-dockercfg reach
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--container CONTAINER``` |  | Container ID or name |
+| ```--name NAME``` |  | Name |
+| ```--image IMAGE``` |  | Image |
+| ```--type TYPE``` |  | Type |
 
-## h1 container service show
-
-Show service for container
-
-### Syntax
-
-```h1 container service show | --container CONTAINER --service SERVICE```
-### Example
-
-```bash
-h1 container service show --service my-service --container my-container
-```
-
-### Required arguments
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--container CONTAINER``` |  | Container ID or name |
-| ```--service SERVICE``` |  | Service for container ID or name |
+| ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
+| ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
+| ```--registry-dockercfg``` |  | Use credentials from .dockercfg |
+| ```--expose EXPOSE [--expose EXPOSE ...]``` |  | Mapping port to expose to the world as external:internal. The parameter may occur repeatedly |
+| ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
+| ```--volume VOLUME [--volume VOLUME ...]``` |  | Attach a volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
+| ```--command COMMAND``` |  | Override the default command |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 container list
 
@@ -164,6 +164,49 @@ h1 container start --agent my-container
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | Container ID or name |
 
+## h1 container service
+
+Manage your services of container
+
+## h1 container service list
+
+List service for container
+
+### Syntax
+
+```h1 container service list | --container CONTAINER```
+### Example
+
+```bash
+h1 container service list --container test-container
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--container CONTAINER``` |  | Container ID or name |
+
+## h1 container service show
+
+Show service for container
+
+### Syntax
+
+```h1 container service show | --container CONTAINER --service SERVICE```
+### Example
+
+```bash
+h1 container service show --service my-service --container my-container
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--container CONTAINER``` |  | Container ID or name |
+| ```--service SERVICE``` |  | Service for container ID or name |
+
 ## h1 container show
 
 Show container
@@ -183,47 +226,24 @@ h1 container show --container my-container
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | Container ID or name |
 
-## h1 container create
+## h1 container attach
 
-container create
+Attach to terminal of container
 
 ### Syntax
 
-```h1 container create | --name NAME --image IMAGE --type TYPE [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volume VOLUME [--volume VOLUME ...]] [--command COMMAND] [--tag TAG [--tag TAG ...]]```
-### Examples
+```h1 container attach | --container CONTAINER```
+### Example
 
-#### Create nginx container
-
-```bash
-h1 container create --name nginx --type container --image nginx --expose 80:80
 ```
-
-#### Create container from image stored in private docker registry
-
-```bash
-h1 container create --name nginx --type container --image registry.example.com/my-app --expose 80:80 --registry-dockercfg reach
+h1 container attach --agent my-container
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name |
-| ```--image IMAGE``` |  | Image |
-| ```--type TYPE``` |  | Type |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
-| ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
-| ```--registry-dockercfg``` |  | Use credentials from .dockercfg |
-| ```--expose EXPOSE [--expose EXPOSE ...]``` |  | Mapping port to expose to the world as external:internal. The parameter may occur repeatedly |
-| ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
-| ```--volume VOLUME [--volume VOLUME ...]``` |  | Attach a volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
-| ```--command COMMAND``` |  | Override the default command |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--container CONTAINER``` |  | Container ID or name |
 
 ## h1 container process
 

@@ -116,7 +116,7 @@ const getRegistry = async args => {
 };
 
 module.exports = resource => Cli.createCommand('create', {
-    description: `${resource.title} create`,
+    description: `Create ${resource.title}`,
     plugins: resource.plugins,
     genericOptions: ['tag'],
     options: Object.assign({}, options, resource.options),
