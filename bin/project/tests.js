@@ -177,6 +177,7 @@ const dateDiffMinutes = (date1, date2) => {
     return Math.abs((date1 - date2) / 1000 / 60 / 60);
 };
 
+
 ava.serial('project notification credits integration test', async t => {
     // The total execution time of test should not exceed 300 seconds (5 minutes).
     // Now the maximum timeout is 20 * 1 + 15 * 10 = 20 + 150 = 170
@@ -189,7 +190,7 @@ ava.serial('project notification credits integration test', async t => {
     const limit = credits - 0.01;
 
     await tests.run(`project notification credits add ${commonParams} --limit ${limit}`);
-    const disk = await tests.run(`disk create --name ${tests.getName('credits-apply')} --type ssd --size 20`);
+    await tests.run(`reservation create --name ${tests.getName(t.title)} --type '_dev.pico, 1 day'`);
     let charged = false;
     const charge_timeout = 60;
     for (let i = 0; i < charge_timeout; i++) {
@@ -204,7 +205,6 @@ ava.serial('project notification credits integration test', async t => {
     }
     t.true(charged, `Timeout ${charge_timeout} seconds to apply charges.`);
     await tests.run(`project notification credits delete ${commonParams} --limit ${limit}`);
-    await tests.remove('disk', disk);
 
     const month = new Date().toLocaleString('en-us', {month: 'long'});
     const day = new Date().getDay();
