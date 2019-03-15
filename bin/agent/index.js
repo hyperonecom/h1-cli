@@ -30,6 +30,7 @@ const credential_type = ['certificate'];
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
+category.addChild(require('bin/generic/inspect')(resource));
 category.addChild(require('./resource')(actionDefault));
 
 category.addChild(require('../generic/credential')(resource, credential_type));

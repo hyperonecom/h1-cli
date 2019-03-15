@@ -17,14 +17,13 @@ const resource = {
 
 const childDefaults = Object.assign({}, resource, {
     options: {
-        vm: {
+        [resource.name]: {
             description: `${text.toTitleCase(resource.title)} ID or name`,
             type: 'string',
             required: true,
-            dest: 'id',
         },
     },
-    url: args => `${resource.url(args)}/${args.id}`,
+    url: args => `${resource.url(args)}/${args[resource.name]}`,
     dirname: __dirname,
 });
 
