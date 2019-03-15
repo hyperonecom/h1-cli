@@ -1,18 +1,20 @@
 # TOC
 
   * [h1 agent create](#h1-agent-create) - Create Agent
-  * [h1 agent service](#h1-agent-service) - Manage your services of Agent
-    * [h1 agent service list](#h1-agent-service-list) - List service for Agent
-    * [h1 agent service show](#h1-agent-service-show) - Show service for Agent
+  * [h1 agent list](#h1-agent-list) - List Agent
   * [h1 agent delete](#h1-agent-delete) - Delete Agent
   * [h1 agent history](#h1-agent-history) - History of Agent
   * [h1 agent rename](#h1-agent-rename) - Rename Agent
   * [h1 agent suspend](#h1-agent-suspend) - Suspend Agent
+  * [h1 agent service](#h1-agent-service) - Manage your services of Agent
+    * [h1 agent service list](#h1-agent-service-list) - List service for Agent
+    * [h1 agent service show](#h1-agent-service-show) - Show service for Agent
   * [h1 agent show](#h1-agent-show) - Show Agent
-  * [h1 agent list](#h1-agent-list) - List Agent
+  * [h1 agent inspect](#h1-agent-inspect) - Inspect of Agent
   * [h1 agent resource](#h1-agent-resource) - Manage your Resource of Agent
     * [h1 agent resource list](#h1-agent-resource-list) - List Resource of Agent
     * [h1 agent resource inspect](#h1-agent-resource-inspect) - Inspect of Resource of Agent
+    * [h1 agent resource recreate](#h1-agent-resource-recreate) - Recreate Resource of Agent
   * [h1 agent enabled-service](#h1-agent-enabled-service) - Manage your enabled service
     * [h1 agent enabled-service add](#h1-agent-enabled-service-add) - Add enabled service
     * [h1 agent enabled-service list](#h1-agent-enabled-service-list) - List enabled service
@@ -67,48 +69,18 @@ h1 agent create --name my-agent --type container --ssh-file ./id_rsa.pub
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
-## h1 agent service
+## h1 agent list
 
-Manage your services of Agent
-
-## h1 agent service list
-
-List service for Agent
+List Agent
 
 ### Syntax
 
-```h1 agent service list | --agent AGENT```
+```h1 agent list | ```
 ### Example
 
 ```bash
-h1 agent service list --agent test-agent
+h1 agent list
 ```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-
-## h1 agent service show
-
-Show service for Agent
-
-### Syntax
-
-```h1 agent service show | --agent AGENT --service SERVICE```
-### Example
-
-```bash
-h1 agent service show --service my-service --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--service SERVICE``` |  | Service for Agent ID or name |
 
 ## h1 agent delete
 
@@ -187,6 +159,49 @@ h1 agent suspend --agent my-agent
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
 
+## h1 agent service
+
+Manage your services of Agent
+
+## h1 agent service list
+
+List service for Agent
+
+### Syntax
+
+```h1 agent service list | --agent AGENT```
+### Example
+
+```bash
+h1 agent service list --agent test-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent service show
+
+Show service for Agent
+
+### Syntax
+
+```h1 agent service show | --agent AGENT --service SERVICE```
+### Example
+
+```bash
+h1 agent service show --service my-service --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--service SERVICE``` |  | Service for Agent ID or name |
+
 ## h1 agent show
 
 Show Agent
@@ -206,18 +221,24 @@ h1 agent show --agent my-agent
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
 
-## h1 agent list
+## h1 agent inspect
 
-List Agent
+Inspect of Agent
 
 ### Syntax
 
-```h1 agent list | ```
+```h1 agent inspect | --agent AGENT```
 ### Example
 
 ```bash
-h1 agent list
+h1 agent inspect --agent my-agent --source-file ./my-agent.vhdx
 ```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
 
 ## h1 agent resource
 
@@ -253,6 +274,26 @@ Inspect of Resource of Agent
 
 ```bash
 h1 agent resource inspect --resource my-resource --source-file ./my-resource.vhdx
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--resource RESOURCE``` |  | Resource of Agent ID or name |
+
+## h1 agent resource recreate
+
+Recreate Resource of Agent
+
+### Syntax
+
+```h1 agent resource recreate | --agent AGENT --resource RESOURCE```
+### Example
+
+```
+h1 agent resource recreate --agent container-agent --resource container-id
 ```
 
 ### Required arguments
