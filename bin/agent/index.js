@@ -10,6 +10,7 @@ const resource = {
     url: () => 'agent',
     plugins: genericDefaults.plugins,
     extraCommands: [],
+    earlyAdoptersOnly: true,
     title: 'Agent',
 };
 
