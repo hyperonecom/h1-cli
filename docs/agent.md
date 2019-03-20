@@ -39,6 +39,10 @@
 
 Manage your Agent
 
+### Note
+
+The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
+
 ## h1 agent create
 
 Create Agent
