@@ -22,7 +22,6 @@ module.exports = resource => Cli.createCommand('log', {
     options: Object.assign({}, options, resource.options),
     handler: async args => {
         if (args.follow) {
-            console.log('Get WS url!');
             const url = await args.helpers.api
                 .redirect_url(`${resource.url(args)}/log`, {ws: 1});
             const ws = await args.helpers.api.getWS(url, '');
@@ -34,7 +33,7 @@ module.exports = resource => Cli.createCommand('log', {
         }
         const url = await args.helpers.api
             .redirect_url(`${resource.url(args)}/log`);
-        await new Promise(async (resolve, reject) => request
+        await new Promise((resolve, reject) => request
             .get(url)
             .buffer(false)
             .on('end', resolve)
