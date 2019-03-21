@@ -19,7 +19,7 @@ module.exports = (resource) => Cli.createCommand('userdata', {
     options: Object.assign({}, resource.options, options),
     params: resource.params,
     handler: args => fs.getFileContent(args['userdata-file'])
-        .then(content => args.helpers.api.patch(`vm/${args.id}`, {
+        .then(content => args.helpers.api.patch(`vm/${args[resource.name]}`, {
             userMetadata: content.toString('base64'),
         }))
         .then(result => args.helpers.sendOutput(args, result)),

@@ -18,7 +18,7 @@ module.exports = (resource) => Cli.createCommand('rename', {
     params: resource.params,
     dirname: __dirname,
     handler: args => args.helpers.api
-        .post(`vm/${args.id}/actions`, {
+        .post(`vm/${args[resource.name]}/actions`, {
             name: 'rename',
             data: {
                 newname: args['new-name'],
