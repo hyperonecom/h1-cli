@@ -18,11 +18,7 @@ module.exports = resource => {
     return Cli.createCommand('delete', {
         description: `Delete ${resource.title}`,
         dirname: __dirname,
-        plugins: [
-            require('bin/_plugins/loginRequired'),
-            require('bin/_plugins/outputFormat'),
-            require('bin/_plugins/api'),
-        ],
+        plugins: resource.plugins,
         resource: resource,
         options: Object.assign({}, resource.options, options),
         handler: args => args.helpers.api
