@@ -11,7 +11,7 @@ const tests = require('../../lib/tests');
 const now = Date.now();
 
 const name = `container-test-${now}`;
-const createParams = '--image nginx --type container';
+const createParams = '--image nginx --type b1.nano';
 
 ava.serial('container life cycle', tests.resourceLifeCycle('container', {
     createParams: `--name ${name} ${createParams}`,

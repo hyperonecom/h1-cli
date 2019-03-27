@@ -139,13 +139,13 @@ module.exports = resource => Cli.createCommand('create', {
                     target,
                 };
             }),
-            expose: args.expose.map(p => {
-                const parts = p.split(':');
-                const external = parseInt(parts[0]);
-                const internal = parseInt(parts[1] || parts[0]);
+            expose: args.expose.map(x => {
+                const [start, protocol] = x.split('/');
+                const [internal, external] = start.split(':');
                 return {
-                    external: `${external}/tcp`,
-                    internal: `${internal}/tcp`,
+                    internal: internal,
+                    external: external || internal,
+                    protocol: protocol || 'tcp',
                 };
             }),
             tag: require('lib/tags').createTagObject(args.tag),
