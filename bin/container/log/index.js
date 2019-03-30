@@ -9,7 +9,7 @@ const options = {
         type: 'boolean',
     },
     'log-file': {
-        description: 'Path of output .jsonl file (disables all format option; default: stdout)',
+        description: 'Path of output log file',
         type: path => fs.createWriteStream(path),
         defaultValue: process.stdout,
     },
