@@ -13,6 +13,10 @@ const options = {
         type: 'string',
         defaultValue: '1',
     },
+    follow: {
+        description: 'Output current messages in real time as they arrive',
+        type: 'boolean',
+    },
 };
 
 module.exports = resource => Cli.createCommand('log', {
@@ -20,8 +24,17 @@ module.exports = resource => Cli.createCommand('log', {
     plugins: resource.plugins,
     params: resource.params,
     options: Object.assign({}, resource.options, options),
-    handler: handler,
     dirname: __dirname,
+    handler: async args => {
+        if (args.follow) {
+            const vm = await args.helpers.api.get(`vm/${args.vm}`);
+            const ws = await args.helpers.api.getWS(`/vm/${vm._id}/serialport/${args.port}`);
+            return new Promise((resolve, reject) => {
+                ws.on('message', msg => process.stdout.write(msg));
+                ws.on('close', resolve);
+                ws.on('error', reject);
+            });
+        }
+        return args.helpers.api.get(`/vm/${args.vm}/serialport/${args.port}`);
+    },
 });
-
-const handler = args => args.helpers.api.get(`/vm/${args.vm}/serialport/${args.port}`);

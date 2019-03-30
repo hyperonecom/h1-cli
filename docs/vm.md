@@ -966,7 +966,7 @@ Log Serial Console buffer of virtual machine
 
 ### Syntax
 
-```h1 vm serialport log | --vm VM [--port PORT]```
+```h1 vm serialport log | --vm VM [--port PORT] [--follow]```
 ### Example
 
 ```bash
@@ -984,6 +984,7 @@ h1 vm serialport log --vm test-vm
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--port PORT``` |  | Port to connect |
+| ```--follow``` |  | Output current messages in real time as they arrive |
 
 ## h1 vm metrics
 

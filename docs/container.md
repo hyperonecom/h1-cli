@@ -296,7 +296,7 @@ h1 container log --agent my-container
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--follow``` |  | Output current messages in real time as they arrive |
-| ```--log-file LOG-FILE``` |  | Path of output .jsonl file (disables all format option; default: stdout) |
+| ```--log-file LOG-FILE``` |  | Path of output log file |
 
 ## h1 container stop
 
