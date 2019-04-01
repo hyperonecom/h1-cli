@@ -1,4 +1,5 @@
 'use strict';
+const text = require('lib/text');
 
 const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
@@ -16,6 +17,22 @@ const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
 category.addChild(require('./list')(resource));
-category.addChild(require('./disk')(resource));
+
+const childDefaults = Object.assign({}, resource, {
+    options: {
+        [resource.name]: {
+            description: `${text.toTitleCase(resource.title)} ID or name`,
+            type: 'string',
+            required: true,
+        },
+    },
+    url: args => `${resource.url(args)}/${args[resource.name]}`,
+    dirname: __dirname,
+    context: {
+        downloadParams: `--${resource.name} my-${resource.name}`,
+    },
+});
+
+category.addChild(require('./disk')(childDefaults));
 
 module.exports = category;

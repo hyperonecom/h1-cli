@@ -14,7 +14,10 @@
     * [h1 image access revoke](#h1-image-access-revoke) - Revoke access rights for image
     * [h1 image access list](#h1-image-access-list) - List of access rights for image
   * [h1 image create](#h1-image-create) - Create image
-  * [h1 image disk](#h1-image-disk) - List all disks of image
+  * [h1 image disk](#h1-image-disk) - Manage your disk of image
+    * [h1 image disk show](#h1-image-disk-show) - Show disk of image
+    * [h1 image disk list](#h1-image-disk-list) - List disk of image
+    * [h1 image disk download](#h1-image-disk-download) - Download disk of image to a .vhdx file
   * [h1 image tag](#h1-image-tag) - Manage your tag
     * [h1 image tag list](#h1-image-tag-list) - List tag
     * [h1 image tag add](#h1-image-tag-add) - Add a tag to image
@@ -288,15 +291,19 @@ h1 image create --vm test-vm --name dev-image
 
 ## h1 image disk
 
-List all disks of image
+Manage your disk of image
+
+## h1 image disk show
+
+Show disk of image
 
 ### Syntax
 
-```h1 image disk | --image IMAGE```
+```h1 image disk show | --image IMAGE --disk DISK```
 ### Example
 
 ```bash
-h1 image disk --image dev-image
+h1 image disk show --disk my-disk
 ```
 
 ### Required arguments
@@ -304,6 +311,53 @@ h1 image disk --image dev-image
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
+| ```--disk DISK``` |  | Disk of image ID or name |
+
+## h1 image disk list
+
+List disk of image
+
+### Syntax
+
+```h1 image disk list | --image IMAGE```
+### Example
+
+```bash
+h1 image disk list
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
+
+## h1 image disk download
+
+Download disk of image to a .vhdx file
+
+### Syntax
+
+```h1 image disk download | --image IMAGE --disk DISK --destination-file DESTINATION-FILE [--no-progress]```
+### Example
+
+```bash
+h1 image disk download --disk db-disk --destination-file ./my-disk.vhdx --image my-image
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
+| ```--disk DISK``` |  | Disk of image ID or name |
+| ```--destination-file DESTINATION-FILE``` |  | Path to .vhdx file to save |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--no-progress``` |  | Disable progress bar |
 
 ## h1 image tag
 

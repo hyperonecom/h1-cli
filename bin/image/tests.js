@@ -40,10 +40,26 @@ ava.serial('image rename', async t => {
     }
 });
 
+ava.serial('image disk download', async t => {
+    const common = await getCommon(t);
+    try {
+        const image = await tests.run(`image create --vm ${common.vm._id} --name ${tests.getName(t.title)}`);
+        const disks = await tests.run(`image disk list --image ${image._id}`);
+        t.true(disks.length > 0);
+        await tests.run(`image disk show --image ${image._id} --disk ${disks[0]._id}`);
+        const filename = tests.randomFileName();
+        await tests.run(`image disk download --image ${image._id} --disk ${disks[0]._id} --destination-file ${filename}`);
+        const disk = await tests.run(`disk create --namee ${tests.getName(t.title)} --source-file ${filename}`);
+        await tests.remove('image', image);
+        await tests.remove('disk', disk);
+    } finally {
+        await common.cleanup();
+    }
+});
+
 for (const [name, project] of Object.entries(tests.access_test_case)) {
     ava.serial(`image access: ${name}`, async t => {
         const common = await getCommon(t);
-        console.log({vm: common.vm});
         try {
             await tests.resourceAccessCycle('image', project, `--vm ${common.vm._id} --name ${tests.getName(t.title)}`)(t);
         } finally {
