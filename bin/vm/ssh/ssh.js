@@ -28,25 +28,11 @@ module.exports = resource => Cli.createCommand('ssh', {
     options: Object.assign({}, resource.options, options),
     handler: async args => {
         const vm = await args.helpers.api.get(resource.url(args));
-
-        let netadps = await args.helpers.api.get(`${resource.url(args)}/netadp`);
-
-        netadps = netadps.filter(item => item.ip.length > 0);
-
-        if (args.private) {
-            netadps = netadps.filter(item => item.network.type === 'private');
-        }
-
-        if (netadps.length < 1) {
-            throw Cli.error.notFound('No network interfaces with defined ip found for VM');
-        }
-
-        const netadp = netadps.find(item => item.network && item.network.type === 'public') || netadps[0];
-
         const username = args.username || vm.data.username || 'guru';
+        const address = `${vm._id}.vm.${vm.project}.pl-waw-1.hyperone.cloud`;
 
         const sshArgs = [
-            `${username}@${netadp.ip[0].address}`,
+            `${username}@${address}`,
         ];
 
         if (args.port) {
