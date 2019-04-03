@@ -38,7 +38,6 @@ const options = {
         description: 'ISO ID or name',
         type: 'string',
     },
-
     'os-disk-name': {
         description: 'OS disk name',
         type: 'string',
