@@ -144,6 +144,7 @@ const getLatestImapMessageDate = (query, options) => new Promise((resolve, rejec
                 const f = imap.fetch(results, {
                     bodies: ['HEADER.FIELDS (DATE)'],
                 });
+
                 f.on('message', msg => {
                     msg.once('body', stream => {
                         let buffer = '';
@@ -190,42 +191,45 @@ ava.serial('project notification credits integration test', async t => {
     const limit = credits - 0.01;
 
     await tests.run(`project notification credits add ${commonParams} --limit ${limit}`);
-    await tests.run(`reservation create --name ${tests.getName(t.title)} --type '_dev.pico, 1 day'`);
-    let charged = false;
-    const charge_timeout = 60;
-    for (let i = 0; i < charge_timeout; i++) {
-        await tests.delay(1000); // to apply charges from the queue
-        const charged_project = await tests.run(`project show ${commonParams}`);
-        const charged_credits = charged_project.billing.credits;
-        if (credits !== charged_credits) {
-            console.log(`Hit limit ${limit} after charged from ${credits} to ${charged_credits}`);
-            charged = true;
-            break;
+    try {
+        await tests.run(`reservation create --name ${tests.getName(t.title)} --type '_dev.pico, 1 day'`);
+        let charged = false;
+        const charge_timeout = 60;
+        for (let i = 0; i < charge_timeout; i++) {
+            await tests.delay(1000); // to apply charges from the queue
+            const charged_project = await tests.run(`project show ${commonParams}`);
+            const charged_credits = charged_project.billing.credits;
+            if (credits !== charged_credits) {
+                console.log(`Hit limit ${limit} after charged from ${credits} to ${charged_credits}`);
+                charged = true;
+                break;
+            }
         }
-    }
-    t.true(charged, `Timeout ${charge_timeout} seconds to apply charges.`);
-    await tests.run(`project notification credits delete ${commonParams} --limit ${limit}`);
+        t.true(charged, `Timeout ${charge_timeout} seconds to apply charges.`);
 
-    const month = new Date().toLocaleString('en-us', {month: 'long'});
-    const day = new Date().getDay();
-    const year = new Date().getMonth();
-    const query = ['ALL',
-        ['SINCE', `${month} ${day}, ${year}`],
-        ['SUBJECT', 'Osiągnięty próg środków'],
-    ];
+        const month = new Date().toLocaleString('en-us', {month: 'long'});
+        const day = new Date().getDay();
+        const year = new Date().getMonth();
+        const query = ['ALL',
+            ['SINCE', `${month} ${day}, ${year}`],
+            ['SUBJECT', 'Osiągnięty próg środków'],
+        ];
 
-    const options = getImapOptions(process.env.IMAP_URL);
+        const options = getImapOptions(process.env.IMAP_URL);
 
-    let received_mail = false;
-    for (let i = 0; i < 10; i++) {
-        await tests.delay(15 * 1000); // to delivery messages to mailbox
-        const latest_date = await getLatestImapMessageDate(query, options);
-        if (dateDiffMinutes(new Date(), new Date(latest_date)) < 5) {
-            received_mail = true;
-            break;
+        let received_mail = false;
+        for (let i = 0; i < 10; i++) {
+            await tests.delay(15 * 1000); // to delivery messages to mailbox
+            const latest_date = await getLatestImapMessageDate(query, options);
+            if (dateDiffMinutes(new Date(), new Date(latest_date)) < 5) {
+                received_mail = true;
+                break;
+            }
         }
+        t.true(received_mail, `Timeout ${15 * 10} seconds to receive mail.`);
+    } finally {
+        await tests.run(`project notification credits delete ${commonParams} --limit ${limit}`);
     }
-    t.true(received_mail, `Timeout ${15 * 10} seconds to receive mail.`);
 });
 
 ava.serial('project token access life cycle', async t => {
