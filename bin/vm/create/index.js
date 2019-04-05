@@ -54,10 +54,10 @@ const options = {
         description: 'OS disk: [name,] type, size',
         type: 'string',
     },
-
     network: {
         description: 'Network ID or name to attach',
         type: 'string',
+        ignoringScope: ['RBX'],
     },
     ip: {
         description: 'IP address for Virtual machine',
