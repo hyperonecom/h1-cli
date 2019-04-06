@@ -7,7 +7,6 @@ const options = {
     'ptr-record': {
         description: 'Value of PTR record',
         type: 'string',
-        required: true,
     },
 };
 
