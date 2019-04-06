@@ -182,7 +182,7 @@ Create IP address
 
 ### Syntax
 
-```h1 ip create | [--tag TAG [--tag TAG ...]]```
+```h1 ip create | [--ptr-record PTR-RECORD] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create a new public IP
@@ -195,6 +195,7 @@ h1 ip create
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--ptr-record PTR-RECORD``` |  | Value of PTR record |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 ip associate
