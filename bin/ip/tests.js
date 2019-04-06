@@ -20,6 +20,13 @@ ava.serial('ip ptr update', async t => {
     await tests.remove('ip', updated_ip);
 });
 
+ava.serial('ip create with initial ptr', async t => {
+    const ip = await tests.run('ip create --ptr-record mail.host.example.com');
+    t.true(ip.ptrRecord === 'mail.host.example.com');
+    await tests.remove('ip', ip);
+});
+
+
 ava.serial('ip associate & disassociate', async t => {
     const ip = await tests.run('ip create');
 
