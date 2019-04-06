@@ -10,10 +10,10 @@
     * [h1 network service show](#h1-network-service-show) - Show service for network
   * [h1 network create](#h1-network-create) - Create network
   * [h1 network ip](#h1-network-ip) - Manage your IP address
-    * [h1 network ip list](#h1-network-ip-list) - List IP address
     * [h1 network ip show](#h1-network-ip-show) - Show IP address
     * [h1 network ip delete](#h1-network-ip-delete) - Delete IP address
     * [h1 network ip create](#h1-network-ip-create) - Create IP address
+    * [h1 network ip list](#h1-network-ip-list) - List IP address
     * [h1 network ip service](#h1-network-ip-service) - Manage your services of IP address
       * [h1 network ip service list](#h1-network-ip-service-list) - List service for IP address
       * [h1 network ip service show](#h1-network-ip-service-show) - Show service for IP address
@@ -205,25 +205,6 @@ h1 network create --name my-ip-network --address 10.214.180.0/24 --gateway 10.21
 
 Manage your IP address
 
-## h1 network ip list
-
-List IP address
-
-### Syntax
-
-```h1 network ip list | --network NETWORK```
-### Example
-
-```bash
-h1 network ip list
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--network NETWORK``` |  | Network name or ID |
-
 ## h1 network ip show
 
 Show IP address
@@ -297,6 +278,25 @@ h1 network ip create --name my-ip-network --address 10.214.180.10
 | ---- | ------- | ----------- |
 | ```--address ADDRESS``` |  | IP address |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 network ip list
+
+List IP address
+
+### Syntax
+
+```h1 network ip list | --network NETWORK```
+### Example
+
+```bash
+h1 network ip list
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network name or ID |
 
 ## h1 network ip service
 
