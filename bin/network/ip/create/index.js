@@ -19,6 +19,7 @@ module.exports = resource => Cli.createCommand('create', {
     handler: (args) => {
         const body = {
             tag: require('lib/tags').createTagObject(args.tag),
+            network: args.network,
         };
 
         if (args.address) {
@@ -26,7 +27,7 @@ module.exports = resource => Cli.createCommand('create', {
         }
 
         return args.helpers.api
-            .post(`network/${args.network}/ip`, body)
+            .post('ip', body)
             .then(result => args.helpers.sendOutput(args, result));
     },
 });

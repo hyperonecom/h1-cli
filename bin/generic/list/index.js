@@ -7,6 +7,6 @@ module.exports = resource => Cli.createCommand('list', {
     dirname: __dirname,
     resource: resource,
     handler: args => args.helpers.api
-        .get(args.$node.parent.config.url(args))
+        .get(resource.url(args))
         .then(result => args.helpers.sendOutput(args, result)),
 });
