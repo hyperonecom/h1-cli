@@ -25,11 +25,10 @@ module.exports = resource => Cli.createCommand('dynamic-dns', {
 
         args.zone = addTrailingDot(args.zone);
         const name = formatRecordName(args.name, args.zone);
-        const url = `${args.$node.parent.config.url(args)}/${name}/ddns`;
+        const url = `${resource.url(args)}/${name}/ddns`;
 
         return args.helpers.api
             .put(url, {})
             .then(result => args.helpers.sendOutput(args, result));
-
     },
 });
