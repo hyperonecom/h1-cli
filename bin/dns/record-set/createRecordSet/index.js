@@ -19,30 +19,26 @@ const options = {
     },
 };
 
-const handleCreate = args => {
-
-    const url = args.$node.parent.config.url(args);
-
-    args.zone = addTrailingDot(args.zone);
-
-
-    const data = {
-        name: formatRecordName(args.name, args.zone),
-        ttl: args.ttl,
-        records: args.values.map(value => ({ content: value, disabled: false })),
-    };
-
-    return args.helpers.api
-        .post(url, data)
-        .then(result => args.helpers.sendOutput(args, result))
-    ;
-};
-
 module.exports = (resource) => Cli.createCommand('create', {
     dirname: __dirname,
     description: 'Create record-set',
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options, recordOptions),
-    handler: handleCreate,
     resource: resource,
+    handler: args => {
+        args.zone = addTrailingDot(args.zone);
+
+        const data = {
+            name: formatRecordName(args.name, args.zone),
+            ttl: args.ttl,
+            records: args.values.map(value => ({
+                content: value,
+                disabled: false,
+            })),
+        };
+
+        return args.helpers.api
+            .post(resource.url(args), data)
+            .then(result => args.helpers.sendOutput(args, result));
+    },
 });

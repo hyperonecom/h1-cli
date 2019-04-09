@@ -6,24 +6,6 @@ const addTrailingDot = require('../../lib').addTrailingDot;
 const formatRecordName = require('../../lib').formatRecordName;
 const recordOptions = require('../common').recordOptions;
 
-const handleDeleteRecord = args => {
-
-    args.zone = addTrailingDot(args.zone);
-    const name = formatRecordName(args.name, args.zone);
-    const url = `${args.$node.parent.config.url(args)}/${name}`;
-
-    return args.helpers.api
-        .get(url)
-        .then(rset => {
-            rset.records = rset.records.filter(record => !args.values.includes(record.content));
-
-            return args.helpers.api
-                .patch(url, rset)
-                .then(result => args.helpers.sendOutput(args, result))
-            ;
-        });
-};
-
 const options = {
     name: {
         description: 'Record Set name',
@@ -38,6 +20,16 @@ module.exports = (resource) => Cli.createCommand('delete-record', {
     description: 'Delete record',
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options, recordOptions),
-    handler: handleDeleteRecord,
     resource: resource,
+    handler: async args => {
+        args.zone = addTrailingDot(args.zone);
+        const name = formatRecordName(args.name, args.zone);
+        const url = `${resource.url(args)}/${name}`;
+        const rset = await args.helpers.api.get(url);
+        rset.records = rset.records.filter(record => !args.values.includes(record.content));
+
+        return args.helpers.api
+            .patch(url, rset)
+            .then(result => args.helpers.sendOutput(args, result));
+    },
 });

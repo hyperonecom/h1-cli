@@ -41,16 +41,16 @@ const category = (resource) => {
     return category;
 };
 
-const record = (type, resource) => {
+const record = (type, parent) => {
     const category = Cli.createCategory(type, {
         description: `Manage record set type ${type.toUpperCase()}`,
         defaultQuery: `[?type=='${type.toUpperCase()}'][].{name:name, type:type, ttl:ttl, records:join(',',records[].content)}`,
-        url: args => `${resource.url(args)}/rrsets/${type.toUpperCase()}`,
     });
 
-    resource = Object.assign({}, resource, {
+    const resource = Object.assign({}, parent, {
         title: `Record ${type.toUpperCase()}`,
-        context: Object.assign({}, resource.context, {
+        url: args => `${parent.url(args)}/rrsets/${type.toUpperCase()}`,
+        context: Object.assign({}, parent.context, {
             listParams: '--zone my-zone',
             dns_type: type,
             dns_value: recordTypes[type].value,
