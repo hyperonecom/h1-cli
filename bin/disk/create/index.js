@@ -15,16 +15,20 @@ const options = {
         required: true,
     },
     type: {
-        description: 'Disk type ID or name',
+        description: 'Disk type ID or name. Required if no source disk is specified',
         type: 'string',
-        required: true,
     },
     size: {
-        description: 'Disk size in GiB. Required if no source file is specified',
+        description: 'Disk size in GiB. Required if no source file and no disk is specified',
         type: 'int',
     },
     'source-file': {
         description: 'Path to .vhdx file to import',
+        type: 'string',
+        required: false,
+    },
+    'source-disk': {
+        description: 'Source disk name or ID used during cloning',
         type: 'string',
         required: false,
     },
@@ -42,6 +46,14 @@ module.exports = resource => Cli.createCommand('create', {
     plugins: resource.plugins,
     options: options,
     handler: async args => {
+        if (args.type === null && !args['source-disk']) {
+            throw Cli.error.cancelled('The \'--type\' parameter is required if no source disk is specified');
+        }
+
+        if (args.size === null && !args['source-file'] && !args['source-disk']) {
+            throw Cli.error.cancelled('The \'--size\' parameter is required if no source file is specified');
+        }
+
         const body = {
             name: args.name,
             service: args.type,
@@ -49,8 +61,15 @@ module.exports = resource => Cli.createCommand('create', {
             tag: require('lib/tags').createTagObject(args.tag),
         };
 
-        if (args.size === null && !args['source-file']) {
-            throw Cli.error.cancelled('The \'--size\' parameter is required if no source file is specified');
+        if (args['source-disk']) {
+            body.source = args['source-disk'];
+            const source = await args.helpers.api.get(`${resource.url(args)}/${args['source-disk']}`);
+            if (!body.size) {
+                body.size = source.size;
+            }
+            if (!body.service) {
+                body.service = source.type;
+            }
         }
 
         if (args['source-file']) {
