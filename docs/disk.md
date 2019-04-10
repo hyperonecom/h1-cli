@@ -145,7 +145,7 @@ Create disk
 
 ### Syntax
 
-```h1 disk create | --name NAME --type TYPE [--size SIZE] [--source-file SOURCE-FILE] [--no-progress] [--tag TAG [--tag TAG ...]]```
+```h1 disk create | --name NAME [--type TYPE] [--size SIZE] [--source-file SOURCE-FILE] [--source-disk SOURCE-DISK] [--no-progress] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create 10 GB SSD disk
@@ -160,19 +160,26 @@ h1 disk create --name db-disk --type ssd --size 10
 h1 disk create --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
 ```
 
+#### Clone disk
+
+```bash
+h1 disk create --name new-disk --source-disk existing-disk
+```
+
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Disk name |
-| ```--type TYPE``` |  | Disk type ID or name |
 
 ### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--size SIZE``` |  | Disk size in GiB. Required if no source file is specified |
+| ```--type TYPE``` |  | Disk type ID or name. Required if no source disk is specified |
+| ```--size SIZE``` |  | Disk size in GiB. Required if no source file and no disk is specified |
 | ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
+| ```--source-disk SOURCE-DISK``` |  | Source disk name or ID used during cloning |
 | ```--no-progress``` |  | Disable progress bar |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 

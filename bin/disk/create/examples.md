@@ -9,3 +9,9 @@
 ```bash
 {{command_name}} --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
 ```
+
+# Clone disk
+
+```bash
+{{command_name}} --name new-disk --source-disk existing-disk
+```

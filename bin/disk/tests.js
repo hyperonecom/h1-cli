@@ -8,6 +8,7 @@ const ava = require('ava');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
+const ssh = require('../../lib/ssh');
 
 const now = Date.now();
 
@@ -65,3 +66,34 @@ ava.serial('disk resize', tests.resourceResizeCycle('disk', {
 ava.serial('disk transfer', tests.transferLifeCycle('disk', {
     createParams: `--name disk-test-${now} --size 1 --type ssd`,
 }));
+
+['offline', 'online'].forEach(mode => {
+    ava.serial(`disk create from other disk - ${mode}`, async t => {
+        const osDisk = tests.getName('os-disk', t.title);
+        const cloneDisk = tests.getName('disk-clone', t.title);
+        const testFilePath = `~/${tests.getName('consistency-test')}.txt`;
+        const sshKeyPair = await ssh.generateKey();
+        const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
+
+        const vm = await tests.run(`vm create --name ${tests.getName(t.title)} --os-disk ${osDisk},ssd,10 --type a1.nano --image debian --ssh-file ${sshFilename}`);
+        const consistent_content = await tests.getToken();
+        await ssh.execVm(vm, {privateKey: sshKeyPair.privateKey}, `echo '${consistent_content}' > ${testFilePath}; sync;`);
+        if (mode === 'offline') {
+            await tests.run(`vm stop  --vm ${vm._id}`);
+        }
+        await tests.run(`disk create --name ${cloneDisk} --source-disk ${osDisk}`);
+        if (mode === 'online') {
+            await tests.run(`vm stop  --vm ${vm._id}`);
+        }
+        await tests.run(`vm disk detach --disk ${osDisk} --vm ${vm._id}`);
+        await tests.run(`vm disk attach --disk ${cloneDisk} --vm ${vm._id}`);
+        await tests.run(`vm start --vm ${vm._id}`);
+        const readable_content = await ssh.execVm(vm, {privateKey: sshKeyPair.privateKey},  `cat ${testFilePath}`);
+
+        t.true(readable_content.trim() === consistent_content.trim());
+
+        await tests.remove('vm', vm);
+        await tests.remove('disk', cloneDisk);
+        await tests.remove('disk', osDisk);
+    });
+});

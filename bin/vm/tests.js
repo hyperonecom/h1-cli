@@ -6,7 +6,6 @@ const fs = require('fs');
 require('../../scope/h1');
 const tests = require('../../lib/tests');
 const ssh = require('../../lib/ssh');
-
 const now = Date.now();
 
 const getCommon = async (test_name, options = {}) => {
@@ -99,7 +98,7 @@ ava.serial('vm usermetadata execute in cloud-init', async t => {
 
     fs.unlinkSync(tmp_file);
 
-    const content = await sshVm(vm, {password: common.password}, `cat ${remote_tmp_path}`);
+    const content = await ssh.execVm(vm, {password: common.password}, `cat ${remote_tmp_path}`);
     t.true(content === token);
     await common.cleanup();
 });
@@ -249,21 +248,15 @@ ava.serial('vm serialport log', async t => {
     await common.cleanup();
 });
 
-const sshVm = (vm, auth, command) => ssh.execute(command, Object.assign({
-    host: vm.fqdn,
-    username: 'guru',
-    readyTimeout: 5 * 1000,
-}, auth));
-
 function round_step(value, step = 0.5) {
     const inv = 1.0 / step;
     return Math.round(value * inv) / inv;
 }
 
 async function verify_vm_size_match(t, vm, password) {
-    t.true(parseInt(await sshVm(vm, {password}, 'nproc')) === vm.cpu,
+    t.true(parseInt(await ssh.execVm(vm, {password}, 'nproc')) === vm.cpu,
         'The number of processors does not match the number declared');
-    const content = await sshVm(vm, {password}, 'cat /proc/meminfo');
+    const content = await ssh.execVm(vm, {password}, 'cat /proc/meminfo');
     const memory_kb = content.match(/MemTotal:\s+([0-9]+)\s+/)[1];
     const memory_gb = round_step(parseInt(memory_kb) / 10 ** 6);
     t.true(memory_gb === vm.memory,
@@ -306,7 +299,7 @@ ava.serial('vm service change', async t => {
 
         const vm = await tests.run(`vm create ${common.params.createParams} --ssh ${ssh_name}`);
 
-        const content = await sshVm(vm, {privateKey: sshKeyPair.privateKey}, 'uptime');
+        const content = await ssh.execVm(vm, {privateKey: sshKeyPair.privateKey}, 'uptime');
         t.true(content.includes('load average'));
         fs.unlinkSync(sshFilename);
 
