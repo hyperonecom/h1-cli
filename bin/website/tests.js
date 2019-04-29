@@ -54,6 +54,21 @@ ava.serial('website put index via SFTP & password', async t => {
     await tests.remove('website', website);
 });
 
+ava.serial('website reachable through custom domain', async t => {
+    const domain = getDomain(t.title);
+    const password = await tests.getToken();
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${domain} ${commonCreateParams} --password ${password}`);
+    // Upload file
+    const token = await tests.getToken();
+    await putFileWebsite(website, {password}, '/public/index.html', token);
+
+    // TODO: Use property from public-API
+    const host = `${website._id}.website.${website.project}.pl-waw-1.hyperone.cloud`;
+    const resp = await request.get(`http://${host}/`).set('Host', domain);
+    t.true(resp.text === token);
+    await tests.remove('website', website);
+});
+
 ava.serial('website put index via SFTP & ssh-key', async t => {
     const sshKeyPair = await ssh.generateKey();
     const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
