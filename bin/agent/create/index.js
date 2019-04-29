@@ -1,7 +1,6 @@
 'use strict';
 
 const Cli = require('lib/cli');
-const fs = require('lib/fs');
 
 const options = {
     name: {
@@ -25,6 +24,7 @@ const options = {
         action: 'append',
         description: 'Read SSH key from file',
         type: 'string',
+        defaultValue: [],
     },
 };
 
@@ -32,34 +32,17 @@ const options = {
 module.exports = resource => Cli.createCommand('create', {
     description: `Create ${resource.title}`,
     plugins: resource.plugins,
-    genericOptions: ['tag'],
+    genericOptions: ['tag', 'ssh'],
     dirname: __dirname,
     priority: 25,
     options: Object.assign({}, options, resource.options),
     handler: async args => {
-        const certificates = args.ssh.map(x => ({
-            name: x,
-            type: 'ssh',
-            value: x,
-        }));
-
-        if (args['ssh-file']) {
-            certificates.push(
-                ...await Promise.all(
-                    args['ssh-file'].map(fs.getFileContent)
-                ).then(keys => keys.map(x => x.toString('utf-8')))
-            );
-        }
         const body = {
             name: args.name,
             service: args.type,
             tag: require('lib/tags').createTagObject(args.tag),
-            credential: {
-                certificate: certificates,
-            },
+            credential: await require('lib/credentials').getCredentialCreate(args),
         };
-
-
         return args.helpers.api
             .post(resource.url(args), body)
             .then(result => args.helpers.sendOutput(args, result));
