@@ -94,7 +94,7 @@ Create log archive
 
 ### Syntax
 
-```h1 log create | --name NAME [--tag TAG [--tag TAG ...]]```
+```h1 log create | --name NAME [--tag TAG [--tag TAG ...]] [--password PASSWORD [--password PASSWORD ...]]```
 ### Example
 
 ```bash
@@ -112,6 +112,7 @@ h1 log create --name my-server-log
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. The parameter may occur repeatedly |
 
 ## h1 log service
 
