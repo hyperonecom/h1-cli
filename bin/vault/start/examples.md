@@ -1,3 +1,3 @@
 ```
-{{command_name}} --vault my-valut
+{{command_name}} --vault my-vault
 ```
