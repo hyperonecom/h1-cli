@@ -1,16 +1,17 @@
 # TOC
 
   * [h1 website create](#h1-website-create) - Create website
-  * [h1 website list](#h1-website-list) - List website
-  * [h1 website delete](#h1-website-delete) - Delete website
-  * [h1 website history](#h1-website-history) - History of website
-  * [h1 website rename](#h1-website-rename) - Rename website
-  * [h1 website show](#h1-website-show) - Show website
   * [h1 website service](#h1-website-service) - Manage your services of website
     * [h1 website service list](#h1-website-service-list) - List service for website
     * [h1 website service show](#h1-website-service-show) - Show service for website
-  * [h1 website start](#h1-website-start) - Start website
+  * [h1 website delete](#h1-website-delete) - Delete website
+  * [h1 website history](#h1-website-history) - History of website
+  * [h1 website rename](#h1-website-rename) - Rename website
   * [h1 website stop](#h1-website-stop) - Stop website
+  * [h1 website show](#h1-website-show) - Show website
+  * [h1 website list](#h1-website-list) - List website
+  * [h1 website sftp](#h1-website-sftp) - Connect to website using SFTP
+  * [h1 website start](#h1-website-start) - Start website
   * [h1 website credential](#h1-website-credential) - Manage your credentials to website
     * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to Vault
       * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to Vault
@@ -46,7 +47,7 @@ Create website
 
 ### Syntax
 
-```h1 website create | --name NAME --type TYPE --domain DOMAIN --image IMAGE [--tag TAG [--tag TAG ...]] [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]]```
+```h1 website create | --name NAME --type TYPE --domain DOMAIN [--domain DOMAIN ...] --image IMAGE [--tag TAG [--tag TAG ...]] [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]]```
 ### Examples
 
 #### Create Website with SSH credential
@@ -63,7 +64,7 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Website name |
 | ```--type TYPE``` |  | Type |
-| ```--domain DOMAIN``` |  | Domain name |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
 | ```--image IMAGE``` |  | Website Image |
 
 ### Optional arguments
@@ -75,18 +76,48 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 
-## h1 website list
+## h1 website service
 
-List website
+Manage your services of website
+
+## h1 website service list
+
+List service for website
 
 ### Syntax
 
-```h1 website list | ```
+```h1 website service list | --website WEBSITE```
 ### Example
 
 ```bash
-h1 website list
+h1 website service list --website test-website
 ```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website service show
+
+Show service for website
+
+### Syntax
+
+```h1 website service show | --website WEBSITE --service SERVICE```
+### Example
+
+```bash
+h1 website service show --service my-service --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--service SERVICE``` |  | Service for website ID or name |
 
 ## h1 website delete
 
@@ -146,6 +177,25 @@ h1 website rename --website my-website --new-name my-renamed-website
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
+## h1 website stop
+
+Stop website
+
+### Syntax
+
+```h1 website stop | --website WEBSITE```
+### Example
+
+```
+h1 website stop --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
 ## h1 website show
 
 Show website
@@ -165,21 +215,30 @@ h1 website show --website my-website
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 
-## h1 website service
+## h1 website list
 
-Manage your services of website
-
-## h1 website service list
-
-List service for website
+List website
 
 ### Syntax
 
-```h1 website service list | --website WEBSITE```
+```h1 website list | ```
 ### Example
 
 ```bash
-h1 website service list --website test-website
+h1 website list
+```
+
+## h1 website sftp
+
+Connect to website using SFTP
+
+### Syntax
+
+```h1 website sftp | --website WEBSITE```
+### Example
+
+```
+h1 website sftp --website my-website
 ```
 
 ### Required arguments
@@ -187,26 +246,6 @@ h1 website service list --website test-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-
-## h1 website service show
-
-Show service for website
-
-### Syntax
-
-```h1 website service show | --website WEBSITE --service SERVICE```
-### Example
-
-```bash
-h1 website service show --service my-service --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-| ```--service SERVICE``` |  | Service for website ID or name |
 
 ## h1 website start
 
@@ -219,25 +258,6 @@ Start website
 
 ```
 h1 website start --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-
-## h1 website stop
-
-Stop website
-
-### Syntax
-
-```h1 website stop | --website WEBSITE```
-### Example
-
-```
-h1 website stop --website my-website
 ```
 
 ### Required arguments
