@@ -168,7 +168,7 @@ Stop Vault
 ### Example
 
 ```
-h1 vault stop --vault my-valut
+h1 vault stop --vault my-vault
 ```
 
 ### Required arguments
@@ -308,7 +308,7 @@ Start Vault
 ### Example
 
 ```
-h1 vault start --vault my-valut
+h1 vault start --vault my-vault
 ```
 
 ### Required arguments
