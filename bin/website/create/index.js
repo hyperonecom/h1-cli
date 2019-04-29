@@ -17,6 +17,7 @@ const options = {
         description: 'Domain name',
         type: 'string',
         append: [],
+        action: 'append',
         required: true,
     },
     image: {
