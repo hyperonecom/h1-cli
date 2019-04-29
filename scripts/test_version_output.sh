@@ -9,4 +9,5 @@ if [ "$output" != "$expected_version" ]; then
 	echo "The binary '$BINARY' did not return the correct output of version.";
 	echo "Returned output":
 	echo $output;
+	exit 2
 fi
