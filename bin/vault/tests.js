@@ -26,7 +26,7 @@ const createUserCredentials = async (t) => {
 const sshVault = (vault, secret, cmd) => {
     console.log(new Date().toISOString(), `[vault: ${vault._id}]`, cmd);
     return ssh.execute(cmd, {
-        host: 'vault.pl-waw-1.hyperone.com',
+        host: vault.fqdn,
         username: vault._id,
         password: secret,
     });
@@ -144,7 +144,7 @@ ava.serial('vault credential password life cycle', async t => {
         const vault = await tests.run(`vault create --name ${name} --size 10 --ssh ${ssh_name}`);
 
         const content = await ssh.execute('uptime', {
-            host: 'vault.pl-waw-1.hyperone.com',
+            host: vault.fqdn,
             username: vault._id,
             privateKey: sshKeyPair.privateKey,
         });

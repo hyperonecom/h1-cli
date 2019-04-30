@@ -59,10 +59,9 @@ ava.serial('container process list', async t => {
 ava.serial('container log', async t => {
     const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams} --expose 80:80`);
     try {
-        const dnsName = `${container._id}.container.${container.project}.pl-waw-1.hyperone.cloud`;
         const token = await tests.getToken();
         const fileName = await tests.randomFileName();
-        await request.get(`http://${dnsName}/`).query({token});
+        await request.get(`http://${container.fqdn}/`).query({token});
         await tests.run(`container log --container ${container.name} --log-file ${fileName}`);
         const content = await readFile(fileName, {encoding: 'utf-8'});
         t.true(content.includes(token));
@@ -76,8 +75,7 @@ ava.serial('container create with volume', async t => {
     try {
         const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams} --expose 80:80 --volume ${volume._id}/path:/usr/share/nginx/html`);
         try {
-            const dnsName = `${container._id}.container.${container.project}.pl-waw-1.hyperone.cloud`;
-            const res = await request.get(`http://${dnsName}/`).ok(res => res.status === 403);
+            const res = await request.get(`http://${container.fqdn}/`).ok(res => res.status === 403);
             t.true(res.status === 403);
         } finally {
             await tests.remove('container', container);

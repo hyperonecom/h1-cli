@@ -29,10 +29,9 @@ module.exports = resource => Cli.createCommand('ssh', {
     handler: async args => {
         const vm = await args.helpers.api.get(resource.url(args));
         const username = args.username || vm.data.username || 'guru';
-        const address = `${vm._id}.vm.${vm.project}.pl-waw-1.hyperone.cloud`;
 
         const sshArgs = [
-            `${username}@${address}`,
+            `${username}@${vm.fqdn}`,
         ];
 
         if (args.port) {
