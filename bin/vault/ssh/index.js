@@ -22,10 +22,10 @@ module.exports = resource => Cli.createCommand('ssh', {
     options: Object.assign({}, resource.options, options),
     handler: args => args.helpers.api
         .get(`${resource.url(args)}/${args.vault}`)
-        .then(result => {
+        .then(vault => {
 
             const sshArgs = [
-                `${result._id}@vault.pl-waw-1.hyperone.com`,
+                `${vault._id}@${vault.fqdn}`,
             ];
 
             if (args.command) {
