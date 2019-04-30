@@ -69,7 +69,7 @@ Replace the following values in the example:
 
 * ```{log_id}``` - ID of log. To identify available logs use ```h1 log list```.
 * ```{secret}``` - The password added to given log. See example above how to create a write-only password.
-* ```{region}``` - Resource where resource exists eg. ```pl-waw-1```
+* ```{region}``` - Region where resource exists eg. ```pl-waw-1```
 
 Remember to restart rsyslog:
 
