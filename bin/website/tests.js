@@ -35,8 +35,7 @@ ava.serial('website default page according scope', async t => {
 
 ava.serial('website put index via SFTP & password', async t => {
     const password = await tests.getToken();
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams}`);
-    await tests.run(`website credential password add --website ${website._id} --name ${tests.getName('password', t.title)} --password ${password}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --password ${password}`);
     // Upload file
     const token = await tests.getToken();
     await putFileWebsite(website, {password}, '/public/index.html', token);
