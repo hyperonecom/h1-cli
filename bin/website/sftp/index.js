@@ -19,7 +19,7 @@ module.exports = resource => Cli.createCommand('sftp', {
         .get(`${resource.url(args)}/${args.website}`)
         .then(result => {
             const sshArgs = [
-                `${result._id}@${result._id}.website.${result.project}.pl-waw-1.hyperone.cloud`,
+                `${result._id}@${result.fqdn}`,
             ];
 
             console.log(`sftp ${sshArgs.join(' ')}`);

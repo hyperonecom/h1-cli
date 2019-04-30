@@ -20,21 +20,15 @@ ava.serial('website life cycle', tests.resourceLifeCycle('website', {
 const putFileWebsite = (website, auth, path, content) => {
     console.log(`Upload content to website ${website._id} at '${path}'`);
     return ssh.putFile(path, content, Object.assign({
-        // TODO: Use property from public-API
-        host: `${website._id}.website.${website.project}.pl-waw-1.hyperone.cloud`,
+        host: `${website.fqdn}`,
         username: website._id,
     }, auth));
 };
 
 ava.serial('website default page according scope', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams}`);
-    // TODO: Use property from public-API
-    const domain = `${website._id}.website.${website.project}.pl-waw-1.hyperone.cloud`;
-    const url = `http://${domain}/`;
     // TODO: Validate default page according scope
-    // const resp = await request.get(url);
-    // t.true(resp.text.includes('HyperOne'));
-    const resp = await request.get(url).ok(res => [403, 200].includes(res.status));
+    const resp = await request.get(`http://${website.fqdn}/`).ok(res => [403, 200].includes(res.status));
     t.true(resp.text.includes("You don't have permission to access /"));
     await tests.remove('website', website);
 });
@@ -48,8 +42,7 @@ ava.serial('website put index via SFTP & password', async t => {
     await putFileWebsite(website, {password}, '/public/index.html', token);
 
     // TODO: Use property from public-API
-    const domain = `${website._id}.website.${website.project}.pl-waw-1.hyperone.cloud`;
-    const resp = await request.get(`http://${domain}/`);
+    const resp = await request.get(`http://${website.fqdn}/`);
     t.true(resp.text === token);
     await tests.remove('website', website);
 });
@@ -61,28 +54,25 @@ ava.serial('website reachable through custom domain', async t => {
     // Upload file
     const token = await tests.getToken();
     await putFileWebsite(website, {password}, '/public/index.html', token);
-
-    // TODO: Use property from public-API
-    const host = `${website._id}.website.${website.project}.pl-waw-1.hyperone.cloud`;
-    const resp = await request.get(`http://${host}/`).set('Host', domain);
+    // Test content
+    const resp = await request.get(`http://${website.fqdn}/`).set('Host', domain);
     t.true(resp.text === token);
+
     await tests.remove('website', website);
 });
 
 ava.serial('website put index via SFTP & ssh-key', async t => {
     const sshKeyPair = await ssh.generateKey();
     const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams}`);
-    await tests.run(`website credential cert add --website ${website._id} --name ${tests.getName('cert', t.title)} --sshkey-file ${sshFilename}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --ssh-file ${sshFilename}`);
 
     // Upload file
     const token = await tests.getToken();
     await putFileWebsite(website, {privateKey: sshKeyPair.privateKey}, '/public/index.html', token);
-
-    // TODO: Use property from public-API
-    const domain = `${website._id}.website.${website.project}.pl-waw-1.hyperone.cloud`;
-    const resp = await request.get(`http://${domain}/`);
+    // Test content
+    const resp = await request.get(`http://${website.fqdn}/`);
     t.true(resp.text === token);
+
     await tests.remove('website', website);
 });
 

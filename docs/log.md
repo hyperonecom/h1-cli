@@ -62,13 +62,14 @@ Paste in this configuration:
 ```
 $template HyperOneFormat,"<%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [{log_id}:{secret}@HyperOne tag=\"Rsyslog\"]%msg%\n"
 
-*.* @@{log_id}.log.pl-waw-1.hyperone.com:6514; HyperOneFormat
+*.* @@{log_id}.logarchive.{region}.hyperone.cloud:6514; HyperOneFormat
 ```
 
 Replace the following values in the example:
 
 * ```{log_id}``` - ID of log. To identify available logs use ```h1 log list```.
 * ```{secret}``` - The password added to given log. See example above how to create a write-only password.
+* ```{region}``` - Resource where resource exists eg. ```pl-waw-1```
 
 Remember to restart rsyslog:
 
