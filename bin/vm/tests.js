@@ -303,9 +303,9 @@ ava.serial('vm service change', async t => {
 
         const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${sshFilename}'`);
 
-        await tests.run(`vm create ${common.params.createParams} --ssh ${ssh_name}`);
+        const vm = await tests.run(`vm create ${common.params.createParams} --ssh ${ssh_name}`);
 
-        const content = await sshVm(common.vm, {privateKey: sshKeyPair.privateKey}, 'uptime');
+        const content = await sshVm(vm, {privateKey: sshKeyPair.privateKey}, 'uptime');
         t.true(content.includes('load average'));
         fs.unlinkSync(sshFilename);
 
