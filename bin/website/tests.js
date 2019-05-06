@@ -25,6 +25,14 @@ const putFileWebsite = (website, auth, path, content) => {
     }, auth));
 };
 
+const rmFileWebsite = (website, auth, path) => {
+    console.log(`Remove file of website ${website._id} at '${path}'`);
+    return ssh.rmFile(path, Object.assign({
+        host: `${website.fqdn}`,
+        username: website._id,
+    }, auth));
+};
+
 ava.serial('website default page according scope', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams}`);
     // TODO: Validate default page according scope
@@ -110,4 +118,34 @@ ava.serial('website stop & start', async t => {
     await tests.remove('website', website);
 });
 
+const languages = {
+    php: '<?php error_reporting(E_ALL); file_put_contents("/data/public/test.txt", "TOKEN"); ?>',
+};
+const images = {
+    'quay.io/hyperone/php-apache:7.2': {
+        code: languages.php,
+    },
+    'quay.io/hyperone/php-apache:5.6': {
+        code: languages.php,
+    },
+};
+
+ava.serial('website runtime access rights match of sftp', async t => {
+    const image = 'quay.io/hyperone/php-apache:7.2';
+    const password = await tests.getToken();
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --password ${password}`);
+    // Put code on website
+    const token = await tests.getToken();
+    const content = images[image].code.replace('TOKEN', token);
+    await putFileWebsite(website, {password}, '/public/test.php', content);
+    // Call script
+    const resp_call = await request.get(`http://${website.fqdn}/test.php`);
+    t.true(resp_call.text === '');
+    // Verify content
+    const resp_test = await request.get(`http://${website.fqdn}/test.txt`);
+    t.true(resp_test.text === token);
+    // Verify permission to remove
+    await rmFileWebsite(website, {password}, '/public/test.txt');
+    await tests.remove('website', website);
+});
 ava.todo('website sftp');
