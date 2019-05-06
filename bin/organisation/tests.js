@@ -19,6 +19,7 @@ ava.serial('organisation life cycle', async t => {
         skipService: true,
         skipCreate: true,
         skipDelete: true,
+        skipFqdn: true,
     })(t);
 });
 

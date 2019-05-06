@@ -20,6 +20,7 @@ ava.serial('project life cycle', async t => {
         skipHistoryCreated: true,
         skipService: true,
         skipTag: true,
+        skipFqdn: true,
     })(t);
 });
 

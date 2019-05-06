@@ -25,6 +25,7 @@ ava.serial('image life cycle', async t => {
         await tests.resourceLifeCycle('image', {
             createParams: `--vm ${common.vm._id} --name ${tests.getName(t.title)}`,
             stateCreated: 'Online',
+            skipFqdn: true,
         })(t);
     } finally {
         await common.cleanup();

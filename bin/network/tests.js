@@ -6,7 +6,10 @@ const tests = require('../../lib/tests');
 
 const now = Date.now();
 
-ava.serial('network life cycle', tests.resourceLifeCycle('network', `--name network-test-${now}`));
+ava.serial('network life cycle', tests.resourceLifeCycle('network', {
+    createParams: `--name network-test-${now}`,
+    skipFqdn: true,
+}));
 
 ava.serial('network rename', tests.resourceRename('network', `--name network-test-${now}`));
 
@@ -23,6 +26,7 @@ ava.serial('network ip life cycle', async t => {
         skipHistory: true,
         stateCreated: 'Unallocated',
         schemaRef: '#/components/schemas/ip',
+        skipFqdn: true,
     })(t);
     await tests.remove('network', network);
 });

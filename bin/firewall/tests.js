@@ -13,6 +13,7 @@ ava.serial('firewall life cycle', tests.resourceLifeCycle('firewall', {
     createParams: createParams,
     skipHistoryCreated: true,
     stateCreated: 'Detached',
+    skipFqdn: true,
 }));
 
 ava.serial('firewall rename', tests.resourceRename('firewall', createParams));

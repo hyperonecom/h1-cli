@@ -11,6 +11,7 @@ const createParams = `--source-url ${tests.iso_url}`;
 ava.serial('iso life cycle', tests.resourceLifeCycle('iso', {
     createParams: `--name ${tests.getName('iso-life-cycle')}  ${createParams}`,
     stateCreated: 'Online',
+    skipFqdn: true,
 }));
 
 ava.serial('iso rename', tests.resourceRename('iso', `--name ${tests.getName('iso-rename')}  ${createParams}`));

@@ -12,4 +12,5 @@ const createParams = '--type container';
 ava.serial('agent life cycle', tests.resourceLifeCycle('agent', {
     createParams: `--name ${name} ${createParams}`,
     stateCreated: 'Unknown',
+    skipFqdn: true,
 }));

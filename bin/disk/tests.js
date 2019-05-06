@@ -21,6 +21,7 @@ const download = (resource, destination) => tests.run(`disk download
     ava.serial(`disk life cycle ${type}`, tests.resourceLifeCycle('disk', {
         createParams: createParams,
         stateCreated: 'Detached',
+        skipFqdn: true,
     }));
     ava.serial(`disk rename ${type}`, tests.resourceRename('disk', createParams));
 });
