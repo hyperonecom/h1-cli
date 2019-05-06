@@ -26,6 +26,7 @@ ava.serial('iso local upload', async t => {
     await tests.resourceLifeCycle('iso', {
         stateCreated: 'Online',
         createParams: `--name ${tests.getName(t.title)} --source-file ${filename}`,
+        skipFqdn: true,
     })(t);
     fs.unlinkSync(filename);
 });
