@@ -16,3 +16,4 @@ logs
 .eslintrc.js
 .dockerignore
 .idea
+.DS_Store
