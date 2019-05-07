@@ -11,6 +11,7 @@ ava.serial('netgw life cycle', async t => {
     await tests.resourceLifeCycle('netgw', {
         createParams: `--name netgw-test-${now} --ip ${ip._id}`,
         stateCreated: 'Detached',
+        skipFqdn: true,
     })(t);
     await tests.remove('ip', ip);
 });

@@ -15,6 +15,7 @@ ava.serial('snapshot life cycle', async t => {
     await tests.resourceLifeCycle('snapshot', {
         createParams: `--vault ${vault._id} --name ${name}`,
         stateCreated: 'Online',
+        skipFqdn: true,
     })(t);
 
 

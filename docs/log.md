@@ -62,13 +62,14 @@ Paste in this configuration:
 ```
 $template HyperOneFormat,"<%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [{log_id}:{secret}@HyperOne tag=\"Rsyslog\"]%msg%\n"
 
-*.* @@{log_id}.log.pl-waw-1.hyperone.com:6514; HyperOneFormat
+*.* @@{log_id}.logarchive.{region}.hyperone.cloud:6514; HyperOneFormat
 ```
 
 Replace the following values in the example:
 
 * ```{log_id}``` - ID of log. To identify available logs use ```h1 log list```.
 * ```{secret}``` - The password added to given log. See example above how to create a write-only password.
+* ```{region}``` - Region where resource exists eg. ```pl-waw-1```
 
 Remember to restart rsyslog:
 
@@ -94,7 +95,7 @@ Create log archive
 
 ### Syntax
 
-```h1 log create | --name NAME [--tag TAG [--tag TAG ...]]```
+```h1 log create | --name NAME [--tag TAG [--tag TAG ...]] [--password PASSWORD [--password PASSWORD ...]]```
 ### Example
 
 ```bash
@@ -112,6 +113,7 @@ h1 log create --name my-server-log
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. The parameter may occur repeatedly |
 
 ## h1 log service
 

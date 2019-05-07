@@ -5,6 +5,7 @@
   * [h1 project](project.md) - Manage your project
   * [h1 config](config.md) - Manage config of CLI
   * [h1 container](container.md) - Manage your container
+  * [h1 website](website.md) - Manage your website
   * [h1 agent](agent.md) - Manage your Agent
   * [h1 reservation](reservation.md) - Manage your reservation
   * [h1 service](service.md) - Explore available services

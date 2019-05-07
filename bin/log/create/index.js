@@ -18,15 +18,16 @@ const options = {
 
 module.exports = resource => Cli.createCommand('create', {
     description: `Create ${resource.title}`,
-    genericOptions: ['tag'],
+    genericOptions: ['tag', 'password'],
     dirname: __dirname,
     plugins: resource.plugins,
     options: options,
     priority: 25,
-    handler: args => args.helpers.api
+    handler: async args => args.helpers.api
         .post(resource.url(args), {
             name: args.name,
             // retention: args.retention,
+            credential: await require('lib/credentials').getCredentialCreate(args),
             retention: 30,
             tag: require('lib/tags').createTagObject(args.tag),
         })

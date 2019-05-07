@@ -11,6 +11,7 @@ ava.serial('reservation life cycle', tests.resourceLifeCycle('reservation', {
     createParams: `--name ${tests.getName('reservation life cycle')} --type "${reservation_flavour}"`,
     stateCreated: 'Detached',
     skipDelete: true,
+    skipFqdn: true,
     // The resource is available earlier than it will be charged.
     // The resource is not in an optimal state before charging.
     // We wait a certain period for charging.

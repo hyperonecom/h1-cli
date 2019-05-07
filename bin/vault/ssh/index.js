@@ -21,11 +21,11 @@ module.exports = resource => Cli.createCommand('ssh', {
     dirname: __dirname,
     options: Object.assign({}, resource.options, options),
     handler: args => args.helpers.api
-        .get(`${args.$node.parent.config.url(args)}/${args.vault}`)
-        .then(result => {
+        .get(`${resource.url(args)}/${args.vault}`)
+        .then(vault => {
 
             const sshArgs = [
-                `${result._id}@vault.pl-waw-1.hyperone.com`,
+                `${vault._id}@${vault.fqdn}`,
             ];
 
             if (args.command) {
