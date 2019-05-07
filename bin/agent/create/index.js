@@ -47,7 +47,12 @@ module.exports = resource => Cli.createCommand('create', {
             certificates.push(
                 ...await Promise.all(
                     args['ssh-file'].map(fs.getFileContent)
-                ).then(keys => keys.map(x => x.toString('utf-8')))
+                ).then(keys => keys.map(x => x.toString('utf-8'))
+                ).then(keys => keys.map(key => ({
+                    name: args.name,
+                    type: 'ssh',
+                    value: key,
+                })))
             );
         }
         const body = {
