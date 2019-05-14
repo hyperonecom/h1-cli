@@ -21,11 +21,11 @@
     * [h1 agent enabled-service delete](#h1-agent-enabled-service-delete) - Delete enabled service
   * [h1 agent start](#h1-agent-start) - Start Agent
   * [h1 agent credential](#h1-agent-credential) - Manage your credentials to Agent
-    * [h1 agent credential cert](#h1-agent-credential-cert) - Manage your certificate to Vault
-      * [h1 agent credential cert show](#h1-agent-credential-cert-show) - Show certificate to Vault
-      * [h1 agent credential cert rename](#h1-agent-credential-cert-rename) - Rename certificate to Vault
-      * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List certificate to Vault
-      * [h1 agent credential cert delete](#h1-agent-credential-cert-delete) - Delete certificate to Vault
+    * [h1 agent credential cert](#h1-agent-credential-cert) - Manage your certificate to Agent
+      * [h1 agent credential cert show](#h1-agent-credential-cert-show) - Show certificate to Agent
+      * [h1 agent credential cert rename](#h1-agent-credential-cert-rename) - Rename certificate to Agent
+      * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List certificate to Agent
+      * [h1 agent credential cert delete](#h1-agent-credential-cert-delete) - Delete certificate to Agent
       * [h1 agent credential cert add](#h1-agent-credential-cert-add) - Add certificate to Agent
   * [h1 agent tag](#h1-agent-tag) - Manage your tag
     * [h1 agent tag list](#h1-agent-tag-list) - List tag
@@ -395,11 +395,11 @@ Manage your credentials to Agent
 
 ## h1 agent credential cert
 
-Manage your certificate to Vault
+Manage your certificate to Agent
 
 ## h1 agent credential cert show
 
-Show certificate to Vault
+Show certificate to Agent
 
 ### Syntax
 
@@ -415,11 +415,11 @@ h1 agent credential cert show --cert my-cert
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
-| ```--cert CERT``` |  | Certificate to Vault ID or name |
+| ```--cert CERT``` |  | Certificate to Agent ID or name |
 
 ## h1 agent credential cert rename
 
-Rename certificate to Vault
+Rename certificate to Agent
 
 ### Syntax
 
@@ -435,12 +435,12 @@ h1 agent credential cert rename --cert my-cert --new-name my-renamed-cert --agen
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
-| ```--cert CERT``` |  | Certificate to Vault ID or name |
+| ```--cert CERT``` |  | Certificate to Agent ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 agent credential cert list
 
-List certificate to Vault
+List certificate to Agent
 
 ### Syntax
 
@@ -459,7 +459,7 @@ h1 agent credential cert list --agent my-agent
 
 ## h1 agent credential cert delete
 
-Delete certificate to Vault
+Delete certificate to Agent
 
 ### Syntax
 
@@ -475,7 +475,7 @@ h1 agent credential cert delete --cert my-cert --agent my-agent
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
-| ```--cert CERT``` |  | Certificate to Vault ID or name |
+| ```--cert CERT``` |  | Certificate to Agent ID or name |
 
 ## h1 agent credential cert add
 
