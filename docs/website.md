@@ -13,11 +13,11 @@
   * [h1 website sftp](#h1-website-sftp) - Connect to website using SFTP
   * [h1 website start](#h1-website-start) - Start website
   * [h1 website credential](#h1-website-credential) - Manage your credentials to website
-    * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to Vault
-      * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to Vault
-      * [h1 website credential cert rename](#h1-website-credential-cert-rename) - Rename certificate to Vault
-      * [h1 website credential cert list](#h1-website-credential-cert-list) - List certificate to Vault
-      * [h1 website credential cert delete](#h1-website-credential-cert-delete) - Delete certificate to Vault
+    * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to website
+      * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to website
+      * [h1 website credential cert rename](#h1-website-credential-cert-rename) - Rename certificate to website
+      * [h1 website credential cert list](#h1-website-credential-cert-list) - List certificate to website
+      * [h1 website credential cert delete](#h1-website-credential-cert-delete) - Delete certificate to website
       * [h1 website credential cert add](#h1-website-credential-cert-add) - Add certificate to website
     * [h1 website credential password](#h1-website-credential-password) - Manage your password to website
       * [h1 website credential password show](#h1-website-credential-password-show) - Show password to website
@@ -272,11 +272,11 @@ Manage your credentials to website
 
 ## h1 website credential cert
 
-Manage your certificate to Vault
+Manage your certificate to website
 
 ## h1 website credential cert show
 
-Show certificate to Vault
+Show certificate to website
 
 ### Syntax
 
@@ -292,11 +292,11 @@ h1 website credential cert show --cert my-cert
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-| ```--cert CERT``` |  | Certificate to Vault ID or name |
+| ```--cert CERT``` |  | Certificate to website ID or name |
 
 ## h1 website credential cert rename
 
-Rename certificate to Vault
+Rename certificate to website
 
 ### Syntax
 
@@ -312,12 +312,12 @@ h1 website credential cert rename --cert my-cert --new-name my-renamed-cert --we
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-| ```--cert CERT``` |  | Certificate to Vault ID or name |
+| ```--cert CERT``` |  | Certificate to website ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 website credential cert list
 
-List certificate to Vault
+List certificate to website
 
 ### Syntax
 
@@ -336,7 +336,7 @@ h1 website credential cert list --website my-website
 
 ## h1 website credential cert delete
 
-Delete certificate to Vault
+Delete certificate to website
 
 ### Syntax
 
@@ -352,7 +352,7 @@ h1 website credential cert delete --cert my-cert --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-| ```--cert CERT``` |  | Certificate to Vault ID or name |
+| ```--cert CERT``` |  | Certificate to website ID or name |
 
 ## h1 website credential cert add
 

@@ -10,7 +10,7 @@ module.exports = resource => {
         url: args => `${resource.url(args)}/certificate`,
         commands: ['show', 'rename', 'list', 'delete'],
         options: resource.options,
-        title: 'certificate to Vault',
+        title: `certificate to ${resource.title}`,
         context: resource.context,
         resource: resource,
     });
