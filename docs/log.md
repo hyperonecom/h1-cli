@@ -1,17 +1,17 @@
 # TOC
 
   * [h1 log create](#h1-log-create) - Create log archive
-  * [h1 log show](#h1-log-show) - Show log archive
-  * [h1 log delete](#h1-log-delete) - Delete log archive
-  * [h1 log rename](#h1-log-rename) - Rename log archive
-  * [h1 log list](#h1-log-list) - List log archive
-  * [h1 log history](#h1-log-history) - History of log archive
   * [h1 log service](#h1-log-service) - Manage your services of log archive
     * [h1 log service list](#h1-log-service-list) - List service for log archive
     * [h1 log service show](#h1-log-service-show) - Show service for log archive
-  * [h1 log transfer](#h1-log-transfer) - Transfer log archive to other project
-  * [h1 log stream](#h1-log-stream) - Stream or read messages of log archive
+  * [h1 log rename](#h1-log-rename) - Rename log archive
+  * [h1 log list](#h1-log-list) - List log archive
+  * [h1 log history](#h1-log-history) - History of log archive
   * [h1 log logger](#h1-log-logger) - Log messages to log archive
+  * [h1 log delete](#h1-log-delete) - Delete log archive
+  * [h1 log transfer](#h1-log-transfer) - Transfer log archive to other project
+  * [h1 log show](#h1-log-show) - Show log archive
+  * [h1 log stream](#h1-log-stream) - Stream or read messages of log archive
   * [h1 log credential](#h1-log-credential) - Manage your credentials to log archive
     * [h1 log credential password](#h1-log-credential-password) - Manage your password to log archive
       * [h1 log credential password show](#h1-log-credential-password-show) - Show password to log archive
@@ -115,17 +115,21 @@ h1 log create --name my-server-log
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. The parameter may occur repeatedly |
 
-## h1 log show
+## h1 log service
 
-Show log archive
+Manage your services of log archive
+
+## h1 log service list
+
+List service for log archive
 
 ### Syntax
 
-```h1 log show | --log LOG```
+```h1 log service list | --log LOG```
 ### Example
 
 ```bash
-h1 log show --log my-log
+h1 log service list --log test-log
 ```
 
 ### Required arguments
@@ -134,17 +138,17 @@ h1 log show --log my-log
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
 
-## h1 log delete
+## h1 log service show
 
-Delete log archive
+Show service for log archive
 
 ### Syntax
 
-```h1 log delete | --log LOG```
+```h1 log service show | --log LOG --service SERVICE```
 ### Example
 
 ```bash
-h1 log delete --log my-log
+h1 log service show --service my-service --log my-log
 ```
 
 ### Required arguments
@@ -152,6 +156,7 @@ h1 log delete --log my-log
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
+| ```--service SERVICE``` |  | Service for log archive ID or name |
 
 ## h1 log rename
 
@@ -205,21 +210,17 @@ h1 log history --log my-log
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
 
-## h1 log service
+## h1 log logger
 
-Manage your services of log archive
-
-## h1 log service list
-
-List service for log archive
+Log messages to log archive
 
 ### Syntax
 
-```h1 log service list | --log LOG```
+```h1 log logger | --log LOG --token TOKEN [--hostname HOSTNAME] [--log-file LOG-FILE]```
 ### Example
 
-```bash
-h1 log service list --log test-log
+```
+echo 'Log message' | h1 log logger --log my-log --token my-secret-token --hostname srv-01
 ```
 
 ### Required arguments
@@ -227,18 +228,26 @@ h1 log service list --log test-log
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
+| ```--token TOKEN``` |  | Token entitling to write to log archive. Can be set also via environment variable H1_LOG_TOKEN. |
 
-## h1 log service show
+### Optional arguments
 
-Show service for log archive
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--hostname HOSTNAME``` |  | Name of the host recorded in the log |
+| ```--log-file LOG-FILE``` |  | Path of the input text log file (default: stdin) |
+
+## h1 log delete
+
+Delete log archive
 
 ### Syntax
 
-```h1 log service show | --log LOG --service SERVICE```
+```h1 log delete | --log LOG```
 ### Example
 
 ```bash
-h1 log service show --service my-service --log my-log
+h1 log delete --log my-log
 ```
 
 ### Required arguments
@@ -246,7 +255,6 @@ h1 log service show --service my-service --log my-log
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
-| ```--service SERVICE``` |  | Service for log archive ID or name |
 
 ## h1 log transfer
 
@@ -267,6 +275,25 @@ h1 log transfer --log test-log --new-project OtherProject
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
+
+## h1 log show
+
+Show log archive
+
+### Syntax
+
+```h1 log show | --log LOG```
+### Example
+
+```bash
+h1 log show --log my-log
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log LOG``` |  | Log archive ID or name |
 
 ## h1 log stream
 
@@ -304,33 +331,6 @@ h1 log stream --log my-server-log --follow --filter appName~nginx
 | ```--tail TAIL``` |  | Number of lines to show from the end of the logs. All if skipped. |
 | ```--follow``` |  | Output current messages in real time as they arrive |
 | ```--jsonl-file JSONL-FILE``` |  | Path of output .jsonl file (disables all format option; default: stdout) |
-
-## h1 log logger
-
-Log messages to log archive
-
-### Syntax
-
-```h1 log logger | --log LOG --token TOKEN [--hostname HOSTNAME] [--log-file LOG-FILE]```
-### Example
-
-```
-echo 'Log message' | h1 log logger --log my-log --token my-secret-token --hostname srv-01
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--token TOKEN``` |  | Token entitling to write to log archive. Can be set also via environment variable H1_LOG_TOKEN. |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--hostname HOSTNAME``` |  | Name of the host recorded in the log |
-| ```--log-file LOG-FILE``` |  | Path of the input text log file (default: stdin) |
 
 ## h1 log credential
 

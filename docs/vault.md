@@ -1,18 +1,18 @@
 # TOC
 
   * [h1 vault create](#h1-vault-create) - Create Vault
-  * [h1 vault list](#h1-vault-list) - List Vault
-  * [h1 vault show](#h1-vault-show) - Show Vault
+  * [h1 vault resize](#h1-vault-resize) - Resize Vault
   * [h1 vault delete](#h1-vault-delete) - Delete Vault
   * [h1 vault history](#h1-vault-history) - History of Vault
   * [h1 vault rename](#h1-vault-rename) - Rename Vault
+  * [h1 vault stop](#h1-vault-stop) - Stop Vault
   * [h1 vault service](#h1-vault-service) - Manage your services of Vault
     * [h1 vault service list](#h1-vault-service-list) - List service for Vault
     * [h1 vault service show](#h1-vault-service-show) - Show service for Vault
-  * [h1 vault resize](#h1-vault-resize) - Resize Vault
-  * [h1 vault ssh](#h1-vault-ssh) - Connect to Vault using SSH
+  * [h1 vault show](#h1-vault-show) - Show Vault
+  * [h1 vault list](#h1-vault-list) - List Vault
   * [h1 vault console](#h1-vault-console) - Open Vault console in web-browser
-  * [h1 vault stop](#h1-vault-stop) - Stop Vault
+  * [h1 vault ssh](#h1-vault-ssh) - Connect to Vault using SSH
   * [h1 vault start](#h1-vault-start) - Start Vault
   * [h1 vault credential](#h1-vault-credential) - Manage your credentials to Vault
     * [h1 vault credential cert](#h1-vault-credential-cert) - Manage your certificate to Vault
@@ -81,30 +81,17 @@ Hint: Use ```h1 snapshot list``` to list available snapshots.
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 
-## h1 vault list
+## h1 vault resize
 
-List Vault
-
-### Syntax
-
-```h1 vault list | ```
-### Example
-
-```bash
-h1 vault list
-```
-
-## h1 vault show
-
-Show Vault
+Resize Vault
 
 ### Syntax
 
-```h1 vault show | --vault VAULT```
+```h1 vault resize | --vault VAULT --size SIZE```
 ### Example
 
 ```bash
-h1 vault show --vault my-vault
+h1 vault resize --vault my-vault --size 10
 ```
 
 ### Required arguments
@@ -112,6 +99,7 @@ h1 vault show --vault my-vault
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
+| ```--size SIZE``` |  | New size |
 
 ## h1 vault delete
 
@@ -171,6 +159,25 @@ h1 vault rename --vault my-vault --new-name my-renamed-vault
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
+## h1 vault stop
+
+Stop Vault
+
+### Syntax
+
+```h1 vault stop | --vault VAULT```
+### Example
+
+```
+h1 vault stop --vault my-vault
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+
 ## h1 vault service
 
 Manage your services of Vault
@@ -214,17 +221,17 @@ h1 vault service show --service my-service --vault my-vault
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--service SERVICE``` |  | Service for Vault ID or name |
 
-## h1 vault resize
+## h1 vault show
 
-Resize Vault
+Show Vault
 
 ### Syntax
 
-```h1 vault resize | --vault VAULT --size SIZE```
+```h1 vault show | --vault VAULT```
 ### Example
 
 ```bash
-h1 vault resize --vault my-vault --size 10
+h1 vault show --vault my-vault
 ```
 
 ### Required arguments
@@ -232,7 +239,38 @@ h1 vault resize --vault my-vault --size 10
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
-| ```--size SIZE``` |  | New size |
+
+## h1 vault list
+
+List Vault
+
+### Syntax
+
+```h1 vault list | ```
+### Example
+
+```bash
+h1 vault list
+```
+
+## h1 vault console
+
+Open Vault console in web-browser
+
+### Syntax
+
+```h1 vault console | --vault VAULT```
+### Example
+
+```bash
+h1 vault console --vault test-vault
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
 
 ## h1 vault ssh
 
@@ -260,44 +298,6 @@ Note: You need valid credentials to access Vault any way.
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--command COMMAND``` |  | Command to execute |
-
-## h1 vault console
-
-Open Vault console in web-browser
-
-### Syntax
-
-```h1 vault console | --vault VAULT```
-### Example
-
-```bash
-h1 vault console --vault test-vault
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-
-## h1 vault stop
-
-Stop Vault
-
-### Syntax
-
-```h1 vault stop | --vault VAULT```
-### Example
-
-```
-h1 vault stop --vault my-vault
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
 
 ## h1 vault start
 
