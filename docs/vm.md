@@ -68,7 +68,7 @@ Create virtual machine
 ```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
-#### Create a Ubuntu virtual machine
+#### Create a Debian virtual machine
 
 ```bash
 h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh
@@ -111,7 +111,7 @@ Note: You can mount ISO disk and provide stateless services.
 | ```--os-disk-name OS-DISK-NAME``` |  | OS disk name |
 | ```--os-disk-type OS-DISK-TYPE``` |  | OS disk type |
 | ```--os-disk-size OS-DISK-SIZE``` |  | OS disk size |
-| ```--os-disk OS-DISK``` |  | OS disk: name,type,size |
+| ```--os-disk OS-DISK``` |  | OS disk: [name,] type, size |
 | ```--network NETWORK``` |  | Network ID or name to attach |
 | ```--ip IP``` |  | IP address for Virtual machine |
 | ```--no-start``` |  | Do not start Virtual machine after creation |

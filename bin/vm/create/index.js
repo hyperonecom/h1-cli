@@ -51,7 +51,7 @@ const options = {
         type: 'int',
     },
     'os-disk': {
-        description: 'OS disk: name,type,size',
+        description: 'OS disk: [name,] type, size',
         type: 'string',
     },
 

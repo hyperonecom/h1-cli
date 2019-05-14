@@ -1,4 +1,4 @@
-# Create a Ubuntu virtual machine
+# Create a Debian virtual machine
 
 ```bash
 {{command_name}} --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh
