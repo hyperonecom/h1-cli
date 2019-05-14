@@ -1,16 +1,16 @@
 # TOC
 
   * [h1 website create](#h1-website-create) - Create website
-  * [h1 website service](#h1-website-service) - Manage your services of website
-    * [h1 website service list](#h1-website-service-list) - List service for website
-    * [h1 website service show](#h1-website-service-show) - Show service for website
+  * [h1 website list](#h1-website-list) - List website
+  * [h1 website show](#h1-website-show) - Show website
   * [h1 website delete](#h1-website-delete) - Delete website
   * [h1 website history](#h1-website-history) - History of website
   * [h1 website rename](#h1-website-rename) - Rename website
-  * [h1 website stop](#h1-website-stop) - Stop website
-  * [h1 website show](#h1-website-show) - Show website
-  * [h1 website list](#h1-website-list) - List website
+  * [h1 website service](#h1-website-service) - Manage your services of website
+    * [h1 website service list](#h1-website-service-list) - List service for website
+    * [h1 website service show](#h1-website-service-show) - Show service for website
   * [h1 website sftp](#h1-website-sftp) - Connect to website using SFTP
+  * [h1 website stop](#h1-website-stop) - Stop website
   * [h1 website start](#h1-website-start) - Start website
   * [h1 website credential](#h1-website-credential) - Manage your credentials to website
     * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to Vault
@@ -76,21 +76,30 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 
-## h1 website service
+## h1 website list
 
-Manage your services of website
-
-## h1 website service list
-
-List service for website
+List website
 
 ### Syntax
 
-```h1 website service list | --website WEBSITE```
+```h1 website list | ```
 ### Example
 
 ```bash
-h1 website service list --website test-website
+h1 website list
+```
+
+## h1 website show
+
+Show website
+
+### Syntax
+
+```h1 website show | --website WEBSITE```
+### Example
+
+```bash
+h1 website show --website my-website
 ```
 
 ### Required arguments
@@ -98,26 +107,6 @@ h1 website service list --website test-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-
-## h1 website service show
-
-Show service for website
-
-### Syntax
-
-```h1 website service show | --website WEBSITE --service SERVICE```
-### Example
-
-```bash
-h1 website service show --service my-service --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-| ```--service SERVICE``` |  | Service for website ID or name |
 
 ## h1 website delete
 
@@ -177,17 +166,21 @@ h1 website rename --website my-website --new-name my-renamed-website
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
-## h1 website stop
+## h1 website service
 
-Stop website
+Manage your services of website
+
+## h1 website service list
+
+List service for website
 
 ### Syntax
 
-```h1 website stop | --website WEBSITE```
+```h1 website service list | --website WEBSITE```
 ### Example
 
-```
-h1 website stop --website my-website
+```bash
+h1 website service list --website test-website
 ```
 
 ### Required arguments
@@ -196,17 +189,17 @@ h1 website stop --website my-website
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 
-## h1 website show
+## h1 website service show
 
-Show website
+Show service for website
 
 ### Syntax
 
-```h1 website show | --website WEBSITE```
+```h1 website service show | --website WEBSITE --service SERVICE```
 ### Example
 
 ```bash
-h1 website show --website my-website
+h1 website service show --service my-service --website my-website
 ```
 
 ### Required arguments
@@ -214,19 +207,7 @@ h1 website show --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-
-## h1 website list
-
-List website
-
-### Syntax
-
-```h1 website list | ```
-### Example
-
-```bash
-h1 website list
-```
+| ```--service SERVICE``` |  | Service for website ID or name |
 
 ## h1 website sftp
 
@@ -239,6 +220,25 @@ Connect to website using SFTP
 
 ```
 h1 website sftp --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website stop
+
+Stop website
+
+### Syntax
+
+```h1 website stop | --website WEBSITE```
+### Example
+
+```
+h1 website stop --website my-website
 ```
 
 ### Required arguments

@@ -1,6 +1,7 @@
 # TOC
 
   * [h1 user create](#h1-user-create) - Create an account
+  * [h1 user env](#h1-user-env) - Get environment variables to manage project as user
   * [h1 user credentials](#h1-user-credentials) - Manage your credentials
     * [h1 user credentials show](#h1-user-credentials-show) - Show credentials
     * [h1 user credentials list](#h1-user-credentials-list) - List credentials
@@ -31,6 +32,27 @@ Create an account
 ```bash
 h1 user create
 ```
+
+## h1 user env
+
+Get environment variables to manage project as user
+
+### Syntax
+
+```h1 user env | [--shell {windows,powershell,cmd,sh,bash}]```
+### Examples
+
+#### Get and set environment variables in sh/bash shell
+
+```bash
+eval $(h1 user env)
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--shell {windows,powershell,cmd,sh,bash}``` |  | Shell type |
 
 ## h1 user credentials
 
