@@ -30,6 +30,7 @@ h1 website      list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 web
 h1 user credentials list -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 h1 user credentials delete --yes --credentials
 h1 project credentials list --project "$PROJECT" -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 h1 project credentials delete --yes --project "$PROJECT" --credentials
 h1 project notification credits list --project "$PROJECT" -o id | xargs -r -n 1 h1 project notification credits delete --project "$PROJECT" --limit
+h1 project token list -o id | xargs -r -n 1 h1 project token delete --yes --token
 [ -n "$H1_PROJECT_SLAVE" ] && [ -z "$H1_PROJECT_MASTER" ] && {
 	h1 project list --project "$PROJECT" -o tsv  | \
 	grep -v -e "$H1_PROJECT_SLAVE" -e "$H1_PROJECT_MASTER" | \
