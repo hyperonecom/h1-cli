@@ -18,7 +18,7 @@ ava.serial('website life cycle', tests.resourceLifeCycle('website', {
 }));
 
 const putFileWebsite = (website, auth, path, content) => {
-    console.log(`Upload content to website ${website._id} at '${path}'`);
+    console.log(new Date(), `Upload content to website ${website._id} at '${path}'`);
     return ssh.putFile(path, content, Object.assign({
         host: `${website.fqdn}`,
         username: website._id,
@@ -26,7 +26,7 @@ const putFileWebsite = (website, auth, path, content) => {
 };
 
 const rmFileWebsite = (website, auth, path) => {
-    console.log(`Remove file of website ${website._id} at '${path}'`);
+    console.log(new Date(), `Remove file of website ${website._id} at '${path}'`);
     return ssh.rmFile(path, Object.assign({
         host: `${website.fqdn}`,
         username: website._id,
