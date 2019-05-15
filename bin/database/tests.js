@@ -42,6 +42,18 @@ ava.serial('database reachable', async t => {
         const {results, fields} = await mysqlQuery(database, password, 'SELECT NOW()');
         t.true(!!results);
         t.true(!!fields);
+
+        const {results: results_self_ssl, fields:fields_self_ssl} = await mysqlQuery(database, password, 'SELECT NOW()', {
+            ssl: {rejectUnauthorized: false},
+        });
+        t.true(!!results_self_ssl);
+        t.true(!!fields_self_ssl);
+
+        const {results: results_ssl, fields:fields_ssl} = await mysqlQuery(database, password, 'SELECT NOW()', {
+            ssl: {},
+        });
+        t.true(!!results_ssl);
+        t.true(!!fields_ssl);
     } finally {
         await tests.remove('database', database);
     }
