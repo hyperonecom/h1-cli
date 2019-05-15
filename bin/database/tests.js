@@ -7,20 +7,23 @@ const mysql = require('mysql2');
 
 const commonCreateParams = '--type mysql';
 
-const mysqlQuery = async (database, password, query) => {
-    const connection = mysql.createConnection({
-        host: database.fqdn,
-        user: database._id,
-        password: password,
-        database: database._id,
-        authSwitchHandler: function ({pluginName}, cb) {
-            if (pluginName === 'mysql_clear_password') {
-                return cb(null, Buffer.from(password));
-            }
-            return cb(new Error(`Unknown AuthSwitchRequest plugin name ${pluginName}`));
+const mysqlQuery = async (database, password, query, opts = {}) => {
+    const connection = mysql.createConnection(Object.assign(
+        {
+            host: database.fqdn,
+            user: database._id,
+            password: password,
+            database: database._id,
+            authSwitchHandler: function ({pluginName}, cb) {
+                if (pluginName === 'mysql_clear_password') {
+                    return cb(null, Buffer.from(password));
+                }
+                return cb(new Error(`Unknown AuthSwitchRequest plugin name ${pluginName}`));
 
+            },
         },
-    });
+        opts
+    ));
     console.log(new Date(), `Execute query '${query}' on database'${database.fqdn}'`);
 
     await new Promise((resolve, reject) =>
@@ -59,6 +62,18 @@ ava.serial('database reachable', async t => {
         const {results, fields} = await mysqlQuery(database, password, 'SELECT NOW()');
         t.true(!!results);
         t.true(!!fields);
+
+        const {results: results_self_ssl, fields:fields_self_ssl} = await mysqlQuery(database, password, 'SELECT NOW()', {
+            ssl: {rejectUnauthorized: false},
+        });
+        t.true(!!results_self_ssl);
+        t.true(!!fields_self_ssl);
+
+        const {results: results_ssl, fields:fields_ssl} = await mysqlQuery(database, password, 'SELECT NOW()', {
+            ssl: {},
+        });
+        t.true(!!results_ssl);
+        t.true(!!fields_ssl);
     } finally {
         await tests.remove('database', database);
     }
