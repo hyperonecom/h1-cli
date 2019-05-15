@@ -234,7 +234,7 @@ ava.serial('project notification credits integration test', async t => {
 });
 
 ava.serial('project token access life cycle', async t => {
-    const token = await tests.run(`project token add --project ${active_project} --name ${tests.getName('test-project-token')}`);
+    const token = await tests.run(`project token add --project ${active_project} --name ${tests.getName(t.title)}`);
     const access = await tests.run(`project token access add --project ${active_project} --method POST --path 'vault/' --token ${token._id}`);
 
     await tests.subresourceLifeCycle({
@@ -248,6 +248,17 @@ ava.serial('project token access life cycle', async t => {
     await tests.remove('project token access', access, {
         deleteParams: `--project ${active_project} --token ${token._id}`,
     });
+
+    await tests.remove('project token', token);
+});
+
+ava.serial('project token env', async t => {
+    const token = await tests.run(`project token add --project ${active_project} --name ${tests.getName(t.title)}`);
+
+    const content = await tests.run(`project token env --project ${active_project} --token ${token._id} `);
+    t.true(content.includes('_PROJECT'));
+    t.true(content.includes('_ACCESS_TOKEN_ID'));
+    t.true(content.includes('_ACCESS_TOKEN_SECRET'));
 
     await tests.remove('project token', token);
 });

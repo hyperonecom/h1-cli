@@ -32,6 +32,7 @@
       * [h1 project token access show](#h1-project-token-access-show) - Show access rule
       * [h1 project token access delete](#h1-project-token-access-delete) - Delete access rule
       * [h1 project token access add](#h1-project-token-access-add) - Add access rule
+    * [h1 project token env](#h1-project-token-env) - Get environment variables to manage project by service account
   * [h1 project notification](#h1-project-notification) - Manage your notifications
     * [h1 project notification credits](#h1-project-notification-credits) - Manage your credits limit
       * [h1 project notification credits add](#h1-project-notification-credits-add) - Add credits limit
@@ -704,6 +705,34 @@ h1 project token access add --project 6oAoJqgyLZP4Le9UUNHrEOYP --method POST --p
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project token env
+
+Get environment variables to manage project by service account
+
+### Syntax
+
+```h1 project token env | --token TOKEN [--project PROJECT] [--shell {windows,powershell,cmd,sh,bash}]```
+### Examples
+
+#### Get and set environment variables in sh/bash shell
+
+```bash
+eval $(h1 project token env --token 189d9053248c4f6fbacebe90558ff538)
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--token TOKEN``` |  | Token ID |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+| ```--shell {windows,powershell,cmd,sh,bash}``` |  | Shell type |
 
 ## h1 project notification
 
