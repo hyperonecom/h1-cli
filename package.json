@@ -71,6 +71,7 @@
     "eslint": "^4.19.1",
     "fast-glob": "^2.2.6",
     "imap": "^0.8.19",
+    "mysql2": "^1.6.5",
     "node-forge": "^0.7.6",
     "nodemailer": "^4.7.0",
     "pkg": "^4.3.7"
