@@ -426,7 +426,7 @@ Add password to log archive
 
 ### Syntax
 
-```h1 log credential password add | --log LOG --name NAME --password PASSWORD```
+```h1 log credential password add | --log LOG --name NAME [--password PASSWORD]```
 ### Example
 
 ```bash
@@ -439,7 +439,12 @@ h1 log credential password add --name my-pass --password secret-password --log m
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
 | ```--name NAME``` |  | Name |
-| ```--password PASSWORD``` |  | Password |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--password PASSWORD``` |  | Password. It will be generated and shown if it is not specified. |
 
 ## h1 log tag
 

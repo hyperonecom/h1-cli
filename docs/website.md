@@ -479,7 +479,7 @@ Add password to website
 
 ### Syntax
 
-```h1 website credential password add | --website WEBSITE --name NAME --password PASSWORD```
+```h1 website credential password add | --website WEBSITE --name NAME [--password PASSWORD]```
 ### Example
 
 ```bash
@@ -492,7 +492,12 @@ h1 website credential password add --name my-pass --password secret-password --w
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--name NAME``` |  | Name |
-| ```--password PASSWORD``` |  | Password |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--password PASSWORD``` |  | Password. It will be generated and shown if it is not specified. |
 
 ## h1 website tag
 
