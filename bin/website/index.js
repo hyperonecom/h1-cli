@@ -6,7 +6,7 @@ const genericAction = require('bin/generic/action');
 
 const resource = {
     name: 'website',
-    defaultQuery: '[].{id:_id,name:name,image:image,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:_id,name:name,image:image,domains:join(\',\',domain), state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'website',
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
