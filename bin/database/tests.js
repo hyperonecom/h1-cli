@@ -3,12 +3,13 @@ const ava = require('ava');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
-const mysql = require('mysql2');
+const mysql = require('mysql2/promise');
 
 const commonCreateParams = '--type mysql';
 
 const mysqlQuery = async (database, password, query) => {
-    const connection = mysql.createConnection({
+    console.log(new Date(), `Execute query '${query}' on database'${database.fqdn}'`);
+    const connection = await mysql.createConnection({
         host: database.fqdn,
         user: database._id,
         password: password,
@@ -18,31 +19,13 @@ const mysqlQuery = async (database, password, query) => {
                 return cb(null, Buffer.from(password));
             }
             return cb(new Error(`Unknown AuthSwitchRequest plugin name ${pluginName}`));
-
         },
     });
-    console.log(new Date(), `Execute query '${query}' on database'${database.fqdn}'`);
-
-    await new Promise((resolve, reject) =>
-        connection.connect((err) => {
-            if (err) return reject(err);
-            return resolve();
-        })
-    );
     try {
-        return await new Promise((resolve, reject) =>
-            connection.query(query, function (err, results, fields) {
-                if (err) return reject(err);
-                return resolve({results, fields});
-            })
-        );
+        const [results, fields] = await connection.execute(query);
+        return {results, fields};
     } finally {
-        await new Promise((resolve, reject) =>
-            connection.end((err) => {
-                if (err) return reject(err);
-                return resolve();
-            })
-        );
+        await connection.end();
     }
 };
 
