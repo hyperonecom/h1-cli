@@ -543,7 +543,7 @@ Add password to Vault
 
 ### Syntax
 
-```h1 vault credential password add | --vault VAULT --name NAME --password PASSWORD```
+```h1 vault credential password add | --vault VAULT --name NAME [--password PASSWORD]```
 ### Example
 
 ```bash
@@ -556,7 +556,12 @@ h1 vault credential password add --name my-pass --password secret-password --vau
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--name NAME``` |  | Name |
-| ```--password PASSWORD``` |  | Password |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--password PASSWORD``` |  | Password. It will be generated and shown if it is not specified. |
 
 ## h1 vault tag
 
