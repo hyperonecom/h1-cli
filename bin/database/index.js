@@ -17,6 +17,7 @@ const credential_type = ['password'];
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
+category.addChild(require('./shell')(resource));
 
 category.addChild(require('../generic/credential')(resource, credential_type));
 
