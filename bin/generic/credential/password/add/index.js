@@ -10,9 +10,9 @@ const options = {
         required: true,
     },
     password: {
-        description: 'Password',
+        description: 'Password. It will be generated and shown if it is not specified.',
         type: 'string',
-        required: true,
+        required: false,
     },
 };
 
@@ -21,10 +21,21 @@ module.exports = resource => Cli.createCommand('add', {
     description: `Add password to ${resource.title}`,
     resource: resource,
     options: Object.assign({}, resource.options, options),
-    handler: args => args.helpers.api
-        .post(args.$node.parent.config.url(args), Object.assign({},
-            cryptography.hashPassword(args.password), {
-                name: args.name,
-            }))
-        .then(result => args.helpers.sendOutput(args, result)),
+    handler: async args => {
+        let password = args.password;
+
+        if (!password) {
+            password = await cryptography.randomPassword();
+            console.error(`The generated password is: ${password}`);
+        }
+
+        const body = Object.assign({
+            name: args.name,
+        },
+        cryptography.hashPassword(password)
+        );
+        return args.helpers.api
+            .post(resource.url(args), body)
+            .then(result => args.helpers.sendOutput(args, result));
+    },
 });

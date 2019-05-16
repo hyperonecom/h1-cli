@@ -3,11 +3,16 @@
 const genericResource = require('bin/generic');
 
 module.exports = resource => {
+    const childResource = Object.assign({},
+        resource,
+        {
+            url: args => `${resource.url(args)}/password`,
+        },
+    );
 
     const category = genericResource({
         name: 'password',
         defaultQuery: resource.defaultQuery,
-        url: args => `${resource.url(args)}/password`,
         commands: ['show', 'list', 'rename', 'delete'],
         options: resource.options,
         title: `password to ${resource.title}`,
@@ -15,7 +20,7 @@ module.exports = resource => {
         resource: resource,
     });
 
-    category.addChild(require('./add')(resource));
+    category.addChild(require('./add')(childResource));
 
     return category;
 };
