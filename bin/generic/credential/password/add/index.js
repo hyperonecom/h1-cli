@@ -18,7 +18,7 @@ const options = {
 
 module.exports = resource => Cli.createCommand('add', {
     dirname: __dirname,
-    description: `Add password to ${resource.title}`,
+    description: `Add ${resource.title}`,
     resource: resource,
     options: Object.assign({}, resource.options, options),
     handler: async args => {
