@@ -13,7 +13,7 @@ module.exports = parent => {
         commands: ['show', 'list', 'rename', 'delete'],
         options: parent.options,
         plugins: parent.plugins,
-        context: parent.context
+        context: parent.context,
     };
 
     const category = genericResource(resource);
