@@ -14,12 +14,6 @@ const mysqlQuery = async (database, password, query) => {
         user: database._id,
         password: password,
         database: database._id,
-        authSwitchHandler: function ({pluginName}, cb) {
-            if (pluginName === 'mysql_clear_password') {
-                return cb(null, Buffer.from(password));
-            }
-            return cb(new Error(`Unknown AuthSwitchRequest plugin name ${pluginName}`));
-        },
     });
     try {
         const [results, fields] = await connection.execute(query);
