@@ -27,6 +27,7 @@ h1 volume       list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 vol
 h1 container    list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 container   delete --yes --container
 h1 agent        list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 agent       delete --yes --agent
 h1 website      list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 website     delete --yes --website
+h1 database     list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 database     delete --yes --database
 h1 user credentials list -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 h1 user credentials delete --yes --credentials
 h1 project credentials list --project "$PROJECT" -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 h1 project credentials delete --yes --project "$PROJECT" --credentials
 h1 project notification credits list --project "$PROJECT" -o id | xargs -r -n 1 h1 project notification credits delete --project "$PROJECT" --limit
