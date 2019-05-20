@@ -2,7 +2,7 @@
 
 const genericResource = require('bin/generic');
 
-module.exports = parent => {
+module.exports = (parent, type) => {
 
     const resource = {
         name: 'password',
@@ -18,7 +18,7 @@ module.exports = parent => {
 
     const category = genericResource(resource);
 
-    category.addChild(require('./add')(resource));
+    category.addChild(require('./add')(resource, type));
 
     return category;
 };

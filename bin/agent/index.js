@@ -12,6 +12,7 @@ const resource = {
     extraCommands: [],
     earlyAdoptersOnly: true,
     title: 'Agent',
+    credential_types: ['certificate'],
 };
 
 
@@ -26,15 +27,13 @@ const actionDefault = Object.assign({}, resource, {
     url: args => `${resource.url(args)}/${args[resource.name]}`,
     dirname: __dirname,
 });
-const credential_type = ['certificate'];
 
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
 category.addChild(require('bin/generic/inspect')(resource));
 category.addChild(require('./resource')(actionDefault));
-
-category.addChild(require('../generic/credential')(resource, credential_type));
+category.addChild(require('../generic/credential')(resource));
 
 category.addChild(require('bin/generic/set-update')(Object.assign({}, actionDefault, {
     url: args => `${actionDefault.url(args)}/enabledServices`,

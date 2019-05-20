@@ -40,7 +40,8 @@ module.exports = resource => Cli.createCommand('create', {
             service: args.type,
             domain: args.domain,
             tag: require('lib/tags').createTagObject(args.tag),
-            credential: await require('lib/credentials').getCredentialCreate(args),
+            credential: await require('lib/credentials')
+                .getCredentialCreate(args, resource.credential_types),
             image: args.image,
         };
 
