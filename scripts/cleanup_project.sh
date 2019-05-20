@@ -33,7 +33,7 @@ h1 project credentials list --project "$PROJECT" -o id | grep -v "$SKIPPED_CREDE
 h1 project notification credits list --project "$PROJECT" -o id | xargs -r -n 1 h1 project notification credits delete --project "$PROJECT" --limit
 h1 project token list --project "$PROJECT" -o id | xargs -r -n 1 h1 project token delete --yes --project "$PROJECT" --token
 [ -n "$H1_PROJECT_SLAVE" ] && [ -z "$H1_PROJECT_MASTER" ] && {
-	h1 project list --project "$PROJECT" -o tsv  | \
+	h1 project list -o tsv  | \
 	grep -v -e "$H1_PROJECT_SLAVE" -e "$H1_PROJECT_MASTER" | \
 	awk '{print $1}' | \
 	xargs -r -n 1 h1 project delete --yes --project
