@@ -3,8 +3,9 @@
 const genericResource = require('bin/generic/index');
 const text = require('../../../lib/text');
 
+const passwords_type = ['double-sha1', 'sha512'];
 
-module.exports = (resource, credential_types) => {
+module.exports = (resource) => {
 
     const options = {
         [resource.name]: {
@@ -25,6 +26,7 @@ module.exports = (resource, credential_types) => {
         resource: resource,
         title: resource.title,
         priority: 75,
+        credential_types: resource.credential_types || [],
         context: {
             listParams: `--${resource.name} my-${resource.name}`,
             deleteParams: `--${resource.name} my-${resource.name}`,
@@ -34,8 +36,12 @@ module.exports = (resource, credential_types) => {
     };
 
     const category = genericResource(defaults);
-
-    credential_types.forEach(kind => category.addChild(require(`./${kind}`)(defaults)));
-
+    defaults.credential_types.forEach(type => {
+        if (passwords_type.includes(type)) {
+            category.addChild(require('./password')(defaults, type));
+        } else {
+            category.addChild(require(`./${type}`)(defaults, type));
+        }
+    });
     return category;
 };

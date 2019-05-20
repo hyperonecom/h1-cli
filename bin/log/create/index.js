@@ -27,7 +27,8 @@ module.exports = resource => Cli.createCommand('create', {
         .post(resource.url(args), {
             name: args.name,
             // retention: args.retention,
-            credential: await require('lib/credentials').getCredentialCreate(args),
+            credential: await require('lib/credentials')
+                .getCredentialCreate(args, resource.credential_types),
             retention: 30,
             tag: require('lib/tags').createTagObject(args.tag),
         })

@@ -33,7 +33,8 @@ module.exports = resource => Cli.createCommand('create', {
             name: args.name,
             size: args.size,
             tag: require('lib/tags').createTagObject(args.tag),
-            credential: await require('lib/credentials').getCredentialCreate(args),
+            credential: await require('lib/credentials')
+                .getCredentialCreate(args, resource.credential_types),
         };
 
         if (args.snapshot) {

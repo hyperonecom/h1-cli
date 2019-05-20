@@ -16,7 +16,7 @@ const options = {
     },
 };
 
-module.exports = resource => Cli.createCommand('add', {
+module.exports = (resource, type='sha512') => Cli.createCommand('add', {
     dirname: __dirname,
     description: `Add ${resource.title}`,
     resource: resource,
@@ -32,7 +32,7 @@ module.exports = resource => Cli.createCommand('add', {
         const body = Object.assign({
             name: args.name,
         },
-        cryptography.hashPassword(password)
+        cryptography.hashPassword(password, type)
         );
         return args.helpers.api
             .post(resource.url(args), body)
