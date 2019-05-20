@@ -12,15 +12,14 @@ const resource = {
     dirname: __dirname,
     earlyAdoptersOnly: true,
     title: 'log archive',
+    credential_types: ['sha512'],
 };
 
 const category = genericResource(resource);
 
-const credential_type = ['password'];
-
 category.addChild(require('./create')(resource));
 category.addChild(require('./stream')(resource));
 category.addChild(require('./logger')(resource));
-category.addChild(require('../generic/credential')(resource, credential_type));
+category.addChild(require('../generic/credential')(resource));
 
 module.exports = category;
