@@ -2,13 +2,14 @@
 
   * [h1 agent create](#h1-agent-create) - Create Agent
   * [h1 agent list](#h1-agent-list) - List Agent
-  * [h1 agent show](#h1-agent-show) - Show Agent
   * [h1 agent delete](#h1-agent-delete) - Delete Agent
   * [h1 agent history](#h1-agent-history) - History of Agent
   * [h1 agent rename](#h1-agent-rename) - Rename Agent
+  * [h1 agent suspend](#h1-agent-suspend) - Suspend Agent
   * [h1 agent service](#h1-agent-service) - Manage your services of Agent
     * [h1 agent service list](#h1-agent-service-list) - List service for Agent
     * [h1 agent service show](#h1-agent-service-show) - Show service for Agent
+  * [h1 agent show](#h1-agent-show) - Show Agent
   * [h1 agent inspect](#h1-agent-inspect) - Inspect of Agent
   * [h1 agent resource](#h1-agent-resource) - Manage your Resource of Agent
     * [h1 agent resource list](#h1-agent-resource-list) - List Resource of Agent
@@ -18,7 +19,6 @@
     * [h1 agent enabled-service add](#h1-agent-enabled-service-add) - Add enabled service
     * [h1 agent enabled-service list](#h1-agent-enabled-service-list) - List enabled service
     * [h1 agent enabled-service delete](#h1-agent-enabled-service-delete) - Delete enabled service
-  * [h1 agent suspend](#h1-agent-suspend) - Suspend Agent
   * [h1 agent start](#h1-agent-start) - Start Agent
   * [h1 agent credential](#h1-agent-credential) - Manage your credentials to Agent
     * [h1 agent credential cert](#h1-agent-credential-cert) - Manage your certificate to Agent
@@ -86,25 +86,6 @@ List Agent
 h1 agent list
 ```
 
-## h1 agent show
-
-Show Agent
-
-### Syntax
-
-```h1 agent show | --agent AGENT```
-### Example
-
-```bash
-h1 agent show --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-
 ## h1 agent delete
 
 Delete Agent
@@ -163,6 +144,25 @@ h1 agent rename --agent my-agent --new-name my-renamed-agent
 | ```--agent AGENT``` |  | Agent ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
+## h1 agent suspend
+
+Suspend Agent
+
+### Syntax
+
+```h1 agent suspend | --agent AGENT```
+### Example
+
+```
+h1 agent suspend --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
 ## h1 agent service
 
 Manage your services of Agent
@@ -205,6 +205,25 @@ h1 agent service show --service my-service --agent my-agent
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
 | ```--service SERVICE``` |  | Service for Agent ID or name |
+
+## h1 agent show
+
+Show Agent
+
+### Syntax
+
+```h1 agent show | --agent AGENT```
+### Example
+
+```bash
+h1 agent show --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
 
 ## h1 agent inspect
 
@@ -350,25 +369,6 @@ h1 agent enabled-service delete --agent my-agent --service value
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
 | ```--service SERVICE``` |  | Deleted enabled service |
-
-## h1 agent suspend
-
-Suspend Agent
-
-### Syntax
-
-```h1 agent suspend | --agent AGENT```
-### Example
-
-```
-h1 agent suspend --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
 
 ## h1 agent start
 
