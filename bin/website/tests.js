@@ -48,7 +48,6 @@ ava.serial('website put index via SFTP & password', async t => {
     const token = await tests.getToken();
     await putFileWebsite(website, {password}, '/public/index.html', token);
 
-    // TODO: Use property from public-API
     const resp = await request.get(`http://${website.fqdn}/`);
     t.true(resp.text === token);
     await tests.remove('website', website);
@@ -148,4 +147,17 @@ ava.serial('website runtime access rights match of sftp', async t => {
     await rmFileWebsite(website, {password}, '/public/test.txt');
     await tests.remove('website', website);
 });
+
 ava.todo('website sftp');
+ava.todo('website ssh');
+
+ava.serial('website connect via ssh', async t => {
+    const password = await tests.getToken();
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --password ${password}`);
+    // Put code on website
+    const token = await tests.getToken();
+    await ssh.execResource(website, {password}, `echo '${token}' > /public/test.php`);
+    const content = await ssh.execResource(website, {password}, 'cat /public/test.php');
+    t.true(content === token);
+    await tests.remove('website', website);
+});
