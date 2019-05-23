@@ -7,11 +7,11 @@
   * [h1 website delete](#h1-website-delete) - Delete website
   * [h1 website history](#h1-website-history) - History of website
   * [h1 website rename](#h1-website-rename) - Rename website
-  * [h1 website sftp](#h1-website-sftp) - Connect to website using SFTP
+  * [h1 website list](#h1-website-list) - List website
   * [h1 website show](#h1-website-show) - Show website
   * [h1 website ssh](#h1-website-ssh) - Connect to website using SSH
+  * [h1 website sftp](#h1-website-sftp) - Connect to Website using SFTP
   * [h1 website sftp](#h1-website-sftp) - Connect to website using SFTP
-  * [h1 website list](#h1-website-list) - List website
   * [h1 website credential](#h1-website-credential) - Manage your credentials to website
     * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to website
       * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to website
@@ -177,24 +177,18 @@ h1 website rename --website my-website --new-name my-renamed-website
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
-## h1 website sftp
+## h1 website list
 
-Connect to website using SFTP
+List website
 
 ### Syntax
 
-```h1 website sftp | --website WEBSITE```
+```h1 website list | ```
 ### Example
 
+```bash
+h1 website list
 ```
-h1 website sftp --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website show
 
@@ -244,7 +238,7 @@ Note: Need valid credentials to access resource any way.
 
 ## h1 website sftp
 
-Connect to website using SFTP
+Connect to Website using SFTP
 
 ### Syntax
 
@@ -261,18 +255,24 @@ h1 website sftp --website my-website
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 
-## h1 website list
+## h1 website sftp
 
-List website
+Connect to website using SFTP
 
 ### Syntax
 
-```h1 website list | ```
+```h1 website sftp | --website WEBSITE```
 ### Example
 
-```bash
-h1 website list
 ```
+h1 website sftp --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website credential
 
