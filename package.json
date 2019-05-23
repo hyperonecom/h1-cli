@@ -56,10 +56,10 @@
       "bin/replica/create/HyperOneCa.cer"
     ],
     "targets": [
-      "node10-alpine",
-      "node10-linux",
-      "node10-macos",
-      "node10-win"
+      "node12-alpine",
+      "node12-linux",
+      "node12-macos",
+      "node12-win"
     ]
   },
   "keywords": [],
@@ -73,7 +73,7 @@
     "mysql2": "^1.6.5",
     "node-forge": "^0.7.6",
     "nodemailer": "^4.7.0",
-    "pkg": "^4.3.7"
+    "pkg": "^4.4.0"
   },
   "ava": {
     "files": [
