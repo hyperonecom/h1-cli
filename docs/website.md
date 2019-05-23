@@ -11,6 +11,7 @@
   * [h1 website show](#h1-website-show) - Show website
   * [h1 website ssh](#h1-website-ssh) - Connect to website using SSH
   * [h1 website sftp](#h1-website-sftp) - Connect to Website using SFTP
+  * [h1 website log](#h1-website-log) - Live logs of website
   * [h1 website sftp](#h1-website-sftp) - Connect to website using SFTP
   * [h1 website credential](#h1-website-credential) - Manage your credentials to website
     * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to website
@@ -254,6 +255,31 @@ h1 website sftp --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website log
+
+Live logs of website
+
+### Syntax
+
+```h1 website log | --website WEBSITE [--log-file LOG-FILE]```
+### Example
+
+```
+h1 website log --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log-file LOG-FILE``` |  | Path of output log file |
 
 ## h1 website sftp
 

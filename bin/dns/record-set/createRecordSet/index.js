@@ -24,6 +24,7 @@ module.exports = (resource) => Cli.createCommand('create', {
     description: 'Create record-set',
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options, recordOptions),
+    priority: 25,
     resource: resource,
     handler: args => {
         args.zone = addTrailingDot(args.zone);

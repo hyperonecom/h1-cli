@@ -1,9 +1,9 @@
 # TOC
 
+  * [h1 firewall create](#h1-firewall-create) - Create firewall
   * [h1 firewall service](#h1-firewall-service) - Manage your services of firewall
     * [h1 firewall service list](#h1-firewall-service-list) - List service for firewall
     * [h1 firewall service show](#h1-firewall-service-show) - Show service for firewall
-  * [h1 firewall list](#h1-firewall-list) - List firewall
   * [h1 firewall delete](#h1-firewall-delete) - Delete firewall
   * [h1 firewall history](#h1-firewall-history) - History of firewall
   * [h1 firewall rename](#h1-firewall-rename) - Rename firewall
@@ -14,7 +14,7 @@
     * [h1 firewall ingress show](#h1-firewall-ingress-show) - Show rule ingress of firewall
   * [h1 firewall show](#h1-firewall-show) - Show firewall
   * [h1 firewall transfer](#h1-firewall-transfer) - Transfer firewall to other project
-  * [h1 firewall create](#h1-firewall-create) - Create firewall
+  * [h1 firewall list](#h1-firewall-list) - List firewall
   * [h1 firewall attach](#h1-firewall-attach) - Attach firewall to a network
   * [h1 firewall detach](#h1-firewall-detach) - Detach firewall from network
   * [h1 firewall egress](#h1-firewall-egress) - Manage egress rules of firewall
@@ -33,6 +33,31 @@
 ## h1 firewall
 
 Manage your firewall
+
+## h1 firewall create
+
+Create firewall
+
+### Syntax
+
+```h1 firewall create | --name NAME [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 firewall create --name secure-zone-fw
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 firewall service
 
@@ -76,19 +101,6 @@ h1 firewall service show --service my-service --firewall my-firewall
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--service SERVICE``` |  | Service for firewall ID or name |
-
-## h1 firewall list
-
-List firewall
-
-### Syntax
-
-```h1 firewall list | ```
-### Example
-
-```bash
-h1 firewall list
-```
 
 ## h1 firewall delete
 
@@ -331,30 +343,18 @@ h1 firewall transfer --firewall test-firewall --new-project OtherProject
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
 
-## h1 firewall create
+## h1 firewall list
 
-Create firewall
+List firewall
 
 ### Syntax
 
-```h1 firewall create | --name NAME [--tag TAG [--tag TAG ...]]```
+```h1 firewall list | ```
 ### Example
 
 ```bash
-h1 firewall create --name secure-zone-fw
+h1 firewall list
 ```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 firewall attach
 
