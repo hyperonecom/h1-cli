@@ -10,7 +10,7 @@
   * [h1 website sftp](#h1-website-sftp) - Connect to website using SFTP
   * [h1 website show](#h1-website-show) - Show website
   * [h1 website ssh](#h1-website-ssh) - Connect to website using SSH
-  * [h1 website sftp](#h1-website-sftp) - Connect to website using SFTP
+  * [h1 website sftp](#h1-website-sftp) - Connect to Website using SFTP
   * [h1 website list](#h1-website-list) - List website
   * [h1 website credential](#h1-website-credential) - Manage your credentials to website
     * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to website
@@ -244,7 +244,7 @@ Note: Need valid credentials to access resource any way.
 
 ## h1 website sftp
 
-Connect to website using SFTP
+Connect to Website using SFTP
 
 ### Syntax
 
