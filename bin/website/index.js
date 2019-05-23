@@ -8,7 +8,7 @@ const resource = {
     url: () => 'website',
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
-    extraCommands: ['ssh', 'sftp', 'credential'],
+    extraCommands: ['ssh', 'sftp', 'credential', 'log'],
     title: 'website',
     credential_types: ['certificate', 'sha512'],
 };
