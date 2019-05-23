@@ -18,6 +18,7 @@ const handler = args => args.helpers.api.post('firewall', {
 module.exports = resource => Cli.createCommand('create', {
     dirname: __dirname,
     genericOptions: ['tag'],
+    priority: 25,
     description: `Create ${resource.title}`,
     options: options,
     plugins: resource.plugins,
