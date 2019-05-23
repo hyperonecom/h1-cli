@@ -7,7 +7,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'vault',
     plugins: genericDefaults.plugins,
-    extraCommands: ['resize', 'ssh', 'sftp', 'start', 'stop','credential'],
+    extraCommands: ['resize', 'ssh', 'sftp', 'start', 'stop', 'credential'],
     title: 'Vault',
     credential_types: ['certificate', 'sha512'],
 };

@@ -1,17 +1,17 @@
 # TOC
 
   * [h1 database create](#h1-database-create) - Create database
-  * [h1 database service](#h1-database-service) - Manage your services of database
-    * [h1 database service list](#h1-database-service-list) - List service for database
-    * [h1 database service show](#h1-database-service-show) - Show service for database
+  * [h1 database list](#h1-database-list) - List database
+  * [h1 database show](#h1-database-show) - Show database
   * [h1 database delete](#h1-database-delete) - Delete database
   * [h1 database history](#h1-database-history) - History of database
   * [h1 database rename](#h1-database-rename) - Rename database
-  * [h1 database stop](#h1-database-stop) - Stop database
-  * [h1 database show](#h1-database-show) - Show database
-  * [h1 database list](#h1-database-list) - List database
-  * [h1 database shell](#h1-database-shell) - Connect to database using standard client
+  * [h1 database service](#h1-database-service) - Manage your services of database
+    * [h1 database service list](#h1-database-service-list) - List service for database
+    * [h1 database service show](#h1-database-service-show) - Show service for database
   * [h1 database start](#h1-database-start) - Start database
+  * [h1 database stop](#h1-database-stop) - Stop database
+  * [h1 database shell](#h1-database-shell) - Connect to database using standard client
   * [h1 database credential](#h1-database-credential) - Manage your credentials to database
     * [h1 database credential password](#h1-database-credential-password) - Manage your password to database
       * [h1 database credential password show](#h1-database-credential-password-show) - Show password to database
@@ -64,21 +64,30 @@ h1 database create --name my-database --type mysql --password my-password
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. The parameter may occur repeatedly |
 
-## h1 database service
+## h1 database list
 
-Manage your services of database
-
-## h1 database service list
-
-List service for database
+List database
 
 ### Syntax
 
-```h1 database service list | --database DATABASE```
+```h1 database list | ```
 ### Example
 
 ```bash
-h1 database service list --database test-database
+h1 database list
+```
+
+## h1 database show
+
+Show database
+
+### Syntax
+
+```h1 database show | --database DATABASE```
+### Example
+
+```bash
+h1 database show --database my-database
 ```
 
 ### Required arguments
@@ -86,26 +95,6 @@ h1 database service list --database test-database
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--database DATABASE``` |  | Database ID or name |
-
-## h1 database service show
-
-Show service for database
-
-### Syntax
-
-```h1 database service show | --database DATABASE --service SERVICE```
-### Example
-
-```bash
-h1 database service show --service my-service --database my-database
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
-| ```--service SERVICE``` |  | Service for database ID or name |
 
 ## h1 database delete
 
@@ -165,6 +154,68 @@ h1 database rename --database my-database --new-name my-renamed-database
 | ```--database DATABASE``` |  | Database ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
+## h1 database service
+
+Manage your services of database
+
+## h1 database service list
+
+List service for database
+
+### Syntax
+
+```h1 database service list | --database DATABASE```
+### Example
+
+```bash
+h1 database service list --database test-database
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--database DATABASE``` |  | Database ID or name |
+
+## h1 database service show
+
+Show service for database
+
+### Syntax
+
+```h1 database service show | --database DATABASE --service SERVICE```
+### Example
+
+```bash
+h1 database service show --service my-service --database my-database
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--database DATABASE``` |  | Database ID or name |
+| ```--service SERVICE``` |  | Service for database ID or name |
+
+## h1 database start
+
+Start database
+
+### Syntax
+
+```h1 database start | --database DATABASE```
+### Example
+
+```
+h1 database start --database my-database
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--database DATABASE``` |  | Database ID or name |
+
 ## h1 database stop
 
 Stop database
@@ -183,38 +234,6 @@ h1 database stop --database my-database
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--database DATABASE``` |  | Database ID or name |
-
-## h1 database show
-
-Show database
-
-### Syntax
-
-```h1 database show | --database DATABASE```
-### Example
-
-```bash
-h1 database show --database my-database
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
-
-## h1 database list
-
-List database
-
-### Syntax
-
-```h1 database list | ```
-### Example
-
-```bash
-h1 database list
-```
 
 ## h1 database shell
 
@@ -237,25 +256,6 @@ Note: You need valid credentials to access *Database* any way.
 | ---- | ------- | ----------- |
 | ```--database DATABASE``` |  | Database ID or name |
 | ```--password PASSWORD``` |  | Password to access database. Can be set also via environment variable H1_DATABASE_PASSWORD. |
-
-## h1 database start
-
-Start database
-
-### Syntax
-
-```h1 database start | --database DATABASE```
-### Example
-
-```
-h1 database start --database my-database
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
 
 ## h1 database credential
 

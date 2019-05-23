@@ -1,24 +1,20 @@
 # TOC
 
-  * [h1 project list](#h1-project-list) - List project
   * [h1 project show](#h1-project-show) - Show project
+  * [h1 project delete](#h1-project-delete) - Delete project
   * [h1 project access](#h1-project-access) - Manage your project access rights
     * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
     * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for project
     * [h1 project access list](#h1-project-access-list) - List access rights for project
   * [h1 project history](#h1-project-history) - History of project
   * [h1 project rename](#h1-project-rename) - Rename project
-  * [h1 project logging](#h1-project-logging) - Manage your compliance logging
-    * [h1 project logging enable](#h1-project-logging-enable) - Enable compliance log
-    * [h1 project logging disable](#h1-project-logging-disable) - Disable compliance log
-    * [h1 project logging show](#h1-project-logging-show) - Show compliance log
   * [h1 project service](#h1-project-service) - Manage your services of project
     * [h1 project service list](#h1-project-service-list) - List service for project
     * [h1 project service show](#h1-project-service-show) - Show service for project
   * [h1 project payment](#h1-project-payment) - Manage your payment for project
     * [h1 project payment show](#h1-project-payment-show) - Show payment
     * [h1 project payment list](#h1-project-payment-list) - List payment
-  * [h1 project delete](#h1-project-delete) - Delete project
+  * [h1 project list](#h1-project-list) - List project
   * [h1 project create](#h1-project-create) - Create project
   * [h1 project transfer](#h1-project-transfer) - Transfer project to other organisation
   * [h1 project token](#h1-project-token) - Manage your project tokens
@@ -40,6 +36,10 @@
       * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limit
   * [h1 project select](#h1-project-select) - Select project context
   * [h1 project limit](#h1-project-limit) - Cloud limits set for project
+  * [h1 project logging](#h1-project-logging) - Manage your compliance logging
+    * [h1 project logging enable](#h1-project-logging-enable) - Enable compliance log
+    * [h1 project logging disable](#h1-project-logging-disable) - Disable compliance log
+    * [h1 project logging show](#h1-project-logging-show) - Show compliance log
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
     * [h1 project credentials show](#h1-project-credentials-show) - Show credentials
     * [h1 project credentials list](#h1-project-credentials-list) - List credentials
@@ -58,25 +58,6 @@
 
 Manage your project
 
-## h1 project list
-
-List project
-
-### Syntax
-
-```h1 project list | [--all]```
-### Example
-
-```bash
-h1 project list
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--all``` |  | Include inactive projects |
-
 ## h1 project show
 
 Show project
@@ -88,6 +69,25 @@ Show project
 
 ```bash
 h1 project show --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project delete
+
+Delete project
+
+### Syntax
+
+```h1 project delete | --project PROJECT```
+### Example
+
+```bash
+h1 project delete --project my-project
 ```
 
 ### Required arguments
@@ -215,79 +215,6 @@ h1 project rename --project my-project --new-name my-renamed-project
 | ```--project PROJECT``` |  | Project ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
-## h1 project logging
-
-Manage your compliance logging
-
-### Note
-
-The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
-
-## h1 project logging enable
-
-Enable compliance log
-
-### Syntax
-
-```h1 project logging enable | --log LOG --password PASSWORD [--project PROJECT] [--mode {basic,full}]```
-### Example
-
-```
-h1 project logging enable --project MyProject --logArchive 5beabe03680cffd11f0e653d  --password StrongPassword
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | ID of LogArchive |
-| ```--password PASSWORD``` |  | Credentials of type "password" to access logArchive |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-| ```--mode {basic,full}``` |  | Logging mode (determines the scope of registered information) |
-
-## h1 project logging disable
-
-Disable compliance log
-
-### Syntax
-
-```h1 project logging disable | [--project PROJECT]```
-### Example
-
-```
-h1 project logging disable --project MyProject
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
-## h1 project logging show
-
-Show compliance log
-
-### Syntax
-
-```h1 project logging show | [--project PROJECT]```
-### Example
-
-```
-h1 project logging show --project MyProject
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project service
 
 Manage your services of project
@@ -374,24 +301,24 @@ h1 project payment list --project my-project
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 
-## h1 project delete
+## h1 project list
 
-Delete project
+List project
 
 ### Syntax
 
-```h1 project delete | --project PROJECT```
+```h1 project list | [--all]```
 ### Example
 
 ```bash
-h1 project delete --project my-project
+h1 project list
 ```
 
-### Required arguments
+### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
+| ```--all``` |  | Include inactive projects |
 
 ## h1 project create
 
@@ -845,6 +772,79 @@ h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
 
 Contact technical support to request increase the limits.
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project logging
+
+Manage your compliance logging
+
+### Note
+
+The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
+
+## h1 project logging enable
+
+Enable compliance log
+
+### Syntax
+
+```h1 project logging enable | --log LOG --password PASSWORD [--project PROJECT] [--mode {basic,full}]```
+### Example
+
+```
+h1 project logging enable --project MyProject --logArchive 5beabe03680cffd11f0e653d  --password StrongPassword
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log LOG``` |  | ID of LogArchive |
+| ```--password PASSWORD``` |  | Credentials of type "password" to access logArchive |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+| ```--mode {basic,full}``` |  | Logging mode (determines the scope of registered information) |
+
+## h1 project logging disable
+
+Disable compliance log
+
+### Syntax
+
+```h1 project logging disable | [--project PROJECT]```
+### Example
+
+```
+h1 project logging disable --project MyProject
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project logging show
+
+Show compliance log
+
+### Syntax
+
+```h1 project logging show | [--project PROJECT]```
+### Example
+
+```
+h1 project logging show --project MyProject
+```
 
 ### Optional arguments
 
