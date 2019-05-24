@@ -20,7 +20,7 @@ ava.serial('website life cycle', tests.resourceLifeCycle('website', {
 const putFileWebsite = (website, auth, path, content) => {
     console.log(new Date(), `Upload content to website ${website._id} at '${path}'`);
     return ssh.putFile(path, content, Object.assign({
-        host: `${website.fqdn}`,
+        host: website.fqdn,
         username: website._id,
     }, auth));
 };
@@ -28,7 +28,15 @@ const putFileWebsite = (website, auth, path, content) => {
 const rmFileWebsite = (website, auth, path) => {
     console.log(new Date(), `Remove file of website ${website._id} at '${path}'`);
     return ssh.rmFile(path, Object.assign({
-        host: `${website.fqdn}`,
+        host: website.fqdn,
+        username: website._id,
+    }, auth));
+};
+
+const lsWebsite = (website, auth, path) => {
+    console.log(new Date(), `List files of website ${website._id} at '${path}'`);
+    return ssh.lsFile(path, Object.assign({
+        host: website.fqdn,
         username: website._id,
     }, auth));
 };
@@ -46,7 +54,7 @@ ava.serial('website put index via SFTP & password', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --password ${password}`);
     // Upload file
     const token = await tests.getToken();
-    await putFileWebsite(website, {password}, '/public/index.html', token);
+    await putFileWebsite(website, {password}, 'public/index.html', token);
 
     const resp = await request.get(`http://${website.fqdn}/`);
     t.true(resp.text === token);
@@ -59,7 +67,11 @@ ava.serial('website reachable through custom domain', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${domain} ${commonCreateParams} --password ${password}`);
     // Upload file
     const token = await tests.getToken();
-    await putFileWebsite(website, {password}, '/public/index.html', token);
+
+    const files = await lsWebsite(website, {password}, '/data');
+    t.true(files.some(f => f.filename === 'public'));
+    await ssh.execResource(website, {password}, 'ls -lah /data/public');
+    await putFileWebsite(website, {password}, 'public/index.html', token);
     // Test content
     const resp = await request.get(`http://${website.fqdn}/`).set('Host', domain);
     t.true(resp.text === token);
@@ -74,7 +86,7 @@ ava.serial('website put index via SFTP & ssh-key', async t => {
 
     // Upload file
     const token = await tests.getToken();
-    await putFileWebsite(website, {privateKey: sshKeyPair.privateKey}, '/public/index.html', token);
+    await putFileWebsite(website, {privateKey: sshKeyPair.privateKey}, 'public/index.html', token);
     // Test content
     const resp = await request.get(`http://${website.fqdn}/`);
     t.true(resp.text === token);
@@ -136,7 +148,7 @@ ava.serial('website runtime access rights match of sftp', async t => {
     // Put code on website
     const token = await tests.getToken();
     const content = images[image].code.replace('TOKEN', token);
-    await putFileWebsite(website, {password}, '/public/test.php', content);
+    await putFileWebsite(website, {password}, 'public/test.php', content);
     // Call script
     const resp_call = await request.get(`http://${website.fqdn}/test.php`);
     t.true(resp_call.text === '');
@@ -144,7 +156,7 @@ ava.serial('website runtime access rights match of sftp', async t => {
     const resp_test = await request.get(`http://${website.fqdn}/test.txt`);
     t.true(resp_test.text === token);
     // Verify permission to remove
-    await rmFileWebsite(website, {password}, '/public/test.txt');
+    await rmFileWebsite(website, {password}, 'public/test.txt');
     await tests.remove('website', website);
 });
 
@@ -154,10 +166,10 @@ ava.todo('website ssh');
 ava.serial('website connect via ssh', async t => {
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --password ${password}`);
-    // Put code on website
-    const token = await tests.getToken();
-    await ssh.execResource(website, {password}, `echo '${token}' > /public/test.php`);
-    const content = await ssh.execResource(website, {password}, 'cat /public/test.php');
-    t.true(content === token);
-    await tests.remove('website', website);
+    try {
+        const hostname = await ssh.execResource(website, {password}, 'hostname');
+        t.true(hostname.trim() === website._id);
+    } finally {
+        await tests.remove('website', website);
+    }
 });
