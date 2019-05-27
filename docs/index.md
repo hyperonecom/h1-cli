@@ -11,6 +11,7 @@
   * [h1 service](service.md) - Explore available services
   * [h1 organisation](organisation.md) - Manage your organisation
   * [h1 logout](logout.md) - Remove user session
+  * [h1 env](env.md) - Get environment variables to manage project as user
   * [h1 vm](vm.md) - Manage your virtual machine
   * [h1 disk](disk.md) - Manage your disk
   * [h1 volume](volume.md) - Manage your volume
