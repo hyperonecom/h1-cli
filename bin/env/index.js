@@ -14,21 +14,21 @@ const options = {
     },
 };
 
-module.exports = resource => Cli.createCommand('env', {
+module.exports = Cli.createCommand('env', {
     description: 'Get environment variables to manage project as user',
     plugins: [
         ...defaults.plugins,
         require('bin/_plugins/projectRequired'),
     ],
     dirname: __dirname,
-    params: resource.params,
-    options: Object.assign({}, resource.options, options),
+    options,
     handler: args => {
-        let shellView = shell.set_environment[args.shell];
-        if (!shellView) {
-            console.error('Lines below are for a sh/bash shell, you can specify the shell with the --shell parameter.');
-            shellView = shell.set_environment.sh;
+        if (!args.shell || !shell.set_environment[args.shell]) {
+            console.error('Lines below are for a sh shell, you can specify the shell with the --shell parameter.');
+            args.shell = 'sh';
         }
+        const shellView = shell.set_environment.sh;
+        console.error(`Run this command to configure your shell:\n${shell.run_command[args.shell](process.argv)}\n\n`);
         return [
             shellView(`${process.env.SCOPE_FULL_NAME.toUpperCase()}_PROJECT`, config.get('profile.project._id')),
             shellView(`${process.env.SCOPE_FULL_NAME.toUpperCase()}_ACCESS_TOKEN_ID`, config.get('profile.apiKey')),

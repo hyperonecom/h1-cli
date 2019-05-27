@@ -19,14 +19,15 @@ module.exports = resource => Cli.createCommand('env', {
     dirname: __dirname,
     params: resource.params,
     options: Object.assign({}, resource.options, options),
-    handler: args => args.helpers.api
-        .get(resource.url(args))
+    handler: args => args.helpers.api.get(resource.url(args))
         .then(token => {
-            let shellView = shell.set_environment[args.shell];
-            if (!shellView) {
-                console.error('Lines below are for a sh/bash shell, you can specify the shell with the --shell parameter.');
-                shellView = shell.set_environment.sh;
+            if (!args.shell || !shell.set_environment[args.shell]) {
+                console.error('Lines below are for a sh shell, you can specify the shell with the --shell parameter.');
+                args.shell = 'sh';
             }
+            const shellView = shell.set_environment.sh;
+            console.error(`Run this command to configure your shell:\n${shell.run_command[args.shell](process.argv)}\n\n`);
+
             return [
                 shellView(`${process.env.SCOPE_FULL_NAME.toUpperCase()}_PROJECT`, args.project),
                 shellView(`${process.env.SCOPE_FULL_NAME.toUpperCase()}_ACCESS_TOKEN_ID`, token._id),
