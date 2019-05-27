@@ -12,6 +12,11 @@ const options = {
         defaultValue: shell.detect(),
         choices: Object.keys(shell.set_environment),
     },
+    unset: {
+        description: 'Reverses operations of setting environment variables',
+        type: 'boolean',
+        defaultValue: false,
+    },
 };
 
 module.exports = Cli.createCommand('env', {
@@ -27,7 +32,10 @@ module.exports = Cli.createCommand('env', {
             console.error('Lines below are for a sh shell, you can specify the shell with the --shell parameter.');
             args.shell = 'sh';
         }
-        const shellView = shell.set_environment.sh;
+        let shellView = shell.set_environment[args.shell];
+        if (args.unset) {
+            shellView = shell.unset_environment[args.shell];
+        }
         console.error(`Run this command to configure your shell:\n${shell.run_command[args.shell](process.argv)}\n\n`);
         return [
             shellView(`${process.env.SCOPE_FULL_NAME.toUpperCase()}_PROJECT`, config.get('profile.project._id')),

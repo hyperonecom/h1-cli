@@ -712,7 +712,7 @@ Get environment variables to manage project by service account
 
 ### Syntax
 
-```h1 project token env | --token TOKEN [--project PROJECT] [--shell {windows,powershell,cmd,sh,bash}]```
+```h1 project token env | --token TOKEN [--project PROJECT] [--shell {powershell,cmd,sh,bash}] [--unset]```
 ### Examples
 
 #### Get and set environment variables in sh/bash shell
@@ -732,7 +732,8 @@ eval $(h1 project token env --token 189d9053248c4f6fbacebe90558ff538)
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
-| ```--shell {windows,powershell,cmd,sh,bash}``` |  | Shell type |
+| ```--shell {powershell,cmd,sh,bash}``` |  | Shell type |
+| ```--unset``` |  | Reverses operations of setting environment variables |
 
 ## h1 project notification
 
