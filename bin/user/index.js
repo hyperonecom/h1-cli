@@ -25,8 +25,6 @@ category.addChild(require('./create'));
 
 // category.addChild(require('./access')(childDefaults));
 
-category.addChild(require('./env')(Object.assign({}, childDefaults)));
-
 category.addChild(require('bin/generic/credentials')(Object.assign(
     {},
     resource,
