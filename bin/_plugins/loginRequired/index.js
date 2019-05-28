@@ -13,10 +13,9 @@ module.exports = {
         const profile = config.get('profile', {});
 
         if (config.get_token()) {
-            console.error(`Skip log in. Using ${config.scope()}_TOKEN from environment variable`);
+            console.error(`Skip log in. Using ${config.scope()}_ACCESS_TOKEN_SECRET from environment variable`);
             return;
         }
-
         if (profile.apiKey && profile.expires && new Date(profile.expires) > Date.now()) {
             context.args.profile = profile;
             context.args.apiKey = profile.apiKey;

@@ -254,11 +254,13 @@ ava.serial('project token access life cycle', async t => {
 
 ava.serial('project token env', async t => {
     const token = await tests.run(`project token add --project ${active_project} --name ${tests.getName(t.title)}`);
+    await tests.run(`project token access add --project ${active_project} --method ALL --path '/' --token ${token._id}`);
 
     const content = await tests.run(`project token env --project ${active_project} --token ${token._id} `);
     t.true(content.includes('_PROJECT'));
     t.true(content.includes('_ACCESS_TOKEN_ID'));
     t.true(content.includes('_ACCESS_TOKEN_SECRET'));
+    await tests.envOutput(t, content);
 
     await tests.remove('project token', token);
 });
