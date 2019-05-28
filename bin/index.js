@@ -79,6 +79,8 @@ Cli.flatten(cli).forEach(node => {
         command_name: Cli.get_full_name(node),
         scope: scope,
         scope_uppercase: scope.toUpperCase(),
+        scope_full_uppercase: process.env.SCOPE_FULL_NAME.toUpperCase(),
+
     };
     if (node.parent) {
         context.category_name = Cli.get_full_name(node.parent);
