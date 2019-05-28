@@ -277,7 +277,7 @@ ava.serial('token was used if environment variable set', async t => {
     await t.throwsAsync(() => tests.run({
         cmd: 'disk list',
         env: {
-            H1_TOKEN: token._id,
+            HYPERONE_ACCESS_TOKEN_SECRET: token._id,
         },
     }));
 
