@@ -1,5 +1,7 @@
 # Common arguments
 ## Argument ```--verbose```
+Make the operation more talkative. Can be set also via environment variable HYPERONE_CLI_VERBOSE.
+
 #### Examples
 
 ##### Displays the URL of the request to the API
@@ -8,8 +10,9 @@
 h1 image list --verbose
 ```
 ## Argument ```--no-wait```
-In case of queued event do not wait for completion. It allows you to perform operations
-asynchronously, which can be used to optimize the execution time of scripts.
+In case of queued event do not wait for completion
+
+It allows to perform operations asynchronously, which can be used to optimize the execution time of scripts.
 
 #### Examples
 
@@ -18,13 +21,15 @@ asynchronously, which can be used to optimize the execution time of scripts.
 h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh --no-wait
 ```
 ## Argument ```--dry-run```
+Dry run for the request
+
 Try to perform operations without making any real changes:
 
 ```
 h1 disk create --name xxxx.com --type ssd --size 25 --dry-run
 ```
 ## Argument ```--output```
-Specify output format of command.
+Specify output format of command. Can be set also via environment variable HYPERONE_CLI_OUTPUT.
 
 #### Available formats
 
@@ -55,8 +60,9 @@ h1 network list -o list
 h1 vm list -o table
 ```
 ## Argument ```--query```
-Argument ```--query``` mean JMESPath query string. It is quite a powerful tool that allows you to efficiently 
-    obtain specific information about resources.
+ JMESPath query string
+
+JMESPath is quite a powerful tool that allows to efficiently obtain specific information about resources.
     
 See the documentation and examples published on [jmespath.org](https://jmespath.org) for details about syntax.
     
@@ -107,6 +113,8 @@ h1 disk delete --disk test-disk --yes
 
 Note (1): Pretty useful when writing automatic scripts.
 ## Argument ```--project-select```
+Override current project on the request. Can be set also via environment variable HYPERONE_PROJECT.
+
 A parameter intended for selecting an ad-hoc project for a single command.
 
 #### Examples

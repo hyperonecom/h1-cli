@@ -14,12 +14,12 @@ module.exports = resource => {
             type: 'string',
             required: true,
         },
-        token: {
-            description: `Token entitling to write to ${resource.title}. Can be set also via environment variable H1_LOG_TOKEN.`,
+        token: Cli.richOption({
+            description: `Token entitling to write to ${resource.title}`,
             type: 'string',
-            required: !process.env.H1_LOG_TOKEN,
-            defaultValue: process.env.H1_LOG_TOKEN,
-        },
+            env: 'LOG_TOKEN',
+            required: true,
+        }),
         hostname: {
             description: 'Name of the host recorded in the log',
             type: 'string',

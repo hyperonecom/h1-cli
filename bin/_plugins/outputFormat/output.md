@@ -1,5 +1,3 @@
-Specify output format of command.
-
 # Available formats
 
 * ```table``` - Simple results as tabular (default).

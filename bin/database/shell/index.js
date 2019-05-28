@@ -8,12 +8,12 @@ const options = {
         type: 'string',
         required: true,
     },
-    password: {
-        description: 'Password to access database. Can be set also via environment variable H1_DATABASE_PASSWORD.',
+    password: Cli.richOption({
+        description: 'Password to access database',
         type: 'string',
-        required: !process.env.H1_DATABASE_PASSWORD,
-        defaultValue: process.env.H1_DATABASE_PASSWORD,
-    },
+        env: 'DATABASE_PASSWORD',
+        required: true,
+    }),
 };
 
 

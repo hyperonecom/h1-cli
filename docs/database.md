@@ -255,7 +255,7 @@ Note: You need valid credentials to access *Database* any way.
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to access database. Can be set also via environment variable H1_DATABASE_PASSWORD. |
+| ```--password PASSWORD``` |  | Password to access database. Can be set also via environment variable HYPERONE_DATABASE_PASSWORD. |
 
 ## h1 database credential
 

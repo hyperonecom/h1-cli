@@ -4,10 +4,11 @@ const config = require('lib/config');
 const Cli = require('lib/cli');
 
 const options = {
-    'project-select': {
+    'project-select': Cli.richOption({
         description: 'Override current project on the request',
         type: 'string',
-    },
+        env: 'PROJECT',
+    }),
 };
 
 

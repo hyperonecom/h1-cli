@@ -1,14 +1,15 @@
 'use strict';
 
 const api = require('lib/api');
+const {richOption} = require('lib/cli');
 
 const options = {
-    verbose: {
+    verbose: richOption({
         alias: 'v',
         description: 'Make the operation more talkative',
-        defaultValue: !!process.env.H1_DEFAULT_VERBOSE,
+        env: 'CLI_VERBOSE',
         type: 'boolean',
-    },
+    }),
     // websocks depends on no-wait existing and being false
     'no-wait': {
         description: 'In case of queued event do not wait for completion',
