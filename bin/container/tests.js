@@ -1,9 +1,6 @@
 'use strict';
 const ava = require('ava');
 const request = require('superagent');
-const fs = require('fs');
-const util = require('util');
-const readFile = util.promisify(fs.readFile);
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
@@ -56,19 +53,9 @@ ava.serial('container process list', async t => {
     }
 });
 
-ava.serial('container log', async t => {
-    const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams} --expose 80:80`);
-    try {
-        const token = await tests.getToken();
-        const fileName = await tests.randomFileName();
-        await request.get(`http://${container.fqdn}/`).query({token});
-        await tests.run(`container log --container ${container.name} --log-file ${fileName}`);
-        const content = await readFile(fileName, {encoding: 'utf-8'});
-        t.true(content.includes(token));
-    } finally {
-        await tests.remove('container', container);
-    }
-});
+// no longer tested after the archival logs have been abandoned, since
+// until found way to interrupt CLI command that follows the logs.
+ava.todo('container log');
 
 ava.serial('container create with volume', async t => {
     const volume = await tests.run(`volume create --name ${tests.getName(t.title, 'volume')} --type volume --size 1`);
