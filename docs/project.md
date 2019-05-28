@@ -473,7 +473,7 @@ h1 project token access delete --project 6oAoJqgyLZP4Le9UUNHrEOYP --token d41d8c
 #### Perform a snapshot of Vault using API token
 
 ```bash
-H1_TOKEN="d41d8cd98f00b204e9800998ecf8427e" h1 vault snapshot --vault x --name $(date +"%s")
+H1_ACCESS_TOKEN_SECRET="d41d8cd98f00b204e9800998ecf8427e" h1 vault snapshot --vault x --name $(date +"%s")
 ```
 
 ## h1 project token show
