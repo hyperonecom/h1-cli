@@ -2,11 +2,11 @@
 # Script designed to remove user's resources and data left after testing to ensure correct
 # future testing in a clean environment.
 
-PROJECT=${H1_PROJECT:-$1}
-SKIPPED_CREDENTIALS=${H1_USER_CREDENTIALS:--}
+PROJECT=${HYPERONE_PROJECT:-$1}
+SKIPPED_CREDENTIALS=${HYPERONE_USER_CREDENTIALS:--}
 
 [ -z "$PROJECT" ] && {
-    echo "Missing argument or environment variable H1_PROJECT"; exit 64;
+    echo "Missing argument or environment variable HYPERONE_PROJECT"; exit 64;
 }
 
 h1 vm           list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 vm          delete --yes --vm
@@ -32,9 +32,9 @@ h1 user credentials list -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 
 h1 project credentials list --project "$PROJECT" -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 h1 project credentials delete --yes --project "$PROJECT" --credentials
 h1 project notification credits list --project "$PROJECT" -o id | xargs -r -n 1 h1 project notification credits delete --project "$PROJECT" --limit
 h1 project token list --project "$PROJECT" -o id | xargs -r -n 1 h1 project token delete --yes --project "$PROJECT" --token
-[ -n "$H1_PROJECT_SLAVE" ] && [ -z "$H1_PROJECT_MASTER" ] && {
+[ -n "$HYPERONE_PROJECT_SLAVE" ] && [ -z "$HYPERONE_PROJECT_MASTER" ] && {
 	h1 project list -o tsv  | \
-	grep -v -e "$H1_PROJECT_SLAVE" -e "$H1_PROJECT_MASTER" | \
+	grep -v -e "$HYPERONE_PROJECT_SLAVE" -e "$HYPERONE_PROJECT_MASTER" | \
 	awk '{print $1}' | \
 	xargs -r -n 1 h1 project delete --yes --project
 }

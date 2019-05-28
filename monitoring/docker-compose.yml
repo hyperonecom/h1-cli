@@ -6,9 +6,9 @@ services:
       dockerfile: monitoring/Dockerfile
     environment:
       SMTP_URL: 'smtp://mailhog:1025'
-      H1_USER: ${H1_USER}
-      H1_PASSWORD: ${H1_PASSWORD}
-      H1_PROJECT: ${H1_PROJECT}
+      HYPERONE_USER: ${HYPERONE_USER}
+      HYPERONE_PASSWORD: ${HYPERONE_PASSWORD}
+      HYPERONE_PROJECT: ${HYPERONE_PROJECT}
       MONITORING_EMAILS: 'fail@example.com'
       MONITORING_SUCCESS_EMAILS: 'success@example.com'
   mailhog:

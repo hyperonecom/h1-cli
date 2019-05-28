@@ -25,16 +25,16 @@ const getConfig = () => {
         SMTP_URL: {
             label: 'SMTP URL',
         },
-        H1_USER: {
+        HYPERONE_USER: {
             label: 'HyperOne username',
         },
-        H1_PASSWORD: {
+        HYPERONE_PASSWORD: {
             label: 'HyperOne password',
         },
-        H1_PROJECT_MASTER: {
+        HYPERONE_PROJECT_MASTER: {
             label: 'HyperOne project ID or name',
         },
-        H1_PROJECT_SLAVE: {
+        HYPERONE_PROJECT_SLAVE: {
             label: 'HyperOne slave project ID or name',
         },
         MONITORING_EMAILS: {
@@ -166,11 +166,11 @@ const runProcess = async (cmd, env = {}, timeout = 60 * 30) => new Promise((reso
     });
 });
 const runIsolated = async (config, cmd, options={}) => {
-    const project = options.project || config.H1_PROJECT_MASTER;
+    const project = options.project || config.HYPERONE_PROJECT_MASTER;
     const config_dir = `/tmp/${Math.random()}/`;
     await mkDir(config_dir);
-    const envIsolate = {H1_CONFIG_PATH: config_dir};
-    await runProcess(`h1 login --username ${config.H1_USER} --password ${config.H1_PASSWORD}`, envIsolate);
+    const envIsolate = {HYPERONE_CONFIG_PATH: config_dir};
+    await runProcess(`h1 login --username ${config.HYPERONE_USER} --password ${config.HYPERONE_PASSWORD}`, envIsolate);
     await runProcess(`h1 project select --project ${project}`, envIsolate);
     return runProcess(cmd, envIsolate, config.MONITORING_TIMEOUT);
 };
@@ -196,10 +196,10 @@ const main = async () => {
     const outputs = await Promise.all(files.map(runTest));
     await sendMail(config, all_pass, `${versionText}\n${outputs.join('\n')}`);
     const cleanup = [
-        runIsolated(config, `./scripts/cleanup_project.sh ${config.H1_PROJECT_MASTER}`),
-        runIsolated(config, `./scripts/cleanup_project.sh ${config.H1_PROJECT_SLAVE}`),
-        runIsolated(config, `./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_MASTER}`),
-        runIsolated(config, `./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.H1_PROJECT_SLAVE}`),
+        runIsolated(config, `./scripts/cleanup_project.sh ${config.HYPERONE_PROJECT_MASTER}`),
+        runIsolated(config, `./scripts/cleanup_project.sh ${config.HYPERONE_PROJECT_SLAVE}`),
+        runIsolated(config, `./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.HYPERONE_PROJECT_MASTER}`),
+        runIsolated(config, `./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.HYPERONE_PROJECT_SLAVE}`),
     ];
     await Promise.all(cleanup.map(p => p.catch(() => {})));
 };

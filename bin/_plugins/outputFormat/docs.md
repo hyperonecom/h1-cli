@@ -1,9 +1,5 @@
 # Argument ```--output table / -o table```
 
-## Description
-
-Default output format, which can be overwritten by the environment variable ```H1_DEFAULT_OUTPUT``` also.
-
 ## Examples
 
 ### View all virtual machines in table format

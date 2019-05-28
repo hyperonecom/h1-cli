@@ -26,5 +26,5 @@
 # Perform a snapshot of Vault using API token
 
 ```bash
-{{scope_uppercase}}_ACCESS_TOKEN_SECRET="d41d8cd98f00b204e9800998ecf8427e" {{scope}} vault snapshot --vault x --name $(date +"%s")
+{{scope_full_uppercase}}_ACCESS_TOKEN_SECRET="d41d8cd98f00b204e9800998ecf8427e" {{scope}} vault snapshot --vault x --name $(date +"%s")
 ```
