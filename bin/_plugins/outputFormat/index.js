@@ -3,6 +3,7 @@
 const jmespath = require('jmespath');
 const tabula = require('tabula');
 const yaml = require('js-yaml');
+const {richOption} = require('lib/cli');
 
 const queryFilter = (args, result) => {
 
@@ -51,20 +52,20 @@ const outputFormat = {
 };
 
 const options = {
-    output: {
+    output: richOption({
         alias: 'o',
-        description: 'Output format',
+        description: 'Specify output format of command',
         type: 'string',
-        defaultValue: process.env.H1_DEFAULT_OUTPUT || 'table',
+        env: 'CLI_OUTPUT',
+        defaultValue: 'table',
         choices: Object.keys(outputFormat),
         dest: 'output',
-    },
+    }),
     query: {
         description: ' JMESPath query string',
         type: 'string',
     },
 };
-
 
 module.exports = {
     options: options,

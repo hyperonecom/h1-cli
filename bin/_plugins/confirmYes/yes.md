@@ -1,5 +1,3 @@
-Perform action without additional confirmation
-
 # Examples
 
 ## Remove disk without additional confirmation

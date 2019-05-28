@@ -1,5 +1,4 @@
-Argument ```--query``` mean JMESPath query string. It is quite a powerful tool that allows you to efficiently 
-    obtain specific information about resources.
+JMESPath is quite a powerful tool that allows to efficiently obtain specific information about resources.
     
 See the documentation and examples published on [jmespath.org](https://jmespath.org) for details about syntax.
     

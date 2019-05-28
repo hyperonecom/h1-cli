@@ -36,9 +36,10 @@ module.exports = (options) => {
                     header = `Argument ${utils.code}--${argument}${utils.code}`;
                 }
                 let content = fs.readFileSync(help_filename).toString();
+                const description = plugin.options[argument].description;
                 content = epilog.template_render(content, context).trimEnd('\n');
                 content = utils.update_markdown_header(content, 2);
-                content = `# ${header}\n${content}\n`;  // Standarize leading end line
+                content = `# ${header}\n${description}\n\n${content}\n`; // Standarize leading end line
                 content = utils.update_markdown_header(content, 1);
 
                 wstream.write(content);

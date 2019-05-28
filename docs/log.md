@@ -228,7 +228,7 @@ echo 'Log message' | h1 log logger --log my-log --token my-secret-token --hostna
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
-| ```--token TOKEN``` |  | Token entitling to write to log archive. Can be set also via environment variable H1_LOG_TOKEN. |
+| ```--token TOKEN``` |  | Token entitling to write to log archive. Can be set also via environment variable HYPERONE_LOG_TOKEN. |
 
 ### Optional arguments
 
