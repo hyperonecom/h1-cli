@@ -50,7 +50,7 @@ The functionality is available as part of the *Early adopters* program. Operatio
 #### Create Website with SSH credential
 
 ```bash
-h1 website --name my-website --type website --image 'quay.io/hyperone/php-apache:7.2' --ssh my-key
+h1 website create --name my-website --type website --image 'quay.io/hyperone/php-apache:7.2' --ssh my-key
 ```
 
 Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
@@ -67,7 +67,7 @@ Create website
 #### Create Website with SSH credential
 
 ```bash
-h1 website create create --name my-website --type website --image 'quay.io/hyperone/php-apache:7.2' --ssh my-key
+h1 website create --name my-website --type website --image 'quay.io/hyperone/php-apache:7.2' --ssh my-key
 ```
 
 Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
