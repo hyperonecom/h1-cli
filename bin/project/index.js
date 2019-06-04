@@ -32,7 +32,7 @@ const resource = {
     schema,
     dirname: __dirname,
     title: 'project',
-    commands: ['show', 'delete', 'access/user', 'history', 'rename', 'tag', 'service', 'payment'],
+    commands: ['show', 'delete', 'access/user', 'history', 'rename', 'tag', 'service', 'payment', 'create'],
 };
 const category = genericResource(resource);
 
