@@ -7,10 +7,10 @@
   * [h1 database delete](#h1-database-delete) - Delete database
   * [h1 database history](#h1-database-history) - History of database
   * [h1 database rename](#h1-database-rename) - Rename database
-  * [h1 database list](#h1-database-list) - List database
+  * [h1 database stop](#h1-database-stop) - Stop database
   * [h1 database show](#h1-database-show) - Show database
   * [h1 database start](#h1-database-start) - Start database
-  * [h1 database stop](#h1-database-stop) - Stop database
+  * [h1 database list](#h1-database-list) - List database
   * [h1 database shell](#h1-database-shell) - Connect to database using standard client
   * [h1 database credential](#h1-database-credential) - Manage your credentials to database
     * [h1 database credential password](#h1-database-credential-password) - Manage your password to database
@@ -35,13 +35,21 @@ Manage your database
 
 The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
 
+### Examples
+
+#### Create MySQL database
+
+```bash
+h1 database create --name my-database --type mysql --password my-password
+```
+
 ## h1 database create
 
 Create database
 
 ### Syntax
 
-```h1 database create | --name NAME --type TYPE [--tag TAG [--tag TAG ...]] [--password PASSWORD [--password PASSWORD ...]]```
+```h1 database create | --name NAME --type TYPE [--password PASSWORD [--password PASSWORD ...]] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create MySQL database
@@ -61,8 +69,8 @@ h1 database create --name my-database --type mysql --password my-password
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. The parameter may occur repeatedly |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 database service
 
@@ -165,18 +173,24 @@ h1 database rename --database my-database --new-name my-renamed-database
 | ```--database DATABASE``` |  | Database ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
-## h1 database list
+## h1 database stop
 
-List database
+Stop database
 
 ### Syntax
 
-```h1 database list | ```
+```h1 database stop | --database DATABASE```
 ### Example
 
-```bash
-h1 database list
 ```
+h1 database stop --database my-database
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--database DATABASE``` |  | Database ID or name |
 
 ## h1 database show
 
@@ -216,24 +230,18 @@ h1 database start --database my-database
 | ---- | ------- | ----------- |
 | ```--database DATABASE``` |  | Database ID or name |
 
-## h1 database stop
+## h1 database list
 
-Stop database
+List database
 
 ### Syntax
 
-```h1 database stop | --database DATABASE```
+```h1 database list | ```
 ### Example
 
+```bash
+h1 database list
 ```
-h1 database stop --database my-database
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
 
 ## h1 database shell
 

@@ -1,13 +1,13 @@
 # Create a log
 
 ```bash
-{{scope}} log create --name my-server-log
+{{command_name}} create --name my-server-log
 ```
 
 # Create a write-only password for client
 
 ```bash
-{{scope}} log credential password add --log my-server-log --name syslog --password my-strong-secret
+{{command_name}} credential password add --log my-server-log --name syslog --password my-strong-secret
 ```
 
 # Configure rsyslog
@@ -41,11 +41,11 @@ sudo service rsyslog restart
 # Display today's log entries
 
 ```bash
-{{scope}} log stream --log my-server-log 
+{{command_name}} stream --log my-server-log 
 ```
 
 # View live-stream of log entries
 
 ```bash
-{{scope}} log stream --log my-server-log --follow
+{{command_name}} stream --log my-server-log --follow
 ```

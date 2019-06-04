@@ -23,9 +23,10 @@ const options = {
 module.exports = resource => Cli.createCommand('create', {
     description: `Create ${resource.title}`,
     plugins: resource.plugins,
-    genericOptions: ['tag', 'password_ssh'],
+    genericOptions: ['tag', 'credentials'],
     dirname: __dirname,
     priority: 25,
+    resource: resource,
     options: Object.assign({}, options, resource.options),
     handler: async args => {
 

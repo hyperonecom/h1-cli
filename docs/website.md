@@ -5,16 +5,17 @@
   * [h1 website delete](#h1-website-delete) - Delete website
   * [h1 website history](#h1-website-history) - History of website
   * [h1 website rename](#h1-website-rename) - Rename website
-  * [h1 website list](#h1-website-list) - List website
+  * [h1 website update](#h1-website-update) - Update website
+    * [h1 website update domain](#h1-website-update-domain) - Update domain of website
   * [h1 website service](#h1-website-service) - Manage your services of website
     * [h1 website service list](#h1-website-service-list) - List service for website
     * [h1 website service show](#h1-website-service-show) - Show service for website
   * [h1 website show](#h1-website-show) - Show website
   * [h1 website sftp](#h1-website-sftp) - Connect to Website using SFTP
+  * [h1 website list](#h1-website-list) - List website
   * [h1 website start](#h1-website-start) - Start website
   * [h1 website stop](#h1-website-stop) - Stop website
   * [h1 website log](#h1-website-log) - Live logs of website
-  * [h1 website sftp](#h1-website-sftp) - Connect to website using SFTP
   * [h1 website credential](#h1-website-credential) - Manage your credentials to website
     * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to website
       * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to website
@@ -44,19 +45,29 @@ Manage your website
 
 The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
 
+### Examples
+
+#### Create Website with SSH credential
+
+```bash
+h1 website --name my-website --type website --image 'quay.io/hyperone/php-apache:7.2' --ssh my-key
+```
+
+Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
+
 ## h1 website create
 
 Create website
 
 ### Syntax
 
-```h1 website create | --name NAME --type TYPE --domain DOMAIN [--domain DOMAIN ...] --image IMAGE [--tag TAG [--tag TAG ...]] [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]]```
+```h1 website create | --name NAME --type TYPE --domain DOMAIN [--domain DOMAIN ...] --image IMAGE [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create Website with SSH credential
 
 ```bash
-h1 website create --name my-website --type website --image 'quay.io/hyperone/php-apache:7.2' --ssh my-key
+h1 website create create --name my-website --type website --image 'quay.io/hyperone/php-apache:7.2' --ssh my-key
 ```
 
 Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
@@ -66,7 +77,7 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Website name |
-| ```--type TYPE``` |  | Type |
+| ```--type TYPE``` |  | Website type |
 | ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
 | ```--image IMAGE``` |  | Website Image |
 
@@ -74,10 +85,10 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. Recommends to use SSH keys. The parameter may occur repeatedly |
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 website ssh
 
@@ -164,18 +175,23 @@ h1 website rename --website my-website --new-name my-renamed-website
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
-## h1 website list
+## h1 website update
 
-List website
+Update website
+
+## h1 website update domain
+
+Update domain of website
 
 ### Syntax
 
-```h1 website list | ```
-### Example
+```h1 website update domain | --domain DOMAIN [--domain DOMAIN ...] --website WEBSITE```
+### Required arguments
 
-```bash
-h1 website list
-```
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
+| ```--website WEBSITE``` |  | website ID or name |
 
 ## h1 website service
 
@@ -258,6 +274,19 @@ h1 website sftp --website my-website
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 
+## h1 website list
+
+List website
+
+### Syntax
+
+```h1 website list | ```
+### Example
+
+```bash
+h1 website list
+```
+
 ## h1 website start
 
 Start website
@@ -320,25 +349,6 @@ h1 website log --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log-file LOG-FILE``` |  | Path of output log file |
-
-## h1 website sftp
-
-Connect to website using SFTP
-
-### Syntax
-
-```h1 website sftp | --website WEBSITE```
-### Example
-
-```
-h1 website sftp --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website credential
 

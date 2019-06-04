@@ -4,14 +4,31 @@ const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
 const genericAction = require('bin/generic/action');
 
+const schema = {
+    name: {
+        description: 'Agent name',
+        type: 'string',
+        required: true,
+        onCreate: true,
+    },
+    type: {
+        description: 'Agent type name or ID',
+        type: 'string',
+        required: true,
+        onCreate: true,
+    },
+};
+
 const resource = {
     name: 'agent',
     defaultQuery: '[].{id:_id,name:name,type:type,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'agent',
     plugins: genericDefaults.plugins,
-    extraCommands: [],
+    extraCommands: ['create'],
+    dirname: __dirname,
     earlyAdoptersOnly: true,
     title: 'Agent',
+    schema,
     credential_types: ['certificate'],
 };
 
@@ -30,7 +47,6 @@ const actionDefault = Object.assign({}, resource, {
 
 const category = genericResource(resource);
 
-category.addChild(require('./create')(resource));
 category.addChild(require('bin/generic/inspect')(resource));
 category.addChild(require('./resource')(actionDefault));
 category.addChild(require('../generic/credential')(resource));

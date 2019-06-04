@@ -94,6 +94,14 @@ h1 dns record-set mx create --name '.' --zone-name 'my-domain.tld' \
 
 Manage your DNS zone
 
+### Examples
+
+#### Create new zone
+
+```bash
+h1 dns zone create --name my-domain.tld
+```
+
 ## h1 dns zone create
 
 Create DNS zone

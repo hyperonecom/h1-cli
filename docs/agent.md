@@ -43,6 +43,14 @@ Manage your Agent
 
 The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
 
+### Examples
+
+#### Create Agent with SSH credential
+
+```bash
+h1 agent create --name my-agent --type container --ssh-file ./id_rsa.pub
+```
+
 ## h1 agent create
 
 Create Agent
