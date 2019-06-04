@@ -194,14 +194,16 @@ const main = async () => {
     };
 
     const outputs = await Promise.all(files.map(runTest));
-    await sendMail(config, all_pass, `${versionText}\n${outputs.join('\n')}`);
     const cleanup = [
         runIsolated(config, `./scripts/cleanup_project.sh ${config.HYPERONE_PROJECT_MASTER}`),
         runIsolated(config, `./scripts/cleanup_project.sh ${config.HYPERONE_PROJECT_SLAVE}`),
         runIsolated(config, `./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.HYPERONE_PROJECT_MASTER}`),
         runIsolated(config, `./scripts/revoke_user.sh ${tests.RECIPIENT.user} ${config.HYPERONE_PROJECT_SLAVE}`),
     ];
-    await Promise.all(cleanup.map(p => p.catch(() => {})));
+    outputs.push(
+        ...await Promise.all(cleanup.map(p => p.catch(err => err.output)))
+    );
+    await sendMail(config, all_pass, `${versionText}\n${outputs.join('\n')}`);
 };
 
 main().catch((err) => {
