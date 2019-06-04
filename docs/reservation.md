@@ -1,5 +1,6 @@
 # TOC
 
+  * [h1 reservation create](#h1-reservation-create) - Create reservation
   * [h1 reservation list](#h1-reservation-list) - List reservation
   * [h1 reservation show](#h1-reservation-show) - Show reservation
   * [h1 reservation service](#h1-reservation-service) - Manage your services of reservation
@@ -21,11 +22,39 @@
 
 Manage your reservation
 
+### Examples
+
+#### Create a new reservation
+
+```bash
+h1 reservation create --name my-reservation-name --type 'm2.tiny, 1 year'
+```
+
+## h1 reservation create
+
+Create reservation
+
+### Syntax
+
+```h1 reservation create | --name NAME --type TYPE [--tag TAG [--tag TAG ...]]```
 ### Example
 
 ```bash
-h1 reservation --name my-reservation-name --type 'm2.tiny, 1 year'
+h1 reservation create --name my-reservation-name --type 'm2.tiny, 1 year'
 ```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Name |
+| ```--type TYPE``` |  | Type |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 reservation list
 
