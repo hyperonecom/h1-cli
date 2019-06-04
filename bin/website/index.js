@@ -14,6 +14,7 @@ const schema = {
         type: 'string',
         required: true,
         onCreate: true,
+        destBody: 'service',
     },
     domain: {
         description: 'Domain name',

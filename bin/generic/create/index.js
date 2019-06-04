@@ -17,12 +17,15 @@ module.exports = resource => {
         resource: resource,
         options: Object.assign({}, options, resource.options),
         handler: async args => {
-            const body = Object.assign(lodash.pick(args, Object.keys(options)),
-                {
-                    tag: require('lib/tags').createTagObject(args.tag),
-                    credential: await require('lib/credentials')
-                        .getCredentialCreate(args, resource.credential_types),
-                });
+            const body = {
+                tag: require('lib/tags').createTagObject(args.tag),
+                credential: await require('lib/credentials')
+                    .getCredentialCreate(args, resource.credential_types),
+            };
+            Object.keys(options).forEach(name => {
+                const dest = options[name].destBody || name;
+                body[dest] = args[name];
+            });
 
             return args.helpers.api
                 .post(resource.url(args), body)

@@ -15,6 +15,7 @@ const schema = {
         type: 'string',
         required: true,
         onCreate: true,
+        destBody: 'service',
     },
     size: {
         description: 'Disk size in GiB',
