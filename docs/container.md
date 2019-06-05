@@ -44,13 +44,13 @@ Create container
 #### Create nginx container
 
 ```bash
-h1 container create --name nginx --type container --image nginx --expose 80:80
+h1 container create --name nginx --type b1.nano --image nginx --expose 80:80
 ```
 
 #### Create container from image stored in private docker registry
 
 ```bash
-h1 container create --name nginx --type container --image registry.example.com/my-app --expose 80:80 --registry-dockercfg reach
+h1 container create --name nginx --type b1.nano --image registry.example.com/my-app --expose 80:80 --registry-dockercfg reach
 ```
 
 ### Required arguments
