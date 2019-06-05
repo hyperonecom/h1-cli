@@ -2,26 +2,18 @@
 
 const Cli = require('lib/cli');
 const genericDefaults = require('bin/generic/defaults');
-
-const options = {
-    name: {
-        description: 'Network gateway name or ID',
-        type: 'string',
-        required: true,
-    },
-    ip: {
-        description: 'Primary IP for the outgoing traffic',
-        type: 'string',
-        required: true,
-    },
-};
+const pickBy = require('lodash/pickBy');
 
 module.exports = resource => Cli.createCommand('create', {
     description: 'Network gateway create',
     plugins: genericDefaults.plugins,
     dirname: __dirname,
     genericOptions: ['tag'],
-    options: Object.assign({}, resource.options, options),
+    options: Object.assign(
+        {},
+        resource.options,
+        pickBy(resource.schema, field => field.onCreate)
+    ),
     params: resource.params,
     handler: (args) => args.helpers.api
         .post('netgw', {

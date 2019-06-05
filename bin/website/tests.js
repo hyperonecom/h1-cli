@@ -174,3 +174,18 @@ ava.serial('website connect via ssh', async t => {
         await tests.remove('website', website);
     }
 });
+
+ava.serial('website update domain', async t => {
+    const password = await tests.getToken();
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --password ${password}`);
+    await tests.run(`website stop --website ${website._id}`);
+    try {
+        const updated_domain = getDomain(t.title, 'updated');
+        await tests.run(`website update domain --website ${website._id} --domain ${updated_domain}`);
+        const updated_website = await tests.run(`website show --website ${website._id}`);
+        t.true(updated_website.domain.includes(updated_domain));
+        await tests.remove('website', website);
+    } catch (err) {
+
+    }
+});

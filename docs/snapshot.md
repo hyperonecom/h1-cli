@@ -1,5 +1,6 @@
 # TOC
 
+  * [h1 snapshot create](#h1-snapshot-create) - Create snapshot
   * [h1 snapshot list](#h1-snapshot-list) - List snapshot
   * [h1 snapshot show](#h1-snapshot-show) - Show snapshot
   * [h1 snapshot delete](#h1-snapshot-delete) - Delete snapshot
@@ -8,7 +9,6 @@
   * [h1 snapshot service](#h1-snapshot-service) - Manage your services of snapshot
     * [h1 snapshot service list](#h1-snapshot-service-list) - List service for snapshot
     * [h1 snapshot service show](#h1-snapshot-service-show) - Show service for snapshot
-  * [h1 snapshot create](#h1-snapshot-create) - Create a snapshot of Vault
   * [h1 snapshot tag](#h1-snapshot-tag) - Manage your tag
     * [h1 snapshot tag list](#h1-snapshot-tag-list) - List tag
     * [h1 snapshot tag add](#h1-snapshot-tag-add) - Add a tag to snapshot
@@ -20,6 +20,40 @@
 ## h1 snapshot
 
 Manage your snapshot
+
+### Examples
+
+#### Create new snapshot from Vault
+
+```bash
+h1 snapshot create --vault my-vault --name my-new-snapshot
+```
+
+## h1 snapshot create
+
+Create snapshot
+
+### Syntax
+
+```h1 snapshot create | --vault VAULT --name NAME [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 snapshot create --vault my-vault --name my-new-snapshot
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+| ```--name NAME``` |  | Snapshot name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 snapshot list
 
@@ -153,32 +187,6 @@ h1 snapshot service show --service my-service --snapshot my-snapshot
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 | ```--service SERVICE``` |  | Service for snapshot ID or name |
-
-## h1 snapshot create
-
-Create a snapshot of Vault
-
-### Syntax
-
-```h1 snapshot create | --vault VAULT --name NAME [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 snapshot create --vault my-vault --name my-new-snapshot
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--name NAME``` |  | Snapshot name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 snapshot tag
 

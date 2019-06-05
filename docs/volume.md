@@ -1,5 +1,6 @@
 # TOC
 
+  * [h1 volume create](#h1-volume-create) - Create volume
   * [h1 volume list](#h1-volume-list) - List volume
   * [h1 volume show](#h1-volume-show) - Show volume
   * [h1 volume delete](#h1-volume-delete) - Delete volume
@@ -9,7 +10,6 @@
     * [h1 volume service list](#h1-volume-service-list) - List service for volume
     * [h1 volume service show](#h1-volume-service-show) - Show service for volume
   * [h1 volume resize](#h1-volume-resize) - Resize volume
-  * [h1 volume create](#h1-volume-create) - Create volume
   * [h1 volume tag](#h1-volume-tag) - Manage your tag
     * [h1 volume tag list](#h1-volume-tag-list) - List tag
     * [h1 volume tag add](#h1-volume-tag-add) - Add a tag to volume
@@ -25,6 +25,43 @@ Manage your volume
 ### Note
 
 The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
+
+### Examples
+
+#### Create 10 GB volume
+
+```bash
+h1 volume create --name volume --type volume --size 10
+```
+
+## h1 volume create
+
+Create volume
+
+### Syntax
+
+```h1 volume create | --name NAME --type TYPE --size SIZE [--tag TAG [--tag TAG ...]]```
+### Examples
+
+#### Create 10 GB volume
+
+```bash
+h1 volume create --name volume --type volume --size 10
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Disk name |
+| ```--type TYPE``` |  | Disk type ID or name |
+| ```--size SIZE``` |  | Disk size in GiB |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 volume list
 
@@ -178,41 +215,6 @@ h1 volume resize --volume my-volume --size 10
 | ---- | ------- | ----------- |
 | ```--volume VOLUME``` |  | Volume ID or name |
 | ```--size SIZE``` |  | New size |
-
-## h1 volume create
-
-Create volume
-
-### Syntax
-
-```h1 volume create | --name NAME --type TYPE --size SIZE [--tag TAG [--tag TAG ...]]```
-### Examples
-
-#### Create 10 GB SSD disk
-
-```bash
-h1 volume create --name db-disk --type ssd --size 10
-```
-
-#### Create disk from .vhdx file
-
-```bash
-h1 volume create --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Disk name |
-| ```--type TYPE``` |  | Disk type ID or name |
-| ```--size SIZE``` |  | Disk size in GiB |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 volume tag
 

@@ -34,6 +34,14 @@
 
 Manage your firewall
 
+### Examples
+
+#### Create firewall
+
+```bash
+h1 firewall create --name secure-zone-fw
+```
+
 ## h1 firewall create
 
 Create firewall

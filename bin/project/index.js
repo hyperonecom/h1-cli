@@ -4,6 +4,21 @@ const genericResource = require('bin/generic');
 
 const config = require('lib/config');
 
+const schema = {
+    name: {
+        description: 'ISO name',
+        type: 'string',
+        required: true,
+        onCreate: true,
+    },
+    organisation: {
+        description: 'Organisation ID or name',
+        type: 'string',
+        required: true,
+        onCreate: true,
+    },
+};
+
 const resource = {
     name: 'project',
     defaultQuery: '[].{id:_id,name:name,tags:join(\',\',keys(tag || `{}`) ), active: active, organisation:organisation }',
@@ -14,8 +29,10 @@ const resource = {
         require('bin/_plugins/api'),
     ],
     priority: 15,
+    schema,
+    dirname: __dirname,
     title: 'project',
-    commands: ['show', 'delete', 'access/user', 'history', 'rename', 'tag', 'service', 'payment'],
+    commands: ['show', 'delete', 'access/user', 'history', 'rename', 'tag', 'service', 'payment', 'create'],
 };
 const category = genericResource(resource);
 
@@ -34,7 +51,6 @@ const childDefaults = Object.assign({}, resource, {
 });
 
 category.addChild(require('./list')(resource));
-category.addChild(require('./create')(childDefaults));
 category.addChild(require('./transfer')(childDefaults));
 category.addChild(require('./token')(childDefaults));
 category.addChild(require('./notification')(childDefaults));
