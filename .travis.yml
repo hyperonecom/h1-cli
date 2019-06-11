@@ -1,6 +1,7 @@
 language: node_js
 
 node_js: '12'
+dist: xenial
 
 services:
   - docker
@@ -20,6 +21,7 @@ jobs:
     - npm publish --dry-run
     - npm run-script build
     - ./scripts/test_version_output.sh dist/h1-linux
+    - ./scripts/test_version_output.sh dist/h1-alpine alpine
   - stage: build & deploy
     sudo: required
     script:
