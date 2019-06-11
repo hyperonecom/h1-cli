@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "./bin/h1.js",
-    "build": "pkg -c package.json -o ./dist/h1 ./bin/h1 && pkg -c package.json -o ./dist/rbx ./bin/rbx",
+    "build": "./scripts/build.sh",
     "lint": "eslint .",
     "docs": "node scripts/print_docs/index.js docs/",
     "docs_coverage": "node scripts/print_docs_coverage.js",
@@ -54,12 +54,6 @@
       "bin/**/*.md",
       "bin/**/*.ps",
       "bin/replica/create/HyperOneCa.cer"
-    ],
-    "targets": [
-      "node12-alpine",
-      "node12-linux",
-      "node12-macos",
-      "node12-win"
     ]
   },
   "keywords": [],
