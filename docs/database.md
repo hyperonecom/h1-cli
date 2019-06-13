@@ -40,7 +40,7 @@ The functionality is available as part of the *Early adopters* program. Operatio
 #### Create MySQL database
 
 ```bash
-h1 database create --name my-database --type mysql --password my-password
+h1 database create --name my-database --type mysql:5.7 --password my-password
 ```
 
 ## h1 database create
@@ -55,7 +55,7 @@ Create database
 #### Create MySQL database
 
 ```bash
-h1 database create --name my-database --type mysql --password my-password
+h1 database create --name my-database --type mysql:5.7 --password my-password
 ```
 
 ### Required arguments

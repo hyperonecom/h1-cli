@@ -5,7 +5,7 @@ require('../../scope/h1');
 const tests = require('../../lib/tests');
 const mysql = require('mysql2/promise');
 
-const commonCreateParams = '--type mysql';
+const commonCreateParams = '--type mysql:5.7';
 
 const mysqlQuery = async (database, password, query) => {
     console.log(new Date(), `Execute query '${query}' on database'${database.fqdn}'`);
