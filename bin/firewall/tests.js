@@ -19,17 +19,21 @@ ava.serial('firewall life cycle', tests.resourceLifeCycle('firewall', {
 ava.serial('firewall rename', tests.resourceRename('firewall', createParams));
 
 ava.serial('firewall attach & detach', async t => {
-    const network = await tests.run(`network create --name network-${name}`);
+    let network = await tests.run(`network create --name network-${name}`);
 
     const firewall = await tests.run(`firewall create ${createParams}`);
     await tests.run(`firewall attach --firewall ${firewall._id} --network ${network._id}`);
 
     const refreshed = await tests.run(`firewall show --firewall ${firewall._id}`);
-
     t.true(refreshed.state === 'Attached');
-    t.true(refreshed.network === network._id);
+
+    network = await tests.run(`network show --network ${network._id}`);
+    t.true(network.firewall === firewall._id);
 
     await tests.run(`firewall detach --firewall ${firewall._id}`);
+
+    network = await tests.run(`network show --network ${network._id}`);
+    t.true(!network.firewall);
 
     await tests.remove('firewall', firewall);
     await tests.remove('network', network);
