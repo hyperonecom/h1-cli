@@ -30,6 +30,8 @@
   * [h1 database](database.md) - Manage your database
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
   * [h1 registry](registry.md) - Manage your Registry
 =======
   * [h1 replica](replica.md) - Manage your replica
@@ -37,3 +39,9 @@
 =======
   * [h1 registry](registry.md) - Manage your Registry
 >>>>>>> 7590c0d...    Documentation
+=======
+  * [h1 replica](replica.md) - Manage your replica
+>>>>>>> 5479069...   Added documentation for registry
+=======
+  * [h1 registry](registry.md) - Manage your Registry
+>>>>>>> ba947aa...    Documentation
