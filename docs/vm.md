@@ -509,7 +509,7 @@ Delete network adapter
 
 ### Syntax
 
-```h1 vm nic delete | --vm VM --nic NIC```
+```h1 vm nic delete | --nic NIC --vm VM```
 ### Example
 
 ```bash
@@ -520,8 +520,8 @@ h1 vm nic delete --nic my-nic --vm test-vm
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
+| ```--vm VM``` |  | Virtual machine name or ID |
 
 ## h1 vm nic create
 
@@ -676,7 +676,7 @@ Delete IP address of network adapter
 
 ### Syntax
 
-```h1 vm nic ip delete | --vm VM --nic NIC --ip IP```
+```h1 vm nic ip delete | --ip IP --vm VM --nic NIC```
 ### Example
 
 ```bash
@@ -687,9 +687,9 @@ h1 vm nic ip delete --ip my-ip --vm my-vm --nic nic-of-vm --ip 123.0.0.50
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address of network adapter ID or name |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID |
-| ```--ip IP``` |  | IP address of network adapter ID or name |
 
 ## h1 vm nic ip add
 

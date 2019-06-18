@@ -22,7 +22,7 @@ module.exports = resource => {
             require('bin/_plugins/confirmYes'),
         ],
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: Object.assign({}, options, resource.options),
         handler: async args => {
             if (!args.yes) {
                 const answer = await interactive.confirm(`Are you sure you want to delete resource "${args[resource.name]}"?`);

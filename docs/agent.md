@@ -492,7 +492,7 @@ Delete certificate to Agent
 
 ### Syntax
 
-```h1 agent credential cert delete | --agent AGENT --cert CERT```
+```h1 agent credential cert delete | --cert CERT --agent AGENT```
 ### Example
 
 ```bash
@@ -503,8 +503,8 @@ h1 agent credential cert delete --cert my-cert --agent my-agent
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
 | ```--cert CERT``` |  | Certificate to Agent ID or name |
+| ```--agent AGENT``` |  | Agent ID or name |
 
 ## h1 agent credential cert add
 

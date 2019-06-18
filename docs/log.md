@@ -408,7 +408,7 @@ Delete password to log archive
 
 ### Syntax
 
-```h1 log credential password delete | --log LOG --password PASSWORD```
+```h1 log credential password delete | --password PASSWORD --log LOG```
 ### Example
 
 ```bash
@@ -419,8 +419,8 @@ h1 log credential password delete --password my-password --log my-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
 | ```--password PASSWORD``` |  | Password to log archive ID or name |
+| ```--log LOG``` |  | Log archive ID or name |
 
 ## h1 log credential password add
 

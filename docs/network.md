@@ -277,7 +277,7 @@ Delete IP address
 
 ### Syntax
 
-```h1 network ip delete | --network NETWORK --ip IP```
+```h1 network ip delete | --ip IP --network NETWORK```
 ### Example
 
 ```bash
@@ -288,8 +288,8 @@ h1 network ip delete --ip my-ip --network my-network
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--network NETWORK``` |  | Network name or ID |
 | ```--ip IP``` |  | IP address ID or name |
+| ```--network NETWORK``` |  | Network name or ID |
 
 ## h1 network ip create
 
