@@ -41,23 +41,41 @@ Manage your Registry
 
 The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
 
+### Examples
+
+#### Create new registry for container
+
+```bash
+h1 registry --name my-registry --type container --password my-password
+```
+
 ## h1 registry create
 
 Create Registry
 
 ### Syntax
 
-```h1 registry create | --name NAME [--tag TAG [--tag TAG ...]]```
+```h1 registry create | --name NAME --type TYPE [--password PASSWORD [--password PASSWORD ...]] [--tag TAG [--tag TAG ...]]```
+### Examples
+
+#### Create new registry for container
+
+```bash
+h1 registry create --name my-registry --type container --password my-password
+```
+
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Registry name |
+| ```--type TYPE``` |  | Registry type name or ID |
 
 ### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 registry list
