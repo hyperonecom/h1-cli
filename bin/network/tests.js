@@ -43,3 +43,17 @@ ava.serial('network using custom ip', async t => {
 
     await tests.remove('network', network);
 });
+
+ava.serial('network firewall', async t => {
+    const network = await tests.run(`network create --name ${tests.getName(t.title)}`);
+    const firewall = await tests.run(`firewall create --name ${tests.getName(t.title)}`);
+
+    await tests.run(`network firewall add --firewall ${firewall.name} --network ${network.name}`);
+    const network_with_firewall = await tests.run(`network show --network ${network._id}`);
+    t.true(network_with_firewall.firewall === firewall._id);
+
+    await tests.run(`network firewall remove --network ${network.name}`);
+
+    await tests.remove('network', network);
+    await tests.remove('firewall', network);
+});

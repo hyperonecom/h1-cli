@@ -8,6 +8,9 @@
   * [h1 network service](#h1-network-service) - Manage your services of network
     * [h1 network service list](#h1-network-service-list) - List service for network
     * [h1 network service show](#h1-network-service-show) - Show service for network
+  * [h1 network firewall](#h1-network-firewall) - Manage firewall of network
+    * [h1 network firewall add](#h1-network-firewall-add) - Add firewall of network
+    * [h1 network firewall remove](#h1-network-firewall-remove) - Remove firewall of network
   * [h1 network create](#h1-network-create) - Create network
   * [h1 network ip](#h1-network-ip) - Manage your IP address
     * [h1 network ip show](#h1-network-ip-show) - Show IP address
@@ -165,6 +168,49 @@ h1 network service show --service my-service --network my-network
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network ID or name |
 | ```--service SERVICE``` |  | Service for network ID or name |
+
+## h1 network firewall
+
+Manage firewall of network
+
+## h1 network firewall add
+
+Add firewall of network
+
+### Syntax
+
+```h1 network firewall add | --network NETWORK --firewall FIREWALL```
+### Example
+
+```
+h1 network firewall add --network my-network
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network ID or name |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+
+## h1 network firewall remove
+
+Remove firewall of network
+
+### Syntax
+
+```h1 network firewall remove | --network NETWORK```
+### Example
+
+```
+h1 network firewall remove --network my-network
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network ID or name |
 
 ## h1 network create
 

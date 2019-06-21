@@ -4,8 +4,9 @@ const genericResource = require('bin/generic');
 
 const resource = {
     name: 'network',
-    defaultQuery: '[].{id:_id,name:name,type:type,address:address,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:_id,name:name,type:type,firewall:firewall,address:address,tags:join(\',\',keys(tag || `{}`) ) }',
     title: 'network',
+    extraCommands: ['firewall'],
 };
 
 const category = genericResource(resource);
