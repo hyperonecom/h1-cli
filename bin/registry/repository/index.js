@@ -30,7 +30,7 @@ module.exports = (parent) => {
                 },
             }
         ),
-        url: args => `${resource.url(args)}/${args[resource.name]}`,
+        url: args => `/${args[resource.name]}`,
         dirname: __dirname,
     });
 
