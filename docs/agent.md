@@ -9,6 +9,7 @@
   * [h1 agent service](#h1-agent-service) - Manage your services of Agent
     * [h1 agent service list](#h1-agent-service-list) - List service for Agent
     * [h1 agent service show](#h1-agent-service-show) - Show service for Agent
+  * [h1 agent transfer](#h1-agent-transfer) - Transfer Agent to other project
   * [h1 agent inspect](#h1-agent-inspect) - Inspect of Agent
   * [h1 agent resource](#h1-agent-resource) - Manage your Resource of Agent
     * [h1 agent resource list](#h1-agent-resource-list) - List Resource of Agent
@@ -213,6 +214,26 @@ h1 agent service show --service my-service --agent my-agent
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
 | ```--service SERVICE``` |  | Service for Agent ID or name |
+
+## h1 agent transfer
+
+Transfer Agent to other project
+
+### Syntax
+
+```h1 agent transfer | --agent AGENT --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 agent transfer --agent test-agent --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 agent inspect
 

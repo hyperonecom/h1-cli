@@ -22,7 +22,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,type:type,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'database',
     plugins: genericDefaults.plugins,
-    extraCommands: ['start', 'create', 'stop', 'credential'],
+    extraCommands: ['start', 'create', 'stop', 'credential', 'transfer'],
     earlyAdoptersOnly: true,
     title: 'database',
     schema,

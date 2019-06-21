@@ -21,6 +21,7 @@ ava.serial('project life cycle', async t => {
         skipService: true,
         skipTag: true,
         skipFqdn: true,
+        skipTransfer: true,
     })(t);
 });
 

@@ -13,4 +13,5 @@ ava.serial('volume life cycle', tests.resourceLifeCycle('volume', {
     createParams: createParams,
     stateCreated: 'Detached',
     skipFqdn: true,
+    skipTransfer: true,
 }));

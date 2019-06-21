@@ -29,6 +29,7 @@ ava.serial('vault life cycle', async t => {
     await tests.resourceLifeCycle('vault', {
         stateCreated: 'Online',
         createParams: `--name ${tests.getName(t.title)} --size 10 --ssh ${ssh.name}`,
+        skipTransfer: true,
     })(t);
 
     await ssh.cleanup();
