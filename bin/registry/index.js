@@ -29,7 +29,7 @@ const resource = {
     earlyAdoptersOnly: true,
     title: 'Registry',
     schema,
-    credential_types: ['password'],
+    credential_types: ['sha512'],
 };
 
 const actionDefault = Object.assign({}, resource, {
