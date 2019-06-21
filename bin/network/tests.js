@@ -27,6 +27,7 @@ ava.serial('network ip life cycle', async t => {
         stateCreated: 'Unallocated',
         schemaRef: '#/components/schemas/ip',
         skipFqdn: true,
+        skipTransfer: true,
     })(t);
     await tests.remove('network', network);
 });

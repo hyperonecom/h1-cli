@@ -63,10 +63,6 @@ ava.serial('disk resize', tests.resourceResizeCycle('disk', {
     createParams: `--name disk-test-${now} --type ssd`,
 }));
 
-ava.serial('disk transfer', tests.transferLifeCycle('disk', {
-    createParams: `--name disk-test-${now} --size 1 --type ssd`,
-}));
-
 ['offline', 'online'].forEach(mode => {
     ava.serial(`disk create from other disk - ${mode}`, async t => {
         const osDisk = tests.getName('os-disk', t.title);

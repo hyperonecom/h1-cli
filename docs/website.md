@@ -16,6 +16,7 @@
   * [h1 website update](#h1-website-update) - Update website
     * [h1 website update domain](#h1-website-update-domain) - Update domain of website
   * [h1 website log](#h1-website-log) - Live logs of website
+  * [h1 website transfer](#h1-website-transfer) - Transfer website to other project
   * [h1 website credential](#h1-website-credential) - Manage your credentials to website
     * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to website
       * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to website
@@ -349,6 +350,26 @@ h1 website log --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log-file LOG-FILE``` |  | Path of output log file |
+
+## h1 website transfer
+
+Transfer website to other project
+
+### Syntax
+
+```h1 website transfer | --website WEBSITE --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 website transfer --website test-website --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 website credential
 

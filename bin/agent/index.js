@@ -25,7 +25,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,type:type,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'agent',
     plugins: genericDefaults.plugins,
-    extraCommands: ['create'],
+    extraCommands: ['create', 'transfer'],
     dirname: __dirname,
     earlyAdoptersOnly: true,
     title: 'Agent',

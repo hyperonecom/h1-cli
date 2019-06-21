@@ -49,7 +49,3 @@ ava.serial('ip associate & disassociate', async t => {
 
     await tests.remove('ip', ip);
 });
-
-ava.serial('ip transfer', tests.transferLifeCycle('ip', {
-    createParams: '',
-}));

@@ -16,6 +16,7 @@ const getCommon = async (test_name, options = {}) => {
     const params = {
         createParams: `--type ${type} --password ${token} --name ${vm_name} --image debian --os-disk ${disk_name},ssd,10`,
         stateCreated: 'Running',
+        skipTransfer: true,
     };
 
     return {
@@ -140,6 +141,7 @@ ava.serial('vm nic life cycle', async t => {
         historyParams: `--vm ${vm._id}`,
         skipService: true,
         skipFqdn: true,
+        skipTransfer: true,
         schemaRef: '#/components/schemas/netadp',
     })(t);
 

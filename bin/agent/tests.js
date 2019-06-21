@@ -14,6 +14,7 @@ ava.serial('agent life cycle', tests.resourceLifeCycle('agent', {
     createParams: `--name ${name} ${createParams}`,
     stateCreated: 'Unknown',
     skipFqdn: true,
+    skipTransfer: true, // must be 'Online'
 }));
 
 ava.serial('create agent with credentials', async t => {

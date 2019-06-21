@@ -39,7 +39,7 @@ const resource = {
     url: () => 'website',
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
-    extraCommands: ['ssh', 'sftp', 'create', 'start', 'stop', 'credential', 'update', 'log'],
+    extraCommands: ['ssh', 'sftp', 'create', 'start', 'stop', 'credential', 'update', 'log', 'transfer'],
     title: 'website',
     dirname: __dirname,
     schema,

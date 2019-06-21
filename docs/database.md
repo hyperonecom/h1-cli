@@ -11,6 +11,7 @@
     * [h1 database service show](#h1-database-service-show) - Show service for database
   * [h1 database start](#h1-database-start) - Start database
   * [h1 database stop](#h1-database-stop) - Stop database
+  * [h1 database transfer](#h1-database-transfer) - Transfer database to other project
   * [h1 database shell](#h1-database-shell) - Connect to database using standard client
   * [h1 database credential](#h1-database-credential) - Manage your credentials to database
     * [h1 database credential password](#h1-database-credential-password) - Manage your password to database
@@ -242,6 +243,26 @@ h1 database stop --database my-database
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--database DATABASE``` |  | Database ID or name |
+
+## h1 database transfer
+
+Transfer database to other project
+
+### Syntax
+
+```h1 database transfer | --database DATABASE --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 database transfer --database test-database --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--database DATABASE``` |  | Database ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 database shell
 
