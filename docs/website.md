@@ -1,20 +1,20 @@
 # TOC
 
   * [h1 website create](#h1-website-create) - Create website
-  * [h1 website ssh](#h1-website-ssh) - Connect to website using SSH
+  * [h1 website list](#h1-website-list) - List website
+  * [h1 website show](#h1-website-show) - Show website
   * [h1 website delete](#h1-website-delete) - Delete website
   * [h1 website history](#h1-website-history) - History of website
   * [h1 website rename](#h1-website-rename) - Rename website
-  * [h1 website update](#h1-website-update) - Update website
-    * [h1 website update domain](#h1-website-update-domain) - Update domain of website
   * [h1 website service](#h1-website-service) - Manage your services of website
     * [h1 website service list](#h1-website-service-list) - List service for website
     * [h1 website service show](#h1-website-service-show) - Show service for website
-  * [h1 website show](#h1-website-show) - Show website
+  * [h1 website ssh](#h1-website-ssh) - Connect to website using SSH
   * [h1 website sftp](#h1-website-sftp) - Connect to Website using SFTP
-  * [h1 website list](#h1-website-list) - List website
   * [h1 website start](#h1-website-start) - Start website
   * [h1 website stop](#h1-website-stop) - Stop website
+  * [h1 website update](#h1-website-update) - Update website
+    * [h1 website update domain](#h1-website-update-domain) - Update domain of website
   * [h1 website log](#h1-website-log) - Live logs of website
   * [h1 website transfer](#h1-website-transfer) - Transfer website to other project
   * [h1 website credential](#h1-website-credential) - Manage your credentials to website
@@ -91,32 +91,37 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
-## h1 website ssh
+## h1 website list
 
-Connect to website using SSH
+List website
 
 ### Syntax
 
-```h1 website ssh | --website WEBSITE [--command COMMAND]```
+```h1 website list | ```
 ### Example
 
 ```bash
-h1 website ssh --website my-website
+h1 website list
 ```
 
-Note: Need valid credentials to access resource any way.
+## h1 website show
+
+Show website
+
+### Syntax
+
+```h1 website show | --website WEBSITE```
+### Example
+
+```bash
+h1 website show --website my-website
+```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | website ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--command COMMAND``` |  | Command to execute |
+| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website delete
 
@@ -176,24 +181,6 @@ h1 website rename --website my-website --new-name my-renamed-website
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
-## h1 website update
-
-Update website
-
-## h1 website update domain
-
-Update domain of website
-
-### Syntax
-
-```h1 website update domain | --domain DOMAIN [--domain DOMAIN ...] --website WEBSITE```
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
-| ```--website WEBSITE``` |  | website ID or name |
-
 ## h1 website service
 
 Manage your services of website
@@ -237,24 +224,32 @@ h1 website service show --service my-service --website my-website
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--service SERVICE``` |  | Service for website ID or name |
 
-## h1 website show
+## h1 website ssh
 
-Show website
+Connect to website using SSH
 
 ### Syntax
 
-```h1 website show | --website WEBSITE```
+```h1 website ssh | --website WEBSITE [--command COMMAND]```
 ### Example
 
 ```bash
-h1 website show --website my-website
+h1 website ssh --website my-website
 ```
+
+Note: Need valid credentials to access resource any way.
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
+| ```--website WEBSITE``` |  | website ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--command COMMAND``` |  | Command to execute |
 
 ## h1 website sftp
 
@@ -274,19 +269,6 @@ h1 website sftp --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-
-## h1 website list
-
-List website
-
-### Syntax
-
-```h1 website list | ```
-### Example
-
-```bash
-h1 website list
-```
 
 ## h1 website start
 
@@ -325,6 +307,24 @@ h1 website stop --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website update
+
+Update website
+
+## h1 website update domain
+
+Update domain of website
+
+### Syntax
+
+```h1 website update domain | --domain DOMAIN [--domain DOMAIN ...] --website WEBSITE```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
+| ```--website WEBSITE``` |  | website ID or name |
 
 ## h1 website log
 

@@ -1,23 +1,23 @@
 # TOC
 
   * [h1 registry create](#h1-registry-create) - Create Registry
-  * [h1 registry service](#h1-registry-service) - Manage your services of Registry
-    * [h1 registry service list](#h1-registry-service-list) - List service for Registry
-    * [h1 registry service show](#h1-registry-service-show) - Show service for Registry
+  * [h1 registry list](#h1-registry-list) - List Registry
+  * [h1 registry show](#h1-registry-show) - Show Registry
   * [h1 registry delete](#h1-registry-delete) - Delete Registry
   * [h1 registry history](#h1-registry-history) - History of Registry
   * [h1 registry rename](#h1-registry-rename) - Rename Registry
+  * [h1 registry service](#h1-registry-service) - Manage your services of Registry
+    * [h1 registry service list](#h1-registry-service-list) - List service for Registry
+    * [h1 registry service show](#h1-registry-service-show) - Show service for Registry
+  * [h1 registry start](#h1-registry-start) - Start Registry
+  * [h1 registry stop](#h1-registry-stop) - Stop Registry
+  * [h1 registry transfer](#h1-registry-transfer) - Transfer Registry to other project
   * [h1 registry repository](#h1-registry-repository) - Manage your Repository of Registry
     * [h1 registry repository list](#h1-registry-repository-list) - List Repository of Registry
     * [h1 registry repository tag](#h1-registry-repository-tag) - Manage your tag
       * [h1 registry repository tag list](#h1-registry-repository-tag-list) - List tag
       * [h1 registry repository tag add](#h1-registry-repository-tag-add) - Add a tag to Repository of Registry
       * [h1 registry repository tag delete](#h1-registry-repository-tag-delete) - Delete a tag of Repository of Registry
-  * [h1 registry show](#h1-registry-show) - Show Registry
-  * [h1 registry list](#h1-registry-list) - List Registry
-  * [h1 registry start](#h1-registry-start) - Start Registry
-  * [h1 registry stop](#h1-registry-stop) - Stop Registry
-  * [h1 registry transfer](#h1-registry-transfer) - Transfer Registry to other project
   * [h1 registry credential](#h1-registry-credential) - Manage your credentials to Registry
     * [h1 registry credential password](#h1-registry-credential-password) - Manage your password to Registry
       * [h1 registry credential password show](#h1-registry-credential-password-show) - Show password to Registry
@@ -60,21 +60,30 @@ Create Registry
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
-## h1 registry service
+## h1 registry list
 
-Manage your services of Registry
-
-## h1 registry service list
-
-List service for Registry
+List Registry
 
 ### Syntax
 
-```h1 registry service list | --registry REGISTRY```
+```h1 registry list | ```
 ### Example
 
 ```bash
-h1 registry service list --registry test-registry
+h1 registry list
+```
+
+## h1 registry show
+
+Show Registry
+
+### Syntax
+
+```h1 registry show | --registry REGISTRY```
+### Example
+
+```bash
+h1 registry show --registry my-registry
 ```
 
 ### Required arguments
@@ -82,26 +91,6 @@ h1 registry service list --registry test-registry
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
-
-## h1 registry service show
-
-Show service for Registry
-
-### Syntax
-
-```h1 registry service show | --registry REGISTRY --service SERVICE```
-### Example
-
-```bash
-h1 registry service show --service my-service --registry my-registry
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--service SERVICE``` |  | Service for Registry ID or name |
 
 ## h1 registry delete
 
@@ -160,6 +149,107 @@ h1 registry rename --registry my-registry --new-name my-renamed-registry
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
+
+## h1 registry service
+
+Manage your services of Registry
+
+## h1 registry service list
+
+List service for Registry
+
+### Syntax
+
+```h1 registry service list | --registry REGISTRY```
+### Example
+
+```bash
+h1 registry service list --registry test-registry
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+
+## h1 registry service show
+
+Show service for Registry
+
+### Syntax
+
+```h1 registry service show | --registry REGISTRY --service SERVICE```
+### Example
+
+```bash
+h1 registry service show --service my-service --registry my-registry
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--service SERVICE``` |  | Service for Registry ID or name |
+
+## h1 registry start
+
+Start Registry
+
+### Syntax
+
+```h1 registry start | --registry REGISTRY```
+### Example
+
+```
+h1 registry start --registry my-registry
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+
+## h1 registry stop
+
+Stop Registry
+
+### Syntax
+
+```h1 registry stop | --registry REGISTRY```
+### Example
+
+```
+h1 registry stop --registry my-registry
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+
+## h1 registry transfer
+
+Transfer Registry to other project
+
+### Syntax
+
+```h1 registry transfer | --registry REGISTRY --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 registry transfer --registry test-registry --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 registry repository
 
@@ -254,96 +344,6 @@ h1 registry repository tag delete --repository test-repository --tag prod
 | ```--tag TAG``` |  | Tag |
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--repository REPOSITORY``` |  | Repository of Registry ID or name |
-
-## h1 registry show
-
-Show Registry
-
-### Syntax
-
-```h1 registry show | --registry REGISTRY```
-### Example
-
-```bash
-h1 registry show --registry my-registry
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-
-## h1 registry list
-
-List Registry
-
-### Syntax
-
-```h1 registry list | ```
-### Example
-
-```bash
-h1 registry list
-```
-
-## h1 registry start
-
-Start Registry
-
-### Syntax
-
-```h1 registry start | --registry REGISTRY```
-### Example
-
-```
-h1 registry start --registry my-registry
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-
-## h1 registry stop
-
-Stop Registry
-
-### Syntax
-
-```h1 registry stop | --registry REGISTRY```
-### Example
-
-```
-h1 registry stop --registry my-registry
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-
-## h1 registry transfer
-
-Transfer Registry to other project
-
-### Syntax
-
-```h1 registry transfer | --registry REGISTRY --new-project NEW-PROJECT```
-### Example
-
-```bash
-h1 registry transfer --registry test-registry --new-project OtherProject
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 registry credential
 
