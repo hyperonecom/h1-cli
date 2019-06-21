@@ -10,6 +10,13 @@ const schema = {
         required: true,
         onCreate: true,
     },
+    type: {
+        description: 'Registry type name or ID',
+        type: 'string',
+        required: true,
+        onCreate: true,
+        destBody: 'service',
+    },
 };
 
 const resource = {
