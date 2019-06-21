@@ -1,19 +1,18 @@
 # TOC
 
   * [h1 vm create](#h1-vm-create) - Create virtual machine
-  * [h1 vm restart](#h1-vm-restart) - Restart virtual machine
+  * [h1 vm list](#h1-vm-list) - List virtual machine
+  * [h1 vm show](#h1-vm-show) - Show virtual machine
   * [h1 vm history](#h1-vm-history) - History of virtual machine
-  * [h1 vm passwordreset](#h1-vm-passwordreset) - Password reset for virtual machine
   * [h1 vm service](#h1-vm-service) - Manage your services of virtual machine
     * [h1 vm service list](#h1-vm-service-list) - List service for virtual machine
     * [h1 vm service show](#h1-vm-service-show) - Show service for virtual machine
     * [h1 vm service change](#h1-vm-service-change) - Change type of service for virtual machine
-  * [h1 vm list](#h1-vm-list) - List virtual machine
   * [h1 vm delete](#h1-vm-delete) - Delete virtual machine
   * [h1 vm console](#h1-vm-console) - Open virtual machine console in web-browser
   * [h1 vm stop](#h1-vm-stop) - Stop virtual machine
   * [h1 vm start](#h1-vm-start) - Start virtual machine
-  * [h1 vm show](#h1-vm-show) - Show virtual machine
+  * [h1 vm restart](#h1-vm-restart) - Restart virtual machine
   * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff virtual machine
   * [h1 vm rename](#h1-vm-rename) - Rename virtual machine
   * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for virtual machine
@@ -49,6 +48,7 @@
   * [h1 vm serialport](#h1-vm-serialport) - Serial Console
     * [h1 vm serialport console](#h1-vm-serialport-console) - Connect to virtual machine using Serial Console
     * [h1 vm serialport log](#h1-vm-serialport-log) - Log Serial Console buffer of virtual machine
+  * [h1 vm passwordreset](#h1-vm-passwordreset) - Password reset for virtual machine
   * [h1 vm metrics](#h1-vm-metrics) - Get live metrics of virtual machine
   * [h1 vm tag](#h1-vm-tag) - Manage your tag
     * [h1 vm tag list](#h1-vm-tag-list) - List tag
@@ -122,17 +122,30 @@ Note: You can mount ISO disk and provide stateless services.
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
-## h1 vm restart
+## h1 vm list
 
-Restart virtual machine
+List virtual machine
 
 ### Syntax
 
-```h1 vm restart | --vm VM```
+```h1 vm list | ```
 ### Example
 
 ```bash
-h1 vm restart --vm my-vm
+h1 vm list
+```
+
+## h1 vm show
+
+Show virtual machine
+
+### Syntax
+
+```h1 vm show | --vm VM```
+### Example
+
+```bash
+h1 vm show --vm my-vm
 ```
 
 ### Required arguments
@@ -158,26 +171,6 @@ h1 vm history --vm my-vm
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm passwordreset
-
-Password reset for virtual machine
-
-### Syntax
-
-```h1 vm passwordreset | --user USER --vm VM```
-### Example
-
-```bash
-h1 vm passwordreset --vm test-vm --user root
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--user USER``` |  | Username |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm service
@@ -242,19 +235,6 @@ h1 vm service change --vm my-vm --new-type m2.medium
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```--new-type NEW-TYPE``` |  | New type |
-
-## h1 vm list
-
-List virtual machine
-
-### Syntax
-
-```h1 vm list | ```
-### Example
-
-```bash
-h1 vm list
-```
 
 ## h1 vm delete
 
@@ -332,17 +312,17 @@ h1 vm start --vm my-vm
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
-## h1 vm show
+## h1 vm restart
 
-Show virtual machine
+Restart virtual machine
 
 ### Syntax
 
-```h1 vm show | --vm VM```
+```h1 vm restart | --vm VM```
 ### Example
 
 ```bash
-h1 vm show --vm my-vm
+h1 vm restart --vm my-vm
 ```
 
 ### Required arguments
@@ -1033,6 +1013,26 @@ h1 vm serialport log --vm test-vm
 | ---- | ------- | ----------- |
 | ```--port PORT``` |  | Port to connect |
 | ```--follow``` |  | Output current messages in real time as they arrive |
+
+## h1 vm passwordreset
+
+Password reset for virtual machine
+
+### Syntax
+
+```h1 vm passwordreset | --user USER --vm VM```
+### Example
+
+```bash
+h1 vm passwordreset --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--user USER``` |  | Username |
+| ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm metrics
 

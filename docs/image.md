@@ -1,11 +1,10 @@
 # TOC
 
-  * [h1 image transfer](#h1-image-transfer) - Transfer image to other project
   * [h1 image show](#h1-image-show) - Show image
+  * [h1 image delete](#h1-image-delete) - Delete image
   * [h1 image rename](#h1-image-rename) - Rename image
   * [h1 image history](#h1-image-history) - History of image
-  * [h1 image list](#h1-image-list) - List image
-  * [h1 image delete](#h1-image-delete) - Delete image
+  * [h1 image transfer](#h1-image-transfer) - Transfer image to other project
   * [h1 image service](#h1-image-service) - Manage your services of image
     * [h1 image service list](#h1-image-service-list) - List service for image
     * [h1 image service show](#h1-image-service-show) - Show service for image
@@ -14,6 +13,7 @@
     * [h1 image access revoke](#h1-image-access-revoke) - Revoke access rights for image
     * [h1 image access list](#h1-image-access-list) - List of access rights for image
   * [h1 image create](#h1-image-create) - Create image
+  * [h1 image list](#h1-image-list) - List image
   * [h1 image disk](#h1-image-disk) - List all disks of image
   * [h1 image tag](#h1-image-tag) - Manage your tag
     * [h1 image tag list](#h1-image-tag-list) - List tag
@@ -27,26 +27,6 @@
 
 Manage your image
 
-## h1 image transfer
-
-Transfer image to other project
-
-### Syntax
-
-```h1 image transfer | --image IMAGE --new-project NEW-PROJECT```
-### Example
-
-```bash
-h1 image transfer --image test-image --new-project OtherProject
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--image IMAGE``` |  | Image ID or name |
-| ```--new-project NEW-PROJECT``` |  | New name |
-
 ## h1 image show
 
 Show image
@@ -58,6 +38,25 @@ Show image
 
 ```bash
 h1 image show --image my-image
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
+
+## h1 image delete
+
+Delete image
+
+### Syntax
+
+```h1 image delete | --image IMAGE```
+### Example
+
+```bash
+h1 image delete --image my-image
 ```
 
 ### Required arguments
@@ -105,45 +104,17 @@ h1 image history --image my-image
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
 
-## h1 image list
+## h1 image transfer
 
-List image
-
-### Syntax
-
-```h1 image list | [--recommended] [--all]```
-### Examples
-
-#### List all user images
-
-```bash
-h1 image list
-```
-
-#### List public images recommended by platform
-
-```bash
-h1 image list --recommended
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--recommended``` |  | Display recommended images |
-| ```--all``` |  | Display all images |
-
-## h1 image delete
-
-Delete image
+Transfer image to other project
 
 ### Syntax
 
-```h1 image delete | --image IMAGE```
+```h1 image transfer | --image IMAGE --new-project NEW-PROJECT```
 ### Example
 
 ```bash
-h1 image delete --image my-image
+h1 image transfer --image test-image --new-project OtherProject
 ```
 
 ### Required arguments
@@ -151,6 +122,7 @@ h1 image delete --image my-image
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 image service
 
@@ -285,6 +257,34 @@ h1 image create --vm test-vm --name dev-image
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--replica REPLICA``` |  | Replica name or ID |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 image list
+
+List image
+
+### Syntax
+
+```h1 image list | [--recommended] [--all]```
+### Examples
+
+#### List all user images
+
+```bash
+h1 image list
+```
+
+#### List public images recommended by platform
+
+```bash
+h1 image list --recommended
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--recommended``` |  | Display recommended images |
+| ```--all``` |  | Display all images |
 
 ## h1 image disk
 
