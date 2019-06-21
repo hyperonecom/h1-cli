@@ -1,6 +1,7 @@
 'use strict';
 const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
+const text = require('lib/text');
 
 module.exports = (parent) => {
 
