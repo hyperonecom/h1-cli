@@ -2,16 +2,16 @@
 
   * [h1 log create](#h1-log-create) - Create log archive
   * [h1 log show](#h1-log-show) - Show log archive
-  * [h1 log delete](#h1-log-delete) - Delete log archive
   * [h1 log rename](#h1-log-rename) - Rename log archive
+  * [h1 log logger](#h1-log-logger) - Log messages to log archive
   * [h1 log list](#h1-log-list) - List log archive
   * [h1 log history](#h1-log-history) - History of log archive
+  * [h1 log delete](#h1-log-delete) - Delete log archive
   * [h1 log service](#h1-log-service) - Manage your services of log archive
     * [h1 log service list](#h1-log-service-list) - List service for log archive
     * [h1 log service show](#h1-log-service-show) - Show service for log archive
   * [h1 log transfer](#h1-log-transfer) - Transfer log archive to other project
   * [h1 log stream](#h1-log-stream) - Stream or read messages of log archive
-  * [h1 log logger](#h1-log-logger) - Log messages to log archive
   * [h1 log credential](#h1-log-credential) - Manage your credentials to log archive
     * [h1 log credential password](#h1-log-credential-password) - Manage your password to log archive
       * [h1 log credential password show](#h1-log-credential-password-show) - Show password to log archive
@@ -136,25 +136,6 @@ h1 log show --log my-log
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
 
-## h1 log delete
-
-Delete log archive
-
-### Syntax
-
-```h1 log delete | --log LOG```
-### Example
-
-```bash
-h1 log delete --log my-log
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-
 ## h1 log rename
 
 Rename log archive
@@ -174,6 +155,33 @@ h1 log rename --log my-log --new-name my-renamed-log
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
+
+## h1 log logger
+
+Log messages to log archive
+
+### Syntax
+
+```h1 log logger | --log LOG --token TOKEN [--hostname HOSTNAME] [--log-file LOG-FILE]```
+### Example
+
+```
+echo 'Log message' | h1 log logger --log my-log --token my-secret-token --hostname srv-01
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log LOG``` |  | Log archive ID or name |
+| ```--token TOKEN``` |  | Token entitling to write to log archive. Can be set also via environment variable HYPERONE_LOG_TOKEN. |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--hostname HOSTNAME``` |  | Name of the host recorded in the log |
+| ```--log-file LOG-FILE``` |  | Path of the input text log file (default: stdin) |
 
 ## h1 log list
 
@@ -199,6 +207,25 @@ History of log archive
 
 ```bash
 h1 log history --log my-log
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log LOG``` |  | Log archive ID or name |
+
+## h1 log delete
+
+Delete log archive
+
+### Syntax
+
+```h1 log delete | --log LOG```
+### Example
+
+```bash
+h1 log delete --log my-log
 ```
 
 ### Required arguments
@@ -306,33 +333,6 @@ h1 log stream --log my-server-log --follow --filter appName~nginx
 | ```--tail TAIL``` |  | Number of lines to show from the end of the logs. All if skipped. |
 | ```--follow``` |  | Output current messages in real time as they arrive |
 | ```--jsonl-file JSONL-FILE``` |  | Path of output .jsonl file (disables all format option; default: stdout) |
-
-## h1 log logger
-
-Log messages to log archive
-
-### Syntax
-
-```h1 log logger | --log LOG --token TOKEN [--hostname HOSTNAME] [--log-file LOG-FILE]```
-### Example
-
-```
-echo 'Log message' | h1 log logger --log my-log --token my-secret-token --hostname srv-01
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--token TOKEN``` |  | Token entitling to write to log archive. Can be set also via environment variable HYPERONE_LOG_TOKEN. |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--hostname HOSTNAME``` |  | Name of the host recorded in the log |
-| ```--log-file LOG-FILE``` |  | Path of the input text log file (default: stdin) |
 
 ## h1 log credential
 

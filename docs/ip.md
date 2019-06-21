@@ -1,16 +1,16 @@
 # TOC
 
+  * [h1 ip transfer](#h1-ip-transfer) - Transfer IP address to other project
   * [h1 ip list](#h1-ip-list) - List IP address
-  * [h1 ip show](#h1-ip-show) - Show IP address
   * [h1 ip delete](#h1-ip-delete) - Delete IP address
   * [h1 ip history](#h1-ip-history) - History of IP address
-  * [h1 ip transfer](#h1-ip-transfer) - Transfer IP address to other project
+  * [h1 ip disassociate](#h1-ip-disassociate) - Disassociate IP address
+  * [h1 ip show](#h1-ip-show) - Show IP address
   * [h1 ip service](#h1-ip-service) - Manage your services of IP address
     * [h1 ip service list](#h1-ip-service-list) - List service for IP address
     * [h1 ip service show](#h1-ip-service-show) - Show service for IP address
   * [h1 ip create](#h1-ip-create) - Create IP address
   * [h1 ip associate](#h1-ip-associate) - Associate IP address
-  * [h1 ip disassociate](#h1-ip-disassociate) - Disassociate IP address
   * [h1 ip ptr](#h1-ip-ptr) - Update PTR record of IP address
   * [h1 ip tag](#h1-ip-tag) - Manage your tag
     * [h1 ip tag list](#h1-ip-tag-list) - List tag
@@ -24,6 +24,26 @@
 
 Manage your IP address
 
+## h1 ip transfer
+
+Transfer IP address to other project
+
+### Syntax
+
+```h1 ip transfer | --ip IP --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 ip transfer --ip test-ip --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
+
 ## h1 ip list
 
 List IP address
@@ -36,25 +56,6 @@ List IP address
 ```bash
 h1 ip list
 ```
-
-## h1 ip show
-
-Show IP address
-
-### Syntax
-
-```h1 ip show | --ip IP```
-### Example
-
-```bash
-h1 ip show --ip my-ip
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--ip IP``` |  | IP address ID or name |
 
 ## h1 ip delete
 
@@ -94,17 +95,36 @@ h1 ip history --ip my-ip
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address ID or name |
 
-## h1 ip transfer
+## h1 ip disassociate
 
-Transfer IP address to other project
+Disassociate IP address
 
 ### Syntax
 
-```h1 ip transfer | --ip IP --new-project NEW-PROJECT```
+```h1 ip disassociate | --ip IP```
 ### Example
 
 ```bash
-h1 ip transfer --ip test-ip --new-project OtherProject
+h1 ip disassociate --ip 62.181.8.21
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | Public IP or ID of IP |
+
+## h1 ip show
+
+Show IP address
+
+### Syntax
+
+```h1 ip show | --ip IP```
+### Example
+
+```bash
+h1 ip show --ip my-ip
 ```
 
 ### Required arguments
@@ -112,7 +132,6 @@ h1 ip transfer --ip test-ip --new-project OtherProject
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address ID or name |
-| ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 ip service
 
@@ -200,25 +219,6 @@ h1 ip associate --ip 62.181.8.21 --private-ip 10.177.2.10 --output json
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | Public IP or ID of IP |
 | ```--private-ip PRIVATE-IP``` |  | ID of private IP |
-
-## h1 ip disassociate
-
-Disassociate IP address
-
-### Syntax
-
-```h1 ip disassociate | --ip IP```
-### Example
-
-```bash
-h1 ip disassociate --ip 62.181.8.21
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--ip IP``` |  | Public IP or ID of IP |
 
 ## h1 ip ptr
 
