@@ -14,7 +14,7 @@ const schema = {
 
 const resource = {
     name: 'registry',
-    defaultQuery: '[].{id:_id,name:name,type:type,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:_id,name:name,type:type,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'registry',
     plugins: genericDefaults.plugins,
     extraCommands: ['create', 'start', 'stop', 'transfer'],
