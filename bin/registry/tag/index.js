@@ -1,7 +1,6 @@
 'use strict';
 const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
-const genericAction = require('bin/generic/action');
 const text = require('lib/text');
 
 module.exports = (parent) => {
@@ -17,7 +16,7 @@ module.exports = (parent) => {
         title: 'Tags of Repository',
     };
 
-    const childDefaults = Object.assign({}, resource, {
+    const actionDefault = Object.assign({}, resource, {
         options: Object.assign(
             {},
             parent.options,
@@ -29,14 +28,12 @@ module.exports = (parent) => {
                 },
             }
         ),
-        url: args => `${resource.url(args)}/${args[resource.name]}`,
         dirname: __dirname,
     });
 
     const category = genericResource(resource);
 
-    category.addChild(require('bin/generic/delete')(Object.assign({}, childDefaults, {
-        url: args => `${childDefaults.url(args)}/tag`,
+    category.addChild(require('bin/generic/delete')(Object.assign({}, actionDefault, {
         title: 'Tag',
         name: 'tag',
     })));
