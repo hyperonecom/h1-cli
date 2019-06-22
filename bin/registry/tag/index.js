@@ -7,16 +7,15 @@ const text = require('lib/text');
 module.exports = (parent) => {
 
     const resource = {
-        name: 'repository',
-        defaultQuery: '[].{id:_id,name:name,project:project,state:state }',
-        url: args => `${parent.url(args)}/repository`,
+        name: 'tag',
+        defaultQuery: '[].{id:_id,name:name,project:project,state:state}',
+        url: args => `${parent.url(args)}/tag`,
         options: parent.options,
         plugins: genericDefaults.plugins,
         commands: ['list'],
         extraCommands: [],
-        title: 'Repository of Registry',
+        title: 'Tags of Repository',
     };
-    const category = genericResource(resource);
 
     const childDefaults = Object.assign({}, resource, {
         options: Object.assign(
@@ -34,7 +33,13 @@ module.exports = (parent) => {
         dirname: __dirname,
     });
 
-    category.addChild(require('../tag')(childDefaults))
+    const category = genericResource(resource);
+
+    category.addChild(require('bin/generic/delete')(Object.assign({}, childDefaults, {
+        url: args => `${childDefaults.url(args)}/tag`,
+        title: 'Tag',
+        name: 'tag',
+    })));
 
     return category;
 };
