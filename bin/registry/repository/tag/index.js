@@ -7,13 +7,13 @@ module.exports = (parent) => {
 
     const resource = {
         name: 'tag',
-        defaultQuery: '[].{id:_id,name:name,project:project,state:state}',
+        defaultQuery: '[].{id:_id,name:name,registry:registry,state:state}',
         url: args => `${parent.url(args)}/tag`,
         options: parent.options,
         plugins: genericDefaults.plugins,
         commands: ['list'],
         extraCommands: [],
-        title: 'Tags of Repository',
+        title: `Tag in ${parent.name}`,
     };
 
     const actionDefault = Object.assign({}, resource, {
@@ -34,8 +34,9 @@ module.exports = (parent) => {
     const category = genericResource(resource);
 
     category.addChild(require('bin/generic/delete')(Object.assign({}, actionDefault, {
-        title: 'Tag',
-        name: 'tag',
+        context: {
+            deleteParams: '--registry my-registry --repository busybox --tag 1.26',
+        },
     })));
 
     return category;
