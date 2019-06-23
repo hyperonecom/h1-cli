@@ -21,7 +21,7 @@ const schema = {
 
 const resource = {
     name: 'registry',
-    defaultQuery: '[].{id:_id,name:name,type:type,sizeUsed:sizeUsed,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:_id,name:name,service:flavour,size:sizeUsed,created:createdOn,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'registry',
     plugins: genericDefaults.plugins,
     extraCommands: ['create', 'start', 'stop', 'transfer', 'credential'],
@@ -32,7 +32,7 @@ const resource = {
     credential_types: ['sha512'],
 };
 
-const actionDefault = Object.assign({}, resource, {
+const childDefaults = Object.assign({}, resource, {
     options: {
         [resource.name]: {
             description: `${text.toTitleCase(resource.title)} ID or name`,
@@ -41,11 +41,10 @@ const actionDefault = Object.assign({}, resource, {
         },
     },
     url: args => `${resource.url(args)}/${args[resource.name]}`,
-    dirname: __dirname,
 });
 
 const category = genericResource(resource);
 
-category.addChild(require('./repository')(actionDefault));
+category.addChild(require('./repository')(childDefaults));
 
 module.exports = category;
