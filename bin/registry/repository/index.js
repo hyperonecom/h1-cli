@@ -7,7 +7,7 @@ module.exports = (parent) => {
 
     const resource = {
         name: 'repository',
-        defaultQuery: '[].{id:_id,name:name,registry:registry,state:state}',
+        defaultQuery: '[].{id:id}',
         url: args => `${parent.url(args)}/repository`,
         options: parent.options,
         plugins: genericDefaults.plugins,
@@ -22,14 +22,13 @@ module.exports = (parent) => {
             parent.options,
             {
                 [resource.name]: {
-                    description: `${text.toTitleCase(resource.title)} ID or name`,
+                    description: `${text.toTitleCase(resource.title)} ID`,
                     type: 'string',
                     required: true,
                 },
             }
         ),
         url: args => `${resource.url(args)}/${args[resource.name]}`,
-        dirname: __dirname,
     });
 
     const category = genericResource(resource);
