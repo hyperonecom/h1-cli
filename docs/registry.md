@@ -14,10 +14,9 @@
   * [h1 registry transfer](#h1-registry-transfer) - Transfer Registry to other project
   * [h1 registry repository](#h1-registry-repository) - Manage your Repository of Registry
     * [h1 registry repository list](#h1-registry-repository-list) - List Repository of Registry
-    * [h1 registry repository tag](#h1-registry-repository-tag) - Manage your tag
-      * [h1 registry repository tag list](#h1-registry-repository-tag-list) - List tag
-      * [h1 registry repository tag add](#h1-registry-repository-tag-add) - Add a tag to Repository of Registry
-      * [h1 registry repository tag delete](#h1-registry-repository-tag-delete) - Delete a tag of Repository of Registry
+    * [h1 registry repository tag](#h1-registry-repository-tag) - Manage your Tag in repository
+      * [h1 registry repository tag list](#h1-registry-repository-tag-list) - List Tag in repository
+      * [h1 registry repository tag delete](#h1-registry-repository-tag-delete) - Delete Tag in repository
   * [h1 registry credential](#h1-registry-credential) - Manage your credentials to Registry
     * [h1 registry credential password](#h1-registry-credential-password) - Manage your password to Registry
       * [h1 registry credential password show](#h1-registry-credential-password-show) - Show password to Registry
@@ -294,11 +293,11 @@ h1 registry repository list
 
 ## h1 registry repository tag
 
-Manage your tag
+Manage your Tag in repository
 
 ## h1 registry repository tag list
 
-List tag
+List Tag in repository
 
 ### Syntax
 
@@ -306,7 +305,7 @@ List tag
 ### Example
 
 ```bash
-h1 registry repository tag list --repository my-repository
+h1 registry repository tag list
 ```
 
 ### Required arguments
@@ -315,53 +314,27 @@ h1 registry repository tag list --repository my-repository
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--repository REPOSITORY``` |  | Repository of Registry ID or name |
-
-## h1 registry repository tag add
-
-Add a tag to Repository of Registry
-
-### Syntax
-
-```h1 registry repository tag add | --registry REGISTRY --repository REPOSITORY [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 registry repository tag add --repository test-repository --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--repository REPOSITORY``` |  | Repository of Registry ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 registry repository tag delete
 
-Delete a tag of Repository of Registry
+Delete Tag in repository
 
 ### Syntax
 
-```h1 registry repository tag delete | --tag TAG --registry REGISTRY --repository REPOSITORY```
+```h1 registry repository tag delete | --registry REGISTRY --repository REPOSITORY --tag TAG```
 ### Example
 
 ```bash
-h1 registry repository tag delete --repository test-repository --tag prod
+h1 registry repository tag delete --tag my-tag --registry my-registry --repository busybox --tag 1.26
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--repository REPOSITORY``` |  | Repository of Registry ID or name |
+| ```--tag TAG``` |  | Tag in repository ID or name |
 
 ## h1 registry credential
 
