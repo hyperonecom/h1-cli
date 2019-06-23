@@ -1,22 +1,20 @@
 'use strict';
 const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
-const genericAction = require('bin/generic/action');
 const text = require('lib/text');
 
 module.exports = (parent) => {
 
     const resource = {
         name: 'repository',
-        defaultQuery: '[].{id:_id,name:name,project:project,state:state }',
+        defaultQuery: '[].{id:_id,name:name,registry:registry,state:state}',
         url: args => `${parent.url(args)}/repository`,
         options: parent.options,
         plugins: genericDefaults.plugins,
         commands: ['list'],
         extraCommands: [],
-        title: 'Repository of Registry',
+        title: `Repository of ${parent.title}`,
     };
-    const category = genericResource(resource);
 
     const childDefaults = Object.assign({}, resource, {
         options: Object.assign(
@@ -34,7 +32,9 @@ module.exports = (parent) => {
         dirname: __dirname,
     });
 
-    category.addChild(require('../tag')(childDefaults))
+    const category = genericResource(resource);
+
+    category.addChild(require('./tag')(childDefaults));
 
     return category;
 };
