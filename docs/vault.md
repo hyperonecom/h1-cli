@@ -412,7 +412,7 @@ Delete certificate to Vault
 
 ### Syntax
 
-```h1 vault credential cert delete | --vault VAULT --cert CERT```
+```h1 vault credential cert delete | --cert CERT --vault VAULT```
 ### Example
 
 ```bash
@@ -423,8 +423,8 @@ h1 vault credential cert delete --cert my-cert --vault my-vault
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
 | ```--cert CERT``` |  | Certificate to Vault ID or name |
+| ```--vault VAULT``` |  | Vault ID or name |
 
 ## h1 vault credential cert add
 
@@ -523,7 +523,7 @@ Delete password to Vault
 
 ### Syntax
 
-```h1 vault credential password delete | --vault VAULT --password PASSWORD```
+```h1 vault credential password delete | --password PASSWORD --vault VAULT```
 ### Example
 
 ```bash
@@ -534,8 +534,8 @@ h1 vault credential password delete --password my-password --vault my-vault
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
 | ```--password PASSWORD``` |  | Password to Vault ID or name |
+| ```--vault VAULT``` |  | Vault ID or name |
 
 ## h1 vault credential password add
 

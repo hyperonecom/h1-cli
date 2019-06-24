@@ -313,7 +313,7 @@ h1 registry repository tag list
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--repository REPOSITORY``` |  | Repository of Registry ID or name |
+| ```--repository REPOSITORY``` |  | Repository of Registry ID |
 
 ## h1 registry repository tag delete
 
@@ -321,20 +321,20 @@ Delete Tag in repository
 
 ### Syntax
 
-```h1 registry repository tag delete | --registry REGISTRY --repository REPOSITORY --tag TAG```
+```h1 registry repository tag delete | --tag TAG --registry REGISTRY --repository REPOSITORY```
 ### Example
 
 ```bash
-h1 registry repository tag delete --tag my-tag --registry my-registry --repository busybox --tag 1.26
+h1 registry repository tag delete --tag my-tag
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag in repository ID |
 | ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--repository REPOSITORY``` |  | Repository of Registry ID or name |
-| ```--tag TAG``` |  | Tag in repository ID or name |
+| ```--repository REPOSITORY``` |  | Repository of Registry ID |
 
 ## h1 registry credential
 
@@ -410,7 +410,7 @@ Delete password to Registry
 
 ### Syntax
 
-```h1 registry credential password delete | --registry REGISTRY --password PASSWORD```
+```h1 registry credential password delete | --password PASSWORD --registry REGISTRY```
 ### Example
 
 ```bash
@@ -421,8 +421,8 @@ h1 registry credential password delete --password my-password --registry my-regi
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--password PASSWORD``` |  | Password to Registry ID or name |
+| ```--registry REGISTRY``` |  | Registry ID or name |
 
 ## h1 registry credential password add
 
