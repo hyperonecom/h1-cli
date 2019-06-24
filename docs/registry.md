@@ -325,7 +325,7 @@ Delete Tag in repository
 ### Example
 
 ```bash
-h1 registry repository tag delete --tag my-tag
+h1 registry repository tag delete --tag my-tag --registry my-registry --repository my-repository
 ```
 
 ### Required arguments

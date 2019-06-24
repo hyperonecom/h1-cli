@@ -28,6 +28,9 @@ module.exports = (parent) => {
                 },
             }
         ),
+        context: {
+            deleteParams: '--registry my-registry --repository my-repository',
+        },
     });
 
     const category = genericResource(resource);
