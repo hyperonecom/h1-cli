@@ -42,7 +42,7 @@ The functionality is available as part of the *Early adopters* program. Operatio
 
 ### Examples
 
-#### Create new registry for container
+#### Create new container registry
 
 ```bash
 h1 registry --name my-registry --type container --password my-password
@@ -271,6 +271,20 @@ h1 registry transfer --registry test-registry --new-project OtherProject
 ## h1 registry repository
 
 Manage your Repository of Registry
+
+### Examples
+
+#### Add tagged repository for registry
+
+```bash
+docker login 5d1090990136a7f0da513654.registry.pl-waw-1.hyperone.cloud -u login --password password
+
+docker pull ubuntu:latest
+
+docker tag ubuntu:latest 5d1090990136a7f0da513654.registry.pl-waw-1.hyperone.cloud/ubuntu:latest
+
+docker push 5d1090990136a7f0da513654.registry.pl-waw-1.hyperone.cloud/ubuntu:latest
+```
 
 ## h1 registry repository list
 
