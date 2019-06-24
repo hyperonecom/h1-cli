@@ -11,6 +11,7 @@ module.exports = (parent) => {
         url: args => `${parent.url(args)}/repository`,
         options: parent.options,
         plugins: genericDefaults.plugins,
+        dirname: __dirname,
         commands: ['list'],
         extraCommands: [],
         title: `Repository of ${parent.title}`,
