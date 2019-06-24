@@ -592,7 +592,7 @@ Delete access rule
 
 ### Syntax
 
-```h1 project token access delete | --token TOKEN --access ACCESS [--project PROJECT]```
+```h1 project token access delete | --access ACCESS --token TOKEN [--project PROJECT]```
 ### Example
 
 ```bash
@@ -603,8 +603,8 @@ h1 project token access delete --access my-access --project my-project --token m
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--token TOKEN``` |  | Token ID |
 | ```--access ACCESS``` |  | Access rule ID or name |
+| ```--token TOKEN``` |  | Token ID |
 
 ### Optional arguments
 

@@ -339,7 +339,7 @@ Delete password to database
 
 ### Syntax
 
-```h1 database credential password delete | --database DATABASE --password PASSWORD```
+```h1 database credential password delete | --password PASSWORD --database DATABASE```
 ### Example
 
 ```bash
@@ -350,8 +350,8 @@ h1 database credential password delete --password my-password --database my-data
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
 | ```--password PASSWORD``` |  | Password to database ID or name |
+| ```--database DATABASE``` |  | Database ID or name |
 
 ## h1 database credential password add
 

@@ -424,7 +424,7 @@ Delete certificate to website
 
 ### Syntax
 
-```h1 website credential cert delete | --website WEBSITE --cert CERT```
+```h1 website credential cert delete | --cert CERT --website WEBSITE```
 ### Example
 
 ```bash
@@ -435,8 +435,8 @@ h1 website credential cert delete --cert my-cert --website my-website
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
 | ```--cert CERT``` |  | Certificate to website ID or name |
+| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website credential cert add
 
@@ -535,7 +535,7 @@ Delete password to website
 
 ### Syntax
 
-```h1 website credential password delete | --website WEBSITE --password PASSWORD```
+```h1 website credential password delete | --password PASSWORD --website WEBSITE```
 ### Example
 
 ```bash
@@ -546,8 +546,8 @@ h1 website credential password delete --password my-password --website my-websit
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
 | ```--password PASSWORD``` |  | Password to website ID or name |
+| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website credential password add
 
