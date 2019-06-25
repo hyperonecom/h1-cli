@@ -26,8 +26,8 @@
     * [h1 vm nic create](#h1-vm-nic-create) - Create network adapter
     * [h1 vm nic show](#h1-vm-nic-show) - Show network adapter
     * [h1 vm nic firewall](#h1-vm-nic-firewall) - Manage firewall of network adapter
-      * [h1 vm nic firewall add](#h1-vm-nic-firewall-add) - Add firewall of network adapter
-      * [h1 vm nic firewall remove](#h1-vm-nic-firewall-remove) - Remove firewall of network adapter
+      * [h1 vm nic firewall add](#h1-vm-nic-firewall-add) - Add firewall to network adapter
+      * [h1 vm nic firewall remove](#h1-vm-nic-firewall-remove) - Remove firewall from network adapter
     * [h1 vm nic history](#h1-vm-nic-history) - History of network adapter
     * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP address of network adapter
       * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP address of network adapter
@@ -587,11 +587,11 @@ Manage firewall of network adapter
 
 ## h1 vm nic firewall add
 
-Add firewall of network adapter
+Add firewall to network adapter
 
 ### Syntax
 
-```h1 vm nic firewall add | --vm VM --nic NIC --firewall FIREWALL```
+```h1 vm nic firewall add | --firewall FIREWALL --vm VM --nic NIC```
 ### Example
 
 ```
@@ -602,13 +602,13 @@ h1 vm nic firewall add --nic my-nic
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
-| ```--firewall FIREWALL``` |  | Firewall ID or name |
 
 ## h1 vm nic firewall remove
 
-Remove firewall of network adapter
+Remove firewall from network adapter
 
 ### Syntax
 

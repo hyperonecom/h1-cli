@@ -9,8 +9,8 @@
     * [h1 network service list](#h1-network-service-list) - List service for network
     * [h1 network service show](#h1-network-service-show) - Show service for network
   * [h1 network firewall](#h1-network-firewall) - Manage firewall of network
-    * [h1 network firewall add](#h1-network-firewall-add) - Add firewall of network
-    * [h1 network firewall remove](#h1-network-firewall-remove) - Remove firewall of network
+    * [h1 network firewall add](#h1-network-firewall-add) - Add firewall to network
+    * [h1 network firewall remove](#h1-network-firewall-remove) - Remove firewall from network
   * [h1 network create](#h1-network-create) - Create network
   * [h1 network ip](#h1-network-ip) - Manage your IP address
     * [h1 network ip show](#h1-network-ip-show) - Show IP address
@@ -175,11 +175,11 @@ Manage firewall of network
 
 ## h1 network firewall add
 
-Add firewall of network
+Add firewall to network
 
 ### Syntax
 
-```h1 network firewall add | --network NETWORK --firewall FIREWALL```
+```h1 network firewall add | --firewall FIREWALL --network NETWORK```
 ### Example
 
 ```
@@ -190,12 +190,12 @@ h1 network firewall add --network my-network
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--network NETWORK``` |  | Network ID or name |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
+| ```--network NETWORK``` |  | Network ID or name |
 
 ## h1 network firewall remove
 
-Remove firewall of network
+Remove firewall from network
 
 ### Syntax
 
