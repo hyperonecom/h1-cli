@@ -28,4 +28,24 @@
   * [h1 log](log.md) - Manage your log archive
   * [h1 agent](agent.md) - Manage your Agent
   * [h1 database](database.md) - Manage your database
+<<<<<<< HEAD
   * [h1 registry](registry.md) - Manage your Registry
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+  * [h1 registry](registry.md) - Manage your Registry
+=======
+  * [h1 replica](replica.md) - Manage your replica
+>>>>>>> 883c19a...   Added documentation for registry
+=======
+  * [h1 registry](registry.md) - Manage your Registry
+>>>>>>> 7590c0d...    Documentation
+=======
+  * [h1 replica](replica.md) - Manage your replica
+>>>>>>> 5479069...   Added documentation for registry
+=======
+  * [h1 registry](registry.md) - Manage your Registry
+>>>>>>> ba947aa...    Documentation
+>>>>>>> e07ff18bc55568aed33ee59b4d978fe817f11a2d
