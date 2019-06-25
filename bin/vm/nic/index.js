@@ -14,7 +14,7 @@ const options = {
 const resource = {
     name: 'nic',
     // eslint-disable-next-line quotes
-    defaultQuery: "[].{id:_id,mac:macaddress,speed:speed,ipaddress:join(',',ip[].address),tags:join(',',keys(tag || `{}`) )}",
+    defaultQuery: "[].{id:_id,mac:macaddress,speed:speed,firewall:firewall,ipaddress:join(',',ip[].address),tags:join(',',keys(tag || `{}`) )}",
     url: args => `vm/${args.vm}/netadp`,
     options: options,
     plugins: defaults.plugins,
@@ -25,6 +25,8 @@ const resource = {
         listParams: '--vm test-vm',
         historyParams: '--vm test-vm',
         deleteParams: '--vm test-vm',
+        addFirewallParams: '--vm test-vm --nic my-nic',
+        removeFirewallParams: '--vm test-vm --nic my-nic',
     },
 };
 
@@ -37,6 +39,7 @@ const category = genericResource(resource);
 category.addChild(require('./create')(resource));
 
 category.addChild(require('bin/generic/show')(rootChildResource));
+category.addChild(require('bin/generic/firewall')(rootChildResource));
 category.addChild(require('bin/generic/history')(rootChildResource));
 category.addChild(require('bin/generic/tag')(rootChildResource));
 

@@ -149,6 +149,25 @@ ava.serial('vm nic life cycle', async t => {
     await tests.remove('network', network);
 });
 
+ava.serial('vm nic firewall life cycle', async t => {
+    const common = await getCommon(t.title, {
+        type: 'm2.tiny',
+    });
+    const firewall = await tests.run(`firewall create --name ${tests.getName(t.title)}`);
+    const network = await tests.run(`network create --name ${tests.getName(t.title)}`);
+    const vm = await tests.run(`vm create --no-start ${common.params.createParams}`);
+    const nic_list = await tests.run(`vm nic list --vm ${vm._id}`);
+    const nic = nic_list[0];
+    await tests.run(`vm nic firewall add --vm ${vm.name} --nic ${nic._id} --firewall ${firewall.name} `);
+
+    const nic_with_firewall = await tests.run(`vm nic show --vm ${vm._id} --nic ${nic._id}`);
+    t.true(nic_with_firewall.firewall === firewall._id);
+    await tests.run(`vm nic firewall remove --vm ${vm.name} --nic ${nic._id}`);
+    await common.cleanup();
+    await tests.remove('network', network);
+    await tests.remove('firewall', firewall);
+});
+
 const subresourceLifeCycle = async (t, type, options) => {
     const actions = [
         {name: 'add', result: true},
