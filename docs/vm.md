@@ -16,6 +16,9 @@
   * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff virtual machine
   * [h1 vm rename](#h1-vm-rename) - Rename virtual machine
   * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for virtual machine
+  * [h1 vm serialport](#h1-vm-serialport) - Serial Console
+    * [h1 vm serialport console](#h1-vm-serialport-console) - Connect to virtual machine using Serial Console
+    * [h1 vm serialport log](#h1-vm-serialport-log) - Log Serial Console buffer of virtual machine
   * [h1 vm disk](#h1-vm-disk) - Manage your disk
     * [h1 vm disk list](#h1-vm-disk-list) - List disk
     * [h1 vm disk attach](#h1-vm-disk-attach) - Attach disk to disk
@@ -45,9 +48,6 @@
     * [h1 vm dvd insert](#h1-vm-dvd-insert) - Insert ISO into DVD drive of DVD
     * [h1 vm dvd eject](#h1-vm-dvd-eject) - Eject ISO from DVD drive of DVD
   * [h1 vm ssh](#h1-vm-ssh) - Connect to virtual machine using SSH
-  * [h1 vm serialport](#h1-vm-serialport) - Serial Console
-    * [h1 vm serialport console](#h1-vm-serialport-console) - Connect to virtual machine using Serial Console
-    * [h1 vm serialport log](#h1-vm-serialport-log) - Log Serial Console buffer of virtual machine
   * [h1 vm passwordreset](#h1-vm-passwordreset) - Password reset for virtual machine
   * [h1 vm metrics](#h1-vm-metrics) - Get live metrics of virtual machine
   * [h1 vm tag](#h1-vm-tag) - Manage your tag
@@ -398,6 +398,61 @@ h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl 
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
+
+## h1 vm serialport
+
+Serial Console
+
+## h1 vm serialport console
+
+Connect to virtual machine using Serial Console
+
+### Syntax
+
+```h1 vm serialport console | --vm VM [--port PORT]```
+### Example
+
+```bash
+h1 vm serialport console --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--port PORT``` |  | Port to connect |
+
+## h1 vm serialport log
+
+Log Serial Console buffer of virtual machine
+
+### Syntax
+
+```h1 vm serialport log | --vm VM [--port PORT] [--follow]```
+### Example
+
+```bash
+h1 vm serialport log --vm test-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--port PORT``` |  | Port to connect |
+| ```--follow``` |  | Output current messages in real time as they arrive |
 
 ## h1 vm disk
 
@@ -958,61 +1013,6 @@ h1 vm ssh --vm test-vm --command 'id'
 | ```--port PORT``` |  | Port for ssh connection |
 | ```--private``` |  | Use first private network, skip public |
 | ```--command COMMAND``` |  | Command to execute |
-
-## h1 vm serialport
-
-Serial Console
-
-## h1 vm serialport console
-
-Connect to virtual machine using Serial Console
-
-### Syntax
-
-```h1 vm serialport console | --vm VM [--port PORT]```
-### Example
-
-```bash
-h1 vm serialport console --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--port PORT``` |  | Port to connect |
-
-## h1 vm serialport log
-
-Log Serial Console buffer of virtual machine
-
-### Syntax
-
-```h1 vm serialport log | --vm VM [--port PORT] [--follow]```
-### Example
-
-```bash
-h1 vm serialport log --vm test-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--port PORT``` |  | Port to connect |
-| ```--follow``` |  | Output current messages in real time as they arrive |
 
 ## h1 vm passwordreset
 
