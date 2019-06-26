@@ -35,6 +35,6 @@ module.exports = resource => Cli.createCommand('log', {
                 ws.on('error', reject);
             });
         }
-        return args.helpers.api.get(`/vm/${args.vm}/serialport/${args.port}`);
+        return args.helpers.api.get(`vm/${args.vm}/serialport/${args.port}`);
     },
 });
