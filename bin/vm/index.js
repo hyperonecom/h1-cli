@@ -43,13 +43,13 @@ category.addChild(genericAction(actionDefault, 'restart'));
 category.addChild(genericAction(actionDefault, 'turnoff'));
 category.addChild(require('./action/rename')(actionDefault));
 category.addChild(require('./action/userdata')(actionDefault));
+category.addChild(require('./serialport')(actionDefault));
 
 category.addChild(require('./disk'));
 category.addChild(require('./nic'));
 category.addChild(require('./dvd'));
 
 category.addChild(require('./ssh/ssh')(childDefaults));
-category.addChild(require('./serialport')(resource));
 category.addChild(require('./passwordreset')(resource));
 category.addChild(require('./metrics')(childDefaults));
 
