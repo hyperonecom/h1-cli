@@ -13,6 +13,7 @@ const createParams = '--image nginx --type b1.nano';
 ava.serial('container life cycle', tests.resourceLifeCycle('container', {
     createParams: `--name ${name} ${createParams}`,
     stateCreated: 'Running',
+    skipTransfer: true,
 }));
 
 ava.serial('container start stop', async t => {
