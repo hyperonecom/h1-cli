@@ -28,3 +28,4 @@
   * [h1 log](log.md) - Manage your log archive
   * [h1 agent](agent.md) - Manage your Agent
   * [h1 database](database.md) - Manage your database
+  * [h1 registry](registry.md) - Manage your Registry
