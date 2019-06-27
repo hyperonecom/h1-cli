@@ -8,6 +8,7 @@ const table = require('lib/table').table;
 const lib = require('../lib');
 const utils = require('./utils');
 
+
 function writeArguments(wstream, label, values = {}) {
     const entries = Object.entries(values || {});
 
@@ -63,7 +64,7 @@ const writeCommandSpecs = (wstream, entry, options, depth=1) => {
 };
 
 const writeCommandTOC = (wstream, entry, depth = 1) => {
-    entry.children.filter(entry => !entry.createOptions.skipDocumentation).forEach(entry => {
+    Cli.sort(entry.children).filter(entry => !entry.createOptions.skipDocumentation).forEach(entry => {
         const name = Cli.get_full_name(entry);
         const slug = name.replace(/ /g, '-').toLowerCase();
         const depth_prefix = ' '.repeat(depth * 2);
@@ -77,12 +78,11 @@ const writeCommandTOC = (wstream, entry, depth = 1) => {
 };
 
 module.exports = (options) => {
-    options.cli.children.forEach(entry => {
+    Cli.sort(options.cli.children).forEach(entry => {
         const section_filename = path.join(options.output_dir, utils.entry_filename(entry));
 
         const subcommands = Cli
-            .flatten(entry)
-            .filter(cmd => !cmd.createOptions.skipDocumentation);
+            .flatten(entry);
 
         const wstream = fs.createWriteStream(section_filename);
 

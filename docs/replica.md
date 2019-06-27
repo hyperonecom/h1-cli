@@ -1,20 +1,20 @@
 # TOC
 
-  * [h1 replica list](#h1-replica-list) - List replica
-  * [h1 replica show](#h1-replica-show) - Show replica
+  * [h1 replica create](#h1-replica-create) - Setup VM replication
   * [h1 replica delete](#h1-replica-delete) - Delete replica
+  * [h1 replica disk](#h1-replica-disk) - Manage your disk of replica
+    * [h1 replica disk list](#h1-replica-disk-list) - List disk of replica
   * [h1 replica history](#h1-replica-history) - History of replica
+  * [h1 replica list](#h1-replica-list) - List replica
   * [h1 replica rename](#h1-replica-rename) - Rename replica
   * [h1 replica service](#h1-replica-service) - Manage your services of replica
     * [h1 replica service list](#h1-replica-service-list) - List service for replica
     * [h1 replica service show](#h1-replica-service-show) - Show service for replica
-  * [h1 replica create](#h1-replica-create) - Setup VM replication
-  * [h1 replica disk](#h1-replica-disk) - Manage your disk of replica
-    * [h1 replica disk list](#h1-replica-disk-list) - List disk of replica
+  * [h1 replica show](#h1-replica-show) - Show replica
   * [h1 replica tag](#h1-replica-tag) - Manage your tag
-    * [h1 replica tag list](#h1-replica-tag-list) - List tag
     * [h1 replica tag add](#h1-replica-tag-add) - Add a tag to replica
     * [h1 replica tag delete](#h1-replica-tag-delete) - Delete a tag of replica
+    * [h1 replica tag list](#h1-replica-tag-list) - List tag
 
 
 # Specification
@@ -23,37 +23,24 @@
 
 Manage your replica
 
-## h1 replica list
+## h1 replica create
 
-List replica
-
-### Syntax
-
-```h1 replica list | ```
-### Example
-
-```bash
-h1 replica list
-```
-
-## h1 replica show
-
-Show replica
+Setup VM replication
 
 ### Syntax
 
-```h1 replica show | --replica REPLICA```
-### Example
-
-```bash
-h1 replica show --replica my-replica
-```
-
+```h1 replica create | --local-vm LOCAL-VM [--autostart]```
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--replica REPLICA``` |  | Replica ID or name |
+| ```--local-vm LOCAL-VM``` |  | Local virtual machine name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--autostart``` |  | Automatically start replication immediately after configuration |
 
 ## h1 replica delete
 
@@ -74,6 +61,29 @@ h1 replica delete --replica my-replica
 | ---- | ------- | ----------- |
 | ```--replica REPLICA``` |  | Replica ID or name |
 
+## h1 replica disk
+
+Manage your disk of replica
+
+## h1 replica disk list
+
+List disk of replica
+
+### Syntax
+
+```h1 replica disk list | --replica REPLICA```
+### Example
+
+```bash
+h1 replica disk list
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--replica REPLICA``` |  | Replica name or ID |
+
 ## h1 replica history
 
 History of replica
@@ -92,6 +102,19 @@ h1 replica history --replica my-replica
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--replica REPLICA``` |  | Replica ID or name |
+
+## h1 replica list
+
+List replica
+
+### Syntax
+
+```h1 replica list | ```
+### Example
+
+```bash
+h1 replica list
+```
 
 ## h1 replica rename
 
@@ -156,63 +179,17 @@ h1 replica service show --service my-service --replica my-replica
 | ```--replica REPLICA``` |  | Replica ID or name |
 | ```--service SERVICE``` |  | Service for replica ID or name |
 
-## h1 replica create
+## h1 replica show
 
-Setup VM replication
-
-### Syntax
-
-```h1 replica create | --local-vm LOCAL-VM [--autostart]```
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--local-vm LOCAL-VM``` |  | Local virtual machine name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--autostart``` |  | Automatically start replication immediately after configuration |
-
-## h1 replica disk
-
-Manage your disk of replica
-
-## h1 replica disk list
-
-List disk of replica
+Show replica
 
 ### Syntax
 
-```h1 replica disk list | --replica REPLICA```
+```h1 replica show | --replica REPLICA```
 ### Example
 
 ```bash
-h1 replica disk list
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--replica REPLICA``` |  | Replica name or ID |
-
-## h1 replica tag
-
-Manage your tag
-
-## h1 replica tag list
-
-List tag
-
-### Syntax
-
-```h1 replica tag list | --replica REPLICA```
-### Example
-
-```bash
-h1 replica tag list --replica my-replica
+h1 replica show --replica my-replica
 ```
 
 ### Required arguments
@@ -220,6 +197,10 @@ h1 replica tag list --replica my-replica
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--replica REPLICA``` |  | Replica ID or name |
+
+## h1 replica tag
+
+Manage your tag
 
 ## h1 replica tag add
 
@@ -264,5 +245,24 @@ h1 replica tag delete --replica test-replica --tag prod
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
+| ```--replica REPLICA``` |  | Replica ID or name |
+
+## h1 replica tag list
+
+List tag
+
+### Syntax
+
+```h1 replica tag list | --replica REPLICA```
+### Example
+
+```bash
+h1 replica tag list --replica my-replica
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
 | ```--replica REPLICA``` |  | Replica ID or name |
 

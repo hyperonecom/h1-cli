@@ -1,37 +1,37 @@
 # TOC
 
   * [h1 agent create](#h1-agent-create) - Create Agent
-  * [h1 agent list](#h1-agent-list) - List Agent
-  * [h1 agent show](#h1-agent-show) - Show Agent
+  * [h1 agent credential](#h1-agent-credential) - Manage your credentials to Agent
+    * [h1 agent credential cert](#h1-agent-credential-cert) - Manage your certificate to Agent
+      * [h1 agent credential cert add](#h1-agent-credential-cert-add) - Add certificate to Agent
+      * [h1 agent credential cert delete](#h1-agent-credential-cert-delete) - Delete certificate to Agent
+      * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List certificate to Agent
+      * [h1 agent credential cert rename](#h1-agent-credential-cert-rename) - Rename certificate to Agent
+      * [h1 agent credential cert show](#h1-agent-credential-cert-show) - Show certificate to Agent
   * [h1 agent delete](#h1-agent-delete) - Delete Agent
+  * [h1 agent enabled-service](#h1-agent-enabled-service) - Manage your enabled service
+    * [h1 agent enabled-service add](#h1-agent-enabled-service-add) - Add enabled service
+    * [h1 agent enabled-service delete](#h1-agent-enabled-service-delete) - Delete enabled service
+    * [h1 agent enabled-service list](#h1-agent-enabled-service-list) - List enabled service
   * [h1 agent history](#h1-agent-history) - History of Agent
+  * [h1 agent inspect](#h1-agent-inspect) - Inspect of Agent
+  * [h1 agent list](#h1-agent-list) - List Agent
   * [h1 agent rename](#h1-agent-rename) - Rename Agent
+  * [h1 agent resource](#h1-agent-resource) - Manage your Resource of Agent
+    * [h1 agent resource inspect](#h1-agent-resource-inspect) - Inspect of Resource of Agent
+    * [h1 agent resource list](#h1-agent-resource-list) - List Resource of Agent
+    * [h1 agent resource recreate](#h1-agent-resource-recreate) - Recreate Resource of Agent
   * [h1 agent service](#h1-agent-service) - Manage your services of Agent
     * [h1 agent service list](#h1-agent-service-list) - List service for Agent
     * [h1 agent service show](#h1-agent-service-show) - Show service for Agent
-  * [h1 agent transfer](#h1-agent-transfer) - Transfer Agent to other project
-  * [h1 agent inspect](#h1-agent-inspect) - Inspect of Agent
-  * [h1 agent resource](#h1-agent-resource) - Manage your Resource of Agent
-    * [h1 agent resource list](#h1-agent-resource-list) - List Resource of Agent
-    * [h1 agent resource inspect](#h1-agent-resource-inspect) - Inspect of Resource of Agent
-    * [h1 agent resource recreate](#h1-agent-resource-recreate) - Recreate Resource of Agent
-  * [h1 agent enabled-service](#h1-agent-enabled-service) - Manage your enabled service
-    * [h1 agent enabled-service add](#h1-agent-enabled-service-add) - Add enabled service
-    * [h1 agent enabled-service list](#h1-agent-enabled-service-list) - List enabled service
-    * [h1 agent enabled-service delete](#h1-agent-enabled-service-delete) - Delete enabled service
-  * [h1 agent suspend](#h1-agent-suspend) - Suspend Agent
+  * [h1 agent show](#h1-agent-show) - Show Agent
   * [h1 agent start](#h1-agent-start) - Start Agent
-  * [h1 agent credential](#h1-agent-credential) - Manage your credentials to Agent
-    * [h1 agent credential cert](#h1-agent-credential-cert) - Manage your certificate to Agent
-      * [h1 agent credential cert show](#h1-agent-credential-cert-show) - Show certificate to Agent
-      * [h1 agent credential cert rename](#h1-agent-credential-cert-rename) - Rename certificate to Agent
-      * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List certificate to Agent
-      * [h1 agent credential cert delete](#h1-agent-credential-cert-delete) - Delete certificate to Agent
-      * [h1 agent credential cert add](#h1-agent-credential-cert-add) - Add certificate to Agent
+  * [h1 agent suspend](#h1-agent-suspend) - Suspend Agent
   * [h1 agent tag](#h1-agent-tag) - Manage your tag
-    * [h1 agent tag list](#h1-agent-tag-list) - List tag
     * [h1 agent tag add](#h1-agent-tag-add) - Add a tag to Agent
     * [h1 agent tag delete](#h1-agent-tag-delete) - Delete a tag of Agent
+    * [h1 agent tag list](#h1-agent-tag-list) - List tag
+  * [h1 agent transfer](#h1-agent-transfer) - Transfer Agent to other project
 
 
 # Specification
@@ -82,30 +82,25 @@ h1 agent create --name my-agent --type container --ssh-file ./id_rsa.pub
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
-## h1 agent list
+## h1 agent credential
 
-List Agent
+Manage your credentials to Agent
 
-### Syntax
+## h1 agent credential cert
 
-```h1 agent list | ```
-### Example
+Manage your certificate to Agent
 
-```bash
-h1 agent list
-```
+## h1 agent credential cert add
 
-## h1 agent show
-
-Show Agent
+Add certificate to Agent
 
 ### Syntax
 
-```h1 agent show | --agent AGENT```
+```h1 agent credential cert add | --agent AGENT --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE]```
 ### Example
 
 ```bash
-h1 agent show --agent my-agent
+h1 agent credential cert add --agent my-agent --name my-key --sshkey my-home-ssh
 ```
 
 ### Required arguments
@@ -113,6 +108,94 @@ h1 agent show --agent my-agent
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
+| ```--name NAME``` |  | Certificate name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--sshkey SSHKEY``` |  | Public SSH key ID or name |
+| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
+
+## h1 agent credential cert delete
+
+Delete certificate to Agent
+
+### Syntax
+
+```h1 agent credential cert delete | --agent AGENT --cert CERT```
+### Example
+
+```bash
+h1 agent credential cert delete --cert my-cert --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--cert CERT``` |  | Certificate to Agent ID or name |
+
+## h1 agent credential cert list
+
+List certificate to Agent
+
+### Syntax
+
+```h1 agent credential cert list | --agent AGENT```
+### Example
+
+```bash
+h1 agent credential cert list --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent credential cert rename
+
+Rename certificate to Agent
+
+### Syntax
+
+```h1 agent credential cert rename | --agent AGENT --cert CERT --new-name NEW-NAME```
+### Example
+
+```bash
+h1 agent credential cert rename --cert my-cert --new-name my-renamed-cert --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--cert CERT``` |  | Certificate to Agent ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+## h1 agent credential cert show
+
+Show certificate to Agent
+
+### Syntax
+
+```h1 agent credential cert show | --agent AGENT --cert CERT```
+### Example
+
+```bash
+h1 agent credential cert show --cert my-cert
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--cert CERT``` |  | Certificate to Agent ID or name |
 
 ## h1 agent delete
 
@@ -125,6 +208,69 @@ Delete Agent
 
 ```bash
 h1 agent delete --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent enabled-service
+
+Manage your enabled service
+
+## h1 agent enabled-service add
+
+Add enabled service
+
+### Syntax
+
+```h1 agent enabled-service add | --agent AGENT --service SERVICE```
+### Example
+
+```
+h1 agent enabled-service add --agent my-agent --service value
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--service SERVICE``` |  | New enabled service |
+
+## h1 agent enabled-service delete
+
+Delete enabled service
+
+### Syntax
+
+```h1 agent enabled-service delete | --agent AGENT --service SERVICE```
+### Example
+
+```
+h1 agent enabled-service delete --agent my-agent --service value
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--service SERVICE``` |  | Deleted enabled service |
+
+## h1 agent enabled-service list
+
+List enabled service
+
+### Syntax
+
+```h1 agent enabled-service list | --agent AGENT```
+### Example
+
+```bash
+h1 agent enabled-service list --agent my-agent
 ```
 
 ### Required arguments
@@ -152,6 +298,38 @@ h1 agent history --agent my-agent
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
 
+## h1 agent inspect
+
+Inspect of Agent
+
+### Syntax
+
+```h1 agent inspect | --agent AGENT```
+### Example
+
+```bash
+h1 agent inspect --agent my-agent --source-file ./my-agent.vhdx
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent list
+
+List Agent
+
+### Syntax
+
+```h1 agent list | ```
+### Example
+
+```bash
+h1 agent list
+```
+
 ## h1 agent rename
 
 Rename Agent
@@ -171,6 +349,69 @@ h1 agent rename --agent my-agent --new-name my-renamed-agent
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
+
+## h1 agent resource
+
+Manage your Resource of Agent
+
+## h1 agent resource inspect
+
+Inspect of Resource of Agent
+
+### Syntax
+
+```h1 agent resource inspect | --agent AGENT --resource RESOURCE```
+### Example
+
+```bash
+h1 agent resource inspect --resource my-resource --source-file ./my-resource.vhdx
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--resource RESOURCE``` |  | Resource of Agent ID or name |
+
+## h1 agent resource list
+
+List Resource of Agent
+
+### Syntax
+
+```h1 agent resource list | --agent AGENT```
+### Example
+
+```bash
+h1 agent resource list
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent resource recreate
+
+Recreate Resource of Agent
+
+### Syntax
+
+```h1 agent resource recreate | --agent AGENT --resource RESOURCE```
+### Example
+
+```
+h1 agent resource recreate --agent container-agent --resource container-id
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--resource RESOURCE``` |  | Resource of Agent ID or name |
 
 ## h1 agent service
 
@@ -215,182 +456,17 @@ h1 agent service show --service my-service --agent my-agent
 | ```--agent AGENT``` |  | Agent ID or name |
 | ```--service SERVICE``` |  | Service for Agent ID or name |
 
-## h1 agent transfer
+## h1 agent show
 
-Transfer Agent to other project
+Show Agent
 
 ### Syntax
 
-```h1 agent transfer | --agent AGENT --new-project NEW-PROJECT```
+```h1 agent show | --agent AGENT```
 ### Example
 
 ```bash
-h1 agent transfer --agent test-agent --new-project OtherProject
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--new-project NEW-PROJECT``` |  | New name |
-
-## h1 agent inspect
-
-Inspect of Agent
-
-### Syntax
-
-```h1 agent inspect | --agent AGENT```
-### Example
-
-```bash
-h1 agent inspect --agent my-agent --source-file ./my-agent.vhdx
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-
-## h1 agent resource
-
-Manage your Resource of Agent
-
-## h1 agent resource list
-
-List Resource of Agent
-
-### Syntax
-
-```h1 agent resource list | --agent AGENT```
-### Example
-
-```bash
-h1 agent resource list
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-
-## h1 agent resource inspect
-
-Inspect of Resource of Agent
-
-### Syntax
-
-```h1 agent resource inspect | --agent AGENT --resource RESOURCE```
-### Example
-
-```bash
-h1 agent resource inspect --resource my-resource --source-file ./my-resource.vhdx
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--resource RESOURCE``` |  | Resource of Agent ID or name |
-
-## h1 agent resource recreate
-
-Recreate Resource of Agent
-
-### Syntax
-
-```h1 agent resource recreate | --agent AGENT --resource RESOURCE```
-### Example
-
-```
-h1 agent resource recreate --agent container-agent --resource container-id
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--resource RESOURCE``` |  | Resource of Agent ID or name |
-
-## h1 agent enabled-service
-
-Manage your enabled service
-
-## h1 agent enabled-service add
-
-Add enabled service
-
-### Syntax
-
-```h1 agent enabled-service add | --agent AGENT --service SERVICE```
-### Example
-
-```
-h1 agent enabled-service add --agent my-agent --service value
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--service SERVICE``` |  | New enabled service |
-
-## h1 agent enabled-service list
-
-List enabled service
-
-### Syntax
-
-```h1 agent enabled-service list | --agent AGENT```
-### Example
-
-```bash
-h1 agent enabled-service list --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-
-## h1 agent enabled-service delete
-
-Delete enabled service
-
-### Syntax
-
-```h1 agent enabled-service delete | --agent AGENT --service SERVICE```
-### Example
-
-```
-h1 agent enabled-service delete --agent my-agent --service value
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--service SERVICE``` |  | Deleted enabled service |
-
-## h1 agent suspend
-
-Suspend Agent
-
-### Syntax
-
-```h1 agent suspend | --agent AGENT```
-### Example
-
-```
-h1 agent suspend --agent my-agent
+h1 agent show --agent my-agent
 ```
 
 ### Required arguments
@@ -418,25 +494,17 @@ h1 agent start --agent my-agent
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
 
-## h1 agent credential
+## h1 agent suspend
 
-Manage your credentials to Agent
-
-## h1 agent credential cert
-
-Manage your certificate to Agent
-
-## h1 agent credential cert show
-
-Show certificate to Agent
+Suspend Agent
 
 ### Syntax
 
-```h1 agent credential cert show | --agent AGENT --cert CERT```
+```h1 agent suspend | --agent AGENT```
 ### Example
 
-```bash
-h1 agent credential cert show --cert my-cert
+```
+h1 agent suspend --agent my-agent
 ```
 
 ### Required arguments
@@ -444,117 +512,10 @@ h1 agent credential cert show --cert my-cert
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
-| ```--cert CERT``` |  | Certificate to Agent ID or name |
-
-## h1 agent credential cert rename
-
-Rename certificate to Agent
-
-### Syntax
-
-```h1 agent credential cert rename | --agent AGENT --cert CERT --new-name NEW-NAME```
-### Example
-
-```bash
-h1 agent credential cert rename --cert my-cert --new-name my-renamed-cert --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--cert CERT``` |  | Certificate to Agent ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 agent credential cert list
-
-List certificate to Agent
-
-### Syntax
-
-```h1 agent credential cert list | --agent AGENT```
-### Example
-
-```bash
-h1 agent credential cert list --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-
-## h1 agent credential cert delete
-
-Delete certificate to Agent
-
-### Syntax
-
-```h1 agent credential cert delete | --agent AGENT --cert CERT```
-### Example
-
-```bash
-h1 agent credential cert delete --cert my-cert --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--cert CERT``` |  | Certificate to Agent ID or name |
-
-## h1 agent credential cert add
-
-Add certificate to Agent
-
-### Syntax
-
-```h1 agent credential cert add | --agent AGENT --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE]```
-### Example
-
-```bash
-h1 agent credential cert add --agent my-agent --name my-key --sshkey my-home-ssh
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--name NAME``` |  | Certificate name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--sshkey SSHKEY``` |  | Public SSH key ID or name |
-| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
 
 ## h1 agent tag
 
 Manage your tag
-
-## h1 agent tag list
-
-List tag
-
-### Syntax
-
-```h1 agent tag list | --agent AGENT```
-### Example
-
-```bash
-h1 agent tag list --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
 
 ## h1 agent tag add
 
@@ -600,4 +561,43 @@ h1 agent tag delete --agent test-agent --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent tag list
+
+List tag
+
+### Syntax
+
+```h1 agent tag list | --agent AGENT```
+### Example
+
+```bash
+h1 agent tag list --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent transfer
+
+Transfer Agent to other project
+
+### Syntax
+
+```h1 agent transfer | --agent AGENT --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 agent transfer --agent test-agent --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
 

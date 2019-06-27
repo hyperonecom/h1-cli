@@ -1,18 +1,18 @@
 # TOC
 
   * [h1 snapshot create](#h1-snapshot-create) - Create snapshot
-  * [h1 snapshot list](#h1-snapshot-list) - List snapshot
-  * [h1 snapshot show](#h1-snapshot-show) - Show snapshot
   * [h1 snapshot delete](#h1-snapshot-delete) - Delete snapshot
   * [h1 snapshot history](#h1-snapshot-history) - History of snapshot
+  * [h1 snapshot list](#h1-snapshot-list) - List snapshot
   * [h1 snapshot rename](#h1-snapshot-rename) - Rename snapshot
   * [h1 snapshot service](#h1-snapshot-service) - Manage your services of snapshot
     * [h1 snapshot service list](#h1-snapshot-service-list) - List service for snapshot
     * [h1 snapshot service show](#h1-snapshot-service-show) - Show service for snapshot
+  * [h1 snapshot show](#h1-snapshot-show) - Show snapshot
   * [h1 snapshot tag](#h1-snapshot-tag) - Manage your tag
-    * [h1 snapshot tag list](#h1-snapshot-tag-list) - List tag
     * [h1 snapshot tag add](#h1-snapshot-tag-add) - Add a tag to snapshot
     * [h1 snapshot tag delete](#h1-snapshot-tag-delete) - Delete a tag of snapshot
+    * [h1 snapshot tag list](#h1-snapshot-tag-list) - List tag
 
 
 # Specification
@@ -55,38 +55,6 @@ h1 snapshot create --vault my-vault --name my-new-snapshot
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
-## h1 snapshot list
-
-List snapshot
-
-### Syntax
-
-```h1 snapshot list | ```
-### Example
-
-```bash
-h1 snapshot list
-```
-
-## h1 snapshot show
-
-Show snapshot
-
-### Syntax
-
-```h1 snapshot show | --snapshot SNAPSHOT```
-### Example
-
-```bash
-h1 snapshot show --snapshot my-snapshot
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
-
 ## h1 snapshot delete
 
 Delete snapshot
@@ -124,6 +92,19 @@ h1 snapshot history --snapshot my-snapshot
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
+
+## h1 snapshot list
+
+List snapshot
+
+### Syntax
+
+```h1 snapshot list | ```
+### Example
+
+```bash
+h1 snapshot list
+```
 
 ## h1 snapshot rename
 
@@ -188,21 +169,17 @@ h1 snapshot service show --service my-service --snapshot my-snapshot
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 | ```--service SERVICE``` |  | Service for snapshot ID or name |
 
-## h1 snapshot tag
+## h1 snapshot show
 
-Manage your tag
-
-## h1 snapshot tag list
-
-List tag
+Show snapshot
 
 ### Syntax
 
-```h1 snapshot tag list | --snapshot SNAPSHOT```
+```h1 snapshot show | --snapshot SNAPSHOT```
 ### Example
 
 ```bash
-h1 snapshot tag list --snapshot my-snapshot
+h1 snapshot show --snapshot my-snapshot
 ```
 
 ### Required arguments
@@ -210,6 +187,10 @@ h1 snapshot tag list --snapshot my-snapshot
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
+
+## h1 snapshot tag
+
+Manage your tag
 
 ## h1 snapshot tag add
 
@@ -254,5 +235,24 @@ h1 snapshot tag delete --snapshot test-snapshot --tag prod
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
+| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
+
+## h1 snapshot tag list
+
+List tag
+
+### Syntax
+
+```h1 snapshot tag list | --snapshot SNAPSHOT```
+### Example
+
+```bash
+h1 snapshot tag list --snapshot my-snapshot
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 

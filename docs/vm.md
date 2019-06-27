@@ -1,59 +1,59 @@
 # TOC
 
-  * [h1 vm create](#h1-vm-create) - Create virtual machine
-  * [h1 vm list](#h1-vm-list) - List virtual machine
-  * [h1 vm show](#h1-vm-show) - Show virtual machine
-  * [h1 vm history](#h1-vm-history) - History of virtual machine
-  * [h1 vm service](#h1-vm-service) - Manage your services of virtual machine
-    * [h1 vm service list](#h1-vm-service-list) - List service for virtual machine
-    * [h1 vm service show](#h1-vm-service-show) - Show service for virtual machine
-    * [h1 vm service change](#h1-vm-service-change) - Change type of service for virtual machine
-  * [h1 vm delete](#h1-vm-delete) - Delete virtual machine
   * [h1 vm console](#h1-vm-console) - Open virtual machine console in web-browser
-  * [h1 vm stop](#h1-vm-stop) - Stop virtual machine
-  * [h1 vm start](#h1-vm-start) - Start virtual machine
-  * [h1 vm restart](#h1-vm-restart) - Restart virtual machine
-  * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff virtual machine
-  * [h1 vm rename](#h1-vm-rename) - Rename virtual machine
-  * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for virtual machine
-  * [h1 vm serialport](#h1-vm-serialport) - Serial Console
-    * [h1 vm serialport console](#h1-vm-serialport-console) - Connect to virtual machine using Serial Console
-    * [h1 vm serialport log](#h1-vm-serialport-log) - Log Serial Console buffer of virtual machine
+  * [h1 vm create](#h1-vm-create) - Create virtual machine
+  * [h1 vm delete](#h1-vm-delete) - Delete virtual machine
   * [h1 vm disk](#h1-vm-disk) - Manage your disk
-    * [h1 vm disk list](#h1-vm-disk-list) - List disk
     * [h1 vm disk attach](#h1-vm-disk-attach) - Attach disk to disk
     * [h1 vm disk detach](#h1-vm-disk-detach) - Detach disk from disk
+    * [h1 vm disk list](#h1-vm-disk-list) - List disk
+  * [h1 vm dvd](#h1-vm-dvd) - Manage your DVD
+    * [h1 vm dvd eject](#h1-vm-dvd-eject) - Eject ISO from DVD drive of DVD
+    * [h1 vm dvd insert](#h1-vm-dvd-insert) - Insert ISO into DVD drive of DVD
+    * [h1 vm dvd list](#h1-vm-dvd-list) - List DVD
+  * [h1 vm history](#h1-vm-history) - History of virtual machine
+  * [h1 vm list](#h1-vm-list) - List virtual machine
+  * [h1 vm metrics](#h1-vm-metrics) - Get live metrics of virtual machine
   * [h1 vm nic](#h1-vm-nic) - Manage your network adapter
-    * [h1 vm nic list](#h1-vm-nic-list) - List network adapter
-    * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
     * [h1 vm nic create](#h1-vm-nic-create) - Create network adapter
-    * [h1 vm nic show](#h1-vm-nic-show) - Show network adapter
+    * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
     * [h1 vm nic firewall](#h1-vm-nic-firewall) - Manage firewall of network adapter
       * [h1 vm nic firewall add](#h1-vm-nic-firewall-add) - Add firewall to network adapter
       * [h1 vm nic firewall remove](#h1-vm-nic-firewall-remove) - Remove firewall from network adapter
     * [h1 vm nic history](#h1-vm-nic-history) - History of network adapter
     * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP address of network adapter
-      * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP address of network adapter
-      * [h1 vm nic ip delete](#h1-vm-nic-ip-delete) - Delete IP address of network adapter
       * [h1 vm nic ip add](#h1-vm-nic-ip-add) - Add IP address to IP address of network adapter
-      * [h1 vm nic ip replace](#h1-vm-nic-ip-replace) - Replace IP address of network adapter
+      * [h1 vm nic ip delete](#h1-vm-nic-ip-delete) - Delete IP address of network adapter
+      * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP address of network adapter
       * [h1 vm nic ip persistent](#h1-vm-nic-ip-persistent) - Persistent IP address of network adapter
+      * [h1 vm nic ip replace](#h1-vm-nic-ip-replace) - Replace IP address of network adapter
       * [h1 vm nic ip show](#h1-vm-nic-ip-show) - Show IP address of network adapter
+    * [h1 vm nic list](#h1-vm-nic-list) - List network adapter
+    * [h1 vm nic show](#h1-vm-nic-show) - Show network adapter
     * [h1 vm nic tag](#h1-vm-nic-tag) - Manage your tag
-      * [h1 vm nic tag list](#h1-vm-nic-tag-list) - List tag
       * [h1 vm nic tag add](#h1-vm-nic-tag-add) - Add a tag to network adapter
       * [h1 vm nic tag delete](#h1-vm-nic-tag-delete) - Delete a tag of network adapter
-  * [h1 vm dvd](#h1-vm-dvd) - Manage your DVD
-    * [h1 vm dvd list](#h1-vm-dvd-list) - List DVD
-    * [h1 vm dvd insert](#h1-vm-dvd-insert) - Insert ISO into DVD drive of DVD
-    * [h1 vm dvd eject](#h1-vm-dvd-eject) - Eject ISO from DVD drive of DVD
-  * [h1 vm ssh](#h1-vm-ssh) - Connect to virtual machine using SSH
+      * [h1 vm nic tag list](#h1-vm-nic-tag-list) - List tag
   * [h1 vm passwordreset](#h1-vm-passwordreset) - Password reset for virtual machine
-  * [h1 vm metrics](#h1-vm-metrics) - Get live metrics of virtual machine
+  * [h1 vm rename](#h1-vm-rename) - Rename virtual machine
+  * [h1 vm restart](#h1-vm-restart) - Restart virtual machine
+  * [h1 vm serialport](#h1-vm-serialport) - Serial Console
+    * [h1 vm serialport console](#h1-vm-serialport-console) - Connect to virtual machine using Serial Console
+    * [h1 vm serialport log](#h1-vm-serialport-log) - Log Serial Console buffer of virtual machine
+  * [h1 vm service](#h1-vm-service) - Manage your services of virtual machine
+    * [h1 vm service change](#h1-vm-service-change) - Change type of service for virtual machine
+    * [h1 vm service list](#h1-vm-service-list) - List service for virtual machine
+    * [h1 vm service show](#h1-vm-service-show) - Show service for virtual machine
+  * [h1 vm show](#h1-vm-show) - Show virtual machine
+  * [h1 vm ssh](#h1-vm-ssh) - Connect to virtual machine using SSH
+  * [h1 vm start](#h1-vm-start) - Start virtual machine
+  * [h1 vm stop](#h1-vm-stop) - Stop virtual machine
   * [h1 vm tag](#h1-vm-tag) - Manage your tag
-    * [h1 vm tag list](#h1-vm-tag-list) - List tag
     * [h1 vm tag add](#h1-vm-tag-add) - Add a tag to virtual machine
     * [h1 vm tag delete](#h1-vm-tag-delete) - Delete a tag of virtual machine
+    * [h1 vm tag list](#h1-vm-tag-list) - List tag
+  * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff virtual machine
+  * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for virtual machine
 
 
 # Specification
@@ -61,6 +61,25 @@
 ## h1 vm
 
 Manage your virtual machine
+
+## h1 vm console
+
+Open virtual machine console in web-browser
+
+### Syntax
+
+```h1 vm console | --vm VM```
+### Example
+
+```bash
+h1 vm console --vm test-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm create
 
@@ -122,120 +141,6 @@ Note: You can mount ISO disk and provide stateless services.
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
-## h1 vm list
-
-List virtual machine
-
-### Syntax
-
-```h1 vm list | ```
-### Example
-
-```bash
-h1 vm list
-```
-
-## h1 vm show
-
-Show virtual machine
-
-### Syntax
-
-```h1 vm show | --vm VM```
-### Example
-
-```bash
-h1 vm show --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm history
-
-History of virtual machine
-
-### Syntax
-
-```h1 vm history | --vm VM```
-### Example
-
-```bash
-h1 vm history --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm service
-
-Manage your services of virtual machine
-
-## h1 vm service list
-
-List service for virtual machine
-
-### Syntax
-
-```h1 vm service list | --vm VM```
-### Example
-
-```bash
-h1 vm service list --vm test-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm service show
-
-Show service for virtual machine
-
-### Syntax
-
-```h1 vm service show | --vm VM --service SERVICE```
-### Example
-
-```bash
-h1 vm service show --service my-service --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-| ```--service SERVICE``` |  | Service for virtual machine ID or name |
-
-## h1 vm service change
-
-Change type of service for virtual machine
-
-### Syntax
-
-```h1 vm service change | --vm VM --new-type NEW-TYPE```
-### Example
-
-```bash
-h1 vm service change --vm my-vm --new-type m2.medium
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-| ```--new-type NEW-TYPE``` |  | New type |
-
 ## h1 vm delete
 
 Delete virtual machine
@@ -255,227 +160,9 @@ h1 vm delete --vm my-vm
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
-## h1 vm console
-
-Open virtual machine console in web-browser
-
-### Syntax
-
-```h1 vm console | --vm VM```
-### Example
-
-```bash
-h1 vm console --vm test-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm stop
-
-Stop virtual machine
-
-### Syntax
-
-```h1 vm stop | --vm VM```
-### Example
-
-```bash
-h1 vm stop --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm start
-
-Start virtual machine
-
-### Syntax
-
-```h1 vm start | --vm VM```
-### Example
-
-```bash
-h1 vm start --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm restart
-
-Restart virtual machine
-
-### Syntax
-
-```h1 vm restart | --vm VM```
-### Example
-
-```bash
-h1 vm restart --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm turnoff
-
-Turnoff virtual machine
-
-### Syntax
-
-```h1 vm turnoff | --vm VM```
-### Example
-
-```bash
-h1 vm turnoff --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm rename
-
-Rename virtual machine
-
-### Syntax
-
-```h1 vm rename | --vm VM --new-name NEW-NAME```
-### Example
-
-```bash
-h1 vm rename --vm my-vm --new-name my-renamed-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 vm userdata
-
-Manage userdata for virtual machine
-
-### Syntax
-
-```h1 vm userdata | --vm VM --userdata-file USERDATA-FILE```
-### Examples
-
-#### Set userdata for virtual machine
-
-```bash
-$ echo "any-data" > data.txt
-$ h1 vm userdata --vm test-vm --userdata-file ./data.txt
-```
-
-#### Read userdata for virtual machine
- 
-```bash
-h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl base64 -d
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-| ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
-
-## h1 vm serialport
-
-Serial Console
-
-## h1 vm serialport console
-
-Connect to virtual machine using Serial Console
-
-### Syntax
-
-```h1 vm serialport console | --vm VM [--port PORT]```
-### Example
-
-```bash
-h1 vm serialport console --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--port PORT``` |  | Port to connect |
-
-## h1 vm serialport log
-
-Log Serial Console buffer of virtual machine
-
-### Syntax
-
-```h1 vm serialport log | --vm VM [--port PORT] [--follow]```
-### Example
-
-```bash
-h1 vm serialport log --vm test-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--port PORT``` |  | Port to connect |
-| ```--follow``` |  | Output current messages in real time as they arrive |
-
 ## h1 vm disk
 
 Manage your disk
-
-## h1 vm disk list
-
-List disk
-
-### Syntax
-
-```h1 vm disk list | --vm VM```
-### Example
-
-```bash
-h1 vm disk list
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm disk attach
 
@@ -527,6 +214,140 @@ h1 vm disk detach --vm test-vm --disk my-disk-0
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```--disk DISK``` |  | Disk name or ID |
 
+## h1 vm disk list
+
+List disk
+
+### Syntax
+
+```h1 vm disk list | --vm VM```
+### Example
+
+```bash
+h1 vm disk list
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm dvd
+
+Manage your DVD
+
+## h1 vm dvd eject
+
+Eject ISO from DVD drive of DVD
+
+### Syntax
+
+```h1 vm dvd eject | --vm VM```
+### Example
+
+```bash
+h1 vm dvd eject --vm test-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+
+## h1 vm dvd insert
+
+Insert ISO into DVD drive of DVD
+
+### Syntax
+
+```h1 vm dvd insert | --vm VM --iso ISO```
+### Example
+
+```bash
+h1 vm dvd insert --vm test-vm --iso ubuntu-live
+```
+
+Note: Use ```h1 iso list``` to list available ISO or ```h1 iso create``` to create a new one.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--iso ISO``` |  | ISO name or ID |
+
+## h1 vm dvd list
+
+List DVD
+
+### Syntax
+
+```h1 vm dvd list | --vm VM```
+### Example
+
+```bash
+h1 vm dvd list --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+
+## h1 vm history
+
+History of virtual machine
+
+### Syntax
+
+```h1 vm history | --vm VM```
+### Example
+
+```bash
+h1 vm history --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm list
+
+List virtual machine
+
+### Syntax
+
+```h1 vm list | ```
+### Example
+
+```bash
+h1 vm list
+```
+
+## h1 vm metrics
+
+Get live metrics of virtual machine
+
+### Syntax
+
+```h1 vm metrics | --vm VM```
+### Example
+
+```bash
+h1 vm metrics --vm test-vm2
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
 ## h1 vm nic
 
 Manage your network adapter
@@ -538,45 +359,6 @@ Manage your network adapter
 ```bash
 h1 vm nicl list --vm test-vm --output json --query "[].{ip:join(',', ip[].address)}" --output tsv
 ```
-
-## h1 vm nic list
-
-List network adapter
-
-### Syntax
-
-```h1 vm nic list | --vm VM```
-### Example
-
-```bash
-h1 vm nic list --vm test-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine name or ID |
-
-## h1 vm nic delete
-
-Delete network adapter
-
-### Syntax
-
-```h1 vm nic delete | --vm VM --nic NIC```
-### Example
-
-```bash
-h1 vm nic delete --nic my-nic --vm test-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine name or ID |
-| ```--nic NIC``` |  | Network adapter ID or name |
 
 ## h1 vm nic create
 
@@ -616,17 +398,17 @@ Note (4): To list available networks use ```h1 network list```.
 | ```--ip IP``` |  | IP to assign from network |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
-## h1 vm nic show
+## h1 vm nic delete
 
-Show network adapter
+Delete network adapter
 
 ### Syntax
 
-```h1 vm nic show | --vm VM --nic NIC```
+```h1 vm nic delete | --vm VM --nic NIC```
 ### Example
 
 ```bash
-h1 vm nic show --nic my-nic
+h1 vm nic delete --nic my-nic --vm test-vm
 ```
 
 ### Required arguments
@@ -705,47 +487,6 @@ h1 vm nic history --nic my-nic --vm test-vm
 
 Manage your IP address of network adapter
 
-## h1 vm nic ip list
-
-List IP address of network adapter
-
-### Syntax
-
-```h1 vm nic ip list | --vm VM --nic NIC```
-### Example
-
-```bash
-h1 vm nic ip list --vm my-vm --nic nic-of-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine name or ID |
-| ```--nic NIC``` |  | Network adapter ID |
-
-## h1 vm nic ip delete
-
-Delete IP address of network adapter
-
-### Syntax
-
-```h1 vm nic ip delete | --vm VM --nic NIC --ip IP```
-### Example
-
-```bash
-h1 vm nic ip delete --ip my-ip --vm my-vm --nic nic-of-vm --ip 123.0.0.50
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine name or ID |
-| ```--nic NIC``` |  | Network adapter ID |
-| ```--ip IP``` |  | IP address of network adapter ID or name |
-
 ## h1 vm nic ip add
 
 Add IP address to IP address of network adapter
@@ -772,6 +513,68 @@ Note: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID |
 | ```--ip IP``` |  | Public IP address or ID of IP |
+
+## h1 vm nic ip delete
+
+Delete IP address of network adapter
+
+### Syntax
+
+```h1 vm nic ip delete | --vm VM --nic NIC --ip IP```
+### Example
+
+```bash
+h1 vm nic ip delete --ip my-ip --vm my-vm --nic nic-of-vm --ip 123.0.0.50
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID |
+| ```--ip IP``` |  | IP address of network adapter ID or name |
+
+## h1 vm nic ip list
+
+List IP address of network adapter
+
+### Syntax
+
+```h1 vm nic ip list | --vm VM --nic NIC```
+### Example
+
+```bash
+h1 vm nic ip list --vm my-vm --nic nic-of-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID |
+
+## h1 vm nic ip persistent
+
+Persistent IP address of network adapter
+
+### Syntax
+
+```h1 vm nic ip persistent | --vm VM --nic NIC --ip IP```
+### Example
+
+```
+h1 vm nic ip persistent --vm test-vm --nic 5b994d0cab228cb79e8576c9 --ip 5784e97be2627505227b584c
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID |
+| ```--ip IP``` |  | IP address or ID of public IP |
 
 ## h1 vm nic ip replace
 
@@ -801,27 +604,6 @@ Note: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to
 | ```--ip IP``` |  | IP address or ID of attached IP |
 | ```--new-ip NEW-IP``` |  | New public IP address or ID of IP |
 
-## h1 vm nic ip persistent
-
-Persistent IP address of network adapter
-
-### Syntax
-
-```h1 vm nic ip persistent | --vm VM --nic NIC --ip IP```
-### Example
-
-```
-h1 vm nic ip persistent --vm test-vm --nic 5b994d0cab228cb79e8576c9 --ip 5784e97be2627505227b584c
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine name or ID |
-| ```--nic NIC``` |  | Network adapter ID |
-| ```--ip IP``` |  | IP address or ID of public IP |
-
 ## h1 vm nic ip show
 
 Show IP address of network adapter
@@ -843,21 +625,36 @@ h1 vm nic ip show --ip my-ip
 | ```--nic NIC``` |  | Network adapter ID |
 | ```--ip IP``` |  | IP address of network adapter ID or name |
 
-## h1 vm nic tag
+## h1 vm nic list
 
-Manage your tag
-
-## h1 vm nic tag list
-
-List tag
+List network adapter
 
 ### Syntax
 
-```h1 vm nic tag list | --vm VM --nic NIC```
+```h1 vm nic list | --vm VM```
 ### Example
 
 ```bash
-h1 vm nic tag list --nic my-nic
+h1 vm nic list --vm test-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+
+## h1 vm nic show
+
+Show network adapter
+
+### Syntax
+
+```h1 vm nic show | --vm VM --nic NIC```
+### Example
+
+```bash
+h1 vm nic show --nic my-nic
 ```
 
 ### Required arguments
@@ -866,6 +663,10 @@ h1 vm nic tag list --nic my-nic
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
+
+## h1 vm nic tag
+
+Manage your tag
 
 ## h1 vm nic tag add
 
@@ -914,21 +715,17 @@ h1 vm nic tag delete --nic test-nic --tag prod
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
 
-## h1 vm dvd
+## h1 vm nic tag list
 
-Manage your DVD
-
-## h1 vm dvd list
-
-List DVD
+List tag
 
 ### Syntax
 
-```h1 vm dvd list | --vm VM```
+```h1 vm nic tag list | --vm VM --nic NIC```
 ### Example
 
 ```bash
-h1 vm dvd list --vm my-vm
+h1 vm nic tag list --nic my-nic
 ```
 
 ### Required arguments
@@ -936,47 +733,203 @@ h1 vm dvd list --vm my-vm
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID or name |
 
-## h1 vm dvd insert
+## h1 vm passwordreset
 
-Insert ISO into DVD drive of DVD
-
-### Syntax
-
-```h1 vm dvd insert | --vm VM --iso ISO```
-### Example
-
-```bash
-h1 vm dvd insert --vm test-vm --iso ubuntu-live
-```
-
-Note: Use ```h1 iso list``` to list available ISO or ```h1 iso create``` to create a new one.
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine name or ID |
-| ```--iso ISO``` |  | ISO name or ID |
-
-## h1 vm dvd eject
-
-Eject ISO from DVD drive of DVD
+Password reset for virtual machine
 
 ### Syntax
 
-```h1 vm dvd eject | --vm VM```
+```h1 vm passwordreset | --user USER --vm VM```
 ### Example
 
 ```bash
-h1 vm dvd eject --vm test-vm
+h1 vm passwordreset --vm test-vm --user root
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--user USER``` |  | Username |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm rename
+
+Rename virtual machine
+
+### Syntax
+
+```h1 vm rename | --vm VM --new-name NEW-NAME```
+### Example
+
+```bash
+h1 vm rename --vm my-vm --new-name my-renamed-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+## h1 vm restart
+
+Restart virtual machine
+
+### Syntax
+
+```h1 vm restart | --vm VM```
+### Example
+
+```bash
+h1 vm restart --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm serialport
+
+Serial Console
+
+## h1 vm serialport console
+
+Connect to virtual machine using Serial Console
+
+### Syntax
+
+```h1 vm serialport console | --vm VM [--port PORT]```
+### Example
+
+```bash
+h1 vm serialport console --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--port PORT``` |  | Port to connect |
+
+## h1 vm serialport log
+
+Log Serial Console buffer of virtual machine
+
+### Syntax
+
+```h1 vm serialport log | --vm VM [--port PORT] [--follow]```
+### Example
+
+```bash
+h1 vm serialport log --vm test-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--port PORT``` |  | Port to connect |
+| ```--follow``` |  | Output current messages in real time as they arrive |
+
+## h1 vm service
+
+Manage your services of virtual machine
+
+## h1 vm service change
+
+Change type of service for virtual machine
+
+### Syntax
+
+```h1 vm service change | --vm VM --new-type NEW-TYPE```
+### Example
+
+```bash
+h1 vm service change --vm my-vm --new-type m2.medium
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--new-type NEW-TYPE``` |  | New type |
+
+## h1 vm service list
+
+List service for virtual machine
+
+### Syntax
+
+```h1 vm service list | --vm VM```
+### Example
+
+```bash
+h1 vm service list --vm test-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm service show
+
+Show service for virtual machine
+
+### Syntax
+
+```h1 vm service show | --vm VM --service SERVICE```
+### Example
+
+```bash
+h1 vm service show --service my-service --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--service SERVICE``` |  | Service for virtual machine ID or name |
+
+## h1 vm show
+
+Show virtual machine
+
+### Syntax
+
+```h1 vm show | --vm VM```
+### Example
+
+```bash
+h1 vm show --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm ssh
 
@@ -1014,37 +967,36 @@ h1 vm ssh --vm test-vm --command 'id'
 | ```--private``` |  | Use first private network, skip public |
 | ```--command COMMAND``` |  | Command to execute |
 
-## h1 vm passwordreset
+## h1 vm start
 
-Password reset for virtual machine
+Start virtual machine
 
 ### Syntax
 
-```h1 vm passwordreset | --user USER --vm VM```
+```h1 vm start | --vm VM```
 ### Example
 
 ```bash
-h1 vm passwordreset --vm test-vm --user root
+h1 vm start --vm my-vm
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--user USER``` |  | Username |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
-## h1 vm metrics
+## h1 vm stop
 
-Get live metrics of virtual machine
+Stop virtual machine
 
 ### Syntax
 
-```h1 vm metrics | --vm VM```
+```h1 vm stop | --vm VM```
 ### Example
 
 ```bash
-h1 vm metrics --vm test-vm2
+h1 vm stop --vm my-vm
 ```
 
 ### Required arguments
@@ -1056,25 +1008,6 @@ h1 vm metrics --vm test-vm2
 ## h1 vm tag
 
 Manage your tag
-
-## h1 vm tag list
-
-List tag
-
-### Syntax
-
-```h1 vm tag list | --vm VM```
-### Example
-
-```bash
-h1 vm tag list --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm tag add
 
@@ -1120,4 +1053,71 @@ h1 vm tag delete --vm test-vm --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm tag list
+
+List tag
+
+### Syntax
+
+```h1 vm tag list | --vm VM```
+### Example
+
+```bash
+h1 vm tag list --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm turnoff
+
+Turnoff virtual machine
+
+### Syntax
+
+```h1 vm turnoff | --vm VM```
+### Example
+
+```bash
+h1 vm turnoff --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm userdata
+
+Manage userdata for virtual machine
+
+### Syntax
+
+```h1 vm userdata | --vm VM --userdata-file USERDATA-FILE```
+### Examples
+
+#### Set userdata for virtual machine
+
+```bash
+$ echo "any-data" > data.txt
+$ h1 vm userdata --vm test-vm --userdata-file ./data.txt
+```
+
+#### Read userdata for virtual machine
+ 
+```bash
+h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl base64 -d
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
 

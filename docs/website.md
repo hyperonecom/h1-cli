@@ -1,39 +1,39 @@
 # TOC
 
   * [h1 website create](#h1-website-create) - Create website
-  * [h1 website list](#h1-website-list) - List website
-  * [h1 website show](#h1-website-show) - Show website
+  * [h1 website credential](#h1-website-credential) - Manage your credentials to website
+    * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to website
+      * [h1 website credential cert add](#h1-website-credential-cert-add) - Add certificate to website
+      * [h1 website credential cert delete](#h1-website-credential-cert-delete) - Delete certificate to website
+      * [h1 website credential cert list](#h1-website-credential-cert-list) - List certificate to website
+      * [h1 website credential cert rename](#h1-website-credential-cert-rename) - Rename certificate to website
+      * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to website
+    * [h1 website credential password](#h1-website-credential-password) - Manage your password to website
+      * [h1 website credential password add](#h1-website-credential-password-add) - Add password to website
+      * [h1 website credential password delete](#h1-website-credential-password-delete) - Delete password to website
+      * [h1 website credential password list](#h1-website-credential-password-list) - List password to website
+      * [h1 website credential password rename](#h1-website-credential-password-rename) - Rename password to website
+      * [h1 website credential password show](#h1-website-credential-password-show) - Show password to website
   * [h1 website delete](#h1-website-delete) - Delete website
   * [h1 website history](#h1-website-history) - History of website
+  * [h1 website list](#h1-website-list) - List website
+  * [h1 website log](#h1-website-log) - Live logs of website
   * [h1 website rename](#h1-website-rename) - Rename website
   * [h1 website service](#h1-website-service) - Manage your services of website
     * [h1 website service list](#h1-website-service-list) - List service for website
     * [h1 website service show](#h1-website-service-show) - Show service for website
-  * [h1 website ssh](#h1-website-ssh) - Connect to website using SSH
   * [h1 website sftp](#h1-website-sftp) - Connect to Website using SFTP
+  * [h1 website show](#h1-website-show) - Show website
+  * [h1 website ssh](#h1-website-ssh) - Connect to website using SSH
   * [h1 website start](#h1-website-start) - Start website
   * [h1 website stop](#h1-website-stop) - Stop website
-  * [h1 website update](#h1-website-update) - Update website
-    * [h1 website update domain](#h1-website-update-domain) - Update domain of website
-  * [h1 website log](#h1-website-log) - Live logs of website
-  * [h1 website transfer](#h1-website-transfer) - Transfer website to other project
-  * [h1 website credential](#h1-website-credential) - Manage your credentials to website
-    * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to website
-      * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to website
-      * [h1 website credential cert rename](#h1-website-credential-cert-rename) - Rename certificate to website
-      * [h1 website credential cert list](#h1-website-credential-cert-list) - List certificate to website
-      * [h1 website credential cert delete](#h1-website-credential-cert-delete) - Delete certificate to website
-      * [h1 website credential cert add](#h1-website-credential-cert-add) - Add certificate to website
-    * [h1 website credential password](#h1-website-credential-password) - Manage your password to website
-      * [h1 website credential password show](#h1-website-credential-password-show) - Show password to website
-      * [h1 website credential password list](#h1-website-credential-password-list) - List password to website
-      * [h1 website credential password rename](#h1-website-credential-password-rename) - Rename password to website
-      * [h1 website credential password delete](#h1-website-credential-password-delete) - Delete password to website
-      * [h1 website credential password add](#h1-website-credential-password-add) - Add password to website
   * [h1 website tag](#h1-website-tag) - Manage your tag
-    * [h1 website tag list](#h1-website-tag-list) - List tag
     * [h1 website tag add](#h1-website-tag-add) - Add a tag to website
     * [h1 website tag delete](#h1-website-tag-delete) - Delete a tag of website
+    * [h1 website tag list](#h1-website-tag-list) - List tag
+  * [h1 website transfer](#h1-website-transfer) - Transfer website to other project
+  * [h1 website update](#h1-website-update) - Update website
+    * [h1 website update domain](#h1-website-update-domain) - Update domain of website
 
 
 # Specification
@@ -91,30 +91,25 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
-## h1 website list
+## h1 website credential
 
-List website
+Manage your credentials to website
 
-### Syntax
+## h1 website credential cert
 
-```h1 website list | ```
-### Example
+Manage your certificate to website
 
-```bash
-h1 website list
-```
+## h1 website credential cert add
 
-## h1 website show
-
-Show website
+Add certificate to website
 
 ### Syntax
 
-```h1 website show | --website WEBSITE```
+```h1 website credential cert add | --website WEBSITE --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE]```
 ### Example
 
 ```bash
-h1 website show --website my-website
+h1 website credential cert add --website my-website --name my-key --sshkey my-home-ssh
 ```
 
 ### Required arguments
@@ -122,6 +117,204 @@ h1 website show --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
+| ```--name NAME``` |  | Certificate name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--sshkey SSHKEY``` |  | Public SSH key ID or name |
+| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
+
+## h1 website credential cert delete
+
+Delete certificate to website
+
+### Syntax
+
+```h1 website credential cert delete | --website WEBSITE --cert CERT```
+### Example
+
+```bash
+h1 website credential cert delete --cert my-cert --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--cert CERT``` |  | Certificate to website ID or name |
+
+## h1 website credential cert list
+
+List certificate to website
+
+### Syntax
+
+```h1 website credential cert list | --website WEBSITE```
+### Example
+
+```bash
+h1 website credential cert list --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website credential cert rename
+
+Rename certificate to website
+
+### Syntax
+
+```h1 website credential cert rename | --website WEBSITE --cert CERT --new-name NEW-NAME```
+### Example
+
+```bash
+h1 website credential cert rename --cert my-cert --new-name my-renamed-cert --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--cert CERT``` |  | Certificate to website ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+## h1 website credential cert show
+
+Show certificate to website
+
+### Syntax
+
+```h1 website credential cert show | --website WEBSITE --cert CERT```
+### Example
+
+```bash
+h1 website credential cert show --cert my-cert
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--cert CERT``` |  | Certificate to website ID or name |
+
+## h1 website credential password
+
+Manage your password to website
+
+## h1 website credential password add
+
+Add password to website
+
+### Syntax
+
+```h1 website credential password add | --website WEBSITE --name NAME [--password PASSWORD]```
+### Example
+
+```bash
+h1 website credential password add --name my-pass --password secret-password --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--name NAME``` |  | Name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--password PASSWORD``` |  | Password. It will be generated and shown if it is not specified. |
+
+## h1 website credential password delete
+
+Delete password to website
+
+### Syntax
+
+```h1 website credential password delete | --website WEBSITE --password PASSWORD```
+### Example
+
+```bash
+h1 website credential password delete --password my-password --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--password PASSWORD``` |  | Password to website ID or name |
+
+## h1 website credential password list
+
+List password to website
+
+### Syntax
+
+```h1 website credential password list | --website WEBSITE```
+### Example
+
+```bash
+h1 website credential password list --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website credential password rename
+
+Rename password to website
+
+### Syntax
+
+```h1 website credential password rename | --website WEBSITE --password PASSWORD --new-name NEW-NAME```
+### Example
+
+```bash
+h1 website credential password rename --password my-password --new-name my-renamed-password --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--password PASSWORD``` |  | Password to website ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+## h1 website credential password show
+
+Show password to website
+
+### Syntax
+
+```h1 website credential password show | --website WEBSITE --password PASSWORD```
+### Example
+
+```bash
+h1 website credential password show --password my-password
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--password PASSWORD``` |  | Password to website ID or name |
 
 ## h1 website delete
 
@@ -160,6 +353,44 @@ h1 website history --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website list
+
+List website
+
+### Syntax
+
+```h1 website list | ```
+### Example
+
+```bash
+h1 website list
+```
+
+## h1 website log
+
+Live logs of website
+
+### Syntax
+
+```h1 website log | --website WEBSITE [--log-file LOG-FILE]```
+### Example
+
+```
+h1 website log --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log-file LOG-FILE``` |  | Path of output log file |
 
 ## h1 website rename
 
@@ -224,6 +455,44 @@ h1 website service show --service my-service --website my-website
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--service SERVICE``` |  | Service for website ID or name |
 
+## h1 website sftp
+
+Connect to Website using SFTP
+
+### Syntax
+
+```h1 website sftp | --website WEBSITE```
+### Example
+
+```
+h1 website sftp --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website show
+
+Show website
+
+### Syntax
+
+```h1 website show | --website WEBSITE```
+### Example
+
+```bash
+h1 website show --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
 ## h1 website ssh
 
 Connect to website using SSH
@@ -250,25 +519,6 @@ Note: Need valid credentials to access resource any way.
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--command COMMAND``` |  | Command to execute |
-
-## h1 website sftp
-
-Connect to Website using SFTP
-
-### Syntax
-
-```h1 website sftp | --website WEBSITE```
-### Example
-
-```
-h1 website sftp --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website start
 
@@ -308,316 +558,9 @@ h1 website stop --website my-website
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 
-## h1 website update
-
-Update website
-
-## h1 website update domain
-
-Update domain of website
-
-### Syntax
-
-```h1 website update domain | --domain DOMAIN [--domain DOMAIN ...] --website WEBSITE```
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
-| ```--website WEBSITE``` |  | website ID or name |
-
-## h1 website log
-
-Live logs of website
-
-### Syntax
-
-```h1 website log | --website WEBSITE [--log-file LOG-FILE]```
-### Example
-
-```
-h1 website log --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log-file LOG-FILE``` |  | Path of output log file |
-
-## h1 website transfer
-
-Transfer website to other project
-
-### Syntax
-
-```h1 website transfer | --website WEBSITE --new-project NEW-PROJECT```
-### Example
-
-```bash
-h1 website transfer --website test-website --new-project OtherProject
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-| ```--new-project NEW-PROJECT``` |  | New name |
-
-## h1 website credential
-
-Manage your credentials to website
-
-## h1 website credential cert
-
-Manage your certificate to website
-
-## h1 website credential cert show
-
-Show certificate to website
-
-### Syntax
-
-```h1 website credential cert show | --website WEBSITE --cert CERT```
-### Example
-
-```bash
-h1 website credential cert show --cert my-cert
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-| ```--cert CERT``` |  | Certificate to website ID or name |
-
-## h1 website credential cert rename
-
-Rename certificate to website
-
-### Syntax
-
-```h1 website credential cert rename | --website WEBSITE --cert CERT --new-name NEW-NAME```
-### Example
-
-```bash
-h1 website credential cert rename --cert my-cert --new-name my-renamed-cert --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-| ```--cert CERT``` |  | Certificate to website ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 website credential cert list
-
-List certificate to website
-
-### Syntax
-
-```h1 website credential cert list | --website WEBSITE```
-### Example
-
-```bash
-h1 website credential cert list --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-
-## h1 website credential cert delete
-
-Delete certificate to website
-
-### Syntax
-
-```h1 website credential cert delete | --website WEBSITE --cert CERT```
-### Example
-
-```bash
-h1 website credential cert delete --cert my-cert --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-| ```--cert CERT``` |  | Certificate to website ID or name |
-
-## h1 website credential cert add
-
-Add certificate to website
-
-### Syntax
-
-```h1 website credential cert add | --website WEBSITE --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE]```
-### Example
-
-```bash
-h1 website credential cert add --website my-website --name my-key --sshkey my-home-ssh
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-| ```--name NAME``` |  | Certificate name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--sshkey SSHKEY``` |  | Public SSH key ID or name |
-| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
-
-## h1 website credential password
-
-Manage your password to website
-
-## h1 website credential password show
-
-Show password to website
-
-### Syntax
-
-```h1 website credential password show | --website WEBSITE --password PASSWORD```
-### Example
-
-```bash
-h1 website credential password show --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-| ```--password PASSWORD``` |  | Password to website ID or name |
-
-## h1 website credential password list
-
-List password to website
-
-### Syntax
-
-```h1 website credential password list | --website WEBSITE```
-### Example
-
-```bash
-h1 website credential password list --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-
-## h1 website credential password rename
-
-Rename password to website
-
-### Syntax
-
-```h1 website credential password rename | --website WEBSITE --password PASSWORD --new-name NEW-NAME```
-### Example
-
-```bash
-h1 website credential password rename --password my-password --new-name my-renamed-password --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-| ```--password PASSWORD``` |  | Password to website ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 website credential password delete
-
-Delete password to website
-
-### Syntax
-
-```h1 website credential password delete | --website WEBSITE --password PASSWORD```
-### Example
-
-```bash
-h1 website credential password delete --password my-password --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-| ```--password PASSWORD``` |  | Password to website ID or name |
-
-## h1 website credential password add
-
-Add password to website
-
-### Syntax
-
-```h1 website credential password add | --website WEBSITE --name NAME [--password PASSWORD]```
-### Example
-
-```bash
-h1 website credential password add --name my-pass --password secret-password --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-| ```--name NAME``` |  | Name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--password PASSWORD``` |  | Password. It will be generated and shown if it is not specified. |
-
 ## h1 website tag
 
 Manage your tag
-
-## h1 website tag list
-
-List tag
-
-### Syntax
-
-```h1 website tag list | --website WEBSITE```
-### Example
-
-```bash
-h1 website tag list --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website tag add
 
@@ -663,4 +606,61 @@ h1 website tag delete --website test-website --tag prod
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
 | ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website tag list
+
+List tag
+
+### Syntax
+
+```h1 website tag list | --website WEBSITE```
+### Example
+
+```bash
+h1 website tag list --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website transfer
+
+Transfer website to other project
+
+### Syntax
+
+```h1 website transfer | --website WEBSITE --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 website transfer --website test-website --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
+
+## h1 website update
+
+Update website
+
+## h1 website update domain
+
+Update domain of website
+
+### Syntax
+
+```h1 website update domain | --domain DOMAIN [--domain DOMAIN ...] --website WEBSITE```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
+| ```--website WEBSITE``` |  | website ID or name |
 

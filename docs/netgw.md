@@ -1,21 +1,21 @@
 # TOC
 
+  * [h1 netgw attach](#h1-netgw-attach) - Network gateway attach to a network
   * [h1 netgw create](#h1-netgw-create) - Create network gateway
-  * [h1 netgw list](#h1-netgw-list) - List network gateway
-  * [h1 netgw show](#h1-netgw-show) - Show network gateway
+  * [h1 netgw create](#h1-netgw-create) - Network gateway create
   * [h1 netgw delete](#h1-netgw-delete) - Delete network gateway
+  * [h1 netgw detach](#h1-netgw-detach) - Network gateway detach from a network
   * [h1 netgw history](#h1-netgw-history) - History of network gateway
+  * [h1 netgw list](#h1-netgw-list) - List network gateway
   * [h1 netgw rename](#h1-netgw-rename) - Rename network gateway
   * [h1 netgw service](#h1-netgw-service) - Manage your services of network gateway
     * [h1 netgw service list](#h1-netgw-service-list) - List service for network gateway
     * [h1 netgw service show](#h1-netgw-service-show) - Show service for network gateway
-  * [h1 netgw create](#h1-netgw-create) - Network gateway create
-  * [h1 netgw detach](#h1-netgw-detach) - Network gateway detach from a network
-  * [h1 netgw attach](#h1-netgw-attach) - Network gateway attach to a network
+  * [h1 netgw show](#h1-netgw-show) - Show network gateway
   * [h1 netgw tag](#h1-netgw-tag) - Manage your tag
-    * [h1 netgw tag list](#h1-netgw-tag-list) - List tag
     * [h1 netgw tag add](#h1-netgw-tag-add) - Add a tag to network gateway
     * [h1 netgw tag delete](#h1-netgw-tag-delete) - Delete a tag of network gateway
+    * [h1 netgw tag list](#h1-netgw-tag-list) - List tag
 
 
 # Specification
@@ -33,6 +33,28 @@ h1 netgw create --name my-netgw --ip 62.181.8.21
 ```
 
 Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to create a new one.
+
+## h1 netgw attach
+
+Network gateway attach to a network
+
+### Syntax
+
+```h1 netgw attach | --netgw NETGW --network NETWORK```
+### Example
+
+```bash
+h1 netgw attach --netgw my-netgw --network my-safe-net
+```
+
+Hint: Use ```h1 network list``` to list available network or ```h1 network create``` to create a new one.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--netgw NETGW``` |  | Network gateway name or ID |
+| ```--network NETWORK``` |  | Network name or ID |
 
 ## h1 netgw create
 
@@ -62,37 +84,33 @@ Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
-## h1 netgw list
+## h1 netgw create
 
-List network gateway
-
-### Syntax
-
-```h1 netgw list | ```
-### Example
-
-```bash
-h1 netgw list
-```
-
-## h1 netgw show
-
-Show network gateway
+Network gateway create
 
 ### Syntax
 
-```h1 netgw show | --netgw NETGW```
+```h1 netgw create | --name NAME --ip IP [--tag TAG [--tag TAG ...]]```
 ### Example
 
 ```bash
-h1 netgw show --netgw my-netgw
+h1 netgw create --name my-netgw --ip 62.181.8.21
 ```
+
+Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to create a new one.
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway ID or name |
+| ```--name NAME``` |  | Network gateway name or ID |
+| ```--ip IP``` |  | Primary IP for the outgoing traffic |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 netgw delete
 
@@ -113,6 +131,25 @@ h1 netgw delete --netgw my-netgw
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
 
+## h1 netgw detach
+
+Network gateway detach from a network
+
+### Syntax
+
+```h1 netgw detach | --netgw NETGW```
+### Example
+
+```bash
+h1 netgw detach --netgw my-netgw
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--netgw NETGW``` |  | Network gateway name or ID |
+
 ## h1 netgw history
 
 History of network gateway
@@ -131,6 +168,19 @@ h1 netgw history --netgw my-netgw
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
+
+## h1 netgw list
+
+List network gateway
+
+### Syntax
+
+```h1 netgw list | ```
+### Example
+
+```bash
+h1 netgw list
+```
 
 ## h1 netgw rename
 
@@ -195,90 +245,17 @@ h1 netgw service show --service my-service --netgw my-netgw
 | ```--netgw NETGW``` |  | Network gateway ID or name |
 | ```--service SERVICE``` |  | Service for network gateway ID or name |
 
-## h1 netgw create
+## h1 netgw show
 
-Network gateway create
-
-### Syntax
-
-```h1 netgw create | --name NAME --ip IP [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 netgw create --name my-netgw --ip 62.181.8.21
-```
-
-Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to create a new one.
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Network gateway name or ID |
-| ```--ip IP``` |  | Primary IP for the outgoing traffic |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 netgw detach
-
-Network gateway detach from a network
+Show network gateway
 
 ### Syntax
 
-```h1 netgw detach | --netgw NETGW```
+```h1 netgw show | --netgw NETGW```
 ### Example
 
 ```bash
-h1 netgw detach --netgw my-netgw
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway name or ID |
-
-## h1 netgw attach
-
-Network gateway attach to a network
-
-### Syntax
-
-```h1 netgw attach | --netgw NETGW --network NETWORK```
-### Example
-
-```bash
-h1 netgw attach --netgw my-netgw --network my-safe-net
-```
-
-Hint: Use ```h1 network list``` to list available network or ```h1 network create``` to create a new one.
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway name or ID |
-| ```--network NETWORK``` |  | Network name or ID |
-
-## h1 netgw tag
-
-Manage your tag
-
-## h1 netgw tag list
-
-List tag
-
-### Syntax
-
-```h1 netgw tag list | --netgw NETGW```
-### Example
-
-```bash
-h1 netgw tag list --netgw my-netgw
+h1 netgw show --netgw my-netgw
 ```
 
 ### Required arguments
@@ -286,6 +263,10 @@ h1 netgw tag list --netgw my-netgw
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
+
+## h1 netgw tag
+
+Manage your tag
 
 ## h1 netgw tag add
 
@@ -330,5 +311,24 @@ h1 netgw tag delete --netgw test-netgw --tag prod
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
+| ```--netgw NETGW``` |  | Network gateway ID or name |
+
+## h1 netgw tag list
+
+List tag
+
+### Syntax
+
+```h1 netgw tag list | --netgw NETGW```
+### Example
+
+```bash
+h1 netgw tag list --netgw my-netgw
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
 

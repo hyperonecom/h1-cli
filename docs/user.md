@@ -1,16 +1,16 @@
 # TOC
 
+  * [h1 user 2fa](#h1-user-2fa) - Manage two factor authentication
+    * [h1 user 2fa disable](#h1-user-2fa-disable) - Disable factor of authentication
+    * [h1 user 2fa enable](#h1-user-2fa-enable) - Enable factor of authentication
+    * [h1 user 2fa list](#h1-user-2fa-list) - List authentication factory
   * [h1 user create](#h1-user-create) - Create an account
   * [h1 user credentials](#h1-user-credentials) - Manage your credentials
-    * [h1 user credentials show](#h1-user-credentials-show) - Show credentials
-    * [h1 user credentials list](#h1-user-credentials-list) - List credentials
-    * [h1 user credentials delete](#h1-user-credentials-delete) - Delete credentials
-    * [h1 user credentials rename](#h1-user-credentials-rename) - Rename credentials
     * [h1 user credentials add](#h1-user-credentials-add) - Add public SSH key for user
-  * [h1 user 2fa](#h1-user-2fa) - Manage two factor authentication
-    * [h1 user 2fa enable](#h1-user-2fa-enable) - Enable factor of authentication
-    * [h1 user 2fa disable](#h1-user-2fa-disable) - Disable factor of authentication
-    * [h1 user 2fa list](#h1-user-2fa-list) - List authentication factory
+    * [h1 user credentials delete](#h1-user-credentials-delete) - Delete credentials
+    * [h1 user credentials list](#h1-user-credentials-list) - List credentials
+    * [h1 user credentials rename](#h1-user-credentials-rename) - Rename credentials
+    * [h1 user credentials show](#h1-user-credentials-show) - Show credentials
 
 
 # Specification
@@ -19,117 +19,30 @@
 
 Manage your user
 
-## h1 user create
-
-Create an account
-
-### Syntax
-
-```h1 user create | ```
-### Example
-
-```bash
-h1 user create
-```
-
-## h1 user credentials
-
-Manage your credentials
-
-## h1 user credentials show
-
-Show credentials
-
-### Syntax
-
-```h1 user credentials show | --credentials CREDENTIALS```
-### Example
-
-```bash
-h1 user credentials show --credentials my-credentials
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
-
-## h1 user credentials list
-
-List credentials
-
-### Syntax
-
-```h1 user credentials list | ```
-### Example
-
-```bash
-h1 user credentials list
-```
-
-## h1 user credentials delete
-
-Delete credentials
-
-### Syntax
-
-```h1 user credentials delete | --credentials CREDENTIALS```
-### Example
-
-```bash
-h1 user credentials delete --credentials my-credentials
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
-
-## h1 user credentials rename
-
-Rename credentials
-
-### Syntax
-
-```h1 user credentials rename | --credentials CREDENTIALS --new-name NEW-NAME```
-### Example
-
-```bash
-h1 user credentials rename --credentials my-credentials --new-name my-renamed-credentials
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 user credentials add
-
-Add public SSH key for user
-
-### Syntax
-
-```h1 user credentials add | --name NAME --sshkey-file SSHKEY-FILE```
-### Example
-
-```bash
-h1 user credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name |
-| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
-
 ## h1 user 2fa
 
 Manage two factor authentication
+
+## h1 user 2fa disable
+
+Disable factor of authentication
+
+### Syntax
+
+```h1 user 2fa disable | [--type {totp,otac}]```
+### Examples
+
+#### Disable OTAC codes
+
+```bash
+h1 user 2fa disable --type otac
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--type {totp,otac}``` |  | type |
 
 ## h1 user 2fa enable
 
@@ -164,27 +77,6 @@ h1 user 2fa enable --type otac
 | ---- | ------- | ----------- |
 | ```--type {totp,otac}``` |  | type |
 
-## h1 user 2fa disable
-
-Disable factor of authentication
-
-### Syntax
-
-```h1 user 2fa disable | [--type {totp,otac}]```
-### Examples
-
-#### Disable OTAC codes
-
-```bash
-h1 user 2fa disable --type otac
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--type {totp,otac}``` |  | type |
-
 ## h1 user 2fa list
 
 List authentication factory
@@ -197,4 +89,112 @@ List authentication factory
 ```bash
 h1 user 2fa list
 ```
+
+## h1 user create
+
+Create an account
+
+### Syntax
+
+```h1 user create | ```
+### Example
+
+```bash
+h1 user create
+```
+
+## h1 user credentials
+
+Manage your credentials
+
+## h1 user credentials add
+
+Add public SSH key for user
+
+### Syntax
+
+```h1 user credentials add | --name NAME --sshkey-file SSHKEY-FILE```
+### Example
+
+```bash
+h1 user credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Name |
+| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
+
+## h1 user credentials delete
+
+Delete credentials
+
+### Syntax
+
+```h1 user credentials delete | --credentials CREDENTIALS```
+### Example
+
+```bash
+h1 user credentials delete --credentials my-credentials
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
+
+## h1 user credentials list
+
+List credentials
+
+### Syntax
+
+```h1 user credentials list | ```
+### Example
+
+```bash
+h1 user credentials list
+```
+
+## h1 user credentials rename
+
+Rename credentials
+
+### Syntax
+
+```h1 user credentials rename | --credentials CREDENTIALS --new-name NEW-NAME```
+### Example
+
+```bash
+h1 user credentials rename --credentials my-credentials --new-name my-renamed-credentials
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+## h1 user credentials show
+
+Show credentials
+
+### Syntax
+
+```h1 user credentials show | --credentials CREDENTIALS```
+### Example
+
+```bash
+h1 user credentials show --credentials my-credentials
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
