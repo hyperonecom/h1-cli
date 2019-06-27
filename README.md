@@ -2,7 +2,6 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5e85806098ca486991d4bc1b568cb743)](https://app.codacy.com/app/hyperonecom/h1-cli?utm_source=github.com&utm_medium=referral&utm_content=hyperonecom/h1-cli&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/hyperonecom/h1-cli.svg?branch=master)](https://travis-ci.org/hyperonecom/h1-cli)
-[![Docker Repository on Quay](https://quay.io/repository/hyperone/cli/status "Docker Repository on Quay")](https://quay.io/repository/hyperone/cli)
 
 h1-cli is a console tool designed to manage the HyperOne cloud infrastructure. You can use it for your own administrative work as well as for creating automation scripts.
 
@@ -64,14 +63,14 @@ $ h1
 It is possible to run CLI as a Docker container using the following command:
 
 ```bash
-docker run -it -v ~/.h1-cli:/root/.h1-cli quay.io/hyperone/cli:master h1 vm list
+docker run -it -v ~/.h1-cli:/root/.h1-cli h1cr.io/cli h1 vm list
 ```
 
 For long-term use, we recommend append to ``~/.bashrc`` following function:
 
 ```bash
 function h1() {
-	docker run -it -v ~/.h1-cli:/root/.h1-cli -v /tmp/:/mnt quay.io/hyperone/cli:latest h1 "$@";
+	docker run -it -v ~/.h1-cli:/root/.h1-cli -v /tmp/:/mnt h1cr.io/cli h1 "$@";
 }
 ```
 
