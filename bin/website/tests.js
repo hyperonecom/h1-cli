@@ -88,8 +88,8 @@ ava.serial('website reachable through custom domain', async t => {
             t.true(resp.text === token);
         }
     } finally {
-        // await tests.remove('dns zone', zone);
-        // await tests.remove('website', website);
+        await tests.remove('dns zone', zone);
+        await tests.remove('website', website);
     }
 });
 
