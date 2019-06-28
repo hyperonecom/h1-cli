@@ -1,13 +1,6 @@
 # TOC
 
   * [h1 registry create](#h1-registry-create) - Create Registry
-  * [h1 registry credential](#h1-registry-credential) - Manage your credentials to Registry
-    * [h1 registry credential password](#h1-registry-credential-password) - Manage your password to Registry
-      * [h1 registry credential password add](#h1-registry-credential-password-add) - Add password to Registry
-      * [h1 registry credential password delete](#h1-registry-credential-password-delete) - Delete password to Registry
-      * [h1 registry credential password list](#h1-registry-credential-password-list) - List password to Registry
-      * [h1 registry credential password rename](#h1-registry-credential-password-rename) - Rename password to Registry
-      * [h1 registry credential password show](#h1-registry-credential-password-show) - Show password to Registry
   * [h1 registry delete](#h1-registry-delete) - Delete Registry
   * [h1 registry history](#h1-registry-history) - History of Registry
   * [h1 registry list](#h1-registry-list) - List Registry
@@ -23,11 +16,18 @@
   * [h1 registry show](#h1-registry-show) - Show Registry
   * [h1 registry start](#h1-registry-start) - Start Registry
   * [h1 registry stop](#h1-registry-stop) - Stop Registry
+  * [h1 registry transfer](#h1-registry-transfer) - Transfer Registry to other project
+  * [h1 registry credential](#h1-registry-credential) - Manage your credentials to Registry
+    * [h1 registry credential password](#h1-registry-credential-password) - Manage your password to Registry
+      * [h1 registry credential password add](#h1-registry-credential-password-add) - Add password to Registry
+      * [h1 registry credential password delete](#h1-registry-credential-password-delete) - Delete password to Registry
+      * [h1 registry credential password list](#h1-registry-credential-password-list) - List password to Registry
+      * [h1 registry credential password rename](#h1-registry-credential-password-rename) - Rename password to Registry
+      * [h1 registry credential password show](#h1-registry-credential-password-show) - Show password to Registry
   * [h1 registry tag](#h1-registry-tag) - Manage your tag
     * [h1 registry tag add](#h1-registry-tag-add) - Add a tag to Registry
     * [h1 registry tag delete](#h1-registry-tag-delete) - Delete a tag of Registry
     * [h1 registry tag list](#h1-registry-tag-list) - List tag
-  * [h1 registry transfer](#h1-registry-transfer) - Transfer Registry to other project
 
 
 # Specification
@@ -84,120 +84,6 @@ Note (2): To add new resources to registry repository you must set password.
 | ---- | ------- | ----------- |
 | ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 registry credential
-
-Manage your credentials to Registry
-
-## h1 registry credential password
-
-Manage your password to Registry
-
-## h1 registry credential password add
-
-Add password to Registry
-
-### Syntax
-
-```h1 registry credential password add | --registry REGISTRY --name NAME [--password PASSWORD]```
-### Example
-
-```bash
-h1 registry credential password add --name my-pass --password secret-password --registry my-registry
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--name NAME``` |  | Name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--password PASSWORD``` |  | Password. It will be generated and shown if it is not specified. |
-
-## h1 registry credential password delete
-
-Delete password to Registry
-
-### Syntax
-
-```h1 registry credential password delete | --registry REGISTRY --password PASSWORD```
-### Example
-
-```bash
-h1 registry credential password delete --password my-password --registry my-registry
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
-
-## h1 registry credential password list
-
-List password to Registry
-
-### Syntax
-
-```h1 registry credential password list | --registry REGISTRY```
-### Example
-
-```bash
-h1 registry credential password list --registry my-registry
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-
-## h1 registry credential password rename
-
-Rename password to Registry
-
-### Syntax
-
-```h1 registry credential password rename | --registry REGISTRY --password PASSWORD --new-name NEW-NAME```
-### Example
-
-```bash
-h1 registry credential password rename --password my-password --new-name my-renamed-password --registry my-registry
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 registry credential password show
-
-Show password to Registry
-
-### Syntax
-
-```h1 registry credential password show | --registry REGISTRY --password PASSWORD```
-### Example
-
-```bash
-h1 registry credential password show --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
 
 ## h1 registry delete
 
@@ -457,6 +343,140 @@ h1 registry stop --registry my-registry
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
 
+## h1 registry transfer
+
+Transfer Registry to other project
+
+### Syntax
+
+```h1 registry transfer | --registry REGISTRY --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 registry transfer --registry test-registry --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
+
+## h1 registry credential
+
+Manage your credentials to Registry
+
+## h1 registry credential password
+
+Manage your password to Registry
+
+## h1 registry credential password add
+
+Add password to Registry
+
+### Syntax
+
+```h1 registry credential password add | --registry REGISTRY --name NAME [--password PASSWORD]```
+### Example
+
+```bash
+h1 registry credential password add --name my-pass --password secret-password --registry my-registry
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--name NAME``` |  | Name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--password PASSWORD``` |  | Password. It will be generated and shown if it is not specified. |
+
+## h1 registry credential password delete
+
+Delete password to Registry
+
+### Syntax
+
+```h1 registry credential password delete | --registry REGISTRY --password PASSWORD```
+### Example
+
+```bash
+h1 registry credential password delete --password my-password --registry my-registry
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--password PASSWORD``` |  | Password to Registry ID or name |
+
+## h1 registry credential password list
+
+List password to Registry
+
+### Syntax
+
+```h1 registry credential password list | --registry REGISTRY```
+### Example
+
+```bash
+h1 registry credential password list --registry my-registry
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+
+## h1 registry credential password rename
+
+Rename password to Registry
+
+### Syntax
+
+```h1 registry credential password rename | --registry REGISTRY --password PASSWORD --new-name NEW-NAME```
+### Example
+
+```bash
+h1 registry credential password rename --password my-password --new-name my-renamed-password --registry my-registry
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--password PASSWORD``` |  | Password to Registry ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+## h1 registry credential password show
+
+Show password to Registry
+
+### Syntax
+
+```h1 registry credential password show | --registry REGISTRY --password PASSWORD```
+### Example
+
+```bash
+h1 registry credential password show --password my-password
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--password PASSWORD``` |  | Password to Registry ID or name |
+
 ## h1 registry tag
 
 Manage your tag
@@ -524,24 +544,4 @@ h1 registry tag list --registry my-registry
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
-
-## h1 registry transfer
-
-Transfer Registry to other project
-
-### Syntax
-
-```h1 registry transfer | --registry REGISTRY --new-project NEW-PROJECT```
-### Example
-
-```bash
-h1 registry transfer --registry test-registry --new-project OtherProject
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--new-project NEW-PROJECT``` |  | New name |
 

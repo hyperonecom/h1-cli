@@ -12,11 +12,11 @@
     * [h1 disk service list](#h1-disk-service-list) - List service for disk
     * [h1 disk service show](#h1-disk-service-show) - Show service for disk
   * [h1 disk show](#h1-disk-show) - Show disk
+  * [h1 disk transfer](#h1-disk-transfer) - Transfer disk to other project
   * [h1 disk tag](#h1-disk-tag) - Manage your tag
     * [h1 disk tag add](#h1-disk-tag-add) - Add a tag to disk
     * [h1 disk tag delete](#h1-disk-tag-delete) - Delete a tag of disk
     * [h1 disk tag list](#h1-disk-tag-list) - List tag
-  * [h1 disk transfer](#h1-disk-transfer) - Transfer disk to other project
 
 
 # Specification
@@ -268,6 +268,26 @@ h1 disk show --disk my-disk
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 
+## h1 disk transfer
+
+Transfer disk to other project
+
+### Syntax
+
+```h1 disk transfer | --disk DISK --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 disk transfer --disk test-disk --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
+
 ## h1 disk tag
 
 Manage your tag
@@ -335,24 +355,4 @@ h1 disk tag list --disk my-disk
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
-
-## h1 disk transfer
-
-Transfer disk to other project
-
-### Syntax
-
-```h1 disk transfer | --disk DISK --new-project NEW-PROJECT```
-### Example
-
-```bash
-h1 disk transfer --disk test-disk --new-project OtherProject
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--disk DISK``` |  | Disk ID or name |
-| ```--new-project NEW-PROJECT``` |  | New name |
 

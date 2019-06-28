@@ -1,13 +1,6 @@
 # TOC
 
   * [h1 agent create](#h1-agent-create) - Create Agent
-  * [h1 agent credential](#h1-agent-credential) - Manage your credentials to Agent
-    * [h1 agent credential cert](#h1-agent-credential-cert) - Manage your certificate to Agent
-      * [h1 agent credential cert add](#h1-agent-credential-cert-add) - Add certificate to Agent
-      * [h1 agent credential cert delete](#h1-agent-credential-cert-delete) - Delete certificate to Agent
-      * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List certificate to Agent
-      * [h1 agent credential cert rename](#h1-agent-credential-cert-rename) - Rename certificate to Agent
-      * [h1 agent credential cert show](#h1-agent-credential-cert-show) - Show certificate to Agent
   * [h1 agent delete](#h1-agent-delete) - Delete Agent
   * [h1 agent enabled-service](#h1-agent-enabled-service) - Manage your enabled service
     * [h1 agent enabled-service add](#h1-agent-enabled-service-add) - Add enabled service
@@ -27,11 +20,18 @@
   * [h1 agent show](#h1-agent-show) - Show Agent
   * [h1 agent start](#h1-agent-start) - Start Agent
   * [h1 agent suspend](#h1-agent-suspend) - Suspend Agent
+  * [h1 agent transfer](#h1-agent-transfer) - Transfer Agent to other project
+  * [h1 agent credential](#h1-agent-credential) - Manage your credentials to Agent
+    * [h1 agent credential cert](#h1-agent-credential-cert) - Manage your certificate to Agent
+      * [h1 agent credential cert add](#h1-agent-credential-cert-add) - Add certificate to Agent
+      * [h1 agent credential cert delete](#h1-agent-credential-cert-delete) - Delete certificate to Agent
+      * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List certificate to Agent
+      * [h1 agent credential cert rename](#h1-agent-credential-cert-rename) - Rename certificate to Agent
+      * [h1 agent credential cert show](#h1-agent-credential-cert-show) - Show certificate to Agent
   * [h1 agent tag](#h1-agent-tag) - Manage your tag
     * [h1 agent tag add](#h1-agent-tag-add) - Add a tag to Agent
     * [h1 agent tag delete](#h1-agent-tag-delete) - Delete a tag of Agent
     * [h1 agent tag list](#h1-agent-tag-list) - List tag
-  * [h1 agent transfer](#h1-agent-transfer) - Transfer Agent to other project
 
 
 # Specification
@@ -81,121 +81,6 @@ h1 agent create --name my-agent --type container --ssh-file ./id_rsa.pub
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 agent credential
-
-Manage your credentials to Agent
-
-## h1 agent credential cert
-
-Manage your certificate to Agent
-
-## h1 agent credential cert add
-
-Add certificate to Agent
-
-### Syntax
-
-```h1 agent credential cert add | --agent AGENT --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE]```
-### Example
-
-```bash
-h1 agent credential cert add --agent my-agent --name my-key --sshkey my-home-ssh
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--name NAME``` |  | Certificate name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--sshkey SSHKEY``` |  | Public SSH key ID or name |
-| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
-
-## h1 agent credential cert delete
-
-Delete certificate to Agent
-
-### Syntax
-
-```h1 agent credential cert delete | --agent AGENT --cert CERT```
-### Example
-
-```bash
-h1 agent credential cert delete --cert my-cert --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--cert CERT``` |  | Certificate to Agent ID or name |
-
-## h1 agent credential cert list
-
-List certificate to Agent
-
-### Syntax
-
-```h1 agent credential cert list | --agent AGENT```
-### Example
-
-```bash
-h1 agent credential cert list --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-
-## h1 agent credential cert rename
-
-Rename certificate to Agent
-
-### Syntax
-
-```h1 agent credential cert rename | --agent AGENT --cert CERT --new-name NEW-NAME```
-### Example
-
-```bash
-h1 agent credential cert rename --cert my-cert --new-name my-renamed-cert --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--cert CERT``` |  | Certificate to Agent ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 agent credential cert show
-
-Show certificate to Agent
-
-### Syntax
-
-```h1 agent credential cert show | --agent AGENT --cert CERT```
-### Example
-
-```bash
-h1 agent credential cert show --cert my-cert
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--cert CERT``` |  | Certificate to Agent ID or name |
 
 ## h1 agent delete
 
@@ -513,6 +398,141 @@ h1 agent suspend --agent my-agent
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
 
+## h1 agent transfer
+
+Transfer Agent to other project
+
+### Syntax
+
+```h1 agent transfer | --agent AGENT --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 agent transfer --agent test-agent --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
+
+## h1 agent credential
+
+Manage your credentials to Agent
+
+## h1 agent credential cert
+
+Manage your certificate to Agent
+
+## h1 agent credential cert add
+
+Add certificate to Agent
+
+### Syntax
+
+```h1 agent credential cert add | --agent AGENT --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE]```
+### Example
+
+```bash
+h1 agent credential cert add --agent my-agent --name my-key --sshkey my-home-ssh
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--name NAME``` |  | Certificate name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--sshkey SSHKEY``` |  | Public SSH key ID or name |
+| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
+
+## h1 agent credential cert delete
+
+Delete certificate to Agent
+
+### Syntax
+
+```h1 agent credential cert delete | --agent AGENT --cert CERT```
+### Example
+
+```bash
+h1 agent credential cert delete --cert my-cert --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--cert CERT``` |  | Certificate to Agent ID or name |
+
+## h1 agent credential cert list
+
+List certificate to Agent
+
+### Syntax
+
+```h1 agent credential cert list | --agent AGENT```
+### Example
+
+```bash
+h1 agent credential cert list --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent credential cert rename
+
+Rename certificate to Agent
+
+### Syntax
+
+```h1 agent credential cert rename | --agent AGENT --cert CERT --new-name NEW-NAME```
+### Example
+
+```bash
+h1 agent credential cert rename --cert my-cert --new-name my-renamed-cert --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--cert CERT``` |  | Certificate to Agent ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+## h1 agent credential cert show
+
+Show certificate to Agent
+
+### Syntax
+
+```h1 agent credential cert show | --agent AGENT --cert CERT```
+### Example
+
+```bash
+h1 agent credential cert show --cert my-cert
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--cert CERT``` |  | Certificate to Agent ID or name |
+
 ## h1 agent tag
 
 Manage your tag
@@ -580,24 +600,4 @@ h1 agent tag list --agent my-agent
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
-
-## h1 agent transfer
-
-Transfer Agent to other project
-
-### Syntax
-
-```h1 agent transfer | --agent AGENT --new-project NEW-PROJECT```
-### Example
-
-```bash
-h1 agent transfer --agent test-agent --new-project OtherProject
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--new-project NEW-PROJECT``` |  | New name |
 

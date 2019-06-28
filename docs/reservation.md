@@ -1,7 +1,7 @@
 # TOC
 
-  * [h1 reservation assign](#h1-reservation-assign) - Assign reservation to resource
   * [h1 reservation create](#h1-reservation-create) - Create reservation
+  * [h1 reservation assign](#h1-reservation-assign) - Assign reservation to resource
   * [h1 reservation delete](#h1-reservation-delete) - Delete reservation
   * [h1 reservation extend](#h1-reservation-extend) - Extend reservation
   * [h1 reservation history](#h1-reservation-history) - History of reservation
@@ -30,20 +30,6 @@ Manage your reservation
 h1 reservation create --name my-reservation-name --type 'm2.tiny, 1 year'
 ```
 
-## h1 reservation assign
-
-Assign reservation to resource
-
-### Syntax
-
-```h1 reservation assign | --resource RESOURCE --reservation RESERVATION```
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--resource RESOURCE``` |  | Resource ID to assign reservation |
-| ```--reservation RESERVATION``` |  | reservation name or ID |
-
 ## h1 reservation create
 
 Create reservation
@@ -69,6 +55,20 @@ h1 reservation create --name my-reservation-name --type 'm2.tiny, 1 year'
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 reservation assign
+
+Assign reservation to resource
+
+### Syntax
+
+```h1 reservation assign | --resource RESOURCE --reservation RESERVATION```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--resource RESOURCE``` |  | Resource ID to assign reservation |
+| ```--reservation RESERVATION``` |  | reservation name or ID |
 
 ## h1 reservation delete
 

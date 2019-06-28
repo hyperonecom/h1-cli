@@ -1,7 +1,7 @@
 # TOC
 
-  * [h1 vm console](#h1-vm-console) - Open virtual machine console in web-browser
   * [h1 vm create](#h1-vm-create) - Create virtual machine
+  * [h1 vm console](#h1-vm-console) - Open virtual machine console in web-browser
   * [h1 vm delete](#h1-vm-delete) - Delete virtual machine
   * [h1 vm disk](#h1-vm-disk) - Manage your disk
     * [h1 vm disk attach](#h1-vm-disk-attach) - Attach disk to disk
@@ -48,12 +48,12 @@
   * [h1 vm ssh](#h1-vm-ssh) - Connect to virtual machine using SSH
   * [h1 vm start](#h1-vm-start) - Start virtual machine
   * [h1 vm stop](#h1-vm-stop) - Stop virtual machine
+  * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff virtual machine
+  * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for virtual machine
   * [h1 vm tag](#h1-vm-tag) - Manage your tag
     * [h1 vm tag add](#h1-vm-tag-add) - Add a tag to virtual machine
     * [h1 vm tag delete](#h1-vm-tag-delete) - Delete a tag of virtual machine
     * [h1 vm tag list](#h1-vm-tag-list) - List tag
-  * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff virtual machine
-  * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for virtual machine
 
 
 # Specification
@@ -61,25 +61,6 @@
 ## h1 vm
 
 Manage your virtual machine
-
-## h1 vm console
-
-Open virtual machine console in web-browser
-
-### Syntax
-
-```h1 vm console | --vm VM```
-### Example
-
-```bash
-h1 vm console --vm test-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm create
 
@@ -140,6 +121,25 @@ Note: You can mount ISO disk and provide stateless services.
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 vm console
+
+Open virtual machine console in web-browser
+
+### Syntax
+
+```h1 vm console | --vm VM```
+### Example
+
+```bash
+h1 vm console --vm test-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm delete
 
@@ -1005,6 +1005,54 @@ h1 vm stop --vm my-vm
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
+## h1 vm turnoff
+
+Turnoff virtual machine
+
+### Syntax
+
+```h1 vm turnoff | --vm VM```
+### Example
+
+```bash
+h1 vm turnoff --vm my-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+
+## h1 vm userdata
+
+Manage userdata for virtual machine
+
+### Syntax
+
+```h1 vm userdata | --vm VM --userdata-file USERDATA-FILE```
+### Examples
+
+#### Set userdata for virtual machine
+
+```bash
+$ echo "any-data" > data.txt
+$ h1 vm userdata --vm test-vm --userdata-file ./data.txt
+```
+
+#### Read userdata for virtual machine
+ 
+```bash
+h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl base64 -d
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
+
 ## h1 vm tag
 
 Manage your tag
@@ -1072,52 +1120,4 @@ h1 vm tag list --vm my-vm
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm turnoff
-
-Turnoff virtual machine
-
-### Syntax
-
-```h1 vm turnoff | --vm VM```
-### Example
-
-```bash
-h1 vm turnoff --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm userdata
-
-Manage userdata for virtual machine
-
-### Syntax
-
-```h1 vm userdata | --vm VM --userdata-file USERDATA-FILE```
-### Examples
-
-#### Set userdata for virtual machine
-
-```bash
-$ echo "any-data" > data.txt
-$ h1 vm userdata --vm test-vm --userdata-file ./data.txt
-```
-
-#### Read userdata for virtual machine
- 
-```bash
-h1 vm show --vm test-vm --query '[].{data:userMetadata}' --output tsv | openssl base64 -d
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-| ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
 

@@ -14,11 +14,11 @@
     * [h1 iso service list](#h1-iso-service-list) - List service for ISO
     * [h1 iso service show](#h1-iso-service-show) - Show service for ISO
   * [h1 iso show](#h1-iso-show) - Show ISO
+  * [h1 iso transfer](#h1-iso-transfer) - Transfer ISO to other project
   * [h1 iso tag](#h1-iso-tag) - Manage your tag
     * [h1 iso tag add](#h1-iso-tag-add) - Add a tag to ISO
     * [h1 iso tag delete](#h1-iso-tag-delete) - Delete a tag of ISO
     * [h1 iso tag list](#h1-iso-tag-list) - List tag
-  * [h1 iso transfer](#h1-iso-transfer) - Transfer ISO to other project
 
 
 # Specification
@@ -277,6 +277,26 @@ h1 iso show --iso my-iso
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
 
+## h1 iso transfer
+
+Transfer ISO to other project
+
+### Syntax
+
+```h1 iso transfer | --iso ISO --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 iso transfer --iso test-iso --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--iso ISO``` |  | ISO ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
+
 ## h1 iso tag
 
 Manage your tag
@@ -344,24 +364,4 @@ h1 iso tag list --iso my-iso
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
-
-## h1 iso transfer
-
-Transfer ISO to other project
-
-### Syntax
-
-```h1 iso transfer | --iso ISO --new-project NEW-PROJECT```
-### Example
-
-```bash
-h1 iso transfer --iso test-iso --new-project OtherProject
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--iso ISO``` |  | ISO ID or name |
-| ```--new-project NEW-PROJECT``` |  | New name |
 

@@ -11,14 +11,14 @@
     * [h1 organisation payment show](#h1-organisation-payment-show) - Show payment
   * [h1 organisation rename](#h1-organisation-rename) - Rename organisation
   * [h1 organisation show](#h1-organisation-show) - Show organisation
-  * [h1 organisation tag](#h1-organisation-tag) - Manage your tag
-    * [h1 organisation tag add](#h1-organisation-tag-add) - Add a tag to organisation
-    * [h1 organisation tag delete](#h1-organisation-tag-delete) - Delete a tag of organisation
-    * [h1 organisation tag list](#h1-organisation-tag-list) - List tag
   * [h1 organisation transfer](#h1-organisation-transfer) - Manage your transfer for organisation
     * [h1 organisation transfer accept](#h1-organisation-transfer-accept) - Accept transfer
     * [h1 organisation transfer list](#h1-organisation-transfer-list) - List transfer
     * [h1 organisation transfer show](#h1-organisation-transfer-show) - Show transfer
+  * [h1 organisation tag](#h1-organisation-tag) - Manage your tag
+    * [h1 organisation tag add](#h1-organisation-tag-add) - Add a tag to organisation
+    * [h1 organisation tag delete](#h1-organisation-tag-delete) - Delete a tag of organisation
+    * [h1 organisation tag list](#h1-organisation-tag-list) - List tag
 
 
 # Specification
@@ -216,6 +216,70 @@ h1 organisation show --organisation my-organisation
 | ---- | ------- | ----------- |
 | ```--organisation ORGANISATION``` |  | Organisation ID or name |
 
+## h1 organisation transfer
+
+Manage your transfer for organisation
+
+## h1 organisation transfer accept
+
+Accept transfer
+
+### Syntax
+
+```h1 organisation transfer accept | --organisation ORGANISATION --project PROJECT --payment PAYMENT```
+### Example
+
+```bash
+h1 organisation transfer accept --organisation MyOrganisation --project AcceptedProject --payment 583867ca5452f7020e63b4c6
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
+| ```--project PROJECT``` |  | Project ID or name |
+| ```--payment PAYMENT``` |  | Payment ID |
+
+## h1 organisation transfer list
+
+List transfer
+
+### Syntax
+
+```h1 organisation transfer list | --organisation ORGANISATION```
+### Example
+
+```bash
+h1 organisation transfer list
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
+
+## h1 organisation transfer show
+
+Show transfer
+
+### Syntax
+
+```h1 organisation transfer show | --organisation ORGANISATION --transfer TRANSFER```
+### Example
+
+```bash
+h1 organisation transfer show --transfer my-transfer
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
+| ```--transfer TRANSFER``` |  | Transfer ID or name |
+
 ## h1 organisation tag
 
 Manage your tag
@@ -283,68 +347,4 @@ h1 organisation tag list --organisation my-organisation
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--organisation ORGANISATION``` |  | Organisation ID or name |
-
-## h1 organisation transfer
-
-Manage your transfer for organisation
-
-## h1 organisation transfer accept
-
-Accept transfer
-
-### Syntax
-
-```h1 organisation transfer accept | --organisation ORGANISATION --project PROJECT --payment PAYMENT```
-### Example
-
-```bash
-h1 organisation transfer accept --organisation MyOrganisation --project AcceptedProject --payment 583867ca5452f7020e63b4c6
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--organisation ORGANISATION``` |  | Organisation ID or name |
-| ```--project PROJECT``` |  | Project ID or name |
-| ```--payment PAYMENT``` |  | Payment ID |
-
-## h1 organisation transfer list
-
-List transfer
-
-### Syntax
-
-```h1 organisation transfer list | --organisation ORGANISATION```
-### Example
-
-```bash
-h1 organisation transfer list
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--organisation ORGANISATION``` |  | Organisation ID or name |
-
-## h1 organisation transfer show
-
-Show transfer
-
-### Syntax
-
-```h1 organisation transfer show | --organisation ORGANISATION --transfer TRANSFER```
-### Example
-
-```bash
-h1 organisation transfer show --transfer my-transfer
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--organisation ORGANISATION``` |  | Organisation ID or name |
-| ```--transfer TRANSFER``` |  | Transfer ID or name |
 

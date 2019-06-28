@@ -1,10 +1,10 @@
 # TOC
 
+  * [h1 project create](#h1-project-create) - Create project
   * [h1 project access](#h1-project-access) - Manage your project access rights
     * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
     * [h1 project access list](#h1-project-access-list) - List access rights for project
     * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for project
-  * [h1 project create](#h1-project-create) - Create project
   * [h1 project credentials](#h1-project-credentials) - Manage your credentials
     * [h1 project credentials add](#h1-project-credentials-add) - Add public SSH key for project
     * [h1 project credentials delete](#h1-project-credentials-delete) - Delete credentials
@@ -33,10 +33,6 @@
     * [h1 project service list](#h1-project-service-list) - List service for project
     * [h1 project service show](#h1-project-service-show) - Show service for project
   * [h1 project show](#h1-project-show) - Show project
-  * [h1 project tag](#h1-project-tag) - Manage your tag
-    * [h1 project tag add](#h1-project-tag-add) - Add a tag to project
-    * [h1 project tag delete](#h1-project-tag-delete) - Delete a tag of project
-    * [h1 project tag list](#h1-project-tag-list) - List tag
   * [h1 project token](#h1-project-token) - Manage your project tokens
     * [h1 project token access](#h1-project-token-access) - Manage your token access
       * [h1 project token access add](#h1-project-token-access-add) - Add access rule
@@ -50,6 +46,10 @@
     * [h1 project token rename](#h1-project-token-rename) - Rename token
     * [h1 project token show](#h1-project-token-show) - Show token
   * [h1 project transfer](#h1-project-transfer) - Transfer project to other organisation
+  * [h1 project tag](#h1-project-tag) - Manage your tag
+    * [h1 project tag add](#h1-project-tag-add) - Add a tag to project
+    * [h1 project tag delete](#h1-project-tag-delete) - Delete a tag of project
+    * [h1 project tag list](#h1-project-tag-list) - List tag
 
 
 # Specification
@@ -65,6 +65,32 @@ Manage your project
 ```bash
 h1 project create --name project --organizatiton MyCompany
 ```
+
+## h1 project create
+
+Create project
+
+### Syntax
+
+```h1 project create | --name NAME --organisation ORGANISATION [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 project create create --name project --organizatiton MyCompany
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | ISO name |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 project access
 
@@ -145,32 +171,6 @@ h1 project access revoke --project my-project --email user@example.com
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
-## h1 project create
-
-Create project
-
-### Syntax
-
-```h1 project create | --name NAME --organisation ORGANISATION [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 project create create --name project --organizatiton MyCompany
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | ISO name |
-| ```--organisation ORGANISATION``` |  | Organisation ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 project credentials
 
@@ -669,74 +669,6 @@ h1 project show --project my-project
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 
-## h1 project tag
-
-Manage your tag
-
-## h1 project tag add
-
-Add a tag to project
-
-### Syntax
-
-```h1 project tag add | --project PROJECT [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 project tag add --project test-project --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 project tag delete
-
-Delete a tag of project
-
-### Syntax
-
-```h1 project tag delete | --tag TAG --project PROJECT```
-### Example
-
-```bash
-h1 project tag delete --project test-project --tag prod
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
-| ```--project PROJECT``` |  | Project ID or name |
-
-## h1 project tag list
-
-List tag
-
-### Syntax
-
-```h1 project tag list | --project PROJECT```
-### Example
-
-```bash
-h1 project tag list --project my-project
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-
 ## h1 project token
 
 Manage your project tokens
@@ -1052,4 +984,72 @@ h1 project transfer --project test-project --organisation target-organisation
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
 | ```--organisation ORGANISATION``` |  | New organisation |
+
+## h1 project tag
+
+Manage your tag
+
+## h1 project tag add
+
+Add a tag to project
+
+### Syntax
+
+```h1 project tag add | --project PROJECT [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 project tag add --project test-project --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 project tag delete
+
+Delete a tag of project
+
+### Syntax
+
+```h1 project tag delete | --tag TAG --project PROJECT```
+### Example
+
+```bash
+h1 project tag delete --project test-project --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--project PROJECT``` |  | Project ID or name |
+
+## h1 project tag list
+
+List tag
+
+### Syntax
+
+```h1 project tag list | --project PROJECT```
+### Example
+
+```bash
+h1 project tag list --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 

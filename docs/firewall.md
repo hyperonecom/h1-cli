@@ -1,7 +1,7 @@
 # TOC
 
-  * [h1 firewall attach](#h1-firewall-attach) - Attach firewall to a network
   * [h1 firewall create](#h1-firewall-create) - Create firewall
+  * [h1 firewall attach](#h1-firewall-attach) - Attach firewall to a network
   * [h1 firewall delete](#h1-firewall-delete) - Delete firewall
   * [h1 firewall detach](#h1-firewall-detach) - Detach firewall from network
   * [h1 firewall egress](#h1-firewall-egress) - Manage egress rules of firewall
@@ -21,11 +21,11 @@
     * [h1 firewall service list](#h1-firewall-service-list) - List service for firewall
     * [h1 firewall service show](#h1-firewall-service-show) - Show service for firewall
   * [h1 firewall show](#h1-firewall-show) - Show firewall
+  * [h1 firewall transfer](#h1-firewall-transfer) - Transfer firewall to other project
   * [h1 firewall tag](#h1-firewall-tag) - Manage your tag
     * [h1 firewall tag add](#h1-firewall-tag-add) - Add a tag to firewall
     * [h1 firewall tag delete](#h1-firewall-tag-delete) - Delete a tag of firewall
     * [h1 firewall tag list](#h1-firewall-tag-list) - List tag
-  * [h1 firewall transfer](#h1-firewall-transfer) - Transfer firewall to other project
 
 
 # Specification
@@ -41,28 +41,6 @@ Manage your firewall
 ```bash
 h1 firewall create --name secure-zone-fw
 ```
-
-## h1 firewall attach
-
-Attach firewall to a network
-
-### Syntax
-
-```h1 firewall attach | --firewall FIREWALL --network NETWORK```
-### Example
-
-```bash
-h1 firewall attach --firewall secure-zone-fw --network my-safe-net
-```
-
-Hint: Use ```h1 network list``` to list available networks or ```h1 network create``` to create a new one.
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--firewall FIREWALL``` |  | Firewall ID or name |
-| ```--network NETWORK``` |  | Network ID or name |
 
 ## h1 firewall create
 
@@ -88,6 +66,28 @@ h1 firewall create --name secure-zone-fw
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 firewall attach
+
+Attach firewall to a network
+
+### Syntax
+
+```h1 firewall attach | --firewall FIREWALL --network NETWORK```
+### Example
+
+```bash
+h1 firewall attach --firewall secure-zone-fw --network my-safe-net
+```
+
+Hint: Use ```h1 network list``` to list available networks or ```h1 network create``` to create a new one.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+| ```--network NETWORK``` |  | Network ID or name |
 
 ## h1 firewall delete
 
@@ -529,6 +529,26 @@ h1 firewall show --firewall my-firewall
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 
+## h1 firewall transfer
+
+Transfer firewall to other project
+
+### Syntax
+
+```h1 firewall transfer | --firewall FIREWALL --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 firewall transfer --firewall test-firewall --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
+
 ## h1 firewall tag
 
 Manage your tag
@@ -596,24 +616,4 @@ h1 firewall tag list --firewall my-firewall
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
-
-## h1 firewall transfer
-
-Transfer firewall to other project
-
-### Syntax
-
-```h1 firewall transfer | --firewall FIREWALL --new-project NEW-PROJECT```
-### Example
-
-```bash
-h1 firewall transfer --firewall test-firewall --new-project OtherProject
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--firewall FIREWALL``` |  | Firewall ID or name |
-| ```--new-project NEW-PROJECT``` |  | New name |
 

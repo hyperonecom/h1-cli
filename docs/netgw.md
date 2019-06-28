@@ -1,7 +1,7 @@
 # TOC
 
-  * [h1 netgw attach](#h1-netgw-attach) - Network gateway attach to a network
   * [h1 netgw create](#h1-netgw-create) - Create network gateway
+  * [h1 netgw attach](#h1-netgw-attach) - Network gateway attach to a network
   * [h1 netgw create](#h1-netgw-create) - Network gateway create
   * [h1 netgw delete](#h1-netgw-delete) - Delete network gateway
   * [h1 netgw detach](#h1-netgw-detach) - Network gateway detach from a network
@@ -34,28 +34,6 @@ h1 netgw create --name my-netgw --ip 62.181.8.21
 
 Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to create a new one.
 
-## h1 netgw attach
-
-Network gateway attach to a network
-
-### Syntax
-
-```h1 netgw attach | --netgw NETGW --network NETWORK```
-### Example
-
-```bash
-h1 netgw attach --netgw my-netgw --network my-safe-net
-```
-
-Hint: Use ```h1 network list``` to list available network or ```h1 network create``` to create a new one.
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway name or ID |
-| ```--network NETWORK``` |  | Network name or ID |
-
 ## h1 netgw create
 
 Create network gateway
@@ -83,6 +61,28 @@ Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 netgw attach
+
+Network gateway attach to a network
+
+### Syntax
+
+```h1 netgw attach | --netgw NETGW --network NETWORK```
+### Example
+
+```bash
+h1 netgw attach --netgw my-netgw --network my-safe-net
+```
+
+Hint: Use ```h1 network list``` to list available network or ```h1 network create``` to create a new one.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--netgw NETGW``` |  | Network gateway name or ID |
+| ```--network NETWORK``` |  | Network name or ID |
 
 ## h1 netgw create
 

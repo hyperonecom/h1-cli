@@ -11,11 +11,11 @@
     * [h1 ip service list](#h1-ip-service-list) - List service for IP address
     * [h1 ip service show](#h1-ip-service-show) - Show service for IP address
   * [h1 ip show](#h1-ip-show) - Show IP address
+  * [h1 ip transfer](#h1-ip-transfer) - Transfer IP address to other project
   * [h1 ip tag](#h1-ip-tag) - Manage your tag
     * [h1 ip tag add](#h1-ip-tag-add) - Add a tag to IP address
     * [h1 ip tag delete](#h1-ip-tag-delete) - Delete a tag of IP address
     * [h1 ip tag list](#h1-ip-tag-list) - List tag
-  * [h1 ip transfer](#h1-ip-transfer) - Transfer IP address to other project
 
 
 # Specification
@@ -220,6 +220,26 @@ h1 ip show --ip my-ip
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address ID or name |
 
+## h1 ip transfer
+
+Transfer IP address to other project
+
+### Syntax
+
+```h1 ip transfer | --ip IP --new-project NEW-PROJECT```
+### Example
+
+```bash
+h1 ip transfer --ip test-ip --new-project OtherProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address ID or name |
+| ```--new-project NEW-PROJECT``` |  | New name |
+
 ## h1 ip tag
 
 Manage your tag
@@ -287,24 +307,4 @@ h1 ip tag list --ip my-ip
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address ID or name |
-
-## h1 ip transfer
-
-Transfer IP address to other project
-
-### Syntax
-
-```h1 ip transfer | --ip IP --new-project NEW-PROJECT```
-### Example
-
-```bash
-h1 ip transfer --ip test-ip --new-project OtherProject
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--ip IP``` |  | IP address ID or name |
-| ```--new-project NEW-PROJECT``` |  | New name |
 
