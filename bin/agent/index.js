@@ -1,8 +1,7 @@
 'use strict';
 const text = require('lib/text');
 const genericDefaults = require('bin/generic/defaults');
-const genericResource = require('bin/generic');
-const genericAction = require('bin/generic/action');
+const genericResource = require('bin/generic/root');
 
 const schema = {
     name: {
@@ -18,6 +17,16 @@ const schema = {
         onCreate: true,
         destBody: 'service',
     },
+    enabledServices: {
+        description: 'Enabled services',
+        command: 'enabled-service',
+        name: 'service',
+        type: 'string',
+        required: false,
+        action: 'append',
+        onCreate: false,
+        onUpdate: true,
+    },
 };
 
 const resource = {
@@ -25,8 +34,9 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,type:type,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'agent',
     plugins: genericDefaults.plugins,
-    extraCommands: ['create', 'transfer'],
     dirname: __dirname,
+    extraCommands: ['create'],
+    genericAction: true,
     earlyAdoptersOnly: true,
     title: 'Agent',
     schema,
@@ -48,23 +58,6 @@ const actionDefault = Object.assign({}, resource, {
 
 const category = genericResource(resource);
 
-category.addChild(require('bin/generic/inspect')(resource));
 category.addChild(require('./resource')(actionDefault));
-category.addChild(require('../generic/credential')(resource));
-
-category.addChild(require('bin/generic/set-update')(Object.assign({}, actionDefault, {
-    url: args => `${actionDefault.url(args)}/enabledServices`,
-    title: 'enabled service',
-    name: 'enabled-service',
-    update_name: 'service',
-    context: {
-        addParams: `--${resource.name} my-${resource.name}`,
-        listParams: `--${resource.name} my-${resource.name}`,
-        deleteParams: `--${resource.name} my-${resource.name}`,
-    },
-})));
-
-category.addChild(genericAction(actionDefault, 'suspend'));
-category.addChild(genericAction(actionDefault, 'start'));
 
 module.exports = category;

@@ -1,38 +1,37 @@
 # TOC
 
-  * [h1 firewall create](#h1-firewall-create) - Create firewall
-  * [h1 firewall attach](#h1-firewall-attach) - Attach firewall to a network
-  * [h1 firewall delete](#h1-firewall-delete) - Delete firewall
-  * [h1 firewall detach](#h1-firewall-detach) - Detach firewall from network
-  * [h1 firewall egress](#h1-firewall-egress) - Manage egress rules of firewall
-    * [h1 firewall egress add](#h1-firewall-egress-add) - Add rule egress of firewall
-    * [h1 firewall egress delete](#h1-firewall-egress-delete) - Add rule egress of firewall
-    * [h1 firewall egress list](#h1-firewall-egress-list) - List rule egress of firewall
-    * [h1 firewall egress show](#h1-firewall-egress-show) - Show rule egress of firewall
-  * [h1 firewall history](#h1-firewall-history) - History of firewall
-  * [h1 firewall ingress](#h1-firewall-ingress) - Manage ingress rules of firewall
-    * [h1 firewall ingress add](#h1-firewall-ingress-add) - Add rule ingress of firewall
-    * [h1 firewall ingress delete](#h1-firewall-ingress-delete) - Add rule ingress of firewall
-    * [h1 firewall ingress list](#h1-firewall-ingress-list) - List rule ingress of firewall
-    * [h1 firewall ingress show](#h1-firewall-ingress-show) - Show rule ingress of firewall
-  * [h1 firewall list](#h1-firewall-list) - List firewall
-  * [h1 firewall rename](#h1-firewall-rename) - Rename firewall
-  * [h1 firewall service](#h1-firewall-service) - Manage your services of firewall
-    * [h1 firewall service list](#h1-firewall-service-list) - List service for firewall
-    * [h1 firewall service show](#h1-firewall-service-show) - Show service for firewall
-  * [h1 firewall show](#h1-firewall-show) - Show firewall
-  * [h1 firewall transfer](#h1-firewall-transfer) - Transfer firewall to other project
-  * [h1 firewall tag](#h1-firewall-tag) - Manage your tag
-    * [h1 firewall tag add](#h1-firewall-tag-add) - Add a tag to firewall
-    * [h1 firewall tag delete](#h1-firewall-tag-delete) - Delete a tag of firewall
-    * [h1 firewall tag list](#h1-firewall-tag-list) - List tag
+  * [h1 firewall attach](#h1-firewall-attach) - Attach Firewall
+  * [h1 firewall delete](#h1-firewall-delete) - Delete Firewall
+  * [h1 firewall detach](#h1-firewall-detach) - Detach Firewall
+  * [h1 firewall egress](#h1-firewall-egress) - Manage egress rules of Firewall
+    * [h1 firewall egress add](#h1-firewall-egress-add) - Add rule egress of Firewall
+    * [h1 firewall egress delete](#h1-firewall-egress-delete) - Add rule egress of Firewall
+    * [h1 firewall egress list](#h1-firewall-egress-list) - List rule egress of Firewall
+    * [h1 firewall egress show](#h1-firewall-egress-show) - Show rule egress of Firewall
+  * [h1 firewall history](#h1-firewall-history) - History of Firewall
+  * [h1 firewall ingress](#h1-firewall-ingress) - Manage ingress rules of Firewall
+    * [h1 firewall ingress add](#h1-firewall-ingress-add) - Add rule ingress of Firewall
+    * [h1 firewall ingress delete](#h1-firewall-ingress-delete) - Add rule ingress of Firewall
+    * [h1 firewall ingress list](#h1-firewall-ingress-list) - List rule ingress of Firewall
+    * [h1 firewall ingress show](#h1-firewall-ingress-show) - Show rule ingress of Firewall
+  * [h1 firewall list](#h1-firewall-list) - List Firewall
+  * [h1 firewall rename](#h1-firewall-rename) - Rename Firewall
+  * [h1 firewall service](#h1-firewall-service) - Manage your services of Firewall
+    * [h1 firewall service list](#h1-firewall-service-list) - List service for Firewall
+    * [h1 firewall service show](#h1-firewall-service-show) - Show service for Firewall
+  * [h1 firewall show](#h1-firewall-show) - Show Firewall
+  * [h1 firewall transfer](#h1-firewall-transfer) - Transfer Firewall to other project
+  * [h1 firewall tag](#h1-firewall-tag) - Manage your Tag of Firewall
+    * [h1 firewall tag add](#h1-firewall-tag-add) - Add Tag of Firewall
+    * [h1 firewall tag delete](#h1-firewall-tag-delete) - Delete Tag of Firewall
+    * [h1 firewall tag list](#h1-firewall-tag-list) - List Tag of Firewall
 
 
 # Specification
 
 ## h1 firewall
 
-Manage your firewall
+Manage your Firewall
 
 ### Examples
 
@@ -42,34 +41,9 @@ Manage your firewall
 h1 firewall create --name secure-zone-fw
 ```
 
-## h1 firewall create
-
-Create firewall
-
-### Syntax
-
-```h1 firewall create | --name NAME [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 firewall create --name secure-zone-fw
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
 ## h1 firewall attach
 
-Attach firewall to a network
+Attach Firewall
 
 ### Syntax
 
@@ -91,7 +65,7 @@ Hint: Use ```h1 network list``` to list available networks or ```h1 network crea
 
 ## h1 firewall delete
 
-Delete firewall
+Delete Firewall
 
 ### Syntax
 
@@ -110,15 +84,15 @@ h1 firewall delete --firewall my-firewall
 
 ## h1 firewall detach
 
-Detach firewall from network
+Detach Firewall
 
 ### Syntax
 
 ```h1 firewall detach | --firewall FIREWALL```
 ### Example
 
-```bash
-h1 firewall detach --firewall secure-zone-fw
+```
+h1 firewall detach --firewall my-firewall
 ```
 
 ### Required arguments
@@ -129,7 +103,7 @@ h1 firewall detach --firewall secure-zone-fw
 
 ## h1 firewall egress
 
-Manage egress rules of firewall
+Manage egress rules of Firewall
 
 ### Examples
 
@@ -181,7 +155,7 @@ Note (2): The following rules apply implicitly:
 
 ## h1 firewall egress add
 
-Add rule egress of firewall
+Add rule egress of Firewall
 
 ### Syntax
 
@@ -212,7 +186,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
 
 ## h1 firewall egress delete
 
-Add rule egress of firewall
+Add rule egress of Firewall
 
 ### Syntax
 
@@ -234,7 +208,7 @@ Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to l
 
 ## h1 firewall egress list
 
-List rule egress of firewall
+List rule egress of Firewall
 
 ### Syntax
 
@@ -253,7 +227,7 @@ h1 firewall egress list --firewall secure-zone-fw
 
 ## h1 firewall egress show
 
-Show rule egress of firewall
+Show rule egress of Firewall
 
 ### Syntax
 
@@ -269,11 +243,11 @@ h1 firewall egress show --egress my-egress
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
-| ```--egress EGRESS``` |  | Rule egress of firewall ID or name |
+| ```--egress EGRESS``` |  | Rule egress of Firewall ID or name |
 
 ## h1 firewall history
 
-History of firewall
+History of Firewall
 
 ### Syntax
 
@@ -292,7 +266,7 @@ h1 firewall history --firewall my-firewall
 
 ## h1 firewall ingress
 
-Manage ingress rules of firewall
+Manage ingress rules of Firewall
 
 ### Examples
 
@@ -344,7 +318,7 @@ Note (2): The following rules apply implicitly:
 
 ## h1 firewall ingress add
 
-Add rule ingress of firewall
+Add rule ingress of Firewall
 
 ### Syntax
 
@@ -375,7 +349,7 @@ h1 firewall ingress add --firewall secure-zone-fw --action allow \
 
 ## h1 firewall ingress delete
 
-Add rule ingress of firewall
+Add rule ingress of Firewall
 
 ### Syntax
 
@@ -397,7 +371,7 @@ Hint: Use ```h1 firewall ingress list ``` or ```h1 firewall egress list ``` to l
 
 ## h1 firewall ingress list
 
-List rule ingress of firewall
+List rule ingress of Firewall
 
 ### Syntax
 
@@ -416,7 +390,7 @@ h1 firewall ingress list --firewall secure-zone-fw
 
 ## h1 firewall ingress show
 
-Show rule ingress of firewall
+Show rule ingress of Firewall
 
 ### Syntax
 
@@ -432,11 +406,11 @@ h1 firewall ingress show --ingress my-ingress
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
-| ```--ingress INGRESS``` |  | Rule ingress of firewall ID or name |
+| ```--ingress INGRESS``` |  | Rule ingress of Firewall ID or name |
 
 ## h1 firewall list
 
-List firewall
+List Firewall
 
 ### Syntax
 
@@ -449,7 +423,7 @@ h1 firewall list
 
 ## h1 firewall rename
 
-Rename firewall
+Rename Firewall
 
 ### Syntax
 
@@ -469,11 +443,11 @@ h1 firewall rename --firewall my-firewall --new-name my-renamed-firewall
 
 ## h1 firewall service
 
-Manage your services of firewall
+Manage your services of Firewall
 
 ## h1 firewall service list
 
-List service for firewall
+List service for Firewall
 
 ### Syntax
 
@@ -492,7 +466,7 @@ h1 firewall service list --firewall test-firewall
 
 ## h1 firewall service show
 
-Show service for firewall
+Show service for Firewall
 
 ### Syntax
 
@@ -508,11 +482,11 @@ h1 firewall service show --service my-service --firewall my-firewall
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
-| ```--service SERVICE``` |  | Service for firewall ID or name |
+| ```--service SERVICE``` |  | Service for Firewall ID or name |
 
 ## h1 firewall show
 
-Show firewall
+Show Firewall
 
 ### Syntax
 
@@ -531,7 +505,7 @@ h1 firewall show --firewall my-firewall
 
 ## h1 firewall transfer
 
-Transfer firewall to other project
+Transfer Firewall to other project
 
 ### Syntax
 
@@ -551,11 +525,11 @@ h1 firewall transfer --firewall test-firewall --new-project OtherProject
 
 ## h1 firewall tag
 
-Manage your tag
+Manage your Tag of Firewall
 
 ## h1 firewall tag add
 
-Add a tag to firewall
+Add Tag of Firewall
 
 ### Syntax
 
@@ -580,7 +554,7 @@ h1 firewall tag add --firewall test-firewall --tag prod=true
 
 ## h1 firewall tag delete
 
-Delete a tag of firewall
+Delete Tag of Firewall
 
 ### Syntax
 
@@ -600,7 +574,7 @@ h1 firewall tag delete --firewall test-firewall --tag prod
 
 ## h1 firewall tag list
 
-List tag
+List Tag of Firewall
 
 ### Syntax
 

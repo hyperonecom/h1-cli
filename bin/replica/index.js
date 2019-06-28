@@ -1,10 +1,10 @@
 'use strict';
 
 const genericDefaults = require('bin/generic/defaults');
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 
 const resource = {
-    title: 'replica',
+    title: 'Replica',
     name: 'replica',
     defaultQuery: '[].{id:_id, name:name, state:state, tags:join(\',\',keys(tag || `{}`) )}',
     url: () => 'replica',

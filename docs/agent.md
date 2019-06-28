@@ -2,10 +2,10 @@
 
   * [h1 agent create](#h1-agent-create) - Create Agent
   * [h1 agent delete](#h1-agent-delete) - Delete Agent
-  * [h1 agent enabled-service](#h1-agent-enabled-service) - Manage your enabled service
-    * [h1 agent enabled-service add](#h1-agent-enabled-service-add) - Add enabled service
-    * [h1 agent enabled-service delete](#h1-agent-enabled-service-delete) - Delete enabled service
-    * [h1 agent enabled-service list](#h1-agent-enabled-service-list) - List enabled service
+  * [h1 agent enabled-service](#h1-agent-enabled-service) - Manage Enabled services of Agent
+    * [h1 agent enabled-service add](#h1-agent-enabled-service-add) - Add Enabled services to Agent
+    * [h1 agent enabled-service delete](#h1-agent-enabled-service-delete) - Delete Enabled services from Agent
+    * [h1 agent enabled-service list](#h1-agent-enabled-service-list) - List Enabled services of Agent
   * [h1 agent history](#h1-agent-history) - History of Agent
   * [h1 agent inspect](#h1-agent-inspect) - Inspect of Agent
   * [h1 agent list](#h1-agent-list) - List Agent
@@ -28,10 +28,10 @@
       * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List certificate to Agent
       * [h1 agent credential cert rename](#h1-agent-credential-cert-rename) - Rename certificate to Agent
       * [h1 agent credential cert show](#h1-agent-credential-cert-show) - Show certificate to Agent
-  * [h1 agent tag](#h1-agent-tag) - Manage your tag
-    * [h1 agent tag add](#h1-agent-tag-add) - Add a tag to Agent
-    * [h1 agent tag delete](#h1-agent-tag-delete) - Delete a tag of Agent
-    * [h1 agent tag list](#h1-agent-tag-list) - List tag
+  * [h1 agent tag](#h1-agent-tag) - Manage your Tag of Agent
+    * [h1 agent tag add](#h1-agent-tag-add) - Add Tag of Agent
+    * [h1 agent tag delete](#h1-agent-tag-delete) - Delete Tag of Agent
+    * [h1 agent tag list](#h1-agent-tag-list) - List Tag of Agent
 
 
 # Specification
@@ -103,61 +103,43 @@ h1 agent delete --agent my-agent
 
 ## h1 agent enabled-service
 
-Manage your enabled service
+Manage Enabled services of Agent
 
 ## h1 agent enabled-service add
 
-Add enabled service
+Add Enabled services to Agent
 
 ### Syntax
 
-```h1 agent enabled-service add | --agent AGENT --service SERVICE```
-### Example
-
-```
-h1 agent enabled-service add --agent my-agent --service value
-```
-
+```h1 agent enabled-service add | --service SERVICE [--service SERVICE ...] --agent AGENT```
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--service SERVICE [--service SERVICE ...]``` |  | Enabled services. The parameter may occur repeatedly |
 | ```--agent AGENT``` |  | Agent ID or name |
-| ```--service SERVICE``` |  | New enabled service |
 
 ## h1 agent enabled-service delete
 
-Delete enabled service
+Delete Enabled services from Agent
 
 ### Syntax
 
-```h1 agent enabled-service delete | --agent AGENT --service SERVICE```
-### Example
-
-```
-h1 agent enabled-service delete --agent my-agent --service value
-```
-
+```h1 agent enabled-service delete | --service SERVICE [--service SERVICE ...] --agent AGENT```
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--service SERVICE [--service SERVICE ...]``` |  | Enabled services. The parameter may occur repeatedly |
 | ```--agent AGENT``` |  | Agent ID or name |
-| ```--service SERVICE``` |  | Deleted enabled service |
 
 ## h1 agent enabled-service list
 
-List enabled service
+List Enabled services of Agent
 
 ### Syntax
 
 ```h1 agent enabled-service list | --agent AGENT```
-### Example
-
-```bash
-h1 agent enabled-service list --agent my-agent
-```
-
 ### Required arguments
 
 | Name | Default | Description |
@@ -284,19 +266,19 @@ Recreate Resource of Agent
 
 ### Syntax
 
-```h1 agent resource recreate | --agent AGENT --resource RESOURCE```
+```h1 agent resource recreate | --resource RESOURCE --agent AGENT```
 ### Example
 
 ```
-h1 agent resource recreate --agent container-agent --resource container-id
+h1 agent resource recreate --resource my-resource --agent my-agent
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
 | ```--resource RESOURCE``` |  | Resource of Agent ID or name |
+| ```--agent AGENT``` |  | Agent ID or name |
 
 ## h1 agent service
 
@@ -535,11 +517,11 @@ h1 agent credential cert show --cert my-cert
 
 ## h1 agent tag
 
-Manage your tag
+Manage your Tag of Agent
 
 ## h1 agent tag add
 
-Add a tag to Agent
+Add Tag of Agent
 
 ### Syntax
 
@@ -564,7 +546,7 @@ h1 agent tag add --agent test-agent --tag prod=true
 
 ## h1 agent tag delete
 
-Delete a tag of Agent
+Delete Tag of Agent
 
 ### Syntax
 
@@ -584,7 +566,7 @@ h1 agent tag delete --agent test-agent --tag prod
 
 ## h1 agent tag list
 
-List tag
+List Tag of Agent
 
 ### Syntax
 

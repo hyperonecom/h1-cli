@@ -20,10 +20,10 @@
       * [h1 database credential password list](#h1-database-credential-password-list) - List password to database
       * [h1 database credential password rename](#h1-database-credential-password-rename) - Rename password to database
       * [h1 database credential password show](#h1-database-credential-password-show) - Show password to database
-  * [h1 database tag](#h1-database-tag) - Manage your tag
-    * [h1 database tag add](#h1-database-tag-add) - Add a tag to database
-    * [h1 database tag delete](#h1-database-tag-delete) - Delete a tag of database
-    * [h1 database tag list](#h1-database-tag-list) - List tag
+  * [h1 database tag](#h1-database-tag) - Manage your Tag of database
+    * [h1 database tag add](#h1-database-tag-add) - Add Tag of database
+    * [h1 database tag delete](#h1-database-tag-delete) - Delete Tag of database
+    * [h1 database tag list](#h1-database-tag-list) - List Tag of database
 
 
 # Specification
@@ -402,11 +402,11 @@ h1 database credential password show --password my-password
 
 ## h1 database tag
 
-Manage your tag
+Manage your Tag of database
 
 ## h1 database tag add
 
-Add a tag to database
+Add Tag of database
 
 ### Syntax
 
@@ -431,7 +431,7 @@ h1 database tag add --database test-database --tag prod=true
 
 ## h1 database tag delete
 
-Delete a tag of database
+Delete Tag of database
 
 ### Syntax
 
@@ -451,7 +451,7 @@ h1 database tag delete --database test-database --tag prod
 
 ## h1 database tag list
 
-List tag
+List Tag of database
 
 ### Syntax
 

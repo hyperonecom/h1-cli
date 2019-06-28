@@ -28,10 +28,10 @@
       * [h1 vault credential password list](#h1-vault-credential-password-list) - List password to Vault
       * [h1 vault credential password rename](#h1-vault-credential-password-rename) - Rename password to Vault
       * [h1 vault credential password show](#h1-vault-credential-password-show) - Show password to Vault
-  * [h1 vault tag](#h1-vault-tag) - Manage your tag
-    * [h1 vault tag add](#h1-vault-tag-add) - Add a tag to Vault
-    * [h1 vault tag delete](#h1-vault-tag-delete) - Delete a tag of Vault
-    * [h1 vault tag list](#h1-vault-tag-list) - List tag
+  * [h1 vault tag](#h1-vault-tag) - Manage your Tag of Vault
+    * [h1 vault tag add](#h1-vault-tag-add) - Add Tag of Vault
+    * [h1 vault tag delete](#h1-vault-tag-delete) - Delete Tag of Vault
+    * [h1 vault tag list](#h1-vault-tag-list) - List Tag of Vault
 
 
 # Specification
@@ -565,11 +565,11 @@ h1 vault credential password show --password my-password
 
 ## h1 vault tag
 
-Manage your tag
+Manage your Tag of Vault
 
 ## h1 vault tag add
 
-Add a tag to Vault
+Add Tag of Vault
 
 ### Syntax
 
@@ -594,7 +594,7 @@ h1 vault tag add --vault test-vault --tag prod=true
 
 ## h1 vault tag delete
 
-Delete a tag of Vault
+Delete Tag of Vault
 
 ### Syntax
 
@@ -614,7 +614,7 @@ h1 vault tag delete --vault test-vault --tag prod
 
 ## h1 vault tag list
 
-List tag
+List Tag of Vault
 
 ### Syntax
 

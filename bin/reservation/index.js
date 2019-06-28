@@ -1,7 +1,7 @@
 'use strict';
 
 const genericDefaults = require('bin/generic/defaults');
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 
 const schema = {
     name: {
@@ -24,14 +24,12 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,state:state,resource:resource,type:flavour,assigned:assigned}',
     url: () => 'reservation',
     plugins: genericDefaults.plugins,
-    commands: [ 'list', 'show', 'service', 'create', 'tag', 'history', 'delete'],
-    title: 'reservation',
+    title: 'Reservation',
     schema,
     dirname: __dirname,
 };
 
 const category = genericResource(resource);
 category.addChild(require('./assign')(resource));
-category.addChild(require('./extend')(resource));
 
 module.exports = category;

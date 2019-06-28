@@ -1,39 +1,40 @@
 # TOC
 
-  * [h1 image access](#h1-image-access) - Manage your image access rights
-    * [h1 image access grant](#h1-image-access-grant) - Grant access rights for image
-    * [h1 image access list](#h1-image-access-list) - List of access rights for image
-    * [h1 image access revoke](#h1-image-access-revoke) - Revoke access rights for image
-  * [h1 image create](#h1-image-create) - Create image
-  * [h1 image delete](#h1-image-delete) - Delete image
-  * [h1 image disk](#h1-image-disk) - List all disks of image
-  * [h1 image history](#h1-image-history) - History of image
-  * [h1 image list](#h1-image-list) - List image
-  * [h1 image rename](#h1-image-rename) - Rename image
-  * [h1 image service](#h1-image-service) - Manage your services of image
-    * [h1 image service list](#h1-image-service-list) - List service for image
-    * [h1 image service show](#h1-image-service-show) - Show service for image
-  * [h1 image show](#h1-image-show) - Show image
-  * [h1 image transfer](#h1-image-transfer) - Transfer image to other project
-  * [h1 image tag](#h1-image-tag) - Manage your tag
-    * [h1 image tag add](#h1-image-tag-add) - Add a tag to image
-    * [h1 image tag delete](#h1-image-tag-delete) - Delete a tag of image
-    * [h1 image tag list](#h1-image-tag-list) - List tag
+  * [h1 image access](#h1-image-access) - Manage your Image access rights
+    * [h1 image access grant](#h1-image-access-grant) - Grant access rights for Image
+    * [h1 image access list](#h1-image-access-list) - List of access rights for Image
+    * [h1 image access revoke](#h1-image-access-revoke) - Revoke access rights for Image
+  * [h1 image create](#h1-image-create) - Create Image
+  * [h1 image delete](#h1-image-delete) - Delete Image
+  * [h1 image disk](#h1-image-disk) - List all disks of Image
+  * [h1 image history](#h1-image-history) - History of Image
+  * [h1 image list](#h1-image-list) - List Image
+  * [h1 image list](#h1-image-list) - List Image
+  * [h1 image rename](#h1-image-rename) - Rename Image
+  * [h1 image service](#h1-image-service) - Manage your services of Image
+    * [h1 image service list](#h1-image-service-list) - List service for Image
+    * [h1 image service show](#h1-image-service-show) - Show service for Image
+  * [h1 image show](#h1-image-show) - Show Image
+  * [h1 image transfer](#h1-image-transfer) - Transfer Image to other project
+  * [h1 image tag](#h1-image-tag) - Manage your Tag of Image
+    * [h1 image tag add](#h1-image-tag-add) - Add Tag of Image
+    * [h1 image tag delete](#h1-image-tag-delete) - Delete Tag of Image
+    * [h1 image tag list](#h1-image-tag-list) - List Tag of Image
 
 
 # Specification
 
 ## h1 image
 
-Manage your image
+Manage your Image
 
 ## h1 image access
 
-Manage your image access rights
+Manage your Image access rights
 
 ## h1 image access grant
 
-Grant access rights for image
+Grant access rights for Image
 
 ### Syntax
 
@@ -53,7 +54,7 @@ h1 image access grant --image test-image --project 5b28f7c9ddd5b3c5e9ec14c4
 
 ## h1 image access list
 
-List of access rights for image
+List of access rights for Image
 
 ### Syntax
 
@@ -72,7 +73,7 @@ h1 image access list --image test-image
 
 ## h1 image access revoke
 
-Revoke access rights for image
+Revoke access rights for Image
 
 ### Syntax
 
@@ -92,7 +93,7 @@ h1 image access revoke --image test-image --project MyFavouriteProject
 
 ## h1 image create
 
-Create image
+Create Image
 
 ### Syntax
 
@@ -120,7 +121,7 @@ h1 image create --vm test-vm --name dev-image
 
 ## h1 image delete
 
-Delete image
+Delete Image
 
 ### Syntax
 
@@ -139,7 +140,7 @@ h1 image delete --image my-image
 
 ## h1 image disk
 
-List all disks of image
+List all disks of Image
 
 ### Syntax
 
@@ -158,7 +159,7 @@ h1 image disk --image dev-image
 
 ## h1 image history
 
-History of image
+History of Image
 
 ### Syntax
 
@@ -177,7 +178,20 @@ h1 image history --image my-image
 
 ## h1 image list
 
-List image
+List Image
+
+### Syntax
+
+```h1 image list | ```
+### Example
+
+```bash
+h1 image list
+```
+
+## h1 image list
+
+List Image
 
 ### Syntax
 
@@ -205,7 +219,7 @@ h1 image list --recommended
 
 ## h1 image rename
 
-Rename image
+Rename Image
 
 ### Syntax
 
@@ -225,11 +239,11 @@ h1 image rename --image my-image --new-name my-renamed-image
 
 ## h1 image service
 
-Manage your services of image
+Manage your services of Image
 
 ## h1 image service list
 
-List service for image
+List service for Image
 
 ### Syntax
 
@@ -248,7 +262,7 @@ h1 image service list --image test-image
 
 ## h1 image service show
 
-Show service for image
+Show service for Image
 
 ### Syntax
 
@@ -264,11 +278,11 @@ h1 image service show --service my-service --image my-image
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
-| ```--service SERVICE``` |  | Service for image ID or name |
+| ```--service SERVICE``` |  | Service for Image ID or name |
 
 ## h1 image show
 
-Show image
+Show Image
 
 ### Syntax
 
@@ -287,7 +301,7 @@ h1 image show --image my-image
 
 ## h1 image transfer
 
-Transfer image to other project
+Transfer Image to other project
 
 ### Syntax
 
@@ -307,11 +321,11 @@ h1 image transfer --image test-image --new-project OtherProject
 
 ## h1 image tag
 
-Manage your tag
+Manage your Tag of Image
 
 ## h1 image tag add
 
-Add a tag to image
+Add Tag of Image
 
 ### Syntax
 
@@ -336,7 +350,7 @@ h1 image tag add --image test-image --tag prod=true
 
 ## h1 image tag delete
 
-Delete a tag of image
+Delete Tag of Image
 
 ### Syntax
 
@@ -356,7 +370,7 @@ h1 image tag delete --image test-image --tag prod
 
 ## h1 image tag list
 
-List tag
+List Tag of Image
 
 ### Syntax
 

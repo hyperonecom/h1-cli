@@ -64,7 +64,7 @@ const writeCommandSpecs = (wstream, entry, options, depth=1) => {
 };
 
 const writeCommandTOC = (wstream, entry, depth = 1) => {
-    Cli.sort(entry.children).filter(entry => !entry.createOptions.skipDocumentation).forEach(entry => {
+    Cli.sort(entry.children).forEach(entry => {
         const name = Cli.get_full_name(entry);
         const slug = name.replace(/ /g, '-').toLowerCase();
         const depth_prefix = ' '.repeat(depth * 2);
@@ -73,7 +73,6 @@ const writeCommandTOC = (wstream, entry, depth = 1) => {
         if (entry.children) {
             writeCommandTOC(wstream, entry, depth + 1);
         }
-
     });
 };
 

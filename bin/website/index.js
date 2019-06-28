@@ -1,6 +1,6 @@
 'use strict';
 const genericDefaults = require('bin/generic/defaults');
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 
 const schema = {
     name: {
@@ -21,9 +21,9 @@ const schema = {
         type: 'string',
         append: [],
         action: 'append',
-        required: true,
+        required: false,
         onUpdate: true,
-        onCreate: true,
+        onCreate: false,
     },
     image: {
         description: 'Website Image',
@@ -39,8 +39,8 @@ const resource = {
     url: () => 'website',
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
-    extraCommands: ['ssh', 'sftp', 'create', 'start', 'stop', 'credential', 'update', 'log', 'transfer'],
-    title: 'website',
+    extraCommands: ['ssh', 'sftp', 'create', 'log'],
+    title: 'Website',
     dirname: __dirname,
     schema,
     credential_types: ['certificate', 'sha512'],

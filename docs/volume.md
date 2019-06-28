@@ -1,26 +1,25 @@
 # TOC
 
-  * [h1 volume create](#h1-volume-create) - Create volume
-  * [h1 volume delete](#h1-volume-delete) - Delete volume
-  * [h1 volume history](#h1-volume-history) - History of volume
-  * [h1 volume list](#h1-volume-list) - List volume
-  * [h1 volume rename](#h1-volume-rename) - Rename volume
-  * [h1 volume resize](#h1-volume-resize) - Resize volume
-  * [h1 volume service](#h1-volume-service) - Manage your services of volume
-    * [h1 volume service list](#h1-volume-service-list) - List service for volume
-    * [h1 volume service show](#h1-volume-service-show) - Show service for volume
-  * [h1 volume show](#h1-volume-show) - Show volume
-  * [h1 volume tag](#h1-volume-tag) - Manage your tag
-    * [h1 volume tag add](#h1-volume-tag-add) - Add a tag to volume
-    * [h1 volume tag delete](#h1-volume-tag-delete) - Delete a tag of volume
-    * [h1 volume tag list](#h1-volume-tag-list) - List tag
+  * [h1 volume create](#h1-volume-create) - Create Volume
+  * [h1 volume delete](#h1-volume-delete) - Delete Volume
+  * [h1 volume history](#h1-volume-history) - History of Volume
+  * [h1 volume list](#h1-volume-list) - List Volume
+  * [h1 volume rename](#h1-volume-rename) - Rename Volume
+  * [h1 volume service](#h1-volume-service) - Manage your services of Volume
+    * [h1 volume service list](#h1-volume-service-list) - List service for Volume
+    * [h1 volume service show](#h1-volume-service-show) - Show service for Volume
+  * [h1 volume show](#h1-volume-show) - Show Volume
+  * [h1 volume tag](#h1-volume-tag) - Manage your Tag of Volume
+    * [h1 volume tag add](#h1-volume-tag-add) - Add Tag of Volume
+    * [h1 volume tag delete](#h1-volume-tag-delete) - Delete Tag of Volume
+    * [h1 volume tag list](#h1-volume-tag-list) - List Tag of Volume
 
 
 # Specification
 
 ## h1 volume
 
-Manage your volume
+Manage your Volume
 
 ### Note
 
@@ -36,7 +35,7 @@ h1 volume create --name volume --type volume --size 10
 
 ## h1 volume create
 
-Create volume
+Create Volume
 
 ### Syntax
 
@@ -65,7 +64,7 @@ h1 volume create --name volume --type volume --size 10
 
 ## h1 volume delete
 
-Delete volume
+Delete Volume
 
 ### Syntax
 
@@ -84,7 +83,7 @@ h1 volume delete --volume my-volume
 
 ## h1 volume history
 
-History of volume
+History of Volume
 
 ### Syntax
 
@@ -103,7 +102,7 @@ h1 volume history --volume my-volume
 
 ## h1 volume list
 
-List volume
+List Volume
 
 ### Syntax
 
@@ -116,7 +115,7 @@ h1 volume list
 
 ## h1 volume rename
 
-Rename volume
+Rename Volume
 
 ### Syntax
 
@@ -134,33 +133,13 @@ h1 volume rename --volume my-volume --new-name my-renamed-volume
 | ```--volume VOLUME``` |  | Volume ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
-## h1 volume resize
-
-Resize volume
-
-### Syntax
-
-```h1 volume resize | --volume VOLUME --size SIZE```
-### Example
-
-```bash
-h1 volume resize --volume my-volume --size 10
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--volume VOLUME``` |  | Volume ID or name |
-| ```--size SIZE``` |  | New size |
-
 ## h1 volume service
 
-Manage your services of volume
+Manage your services of Volume
 
 ## h1 volume service list
 
-List service for volume
+List service for Volume
 
 ### Syntax
 
@@ -179,7 +158,7 @@ h1 volume service list --volume test-volume
 
 ## h1 volume service show
 
-Show service for volume
+Show service for Volume
 
 ### Syntax
 
@@ -195,11 +174,11 @@ h1 volume service show --service my-service --volume my-volume
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--volume VOLUME``` |  | Volume ID or name |
-| ```--service SERVICE``` |  | Service for volume ID or name |
+| ```--service SERVICE``` |  | Service for Volume ID or name |
 
 ## h1 volume show
 
-Show volume
+Show Volume
 
 ### Syntax
 
@@ -218,11 +197,11 @@ h1 volume show --volume my-volume
 
 ## h1 volume tag
 
-Manage your tag
+Manage your Tag of Volume
 
 ## h1 volume tag add
 
-Add a tag to volume
+Add Tag of Volume
 
 ### Syntax
 
@@ -247,7 +226,7 @@ h1 volume tag add --volume test-volume --tag prod=true
 
 ## h1 volume tag delete
 
-Delete a tag of volume
+Delete Tag of Volume
 
 ### Syntax
 
@@ -267,7 +246,7 @@ h1 volume tag delete --volume test-volume --tag prod
 
 ## h1 volume tag list
 
-List tag
+List Tag of Volume
 
 ### Syntax
 

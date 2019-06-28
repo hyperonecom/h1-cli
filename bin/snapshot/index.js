@@ -1,6 +1,6 @@
 'use strict';
 
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 
 const schema = {
     vault: {

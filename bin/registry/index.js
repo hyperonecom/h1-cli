@@ -1,7 +1,7 @@
 'use strict';
 const text = require('lib/text');
 const genericDefaults = require('bin/generic/defaults');
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 
 const schema = {
     name: {
@@ -9,6 +9,15 @@ const schema = {
         type: 'string',
         required: true,
         onCreate: true,
+    },
+    domain: {
+        description: 'Domain name',
+        type: 'string',
+        append: [],
+        action: 'append',
+        required: false,
+        onUpdate: true,
+        onCreate: false,
     },
     type: {
         description: 'Registry type name or ID',
@@ -24,10 +33,10 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,service:flavour,size:sizeUsed,created:createdOn,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'registry',
     plugins: genericDefaults.plugins,
-    extraCommands: ['create', 'start', 'stop', 'transfer', 'credential'],
     dirname: __dirname,
     earlyAdoptersOnly: true,
     title: 'Registry',
+    extraCommands: ['create'],
     schema,
     credential_types: ['sha512'],
 };

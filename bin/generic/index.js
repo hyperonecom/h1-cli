@@ -24,6 +24,7 @@ module.exports = function(resource) {
         priority: resource.priority,
     });
 
+
     resource.commands = [
         ...resource.commands,
         ...resource.extraCommands,

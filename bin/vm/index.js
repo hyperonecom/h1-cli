@@ -1,8 +1,7 @@
 'use strict';
 
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 const genericDefaults = require('bin/generic/defaults');
-const genericAction = require('bin/generic/action');
 const text = require('lib/text');
 
 const resource = {
@@ -10,9 +9,9 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,type:flavour,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'vm',
     plugins: genericDefaults.plugins,
-    commands: [ 'list', 'show', 'history', 'tag', 'service'],
     serviceCommands: ['list', 'show', 'change'],
-    title: 'virtual machine',
+    title: 'Virtual machine',
+    ignoreGeneric: ['delete', 'rename'],
 };
 
 const childDefaults = Object.assign({}, resource, {
@@ -37,10 +36,6 @@ category.addChild(require('./create')(resource));
 category.addChild(require('./delete')(resource));
 category.addChild(require('./console')(resource));
 
-category.addChild(genericAction(actionDefault, 'stop'));
-category.addChild(genericAction(actionDefault, 'start'));
-category.addChild(genericAction(actionDefault, 'restart'));
-category.addChild(genericAction(actionDefault, 'turnoff'));
 category.addChild(require('./action/rename')(actionDefault));
 category.addChild(require('./action/userdata')(actionDefault));
 category.addChild(require('./serialport')(actionDefault));

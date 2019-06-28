@@ -1,26 +1,28 @@
 # TOC
 
-  * [h1 reservation create](#h1-reservation-create) - Create reservation
-  * [h1 reservation assign](#h1-reservation-assign) - Assign reservation to resource
-  * [h1 reservation delete](#h1-reservation-delete) - Delete reservation
-  * [h1 reservation extend](#h1-reservation-extend) - Extend reservation
-  * [h1 reservation history](#h1-reservation-history) - History of reservation
-  * [h1 reservation list](#h1-reservation-list) - List reservation
-  * [h1 reservation service](#h1-reservation-service) - Manage your services of reservation
-    * [h1 reservation service list](#h1-reservation-service-list) - List service for reservation
-    * [h1 reservation service show](#h1-reservation-service-show) - Show service for reservation
-  * [h1 reservation show](#h1-reservation-show) - Show reservation
-  * [h1 reservation tag](#h1-reservation-tag) - Manage your tag
-    * [h1 reservation tag add](#h1-reservation-tag-add) - Add a tag to reservation
-    * [h1 reservation tag delete](#h1-reservation-tag-delete) - Delete a tag of reservation
-    * [h1 reservation tag list](#h1-reservation-tag-list) - List tag
+  * [h1 reservation assign](#h1-reservation-assign) - Assign Reservation to resource
+  * [h1 reservation delete](#h1-reservation-delete) - Delete Reservation
+  * [h1 reservation extend](#h1-reservation-extend) - Extend Reservation
+  * [h1 reservation extend](#h1-reservation-extend) - Extend Reservation
+  * [h1 reservation history](#h1-reservation-history) - History of Reservation
+  * [h1 reservation list](#h1-reservation-list) - List Reservation
+  * [h1 reservation rename](#h1-reservation-rename) - Rename Reservation
+  * [h1 reservation service](#h1-reservation-service) - Manage your services of Reservation
+    * [h1 reservation service list](#h1-reservation-service-list) - List service for Reservation
+    * [h1 reservation service show](#h1-reservation-service-show) - Show service for Reservation
+  * [h1 reservation show](#h1-reservation-show) - Show Reservation
+  * [h1 reservation unassign](#h1-reservation-unassign) - Unassign Reservation
+  * [h1 reservation tag](#h1-reservation-tag) - Manage your Tag of Reservation
+    * [h1 reservation tag add](#h1-reservation-tag-add) - Add Tag of Reservation
+    * [h1 reservation tag delete](#h1-reservation-tag-delete) - Delete Tag of Reservation
+    * [h1 reservation tag list](#h1-reservation-tag-list) - List Tag of Reservation
 
 
 # Specification
 
 ## h1 reservation
 
-Manage your reservation
+Manage your Reservation
 
 ### Examples
 
@@ -30,35 +32,9 @@ Manage your reservation
 h1 reservation create --name my-reservation-name --type 'm2.tiny, 1 year'
 ```
 
-## h1 reservation create
-
-Create reservation
-
-### Syntax
-
-```h1 reservation create | --name NAME --type TYPE [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 reservation create --name my-reservation-name --type 'm2.tiny, 1 year'
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name |
-| ```--type TYPE``` |  | Type |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
 ## h1 reservation assign
 
-Assign reservation to resource
+Assign Reservation to resource
 
 ### Syntax
 
@@ -68,11 +44,11 @@ Assign reservation to resource
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--resource RESOURCE``` |  | Resource ID to assign reservation |
-| ```--reservation RESERVATION``` |  | reservation name or ID |
+| ```--reservation RESERVATION``` |  | Reservation name or ID |
 
 ## h1 reservation delete
 
-Delete reservation
+Delete Reservation
 
 ### Syntax
 
@@ -91,7 +67,26 @@ h1 reservation delete --reservation my-reservation
 
 ## h1 reservation extend
 
-Extend reservation
+Extend Reservation
+
+### Syntax
+
+```h1 reservation extend | --reservation RESERVATION```
+### Example
+
+```
+h1 reservation extend --reservation my-reservation
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--reservation RESERVATION``` |  | Reservation ID or name |
+
+## h1 reservation extend
+
+Extend Reservation
 
 ### Syntax
 
@@ -100,11 +95,11 @@ Extend reservation
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--reservation RESERVATION``` |  | reservation name or ID |
+| ```--reservation RESERVATION``` |  | Reservation name or ID |
 
 ## h1 reservation history
 
-History of reservation
+History of Reservation
 
 ### Syntax
 
@@ -123,7 +118,7 @@ h1 reservation history --reservation my-reservation
 
 ## h1 reservation list
 
-List reservation
+List Reservation
 
 ### Syntax
 
@@ -134,13 +129,33 @@ List reservation
 h1 reservation list
 ```
 
+## h1 reservation rename
+
+Rename Reservation
+
+### Syntax
+
+```h1 reservation rename | --reservation RESERVATION --new-name NEW-NAME```
+### Example
+
+```bash
+h1 reservation rename --reservation my-reservation --new-name my-renamed-reservation
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--reservation RESERVATION``` |  | Reservation ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
 ## h1 reservation service
 
-Manage your services of reservation
+Manage your services of Reservation
 
 ## h1 reservation service list
 
-List service for reservation
+List service for Reservation
 
 ### Syntax
 
@@ -159,7 +174,7 @@ h1 reservation service list --reservation test-reservation
 
 ## h1 reservation service show
 
-Show service for reservation
+Show service for Reservation
 
 ### Syntax
 
@@ -175,11 +190,11 @@ h1 reservation service show --service my-service --reservation my-reservation
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--reservation RESERVATION``` |  | Reservation ID or name |
-| ```--service SERVICE``` |  | Service for reservation ID or name |
+| ```--service SERVICE``` |  | Service for Reservation ID or name |
 
 ## h1 reservation show
 
-Show reservation
+Show Reservation
 
 ### Syntax
 
@@ -196,13 +211,32 @@ h1 reservation show --reservation my-reservation
 | ---- | ------- | ----------- |
 | ```--reservation RESERVATION``` |  | Reservation ID or name |
 
+## h1 reservation unassign
+
+Unassign Reservation
+
+### Syntax
+
+```h1 reservation unassign | --reservation RESERVATION```
+### Example
+
+```
+h1 reservation unassign --reservation my-reservation
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--reservation RESERVATION``` |  | Reservation ID or name |
+
 ## h1 reservation tag
 
-Manage your tag
+Manage your Tag of Reservation
 
 ## h1 reservation tag add
 
-Add a tag to reservation
+Add Tag of Reservation
 
 ### Syntax
 
@@ -227,7 +261,7 @@ h1 reservation tag add --reservation test-reservation --tag prod=true
 
 ## h1 reservation tag delete
 
-Delete a tag of reservation
+Delete Tag of Reservation
 
 ### Syntax
 
@@ -247,7 +281,7 @@ h1 reservation tag delete --reservation test-reservation --tag prod
 
 ## h1 reservation tag list
 
-List tag
+List Tag of Reservation
 
 ### Syntax
 

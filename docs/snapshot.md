@@ -9,10 +9,10 @@
     * [h1 snapshot service list](#h1-snapshot-service-list) - List service for snapshot
     * [h1 snapshot service show](#h1-snapshot-service-show) - Show service for snapshot
   * [h1 snapshot show](#h1-snapshot-show) - Show snapshot
-  * [h1 snapshot tag](#h1-snapshot-tag) - Manage your tag
-    * [h1 snapshot tag add](#h1-snapshot-tag-add) - Add a tag to snapshot
-    * [h1 snapshot tag delete](#h1-snapshot-tag-delete) - Delete a tag of snapshot
-    * [h1 snapshot tag list](#h1-snapshot-tag-list) - List tag
+  * [h1 snapshot tag](#h1-snapshot-tag) - Manage your Tag of snapshot
+    * [h1 snapshot tag add](#h1-snapshot-tag-add) - Add Tag of snapshot
+    * [h1 snapshot tag delete](#h1-snapshot-tag-delete) - Delete Tag of snapshot
+    * [h1 snapshot tag list](#h1-snapshot-tag-list) - List Tag of snapshot
 
 
 # Specification
@@ -190,11 +190,11 @@ h1 snapshot show --snapshot my-snapshot
 
 ## h1 snapshot tag
 
-Manage your tag
+Manage your Tag of snapshot
 
 ## h1 snapshot tag add
 
-Add a tag to snapshot
+Add Tag of snapshot
 
 ### Syntax
 
@@ -219,7 +219,7 @@ h1 snapshot tag add --snapshot test-snapshot --tag prod=true
 
 ## h1 snapshot tag delete
 
-Delete a tag of snapshot
+Delete Tag of snapshot
 
 ### Syntax
 
@@ -239,7 +239,7 @@ h1 snapshot tag delete --snapshot test-snapshot --tag prod
 
 ## h1 snapshot tag list
 
-List tag
+List Tag of snapshot
 
 ### Syntax
 

@@ -1,44 +1,45 @@
 'use strict';
 
 const Cli = require('lib/cli');
+const addCommand = require('./add');
+const deleteCommand = require('./delete');
+const listCommand = require('./list');
+const replaceCommand = require('./replace');
 
-const update = (resource, field_name) => {
+const update_list = (resource, field_name) => {
+    const parameter = resource.schema[field_name];
 
-    const options = {
-        [field_name]: resource.schema[field_name],
-        [resource.name]: {
-            description: `${resource.title} ID or name`,
-            type: 'string',
-            required: true,
-        },
-    };
-    return Cli.createCommand(field_name, {
-        description: `Update ${field_name} of ${resource.title}`,
-        plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options),
-        handler: async args => {
-            const body = {
-                [field_name]: args[field_name],
-            };
-
-            return args.helpers.api
-                .post(`${resource.url(args)}/${args[resource.name]}/actions/update_${field_name}`, body)
-                .then(result => args.helpers.sendOutput(args, result));
-        },
-    });
-};
-module.exports = (resource) => {
-    const category = Cli.createCategory('update', {
-        description: `Update ${resource.title}`,
+    const category = Cli.createCategory(parameter.command || field_name, {
+        description: `Manage ${parameter.description} of ${resource.title}`,
         context: resource.context,
-        defaultQuery: resource.defaultQuery,
+        defaultQuery: `[].{${field_name}: @}`,
         resource: resource,
     });
 
+    category.addChild(addCommand(resource, field_name));
+    category.addChild(listCommand(resource, field_name));
+    category.addChild(deleteCommand(resource, field_name));
+
+    return category;
+};
+
+const update = (resource, field_name) => {
+    const parameter = resource.schema[field_name];
+
+    if (parameter.action === 'append') {
+        return update_list(resource, field_name);
+    }
+    return replaceCommand(resource, field_name);
+};
+
+module.exports = (resource) => {
+
+    const cmd = [];
     Object.entries(resource.schema).forEach(([key, value]) => {
         if (!value.onUpdate) return;
-        category.addChild(update(resource, key));
+        cmd.push(update(resource, key));
     });
-    return category;
+
+    return cmd;
 };
 

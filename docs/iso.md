@@ -15,10 +15,10 @@
     * [h1 iso service show](#h1-iso-service-show) - Show service for ISO
   * [h1 iso show](#h1-iso-show) - Show ISO
   * [h1 iso transfer](#h1-iso-transfer) - Transfer ISO to other project
-  * [h1 iso tag](#h1-iso-tag) - Manage your tag
-    * [h1 iso tag add](#h1-iso-tag-add) - Add a tag to ISO
-    * [h1 iso tag delete](#h1-iso-tag-delete) - Delete a tag of ISO
-    * [h1 iso tag list](#h1-iso-tag-list) - List tag
+  * [h1 iso tag](#h1-iso-tag) - Manage your Tag of ISO
+    * [h1 iso tag add](#h1-iso-tag-add) - Add Tag of ISO
+    * [h1 iso tag delete](#h1-iso-tag-delete) - Delete Tag of ISO
+    * [h1 iso tag list](#h1-iso-tag-list) - List Tag of ISO
 
 
 # Specification
@@ -299,11 +299,11 @@ h1 iso transfer --iso test-iso --new-project OtherProject
 
 ## h1 iso tag
 
-Manage your tag
+Manage your Tag of ISO
 
 ## h1 iso tag add
 
-Add a tag to ISO
+Add Tag of ISO
 
 ### Syntax
 
@@ -328,7 +328,7 @@ h1 iso tag add --iso test-iso --tag prod=true
 
 ## h1 iso tag delete
 
-Delete a tag of ISO
+Delete Tag of ISO
 
 ### Syntax
 
@@ -348,7 +348,7 @@ h1 iso tag delete --iso test-iso --tag prod
 
 ## h1 iso tag list
 
-List tag
+List Tag of ISO
 
 ### Syntax
 

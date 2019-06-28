@@ -1,6 +1,6 @@
 'use strict';
 const genericDefaults = require('bin/generic/defaults');
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 
 const schema = {
     name: {
@@ -22,9 +22,10 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,type:type,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'database',
     plugins: genericDefaults.plugins,
-    extraCommands: ['start', 'create', 'stop', 'credential', 'transfer'],
+    extraCommands: ['create'],
     earlyAdoptersOnly: true,
     title: 'database',
+    genericAction: true,
     schema,
     dirname: __dirname,
     credential_types: ['double-sha1'],

@@ -6,7 +6,7 @@
     * [h1 user 2fa list](#h1-user-2fa-list) - List authentication factory
   * [h1 user create](#h1-user-create) - Create an account
   * [h1 user credentials](#h1-user-credentials) - Manage your credentials
-    * [h1 user credentials add](#h1-user-credentials-add) - Add public SSH key for user
+    * [h1 user credentials add](#h1-user-credentials-add) - Add public SSH key for User
     * [h1 user credentials delete](#h1-user-credentials-delete) - Delete credentials
     * [h1 user credentials list](#h1-user-credentials-list) - List credentials
     * [h1 user credentials rename](#h1-user-credentials-rename) - Rename credentials
@@ -17,7 +17,7 @@
 
 ## h1 user
 
-Manage your user
+Manage your User
 
 ## h1 user 2fa
 
@@ -109,7 +109,7 @@ Manage your credentials
 
 ## h1 user credentials add
 
-Add public SSH key for user
+Add public SSH key for User
 
 ### Syntax
 

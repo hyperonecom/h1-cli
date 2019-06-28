@@ -1,6 +1,6 @@
 'use strict';
 
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 const genericDefaults = require('bin/generic/defaults');
 
 const schema = {
@@ -17,16 +17,14 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,network:network,state:state,tags:join(\',\',keys(tag || `{}`) )}',
     url: () => 'firewall',
     plugins: genericDefaults.plugins,
-    extraCommands: ['transfer', 'create'],
     schema,
     dirname: __dirname,
-    title: 'firewall',
+    title: 'Firewall',
 };
 
 const category = genericResource(resource);
 
 category.addChild(require('./attach')(resource));
-category.addChild(require('./detach')(resource));
 category.addChild(require('./rule')('ingress', resource));
 category.addChild(require('./rule')('egress', resource));
 

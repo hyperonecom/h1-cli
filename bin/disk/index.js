@@ -1,15 +1,15 @@
 'use strict';
 
 const genericDefaults = require('bin/generic/defaults');
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 
 const resource = {
     name: 'disk',
     defaultQuery: '[].{id:_id,name:name,type:type,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'disk',
     plugins: genericDefaults.plugins,
-    extraCommands: ['resize', 'resume', 'transfer'],
-    title: 'disk',
+    extraCommands: ['resume'],
+    title: 'Disk',
 };
 
 const category = genericResource(resource);

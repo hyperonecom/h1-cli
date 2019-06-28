@@ -7,7 +7,7 @@ const defaults = require('bin/generic/defaults');
 
 module.exports = resource => {
     return Cli.createCommand('attach', {
-        description: `Attach disk to ${resource.title}`,
+        description: `Attach ${resource.title} to Virtual machine`,
         plugins: defaults.plugins,
         options: resource.options,
         dirname: __dirname,

@@ -1,28 +1,27 @@
 # TOC
 
-  * [h1 netgw create](#h1-netgw-create) - Create network gateway
-  * [h1 netgw attach](#h1-netgw-attach) - Network gateway attach to a network
+  * [h1 netgw create](#h1-netgw-create) - Create Network gateway
   * [h1 netgw create](#h1-netgw-create) - Network gateway create
-  * [h1 netgw delete](#h1-netgw-delete) - Delete network gateway
-  * [h1 netgw detach](#h1-netgw-detach) - Network gateway detach from a network
-  * [h1 netgw history](#h1-netgw-history) - History of network gateway
-  * [h1 netgw list](#h1-netgw-list) - List network gateway
-  * [h1 netgw rename](#h1-netgw-rename) - Rename network gateway
-  * [h1 netgw service](#h1-netgw-service) - Manage your services of network gateway
-    * [h1 netgw service list](#h1-netgw-service-list) - List service for network gateway
-    * [h1 netgw service show](#h1-netgw-service-show) - Show service for network gateway
-  * [h1 netgw show](#h1-netgw-show) - Show network gateway
-  * [h1 netgw tag](#h1-netgw-tag) - Manage your tag
-    * [h1 netgw tag add](#h1-netgw-tag-add) - Add a tag to network gateway
-    * [h1 netgw tag delete](#h1-netgw-tag-delete) - Delete a tag of network gateway
-    * [h1 netgw tag list](#h1-netgw-tag-list) - List tag
+  * [h1 netgw delete](#h1-netgw-delete) - Delete Network gateway
+  * [h1 netgw detach](#h1-netgw-detach) - Detach Network gateway
+  * [h1 netgw history](#h1-netgw-history) - History of Network gateway
+  * [h1 netgw list](#h1-netgw-list) - List Network gateway
+  * [h1 netgw rename](#h1-netgw-rename) - Rename Network gateway
+  * [h1 netgw service](#h1-netgw-service) - Manage your services of Network gateway
+    * [h1 netgw service list](#h1-netgw-service-list) - List service for Network gateway
+    * [h1 netgw service show](#h1-netgw-service-show) - Show service for Network gateway
+  * [h1 netgw show](#h1-netgw-show) - Show Network gateway
+  * [h1 netgw tag](#h1-netgw-tag) - Manage your Tag of Network gateway
+    * [h1 netgw tag add](#h1-netgw-tag-add) - Add Tag of Network gateway
+    * [h1 netgw tag delete](#h1-netgw-tag-delete) - Delete Tag of Network gateway
+    * [h1 netgw tag list](#h1-netgw-tag-list) - List Tag of Network gateway
 
 
 # Specification
 
 ## h1 netgw
 
-Manage your network gateway
+Manage your Network gateway
 
 ### Examples
 
@@ -36,7 +35,7 @@ Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to
 
 ## h1 netgw create
 
-Create network gateway
+Create Network gateway
 
 ### Syntax
 
@@ -61,28 +60,6 @@ Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 netgw attach
-
-Network gateway attach to a network
-
-### Syntax
-
-```h1 netgw attach | --netgw NETGW --network NETWORK```
-### Example
-
-```bash
-h1 netgw attach --netgw my-netgw --network my-safe-net
-```
-
-Hint: Use ```h1 network list``` to list available network or ```h1 network create``` to create a new one.
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway name or ID |
-| ```--network NETWORK``` |  | Network name or ID |
 
 ## h1 netgw create
 
@@ -114,7 +91,7 @@ Hint: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to
 
 ## h1 netgw delete
 
-Delete network gateway
+Delete Network gateway
 
 ### Syntax
 
@@ -133,14 +110,14 @@ h1 netgw delete --netgw my-netgw
 
 ## h1 netgw detach
 
-Network gateway detach from a network
+Detach Network gateway
 
 ### Syntax
 
 ```h1 netgw detach | --netgw NETGW```
 ### Example
 
-```bash
+```
 h1 netgw detach --netgw my-netgw
 ```
 
@@ -148,11 +125,11 @@ h1 netgw detach --netgw my-netgw
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway name or ID |
+| ```--netgw NETGW``` |  | Network gateway ID or name |
 
 ## h1 netgw history
 
-History of network gateway
+History of Network gateway
 
 ### Syntax
 
@@ -171,7 +148,7 @@ h1 netgw history --netgw my-netgw
 
 ## h1 netgw list
 
-List network gateway
+List Network gateway
 
 ### Syntax
 
@@ -184,7 +161,7 @@ h1 netgw list
 
 ## h1 netgw rename
 
-Rename network gateway
+Rename Network gateway
 
 ### Syntax
 
@@ -204,11 +181,11 @@ h1 netgw rename --netgw my-netgw --new-name my-renamed-netgw
 
 ## h1 netgw service
 
-Manage your services of network gateway
+Manage your services of Network gateway
 
 ## h1 netgw service list
 
-List service for network gateway
+List service for Network gateway
 
 ### Syntax
 
@@ -227,7 +204,7 @@ h1 netgw service list --netgw test-netgw
 
 ## h1 netgw service show
 
-Show service for network gateway
+Show service for Network gateway
 
 ### Syntax
 
@@ -243,11 +220,11 @@ h1 netgw service show --service my-service --netgw my-netgw
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
-| ```--service SERVICE``` |  | Service for network gateway ID or name |
+| ```--service SERVICE``` |  | Service for Network gateway ID or name |
 
 ## h1 netgw show
 
-Show network gateway
+Show Network gateway
 
 ### Syntax
 
@@ -266,11 +243,11 @@ h1 netgw show --netgw my-netgw
 
 ## h1 netgw tag
 
-Manage your tag
+Manage your Tag of Network gateway
 
 ## h1 netgw tag add
 
-Add a tag to network gateway
+Add Tag of Network gateway
 
 ### Syntax
 
@@ -295,7 +272,7 @@ h1 netgw tag add --netgw test-netgw --tag prod=true
 
 ## h1 netgw tag delete
 
-Delete a tag of network gateway
+Delete Tag of Network gateway
 
 ### Syntax
 
@@ -315,7 +292,7 @@ h1 netgw tag delete --netgw test-netgw --tag prod
 
 ## h1 netgw tag list
 
-List tag
+List Tag of Network gateway
 
 ### Syntax
 

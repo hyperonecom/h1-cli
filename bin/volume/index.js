@@ -1,7 +1,7 @@
 'use strict';
 
 const genericDefaults = require('bin/generic/defaults');
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 
 const schema = {
     name: {
@@ -30,11 +30,11 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,type:type,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'volume',
     plugins: genericDefaults.plugins,
-    extraCommands: ['resize', 'create'],
+    extraCommands: ['create'],
     schema,
     dirname: __dirname,
     earlyAdoptersOnly: true,
-    title: 'volume',
+    title: 'Volume',
 };
 
 const category = genericResource(resource);

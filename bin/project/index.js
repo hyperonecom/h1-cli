@@ -1,6 +1,6 @@
 'use strict';
 
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 
 const config = require('lib/config');
 
@@ -31,8 +31,9 @@ const resource = {
     priority: 15,
     schema,
     dirname: __dirname,
-    title: 'project',
-    commands: ['show', 'delete', 'access/user', 'history', 'rename', 'tag', 'service', 'payment', 'create'],
+    title: 'Project',
+    ignoreGeneric: ['list'],
+    commands: ['access/user', 'payment'],
 };
 const category = genericResource(resource);
 

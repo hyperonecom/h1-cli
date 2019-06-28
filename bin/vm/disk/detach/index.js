@@ -6,7 +6,7 @@ const defaults = require('bin/generic/defaults');
 
 
 module.exports = resource => Cli.createCommand('detach', {
-    description: `Detach disk from ${resource.title}`,
+    description: `Detach  ${resource.title} from Virtual machine`,
     plugins: defaults.plugins,
     options: resource.options,
     dirname: __dirname,

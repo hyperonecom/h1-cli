@@ -34,6 +34,9 @@ module.exports = (parent) => {
         ),
         url: args => `${resource.url(args)}/${args[resource.name]}`,
         dirname: __dirname,
+        context: {
+            actionParams: `--${parent.name} my-${parent.name}`,
+        },
     });
 
     category.addChild(genericAction(childDefaults, 'recreate'));

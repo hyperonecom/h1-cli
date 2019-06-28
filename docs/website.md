@@ -1,46 +1,48 @@
 # TOC
 
-  * [h1 website create](#h1-website-create) - Create website
-  * [h1 website delete](#h1-website-delete) - Delete website
-  * [h1 website history](#h1-website-history) - History of website
-  * [h1 website list](#h1-website-list) - List website
-  * [h1 website log](#h1-website-log) - Live logs of website
-  * [h1 website rename](#h1-website-rename) - Rename website
-  * [h1 website service](#h1-website-service) - Manage your services of website
-    * [h1 website service list](#h1-website-service-list) - List service for website
-    * [h1 website service show](#h1-website-service-show) - Show service for website
+  * [h1 website create](#h1-website-create) - Create Website
+  * [h1 website delete](#h1-website-delete) - Delete Website
+  * [h1 website domain](#h1-website-domain) - Manage Domain name of Website
+    * [h1 website domain add](#h1-website-domain-add) - Add Domain name to Website
+    * [h1 website domain delete](#h1-website-domain-delete) - Delete Domain name from Website
+    * [h1 website domain list](#h1-website-domain-list) - List Domain name of Website
+  * [h1 website history](#h1-website-history) - History of Website
+  * [h1 website list](#h1-website-list) - List Website
+  * [h1 website log](#h1-website-log) - Live logs of Website
+  * [h1 website rename](#h1-website-rename) - Rename Website
+  * [h1 website service](#h1-website-service) - Manage your services of Website
+    * [h1 website service list](#h1-website-service-list) - List service for Website
+    * [h1 website service show](#h1-website-service-show) - Show service for Website
   * [h1 website sftp](#h1-website-sftp) - Connect to Website using SFTP
-  * [h1 website show](#h1-website-show) - Show website
-  * [h1 website ssh](#h1-website-ssh) - Connect to website using SSH
-  * [h1 website start](#h1-website-start) - Start website
-  * [h1 website stop](#h1-website-stop) - Stop website
-  * [h1 website transfer](#h1-website-transfer) - Transfer website to other project
-  * [h1 website update](#h1-website-update) - Update website
-    * [h1 website update domain](#h1-website-update-domain) - Update domain of website
-  * [h1 website credential](#h1-website-credential) - Manage your credentials to website
-    * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to website
-      * [h1 website credential cert add](#h1-website-credential-cert-add) - Add certificate to website
-      * [h1 website credential cert delete](#h1-website-credential-cert-delete) - Delete certificate to website
-      * [h1 website credential cert list](#h1-website-credential-cert-list) - List certificate to website
-      * [h1 website credential cert rename](#h1-website-credential-cert-rename) - Rename certificate to website
-      * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to website
-    * [h1 website credential password](#h1-website-credential-password) - Manage your password to website
-      * [h1 website credential password add](#h1-website-credential-password-add) - Add password to website
-      * [h1 website credential password delete](#h1-website-credential-password-delete) - Delete password to website
-      * [h1 website credential password list](#h1-website-credential-password-list) - List password to website
-      * [h1 website credential password rename](#h1-website-credential-password-rename) - Rename password to website
-      * [h1 website credential password show](#h1-website-credential-password-show) - Show password to website
-  * [h1 website tag](#h1-website-tag) - Manage your tag
-    * [h1 website tag add](#h1-website-tag-add) - Add a tag to website
-    * [h1 website tag delete](#h1-website-tag-delete) - Delete a tag of website
-    * [h1 website tag list](#h1-website-tag-list) - List tag
+  * [h1 website show](#h1-website-show) - Show Website
+  * [h1 website ssh](#h1-website-ssh) - Connect to Website using SSH
+  * [h1 website start](#h1-website-start) - Start Website
+  * [h1 website stop](#h1-website-stop) - Stop Website
+  * [h1 website transfer](#h1-website-transfer) - Transfer Website to other project
+  * [h1 website credential](#h1-website-credential) - Manage your credentials to Website
+    * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to Website
+      * [h1 website credential cert add](#h1-website-credential-cert-add) - Add certificate to Website
+      * [h1 website credential cert delete](#h1-website-credential-cert-delete) - Delete certificate to Website
+      * [h1 website credential cert list](#h1-website-credential-cert-list) - List certificate to Website
+      * [h1 website credential cert rename](#h1-website-credential-cert-rename) - Rename certificate to Website
+      * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to Website
+    * [h1 website credential password](#h1-website-credential-password) - Manage your password to Website
+      * [h1 website credential password add](#h1-website-credential-password-add) - Add password to Website
+      * [h1 website credential password delete](#h1-website-credential-password-delete) - Delete password to Website
+      * [h1 website credential password list](#h1-website-credential-password-list) - List password to Website
+      * [h1 website credential password rename](#h1-website-credential-password-rename) - Rename password to Website
+      * [h1 website credential password show](#h1-website-credential-password-show) - Show password to Website
+  * [h1 website tag](#h1-website-tag) - Manage your Tag of Website
+    * [h1 website tag add](#h1-website-tag-add) - Add Tag of Website
+    * [h1 website tag delete](#h1-website-tag-delete) - Delete Tag of Website
+    * [h1 website tag list](#h1-website-tag-list) - List Tag of Website
 
 
 # Specification
 
 ## h1 website
 
-Manage your website
+Manage your Website
 
 ### Note
 
@@ -58,11 +60,11 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 
 ## h1 website create
 
-Create website
+Create Website
 
 ### Syntax
 
-```h1 website create | --name NAME --type TYPE --domain DOMAIN [--domain DOMAIN ...] --image IMAGE [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]]```
+```h1 website create | --name NAME --type TYPE --image IMAGE [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create Website with SSH credential
@@ -79,7 +81,6 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Website name |
 | ```--type TYPE``` |  | Website type |
-| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
 | ```--image IMAGE``` |  | Website Image |
 
 ### Optional arguments
@@ -93,7 +94,7 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 
 ## h1 website delete
 
-Delete website
+Delete Website
 
 ### Syntax
 
@@ -110,9 +111,54 @@ h1 website delete --website my-website
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 
+## h1 website domain
+
+Manage Domain name of Website
+
+## h1 website domain add
+
+Add Domain name to Website
+
+### Syntax
+
+```h1 website domain add | --domain DOMAIN [--domain DOMAIN ...] --website WEBSITE```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website domain delete
+
+Delete Domain name from Website
+
+### Syntax
+
+```h1 website domain delete | --domain DOMAIN [--domain DOMAIN ...] --website WEBSITE```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website domain list
+
+List Domain name of Website
+
+### Syntax
+
+```h1 website domain list | --website WEBSITE```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
 ## h1 website history
 
-History of website
+History of Website
 
 ### Syntax
 
@@ -131,7 +177,7 @@ h1 website history --website my-website
 
 ## h1 website list
 
-List website
+List Website
 
 ### Syntax
 
@@ -144,7 +190,7 @@ h1 website list
 
 ## h1 website log
 
-Live logs of website
+Live logs of Website
 
 ### Syntax
 
@@ -169,7 +215,7 @@ h1 website log --website my-website
 
 ## h1 website rename
 
-Rename website
+Rename Website
 
 ### Syntax
 
@@ -189,11 +235,11 @@ h1 website rename --website my-website --new-name my-renamed-website
 
 ## h1 website service
 
-Manage your services of website
+Manage your services of Website
 
 ## h1 website service list
 
-List service for website
+List service for Website
 
 ### Syntax
 
@@ -212,7 +258,7 @@ h1 website service list --website test-website
 
 ## h1 website service show
 
-Show service for website
+Show service for Website
 
 ### Syntax
 
@@ -228,7 +274,7 @@ h1 website service show --service my-service --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-| ```--service SERVICE``` |  | Service for website ID or name |
+| ```--service SERVICE``` |  | Service for Website ID or name |
 
 ## h1 website sftp
 
@@ -251,7 +297,7 @@ h1 website sftp --website my-website
 
 ## h1 website show
 
-Show website
+Show Website
 
 ### Syntax
 
@@ -270,7 +316,7 @@ h1 website show --website my-website
 
 ## h1 website ssh
 
-Connect to website using SSH
+Connect to Website using SSH
 
 ### Syntax
 
@@ -287,7 +333,7 @@ Note: Need valid credentials to access resource any way.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | website ID or name |
+| ```--website WEBSITE``` |  | Website ID or name |
 
 ### Optional arguments
 
@@ -297,7 +343,7 @@ Note: Need valid credentials to access resource any way.
 
 ## h1 website start
 
-Start website
+Start Website
 
 ### Syntax
 
@@ -316,7 +362,7 @@ h1 website start --website my-website
 
 ## h1 website stop
 
-Stop website
+Stop Website
 
 ### Syntax
 
@@ -335,7 +381,7 @@ h1 website stop --website my-website
 
 ## h1 website transfer
 
-Transfer website to other project
+Transfer Website to other project
 
 ### Syntax
 
@@ -353,35 +399,17 @@ h1 website transfer --website test-website --new-project OtherProject
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
 
-## h1 website update
-
-Update website
-
-## h1 website update domain
-
-Update domain of website
-
-### Syntax
-
-```h1 website update domain | --domain DOMAIN [--domain DOMAIN ...] --website WEBSITE```
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
-| ```--website WEBSITE``` |  | website ID or name |
-
 ## h1 website credential
 
-Manage your credentials to website
+Manage your credentials to Website
 
 ## h1 website credential cert
 
-Manage your certificate to website
+Manage your certificate to Website
 
 ## h1 website credential cert add
 
-Add certificate to website
+Add certificate to Website
 
 ### Syntax
 
@@ -408,7 +436,7 @@ h1 website credential cert add --website my-website --name my-key --sshkey my-ho
 
 ## h1 website credential cert delete
 
-Delete certificate to website
+Delete certificate to Website
 
 ### Syntax
 
@@ -424,11 +452,11 @@ h1 website credential cert delete --cert my-cert --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-| ```--cert CERT``` |  | Certificate to website ID or name |
+| ```--cert CERT``` |  | Certificate to Website ID or name |
 
 ## h1 website credential cert list
 
-List certificate to website
+List certificate to Website
 
 ### Syntax
 
@@ -447,7 +475,7 @@ h1 website credential cert list --website my-website
 
 ## h1 website credential cert rename
 
-Rename certificate to website
+Rename certificate to Website
 
 ### Syntax
 
@@ -463,12 +491,12 @@ h1 website credential cert rename --cert my-cert --new-name my-renamed-cert --we
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-| ```--cert CERT``` |  | Certificate to website ID or name |
+| ```--cert CERT``` |  | Certificate to Website ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 website credential cert show
 
-Show certificate to website
+Show certificate to Website
 
 ### Syntax
 
@@ -484,15 +512,15 @@ h1 website credential cert show --cert my-cert
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-| ```--cert CERT``` |  | Certificate to website ID or name |
+| ```--cert CERT``` |  | Certificate to Website ID or name |
 
 ## h1 website credential password
 
-Manage your password to website
+Manage your password to Website
 
 ## h1 website credential password add
 
-Add password to website
+Add password to Website
 
 ### Syntax
 
@@ -518,7 +546,7 @@ h1 website credential password add --name my-pass --password secret-password --w
 
 ## h1 website credential password delete
 
-Delete password to website
+Delete password to Website
 
 ### Syntax
 
@@ -534,11 +562,11 @@ h1 website credential password delete --password my-password --website my-websit
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-| ```--password PASSWORD``` |  | Password to website ID or name |
+| ```--password PASSWORD``` |  | Password to Website ID or name |
 
 ## h1 website credential password list
 
-List password to website
+List password to Website
 
 ### Syntax
 
@@ -557,7 +585,7 @@ h1 website credential password list --website my-website
 
 ## h1 website credential password rename
 
-Rename password to website
+Rename password to Website
 
 ### Syntax
 
@@ -573,12 +601,12 @@ h1 website credential password rename --password my-password --new-name my-renam
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-| ```--password PASSWORD``` |  | Password to website ID or name |
+| ```--password PASSWORD``` |  | Password to Website ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 website credential password show
 
-Show password to website
+Show password to Website
 
 ### Syntax
 
@@ -594,15 +622,15 @@ h1 website credential password show --password my-password
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-| ```--password PASSWORD``` |  | Password to website ID or name |
+| ```--password PASSWORD``` |  | Password to Website ID or name |
 
 ## h1 website tag
 
-Manage your tag
+Manage your Tag of Website
 
 ## h1 website tag add
 
-Add a tag to website
+Add Tag of Website
 
 ### Syntax
 
@@ -627,7 +655,7 @@ h1 website tag add --website test-website --tag prod=true
 
 ## h1 website tag delete
 
-Delete a tag of website
+Delete Tag of Website
 
 ### Syntax
 
@@ -647,7 +675,7 @@ h1 website tag delete --website test-website --tag prod
 
 ## h1 website tag list
 
-List tag
+List Tag of Website
 
 ### Syntax
 

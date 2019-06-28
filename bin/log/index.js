@@ -1,7 +1,7 @@
 'use strict';
 
 const genericDefaults = require('bin/generic/defaults');
-const genericResource = require('bin/generic');
+const genericResource = require('bin/generic/root');
 
 const schema = {
     name: {
@@ -21,14 +21,15 @@ const schema = {
 
 const resource = {
     name: 'log',
+    apiName: 'logArchive',
     defaultQuery: '[].{id:_id,name:name,retention:retention,sizeUsed:sizeUsed,state:state,processing:processing}',
-    commands: ['show', 'delete', 'rename', 'create', 'list', 'history', 'tag', 'service', 'transfer', 'credential'],
+    extraCommands: ['create',  'credential'],
     plugins: genericDefaults.plugins,
     url: () => 'logArchive',
     dirname: __dirname,
     schema: schema,
     earlyAdoptersOnly: true,
-    title: 'log archive',
+    title: 'Journal',
     credential_types: ['sha512'],
 };
 

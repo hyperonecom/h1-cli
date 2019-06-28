@@ -1,46 +1,36 @@
 'use strict';
 
 const genericResource = require('bin/generic');
-const genericDefaults = require('bin/generic/defaults');
 const text = require('lib/text');
 
+module.exports = parent => {
 
-module.exports = resource => {
-
-    const options = Object.assign({}, resource.options, {
-        [resource.name]: {
-            description: `${text.toTitleCase(resource.title)} ID or name`,
+    const options = Object.assign({}, parent.options, {
+        [parent.name]: {
+            description: `${text.toTitleCase(parent.title)} ID or name`,
             type: 'string',
             required: true,
         },
     });
 
-    const subresource = {
+    const resource = {
         name: 'tag',
-        defaultQuery: '[].{id:_id,name:name,type:flavour,state:state,processing:processing}',
-        url: () => 'vm',
-        plugins: genericDefaults.plugins,
-        commands: ['list', 'show'],
-        title: `Tag of ${resource.title}`,
-        options: options,
-    };
-
-    const category = genericResource({
-        name: 'tag',
+        title: `Tag of ${parent.title}`,
         defaultQuery: '[].{key:key, value:value}',
         url: args => `${resource.url(args)}/${args[resource.name]}/tag`,
         transform: data => Object.entries(data).map(([key, value]) => ({key, value})),
         commands: ['list'],
-        options: subresource.options,
+        options: options,
         priority: 80,
-        resource: resource,
         context: {
-            listParams: `--${resource.name} my-${resource.name}`,
+            type: parent.name,
+            listParams: `--${parent.name} my-${parent.name}`,
         },
-    });
+    };
+    const category = genericResource(resource);
 
-    category.addChild(require('./add')(resource, subresource));
-    category.addChild(require('./delete')(resource, subresource));
+    category.addChild(require('./add')(resource));
+    category.addChild(require('./delete')(resource));
 
     return category;
 };

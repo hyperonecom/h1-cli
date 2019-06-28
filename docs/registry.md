@@ -2,6 +2,10 @@
 
   * [h1 registry create](#h1-registry-create) - Create Registry
   * [h1 registry delete](#h1-registry-delete) - Delete Registry
+  * [h1 registry domain](#h1-registry-domain) - Manage Domain name of Registry
+    * [h1 registry domain add](#h1-registry-domain-add) - Add Domain name to Registry
+    * [h1 registry domain delete](#h1-registry-domain-delete) - Delete Domain name from Registry
+    * [h1 registry domain list](#h1-registry-domain-list) - List Domain name of Registry
   * [h1 registry history](#h1-registry-history) - History of Registry
   * [h1 registry list](#h1-registry-list) - List Registry
   * [h1 registry rename](#h1-registry-rename) - Rename Registry
@@ -24,10 +28,10 @@
       * [h1 registry credential password list](#h1-registry-credential-password-list) - List password to Registry
       * [h1 registry credential password rename](#h1-registry-credential-password-rename) - Rename password to Registry
       * [h1 registry credential password show](#h1-registry-credential-password-show) - Show password to Registry
-  * [h1 registry tag](#h1-registry-tag) - Manage your tag
-    * [h1 registry tag add](#h1-registry-tag-add) - Add a tag to Registry
-    * [h1 registry tag delete](#h1-registry-tag-delete) - Delete a tag of Registry
-    * [h1 registry tag list](#h1-registry-tag-list) - List tag
+  * [h1 registry tag](#h1-registry-tag) - Manage your Tag of Registry
+    * [h1 registry tag add](#h1-registry-tag-add) - Add Tag of Registry
+    * [h1 registry tag delete](#h1-registry-tag-delete) - Delete Tag of Registry
+    * [h1 registry tag list](#h1-registry-tag-list) - List Tag of Registry
 
 
 # Specification
@@ -98,6 +102,51 @@ Delete Registry
 h1 registry delete --registry my-registry
 ```
 
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+
+## h1 registry domain
+
+Manage Domain name of Registry
+
+## h1 registry domain add
+
+Add Domain name to Registry
+
+### Syntax
+
+```h1 registry domain add | --domain DOMAIN [--domain DOMAIN ...] --registry REGISTRY```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+
+## h1 registry domain delete
+
+Delete Domain name from Registry
+
+### Syntax
+
+```h1 registry domain delete | --domain DOMAIN [--domain DOMAIN ...] --registry REGISTRY```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+
+## h1 registry domain list
+
+List Domain name of Registry
+
+### Syntax
+
+```h1 registry domain list | --registry REGISTRY```
 ### Required arguments
 
 | Name | Default | Description |
@@ -479,11 +528,11 @@ h1 registry credential password show --password my-password
 
 ## h1 registry tag
 
-Manage your tag
+Manage your Tag of Registry
 
 ## h1 registry tag add
 
-Add a tag to Registry
+Add Tag of Registry
 
 ### Syntax
 
@@ -508,7 +557,7 @@ h1 registry tag add --registry test-registry --tag prod=true
 
 ## h1 registry tag delete
 
-Delete a tag of Registry
+Delete Tag of Registry
 
 ### Syntax
 
@@ -528,7 +577,7 @@ h1 registry tag delete --registry test-registry --tag prod
 
 ## h1 registry tag list
 
-List tag
+List Tag of Registry
 
 ### Syntax
 

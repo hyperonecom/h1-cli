@@ -1,19 +1,19 @@
 'use strict';
 
 const genericDefaults = require('bin/generic/defaults');
-const genericResource = require('bin/generic');
-const genericAction = require('bin/generic/action');
+const genericResource = require('bin/generic/root');
 
 const text = require('lib/text');
 
 const resource = {
     name: 'container',
-    defaultQuery: '[].{id:_id,name:name,image:image,state:state }',
+    defaultQuery: '[].{id:_id,name:name,image:image,state:state}',
     url: () => 'container',
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
-    title: 'container',
-    extraCommands: ['log', 'start', 'stop'],
+    dirname: __dirname,
+    title: 'Container',
+    extraCommands: ['log'],
 };
 
 const category = genericResource(resource);
@@ -34,10 +34,5 @@ const childDefault = Object.assign({}, resource, {
 
 category.addChild(require('./attach')(childDefault));
 category.addChild(require('./process')(childDefault));
-const actionDefault = Object.assign({}, resource, childDefault, {
-    dirname: `${__dirname}/action`,
-});
-
-category.addChild(genericAction(actionDefault, 'restart'));
 
 module.exports = category;

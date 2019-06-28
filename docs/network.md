@@ -1,11 +1,11 @@
 # TOC
 
-  * [h1 network create](#h1-network-create) - Create network
-  * [h1 network delete](#h1-network-delete) - Delete network
-  * [h1 network firewall](#h1-network-firewall) - Manage firewall of network
-    * [h1 network firewall add](#h1-network-firewall-add) - Add firewall to network
-    * [h1 network firewall remove](#h1-network-firewall-remove) - Remove firewall from network
-  * [h1 network history](#h1-network-history) - History of network
+  * [h1 network create](#h1-network-create) - Create Network
+  * [h1 network delete](#h1-network-delete) - Delete Network
+  * [h1 network firewall](#h1-network-firewall) - Manage firewall of Network
+    * [h1 network firewall add](#h1-network-firewall-add) - Add firewall to Network
+    * [h1 network firewall remove](#h1-network-firewall-remove) - Remove firewall from Network
+  * [h1 network history](#h1-network-history) - History of Network
   * [h1 network ip](#h1-network-ip) - Manage your IP address
     * [h1 network ip create](#h1-network-ip-create) - Create IP address
     * [h1 network ip delete](#h1-network-ip-delete) - Delete IP address
@@ -14,31 +14,31 @@
       * [h1 network ip service list](#h1-network-ip-service-list) - List service for IP address
       * [h1 network ip service show](#h1-network-ip-service-show) - Show service for IP address
     * [h1 network ip show](#h1-network-ip-show) - Show IP address
-    * [h1 network ip tag](#h1-network-ip-tag) - Manage your tag
-      * [h1 network ip tag add](#h1-network-ip-tag-add) - Add a tag to IP address
-      * [h1 network ip tag delete](#h1-network-ip-tag-delete) - Delete a tag of IP address
-      * [h1 network ip tag list](#h1-network-ip-tag-list) - List tag
-  * [h1 network list](#h1-network-list) - List network
-  * [h1 network rename](#h1-network-rename) - Rename network
-  * [h1 network service](#h1-network-service) - Manage your services of network
-    * [h1 network service list](#h1-network-service-list) - List service for network
-    * [h1 network service show](#h1-network-service-show) - Show service for network
-  * [h1 network show](#h1-network-show) - Show network
-  * [h1 network tag](#h1-network-tag) - Manage your tag
-    * [h1 network tag add](#h1-network-tag-add) - Add a tag to network
-    * [h1 network tag delete](#h1-network-tag-delete) - Delete a tag of network
-    * [h1 network tag list](#h1-network-tag-list) - List tag
+    * [h1 network ip tag](#h1-network-ip-tag) - Manage your Tag of IP address
+      * [h1 network ip tag add](#h1-network-ip-tag-add) - Add Tag of IP address
+      * [h1 network ip tag delete](#h1-network-ip-tag-delete) - Delete Tag of IP address
+      * [h1 network ip tag list](#h1-network-ip-tag-list) - List Tag of IP address
+  * [h1 network list](#h1-network-list) - List Network
+  * [h1 network rename](#h1-network-rename) - Rename Network
+  * [h1 network service](#h1-network-service) - Manage your services of Network
+    * [h1 network service list](#h1-network-service-list) - List service for Network
+    * [h1 network service show](#h1-network-service-show) - Show service for Network
+  * [h1 network show](#h1-network-show) - Show Network
+  * [h1 network tag](#h1-network-tag) - Manage your Tag of Network
+    * [h1 network tag add](#h1-network-tag-add) - Add Tag of Network
+    * [h1 network tag delete](#h1-network-tag-delete) - Delete Tag of Network
+    * [h1 network tag list](#h1-network-tag-list) - List Tag of Network
 
 
 # Specification
 
 ## h1 network
 
-Manage your network
+Manage your Network
 
 ## h1 network create
 
-Create network
+Create Network
 
 ### Syntax
 
@@ -73,7 +73,7 @@ h1 network create --name my-ip-network --address 10.214.180.0/24 --gateway 10.21
 
 ## h1 network delete
 
-Delete network
+Delete Network
 
 ### Syntax
 
@@ -92,11 +92,11 @@ h1 network delete --network my-network
 
 ## h1 network firewall
 
-Manage firewall of network
+Manage firewall of Network
 
 ## h1 network firewall add
 
-Add firewall to network
+Add firewall to Network
 
 ### Syntax
 
@@ -116,7 +116,7 @@ h1 network firewall add --network my-network
 
 ## h1 network firewall remove
 
-Remove firewall from network
+Remove firewall from Network
 
 ### Syntax
 
@@ -135,7 +135,7 @@ h1 network firewall remove --network my-network
 
 ## h1 network history
 
-History of network
+History of Network
 
 ### Syntax
 
@@ -296,11 +296,11 @@ h1 network ip show --ip my-ip --network my-network
 
 ## h1 network ip tag
 
-Manage your tag
+Manage your Tag of IP address
 
 ## h1 network ip tag add
 
-Add a tag to IP address
+Add Tag of IP address
 
 ### Syntax
 
@@ -326,7 +326,7 @@ h1 network ip tag add --ip test-ip --tag prod=true
 
 ## h1 network ip tag delete
 
-Delete a tag of IP address
+Delete Tag of IP address
 
 ### Syntax
 
@@ -347,7 +347,7 @@ h1 network ip tag delete --ip test-ip --tag prod
 
 ## h1 network ip tag list
 
-List tag
+List Tag of IP address
 
 ### Syntax
 
@@ -367,7 +367,7 @@ h1 network ip tag list --ip my-ip
 
 ## h1 network list
 
-List network
+List Network
 
 ### Syntax
 
@@ -380,7 +380,7 @@ h1 network list
 
 ## h1 network rename
 
-Rename network
+Rename Network
 
 ### Syntax
 
@@ -400,11 +400,11 @@ h1 network rename --network my-network --new-name my-renamed-network
 
 ## h1 network service
 
-Manage your services of network
+Manage your services of Network
 
 ## h1 network service list
 
-List service for network
+List service for Network
 
 ### Syntax
 
@@ -423,7 +423,7 @@ h1 network service list --network test-network
 
 ## h1 network service show
 
-Show service for network
+Show service for Network
 
 ### Syntax
 
@@ -439,11 +439,11 @@ h1 network service show --service my-service --network my-network
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network ID or name |
-| ```--service SERVICE``` |  | Service for network ID or name |
+| ```--service SERVICE``` |  | Service for Network ID or name |
 
 ## h1 network show
 
-Show network
+Show Network
 
 ### Syntax
 
@@ -462,11 +462,11 @@ h1 network show --network my-network
 
 ## h1 network tag
 
-Manage your tag
+Manage your Tag of Network
 
 ## h1 network tag add
 
-Add a tag to network
+Add Tag of Network
 
 ### Syntax
 
@@ -491,7 +491,7 @@ h1 network tag add --network test-network --tag prod=true
 
 ## h1 network tag delete
 
-Delete a tag of network
+Delete Tag of Network
 
 ### Syntax
 
@@ -511,7 +511,7 @@ h1 network tag delete --network test-network --tag prod
 
 ## h1 network tag list
 
-List tag
+List Tag of Network
 
 ### Syntax
 

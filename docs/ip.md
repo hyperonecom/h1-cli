@@ -1,5 +1,6 @@
 # TOC
 
+  * [h1 ip allocate](#h1-ip-allocate) - Allocate IP address
   * [h1 ip associate](#h1-ip-associate) - Associate IP address
   * [h1 ip create](#h1-ip-create) - Create IP address
   * [h1 ip delete](#h1-ip-delete) - Delete IP address
@@ -7,15 +8,16 @@
   * [h1 ip history](#h1-ip-history) - History of IP address
   * [h1 ip list](#h1-ip-list) - List IP address
   * [h1 ip ptr](#h1-ip-ptr) - Update PTR record of IP address
+  * [h1 ip release](#h1-ip-release) - Release IP address
   * [h1 ip service](#h1-ip-service) - Manage your services of IP address
     * [h1 ip service list](#h1-ip-service-list) - List service for IP address
     * [h1 ip service show](#h1-ip-service-show) - Show service for IP address
   * [h1 ip show](#h1-ip-show) - Show IP address
   * [h1 ip transfer](#h1-ip-transfer) - Transfer IP address to other project
-  * [h1 ip tag](#h1-ip-tag) - Manage your tag
-    * [h1 ip tag add](#h1-ip-tag-add) - Add a tag to IP address
-    * [h1 ip tag delete](#h1-ip-tag-delete) - Delete a tag of IP address
-    * [h1 ip tag list](#h1-ip-tag-list) - List tag
+  * [h1 ip tag](#h1-ip-tag) - Manage your Tag of IP address
+    * [h1 ip tag add](#h1-ip-tag-add) - Add Tag of IP address
+    * [h1 ip tag delete](#h1-ip-tag-delete) - Delete Tag of IP address
+    * [h1 ip tag list](#h1-ip-tag-list) - List Tag of IP address
 
 
 # Specification
@@ -23,6 +25,25 @@
 ## h1 ip
 
 Manage your IP address
+
+## h1 ip allocate
+
+Allocate IP address
+
+### Syntax
+
+```h1 ip allocate | --ip IP```
+### Example
+
+```
+h1 ip allocate --ip my-ip
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address ID or name |
 
 ## h1 ip associate
 
@@ -96,15 +117,15 @@ Disassociate IP address
 ```h1 ip disassociate | --ip IP```
 ### Example
 
-```bash
-h1 ip disassociate --ip 62.181.8.21
+```
+h1 ip disassociate --ip my-ip
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ip IP``` |  | Public IP or ID of IP |
+| ```--ip IP``` |  | IP address ID or name |
 
 ## h1 ip history
 
@@ -157,6 +178,25 @@ h1 ip ptr --ip 62.181.8.21 --value 'example.com'
 | ---- | ------- | ----------- |
 | ```--ip IP``` |  | IP address or ID |
 | ```--value VALUE``` |  | PTR record |
+
+## h1 ip release
+
+Release IP address
+
+### Syntax
+
+```h1 ip release | --ip IP```
+### Example
+
+```
+h1 ip release --ip my-ip
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ip IP``` |  | IP address ID or name |
 
 ## h1 ip service
 
@@ -242,11 +282,11 @@ h1 ip transfer --ip test-ip --new-project OtherProject
 
 ## h1 ip tag
 
-Manage your tag
+Manage your Tag of IP address
 
 ## h1 ip tag add
 
-Add a tag to IP address
+Add Tag of IP address
 
 ### Syntax
 
@@ -271,7 +311,7 @@ h1 ip tag add --ip test-ip --tag prod=true
 
 ## h1 ip tag delete
 
-Delete a tag of IP address
+Delete Tag of IP address
 
 ### Syntax
 
@@ -291,7 +331,7 @@ h1 ip tag delete --ip test-ip --tag prod
 
 ## h1 ip tag list
 
-List tag
+List Tag of IP address
 
 ### Syntax
 

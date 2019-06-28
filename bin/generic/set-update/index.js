@@ -7,7 +7,9 @@ module.exports = resource => {
         description: `Manage your ${resource.title}`,
         defaultQuery: `[].{${resource.update_name}: @}`,
     });
+
     const update_name = resource.update_name || resource.title;
+
     const childResource = Object.assign({},
         resource,
         {
