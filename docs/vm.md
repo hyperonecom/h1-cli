@@ -3,10 +3,9 @@
   * [h1 vm create](#h1-vm-create) - Create Virtual machine
   * [h1 vm console](#h1-vm-console) - Open Virtual machine console in web-browser
   * [h1 vm delete](#h1-vm-delete) - Delete Virtual machine
-  * [h1 vm delete](#h1-vm-delete) - Delete Virtual machine
   * [h1 vm disk](#h1-vm-disk) - Manage your Disk
-    * [h1 vm disk attach](#h1-vm-disk-attach) - Attach disk to Disk
-    * [h1 vm disk detach](#h1-vm-disk-detach) - Detach disk from Disk
+    * [h1 vm disk attach](#h1-vm-disk-attach) - Attach Disk to Virtual machine
+    * [h1 vm disk detach](#h1-vm-disk-detach) - Detach  Disk from Virtual machine
     * [h1 vm disk list](#h1-vm-disk-list) - List Disk
   * [h1 vm dvd](#h1-vm-dvd) - Manage your DVD
     * [h1 vm dvd eject](#h1-vm-dvd-eject) - Eject ISO from DVD drive of DVD
@@ -36,8 +35,6 @@
       * [h1 vm nic tag list](#h1-vm-nic-tag-list) - List Tag of Network adapter
   * [h1 vm passwordreset](#h1-vm-passwordreset) - Password reset for Virtual machine
   * [h1 vm rename](#h1-vm-rename) - Rename Virtual machine
-  * [h1 vm rename](#h1-vm-rename) - Rename Virtual machine
-  * [h1 vm restart](#h1-vm-restart) - Restart Virtual machine
   * [h1 vm restart](#h1-vm-restart) - Restart Virtual machine
   * [h1 vm serialport](#h1-vm-serialport) - Serial Console
     * [h1 vm serialport console](#h1-vm-serialport-console) - Connect to Virtual machine using Serial Console
@@ -49,10 +46,7 @@
   * [h1 vm show](#h1-vm-show) - Show Virtual machine
   * [h1 vm ssh](#h1-vm-ssh) - Connect to Virtual machine using SSH
   * [h1 vm start](#h1-vm-start) - Start Virtual machine
-  * [h1 vm start](#h1-vm-start) - Start Virtual machine
   * [h1 vm stop](#h1-vm-stop) - Stop Virtual machine
-  * [h1 vm stop](#h1-vm-stop) - Stop Virtual machine
-  * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff Virtual machine
   * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff Virtual machine
   * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for Virtual machine
   * [h1 vm tag](#h1-vm-tag) - Manage your Tag of Virtual machine
@@ -165,32 +159,13 @@ h1 vm delete --vm my-vm
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
-## h1 vm delete
-
-Delete Virtual machine
-
-### Syntax
-
-```h1 vm delete | --vm VM```
-### Example
-
-```bash
-h1 vm delete --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
 ## h1 vm disk
 
 Manage your Disk
 
 ## h1 vm disk attach
 
-Attach disk to Disk
+Attach Disk to Virtual machine
 
 ### Syntax
 
@@ -220,7 +195,7 @@ Note (4): Instead of adding a new disk, we suggest considering resize of availab
 
 ## h1 vm disk detach
 
-Detach disk from Disk
+Detach  Disk from Virtual machine
 
 ### Syntax
 
@@ -780,45 +755,6 @@ h1 vm rename --vm my-vm --new-name my-renamed-vm
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
-## h1 vm rename
-
-Rename Virtual machine
-
-### Syntax
-
-```h1 vm rename | --vm VM --new-name NEW-NAME```
-### Example
-
-```bash
-h1 vm rename --vm my-vm --new-name my-renamed-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 vm restart
-
-Restart Virtual machine
-
-### Syntax
-
-```h1 vm restart | --vm VM```
-### Example
-
-```
-h1 vm restart --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
 ## h1 vm restart
 
 Restart Virtual machine
@@ -1030,25 +966,6 @@ h1 vm start --vm my-vm
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
-## h1 vm start
-
-Start Virtual machine
-
-### Syntax
-
-```h1 vm start | --vm VM```
-### Example
-
-```
-h1 vm start --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
 ## h1 vm stop
 
 Stop Virtual machine
@@ -1060,44 +977,6 @@ Stop Virtual machine
 
 ```
 h1 vm stop --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm stop
-
-Stop Virtual machine
-
-### Syntax
-
-```h1 vm stop | --vm VM```
-### Example
-
-```
-h1 vm stop --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm turnoff
-
-Turnoff Virtual machine
-
-### Syntax
-
-```h1 vm turnoff | --vm VM```
-### Example
-
-```
-h1 vm turnoff --vm my-vm
 ```
 
 ### Required arguments

@@ -3,7 +3,6 @@
   * [h1 reservation assign](#h1-reservation-assign) - Assign Reservation to resource
   * [h1 reservation delete](#h1-reservation-delete) - Delete Reservation
   * [h1 reservation extend](#h1-reservation-extend) - Extend Reservation
-  * [h1 reservation extend](#h1-reservation-extend) - Extend Reservation
   * [h1 reservation history](#h1-reservation-history) - History of Reservation
   * [h1 reservation list](#h1-reservation-list) - List Reservation
   * [h1 reservation rename](#h1-reservation-rename) - Rename Reservation
@@ -83,19 +82,6 @@ h1 reservation extend --reservation my-reservation
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--reservation RESERVATION``` |  | Reservation ID or name |
-
-## h1 reservation extend
-
-Extend Reservation
-
-### Syntax
-
-```h1 reservation extend | --reservation RESERVATION```
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--reservation RESERVATION``` |  | Reservation name or ID |
 
 ## h1 reservation history
 
