@@ -62,7 +62,7 @@ Create website
 
 ### Syntax
 
-```h1 website create | --name NAME --type TYPE --domain DOMAIN [--domain DOMAIN ...] --image IMAGE [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]]```
+```h1 website create | --name NAME --type TYPE --image IMAGE [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create Website with SSH credential
@@ -79,7 +79,6 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Website name |
 | ```--type TYPE``` |  | Website type |
-| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
 | ```--image IMAGE``` |  | Website Image |
 
 ### Optional arguments

@@ -63,21 +63,34 @@ ava.serial('website put index via SFTP & password', async t => {
 });
 
 ava.serial('website reachable through custom domain', async t => {
-    const domain = getDomain(t.title);
+    const domain = 'website.h1.jawnosc.tk';
+    const rset = 'website-reachable';
     const password = await tests.getToken();
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${domain} ${commonCreateParams} --password ${password}`);
-    // Upload file
-    const token = await tests.getToken();
-
-    const files = await lsWebsite(website, {password}, '/data');
-    t.true(files.some(f => f.filename === 'public'));
-    await ssh.execResource(website, {password}, 'ls -lah /data/public');
-    await putFileWebsite(website, {password}, 'public/index.html', token);
-    // Test content
-    const resp = await request.get(`http://${website.fqdn}/`).set('Host', domain);
-    t.true(resp.text === token);
-
-    await tests.remove('website', website);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+    await tests.run(`website stop --website ${website.id}`);
+    const zone = await tests.run(`dns zone show --zone ${domain}`).catch(() => {
+        return tests.run(`dns zone create --name ${domain}`);
+    });
+    try {
+        await tests.run(`dns record-set cname create --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
+        await tests.run(`website update domain --website ${website.id} --domain ${rset}.${zone.name}`);
+        await tests.run(`website start --website ${website.id}`);
+        // Upload file
+        const token = await tests.getToken();
+        const files = await lsWebsite(website, {password}, '/data');
+        t.true(files.some(f => f.filename === 'public'));
+        await ssh.execResource(website, {password}, 'ls -lah /data/public');
+        await putFileWebsite(website, {password}, 'public/index.html', token);
+        await tests.delay(5*1000);
+        // Test content
+        for (const proto of ['http', 'https']) {
+            const resp = await request.get(`${proto}://${rset}.${domain}/`);
+            t.true(resp.text === token);
+        }
+    } finally {
+        // await tests.remove('dns zone', zone);
+        // await tests.remove('website', website);
+    }
 });
 
 ava.serial('website put index via SFTP & ssh-key', async t => {
@@ -172,20 +185,5 @@ ava.serial('website connect via ssh', async t => {
         t.true(hostname.trim() === website._id);
     } finally {
         await tests.remove('website', website);
-    }
-});
-
-ava.serial('website update domain', async t => {
-    const password = await tests.getToken();
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --password ${password}`);
-    await tests.run(`website stop --website ${website._id}`);
-    try {
-        const updated_domain = getDomain(t.title, 'updated');
-        await tests.run(`website update domain --website ${website._id} --domain ${updated_domain}`);
-        const updated_website = await tests.run(`website show --website ${website._id}`);
-        t.true(updated_website.domain.includes(updated_domain));
-        await tests.remove('website', website);
-    } catch (err) {
-
     }
 });

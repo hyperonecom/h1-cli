@@ -8,6 +8,7 @@ const now = Date.now();
 
 ava.serial('network life cycle', tests.resourceLifeCycle('network', {
     createParams: `--name network-test-${now}`,
+    skipTransfer: true,
     skipFqdn: true,
 }));
 
@@ -26,8 +27,8 @@ ava.serial('network ip life cycle', async t => {
         skipHistory: true,
         stateCreated: 'Unallocated',
         schemaRef: '#/components/schemas/ip',
-        skipFqdn: true,
         skipTransfer: true,
+        skipFqdn: true,
     })(t);
     await tests.remove('network', network);
 });
