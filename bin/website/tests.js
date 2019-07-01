@@ -9,11 +9,8 @@ const ssh = require('../../lib/ssh');
 
 const commonCreateParams = '--type website --image quay.io/hyperone/php-apache:7.2';
 
-
-const getDomain = (...args) => `${tests.getName(...args)}.com`;
-
 ava.serial('website life cycle', tests.resourceLifeCycle('website', {
-    createParams: `--name ${tests.getName('website-life-cycle')} --domain ${getDomain('website-life-cycle')} ${commonCreateParams} `,
+    createParams: `--name ${tests.getName('website-life-cycle')} ${commonCreateParams} `,
     stateCreated: 'Running',
 }));
 
@@ -42,7 +39,7 @@ const lsWebsite = (website, auth, path) => {
 };
 
 ava.serial('website empty page results', async t => {
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     // TODO: Validate default page according scope
     await tests.delay(5); // Workaround for full page startup
     const resp = await request.get(`http://${website.fqdn}/`).ok(res => [403, 200].includes(res.status));
@@ -52,7 +49,7 @@ ava.serial('website empty page results', async t => {
 
 ava.serial('website put index via SFTP & password', async t => {
     const password = await tests.getToken();
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --password ${password}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     // Upload file
     const token = await tests.getToken();
     await putFileWebsite(website, {password}, 'public/index.html', token);
@@ -96,7 +93,7 @@ ava.serial('website reachable through custom domain', async t => {
 ava.serial('website put index via SFTP & ssh-key', async t => {
     const sshKeyPair = await ssh.generateKey();
     const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --ssh-file ${sshFilename}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --ssh-file ${sshFilename}`);
 
     // Upload file
     const token = await tests.getToken();
@@ -110,7 +107,7 @@ ava.serial('website put index via SFTP & ssh-key', async t => {
 
 
 ava.serial('website credentials cert life cycle', async t => {
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
 
     await tests.credentialsLifeCycle('website credential cert', {
         showParams: `--website ${website._id}`,
@@ -124,7 +121,7 @@ ava.serial('website credentials cert life cycle', async t => {
 });
 
 ava.serial('website credentials password life cycle', async t => {
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
 
     await tests.passwordLifeCycle(t, 'website', website);
 
@@ -133,7 +130,7 @@ ava.serial('website credentials password life cycle', async t => {
 
 
 ava.serial('website stop & start', async t => {
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     await tests.run(`website stop --website ${website._id}`);
     const stopped_website = await tests.run(`website show --website ${website._id}`);
     t.true(stopped_website.state === 'Off');
@@ -158,7 +155,7 @@ const images = {
 ava.serial('website runtime access rights match of sftp', async t => {
     const image = 'quay.io/hyperone/php-apache:7.2';
     const password = await tests.getToken();
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --password ${password}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     // Put code on website
     const token = await tests.getToken();
     const content = images[image].code.replace('TOKEN', token);
@@ -179,7 +176,7 @@ ava.todo('website ssh');
 
 ava.serial('website connect via ssh', async t => {
     const password = await tests.getToken();
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --domain ${getDomain(t.title)} ${commonCreateParams} --password ${password}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     try {
         const hostname = await ssh.execResource(website, {password}, 'hostname');
         t.true(hostname.trim() === website._id);
