@@ -57,5 +57,5 @@ ava.serial('network firewall', async t => {
     await tests.run(`network firewall remove --network ${network.name}`);
 
     await tests.remove('network', network);
-    await tests.remove('firewall', network);
+    await tests.remove('firewall', firewall);
 });
