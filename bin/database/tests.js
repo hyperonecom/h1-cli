@@ -1,11 +1,10 @@
 'use strict';
 const ava = require('ava');
+const {Client} = require('pg');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
 const mysql = require('mysql2/promise');
-
-const commonCreateParams = '--type mysql:5.7';
 
 const mysqlQuery = async (database, password, query) => {
     console.log(new Date(), `Execute query '${query}' on database'${database.fqdn}'`);
@@ -23,15 +22,61 @@ const mysqlQuery = async (database, password, query) => {
     }
 };
 
-ava.serial('database life cycle', tests.resourceLifeCycle('database', {
-    createParams: `--name ${tests.getName('database-life-cycle')} ${commonCreateParams} `,
-    stateCreated: 'Running',
-}));
+const pgQuery = async (database, password, query) => {
+    console.log(new Date(), `Execute query '${query}' on database'${database.fqdn}'`);
+    const client = new Client({
+        user: database.id,
+        password: password,
+        database: database.id,
+        host: database.fqdn,
+    });
+    await client.connect();
+    try {
+        const {results, fields} = await client.query(query);
+        return {results, fields};
+    } finally {
+        await client.close();
+    }
+};
 
+const query = {
+    'postgres:11': mysqlQuery,
+    'mysql:5.7': pgQuery,
+};
 
-ava.serial('database reachable', async t => {
+['postgres:11', 'mysql:5.7'].forEach(flavour => {
+    ava.serial(`database life cycle - ${flavour}`, tests.resourceLifeCycle('database', {
+        createParams: `--name ${tests.getName('database-life-cycle')} --type ${flavour} `,
+        stateCreated: 'Running',
+    }));
+
+    ava.serial(`database credentials password life cycle - ${flavour}`, async t => {
+        const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour}`);
+
+        await tests.passwordLifeCycle(t, 'database', database);
+
+        await tests.remove('database', database);
+    });
+
+    ava.serial(`database stop & start - ${flavour}`, async t => {
+        const password = await tests.getToken();
+        const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour} --password ${password}`);
+        await query[flavour](database, password, 'SELECT 1');
+        await tests.run(`database stop --database ${database._id}`);
+        await t.throwsAsync(() => query[flavour](database, password, 'SELECT 1'));
+        const stopped_database = await tests.run(`database show --database ${database._id}`);
+        t.true(stopped_database.state === 'Off');
+        await tests.run(`database start --database ${database._id}`);
+        await query[flavour](database, password, 'SELECT 1');
+        const started_database = await tests.run(`database show --database ${database._id}`);
+        t.true(started_database.state === 'Running');
+        await tests.remove('database', database);
+    });
+});
+
+ava.serial('database mysql 5.7 reachable', async t => {
     const password = await tests.getToken();
-    const database = await tests.run(`database create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+    const database = await tests.run(`database create --name ${tests.getName(t.title)} --type mysql:5.7 --password ${password}`);
     try {
         const {results, fields} = await mysqlQuery(database, password, 'SELECT NOW()');
         t.true(!!results);
@@ -53,25 +98,14 @@ ava.serial('database reachable', async t => {
     }
 });
 
-ava.serial('database credentials password life cycle', async t => {
-    const database = await tests.run(`database create --name ${tests.getName(t.title)} ${commonCreateParams}`);
-
-    await tests.passwordLifeCycle(t, 'database', database);
-
-    await tests.remove('database', database);
-});
-
-ava.serial('database stop & start', async t => {
+ava.serial('database postgres:11 reachable', async t => {
     const password = await tests.getToken();
-    const database = await tests.run(`database create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
-    await mysqlQuery(database, password, 'SELECT 1');
-    await tests.run(`database stop --database ${database._id}`);
-    await t.throwsAsync(() => mysqlQuery(database, password, 'SELECT 1'));
-    const stopped_database = await tests.run(`database show --database ${database._id}`);
-    t.true(stopped_database.state === 'Off');
-    await tests.run(`database start --database ${database._id}`);
-    await mysqlQuery(database, password, 'SELECT 1');
-    const started_database = await tests.run(`database show --database ${database._id}`);
-    t.true(started_database.state === 'Running');
-    await tests.remove('database', database);
+    const database = await tests.run(`database create --name ${tests.getName(t.title)} --type postgres:11 --password ${password}`);
+    try {
+        const {results, fields} = await pgQuery(database, password, 'SELECT NOW()');
+        t.true(!!results);
+        t.true(!!fields);
+    } finally {
+        await tests.remove('database', database);
+    }
 });
