@@ -7,7 +7,7 @@ require('../../scope/h1');
 const tests = require('../../lib/tests');
 const ssh = require('../../lib/ssh');
 
-const commonCreateParams = '--type website --image quay.io/hyperone/php-apache:7.2';
+const commonCreateParams = '--type website --image h1cr.io/website/php-apache:7.2';
 
 ava.serial('website life cycle', tests.resourceLifeCycle('website', {
     createParams: `--name ${tests.getName('website-life-cycle')} ${commonCreateParams} `,
@@ -144,16 +144,16 @@ const languages = {
     php: '<?php error_reporting(E_ALL); file_put_contents("/data/public/test.txt", "TOKEN"); ?>',
 };
 const images = {
-    'quay.io/hyperone/php-apache:7.2': {
+    'h1cr.io/website/php-apache:7.2': {
         code: languages.php,
     },
-    'quay.io/hyperone/php-apache:5.6': {
+    'h1cr.io/website/php-apache:5.6': {
         code: languages.php,
     },
 };
 
 ava.serial('website runtime access rights match of sftp', async t => {
-    const image = 'quay.io/hyperone/php-apache:7.2';
+    const image = 'h1cr.io/website/php-apache:7.2';
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     // Put code on website
