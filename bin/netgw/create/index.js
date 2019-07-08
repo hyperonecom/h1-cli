@@ -12,7 +12,7 @@ module.exports = resource => Cli.createCommand('create', {
     options: Object.assign(
         {},
         resource.options,
-        pickBy(resource.schema, field => field.onCreate)
+        pickBy(resource.schema, field => field.onCreate && !field.virtual)
     ),
     params: resource.params,
     handler: (args) => args.helpers.api

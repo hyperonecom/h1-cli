@@ -18,18 +18,22 @@
   * [h1 website log](#h1-website-log) - Live logs of website
   * [h1 website transfer](#h1-website-transfer) - Transfer website to other project
   * [h1 website credential](#h1-website-credential) - Manage your credentials to website
+    * [h1 website credential list](#h1-website-credential-list) - List credential of website
+    * [h1 website credential show](#h1-website-credential-show) - Show credential of website
+    * [h1 website credential delete](#h1-website-credential-delete) - Delete credential of website
     * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to website
       * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to website
       * [h1 website credential cert rename](#h1-website-credential-cert-rename) - Rename certificate to website
       * [h1 website credential cert list](#h1-website-credential-cert-list) - List certificate to website
       * [h1 website credential cert delete](#h1-website-credential-cert-delete) - Delete certificate to website
       * [h1 website credential cert add](#h1-website-credential-cert-add) - Add certificate to website
-    * [h1 website credential password](#h1-website-credential-password) - Manage your password to website
+      * [h1 website credential cert list](#h1-website-credential-cert-list) - List credential of certificate to website
+    * [h1 website credential password](#h1-website-credential-password) - Manage your password website
       * [h1 website credential password show](#h1-website-credential-password-show) - Show password to website
-      * [h1 website credential password list](#h1-website-credential-password-list) - List password to website
       * [h1 website credential password rename](#h1-website-credential-password-rename) - Rename password to website
       * [h1 website credential password delete](#h1-website-credential-password-delete) - Delete password to website
       * [h1 website credential password add](#h1-website-credential-password-add) - Add password to website
+      * [h1 website credential password list](#h1-website-credential-password-list) - List credential of password to website
   * [h1 website tag](#h1-website-tag) - Manage your tag
     * [h1 website tag list](#h1-website-tag-list) - List tag
     * [h1 website tag add](#h1-website-tag-add) - Add a tag to website
@@ -374,6 +378,65 @@ h1 website transfer --website test-website --new-project OtherProject
 
 Manage your credentials to website
 
+## h1 website credential list
+
+List credential of website
+
+### Syntax
+
+```h1 website credential list | --website WEBSITE```
+### Example
+
+```bash
+h1 website credential list --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website credential show
+
+Show credential of website
+
+### Syntax
+
+```h1 website credential show | --website WEBSITE --credential CREDENTIAL```
+### Example
+
+```bash
+h1 website credential show --credential my-credential
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of website ID or name |
+
+## h1 website credential delete
+
+Delete credential of website
+
+### Syntax
+
+```h1 website credential delete | --website WEBSITE --credential CREDENTIAL```
+### Example
+
+```bash
+h1 website credential delete --credential my-credential --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of website ID or name |
+
 ## h1 website credential cert
 
 Manage your certificate to website
@@ -485,9 +548,28 @@ h1 website credential cert add --website my-website --name my-key --sshkey my-ho
 | ```--sshkey SSHKEY``` |  | Public SSH key ID or name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
 
+## h1 website credential cert list
+
+List credential of certificate to website
+
+### Syntax
+
+```h1 website credential cert list | --website WEBSITE```
+### Example
+
+```bash
+h1 website credential cert list --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
 ## h1 website credential password
 
-Manage your password to website
+Manage your password website
 
 ## h1 website credential password show
 
@@ -508,25 +590,6 @@ h1 website credential password show --password my-password
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--password PASSWORD``` |  | Password to website ID or name |
-
-## h1 website credential password list
-
-List password to website
-
-### Syntax
-
-```h1 website credential password list | --website WEBSITE```
-### Example
-
-```bash
-h1 website credential password list --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website credential password rename
 
@@ -594,6 +657,25 @@ h1 website credential password add --name my-pass --password secret-password --w
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--password PASSWORD``` |  | Password. It will be generated and shown if it is not specified. |
+
+## h1 website credential password list
+
+List credential of password to website
+
+### Syntax
+
+```h1 website credential password list | --website WEBSITE```
+### Example
+
+```bash
+h1 website credential password list --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website tag
 

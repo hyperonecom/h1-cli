@@ -2,20 +2,25 @@
 
 const genericResource = require('bin/generic');
 
-module.exports = resource => {
+module.exports = parent => {
 
-    const category = genericResource({
+    const resource = {
         name: 'cert',
-        defaultQuery: resource.defaultQuery,
-        url: args => `${resource.url(args)}/certificate`,
+        defaultQuery: parent.defaultQuery,
+        url: args => `${parent.url(args)}/credential`,
         commands: ['show', 'rename', 'list', 'delete'],
-        options: resource.options,
-        title: `certificate to ${resource.title}`,
-        context: resource.context,
-        resource: resource,
-    });
+        options: parent.options,
+        title: `certificate to ${parent.resource.title}`,
+        context: parent.context,
+        deprecated: true,
+        credential_types: parent.credential_types,
+        resource: parent,
+    };
+
+    const category = genericResource(resource);
 
     category.addChild(require('./add')(resource));
+    category.addChild(require('./../listType')(resource, parent.name));
 
     return category;
 };

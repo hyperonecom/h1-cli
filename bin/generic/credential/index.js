@@ -2,8 +2,7 @@
 
 const genericResource = require('bin/generic/index');
 const text = require('../../../lib/text');
-
-const passwords_type = ['double-sha1', 'sha512'];
+const credentials = require('lib/credentials');
 
 module.exports = (resource) => {
 
@@ -18,13 +17,13 @@ module.exports = (resource) => {
     const defaults = {
         name: 'credential',
         defaultQuery: '[].{id:_id,name:name,type:type}',
-        url: args => `${resource.url(args)}/${args[resource.name]}/credential`,
-        commands: [],
+        url: args => `${resource.url(args)}/${args[resource.name]}`,
+        commands: ['list', 'show', 'delete'],
         options: options,
         plugins: resource.plugins,
         description: `Manage your credentials to ${resource.title}`,
         resource: resource,
-        title: resource.title,
+        title: `credential of ${resource.name}`,
         priority: 75,
         credential_types: resource.credential_types || [],
         context: {
@@ -36,12 +35,12 @@ module.exports = (resource) => {
     };
 
     const category = genericResource(defaults);
-    defaults.credential_types.forEach(type => {
-        if (passwords_type.includes(type)) {
-            category.addChild(require('./password')(defaults, type));
-        } else {
-            category.addChild(require(`./${type}`)(defaults, type));
-        }
+
+    ['certificate', 'password'].filter(kind =>
+        defaults.credential_types.some(type => credentials.types[kind].includes(type))
+    ).forEach(kind => {
+        category.addChild(require(`./${kind}`)(defaults));
     });
+
     return category;
 };

@@ -17,6 +17,15 @@ const schema = {
     //     defaultValue: 30,
     //     onCreate: true
     // },
+    credentials: {
+        virtual: true,
+        onCreate: false,
+    },
+    tags: {
+        virtual: true,
+        onCreate: true,
+        onUpdate: true,
+    },
 };
 
 const resource = {

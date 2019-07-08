@@ -23,6 +23,14 @@ const schema = {
         required: true,
         onCreate: true,
     },
+    credentials: {
+        virtual: true,
+        onCreate: true,
+    },
+    tags: {
+        virtual: true,
+        onCreate: true,
+    },
 };
 
 const resource = {

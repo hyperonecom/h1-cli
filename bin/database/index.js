@@ -16,6 +16,15 @@ const schema = {
         onCreate: true,
         destBody: 'service',
     },
+    credentials: {
+        virtual: true,
+        onCreate: false,
+    },
+    tags: {
+        virtual: true,
+        onCreate: true,
+        onUpdate: true,
+    },
 };
 const resource = {
     name: 'database',
@@ -27,7 +36,7 @@ const resource = {
     title: 'database',
     schema,
     dirname: __dirname,
-    credential_types: ['double-sha1'],
+    credential_types: ['mysql'],
 };
 
 const category = genericResource(resource);

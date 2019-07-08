@@ -13,12 +13,15 @@
   * [h1 log stream](#h1-log-stream) - Stream or read messages of log archive
   * [h1 log logger](#h1-log-logger) - Log messages to log archive
   * [h1 log credential](#h1-log-credential) - Manage your credentials to log archive
-    * [h1 log credential password](#h1-log-credential-password) - Manage your password to log archive
+    * [h1 log credential list](#h1-log-credential-list) - List credential of log
+    * [h1 log credential show](#h1-log-credential-show) - Show credential of log
+    * [h1 log credential delete](#h1-log-credential-delete) - Delete credential of log
+    * [h1 log credential password](#h1-log-credential-password) - Manage your password log archive
       * [h1 log credential password show](#h1-log-credential-password-show) - Show password to log archive
-      * [h1 log credential password list](#h1-log-credential-password-list) - List password to log archive
       * [h1 log credential password rename](#h1-log-credential-password-rename) - Rename password to log archive
       * [h1 log credential password delete](#h1-log-credential-password-delete) - Delete password to log archive
       * [h1 log credential password add](#h1-log-credential-password-add) - Add password to log archive
+      * [h1 log credential password list](#h1-log-credential-password-list) - List credential of password to log archive
   * [h1 log tag](#h1-log-tag) - Manage your tag
     * [h1 log tag list](#h1-log-tag-list) - List tag
     * [h1 log tag add](#h1-log-tag-add) - Add a tag to log archive
@@ -338,9 +341,68 @@ echo 'Log message' | h1 log logger --log my-log --token my-secret-token --hostna
 
 Manage your credentials to log archive
 
+## h1 log credential list
+
+List credential of log
+
+### Syntax
+
+```h1 log credential list | --log LOG```
+### Example
+
+```bash
+h1 log credential list --log my-log
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log LOG``` |  | Log archive ID or name |
+
+## h1 log credential show
+
+Show credential of log
+
+### Syntax
+
+```h1 log credential show | --log LOG --credential CREDENTIAL```
+### Example
+
+```bash
+h1 log credential show --credential my-credential
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log LOG``` |  | Log archive ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of log ID or name |
+
+## h1 log credential delete
+
+Delete credential of log
+
+### Syntax
+
+```h1 log credential delete | --log LOG --credential CREDENTIAL```
+### Example
+
+```bash
+h1 log credential delete --credential my-credential --log my-log
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log LOG``` |  | Log archive ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of log ID or name |
+
 ## h1 log credential password
 
-Manage your password to log archive
+Manage your password log archive
 
 ## h1 log credential password show
 
@@ -361,25 +423,6 @@ h1 log credential password show --password my-password
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
 | ```--password PASSWORD``` |  | Password to log archive ID or name |
-
-## h1 log credential password list
-
-List password to log archive
-
-### Syntax
-
-```h1 log credential password list | --log LOG```
-### Example
-
-```bash
-h1 log credential password list --log my-log
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
 
 ## h1 log credential password rename
 
@@ -447,6 +490,25 @@ h1 log credential password add --name my-pass --password secret-password --log m
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--password PASSWORD``` |  | Password. It will be generated and shown if it is not specified. |
+
+## h1 log credential password list
+
+List credential of password to log archive
+
+### Syntax
+
+```h1 log credential password list | --log LOG```
+### Example
+
+```bash
+h1 log credential password list --log my-log
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--log LOG``` |  | Log archive ID or name |
 
 ## h1 log tag
 

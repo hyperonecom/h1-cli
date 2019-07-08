@@ -17,6 +17,15 @@ const schema = {
         onCreate: true,
         destBody: 'service',
     },
+    credentials: {
+        virtual: true,
+        onCreate: true,
+    },
+    tags: {
+        virtual: true,
+        onCreate: true,
+        onUpdate: true,
+    },
 };
 
 const resource = {
