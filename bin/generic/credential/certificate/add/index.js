@@ -25,7 +25,7 @@ const options = {
 
 module.exports = resource => Cli.createCommand('add', {
     dirname: __dirname,
-    description: `Add certificate to ${resource.title}`,
+    description: `Add ${resource.title}`,
     plugins: resource.plugins,
     params: resource.params,
     resource: resource,
@@ -53,7 +53,7 @@ module.exports = resource => Cli.createCommand('add', {
         }
 
         return args.helpers.api
-            .post(args.$node.parent.config.url(args), body)
+            .post(resource.url(args), body)
             .then(result => args.helpers.sendOutput(args, result));
     },
 });

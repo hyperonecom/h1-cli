@@ -17,6 +17,11 @@ const schema = {
         required: true,
         onCreate: true,
     },
+    tags: {
+        virtual: true,
+        onCreate: true,
+        onUpdate: true,
+    },
 };
 
 const resource = {
@@ -58,7 +63,7 @@ category.addChild(require('./select')(childDefaults));
 category.addChild(require('./limits')(childDefaults));
 category.addChild(require('./logging')(childDefaults));
 
-category.addChild(require('bin/generic/credentials')(Object.assign(
+category.addChild(require('bin/generic/credential')(Object.assign(
     {}
     , childDefaults
     , {

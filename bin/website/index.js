@@ -31,6 +31,14 @@ const schema = {
         required: true,
         onCreate: true,
     },
+    credentials: {
+        virtual: true,
+        onCreate: true,
+    },
+    tags: {
+        virtual: true,
+        onCreate: true,
+    },
 };
 
 const resource = {
@@ -43,7 +51,7 @@ const resource = {
     title: 'website',
     dirname: __dirname,
     schema,
-    credential_types: ['certificate', 'sha512'],
+    credential_types: ['ssh', 'sha512'],
 };
 
 const category = genericResource(resource);

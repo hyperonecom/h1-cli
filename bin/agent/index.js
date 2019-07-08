@@ -18,6 +18,15 @@ const schema = {
         onCreate: true,
         destBody: 'service',
     },
+    credentials: {
+        virtual: true,
+        onCreate: true,
+    },
+    tags: {
+        virtual: true,
+        onCreate: true,
+        onUpdate: true,
+    },
 };
 
 const resource = {
@@ -30,7 +39,7 @@ const resource = {
     earlyAdoptersOnly: true,
     title: 'Agent',
     schema,
-    credential_types: ['certificate'],
+    credential_types: ['ssh'],
 };
 
 

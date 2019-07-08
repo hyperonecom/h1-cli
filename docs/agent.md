@@ -22,12 +22,16 @@
   * [h1 agent suspend](#h1-agent-suspend) - Suspend Agent
   * [h1 agent start](#h1-agent-start) - Start Agent
   * [h1 agent credential](#h1-agent-credential) - Manage your credentials to Agent
+    * [h1 agent credential list](#h1-agent-credential-list) - List credential of agent
+    * [h1 agent credential show](#h1-agent-credential-show) - Show credential of agent
+    * [h1 agent credential delete](#h1-agent-credential-delete) - Delete credential of agent
     * [h1 agent credential cert](#h1-agent-credential-cert) - Manage your certificate to Agent
       * [h1 agent credential cert show](#h1-agent-credential-cert-show) - Show certificate to Agent
       * [h1 agent credential cert rename](#h1-agent-credential-cert-rename) - Rename certificate to Agent
       * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List certificate to Agent
       * [h1 agent credential cert delete](#h1-agent-credential-cert-delete) - Delete certificate to Agent
       * [h1 agent credential cert add](#h1-agent-credential-cert-add) - Add certificate to Agent
+      * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List credential of certificate to Agent
   * [h1 agent tag](#h1-agent-tag) - Manage your tag
     * [h1 agent tag list](#h1-agent-tag-list) - List tag
     * [h1 agent tag add](#h1-agent-tag-add) - Add a tag to Agent
@@ -422,6 +426,65 @@ h1 agent start --agent my-agent
 
 Manage your credentials to Agent
 
+## h1 agent credential list
+
+List credential of agent
+
+### Syntax
+
+```h1 agent credential list | --agent AGENT```
+### Example
+
+```bash
+h1 agent credential list --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent credential show
+
+Show credential of agent
+
+### Syntax
+
+```h1 agent credential show | --agent AGENT --credential CREDENTIAL```
+### Example
+
+```bash
+h1 agent credential show --credential my-credential
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of agent ID or name |
+
+## h1 agent credential delete
+
+Delete credential of agent
+
+### Syntax
+
+```h1 agent credential delete | --agent AGENT --credential CREDENTIAL```
+### Example
+
+```bash
+h1 agent credential delete --credential my-credential --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of agent ID or name |
+
 ## h1 agent credential cert
 
 Manage your certificate to Agent
@@ -532,6 +595,25 @@ h1 agent credential cert add --agent my-agent --name my-key --sshkey my-home-ssh
 | ---- | ------- | ----------- |
 | ```--sshkey SSHKEY``` |  | Public SSH key ID or name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
+
+## h1 agent credential cert list
+
+List credential of certificate to Agent
+
+### Syntax
+
+```h1 agent credential cert list | --agent AGENT```
+### Example
+
+```bash
+h1 agent credential cert list --agent my-agent
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
 
 ## h1 agent tag
 

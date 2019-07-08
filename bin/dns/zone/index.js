@@ -19,7 +19,6 @@ const resource = {
     url: () => 'dns/zone',
     title: 'DNS zone',
     schema,
-    skipTag: true,
     dirname: __dirname,
     commands: ['create', 'list', 'show', 'delete'],
 };

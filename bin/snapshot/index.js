@@ -15,6 +15,11 @@ const schema = {
         required: true,
         onCreate: true,
     },
+    tags: {
+        virtual: true,
+        onCreate: true,
+        onUpdate: true,
+    },
 };
 
 const resource = {

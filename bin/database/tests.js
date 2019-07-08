@@ -7,7 +7,7 @@ const tests = require('../../lib/tests');
 const mysql = require('mysql2/promise');
 
 const mysqlQuery = async (database, password, query) => {
-    console.log(new Date(), `Execute query '${query}' on database'${database.fqdn}'`);
+    console.log(new Date(), `Execute query '${query}' on database '${database.fqdn}'`);
     const connection = await mysql.createConnection({
         host: database.fqdn,
         user: database._id,
@@ -23,7 +23,7 @@ const mysqlQuery = async (database, password, query) => {
 };
 
 const pgQuery = async (database, password, query) => {
-    console.log(new Date(), `Execute query '${query}' on database'${database.fqdn}'`);
+    console.log(new Date(), `Execute query '${query}' on database '${database.fqdn}'`);
     const client = new Client({
         user: database.id,
         password: password,
@@ -40,8 +40,8 @@ const pgQuery = async (database, password, query) => {
 };
 
 const query = {
-    'postgres:11': mysqlQuery,
-    'mysql:5.7': pgQuery,
+    'postgres:11': pgQuery,
+    'mysql:5.7': mysqlQuery,
 };
 
 ['postgres:11', 'mysql:5.7'].forEach(flavour => {
@@ -60,7 +60,8 @@ const query = {
 
     ava.serial(`database stop & start - ${flavour}`, async t => {
         const password = await tests.getToken();
-        const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour} --password ${password}`);
+        const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour}`);
+        await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database._id}  --password ${password}`);
         await query[flavour](database, password, 'SELECT 1');
         await tests.run(`database stop --database ${database._id}`);
         await t.throwsAsync(() => query[flavour](database, password, 'SELECT 1'));
@@ -74,9 +75,11 @@ const query = {
     });
 });
 
-ava.serial('database mysql 5.7 reachable', async t => {
+ava.serial('database reachable - mysql 5.7', async t => {
     const password = await tests.getToken();
-    const database = await tests.run(`database create --name ${tests.getName(t.title)} --type mysql:5.7 --password ${password}`);
+    const database = await tests.run(`database create --name ${tests.getName(t.title)} --type mysql:5.7`);
+    await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database._id}  --password ${password}`);
+
     try {
         const {results, fields} = await mysqlQuery(database, password, 'SELECT NOW()');
         t.true(!!results);
@@ -98,9 +101,10 @@ ava.serial('database mysql 5.7 reachable', async t => {
     }
 });
 
-ava.serial('database postgres:11 reachable', async t => {
+ava.serial('database reachable - postgres:11', async t => {
     const password = await tests.getToken();
-    const database = await tests.run(`database create --name ${tests.getName(t.title)} --type postgres:11 --password ${password}`);
+    const database = await tests.run(`database create --name ${tests.getName(t.title)} --type postgres:11`);
+    await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database._id}  --password ${password}`);
     try {
         const {results, fields} = await pgQuery(database, password, 'SELECT NOW()');
         t.true(!!results);

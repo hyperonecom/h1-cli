@@ -5,6 +5,7 @@ const Cli = require('lib/cli');
 const resource = {
     name: 'user',
     title: 'user',
+    credential_types: ['ssh', 'sha-512'],
 };
 
 const childDefaults = Object.assign({}, resource, {
@@ -23,9 +24,7 @@ const category = Cli.createCategory(resource.name, {
 
 category.addChild(require('./create'));
 
-// category.addChild(require('./access')(childDefaults));
-
-category.addChild(require('bin/generic/credentials')(Object.assign(
+category.addChild(require('bin/generic/credential')(Object.assign(
     {},
     resource,
     childDefaults,
