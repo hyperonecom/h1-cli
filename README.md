@@ -25,11 +25,17 @@ The installation is basically limited to downloading the executable copy of the 
 
 ### Linux environment
 
-Run the downloaded binary file after granting executables rights:
+Download the *h1-linux.tar.gz* file from [Releases] using wget:
 
 ```bash
-$ chmod +x h1_client.bin
-$ ./h1_client.bin
+$ wget https://github.com/hyperonecom/h1-cli/releases/latest/download/h1-linux.tar.gz
+```
+
+Then unpack the downloaded archive:
+
+```bash
+$ tar -xzvf h1-linux.tar.gz
+$ ./h1
 ```
 
 The application should work correctly without installing additional libraries / packages.
@@ -39,24 +45,93 @@ If you intend to use the software constantly, you can install for the user or at
 Installation for the user can be carried out by:
 
 ```bash
-$ cp h1_client.bin ~/.local/bin/h1
+$ cp h1 ~/.local/bin/h1
 $ h1
 ```
 
 Installation at the system level can be carried out by:
 
 ```bash
-$ cp h1_client.bin /usr/local/bin/h1
+$ sudo cp h1 /usr/local/bin/h1
+$ h1
+```
+
+### Alpine environment
+
+You need to install *libstdc++* package using apk:
+
+```bash
+$ sudo apk add libstdc++
+```
+
+Download the *h1-alpine.tar.gz* file from [Releases] using wget:
+
+```bash
+$ wget https://github.com/hyperonecom/h1-cli/releases/latest/download/h1-alpine.tar.gz
+```
+
+Then unpack the downloaded archive:
+
+```bash
+$ tar -xzvf h1-alpine.tar.gz
+$ ./h1
+```
+
+The application should work correctly.
+
+If you intend to use the software constantly, you can install at the system level.
+
+Installation at the system level can be carried out by:
+
+```bash
+$ sudo cp h1 /usr/local/bin/h1
 $ h1
 ```
 
 ### Windows environment
 
-> Introduction for Windows requires development taking into account the specificity of the platform.
+Download the *h1-win.zip* file from [Releases] using Invoke-WebRequest in Powershell:
+
+```powershell
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+Invoke-WebRequest https://github.com/hyperonecom/h1-cli/releases/latest/download/h1-win.zip -OutFile h1.zip
+```
+Then unpack the downloaded archive:
+
+```powershell
+Expand-Archive -Path h1.zip
+./h1
+```
+
+The application should work correctly without installing additional libraries / packages.
+
+If you intend to use the software constantly, you can add CLI to environment variables for the user or at the system level.
 
 ### macOS environment
 
-> Introduction for the macOS system requires development taking into account the specificity of the platform.
+Download the *h1-macos.tar.gz* file from [Releases] using wget:
+
+```bash
+$ wget https://github.com/hyperonecom/h1-cli/releases/latest/download/h1-macos.tar.gz
+```
+
+Then unpack the downloaded archive:
+
+```bash
+$ tar -xzvf h1-macos.tar.gz
+$ ./h1
+```
+
+The application should work correctly without installing additional libraries / packages.
+
+If you intend to use the software constantly, you can install at the system level.
+
+Installation at the system level can be carried out by:
+
+```bash
+$ sudo cp h1 /usr/local/bin/h1
+$ h1
+```
 
 ### Docker container
 
