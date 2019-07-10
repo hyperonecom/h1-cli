@@ -2,7 +2,7 @@
 
 const Cli = require('lib/cli');
 const fs = require('lib/fs');
-const {password_types} = require('lib/credentials');
+const {hashPassword} = require('lib/credentials');
 const genericDefaults = require('bin/generic/defaults');
 
 const options = {
@@ -86,7 +86,6 @@ module.exports = resource => Cli.createCommand('create', {
     dirname: __dirname,
     priority: 25,
     handler: async (args) => {
-
         const newVM = {
             name: args.name,
             service: args.type,
@@ -94,7 +93,7 @@ module.exports = resource => Cli.createCommand('create', {
         };
 
         if (args.password) {
-            newVM.password = password_types.unix.hash(args.password);
+            newVM.password = await hashPassword(args.password, ['unix']);
         }
 
         if (args.username) {

@@ -18,7 +18,7 @@ module.exports = (resource) => {
         name: 'credential',
         defaultQuery: '[].{id:_id,name:name,type:type}',
         url: args => `${resource.url(args)}/${args[resource.name]}`,
-        commands: ['list', 'show', 'delete'],
+        commands: [],
         options: options,
         plugins: resource.plugins,
         description: `Manage your credentials to ${resource.title}`,
@@ -35,6 +35,12 @@ module.exports = (resource) => {
     };
 
     const category = genericResource(defaults);
+
+    ['list', 'show'].forEach(cmd => {
+        category.addChild(require(`bin/generic/${cmd}`)(Object.assign({}, defaults, {
+            url: args => `${resource.url(args)}/${args[resource.name]}/credential`,
+        })));
+    });
 
     ['certificate', 'password'].filter(kind =>
         defaults.credential_types.some(type => credentials.types[kind].includes(type))

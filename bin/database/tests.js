@@ -32,10 +32,10 @@ const pgQuery = async (database, password, query) => {
     });
     await client.connect();
     try {
-        const {results, fields} = await client.query(query);
+        const {rows: results, fields} = await client.query(query);
         return {results, fields};
     } finally {
-        await client.close();
+        await client.end();
     }
 };
 
@@ -49,14 +49,6 @@ const query = {
         createParams: `--name ${tests.getName('database-life-cycle')} --type ${flavour} `,
         stateCreated: 'Running',
     }));
-
-    ava.serial(`database credentials password life cycle - ${flavour}`, async t => {
-        const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour}`);
-
-        await tests.passwordLifeCycle(t, 'database', database);
-
-        await tests.remove('database', database);
-    });
 
     ava.serial(`database stop & start - ${flavour}`, async t => {
         const password = await tests.getToken();
@@ -75,41 +67,52 @@ const query = {
     });
 });
 
-ava.serial('database reachable - mysql 5.7', async t => {
-    const password = await tests.getToken();
-    const database = await tests.run(`database create --name ${tests.getName(t.title)} --type mysql:5.7`);
-    await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database._id}  --password ${password}`);
+['mysql:5.7'].forEach(flavour => {
+    ava.serial(`database credentials password life cycle - ${flavour}`, async t => {
+        const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour}`);
 
-    try {
-        const {results, fields} = await mysqlQuery(database, password, 'SELECT NOW()');
-        t.true(!!results);
-        t.true(!!fields);
+        await tests.passwordLifeCycle(t, 'database', database);
 
-        const {results: results_self_ssl, fields:fields_self_ssl} = await mysqlQuery(database, password, 'SELECT NOW()', {
-            ssl: {rejectUnauthorized: false},
-        });
-        t.true(!!results_self_ssl);
-        t.true(!!fields_self_ssl);
-
-        const {results: results_ssl, fields:fields_ssl} = await mysqlQuery(database, password, 'SELECT NOW()', {
-            ssl: {},
-        });
-        t.true(!!results_ssl);
-        t.true(!!fields_ssl);
-    } finally {
         await tests.remove('database', database);
-    }
+    });
+    ava.serial(`database reachable - ${flavour}`, async t => {
+        const password = await tests.getToken();
+        const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour}`);
+        await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database._id}  --password ${password}`);
+
+        try {
+            const {results, fields} = await mysqlQuery(database, password, 'SELECT NOW()');
+            t.true(!!results);
+            t.true(!!fields);
+
+            const {results: results_self_ssl, fields: fields_self_ssl} = await mysqlQuery(database, password, 'SELECT NOW()', {
+                ssl: {rejectUnauthorized: false},
+            });
+            t.true(!!results_self_ssl);
+            t.true(!!fields_self_ssl);
+
+            const {results: results_ssl, fields: fields_ssl} = await mysqlQuery(database, password, 'SELECT NOW()', {
+                ssl: {},
+            });
+            t.true(!!results_ssl);
+            t.true(!!fields_ssl);
+        } finally {
+            await tests.remove('database', database);
+        }
+    });
 });
 
-ava.serial('database reachable - postgres:11', async t => {
-    const password = await tests.getToken();
-    const database = await tests.run(`database create --name ${tests.getName(t.title)} --type postgres:11`);
-    await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database._id}  --password ${password}`);
-    try {
-        const {results, fields} = await pgQuery(database, password, 'SELECT NOW()');
-        t.true(!!results);
-        t.true(!!fields);
-    } finally {
-        await tests.remove('database', database);
-    }
+['postgres:11'].forEach(flavour => {
+    ava.serial(`database reachable - ${flavour}`, async t => {
+        const password = await tests.getToken();
+        const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour}`);
+        await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database._id}  --password ${password}`);
+        try {
+            const {results, fields} = await pgQuery(database, password, 'SELECT NOW()');
+            t.true(!!results);
+            t.true(!!fields);
+        } finally {
+            await tests.remove('database', database);
+        }
+    });
 });

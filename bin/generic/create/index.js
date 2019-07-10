@@ -29,7 +29,7 @@ module.exports = resource => {
 
             if (resource.schema.credentials) {
                 const services = await args.helpers.api.get('/service/', {
-                    resource: resource.name,
+                    resource: resource.apiName || resource.name,
                     type: 'flavour',
                     name: args.type,
                 });

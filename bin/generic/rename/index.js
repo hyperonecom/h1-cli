@@ -24,7 +24,7 @@ module.exports = resource => {
         resource: resource,
         options: Object.assign({}, resource.options, options),
         handler: args => args.helpers.api
-            .patch(`${args.$node.parent.config.url(args)}/${args[resource.name]}`, {
+            .patch(`${resource.url(args)}/${args[resource.name]}`, {
                 name: args['new-name'],
             })
             .then(result => args.helpers.sendOutput(args, result)),

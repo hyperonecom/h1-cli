@@ -11,7 +11,7 @@ module.exports = (resource, kind) => Cli.createCommand('list', {
     options: resource.options,
     context: resource.context,
     handler: async args => {
-        const credentials = await args.helpers.api.get(resource.url(args));
+        const credentials = await args.helpers.api.get(`${resource.url(args)}/credential`);
         return args.helpers.sendOutput(args, credentials
             .filter(x => types[kind].includes(x.type))
         );

@@ -20,20 +20,32 @@
   * [h1 website credential](#h1-website-credential) - Manage your credentials to website
     * [h1 website credential list](#h1-website-credential-list) - List credential of website
     * [h1 website credential show](#h1-website-credential-show) - Show credential of website
-    * [h1 website credential delete](#h1-website-credential-delete) - Delete credential of website
     * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate to website
+      * [h1 website credential cert list](#h1-website-credential-cert-list) - List certificate to website
       * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate to website
       * [h1 website credential cert rename](#h1-website-credential-cert-rename) - Rename certificate to website
-      * [h1 website credential cert list](#h1-website-credential-cert-list) - List certificate to website
       * [h1 website credential cert delete](#h1-website-credential-cert-delete) - Delete certificate to website
       * [h1 website credential cert add](#h1-website-credential-cert-add) - Add certificate to website
       * [h1 website credential cert list](#h1-website-credential-cert-list) - List credential of certificate to website
     * [h1 website credential password](#h1-website-credential-password) - Manage your password website
+      * [h1 website credential password list](#h1-website-credential-password-list) - List password to website
+      * [h1 website credential password show](#h1-website-credential-password-show) - Show password to website
+      * [h1 website credential password delete](#h1-website-credential-password-delete) - Delete password to website
+      * [h1 website credential password history](#h1-website-credential-password-history) - History of password to website
+      * [h1 website credential password rename](#h1-website-credential-password-rename) - Rename password to website
+      * [h1 website credential password service](#h1-website-credential-password-service) - Manage your services of password to website
+        * [h1 website credential password service list](#h1-website-credential-password-service-list) - List service for password to website
+        * [h1 website credential password service show](#h1-website-credential-password-service-show) - Show service for password to website
+      * [h1 website credential password list](#h1-website-credential-password-list) - List password to website
       * [h1 website credential password show](#h1-website-credential-password-show) - Show password to website
       * [h1 website credential password rename](#h1-website-credential-password-rename) - Rename password to website
       * [h1 website credential password delete](#h1-website-credential-password-delete) - Delete password to website
       * [h1 website credential password add](#h1-website-credential-password-add) - Add password to website
       * [h1 website credential password list](#h1-website-credential-password-list) - List credential of password to website
+      * [h1 website credential password tag](#h1-website-credential-password-tag) - Manage your tag
+        * [h1 website credential password tag list](#h1-website-credential-password-tag-list) - List tag
+        * [h1 website credential password tag add](#h1-website-credential-password-tag-add) - Add a tag to password to website
+        * [h1 website credential password tag delete](#h1-website-credential-password-tag-delete) - Delete a tag of password to website
   * [h1 website tag](#h1-website-tag) - Manage your tag
     * [h1 website tag list](#h1-website-tag-list) - List tag
     * [h1 website tag add](#h1-website-tag-add) - Add a tag to website
@@ -417,17 +429,21 @@ h1 website credential show --credential my-credential
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--credential CREDENTIAL``` |  | Credential of website ID or name |
 
-## h1 website credential delete
+## h1 website credential cert
 
-Delete credential of website
+Manage your certificate to website
+
+## h1 website credential cert list
+
+List certificate to website
 
 ### Syntax
 
-```h1 website credential delete | --website WEBSITE --credential CREDENTIAL```
+```h1 website credential cert list | --website WEBSITE```
 ### Example
 
 ```bash
-h1 website credential delete --credential my-credential --website my-website
+h1 website credential cert list --website my-website
 ```
 
 ### Required arguments
@@ -435,11 +451,6 @@ h1 website credential delete --credential my-credential --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
-| ```--credential CREDENTIAL``` |  | Credential of website ID or name |
-
-## h1 website credential cert
-
-Manage your certificate to website
 
 ## h1 website credential cert show
 
@@ -481,25 +492,6 @@ h1 website credential cert rename --cert my-cert --new-name my-renamed-cert --we
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--cert CERT``` |  | Certificate to website ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
-
-## h1 website credential cert list
-
-List certificate to website
-
-### Syntax
-
-```h1 website credential cert list | --website WEBSITE```
-### Example
-
-```bash
-h1 website credential cert list --website my-website
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website credential cert delete
 
@@ -570,6 +562,170 @@ h1 website credential cert list --website my-website
 ## h1 website credential password
 
 Manage your password website
+
+## h1 website credential password list
+
+List password to website
+
+### Syntax
+
+```h1 website credential password list | --website WEBSITE```
+### Example
+
+```bash
+h1 website credential password list --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website credential password show
+
+Show password to website
+
+### Syntax
+
+```h1 website credential password show | --website WEBSITE --password PASSWORD```
+### Example
+
+```bash
+h1 website credential password show --password my-password
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--password PASSWORD``` |  | Password to website ID or name |
+
+## h1 website credential password delete
+
+Delete password to website
+
+### Syntax
+
+```h1 website credential password delete | --website WEBSITE --password PASSWORD```
+### Example
+
+```bash
+h1 website credential password delete --password my-password --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--password PASSWORD``` |  | Password to website ID or name |
+
+## h1 website credential password history
+
+History of password to website
+
+### Syntax
+
+```h1 website credential password history | --password PASSWORD --website WEBSITE```
+### Example
+
+```bash
+h1 website credential password history --password my-password
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--password PASSWORD``` |  | Password to website ID or name |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website credential password rename
+
+Rename password to website
+
+### Syntax
+
+```h1 website credential password rename | --website WEBSITE --password PASSWORD --new-name NEW-NAME```
+### Example
+
+```bash
+h1 website credential password rename --password my-password --new-name my-renamed-password --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--password PASSWORD``` |  | Password to website ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+## h1 website credential password service
+
+Manage your services of password to website
+
+## h1 website credential password service list
+
+List service for password to website
+
+### Syntax
+
+```h1 website credential password service list | --website WEBSITE --password PASSWORD```
+### Example
+
+```bash
+h1 website credential password service list --password test-password
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--password PASSWORD``` |  | Password to website ID or name |
+
+## h1 website credential password service show
+
+Show service for password to website
+
+### Syntax
+
+```h1 website credential password service show | --website WEBSITE --password PASSWORD --service SERVICE```
+### Example
+
+```bash
+h1 website credential password service show --service my-service --password my-password
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--password PASSWORD``` |  | Password to website ID or name |
+| ```--service SERVICE``` |  | Service for password to website ID or name |
+
+## h1 website credential password list
+
+List password to website
+
+### Syntax
+
+```h1 website credential password list | --website WEBSITE```
+### Example
+
+```bash
+h1 website credential password list --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website credential password show
 
@@ -676,6 +832,77 @@ h1 website credential password list --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website credential password tag
+
+Manage your tag
+
+## h1 website credential password tag list
+
+List tag
+
+### Syntax
+
+```h1 website credential password tag list | --website WEBSITE --password PASSWORD```
+### Example
+
+```bash
+h1 website credential password tag list --password my-password
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--password PASSWORD``` |  | Password to website ID or name |
+
+## h1 website credential password tag add
+
+Add a tag to password to website
+
+### Syntax
+
+```h1 website credential password tag add | --website WEBSITE --password PASSWORD [--tag TAG [--tag TAG ...]]```
+### Example
+
+```bash
+h1 website credential password tag add --password test-password --tag prod=true
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--password PASSWORD``` |  | Password to website ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 website credential password tag delete
+
+Delete a tag of password to website
+
+### Syntax
+
+```h1 website credential password tag delete | --tag TAG --website WEBSITE --password PASSWORD```
+### Example
+
+```bash
+h1 website credential password tag delete --password test-password --tag prod
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--tag TAG``` |  | Tag |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--password PASSWORD``` |  | Password to website ID or name |
 
 ## h1 website tag
 

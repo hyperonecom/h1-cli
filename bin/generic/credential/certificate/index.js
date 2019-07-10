@@ -7,11 +7,12 @@ module.exports = parent => {
     const resource = {
         name: 'cert',
         defaultQuery: parent.defaultQuery,
-        url: args => `${parent.url(args)}/credential`,
-        commands: ['show', 'rename', 'list', 'delete'],
+        url: parent.url,
+        commands: [],
         options: parent.options,
         title: `certificate to ${parent.resource.title}`,
         context: parent.context,
+        plugins: parent.plugins,
         deprecated: true,
         credential_types: parent.credential_types,
         resource: parent,
@@ -19,8 +20,14 @@ module.exports = parent => {
 
     const category = genericResource(resource);
 
+    ['list', 'show', 'rename', 'delete'].forEach(cmd => {
+        category.addChild(require(`bin/generic/${cmd}`)(Object.assign({}, resource, {
+            url: args => `${resource.url(args)}/credential/certificate`,
+        })));
+    });
+
     category.addChild(require('./add')(resource));
-    category.addChild(require('./../listType')(resource, parent.name));
+    category.addChild(require('./../listType')(resource, 'certificate'));
 
     return category;
 };
