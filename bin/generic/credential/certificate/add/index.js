@@ -53,7 +53,7 @@ module.exports = resource => Cli.createCommand('add', {
         }
 
         return args.helpers.api
-            .post(resource.url(args), body)
+            .post(`${resource.url(args)}/credential`, body)
             .then(result => args.helpers.sendOutput(args, result));
     },
 });

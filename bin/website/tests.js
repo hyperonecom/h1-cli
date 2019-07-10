@@ -106,7 +106,7 @@ ava.serial('website put index via SFTP & ssh-key', async t => {
 });
 
 
-ava.serial('website credentials cert life cycle', async t => {
+ava.serial('website credential cert life cycle', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
 
     await tests.credentialsLifeCycle('website credential cert', {
@@ -120,7 +120,7 @@ ava.serial('website credentials cert life cycle', async t => {
     await tests.remove('website', website);
 });
 
-ava.serial('website credentials password life cycle', async t => {
+ava.serial('website credential password life cycle', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
 
     await tests.passwordLifeCycle(t, 'website', website);

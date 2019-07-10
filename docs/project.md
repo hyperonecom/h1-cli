@@ -40,10 +40,12 @@
     * [h1 project logging enable](#h1-project-logging-enable) - Enable compliance log
     * [h1 project logging disable](#h1-project-logging-disable) - Disable compliance log
     * [h1 project logging show](#h1-project-logging-show) - Show compliance log
-  * [h1 project credential](#h1-project-credential) - Manage your credentials to project
-    * [h1 project credential list](#h1-project-credential-list) - List credential of project
-    * [h1 project credential show](#h1-project-credential-show) - Show credential of project
-    * [h1 project credential delete](#h1-project-credential-delete) - Delete credential of project
+  * [h1 project credentials](#h1-project-credentials) - Manage your credentials
+    * [h1 project credentials show](#h1-project-credentials-show) - Show credentials
+    * [h1 project credentials list](#h1-project-credentials-list) - List credentials
+    * [h1 project credentials delete](#h1-project-credentials-delete) - Delete credentials
+    * [h1 project credentials rename](#h1-project-credentials-rename) - Rename credentials
+    * [h1 project credentials add](#h1-project-credentials-add) - Add public SSH key for project
   * [h1 project tag](#h1-project-tag) - Manage your tag
     * [h1 project tag list](#h1-project-tag-list) - List tag
     * [h1 project tag add](#h1-project-tag-add) - Add a tag to project
@@ -858,68 +860,130 @@ h1 project logging show --project MyProject
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
-## h1 project credential
+## h1 project credentials
 
-Manage your credentials to project
+Manage your credentials
 
-## h1 project credential list
+## h1 project credentials show
 
-List credential of project
+Show credentials
 
 ### Syntax
 
-```h1 project credential list | --project PROJECT```
+```h1 project credentials show | --credentials CREDENTIALS [--project PROJECT]```
 ### Example
 
 ```bash
-h1 project credential list --project my-project
+h1 project credentials show --credentials my-credentials
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
-## h1 project credential show
+### Optional arguments
 
-Show credential of project
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project credentials list
+
+List credentials
 
 ### Syntax
 
-```h1 project credential show | --project PROJECT --credential CREDENTIAL```
+```h1 project credentials list | [--project PROJECT]```
 ### Example
 
 ```bash
-h1 project credential show --credential my-credential
+h1 project credentials list --project my-project
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project credentials delete
+
+Delete credentials
+
+### Syntax
+
+```h1 project credentials delete | --credentials CREDENTIALS [--project PROJECT]```
+### Example
+
+```bash
+h1 project credentials delete --credentials my-credentials --project my-project
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-| ```--credential CREDENTIAL``` |  | Credential of project ID or name |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
-## h1 project credential delete
+### Optional arguments
 
-Delete credential of project
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project credentials rename
+
+Rename credentials
 
 ### Syntax
 
-```h1 project credential delete | --project PROJECT --credential CREDENTIAL```
+```h1 project credentials rename | --credentials CREDENTIALS --new-name NEW-NAME [--project PROJECT]```
 ### Example
 
 ```bash
-h1 project credential delete --credential my-credential --project my-project
+h1 project credentials rename --credentials my-credentials --new-name my-renamed-credentials --project my-project
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-| ```--credential CREDENTIAL``` |  | Credential of project ID or name |
+| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
+
+## h1 project credentials add
+
+Add public SSH key for project
+
+### Syntax
+
+```h1 project credentials add | --name NAME --sshkey-file SSHKEY-FILE [--project PROJECT]```
+### Example
+
+```bash
+h1 project credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub --project my-project
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Name |
+| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project tag
 

@@ -24,11 +24,10 @@
   * [h1 agent credential](#h1-agent-credential) - Manage your credentials to Agent
     * [h1 agent credential list](#h1-agent-credential-list) - List credential of agent
     * [h1 agent credential show](#h1-agent-credential-show) - Show credential of agent
-    * [h1 agent credential delete](#h1-agent-credential-delete) - Delete credential of agent
     * [h1 agent credential cert](#h1-agent-credential-cert) - Manage your certificate to Agent
+      * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List certificate to Agent
       * [h1 agent credential cert show](#h1-agent-credential-cert-show) - Show certificate to Agent
       * [h1 agent credential cert rename](#h1-agent-credential-cert-rename) - Rename certificate to Agent
-      * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List certificate to Agent
       * [h1 agent credential cert delete](#h1-agent-credential-cert-delete) - Delete certificate to Agent
       * [h1 agent credential cert add](#h1-agent-credential-cert-add) - Add certificate to Agent
       * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List credential of certificate to Agent
@@ -465,17 +464,21 @@ h1 agent credential show --credential my-credential
 | ```--agent AGENT``` |  | Agent ID or name |
 | ```--credential CREDENTIAL``` |  | Credential of agent ID or name |
 
-## h1 agent credential delete
+## h1 agent credential cert
 
-Delete credential of agent
+Manage your certificate to Agent
+
+## h1 agent credential cert list
+
+List certificate to Agent
 
 ### Syntax
 
-```h1 agent credential delete | --agent AGENT --credential CREDENTIAL```
+```h1 agent credential cert list | --agent AGENT```
 ### Example
 
 ```bash
-h1 agent credential delete --credential my-credential --agent my-agent
+h1 agent credential cert list --agent my-agent
 ```
 
 ### Required arguments
@@ -483,11 +486,6 @@ h1 agent credential delete --credential my-credential --agent my-agent
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
-| ```--credential CREDENTIAL``` |  | Credential of agent ID or name |
-
-## h1 agent credential cert
-
-Manage your certificate to Agent
 
 ## h1 agent credential cert show
 
@@ -529,25 +527,6 @@ h1 agent credential cert rename --cert my-cert --new-name my-renamed-cert --agen
 | ```--agent AGENT``` |  | Agent ID or name |
 | ```--cert CERT``` |  | Certificate to Agent ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
-
-## h1 agent credential cert list
-
-List certificate to Agent
-
-### Syntax
-
-```h1 agent credential cert list | --agent AGENT```
-### Example
-
-```bash
-h1 agent credential cert list --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
 
 ## h1 agent credential cert delete
 
