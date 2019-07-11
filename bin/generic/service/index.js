@@ -21,7 +21,7 @@ module.exports = (parent) => {
     };
 
     const resource = {
-        title: `service for ${parent.title}`,
+        title: `Service for ${parent.title}`,
         name: 'service',
         url: args => `${parent.url(args)}/${args[parent.name]}/services`,
         commands: ['show', 'list'],

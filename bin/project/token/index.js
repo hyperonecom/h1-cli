@@ -13,7 +13,7 @@ module.exports = parent => {
         options: parent.options,
         commands: ['show', 'list', 'delete', 'rename'],
         plugins: parent.plugins,
-        title: 'token',
+        title: 'Token',
         dirname: __dirname,
         context: {
             historyParams: '--project my-project',

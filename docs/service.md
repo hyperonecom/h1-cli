@@ -1,7 +1,7 @@
 # TOC
 
-  * [h1 service show](#h1-service-show) - Show service
-  * [h1 service list](#h1-service-list) - List service
+  * [h1 service show](#h1-service-show) - Show Service
+  * [h1 service list](#h1-service-list) - List Service
 
 
 # Specification
@@ -12,7 +12,7 @@ Explore available services
 
 ## h1 service show
 
-Show service
+Show Service
 
 ### Syntax
 
@@ -31,7 +31,7 @@ h1 service show --service my-service
 
 ## h1 service list
 
-List service
+List Service
 
 ### Syntax
 

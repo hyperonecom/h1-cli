@@ -7,16 +7,16 @@
   * [h1 registry history](#h1-registry-history) - History of Registry
   * [h1 registry rename](#h1-registry-rename) - Rename Registry
   * [h1 registry service](#h1-registry-service) - Manage your services of Registry
-    * [h1 registry service list](#h1-registry-service-list) - List service for Registry
-    * [h1 registry service show](#h1-registry-service-show) - Show service for Registry
+    * [h1 registry service list](#h1-registry-service-list) - List Service for Registry
+    * [h1 registry service show](#h1-registry-service-show) - Show Service for Registry
   * [h1 registry start](#h1-registry-start) - Start Registry
   * [h1 registry stop](#h1-registry-stop) - Stop Registry
   * [h1 registry transfer](#h1-registry-transfer) - Transfer Registry to other project
-  * [h1 registry repository](#h1-registry-repository) - Manage your Repository of Registry
-    * [h1 registry repository list](#h1-registry-repository-list) - List Repository of Registry
-    * [h1 registry repository tag](#h1-registry-repository-tag) - Manage your Tag in repository
-      * [h1 registry repository tag list](#h1-registry-repository-tag-list) - List Tag in repository
-      * [h1 registry repository tag delete](#h1-registry-repository-tag-delete) - Delete Tag in repository
+  * [h1 registry repository](#h1-registry-repository) - Manage your repository of Registry
+    * [h1 registry repository list](#h1-registry-repository-list) - List repository of Registry
+    * [h1 registry repository tag](#h1-registry-repository-tag) - Manage your tag in repository
+      * [h1 registry repository tag list](#h1-registry-repository-tag-list) - List tag in repository
+      * [h1 registry repository tag delete](#h1-registry-repository-tag-delete) - Delete tag in repository
   * [h1 registry credential](#h1-registry-credential) - Manage your credentials to Registry
     * [h1 registry credential list](#h1-registry-credential-list) - List credential of registry
     * [h1 registry credential show](#h1-registry-credential-show) - Show credential of registry
@@ -27,8 +27,8 @@
       * [h1 registry credential password history](#h1-registry-credential-password-history) - History of password to Registry
       * [h1 registry credential password rename](#h1-registry-credential-password-rename) - Rename password to Registry
       * [h1 registry credential password service](#h1-registry-credential-password-service) - Manage your services of password to Registry
-        * [h1 registry credential password service list](#h1-registry-credential-password-service-list) - List service for password to Registry
-        * [h1 registry credential password service show](#h1-registry-credential-password-service-show) - Show service for password to Registry
+        * [h1 registry credential password service list](#h1-registry-credential-password-service-list) - List Service for password to Registry
+        * [h1 registry credential password service show](#h1-registry-credential-password-service-show) - Show Service for password to Registry
       * [h1 registry credential password list](#h1-registry-credential-password-list) - List password to Registry
       * [h1 registry credential password show](#h1-registry-credential-password-show) - Show password to Registry
       * [h1 registry credential password rename](#h1-registry-credential-password-rename) - Rename password to Registry
@@ -196,7 +196,7 @@ Manage your services of Registry
 
 ## h1 registry service list
 
-List service for Registry
+List Service for Registry
 
 ### Syntax
 
@@ -215,7 +215,7 @@ h1 registry service list --registry test-registry
 
 ## h1 registry service show
 
-Show service for Registry
+Show Service for Registry
 
 ### Syntax
 
@@ -293,7 +293,7 @@ h1 registry transfer --registry test-registry --new-project OtherProject
 
 ## h1 registry repository
 
-Manage your Repository of Registry
+Manage your repository of Registry
 
 ### Examples
 
@@ -316,7 +316,7 @@ Note (2): To login to registry using Docker use your username as login and passw
 
 ## h1 registry repository list
 
-List Repository of Registry
+List repository of Registry
 
 ### Syntax
 
@@ -335,11 +335,11 @@ h1 registry repository list
 
 ## h1 registry repository tag
 
-Manage your Tag in repository
+Manage your tag in repository
 
 ## h1 registry repository tag list
 
-List Tag in repository
+List tag in repository
 
 ### Syntax
 
@@ -359,7 +359,7 @@ h1 registry repository tag list
 
 ## h1 registry repository tag delete
 
-Delete Tag in repository
+Delete tag in repository
 
 ### Syntax
 
@@ -531,7 +531,7 @@ Manage your services of password to Registry
 
 ## h1 registry credential password service list
 
-List service for password to Registry
+List Service for password to Registry
 
 ### Syntax
 
@@ -551,7 +551,7 @@ h1 registry credential password service list --password test-password
 
 ## h1 registry credential password service show
 
-Show service for password to Registry
+Show Service for password to Registry
 
 ### Syntax
 

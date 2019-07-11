@@ -5,7 +5,7 @@ const text = require('lib/text');
 
 module.exports = resource => {
     const category = Cli.createCategory('firewall', {
-        description: `Manage firewall of ${resource.title}`,
+        description: `Manage Firewall of ${resource.title}`,
         defaultQuery: resource.defaultQuery,
     });
 

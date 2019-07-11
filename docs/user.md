@@ -6,7 +6,7 @@
     * [h1 user credentials list](#h1-user-credentials-list) - List credentials
     * [h1 user credentials delete](#h1-user-credentials-delete) - Delete credentials
     * [h1 user credentials rename](#h1-user-credentials-rename) - Rename credentials
-    * [h1 user credentials add](#h1-user-credentials-add) - Add public SSH key for user
+    * [h1 user credentials add](#h1-user-credentials-add) - Add public SSH key for User
   * [h1 user 2fa](#h1-user-2fa) - Manage two factor authentication
     * [h1 user 2fa enable](#h1-user-2fa-enable) - Enable factor of authentication
     * [h1 user 2fa disable](#h1-user-2fa-disable) - Disable factor of authentication
@@ -17,7 +17,7 @@
 
 ## h1 user
 
-Manage your user
+Manage your User
 
 ## h1 user create
 
@@ -109,7 +109,7 @@ h1 user credentials rename --credentials my-credentials --new-name my-renamed-cr
 
 ## h1 user credentials add
 
-Add public SSH key for user
+Add public SSH key for User
 
 ### Syntax
 

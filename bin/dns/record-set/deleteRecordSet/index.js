@@ -7,7 +7,7 @@ const formatRecordName = require('../../lib').formatRecordName;
 
 const options = {
     name: {
-        description: 'Record Set name',
+        description: 'Record set name',
         type: 'string',
         required: true,
     },
@@ -15,7 +15,7 @@ const options = {
 
 module.exports = (resource) => Cli.createCommand('delete', {
     dirname: __dirname,
-    description: 'Delete record-set',
+    description: 'Delete record set',
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options),
     resource: resource,

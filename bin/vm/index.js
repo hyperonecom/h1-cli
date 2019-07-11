@@ -12,7 +12,7 @@ const resource = {
     plugins: genericDefaults.plugins,
     commands: [ 'list', 'show', 'history', 'tag', 'service'],
     serviceCommands: ['list', 'show', 'change'],
-    title: 'virtual machine',
+    title: 'Virtual machine',
 };
 
 const childDefaults = Object.assign({}, resource, {

@@ -1,32 +1,32 @@
 # TOC
 
-  * [h1 container create](#h1-container-create) - Create container
-  * [h1 container list](#h1-container-list) - List container
-  * [h1 container show](#h1-container-show) - Show container
-  * [h1 container delete](#h1-container-delete) - Delete container
-  * [h1 container history](#h1-container-history) - History of container
-  * [h1 container rename](#h1-container-rename) - Rename container
-  * [h1 container service](#h1-container-service) - Manage your services of container
-    * [h1 container service list](#h1-container-service-list) - List service for container
-    * [h1 container service show](#h1-container-service-show) - Show service for container
-  * [h1 container log](#h1-container-log) - Live logs of container
-  * [h1 container start](#h1-container-start) - Start container
-  * [h1 container stop](#h1-container-stop) - Stop container
-  * [h1 container attach](#h1-container-attach) - Attach to terminal of container
+  * [h1 container create](#h1-container-create) - Create Container
+  * [h1 container list](#h1-container-list) - List Container
+  * [h1 container show](#h1-container-show) - Show Container
+  * [h1 container delete](#h1-container-delete) - Delete Container
+  * [h1 container history](#h1-container-history) - History of Container
+  * [h1 container rename](#h1-container-rename) - Rename Container
+  * [h1 container service](#h1-container-service) - Manage your services of Container
+    * [h1 container service list](#h1-container-service-list) - List Service for Container
+    * [h1 container service show](#h1-container-service-show) - Show Service for Container
+  * [h1 container log](#h1-container-log) - Live logs of Container
+  * [h1 container start](#h1-container-start) - Start Container
+  * [h1 container stop](#h1-container-stop) - Stop Container
+  * [h1 container attach](#h1-container-attach) - Attach to terminal of Container
   * [h1 container process](#h1-container-process) - Manage your process in container
     * [h1 container process list](#h1-container-process-list) - List process in container
-  * [h1 container restart](#h1-container-restart) - Restart container
+  * [h1 container restart](#h1-container-restart) - Restart Container
   * [h1 container tag](#h1-container-tag) - Manage your tag
     * [h1 container tag list](#h1-container-tag-list) - List tag
-    * [h1 container tag add](#h1-container-tag-add) - Add a tag to container
-    * [h1 container tag delete](#h1-container-tag-delete) - Delete a tag of container
+    * [h1 container tag add](#h1-container-tag-add) - Add a tag to Container
+    * [h1 container tag delete](#h1-container-tag-delete) - Delete a tag of Container
 
 
 # Specification
 
 ## h1 container
 
-Manage your container
+Manage your Container
 
 ### Note
 
@@ -34,7 +34,7 @@ The functionality is available as part of the *Early adopters* program. Operatio
 
 ## h1 container create
 
-Create container
+Create Container
 
 ### Syntax
 
@@ -76,7 +76,7 @@ h1 container create --name nginx --type b1.nano --image registry.example.com/my-
 
 ## h1 container list
 
-List container
+List Container
 
 ### Syntax
 
@@ -89,7 +89,7 @@ h1 container list
 
 ## h1 container show
 
-Show container
+Show Container
 
 ### Syntax
 
@@ -108,7 +108,7 @@ h1 container show --container my-container
 
 ## h1 container delete
 
-Delete container
+Delete Container
 
 ### Syntax
 
@@ -127,7 +127,7 @@ h1 container delete --container my-container
 
 ## h1 container history
 
-History of container
+History of Container
 
 ### Syntax
 
@@ -146,7 +146,7 @@ h1 container history --container my-container
 
 ## h1 container rename
 
-Rename container
+Rename Container
 
 ### Syntax
 
@@ -166,11 +166,11 @@ h1 container rename --container my-container --new-name my-renamed-container
 
 ## h1 container service
 
-Manage your services of container
+Manage your services of Container
 
 ## h1 container service list
 
-List service for container
+List Service for Container
 
 ### Syntax
 
@@ -189,7 +189,7 @@ h1 container service list --container test-container
 
 ## h1 container service show
 
-Show service for container
+Show Service for Container
 
 ### Syntax
 
@@ -205,11 +205,11 @@ h1 container service show --service my-service --container my-container
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | Container ID or name |
-| ```--service SERVICE``` |  | Service for container ID or name |
+| ```--service SERVICE``` |  | Service for Container ID or name |
 
 ## h1 container log
 
-Live logs of container
+Live logs of Container
 
 ### Syntax
 
@@ -234,7 +234,7 @@ h1 container log --container my-container
 
 ## h1 container start
 
-Start container
+Start Container
 
 ### Syntax
 
@@ -253,7 +253,7 @@ h1 container start --container my-container
 
 ## h1 container stop
 
-Stop container
+Stop Container
 
 ### Syntax
 
@@ -272,7 +272,7 @@ h1 container stop --container my-container
 
 ## h1 container attach
 
-Attach to terminal of container
+Attach to terminal of Container
 
 ### Syntax
 
@@ -318,7 +318,7 @@ h1 container process list --container my-container
 
 ## h1 container restart
 
-Restart container
+Restart Container
 
 ### Syntax
 
@@ -360,7 +360,7 @@ h1 container tag list --container my-container
 
 ## h1 container tag add
 
-Add a tag to container
+Add a tag to Container
 
 ### Syntax
 
@@ -385,7 +385,7 @@ h1 container tag add --container test-container --tag prod=true
 
 ## h1 container tag delete
 
-Delete a tag of container
+Delete a tag of Container
 
 ### Syntax
 

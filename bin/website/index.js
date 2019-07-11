@@ -26,7 +26,7 @@ const schema = {
         onCreate: false,
     },
     image: {
-        description: 'Website Image',
+        description: 'Website image',
         type: 'string',
         required: true,
         onCreate: true,
@@ -48,7 +48,7 @@ const resource = {
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
     extraCommands: ['ssh', 'sftp', 'create', 'start', 'stop', 'credential', 'update', 'log', 'transfer'],
-    title: 'website',
+    title: 'Website',
     dirname: __dirname,
     schema,
     credential_types: ['ssh', 'sha512'],

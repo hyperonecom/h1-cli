@@ -8,12 +8,12 @@ const recordOptions = require('../common').recordOptions;
 
 const options = {
     name: {
-        description: 'Record Set name',
+        description: 'Record set name',
         type: 'string',
         required: true,
     },
     ttl: {
-        description: 'Record Set Time To Live (TTL)',
+        description: 'Record set Time To Live (TTL)',
         type: 'int',
         defaultValue: 3600,
     },
@@ -21,7 +21,7 @@ const options = {
 
 module.exports = (resource) => Cli.createCommand('create', {
     dirname: __dirname,
-    description: 'Create record-set',
+    description: 'Create record set',
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options, recordOptions),
     priority: 25,

@@ -1,70 +1,70 @@
 # TOC
 
-  * [h1 vm create](#h1-vm-create) - Create virtual machine
-  * [h1 vm list](#h1-vm-list) - List virtual machine
-  * [h1 vm show](#h1-vm-show) - Show virtual machine
-  * [h1 vm history](#h1-vm-history) - History of virtual machine
-  * [h1 vm service](#h1-vm-service) - Manage your services of virtual machine
-    * [h1 vm service list](#h1-vm-service-list) - List service for virtual machine
-    * [h1 vm service show](#h1-vm-service-show) - Show service for virtual machine
-    * [h1 vm service change](#h1-vm-service-change) - Change type of service for virtual machine
-  * [h1 vm delete](#h1-vm-delete) - Delete virtual machine
-  * [h1 vm console](#h1-vm-console) - Open virtual machine console in web-browser
-  * [h1 vm stop](#h1-vm-stop) - Stop virtual machine
-  * [h1 vm start](#h1-vm-start) - Start virtual machine
-  * [h1 vm restart](#h1-vm-restart) - Restart virtual machine
-  * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff virtual machine
-  * [h1 vm rename](#h1-vm-rename) - Rename virtual machine
-  * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for virtual machine
+  * [h1 vm create](#h1-vm-create) - Create Virtual machine
+  * [h1 vm list](#h1-vm-list) - List Virtual machine
+  * [h1 vm show](#h1-vm-show) - Show Virtual machine
+  * [h1 vm history](#h1-vm-history) - History of Virtual machine
+  * [h1 vm service](#h1-vm-service) - Manage your services of Virtual machine
+    * [h1 vm service list](#h1-vm-service-list) - List Service for Virtual machine
+    * [h1 vm service show](#h1-vm-service-show) - Show Service for Virtual machine
+    * [h1 vm service change](#h1-vm-service-change) - Change type of Service for Virtual machine
+  * [h1 vm delete](#h1-vm-delete) - Delete Virtual machine
+  * [h1 vm console](#h1-vm-console) - Open Virtual machine console in web-browser
+  * [h1 vm stop](#h1-vm-stop) - Stop Virtual machine
+  * [h1 vm start](#h1-vm-start) - Start Virtual machine
+  * [h1 vm restart](#h1-vm-restart) - Restart Virtual machine
+  * [h1 vm turnoff](#h1-vm-turnoff) - Turnoff Virtual machine
+  * [h1 vm rename](#h1-vm-rename) - Rename Virtual machine
+  * [h1 vm userdata](#h1-vm-userdata) - Manage userdata for Virtual machine
   * [h1 vm serialport](#h1-vm-serialport) - Serial Console
-    * [h1 vm serialport console](#h1-vm-serialport-console) - Connect to virtual machine using Serial Console
-    * [h1 vm serialport log](#h1-vm-serialport-log) - Log Serial Console buffer of virtual machine
-  * [h1 vm disk](#h1-vm-disk) - Manage your disk
-    * [h1 vm disk list](#h1-vm-disk-list) - List disk
-    * [h1 vm disk attach](#h1-vm-disk-attach) - Attach disk to disk
-    * [h1 vm disk detach](#h1-vm-disk-detach) - Detach disk from disk
-  * [h1 vm nic](#h1-vm-nic) - Manage your network adapter
-    * [h1 vm nic list](#h1-vm-nic-list) - List network adapter
-    * [h1 vm nic delete](#h1-vm-nic-delete) - Delete network adapter
-    * [h1 vm nic create](#h1-vm-nic-create) - Create network adapter
-    * [h1 vm nic show](#h1-vm-nic-show) - Show network adapter
-    * [h1 vm nic firewall](#h1-vm-nic-firewall) - Manage firewall of network adapter
-      * [h1 vm nic firewall add](#h1-vm-nic-firewall-add) - Add firewall to network adapter
-      * [h1 vm nic firewall remove](#h1-vm-nic-firewall-remove) - Remove firewall from network adapter
-    * [h1 vm nic history](#h1-vm-nic-history) - History of network adapter
-    * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP address of network adapter
-      * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP address of network adapter
-      * [h1 vm nic ip delete](#h1-vm-nic-ip-delete) - Delete IP address of network adapter
-      * [h1 vm nic ip add](#h1-vm-nic-ip-add) - Add IP address to IP address of network adapter
-      * [h1 vm nic ip replace](#h1-vm-nic-ip-replace) - Replace IP address of network adapter
-      * [h1 vm nic ip persistent](#h1-vm-nic-ip-persistent) - Persistent IP address of network adapter
-      * [h1 vm nic ip show](#h1-vm-nic-ip-show) - Show IP address of network adapter
+    * [h1 vm serialport console](#h1-vm-serialport-console) - Connect to Virtual machine using Serial Console
+    * [h1 vm serialport log](#h1-vm-serialport-log) - Log Serial Console buffer of Virtual machine
+  * [h1 vm disk](#h1-vm-disk) - Manage your Disk
+    * [h1 vm disk list](#h1-vm-disk-list) - List Disk
+    * [h1 vm disk attach](#h1-vm-disk-attach) - Attach disk to Disk
+    * [h1 vm disk detach](#h1-vm-disk-detach) - Detach disk from Disk
+  * [h1 vm nic](#h1-vm-nic) - Manage your Network adapter
+    * [h1 vm nic list](#h1-vm-nic-list) - List Network adapter
+    * [h1 vm nic delete](#h1-vm-nic-delete) - Delete Network adapter
+    * [h1 vm nic create](#h1-vm-nic-create) - Create Network adapter
+    * [h1 vm nic show](#h1-vm-nic-show) - Show Network adapter
+    * [h1 vm nic firewall](#h1-vm-nic-firewall) - Manage firewall of Network adapter
+      * [h1 vm nic firewall add](#h1-vm-nic-firewall-add) - Add firewall to Network adapter
+      * [h1 vm nic firewall remove](#h1-vm-nic-firewall-remove) - Remove firewall from Network adapter
+    * [h1 vm nic history](#h1-vm-nic-history) - History of Network adapter
+    * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP address of Network adapter
+      * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP address of Network adapter
+      * [h1 vm nic ip delete](#h1-vm-nic-ip-delete) - Delete IP address of Network adapter
+      * [h1 vm nic ip add](#h1-vm-nic-ip-add) - Add IP address to IP address of Network adapter
+      * [h1 vm nic ip replace](#h1-vm-nic-ip-replace) - Replace IP address of Network adapter
+      * [h1 vm nic ip persistent](#h1-vm-nic-ip-persistent) - Persistent IP address of Network adapter
+      * [h1 vm nic ip show](#h1-vm-nic-ip-show) - Show IP address of Network adapter
     * [h1 vm nic tag](#h1-vm-nic-tag) - Manage your tag
       * [h1 vm nic tag list](#h1-vm-nic-tag-list) - List tag
-      * [h1 vm nic tag add](#h1-vm-nic-tag-add) - Add a tag to network adapter
-      * [h1 vm nic tag delete](#h1-vm-nic-tag-delete) - Delete a tag of network adapter
+      * [h1 vm nic tag add](#h1-vm-nic-tag-add) - Add a tag to Network adapter
+      * [h1 vm nic tag delete](#h1-vm-nic-tag-delete) - Delete a tag of Network adapter
   * [h1 vm dvd](#h1-vm-dvd) - Manage your DVD
     * [h1 vm dvd list](#h1-vm-dvd-list) - List DVD
     * [h1 vm dvd insert](#h1-vm-dvd-insert) - Insert ISO into DVD drive of DVD
     * [h1 vm dvd eject](#h1-vm-dvd-eject) - Eject ISO from DVD drive of DVD
-  * [h1 vm ssh](#h1-vm-ssh) - Connect to virtual machine using SSH
-  * [h1 vm passwordreset](#h1-vm-passwordreset) - Password reset for virtual machine
-  * [h1 vm metrics](#h1-vm-metrics) - Get live metrics of virtual machine
+  * [h1 vm ssh](#h1-vm-ssh) - Connect to Virtual machine using SSH
+  * [h1 vm passwordreset](#h1-vm-passwordreset) - Password reset for Virtual machine
+  * [h1 vm metrics](#h1-vm-metrics) - Get live metrics of Virtual machine
   * [h1 vm tag](#h1-vm-tag) - Manage your tag
     * [h1 vm tag list](#h1-vm-tag-list) - List tag
-    * [h1 vm tag add](#h1-vm-tag-add) - Add a tag to virtual machine
-    * [h1 vm tag delete](#h1-vm-tag-delete) - Delete a tag of virtual machine
+    * [h1 vm tag add](#h1-vm-tag-add) - Add a tag to Virtual machine
+    * [h1 vm tag delete](#h1-vm-tag-delete) - Delete a tag of Virtual machine
 
 
 # Specification
 
 ## h1 vm
 
-Manage your virtual machine
+Manage your Virtual machine
 
 ## h1 vm create
 
-Create virtual machine
+Create Virtual machine
 
 ### Syntax
 
@@ -124,7 +124,7 @@ Note: You can mount ISO disk and provide stateless services.
 
 ## h1 vm list
 
-List virtual machine
+List Virtual machine
 
 ### Syntax
 
@@ -137,7 +137,7 @@ h1 vm list
 
 ## h1 vm show
 
-Show virtual machine
+Show Virtual machine
 
 ### Syntax
 
@@ -156,7 +156,7 @@ h1 vm show --vm my-vm
 
 ## h1 vm history
 
-History of virtual machine
+History of Virtual machine
 
 ### Syntax
 
@@ -175,11 +175,11 @@ h1 vm history --vm my-vm
 
 ## h1 vm service
 
-Manage your services of virtual machine
+Manage your services of Virtual machine
 
 ## h1 vm service list
 
-List service for virtual machine
+List Service for Virtual machine
 
 ### Syntax
 
@@ -198,7 +198,7 @@ h1 vm service list --vm test-vm
 
 ## h1 vm service show
 
-Show service for virtual machine
+Show Service for Virtual machine
 
 ### Syntax
 
@@ -214,11 +214,11 @@ h1 vm service show --service my-service --vm my-vm
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
-| ```--service SERVICE``` |  | Service for virtual machine ID or name |
+| ```--service SERVICE``` |  | Service for Virtual machine ID or name |
 
 ## h1 vm service change
 
-Change type of service for virtual machine
+Change type of Service for Virtual machine
 
 ### Syntax
 
@@ -238,7 +238,7 @@ h1 vm service change --vm my-vm --new-type m2.medium
 
 ## h1 vm delete
 
-Delete virtual machine
+Delete Virtual machine
 
 ### Syntax
 
@@ -257,7 +257,7 @@ h1 vm delete --vm my-vm
 
 ## h1 vm console
 
-Open virtual machine console in web-browser
+Open Virtual machine console in web-browser
 
 ### Syntax
 
@@ -276,7 +276,7 @@ h1 vm console --vm test-vm
 
 ## h1 vm stop
 
-Stop virtual machine
+Stop Virtual machine
 
 ### Syntax
 
@@ -295,7 +295,7 @@ h1 vm stop --vm my-vm
 
 ## h1 vm start
 
-Start virtual machine
+Start Virtual machine
 
 ### Syntax
 
@@ -314,7 +314,7 @@ h1 vm start --vm my-vm
 
 ## h1 vm restart
 
-Restart virtual machine
+Restart Virtual machine
 
 ### Syntax
 
@@ -333,7 +333,7 @@ h1 vm restart --vm my-vm
 
 ## h1 vm turnoff
 
-Turnoff virtual machine
+Turnoff Virtual machine
 
 ### Syntax
 
@@ -352,7 +352,7 @@ h1 vm turnoff --vm my-vm
 
 ## h1 vm rename
 
-Rename virtual machine
+Rename Virtual machine
 
 ### Syntax
 
@@ -372,7 +372,7 @@ h1 vm rename --vm my-vm --new-name my-renamed-vm
 
 ## h1 vm userdata
 
-Manage userdata for virtual machine
+Manage userdata for Virtual machine
 
 ### Syntax
 
@@ -405,7 +405,7 @@ Serial Console
 
 ## h1 vm serialport console
 
-Connect to virtual machine using Serial Console
+Connect to Virtual machine using Serial Console
 
 ### Syntax
 
@@ -430,7 +430,7 @@ h1 vm serialport console --vm my-vm
 
 ## h1 vm serialport log
 
-Log Serial Console buffer of virtual machine
+Log Serial Console buffer of Virtual machine
 
 ### Syntax
 
@@ -456,11 +456,11 @@ h1 vm serialport log --vm test-vm
 
 ## h1 vm disk
 
-Manage your disk
+Manage your Disk
 
 ## h1 vm disk list
 
-List disk
+List Disk
 
 ### Syntax
 
@@ -479,7 +479,7 @@ h1 vm disk list
 
 ## h1 vm disk attach
 
-Attach disk to disk
+Attach disk to Disk
 
 ### Syntax
 
@@ -509,7 +509,7 @@ Note (4): Instead of adding a new disk, we suggest considering resize of availab
 
 ## h1 vm disk detach
 
-Detach disk from disk
+Detach disk from Disk
 
 ### Syntax
 
@@ -529,7 +529,7 @@ h1 vm disk detach --vm test-vm --disk my-disk-0
 
 ## h1 vm nic
 
-Manage your network adapter
+Manage your Network adapter
 
 ### Examples
 
@@ -541,7 +541,7 @@ h1 vm nicl list --vm test-vm --output json --query "[].{ip:join(',', ip[].addres
 
 ## h1 vm nic list
 
-List network adapter
+List Network adapter
 
 ### Syntax
 
@@ -560,7 +560,7 @@ h1 vm nic list --vm test-vm
 
 ## h1 vm nic delete
 
-Delete network adapter
+Delete Network adapter
 
 ### Syntax
 
@@ -580,11 +580,11 @@ h1 vm nic delete --nic my-nic --vm test-vm
 
 ## h1 vm nic create
 
-Create network adapter
+Create Network adapter
 
 ### Syntax
 
-```h1 vm nic create | --type TYPE --vm VM [--network NETWORK] [--ip IP] [--tag TAG [--tag TAG ...]]```
+```h1 vm nic create | --vm VM --type TYPE [--network NETWORK] [--ip IP] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create network adapter with public IP
@@ -605,8 +605,8 @@ Note (4): To list available networks use ```h1 network list```.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--type TYPE``` |  | Type of network adapter |
 | ```--vm VM``` |  | Virtual machine name or ID |
+| ```--type TYPE``` |  | Type of network adapter |
 
 ### Optional arguments
 
@@ -618,7 +618,7 @@ Note (4): To list available networks use ```h1 network list```.
 
 ## h1 vm nic show
 
-Show network adapter
+Show Network adapter
 
 ### Syntax
 
@@ -638,11 +638,11 @@ h1 vm nic show --nic my-nic
 
 ## h1 vm nic firewall
 
-Manage firewall of network adapter
+Manage firewall of Network adapter
 
 ## h1 vm nic firewall add
 
-Add firewall to network adapter
+Add firewall to Network adapter
 
 ### Syntax
 
@@ -663,7 +663,7 @@ h1 vm nic firewall add --nic my-nic
 
 ## h1 vm nic firewall remove
 
-Remove firewall from network adapter
+Remove firewall from Network adapter
 
 ### Syntax
 
@@ -683,7 +683,7 @@ h1 vm nic firewall remove --nic my-nic
 
 ## h1 vm nic history
 
-History of network adapter
+History of Network adapter
 
 ### Syntax
 
@@ -703,11 +703,11 @@ h1 vm nic history --nic my-nic --vm test-vm
 
 ## h1 vm nic ip
 
-Manage your IP address of network adapter
+Manage your IP address of Network adapter
 
 ## h1 vm nic ip list
 
-List IP address of network adapter
+List IP address of Network adapter
 
 ### Syntax
 
@@ -727,7 +727,7 @@ h1 vm nic ip list --vm my-vm --nic nic-of-vm
 
 ## h1 vm nic ip delete
 
-Delete IP address of network adapter
+Delete IP address of Network adapter
 
 ### Syntax
 
@@ -744,11 +744,11 @@ h1 vm nic ip delete --ip my-ip --vm my-vm --nic nic-of-vm --ip 123.0.0.50
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID |
-| ```--ip IP``` |  | IP address of network adapter ID or name |
+| ```--ip IP``` |  | IP address of Network adapter ID or name |
 
 ## h1 vm nic ip add
 
-Add IP address to IP address of network adapter
+Add IP address to IP address of Network adapter
 
 ### Syntax
 
@@ -775,7 +775,7 @@ Note: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to
 
 ## h1 vm nic ip replace
 
-Replace IP address of network adapter
+Replace IP address of Network adapter
 
 ### Syntax
 
@@ -803,7 +803,7 @@ Note: Use ```h1 ip list``` to list available IP address or ```h1 ip create``` to
 
 ## h1 vm nic ip persistent
 
-Persistent IP address of network adapter
+Persistent IP address of Network adapter
 
 ### Syntax
 
@@ -824,7 +824,7 @@ h1 vm nic ip persistent --vm test-vm --nic 5b994d0cab228cb79e8576c9 --ip 5784e97
 
 ## h1 vm nic ip show
 
-Show IP address of network adapter
+Show IP address of Network adapter
 
 ### Syntax
 
@@ -841,7 +841,7 @@ h1 vm nic ip show --ip my-ip
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID |
-| ```--ip IP``` |  | IP address of network adapter ID or name |
+| ```--ip IP``` |  | IP address of Network adapter ID or name |
 
 ## h1 vm nic tag
 
@@ -869,7 +869,7 @@ h1 vm nic tag list --nic my-nic
 
 ## h1 vm nic tag add
 
-Add a tag to network adapter
+Add a tag to Network adapter
 
 ### Syntax
 
@@ -895,7 +895,7 @@ h1 vm nic tag add --nic test-nic --tag prod=true
 
 ## h1 vm nic tag delete
 
-Delete a tag of network adapter
+Delete a tag of Network adapter
 
 ### Syntax
 
@@ -980,7 +980,7 @@ h1 vm dvd eject --vm test-vm
 
 ## h1 vm ssh
 
-Connect to virtual machine using SSH
+Connect to Virtual machine using SSH
 
 ### Syntax
 
@@ -1016,7 +1016,7 @@ h1 vm ssh --vm test-vm --command 'id'
 
 ## h1 vm passwordreset
 
-Password reset for virtual machine
+Password reset for Virtual machine
 
 ### Syntax
 
@@ -1036,7 +1036,7 @@ h1 vm passwordreset --vm test-vm --user root
 
 ## h1 vm metrics
 
-Get live metrics of virtual machine
+Get live metrics of Virtual machine
 
 ### Syntax
 
@@ -1078,7 +1078,7 @@ h1 vm tag list --vm my-vm
 
 ## h1 vm tag add
 
-Add a tag to virtual machine
+Add a tag to Virtual machine
 
 ### Syntax
 
@@ -1103,7 +1103,7 @@ h1 vm tag add --vm test-vm --tag prod=true
 
 ## h1 vm tag delete
 
-Delete a tag of virtual machine
+Delete a tag of Virtual machine
 
 ### Syntax
 

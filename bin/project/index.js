@@ -36,7 +36,7 @@ const resource = {
     priority: 15,
     schema,
     dirname: __dirname,
-    title: 'project',
+    title: 'Project',
     commands: ['show', 'delete', 'access/user', 'history', 'rename', 'tag', 'service', 'payment', 'create'],
 };
 const category = genericResource(resource);

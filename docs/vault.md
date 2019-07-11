@@ -7,8 +7,8 @@
   * [h1 vault history](#h1-vault-history) - History of Vault
   * [h1 vault rename](#h1-vault-rename) - Rename Vault
   * [h1 vault service](#h1-vault-service) - Manage your services of Vault
-    * [h1 vault service list](#h1-vault-service-list) - List service for Vault
-    * [h1 vault service show](#h1-vault-service-show) - Show service for Vault
+    * [h1 vault service list](#h1-vault-service-list) - List Service for Vault
+    * [h1 vault service show](#h1-vault-service-show) - Show Service for Vault
   * [h1 vault resize](#h1-vault-resize) - Resize Vault
   * [h1 vault ssh](#h1-vault-ssh) - Connect to Vault using SSH
   * [h1 vault sftp](#h1-vault-sftp) - Connect to Vault using SFTP
@@ -32,8 +32,8 @@
       * [h1 vault credential password history](#h1-vault-credential-password-history) - History of password to Vault
       * [h1 vault credential password rename](#h1-vault-credential-password-rename) - Rename password to Vault
       * [h1 vault credential password service](#h1-vault-credential-password-service) - Manage your services of password to Vault
-        * [h1 vault credential password service list](#h1-vault-credential-password-service-list) - List service for password to Vault
-        * [h1 vault credential password service show](#h1-vault-credential-password-service-show) - Show service for password to Vault
+        * [h1 vault credential password service list](#h1-vault-credential-password-service-list) - List Service for password to Vault
+        * [h1 vault credential password service show](#h1-vault-credential-password-service-show) - Show Service for password to Vault
       * [h1 vault credential password list](#h1-vault-credential-password-list) - List password to Vault
       * [h1 vault credential password show](#h1-vault-credential-password-show) - Show password to Vault
       * [h1 vault credential password rename](#h1-vault-credential-password-rename) - Rename password to Vault
@@ -194,7 +194,7 @@ Manage your services of Vault
 
 ## h1 vault service list
 
-List service for Vault
+List Service for Vault
 
 ### Syntax
 
@@ -213,7 +213,7 @@ h1 vault service list --vault test-vault
 
 ## h1 vault service show
 
-Show service for Vault
+Show Service for Vault
 
 ### Syntax
 
@@ -637,7 +637,7 @@ Manage your services of password to Vault
 
 ## h1 vault credential password service list
 
-List service for password to Vault
+List Service for password to Vault
 
 ### Syntax
 
@@ -657,7 +657,7 @@ h1 vault credential password service list --password test-password
 
 ## h1 vault credential password service show
 
-Show service for password to Vault
+Show Service for password to Vault
 
 ### Syntax
 

@@ -2,33 +2,28 @@
 
 const Cli = require('lib/cli');
 
-const options = {
-    network: {
-        description: 'Network connected to network adapter',
-        type: 'string',
-        required: false,
-    },
-    type: {
-        description: 'Type of network adapter',
-        type: 'string',
-        required: true,
-    },
-    ip: {
-        description: 'IP to assign from network',
-        type: 'string',
-    },
-    vm: {
-        description: 'Virtual machine name or ID',
-        type: 'string',
-        required: true,
-    },
-};
-
 module.exports = (resource) => {
+    const options = {
+        network: {
+            description: 'ID or name of Network to connect',
+            type: 'string',
+            required: false,
+        },
+        type: {
+            description: 'Type of Network Adapter',
+            type: 'string',
+            required: true,
+        },
+        ip: {
+            description: 'IP address to assign',
+            type: 'string',
+        },
+    };
+
     return Cli.createCommand('create', {
         description: `Create ${resource.title}`,
         plugins: resource.plugins,
-        options: options,
+        options: Object.assign({}, resource.options, options),
         genericOptions: ['tag'],
         dirname: __dirname,
         handler: (args) => {

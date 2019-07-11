@@ -17,7 +17,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name}',
     plugins: defaults.plugins,
     url: () => 'dns/zone',
-    title: 'DNS zone',
+    title: 'DNS Zone',
     schema,
     dirname: __dirname,
     commands: ['create', 'list', 'show', 'delete'],

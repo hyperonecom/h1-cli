@@ -1,35 +1,35 @@
 # TOC
 
-  * [h1 organisation show](#h1-organisation-show) - Show organisation
-  * [h1 organisation history](#h1-organisation-history) - History of organisation
-  * [h1 organisation access](#h1-organisation-access) - Manage your organisation access rights
-    * [h1 organisation access grant](#h1-organisation-access-grant) - Grant access rights for organisation
-    * [h1 organisation access revoke](#h1-organisation-access-revoke) - Revoke access rights for organisation
-    * [h1 organisation access list](#h1-organisation-access-list) - List access rights for organisation
-  * [h1 organisation list](#h1-organisation-list) - List organisation
-  * [h1 organisation rename](#h1-organisation-rename) - Rename organisation
-  * [h1 organisation payment](#h1-organisation-payment) - Manage your payment for organisation
+  * [h1 organisation show](#h1-organisation-show) - Show Organisation
+  * [h1 organisation history](#h1-organisation-history) - History of Organisation
+  * [h1 organisation access](#h1-organisation-access) - Manage your Organisation access rights
+    * [h1 organisation access grant](#h1-organisation-access-grant) - Grant access rights for Organisation
+    * [h1 organisation access revoke](#h1-organisation-access-revoke) - Revoke access rights for Organisation
+    * [h1 organisation access list](#h1-organisation-access-list) - List access rights for Organisation
+  * [h1 organisation list](#h1-organisation-list) - List Organisation
+  * [h1 organisation rename](#h1-organisation-rename) - Rename Organisation
+  * [h1 organisation payment](#h1-organisation-payment) - Manage your payment for Organisation
     * [h1 organisation payment show](#h1-organisation-payment-show) - Show payment
     * [h1 organisation payment list](#h1-organisation-payment-list) - List payment
-  * [h1 organisation transfer](#h1-organisation-transfer) - Manage your transfer for organisation
+  * [h1 organisation transfer](#h1-organisation-transfer) - Manage your transfer for Organisation
     * [h1 organisation transfer show](#h1-organisation-transfer-show) - Show transfer
     * [h1 organisation transfer list](#h1-organisation-transfer-list) - List transfer
     * [h1 organisation transfer accept](#h1-organisation-transfer-accept) - Accept transfer
   * [h1 organisation tag](#h1-organisation-tag) - Manage your tag
     * [h1 organisation tag list](#h1-organisation-tag-list) - List tag
-    * [h1 organisation tag add](#h1-organisation-tag-add) - Add a tag to organisation
-    * [h1 organisation tag delete](#h1-organisation-tag-delete) - Delete a tag of organisation
+    * [h1 organisation tag add](#h1-organisation-tag-add) - Add a tag to Organisation
+    * [h1 organisation tag delete](#h1-organisation-tag-delete) - Delete a tag of Organisation
 
 
 # Specification
 
 ## h1 organisation
 
-Manage your organisation
+Manage your Organisation
 
 ## h1 organisation show
 
-Show organisation
+Show Organisation
 
 ### Syntax
 
@@ -48,7 +48,7 @@ h1 organisation show --organisation my-organisation
 
 ## h1 organisation history
 
-History of organisation
+History of Organisation
 
 ### Syntax
 
@@ -67,7 +67,7 @@ h1 organisation history --organisation my-organisation
 
 ## h1 organisation access
 
-Manage your organisation access rights
+Manage your Organisation access rights
 
 ### Optional arguments
 
@@ -77,7 +77,7 @@ Manage your organisation access rights
 
 ## h1 organisation access grant
 
-Grant access rights for organisation
+Grant access rights for Organisation
 
 ### Syntax
 
@@ -103,7 +103,7 @@ h1 organisation access grant --organisation my-organisation --email user@example
 
 ## h1 organisation access revoke
 
-Revoke access rights for organisation
+Revoke access rights for Organisation
 
 ### Syntax
 
@@ -123,7 +123,7 @@ h1 organisation access revoke --organisation my-organisation --email user@exampl
 
 ## h1 organisation access list
 
-List access rights for organisation
+List access rights for Organisation
 
 ### Syntax
 
@@ -142,7 +142,7 @@ h1 organisation access list --organisation my-organisation
 
 ## h1 organisation list
 
-List organisation
+List Organisation
 
 ### Syntax
 
@@ -155,7 +155,7 @@ h1 organisation list
 
 ## h1 organisation rename
 
-Rename organisation
+Rename Organisation
 
 ### Syntax
 
@@ -175,7 +175,7 @@ h1 organisation rename --organisation my-organisation --new-name my-renamed-orga
 
 ## h1 organisation payment
 
-Manage your payment for organisation
+Manage your payment for Organisation
 
 ## h1 organisation payment show
 
@@ -187,7 +187,7 @@ Show payment
 ### Example
 
 ```bash
-h1 organisation payment show --payment my-payment --organisation my-organisation
+h1 organisation payment show --payment my-payment --Organisation my-Organisation
 ```
 
 ### Required arguments
@@ -207,7 +207,7 @@ List payment
 ### Example
 
 ```bash
-h1 organisation payment list --organisation my-organisation
+h1 organisation payment list --Organisation my-Organisation
 ```
 
 ### Required arguments
@@ -218,7 +218,7 @@ h1 organisation payment list --organisation my-organisation
 
 ## h1 organisation transfer
 
-Manage your transfer for organisation
+Manage your transfer for Organisation
 
 ## h1 organisation transfer show
 
@@ -305,7 +305,7 @@ h1 organisation tag list --organisation my-organisation
 
 ## h1 organisation tag add
 
-Add a tag to organisation
+Add a tag to Organisation
 
 ### Syntax
 
@@ -330,7 +330,7 @@ h1 organisation tag add --organisation test-organisation --tag prod=true
 
 ## h1 organisation tag delete
 
-Delete a tag of organisation
+Delete a tag of Organisation
 
 ### Syntax
 

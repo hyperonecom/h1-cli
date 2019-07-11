@@ -13,7 +13,7 @@ module.exports = (parent) => {
         plugins: genericDefaults.plugins,
         commands: ['list'],
         extraCommands: [],
-        title: `Tag in ${parent.name}`,
+        title: `tag in ${parent.name}`,
     };
 
     const deleteDefault = Object.assign({}, resource, {
