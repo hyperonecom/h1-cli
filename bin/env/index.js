@@ -29,14 +29,18 @@ module.exports = Cli.createCommand('env', {
     options,
     handler: args => {
         if (!args.shell || !shell.set_environment[args.shell]) {
-            console.error('Lines below are for a sh shell, you can specify the shell with the --shell parameter.');
+            if (process.stdin.isTTY) {
+                console.error('Lines below are for a sh shell, you can specify the shell with the --shell parameter.');
+            }
             args.shell = 'sh';
         }
         let shellView = shell.set_environment[args.shell];
         if (args.unset) {
             shellView = shell.unset_environment[args.shell];
         }
-        console.error(`Run this command to configure your shell:\n${shell.run_command[args.shell](process.argv)}\n\n`);
+        if (process.stdin.isTTY) {
+            console.error(`Run this command to configure your shell:\n${shell.run_command[args.shell](shell.current())}\n\n`);
+        }
         return [
             shellView(`${process.env.SCOPE_FULL_NAME.toUpperCase()}_PROJECT`, config.get('profile.project._id')),
             shellView(`${process.env.SCOPE_FULL_NAME.toUpperCase()}_ACCESS_TOKEN_ID`, config.get('profile.apiKey')),
