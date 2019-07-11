@@ -2,7 +2,7 @@
 
 const Cli = require('lib/cli');
 const genericDefaults = require('bin/generic/defaults');
-const pickBy = require('lodash/pickBy');
+const {pickBy} = require('lib/transform');
 
 module.exports = resource => Cli.createCommand('create', {
     description: 'Network gateway create',
