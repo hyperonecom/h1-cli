@@ -6,8 +6,8 @@
   * [h1 ip history](#h1-ip-history) - History of IP address
   * [h1 ip transfer](#h1-ip-transfer) - Transfer IP address to other project
   * [h1 ip service](#h1-ip-service) - Manage your services of IP address
-    * [h1 ip service list](#h1-ip-service-list) - List service for IP address
-    * [h1 ip service show](#h1-ip-service-show) - Show service for IP address
+    * [h1 ip service list](#h1-ip-service-list) - List Service for IP address
+    * [h1 ip service show](#h1-ip-service-show) - Show Service for IP address
   * [h1 ip create](#h1-ip-create) - Create IP address
   * [h1 ip associate](#h1-ip-associate) - Associate IP address
   * [h1 ip disassociate](#h1-ip-disassociate) - Disassociate IP address
@@ -120,7 +120,7 @@ Manage your services of IP address
 
 ## h1 ip service list
 
-List service for IP address
+List Service for IP address
 
 ### Syntax
 
@@ -139,7 +139,7 @@ h1 ip service list --ip test-ip
 
 ## h1 ip service show
 
-Show service for IP address
+Show Service for IP address
 
 ### Syntax
 

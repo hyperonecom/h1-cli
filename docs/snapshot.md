@@ -7,8 +7,8 @@
   * [h1 snapshot history](#h1-snapshot-history) - History of snapshot
   * [h1 snapshot rename](#h1-snapshot-rename) - Rename snapshot
   * [h1 snapshot service](#h1-snapshot-service) - Manage your services of snapshot
-    * [h1 snapshot service list](#h1-snapshot-service-list) - List service for snapshot
-    * [h1 snapshot service show](#h1-snapshot-service-show) - Show service for snapshot
+    * [h1 snapshot service list](#h1-snapshot-service-list) - List Service for snapshot
+    * [h1 snapshot service show](#h1-snapshot-service-show) - Show Service for snapshot
   * [h1 snapshot tag](#h1-snapshot-tag) - Manage your tag
     * [h1 snapshot tag list](#h1-snapshot-tag-list) - List tag
     * [h1 snapshot tag add](#h1-snapshot-tag-add) - Add a tag to snapshot
@@ -151,7 +151,7 @@ Manage your services of snapshot
 
 ## h1 snapshot service list
 
-List service for snapshot
+List Service for snapshot
 
 ### Syntax
 
@@ -170,7 +170,7 @@ h1 snapshot service list --snapshot test-snapshot
 
 ## h1 snapshot service show
 
-Show service for snapshot
+Show Service for snapshot
 
 ### Syntax
 

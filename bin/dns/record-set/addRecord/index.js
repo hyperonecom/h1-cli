@@ -8,7 +8,7 @@ const recordOptions = require('../common').recordOptions;
 
 const options = {
     name: {
-        description: 'Record Set name',
+        description: 'Record set name',
         type: 'string',
         required: true,
     },

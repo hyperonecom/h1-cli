@@ -7,8 +7,8 @@
   * [h1 agent history](#h1-agent-history) - History of Agent
   * [h1 agent rename](#h1-agent-rename) - Rename Agent
   * [h1 agent service](#h1-agent-service) - Manage your services of Agent
-    * [h1 agent service list](#h1-agent-service-list) - List service for Agent
-    * [h1 agent service show](#h1-agent-service-show) - Show service for Agent
+    * [h1 agent service list](#h1-agent-service-list) - List Service for Agent
+    * [h1 agent service show](#h1-agent-service-show) - Show Service for Agent
   * [h1 agent transfer](#h1-agent-transfer) - Transfer Agent to other project
   * [h1 agent inspect](#h1-agent-inspect) - Inspect of Agent
   * [h1 agent resource](#h1-agent-resource) - Manage your Resource of Agent
@@ -181,7 +181,7 @@ Manage your services of Agent
 
 ## h1 agent service list
 
-List service for Agent
+List Service for Agent
 
 ### Syntax
 
@@ -200,7 +200,7 @@ h1 agent service list --agent test-agent
 
 ## h1 agent service show
 
-Show service for Agent
+Show Service for Agent
 
 ### Syntax
 

@@ -1,33 +1,33 @@
 # TOC
 
-  * [h1 disk list](#h1-disk-list) - List disk
-  * [h1 disk show](#h1-disk-show) - Show disk
-  * [h1 disk delete](#h1-disk-delete) - Delete disk
-  * [h1 disk history](#h1-disk-history) - History of disk
-  * [h1 disk rename](#h1-disk-rename) - Rename disk
-  * [h1 disk service](#h1-disk-service) - Manage your services of disk
-    * [h1 disk service list](#h1-disk-service-list) - List service for disk
-    * [h1 disk service show](#h1-disk-service-show) - Show service for disk
-  * [h1 disk resize](#h1-disk-resize) - Resize disk
-  * [h1 disk resume](#h1-disk-resume) - Resume create upload of disk
-  * [h1 disk transfer](#h1-disk-transfer) - Transfer disk to other project
-  * [h1 disk create](#h1-disk-create) - Create disk
-  * [h1 disk download](#h1-disk-download) - Download disk to a .vhdx file
+  * [h1 disk list](#h1-disk-list) - List Disk
+  * [h1 disk show](#h1-disk-show) - Show Disk
+  * [h1 disk delete](#h1-disk-delete) - Delete Disk
+  * [h1 disk history](#h1-disk-history) - History of Disk
+  * [h1 disk rename](#h1-disk-rename) - Rename Disk
+  * [h1 disk service](#h1-disk-service) - Manage your services of Disk
+    * [h1 disk service list](#h1-disk-service-list) - List Service for Disk
+    * [h1 disk service show](#h1-disk-service-show) - Show Service for Disk
+  * [h1 disk resize](#h1-disk-resize) - Resize Disk
+  * [h1 disk resume](#h1-disk-resume) - Resume create upload of Disk
+  * [h1 disk transfer](#h1-disk-transfer) - Transfer Disk to other project
+  * [h1 disk create](#h1-disk-create) - Create Disk
+  * [h1 disk download](#h1-disk-download) - Download Disk to a .vhdx file
   * [h1 disk tag](#h1-disk-tag) - Manage your tag
     * [h1 disk tag list](#h1-disk-tag-list) - List tag
-    * [h1 disk tag add](#h1-disk-tag-add) - Add a tag to disk
-    * [h1 disk tag delete](#h1-disk-tag-delete) - Delete a tag of disk
+    * [h1 disk tag add](#h1-disk-tag-add) - Add a tag to Disk
+    * [h1 disk tag delete](#h1-disk-tag-delete) - Delete a tag of Disk
 
 
 # Specification
 
 ## h1 disk
 
-Manage your disk
+Manage your Disk
 
 ## h1 disk list
 
-List disk
+List Disk
 
 ### Syntax
 
@@ -40,7 +40,7 @@ h1 disk list
 
 ## h1 disk show
 
-Show disk
+Show Disk
 
 ### Syntax
 
@@ -59,7 +59,7 @@ h1 disk show --disk my-disk
 
 ## h1 disk delete
 
-Delete disk
+Delete Disk
 
 ### Syntax
 
@@ -78,7 +78,7 @@ h1 disk delete --disk my-disk
 
 ## h1 disk history
 
-History of disk
+History of Disk
 
 ### Syntax
 
@@ -97,7 +97,7 @@ h1 disk history --disk my-disk
 
 ## h1 disk rename
 
-Rename disk
+Rename Disk
 
 ### Syntax
 
@@ -117,11 +117,11 @@ h1 disk rename --disk my-disk --new-name my-renamed-disk
 
 ## h1 disk service
 
-Manage your services of disk
+Manage your services of Disk
 
 ## h1 disk service list
 
-List service for disk
+List Service for Disk
 
 ### Syntax
 
@@ -140,7 +140,7 @@ h1 disk service list --disk test-disk
 
 ## h1 disk service show
 
-Show service for disk
+Show Service for Disk
 
 ### Syntax
 
@@ -156,11 +156,11 @@ h1 disk service show --service my-service --disk my-disk
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
-| ```--service SERVICE``` |  | Service for disk ID or name |
+| ```--service SERVICE``` |  | Service for Disk ID or name |
 
 ## h1 disk resize
 
-Resize disk
+Resize Disk
 
 ### Syntax
 
@@ -180,7 +180,7 @@ h1 disk resize --disk my-disk --size 10
 
 ## h1 disk resume
 
-Resume create upload of disk
+Resume create upload of Disk
 
 ### Syntax
 
@@ -200,7 +200,7 @@ h1 disk resume --disk my-disk --source-file ./my-disk.vhdx
 
 ## h1 disk transfer
 
-Transfer disk to other project
+Transfer Disk to other project
 
 ### Syntax
 
@@ -220,7 +220,7 @@ h1 disk transfer --disk test-disk --new-project OtherProject
 
 ## h1 disk create
 
-Create disk
+Create Disk
 
 ### Syntax
 
@@ -264,7 +264,7 @@ h1 disk create --name new-disk --source-disk existing-disk
 
 ## h1 disk download
 
-Download disk to a .vhdx file
+Download Disk to a .vhdx file
 
 ### Syntax
 
@@ -313,7 +313,7 @@ h1 disk tag list --disk my-disk
 
 ## h1 disk tag add
 
-Add a tag to disk
+Add a tag to Disk
 
 ### Syntax
 
@@ -338,7 +338,7 @@ h1 disk tag add --disk test-disk --tag prod=true
 
 ## h1 disk tag delete
 
-Delete a tag of disk
+Delete a tag of Disk
 
 ### Syntax
 

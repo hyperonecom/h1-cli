@@ -6,8 +6,8 @@
   * [h1 iso history](#h1-iso-history) - History of ISO
   * [h1 iso rename](#h1-iso-rename) - Rename ISO
   * [h1 iso service](#h1-iso-service) - Manage your services of ISO
-    * [h1 iso service list](#h1-iso-service-list) - List service for ISO
-    * [h1 iso service show](#h1-iso-service-show) - Show service for ISO
+    * [h1 iso service list](#h1-iso-service-list) - List Service for ISO
+    * [h1 iso service show](#h1-iso-service-show) - Show Service for ISO
   * [h1 iso transfer](#h1-iso-transfer) - Transfer ISO to other project
   * [h1 iso access](#h1-iso-access) - Manage your ISO access rights
     * [h1 iso access grant](#h1-iso-access-grant) - Grant access rights for ISO
@@ -123,7 +123,7 @@ Manage your services of ISO
 
 ## h1 iso service list
 
-List service for ISO
+List Service for ISO
 
 ### Syntax
 
@@ -142,7 +142,7 @@ h1 iso service list --iso test-iso
 
 ## h1 iso service show
 
-Show service for ISO
+Show Service for ISO
 
 ### Syntax
 

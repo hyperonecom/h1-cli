@@ -1,63 +1,63 @@
 # TOC
 
-  * [h1 dns zone](#h1-dns-zone) - Manage your DNS zone
-    * [h1 dns zone create](#h1-dns-zone-create) - Create DNS zone
-    * [h1 dns zone list](#h1-dns-zone-list) - List DNS zone
-    * [h1 dns zone show](#h1-dns-zone-show) - Show DNS zone
-    * [h1 dns zone delete](#h1-dns-zone-delete) - Delete DNS zone
-    * [h1 dns zone import](#h1-dns-zone-import) - Import A, AAAA, CNAME, TXT, MX, NS, SRV records of DNS zone from BIND-compatible format
-    * [h1 dns zone export](#h1-dns-zone-export) - Export A, AAAA, CNAME, TXT, MX, NS, SRV, SOA records of DNS zone in BIND-compatible format
+  * [h1 dns zone](#h1-dns-zone) - Manage your DNS Zone
+    * [h1 dns zone create](#h1-dns-zone-create) - Create DNS Zone
+    * [h1 dns zone list](#h1-dns-zone-list) - List DNS Zone
+    * [h1 dns zone show](#h1-dns-zone-show) - Show DNS Zone
+    * [h1 dns zone delete](#h1-dns-zone-delete) - Delete DNS Zone
+    * [h1 dns zone import](#h1-dns-zone-import) - Import A, AAAA, CNAME, TXT, MX, NS, SRV records of DNS Zone from BIND-compatible format
+    * [h1 dns zone export](#h1-dns-zone-export) - Export A, AAAA, CNAME, TXT, MX, NS, SRV, SOA records of DNS Zone in BIND-compatible format
   * [h1 dns record-set](#h1-dns-record-set) - Manage your record-set
     * [h1 dns record-set a](#h1-dns-record-set-a) - Manage record set type A
       * [h1 dns record-set a create](#h1-dns-record-set-a-create) - Create record-set
-      * [h1 dns record-set a list](#h1-dns-record-set-a-list) - List Record A
+      * [h1 dns record-set a list](#h1-dns-record-set-a-list) - List record A
       * [h1 dns record-set a delete](#h1-dns-record-set-a-delete) - Delete record-set
       * [h1 dns record-set a add-record](#h1-dns-record-set-a-add-record) - Add record
       * [h1 dns record-set a delete-record](#h1-dns-record-set-a-delete-record) - Delete record
       * [h1 dns record-set a dynamic-dns](#h1-dns-record-set-a-dynamic-dns) - Replaces the record-set with the client ip address
     * [h1 dns record-set aaaa](#h1-dns-record-set-aaaa) - Manage record set type AAAA
       * [h1 dns record-set aaaa create](#h1-dns-record-set-aaaa-create) - Create record-set
-      * [h1 dns record-set aaaa list](#h1-dns-record-set-aaaa-list) - List Record AAAA
+      * [h1 dns record-set aaaa list](#h1-dns-record-set-aaaa-list) - List record AAAA
       * [h1 dns record-set aaaa delete](#h1-dns-record-set-aaaa-delete) - Delete record-set
       * [h1 dns record-set aaaa add-record](#h1-dns-record-set-aaaa-add-record) - Add record
       * [h1 dns record-set aaaa delete-record](#h1-dns-record-set-aaaa-delete-record) - Delete record
     * [h1 dns record-set cname](#h1-dns-record-set-cname) - Manage record set type CNAME
       * [h1 dns record-set cname create](#h1-dns-record-set-cname-create) - Create record-set
-      * [h1 dns record-set cname list](#h1-dns-record-set-cname-list) - List Record CNAME
+      * [h1 dns record-set cname list](#h1-dns-record-set-cname-list) - List record CNAME
       * [h1 dns record-set cname delete](#h1-dns-record-set-cname-delete) - Delete record-set
       * [h1 dns record-set cname add-record](#h1-dns-record-set-cname-add-record) - Add record
       * [h1 dns record-set cname delete-record](#h1-dns-record-set-cname-delete-record) - Delete record
     * [h1 dns record-set txt](#h1-dns-record-set-txt) - Manage record set type TXT
       * [h1 dns record-set txt create](#h1-dns-record-set-txt-create) - Create record-set
-      * [h1 dns record-set txt list](#h1-dns-record-set-txt-list) - List Record TXT
+      * [h1 dns record-set txt list](#h1-dns-record-set-txt-list) - List record TXT
       * [h1 dns record-set txt delete](#h1-dns-record-set-txt-delete) - Delete record-set
       * [h1 dns record-set txt add-record](#h1-dns-record-set-txt-add-record) - Add record
       * [h1 dns record-set txt delete-record](#h1-dns-record-set-txt-delete-record) - Delete record
     * [h1 dns record-set mx](#h1-dns-record-set-mx) - Manage record set type MX
       * [h1 dns record-set mx create](#h1-dns-record-set-mx-create) - Create record-set
-      * [h1 dns record-set mx list](#h1-dns-record-set-mx-list) - List Record MX
+      * [h1 dns record-set mx list](#h1-dns-record-set-mx-list) - List record MX
       * [h1 dns record-set mx delete](#h1-dns-record-set-mx-delete) - Delete record-set
       * [h1 dns record-set mx add-record](#h1-dns-record-set-mx-add-record) - Add record
       * [h1 dns record-set mx delete-record](#h1-dns-record-set-mx-delete-record) - Delete record
     * [h1 dns record-set ns](#h1-dns-record-set-ns) - Manage record set type NS
       * [h1 dns record-set ns create](#h1-dns-record-set-ns-create) - Create record-set
-      * [h1 dns record-set ns list](#h1-dns-record-set-ns-list) - List Record NS
+      * [h1 dns record-set ns list](#h1-dns-record-set-ns-list) - List record NS
       * [h1 dns record-set ns delete](#h1-dns-record-set-ns-delete) - Delete record-set
       * [h1 dns record-set ns add-record](#h1-dns-record-set-ns-add-record) - Add record
       * [h1 dns record-set ns delete-record](#h1-dns-record-set-ns-delete-record) - Delete record
     * [h1 dns record-set srv](#h1-dns-record-set-srv) - Manage record set type SRV
       * [h1 dns record-set srv create](#h1-dns-record-set-srv-create) - Create record-set
-      * [h1 dns record-set srv list](#h1-dns-record-set-srv-list) - List Record SRV
+      * [h1 dns record-set srv list](#h1-dns-record-set-srv-list) - List record SRV
       * [h1 dns record-set srv delete](#h1-dns-record-set-srv-delete) - Delete record-set
       * [h1 dns record-set srv add-record](#h1-dns-record-set-srv-add-record) - Add record
       * [h1 dns record-set srv delete-record](#h1-dns-record-set-srv-delete-record) - Delete record
     * [h1 dns record-set soa](#h1-dns-record-set-soa) - Manage record set type SOA
       * [h1 dns record-set soa create](#h1-dns-record-set-soa-create) - Create record-set
-      * [h1 dns record-set soa list](#h1-dns-record-set-soa-list) - List Record SOA
+      * [h1 dns record-set soa list](#h1-dns-record-set-soa-list) - List record SOA
       * [h1 dns record-set soa delete](#h1-dns-record-set-soa-delete) - Delete record-set
       * [h1 dns record-set soa add-record](#h1-dns-record-set-soa-add-record) - Add record
       * [h1 dns record-set soa delete-record](#h1-dns-record-set-soa-delete-record) - Delete record
-    * [h1 dns record-set list](#h1-dns-record-set-list) - List Record set
+    * [h1 dns record-set list](#h1-dns-record-set-list) - List record set
 
 
 # Specification
@@ -92,7 +92,7 @@ h1 dns record-set mx create --name '.' --zone-name 'my-domain.tld' \
 
 ## h1 dns zone
 
-Manage your DNS zone
+Manage your DNS Zone
 
 ### Examples
 
@@ -104,7 +104,7 @@ h1 dns zone create --name my-domain.tld
 
 ## h1 dns zone create
 
-Create DNS zone
+Create DNS Zone
 
 ### Syntax
 
@@ -123,7 +123,7 @@ h1 dns zone create --name my-domain.tld
 
 ## h1 dns zone list
 
-List DNS zone
+List DNS Zone
 
 ### Syntax
 
@@ -136,7 +136,7 @@ h1 dns zone list
 
 ## h1 dns zone show
 
-Show DNS zone
+Show DNS Zone
 
 ### Syntax
 
@@ -151,11 +151,11 @@ h1 dns zone show --zone my-zone
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--zone ZONE``` |  | DNS zone ID or name |
+| ```--zone ZONE``` |  | DNS Zone ID or name |
 
 ## h1 dns zone delete
 
-Delete DNS zone
+Delete DNS Zone
 
 ### Syntax
 
@@ -170,11 +170,11 @@ h1 dns zone delete --zone my-zone
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--zone ZONE``` |  | DNS zone ID or name |
+| ```--zone ZONE``` |  | DNS Zone ID or name |
 
 ## h1 dns zone import
 
-Import A, AAAA, CNAME, TXT, MX, NS, SRV records of DNS zone from BIND-compatible format
+Import A, AAAA, CNAME, TXT, MX, NS, SRV records of DNS Zone from BIND-compatible format
 
 ### Syntax
 
@@ -200,7 +200,7 @@ h1 dns zone import --zone 'my-domain.tld' --zone-file my-zone-export.txt
 
 ## h1 dns zone export
 
-Export A, AAAA, CNAME, TXT, MX, NS, SRV, SOA records of DNS zone in BIND-compatible format
+Export A, AAAA, CNAME, TXT, MX, NS, SRV, SOA records of DNS Zone in BIND-compatible format
 
 ### Syntax
 
@@ -256,7 +256,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set a list
 
-List Record A
+List record A
 
 ### Syntax
 
@@ -394,7 +394,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set aaaa list
 
-List Record AAAA
+List record AAAA
 
 ### Syntax
 
@@ -508,7 +508,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set cname list
 
-List Record CNAME
+List record CNAME
 
 ### Syntax
 
@@ -622,7 +622,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set txt list
 
-List Record TXT
+List record TXT
 
 ### Syntax
 
@@ -736,7 +736,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set mx list
 
-List Record MX
+List record MX
 
 ### Syntax
 
@@ -850,7 +850,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set ns list
 
-List Record NS
+List record NS
 
 ### Syntax
 
@@ -964,7 +964,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set srv list
 
-List Record SRV
+List record SRV
 
 ### Syntax
 
@@ -1078,7 +1078,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set soa list
 
-List Record SOA
+List record SOA
 
 ### Syntax
 
@@ -1159,7 +1159,7 @@ h1 dns record-set soa delete-record --zone 'my-domain.tld' --name www --value 'p
 
 ## h1 dns record-set list
 
-List Record set
+List record set
 
 ### Syntax
 

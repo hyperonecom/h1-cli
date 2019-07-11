@@ -25,7 +25,7 @@ const resource = {
     name: 'netgw',
     defaultQuery: '[].{id:_id,name:name,IP:primaryIP,network:network, tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'netgw',
-    title: 'network gateway',
+    title: 'Network gateway',
     schema,
     dirname: __dirname,
     extraCommands: ['create'],

@@ -14,7 +14,7 @@ module.exports = (parent) => {
         dirname: __dirname,
         commands: ['list'],
         extraCommands: [],
-        title: `Repository of ${parent.title}`,
+        title: `repository of ${parent.title}`,
     };
 
     const childDefaults = Object.assign({}, resource, {

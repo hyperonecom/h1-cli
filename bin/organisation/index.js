@@ -11,7 +11,7 @@ const resource = {
         require('bin/_plugins/outputFormat'),
         require('bin/_plugins/api'),
     ],
-    title: 'organisation',
+    title: 'Organisation',
     commands: ['show', 'history', 'access/user', 'list', 'rename', 'tag', 'payment'],
 };
 

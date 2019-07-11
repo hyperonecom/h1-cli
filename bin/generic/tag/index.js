@@ -21,7 +21,7 @@ module.exports = resource => {
         url: () => 'vm',
         plugins: genericDefaults.plugins,
         commands: ['list', 'show'],
-        title: `Tag of ${resource.title}`,
+        title: `tag of ${resource.title}`,
         options: options,
     };
 

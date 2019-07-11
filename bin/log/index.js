@@ -38,7 +38,7 @@ const resource = {
     dirname: __dirname,
     schema: schema,
     earlyAdoptersOnly: true,
-    title: 'log archive',
+    title: 'Log archive',
     credential_types: ['sha512'],
 };
 

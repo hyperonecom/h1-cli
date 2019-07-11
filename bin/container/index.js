@@ -12,7 +12,7 @@ const resource = {
     url: () => 'container',
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
-    title: 'container',
+    title: 'Container',
     extraCommands: ['log', 'start', 'stop'],
 };
 

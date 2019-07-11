@@ -1,28 +1,28 @@
 # TOC
 
-  * [h1 project create](#h1-project-create) - Create project
-  * [h1 project show](#h1-project-show) - Show project
-  * [h1 project delete](#h1-project-delete) - Delete project
-  * [h1 project access](#h1-project-access) - Manage your project access rights
-    * [h1 project access grant](#h1-project-access-grant) - Grant access rights for project
-    * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for project
-    * [h1 project access list](#h1-project-access-list) - List access rights for project
-  * [h1 project history](#h1-project-history) - History of project
-  * [h1 project rename](#h1-project-rename) - Rename project
-  * [h1 project service](#h1-project-service) - Manage your services of project
-    * [h1 project service list](#h1-project-service-list) - List service for project
-    * [h1 project service show](#h1-project-service-show) - Show service for project
-  * [h1 project payment](#h1-project-payment) - Manage your payment for project
+  * [h1 project create](#h1-project-create) - Create Project
+  * [h1 project show](#h1-project-show) - Show Project
+  * [h1 project delete](#h1-project-delete) - Delete Project
+  * [h1 project access](#h1-project-access) - Manage your Project access rights
+    * [h1 project access grant](#h1-project-access-grant) - Grant access rights for Project
+    * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for Project
+    * [h1 project access list](#h1-project-access-list) - List access rights for Project
+  * [h1 project history](#h1-project-history) - History of Project
+  * [h1 project rename](#h1-project-rename) - Rename Project
+  * [h1 project service](#h1-project-service) - Manage your services of Project
+    * [h1 project service list](#h1-project-service-list) - List Service for Project
+    * [h1 project service show](#h1-project-service-show) - Show Service for Project
+  * [h1 project payment](#h1-project-payment) - Manage your payment for Project
     * [h1 project payment show](#h1-project-payment-show) - Show payment
     * [h1 project payment list](#h1-project-payment-list) - List payment
-  * [h1 project list](#h1-project-list) - List project
-  * [h1 project transfer](#h1-project-transfer) - Transfer project to other organisation
-  * [h1 project token](#h1-project-token) - Manage your project tokens
-    * [h1 project token show](#h1-project-token-show) - Show token
-    * [h1 project token list](#h1-project-token-list) - List token
-    * [h1 project token delete](#h1-project-token-delete) - Delete token
-    * [h1 project token rename](#h1-project-token-rename) - Rename token
-    * [h1 project token add](#h1-project-token-add) - Add token
+  * [h1 project list](#h1-project-list) - List Project
+  * [h1 project transfer](#h1-project-transfer) - Transfer Project to other organisation
+  * [h1 project token](#h1-project-token) - Manage your Project tokens
+    * [h1 project token show](#h1-project-token-show) - Show Token
+    * [h1 project token list](#h1-project-token-list) - List Token
+    * [h1 project token delete](#h1-project-token-delete) - Delete Token
+    * [h1 project token rename](#h1-project-token-rename) - Rename Token
+    * [h1 project token add](#h1-project-token-add) - Add Token
     * [h1 project token access](#h1-project-token-access) - Manage your token access
       * [h1 project token access list](#h1-project-token-access-list) - List access rule
       * [h1 project token access show](#h1-project-token-access-show) - Show access rule
@@ -34,7 +34,7 @@
       * [h1 project notification credits add](#h1-project-notification-credits-add) - Add credits limit
       * [h1 project notification credits list](#h1-project-notification-credits-list) - List credits limit
       * [h1 project notification credits delete](#h1-project-notification-credits-delete) - Delete credits limit
-  * [h1 project select](#h1-project-select) - Select project context
+  * [h1 project select](#h1-project-select) - Select Project context
   * [h1 project limit](#h1-project-limit) - Cloud limits set for project
   * [h1 project logging](#h1-project-logging) - Manage your compliance logging
     * [h1 project logging enable](#h1-project-logging-enable) - Enable compliance log
@@ -45,18 +45,18 @@
     * [h1 project credentials list](#h1-project-credentials-list) - List credentials
     * [h1 project credentials delete](#h1-project-credentials-delete) - Delete credentials
     * [h1 project credentials rename](#h1-project-credentials-rename) - Rename credentials
-    * [h1 project credentials add](#h1-project-credentials-add) - Add public SSH key for project
+    * [h1 project credentials add](#h1-project-credentials-add) - Add public SSH key for Project
   * [h1 project tag](#h1-project-tag) - Manage your tag
     * [h1 project tag list](#h1-project-tag-list) - List tag
-    * [h1 project tag add](#h1-project-tag-add) - Add a tag to project
-    * [h1 project tag delete](#h1-project-tag-delete) - Delete a tag of project
+    * [h1 project tag add](#h1-project-tag-add) - Add a tag to Project
+    * [h1 project tag delete](#h1-project-tag-delete) - Delete a tag of Project
 
 
 # Specification
 
 ## h1 project
 
-Manage your project
+Manage your Project
 
 ### Examples
 
@@ -68,7 +68,7 @@ h1 project create --name project --organizatiton MyCompany
 
 ## h1 project create
 
-Create project
+Create Project
 
 ### Syntax
 
@@ -94,7 +94,7 @@ h1 project create create --name project --organizatiton MyCompany
 
 ## h1 project show
 
-Show project
+Show Project
 
 ### Syntax
 
@@ -113,7 +113,7 @@ h1 project show --project my-project
 
 ## h1 project delete
 
-Delete project
+Delete Project
 
 ### Syntax
 
@@ -132,7 +132,7 @@ h1 project delete --project my-project
 
 ## h1 project access
 
-Manage your project access rights
+Manage your Project access rights
 
 ### Optional arguments
 
@@ -142,7 +142,7 @@ Manage your project access rights
 
 ## h1 project access grant
 
-Grant access rights for project
+Grant access rights for Project
 
 ### Syntax
 
@@ -168,7 +168,7 @@ h1 project access grant --project my-project --email user@example.com
 
 ## h1 project access revoke
 
-Revoke access rights for project
+Revoke access rights for Project
 
 ### Syntax
 
@@ -193,7 +193,7 @@ h1 project access revoke --project my-project --email user@example.com
 
 ## h1 project access list
 
-List access rights for project
+List access rights for Project
 
 ### Syntax
 
@@ -212,7 +212,7 @@ h1 project access list --project my-project
 
 ## h1 project history
 
-History of project
+History of Project
 
 ### Syntax
 
@@ -231,7 +231,7 @@ h1 project history --project my-project
 
 ## h1 project rename
 
-Rename project
+Rename Project
 
 ### Syntax
 
@@ -251,11 +251,11 @@ h1 project rename --project my-project --new-name my-renamed-project
 
 ## h1 project service
 
-Manage your services of project
+Manage your services of Project
 
 ## h1 project service list
 
-List service for project
+List Service for Project
 
 ### Syntax
 
@@ -274,7 +274,7 @@ h1 project service list --project test-project
 
 ## h1 project service show
 
-Show service for project
+Show Service for Project
 
 ### Syntax
 
@@ -290,11 +290,11 @@ h1 project service show --service my-service --project my-project
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--project PROJECT``` |  | Project ID or name |
-| ```--service SERVICE``` |  | Service for project ID or name |
+| ```--service SERVICE``` |  | Service for Project ID or name |
 
 ## h1 project payment
 
-Manage your payment for project
+Manage your payment for Project
 
 ## h1 project payment show
 
@@ -306,7 +306,7 @@ Show payment
 ### Example
 
 ```bash
-h1 project payment show --payment my-payment --project my-project
+h1 project payment show --payment my-payment --Project my-Project
 ```
 
 ### Required arguments
@@ -326,7 +326,7 @@ List payment
 ### Example
 
 ```bash
-h1 project payment list --project my-project
+h1 project payment list --Project my-Project
 ```
 
 ### Required arguments
@@ -337,7 +337,7 @@ h1 project payment list --project my-project
 
 ## h1 project list
 
-List project
+List Project
 
 ### Syntax
 
@@ -356,7 +356,7 @@ h1 project list
 
 ## h1 project transfer
 
-Transfer project to other organisation
+Transfer Project to other organisation
 
 ### Syntax
 
@@ -376,7 +376,7 @@ h1 project transfer --project test-project --organisation target-organisation
 
 ## h1 project token
 
-Manage your project tokens
+Manage your Project tokens
 
 ### Examples
 
@@ -413,7 +413,7 @@ HYPERONE_ACCESS_TOKEN_SECRET="d41d8cd98f00b204e9800998ecf8427e" h1 vault snapsho
 
 ## h1 project token show
 
-Show token
+Show Token
 
 ### Syntax
 
@@ -438,7 +438,7 @@ h1 project token show --token my-token
 
 ## h1 project token list
 
-List token
+List Token
 
 ### Syntax
 
@@ -457,7 +457,7 @@ h1 project token list
 
 ## h1 project token delete
 
-Delete token
+Delete Token
 
 ### Syntax
 
@@ -482,7 +482,7 @@ h1 project token delete --token my-token --project my-project
 
 ## h1 project token rename
 
-Rename token
+Rename Token
 
 ### Syntax
 
@@ -508,7 +508,7 @@ h1 project token rename --token my-token --new-name my-renamed-token
 
 ## h1 project token add
 
-Add token
+Add Token
 
 ### Syntax
 
@@ -749,7 +749,7 @@ h1 project notification credits delete --project my-project --limit value
 
 ## h1 project select
 
-Select project context
+Select Project context
 
 ### Syntax
 
@@ -961,7 +961,7 @@ h1 project credentials rename --credentials my-credentials --new-name my-renamed
 
 ## h1 project credentials add
 
-Add public SSH key for project
+Add public SSH key for Project
 
 ### Syntax
 
@@ -1010,7 +1010,7 @@ h1 project tag list --project my-project
 
 ## h1 project tag add
 
-Add a tag to project
+Add a tag to Project
 
 ### Syntax
 
@@ -1035,7 +1035,7 @@ h1 project tag add --project test-project --tag prod=true
 
 ## h1 project tag delete
 
-Delete a tag of project
+Delete a tag of Project
 
 ### Syntax
 

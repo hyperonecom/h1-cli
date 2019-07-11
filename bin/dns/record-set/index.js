@@ -17,7 +17,7 @@ const resource = {
             required: true,
         },
     },
-    title: 'Record set',
+    title: 'record set',
 };
 
 const category = (resource) => {
@@ -48,7 +48,7 @@ const record = (type, parent) => {
     });
 
     const resource = Object.assign({}, parent, {
-        title: `Record ${type.toUpperCase()}`,
+        title: `record ${type.toUpperCase()}`,
         url: args => `${parent.url(args)}/rrsets/${type.toUpperCase()}`,
         context: Object.assign({}, parent.context, {
             listParams: '--zone my-zone',

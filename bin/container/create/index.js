@@ -9,17 +9,17 @@ const readFile = util.promisify(fs.readFile);
 
 const options = {
     name: {
-        description: 'Name',
+        description: 'Container name',
         type: 'string',
         required: true,
     },
     image: {
-        description: 'Image',
+        description: 'Container image eg. h1cr.io/website/php-apache',
         type: 'string',
         required: true,
     },
     type: {
-        description: 'Type',
+        description: 'Container type',
         type: 'string',
         required: true,
     },
@@ -54,7 +54,7 @@ const options = {
         required: false,
     },
     volume: {
-        description: 'Attach a volume as volumeId/volumePath:containerPath',
+        description: 'Attach a Volume as volumeId/volumePath:containerPath',
         type: 'string',
         action: 'append',
         defaultValue: [],

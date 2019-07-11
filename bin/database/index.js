@@ -10,7 +10,7 @@ const schema = {
         onCreate: true,
     },
     type: {
-        description: 'Type',
+        description: 'Database type',
         type: 'string',
         required: true,
         onCreate: true,
@@ -33,7 +33,7 @@ const resource = {
     plugins: genericDefaults.plugins,
     extraCommands: ['start', 'create', 'stop', 'credential', 'transfer'],
     earlyAdoptersOnly: true,
-    title: 'database',
+    title: 'Database',
     schema,
     dirname: __dirname,
     credential_types: ['mysql'],

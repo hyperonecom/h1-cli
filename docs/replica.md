@@ -1,31 +1,31 @@
 # TOC
 
-  * [h1 replica list](#h1-replica-list) - List replica
-  * [h1 replica show](#h1-replica-show) - Show replica
-  * [h1 replica delete](#h1-replica-delete) - Delete replica
-  * [h1 replica history](#h1-replica-history) - History of replica
-  * [h1 replica rename](#h1-replica-rename) - Rename replica
-  * [h1 replica service](#h1-replica-service) - Manage your services of replica
-    * [h1 replica service list](#h1-replica-service-list) - List service for replica
-    * [h1 replica service show](#h1-replica-service-show) - Show service for replica
+  * [h1 replica list](#h1-replica-list) - List Replica
+  * [h1 replica show](#h1-replica-show) - Show Replica
+  * [h1 replica delete](#h1-replica-delete) - Delete Replica
+  * [h1 replica history](#h1-replica-history) - History of Replica
+  * [h1 replica rename](#h1-replica-rename) - Rename Replica
+  * [h1 replica service](#h1-replica-service) - Manage your services of Replica
+    * [h1 replica service list](#h1-replica-service-list) - List Service for Replica
+    * [h1 replica service show](#h1-replica-service-show) - Show Service for Replica
   * [h1 replica create](#h1-replica-create) - Setup VM replication
-  * [h1 replica disk](#h1-replica-disk) - Manage your disk of replica
-    * [h1 replica disk list](#h1-replica-disk-list) - List disk of replica
+  * [h1 replica disk](#h1-replica-disk) - Manage your Disk of Replica
+    * [h1 replica disk list](#h1-replica-disk-list) - List Disk of Replica
   * [h1 replica tag](#h1-replica-tag) - Manage your tag
     * [h1 replica tag list](#h1-replica-tag-list) - List tag
-    * [h1 replica tag add](#h1-replica-tag-add) - Add a tag to replica
-    * [h1 replica tag delete](#h1-replica-tag-delete) - Delete a tag of replica
+    * [h1 replica tag add](#h1-replica-tag-add) - Add a tag to Replica
+    * [h1 replica tag delete](#h1-replica-tag-delete) - Delete a tag of Replica
 
 
 # Specification
 
 ## h1 replica
 
-Manage your replica
+Manage your Replica
 
 ## h1 replica list
 
-List replica
+List Replica
 
 ### Syntax
 
@@ -38,7 +38,7 @@ h1 replica list
 
 ## h1 replica show
 
-Show replica
+Show Replica
 
 ### Syntax
 
@@ -57,7 +57,7 @@ h1 replica show --replica my-replica
 
 ## h1 replica delete
 
-Delete replica
+Delete Replica
 
 ### Syntax
 
@@ -76,7 +76,7 @@ h1 replica delete --replica my-replica
 
 ## h1 replica history
 
-History of replica
+History of Replica
 
 ### Syntax
 
@@ -95,7 +95,7 @@ h1 replica history --replica my-replica
 
 ## h1 replica rename
 
-Rename replica
+Rename Replica
 
 ### Syntax
 
@@ -115,11 +115,11 @@ h1 replica rename --replica my-replica --new-name my-renamed-replica
 
 ## h1 replica service
 
-Manage your services of replica
+Manage your services of Replica
 
 ## h1 replica service list
 
-List service for replica
+List Service for Replica
 
 ### Syntax
 
@@ -138,7 +138,7 @@ h1 replica service list --replica test-replica
 
 ## h1 replica service show
 
-Show service for replica
+Show Service for Replica
 
 ### Syntax
 
@@ -154,7 +154,7 @@ h1 replica service show --service my-service --replica my-replica
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--replica REPLICA``` |  | Replica ID or name |
-| ```--service SERVICE``` |  | Service for replica ID or name |
+| ```--service SERVICE``` |  | Service for Replica ID or name |
 
 ## h1 replica create
 
@@ -177,11 +177,11 @@ Setup VM replication
 
 ## h1 replica disk
 
-Manage your disk of replica
+Manage your Disk of Replica
 
 ## h1 replica disk list
 
-List disk of replica
+List Disk of Replica
 
 ### Syntax
 
@@ -223,7 +223,7 @@ h1 replica tag list --replica my-replica
 
 ## h1 replica tag add
 
-Add a tag to replica
+Add a tag to Replica
 
 ### Syntax
 
@@ -248,7 +248,7 @@ h1 replica tag add --replica test-replica --tag prod=true
 
 ## h1 replica tag delete
 
-Delete a tag of replica
+Delete a tag of Replica
 
 ### Syntax
 

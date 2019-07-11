@@ -7,7 +7,7 @@ const formatRecordName = require('../../lib').formatRecordName;
 
 const options = {
     name: {
-        description: 'Record Set name',
+        description: 'Record set name',
         type: 'string',
         required: true,
     },
@@ -16,7 +16,7 @@ const options = {
 
 module.exports = resource => Cli.createCommand('dynamic-dns', {
     dirname: __dirname,
-    description: 'Replaces the record-set with the client ip address',
+    description: 'Replaces the record set with the client IP address',
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options),
     resource: resource,

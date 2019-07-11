@@ -4,7 +4,7 @@ const Cli = require('lib/cli');
 
 const resource = {
     name: 'user',
-    title: 'user',
+    title: 'User',
     credential_types: ['ssh', 'sha-512'],
 };
 

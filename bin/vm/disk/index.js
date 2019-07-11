@@ -18,7 +18,7 @@ const resource = {
     url: args => `vm/${args.vm}/hdd`,
     options: options,
     commands: ['list'],
-    title: 'disk',
+    title: 'Disk',
 };
 
 const childOptions = Object.assign({}, resource.options, {

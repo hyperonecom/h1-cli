@@ -5,13 +5,13 @@ const genericResource = require('bin/generic');
 
 const schema = {
     name: {
-        description: 'Name',
+        description: 'Reservation name',
         type: 'string',
         required: true,
         onCreate: true,
     },
     type: {
-        description: 'Type',
+        description: 'Reservation type',
         type: 'string',
         required: true,
         onCreate: true,
@@ -30,7 +30,7 @@ const resource = {
     url: () => 'reservation',
     plugins: genericDefaults.plugins,
     commands: [ 'list', 'show', 'service', 'create', 'tag', 'history', 'delete'],
-    title: 'reservation',
+    title: 'Reservation',
     schema,
     dirname: __dirname,
 };

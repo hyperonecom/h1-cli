@@ -25,7 +25,7 @@ const resource = {
     extraCommands: ['transfer', 'create'],
     schema,
     dirname: __dirname,
-    title: 'firewall',
+    title: 'Firewall',
 };
 
 const category = genericResource(resource);

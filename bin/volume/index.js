@@ -35,6 +35,7 @@ const schema = {
 
 const resource = {
     name: 'volume',
+    title: 'Volume',
     defaultQuery: '[].{id:_id,name:name,type:type,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'volume',
     plugins: genericDefaults.plugins,
@@ -42,7 +43,6 @@ const resource = {
     schema,
     dirname: __dirname,
     earlyAdoptersOnly: true,
-    title: 'volume',
 };
 
 const category = genericResource(resource);

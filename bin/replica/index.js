@@ -4,8 +4,8 @@ const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
 
 const resource = {
-    title: 'replica',
     name: 'replica',
+    title: 'Replica',
     defaultQuery: '[].{id:_id, name:name, state:state, tags:join(\',\',keys(tag || `{}`) )}',
     url: () => 'replica',
     plugins: genericDefaults.plugins,
