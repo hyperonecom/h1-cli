@@ -57,9 +57,9 @@ h1 container create --name nginx --type b1.nano --image registry.example.com/my-
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name |
-| ```--image IMAGE``` |  | Image |
-| ```--type TYPE``` |  | Type |
+| ```--name NAME``` |  | Container name |
+| ```--image IMAGE``` |  | Container image eg. h1cr.io/website/php-apache |
+| ```--type TYPE``` |  | Container type |
 
 ### Optional arguments
 
@@ -70,7 +70,7 @@ h1 container create --name nginx --type b1.nano --image registry.example.com/my-
 | ```--registry-dockercfg``` |  | Use credentials from .dockercfg |
 | ```--expose EXPOSE [--expose EXPOSE ...]``` |  | Mapping port to expose to the world as external:internal. The parameter may occur repeatedly |
 | ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
-| ```--volume VOLUME [--volume VOLUME ...]``` |  | Attach a volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
+| ```--volume VOLUME [--volume VOLUME ...]``` |  | Attach a Volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
 | ```--command COMMAND``` |  | Override the default command |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 

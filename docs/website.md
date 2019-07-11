@@ -95,7 +95,7 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Website name |
 | ```--type TYPE``` |  | Website type |
-| ```--image IMAGE``` |  | Website Image |
+| ```--image IMAGE``` |  | Website image |
 
 ### Optional arguments
 

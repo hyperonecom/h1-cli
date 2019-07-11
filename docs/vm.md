@@ -28,7 +28,7 @@
     * [h1 vm nic delete](#h1-vm-nic-delete) - Delete Network adapter
     * [h1 vm nic create](#h1-vm-nic-create) - Create Network adapter
     * [h1 vm nic show](#h1-vm-nic-show) - Show Network adapter
-    * [h1 vm nic firewall](#h1-vm-nic-firewall) - Manage firewall of Network adapter
+    * [h1 vm nic firewall](#h1-vm-nic-firewall) - Manage Firewall of Network adapter
       * [h1 vm nic firewall add](#h1-vm-nic-firewall-add) - Add firewall to Network adapter
       * [h1 vm nic firewall remove](#h1-vm-nic-firewall-remove) - Remove firewall from Network adapter
     * [h1 vm nic history](#h1-vm-nic-history) - History of Network adapter
@@ -606,14 +606,14 @@ Note (4): To list available networks use ```h1 network list```.
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
-| ```--type TYPE``` |  | Type of network adapter |
+| ```--type TYPE``` |  | Type of Network Adapter |
 
 ### Optional arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--network NETWORK``` |  | Network connected to network adapter |
-| ```--ip IP``` |  | IP to assign from network |
+| ```--network NETWORK``` |  | ID or name of Network to connect |
+| ```--ip IP``` |  | IP address to assign |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 vm nic show
@@ -638,7 +638,7 @@ h1 vm nic show --nic my-nic
 
 ## h1 vm nic firewall
 
-Manage firewall of Network adapter
+Manage Firewall of Network adapter
 
 ## h1 vm nic firewall add
 
