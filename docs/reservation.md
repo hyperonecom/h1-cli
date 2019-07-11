@@ -47,8 +47,8 @@ h1 reservation create --name my-reservation-name --type 'm2.tiny, 1 year'
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name |
-| ```--type TYPE``` |  | Type |
+| ```--name NAME``` |  | Reservation name |
+| ```--type TYPE``` |  | Reservation type |
 
 ### Optional arguments
 

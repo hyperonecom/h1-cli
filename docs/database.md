@@ -79,7 +79,7 @@ h1 database create --name my-database --type mysql:5.7 --password my-password
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Database name |
-| ```--type TYPE``` |  | Type |
+| ```--type TYPE``` |  | Database type |
 
 ### Optional arguments
 

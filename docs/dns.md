@@ -9,52 +9,52 @@
     * [h1 dns zone export](#h1-dns-zone-export) - Export A, AAAA, CNAME, TXT, MX, NS, SRV, SOA records of DNS Zone in BIND-compatible format
   * [h1 dns record-set](#h1-dns-record-set) - Manage your record-set
     * [h1 dns record-set a](#h1-dns-record-set-a) - Manage record set type A
-      * [h1 dns record-set a create](#h1-dns-record-set-a-create) - Create record-set
+      * [h1 dns record-set a create](#h1-dns-record-set-a-create) - Create record set
       * [h1 dns record-set a list](#h1-dns-record-set-a-list) - List record A
-      * [h1 dns record-set a delete](#h1-dns-record-set-a-delete) - Delete record-set
+      * [h1 dns record-set a delete](#h1-dns-record-set-a-delete) - Delete record set
       * [h1 dns record-set a add-record](#h1-dns-record-set-a-add-record) - Add record
       * [h1 dns record-set a delete-record](#h1-dns-record-set-a-delete-record) - Delete record
-      * [h1 dns record-set a dynamic-dns](#h1-dns-record-set-a-dynamic-dns) - Replaces the record-set with the client ip address
+      * [h1 dns record-set a dynamic-dns](#h1-dns-record-set-a-dynamic-dns) - Replaces the record set with the client IP address
     * [h1 dns record-set aaaa](#h1-dns-record-set-aaaa) - Manage record set type AAAA
-      * [h1 dns record-set aaaa create](#h1-dns-record-set-aaaa-create) - Create record-set
+      * [h1 dns record-set aaaa create](#h1-dns-record-set-aaaa-create) - Create record set
       * [h1 dns record-set aaaa list](#h1-dns-record-set-aaaa-list) - List record AAAA
-      * [h1 dns record-set aaaa delete](#h1-dns-record-set-aaaa-delete) - Delete record-set
+      * [h1 dns record-set aaaa delete](#h1-dns-record-set-aaaa-delete) - Delete record set
       * [h1 dns record-set aaaa add-record](#h1-dns-record-set-aaaa-add-record) - Add record
       * [h1 dns record-set aaaa delete-record](#h1-dns-record-set-aaaa-delete-record) - Delete record
     * [h1 dns record-set cname](#h1-dns-record-set-cname) - Manage record set type CNAME
-      * [h1 dns record-set cname create](#h1-dns-record-set-cname-create) - Create record-set
+      * [h1 dns record-set cname create](#h1-dns-record-set-cname-create) - Create record set
       * [h1 dns record-set cname list](#h1-dns-record-set-cname-list) - List record CNAME
-      * [h1 dns record-set cname delete](#h1-dns-record-set-cname-delete) - Delete record-set
+      * [h1 dns record-set cname delete](#h1-dns-record-set-cname-delete) - Delete record set
       * [h1 dns record-set cname add-record](#h1-dns-record-set-cname-add-record) - Add record
       * [h1 dns record-set cname delete-record](#h1-dns-record-set-cname-delete-record) - Delete record
     * [h1 dns record-set txt](#h1-dns-record-set-txt) - Manage record set type TXT
-      * [h1 dns record-set txt create](#h1-dns-record-set-txt-create) - Create record-set
+      * [h1 dns record-set txt create](#h1-dns-record-set-txt-create) - Create record set
       * [h1 dns record-set txt list](#h1-dns-record-set-txt-list) - List record TXT
-      * [h1 dns record-set txt delete](#h1-dns-record-set-txt-delete) - Delete record-set
+      * [h1 dns record-set txt delete](#h1-dns-record-set-txt-delete) - Delete record set
       * [h1 dns record-set txt add-record](#h1-dns-record-set-txt-add-record) - Add record
       * [h1 dns record-set txt delete-record](#h1-dns-record-set-txt-delete-record) - Delete record
     * [h1 dns record-set mx](#h1-dns-record-set-mx) - Manage record set type MX
-      * [h1 dns record-set mx create](#h1-dns-record-set-mx-create) - Create record-set
+      * [h1 dns record-set mx create](#h1-dns-record-set-mx-create) - Create record set
       * [h1 dns record-set mx list](#h1-dns-record-set-mx-list) - List record MX
-      * [h1 dns record-set mx delete](#h1-dns-record-set-mx-delete) - Delete record-set
+      * [h1 dns record-set mx delete](#h1-dns-record-set-mx-delete) - Delete record set
       * [h1 dns record-set mx add-record](#h1-dns-record-set-mx-add-record) - Add record
       * [h1 dns record-set mx delete-record](#h1-dns-record-set-mx-delete-record) - Delete record
     * [h1 dns record-set ns](#h1-dns-record-set-ns) - Manage record set type NS
-      * [h1 dns record-set ns create](#h1-dns-record-set-ns-create) - Create record-set
+      * [h1 dns record-set ns create](#h1-dns-record-set-ns-create) - Create record set
       * [h1 dns record-set ns list](#h1-dns-record-set-ns-list) - List record NS
-      * [h1 dns record-set ns delete](#h1-dns-record-set-ns-delete) - Delete record-set
+      * [h1 dns record-set ns delete](#h1-dns-record-set-ns-delete) - Delete record set
       * [h1 dns record-set ns add-record](#h1-dns-record-set-ns-add-record) - Add record
       * [h1 dns record-set ns delete-record](#h1-dns-record-set-ns-delete-record) - Delete record
     * [h1 dns record-set srv](#h1-dns-record-set-srv) - Manage record set type SRV
-      * [h1 dns record-set srv create](#h1-dns-record-set-srv-create) - Create record-set
+      * [h1 dns record-set srv create](#h1-dns-record-set-srv-create) - Create record set
       * [h1 dns record-set srv list](#h1-dns-record-set-srv-list) - List record SRV
-      * [h1 dns record-set srv delete](#h1-dns-record-set-srv-delete) - Delete record-set
+      * [h1 dns record-set srv delete](#h1-dns-record-set-srv-delete) - Delete record set
       * [h1 dns record-set srv add-record](#h1-dns-record-set-srv-add-record) - Add record
       * [h1 dns record-set srv delete-record](#h1-dns-record-set-srv-delete-record) - Delete record
     * [h1 dns record-set soa](#h1-dns-record-set-soa) - Manage record set type SOA
-      * [h1 dns record-set soa create](#h1-dns-record-set-soa-create) - Create record-set
+      * [h1 dns record-set soa create](#h1-dns-record-set-soa-create) - Create record set
       * [h1 dns record-set soa list](#h1-dns-record-set-soa-list) - List record SOA
-      * [h1 dns record-set soa delete](#h1-dns-record-set-soa-delete) - Delete record-set
+      * [h1 dns record-set soa delete](#h1-dns-record-set-soa-delete) - Delete record set
       * [h1 dns record-set soa add-record](#h1-dns-record-set-soa-add-record) - Add record
       * [h1 dns record-set soa delete-record](#h1-dns-record-set-soa-delete-record) - Delete record
     * [h1 dns record-set list](#h1-dns-record-set-list) - List record set
@@ -227,7 +227,7 @@ Manage record set type A
 
 ## h1 dns record-set a create
 
-Create record-set
+Create record set
 
 ### Syntax
 
@@ -244,7 +244,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -252,7 +252,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
+| ```--ttl TTL``` |  | Record set Time To Live (TTL) |
 
 ## h1 dns record-set a list
 
@@ -275,7 +275,7 @@ h1 dns record-set a list --zone my-zone
 
 ## h1 dns record-set a delete
 
-Delete record-set
+Delete record set
 
 ### Syntax
 
@@ -290,7 +290,7 @@ h1 dns record-set a delete --zone 'my-domain.tld' --name www
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 
 ## h1 dns record-set a add-record
@@ -310,7 +310,7 @@ h1 dns record-set a add-record --zone 'my-domain.tld' --name subdomain --value '
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -331,13 +331,13 @@ h1 dns record-set a delete-record --zone 'my-domain.tld' --name www --value '8.8
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
 ## h1 dns record-set a dynamic-dns
 
-Replaces the record-set with the client ip address
+Replaces the record set with the client IP address
 
 ### Note
 
@@ -356,7 +356,7 @@ h1 dns record-set a dynamic-dns --name my-home --zone example.com.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 
 ## h1 dns record-set aaaa
@@ -365,7 +365,7 @@ Manage record set type AAAA
 
 ## h1 dns record-set aaaa create
 
-Create record-set
+Create record set
 
 ### Syntax
 
@@ -382,7 +382,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -390,7 +390,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
+| ```--ttl TTL``` |  | Record set Time To Live (TTL) |
 
 ## h1 dns record-set aaaa list
 
@@ -413,7 +413,7 @@ h1 dns record-set aaaa list --zone my-zone
 
 ## h1 dns record-set aaaa delete
 
-Delete record-set
+Delete record set
 
 ### Syntax
 
@@ -428,7 +428,7 @@ h1 dns record-set aaaa delete --zone 'my-domain.tld' --name www
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 
 ## h1 dns record-set aaaa add-record
@@ -448,7 +448,7 @@ h1 dns record-set aaaa add-record --zone 'my-domain.tld' --name subdomain --valu
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -469,7 +469,7 @@ h1 dns record-set aaaa delete-record --zone 'my-domain.tld' --name www --value '
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -479,7 +479,7 @@ Manage record set type CNAME
 
 ## h1 dns record-set cname create
 
-Create record-set
+Create record set
 
 ### Syntax
 
@@ -496,7 +496,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -504,7 +504,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
+| ```--ttl TTL``` |  | Record set Time To Live (TTL) |
 
 ## h1 dns record-set cname list
 
@@ -527,7 +527,7 @@ h1 dns record-set cname list --zone my-zone
 
 ## h1 dns record-set cname delete
 
-Delete record-set
+Delete record set
 
 ### Syntax
 
@@ -542,7 +542,7 @@ h1 dns record-set cname delete --zone 'my-domain.tld' --name www
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 
 ## h1 dns record-set cname add-record
@@ -562,7 +562,7 @@ h1 dns record-set cname add-record --zone 'my-domain.tld' --name subdomain --val
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -583,7 +583,7 @@ h1 dns record-set cname delete-record --zone 'my-domain.tld' --name www --value 
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -593,7 +593,7 @@ Manage record set type TXT
 
 ## h1 dns record-set txt create
 
-Create record-set
+Create record set
 
 ### Syntax
 
@@ -610,7 +610,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -618,7 +618,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
+| ```--ttl TTL``` |  | Record set Time To Live (TTL) |
 
 ## h1 dns record-set txt list
 
@@ -641,7 +641,7 @@ h1 dns record-set txt list --zone my-zone
 
 ## h1 dns record-set txt delete
 
-Delete record-set
+Delete record set
 
 ### Syntax
 
@@ -656,7 +656,7 @@ h1 dns record-set txt delete --zone 'my-domain.tld' --name www
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 
 ## h1 dns record-set txt add-record
@@ -676,7 +676,7 @@ h1 dns record-set txt add-record --zone 'my-domain.tld' --name subdomain --value
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -697,7 +697,7 @@ h1 dns record-set txt delete-record --zone 'my-domain.tld' --name www --value '"
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -707,7 +707,7 @@ Manage record set type MX
 
 ## h1 dns record-set mx create
 
-Create record-set
+Create record set
 
 ### Syntax
 
@@ -724,7 +724,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -732,7 +732,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
+| ```--ttl TTL``` |  | Record set Time To Live (TTL) |
 
 ## h1 dns record-set mx list
 
@@ -755,7 +755,7 @@ h1 dns record-set mx list --zone my-zone
 
 ## h1 dns record-set mx delete
 
-Delete record-set
+Delete record set
 
 ### Syntax
 
@@ -770,7 +770,7 @@ h1 dns record-set mx delete --zone 'my-domain.tld' --name www
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 
 ## h1 dns record-set mx add-record
@@ -790,7 +790,7 @@ h1 dns record-set mx add-record --zone 'my-domain.tld' --name subdomain --value 
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -811,7 +811,7 @@ h1 dns record-set mx delete-record --zone 'my-domain.tld' --name www --value '10
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -821,7 +821,7 @@ Manage record set type NS
 
 ## h1 dns record-set ns create
 
-Create record-set
+Create record set
 
 ### Syntax
 
@@ -838,7 +838,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -846,7 +846,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
+| ```--ttl TTL``` |  | Record set Time To Live (TTL) |
 
 ## h1 dns record-set ns list
 
@@ -869,7 +869,7 @@ h1 dns record-set ns list --zone my-zone
 
 ## h1 dns record-set ns delete
 
-Delete record-set
+Delete record set
 
 ### Syntax
 
@@ -884,7 +884,7 @@ h1 dns record-set ns delete --zone 'my-domain.tld' --name www
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 
 ## h1 dns record-set ns add-record
@@ -904,7 +904,7 @@ h1 dns record-set ns add-record --zone 'my-domain.tld' --name subdomain --value 
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -925,7 +925,7 @@ h1 dns record-set ns delete-record --zone 'my-domain.tld' --name www --value 'ns
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -935,7 +935,7 @@ Manage record set type SRV
 
 ## h1 dns record-set srv create
 
-Create record-set
+Create record set
 
 ### Syntax
 
@@ -952,7 +952,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -960,7 +960,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
+| ```--ttl TTL``` |  | Record set Time To Live (TTL) |
 
 ## h1 dns record-set srv list
 
@@ -983,7 +983,7 @@ h1 dns record-set srv list --zone my-zone
 
 ## h1 dns record-set srv delete
 
-Delete record-set
+Delete record set
 
 ### Syntax
 
@@ -998,7 +998,7 @@ h1 dns record-set srv delete --zone 'my-domain.tld' --name www
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 
 ## h1 dns record-set srv add-record
@@ -1018,7 +1018,7 @@ h1 dns record-set srv add-record --zone 'my-domain.tld' --name subdomain --value
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -1039,7 +1039,7 @@ h1 dns record-set srv delete-record --zone 'my-domain.tld' --name www --value '1
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -1049,7 +1049,7 @@ Manage record set type SOA
 
 ## h1 dns record-set soa create
 
-Create record-set
+Create record set
 
 ### Syntax
 
@@ -1066,7 +1066,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -1074,7 +1074,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ttl TTL``` |  | Record Set Time To Live (TTL) |
+| ```--ttl TTL``` |  | Record set Time To Live (TTL) |
 
 ## h1 dns record-set soa list
 
@@ -1097,7 +1097,7 @@ h1 dns record-set soa list --zone my-zone
 
 ## h1 dns record-set soa delete
 
-Delete record-set
+Delete record set
 
 ### Syntax
 
@@ -1112,7 +1112,7 @@ h1 dns record-set soa delete --zone 'my-domain.tld' --name www
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 
 ## h1 dns record-set soa add-record
@@ -1132,7 +1132,7 @@ h1 dns record-set soa add-record --zone 'my-domain.tld' --name subdomain --value
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 
@@ -1153,7 +1153,7 @@ h1 dns record-set soa delete-record --zone 'my-domain.tld' --name www --value 'p
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Record Set name |
+| ```--name NAME``` |  | Record set name |
 | ```--zone ZONE``` |  | DNS zone name |
 | ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
 

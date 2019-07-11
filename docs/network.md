@@ -8,7 +8,7 @@
   * [h1 network service](#h1-network-service) - Manage your services of Network
     * [h1 network service list](#h1-network-service-list) - List Service for Network
     * [h1 network service show](#h1-network-service-show) - Show Service for Network
-  * [h1 network firewall](#h1-network-firewall) - Manage firewall of Network
+  * [h1 network firewall](#h1-network-firewall) - Manage Firewall of Network
     * [h1 network firewall add](#h1-network-firewall-add) - Add firewall to Network
     * [h1 network firewall remove](#h1-network-firewall-remove) - Remove firewall from Network
   * [h1 network create](#h1-network-create) - Create Network
@@ -171,7 +171,7 @@ h1 network service show --service my-service --network my-network
 
 ## h1 network firewall
 
-Manage firewall of Network
+Manage Firewall of Network
 
 ## h1 network firewall add
 
