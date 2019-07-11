@@ -1,10 +1,10 @@
 'use strict';
 
 const Cli = require('lib/cli');
-const lodash = require('lodash');
+const {pickBy} = require('lib/transform');
 
 module.exports = resource => {
-    const options = lodash.pickBy(resource.schema, field => field.onCreate && !field.virtual);
+    const options = pickBy(resource.schema, field => field.onCreate && !field.virtual);
 
     return Cli.createCommand('create', {
         description: `Create ${resource.title}`,

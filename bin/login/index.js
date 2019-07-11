@@ -3,7 +3,6 @@
 const Cli = require('lib/cli');
 
 const logger = require('lib/logger');
-const _ = require('lodash');
 const interactive = require('lib/interactive');
 
 const options = {
@@ -33,7 +32,7 @@ const handler = async args => {
                 return interactive.prompt('Password', {
                     type: 'password',
                     name: 'value',
-                    validate: input => _.isEmpty(input) ? 'Incorrect password' : true,
+                    validate: input => input.length === 0 ? 'Incorrect password' : true,
                 })
                     .then(password => args.helpers.api.getApiKey(args.username, { password: password.value }));
             });
