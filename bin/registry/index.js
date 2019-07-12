@@ -21,10 +21,19 @@ const schema = {
         virtual: true,
         onCreate: true,
     },
+    domain: {
+        description: 'Domain name',
+        type: 'string',
+        append: [],
+        action: 'append',
+        required: true,
+        onUpdate: true,
+        onCreate: false,
+    },
     tags: {
         virtual: true,
         onCreate: true,
-        onUpdate: true,
+        onUpdate: false,
     },
 };
 
@@ -33,7 +42,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,service:flavour,size:sizeUsed,created:createdOn,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'registry',
     plugins: genericDefaults.plugins,
-    extraCommands: ['create', 'start', 'stop', 'transfer', 'credential'],
+    extraCommands: ['create', 'start', 'stop', 'transfer', 'update', 'credential'],
     dirname: __dirname,
     earlyAdoptersOnly: true,
     title: 'Registry',

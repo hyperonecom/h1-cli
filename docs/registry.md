@@ -12,6 +12,8 @@
   * [h1 registry start](#h1-registry-start) - Start Registry
   * [h1 registry stop](#h1-registry-stop) - Stop Registry
   * [h1 registry transfer](#h1-registry-transfer) - Transfer Registry to other project
+  * [h1 registry update](#h1-registry-update) - Update Registry
+    * [h1 registry update domain](#h1-registry-update-domain) - Update domain of Registry
   * [h1 registry repository](#h1-registry-repository) - Manage your repository of Registry
     * [h1 registry repository list](#h1-registry-repository-list) - List repository of Registry
     * [h1 registry repository tag](#h1-registry-repository-tag) - Manage your tag in repository
@@ -278,6 +280,24 @@ h1 registry transfer --registry test-registry --new-project OtherProject
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
+
+## h1 registry update
+
+Update Registry
+
+## h1 registry update domain
+
+Update domain of Registry
+
+### Syntax
+
+```h1 registry update domain | --domain DOMAIN [--domain DOMAIN ...] --registry REGISTRY```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
+| ```--registry REGISTRY``` |  | Registry ID or name |
 
 ## h1 registry repository
 
