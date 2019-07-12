@@ -6,7 +6,7 @@ const {types} = require('lib/credentials');
 
 module.exports = (resource, kind) => Cli.createCommand('list', {
     dirname: __dirname,
-    description: `List credential of ${resource.title}`,
+    description: `List ${resource.title}`,
     plugins: genericDefaults.plugins,
     options: resource.options,
     context: resource.context,

@@ -15,35 +15,23 @@
   * [h1 vault start](#h1-vault-start) - Start Vault
   * [h1 vault stop](#h1-vault-stop) - Stop Vault
   * [h1 vault console](#h1-vault-console) - Open Vault console in web-browser
-  * [h1 vault credential](#h1-vault-credential) - Manage your credentials to Vault
-    * [h1 vault credential list](#h1-vault-credential-list) - List credential of vault
-    * [h1 vault credential show](#h1-vault-credential-show) - Show credential of vault
-    * [h1 vault credential cert](#h1-vault-credential-cert) - Manage your certificate to Vault
-      * [h1 vault credential cert list](#h1-vault-credential-cert-list) - List certificate to Vault
-      * [h1 vault credential cert show](#h1-vault-credential-cert-show) - Show certificate to Vault
-      * [h1 vault credential cert rename](#h1-vault-credential-cert-rename) - Rename certificate to Vault
-      * [h1 vault credential cert delete](#h1-vault-credential-cert-delete) - Delete certificate to Vault
-      * [h1 vault credential cert add](#h1-vault-credential-cert-add) - Add certificate to Vault
-      * [h1 vault credential cert list](#h1-vault-credential-cert-list) - List credential of certificate to Vault
+  * [h1 vault credential](#h1-vault-credential) - Manage your credentials of Vault
+    * [h1 vault credential list](#h1-vault-credential-list) - List credential of Vault
+    * [h1 vault credential show](#h1-vault-credential-show) - Show credential of Vault
+    * [h1 vault credential cert](#h1-vault-credential-cert) - Manage your certificate credential of Vault
+      * [h1 vault credential cert list](#h1-vault-credential-cert-list) - List certificate credential of Vault
+      * [h1 vault credential cert show](#h1-vault-credential-cert-show) - Show certificate credential of Vault
+      * [h1 vault credential cert rename](#h1-vault-credential-cert-rename) - Rename certificate credential of Vault
+      * [h1 vault credential cert delete](#h1-vault-credential-cert-delete) - Delete certificate credential of Vault
+      * [h1 vault credential cert add](#h1-vault-credential-cert-add) - Add certificate credential of Vault
+      * [h1 vault credential cert list](#h1-vault-credential-cert-list) - List certificate credential of Vault
     * [h1 vault credential password](#h1-vault-credential-password) - Manage your password Vault
-      * [h1 vault credential password list](#h1-vault-credential-password-list) - List password to Vault
-      * [h1 vault credential password show](#h1-vault-credential-password-show) - Show password to Vault
-      * [h1 vault credential password delete](#h1-vault-credential-password-delete) - Delete password to Vault
-      * [h1 vault credential password history](#h1-vault-credential-password-history) - History of password to Vault
-      * [h1 vault credential password rename](#h1-vault-credential-password-rename) - Rename password to Vault
-      * [h1 vault credential password service](#h1-vault-credential-password-service) - Manage your services of password to Vault
-        * [h1 vault credential password service list](#h1-vault-credential-password-service-list) - List Service for password to Vault
-        * [h1 vault credential password service show](#h1-vault-credential-password-service-show) - Show Service for password to Vault
-      * [h1 vault credential password list](#h1-vault-credential-password-list) - List password to Vault
-      * [h1 vault credential password show](#h1-vault-credential-password-show) - Show password to Vault
-      * [h1 vault credential password rename](#h1-vault-credential-password-rename) - Rename password to Vault
-      * [h1 vault credential password delete](#h1-vault-credential-password-delete) - Delete password to Vault
-      * [h1 vault credential password add](#h1-vault-credential-password-add) - Add password to Vault
-      * [h1 vault credential password list](#h1-vault-credential-password-list) - List credential of password to Vault
-      * [h1 vault credential password tag](#h1-vault-credential-password-tag) - Manage your tag
-        * [h1 vault credential password tag list](#h1-vault-credential-password-tag-list) - List tag
-        * [h1 vault credential password tag add](#h1-vault-credential-password-tag-add) - Add a tag to password to Vault
-        * [h1 vault credential password tag delete](#h1-vault-credential-password-tag-delete) - Delete a tag of password to Vault
+      * [h1 vault credential password list](#h1-vault-credential-password-list) - List password credential of Vault
+      * [h1 vault credential password show](#h1-vault-credential-password-show) - Show password credential of Vault
+      * [h1 vault credential password rename](#h1-vault-credential-password-rename) - Rename password credential of Vault
+      * [h1 vault credential password delete](#h1-vault-credential-password-delete) - Delete password credential of Vault
+      * [h1 vault credential password add](#h1-vault-credential-password-add) - Add password credential of Vault
+      * [h1 vault credential password list](#h1-vault-credential-password-list) - List password credential of Vault
   * [h1 vault tag](#h1-vault-tag) - Manage your tag
     * [h1 vault tag list](#h1-vault-tag-list) - List tag
     * [h1 vault tag add](#h1-vault-tag-add) - Add a tag to Vault
@@ -356,11 +344,11 @@ h1 vault console --vault test-vault
 
 ## h1 vault credential
 
-Manage your credentials to Vault
+Manage your credentials of Vault
 
 ## h1 vault credential list
 
-List credential of vault
+List credential of Vault
 
 ### Syntax
 
@@ -379,7 +367,7 @@ h1 vault credential list --vault my-vault
 
 ## h1 vault credential show
 
-Show credential of vault
+Show credential of Vault
 
 ### Syntax
 
@@ -395,15 +383,15 @@ h1 vault credential show --credential my-credential
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
-| ```--credential CREDENTIAL``` |  | Credential of vault ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Vault ID or name |
 
 ## h1 vault credential cert
 
-Manage your certificate to Vault
+Manage your certificate credential of Vault
 
 ## h1 vault credential cert list
 
-List certificate to Vault
+List certificate credential of Vault
 
 ### Syntax
 
@@ -422,7 +410,7 @@ h1 vault credential cert list --vault my-vault
 
 ## h1 vault credential cert show
 
-Show certificate to Vault
+Show certificate credential of Vault
 
 ### Syntax
 
@@ -438,11 +426,11 @@ h1 vault credential cert show --cert my-cert
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
-| ```--cert CERT``` |  | Certificate to Vault ID or name |
+| ```--cert CERT``` |  | Certificate credential of Vault ID or name |
 
 ## h1 vault credential cert rename
 
-Rename certificate to Vault
+Rename certificate credential of Vault
 
 ### Syntax
 
@@ -458,12 +446,12 @@ h1 vault credential cert rename --cert my-cert --new-name my-renamed-cert --vaul
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
-| ```--cert CERT``` |  | Certificate to Vault ID or name |
+| ```--cert CERT``` |  | Certificate credential of Vault ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 vault credential cert delete
 
-Delete certificate to Vault
+Delete certificate credential of Vault
 
 ### Syntax
 
@@ -479,11 +467,11 @@ h1 vault credential cert delete --cert my-cert --vault my-vault
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
-| ```--cert CERT``` |  | Certificate to Vault ID or name |
+| ```--cert CERT``` |  | Certificate credential of Vault ID or name |
 
 ## h1 vault credential cert add
 
-Add certificate to Vault
+Add certificate credential of Vault
 
 ### Syntax
 
@@ -510,7 +498,7 @@ h1 vault credential cert add --vault my-vault --name my-key --sshkey my-home-ssh
 
 ## h1 vault credential cert list
 
-List credential of certificate to Vault
+List certificate credential of Vault
 
 ### Syntax
 
@@ -533,7 +521,7 @@ Manage your password Vault
 
 ## h1 vault credential password list
 
-List password to Vault
+List password credential of Vault
 
 ### Syntax
 
@@ -552,7 +540,7 @@ h1 vault credential password list --vault my-vault
 
 ## h1 vault credential password show
 
-Show password to Vault
+Show password credential of Vault
 
 ### Syntax
 
@@ -568,51 +556,11 @@ h1 vault credential password show --password my-password
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
-
-## h1 vault credential password delete
-
-Delete password to Vault
-
-### Syntax
-
-```h1 vault credential password delete | --vault VAULT --password PASSWORD```
-### Example
-
-```bash
-h1 vault credential password delete --password my-password --vault my-vault
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
-
-## h1 vault credential password history
-
-History of password to Vault
-
-### Syntax
-
-```h1 vault credential password history | --password PASSWORD --vault VAULT```
-### Example
-
-```bash
-h1 vault credential password history --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
-| ```--vault VAULT``` |  | Vault ID or name |
+| ```--password PASSWORD``` |  | Password credential of Vault ID or name |
 
 ## h1 vault credential password rename
 
-Rename password to Vault
+Rename password credential of Vault
 
 ### Syntax
 
@@ -628,117 +576,12 @@ h1 vault credential password rename --password my-password --new-name my-renamed
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 vault credential password service
-
-Manage your services of password to Vault
-
-## h1 vault credential password service list
-
-List Service for password to Vault
-
-### Syntax
-
-```h1 vault credential password service list | --vault VAULT --password PASSWORD```
-### Example
-
-```bash
-h1 vault credential password service list --password test-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
-
-## h1 vault credential password service show
-
-Show Service for password to Vault
-
-### Syntax
-
-```h1 vault credential password service show | --vault VAULT --password PASSWORD --service SERVICE```
-### Example
-
-```bash
-h1 vault credential password service show --service my-service --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
-| ```--service SERVICE``` |  | Service for password to Vault ID or name |
-
-## h1 vault credential password list
-
-List password to Vault
-
-### Syntax
-
-```h1 vault credential password list | --vault VAULT```
-### Example
-
-```bash
-h1 vault credential password list --vault my-vault
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-
-## h1 vault credential password show
-
-Show password to Vault
-
-### Syntax
-
-```h1 vault credential password show | --vault VAULT --password PASSWORD```
-### Example
-
-```bash
-h1 vault credential password show --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
-
-## h1 vault credential password rename
-
-Rename password to Vault
-
-### Syntax
-
-```h1 vault credential password rename | --vault VAULT --password PASSWORD --new-name NEW-NAME```
-### Example
-
-```bash
-h1 vault credential password rename --password my-password --new-name my-renamed-password --vault my-vault
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
+| ```--password PASSWORD``` |  | Password credential of Vault ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 vault credential password delete
 
-Delete password to Vault
+Delete password credential of Vault
 
 ### Syntax
 
@@ -754,11 +597,11 @@ h1 vault credential password delete --password my-password --vault my-vault
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
+| ```--password PASSWORD``` |  | Password credential of Vault ID or name |
 
 ## h1 vault credential password add
 
-Add password to Vault
+Add password credential of Vault
 
 ### Syntax
 
@@ -784,7 +627,7 @@ h1 vault credential password add --name my-pass --password secret-password --vau
 
 ## h1 vault credential password list
 
-List credential of password to Vault
+List password credential of Vault
 
 ### Syntax
 
@@ -800,77 +643,6 @@ h1 vault credential password list --vault my-vault
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vault VAULT``` |  | Vault ID or name |
-
-## h1 vault credential password tag
-
-Manage your tag
-
-## h1 vault credential password tag list
-
-List tag
-
-### Syntax
-
-```h1 vault credential password tag list | --vault VAULT --password PASSWORD```
-### Example
-
-```bash
-h1 vault credential password tag list --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
-
-## h1 vault credential password tag add
-
-Add a tag to password to Vault
-
-### Syntax
-
-```h1 vault credential password tag add | --vault VAULT --password PASSWORD [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 vault credential password tag add --password test-password --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 vault credential password tag delete
-
-Delete a tag of password to Vault
-
-### Syntax
-
-```h1 vault credential password tag delete | --tag TAG --vault VAULT --password PASSWORD```
-### Example
-
-```bash
-h1 vault credential password tag delete --password test-password --tag prod
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
-| ```--vault VAULT``` |  | Vault ID or name |
-| ```--password PASSWORD``` |  | Password to Vault ID or name |
 
 ## h1 vault tag
 

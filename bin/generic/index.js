@@ -28,7 +28,6 @@ module.exports = function(resource) {
         ...resource.commands,
         ...resource.extraCommands,
     ];
-
     resource.commands.forEach(cmd => category.addChild(require(`bin/generic/${cmd}`)(resource)));
 
     return category;

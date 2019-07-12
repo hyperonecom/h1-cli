@@ -12,28 +12,16 @@
   * [h1 log transfer](#h1-log-transfer) - Transfer Log archive to other project
   * [h1 log stream](#h1-log-stream) - Stream or read messages of Log archive
   * [h1 log logger](#h1-log-logger) - Log messages to Log archive
-  * [h1 log credential](#h1-log-credential) - Manage your credentials to Log archive
-    * [h1 log credential list](#h1-log-credential-list) - List credential of log
-    * [h1 log credential show](#h1-log-credential-show) - Show credential of log
+  * [h1 log credential](#h1-log-credential) - Manage your credentials of Log archive
+    * [h1 log credential list](#h1-log-credential-list) - List credential of Log archive
+    * [h1 log credential show](#h1-log-credential-show) - Show credential of Log archive
     * [h1 log credential password](#h1-log-credential-password) - Manage your password Log archive
-      * [h1 log credential password list](#h1-log-credential-password-list) - List password to Log archive
-      * [h1 log credential password show](#h1-log-credential-password-show) - Show password to Log archive
-      * [h1 log credential password delete](#h1-log-credential-password-delete) - Delete password to Log archive
-      * [h1 log credential password history](#h1-log-credential-password-history) - History of password to Log archive
-      * [h1 log credential password rename](#h1-log-credential-password-rename) - Rename password to Log archive
-      * [h1 log credential password service](#h1-log-credential-password-service) - Manage your services of password to Log archive
-        * [h1 log credential password service list](#h1-log-credential-password-service-list) - List Service for password to Log archive
-        * [h1 log credential password service show](#h1-log-credential-password-service-show) - Show Service for password to Log archive
-      * [h1 log credential password list](#h1-log-credential-password-list) - List password to Log archive
-      * [h1 log credential password show](#h1-log-credential-password-show) - Show password to Log archive
-      * [h1 log credential password rename](#h1-log-credential-password-rename) - Rename password to Log archive
-      * [h1 log credential password delete](#h1-log-credential-password-delete) - Delete password to Log archive
-      * [h1 log credential password add](#h1-log-credential-password-add) - Add password to Log archive
-      * [h1 log credential password list](#h1-log-credential-password-list) - List credential of password to Log archive
-      * [h1 log credential password tag](#h1-log-credential-password-tag) - Manage your tag
-        * [h1 log credential password tag list](#h1-log-credential-password-tag-list) - List tag
-        * [h1 log credential password tag add](#h1-log-credential-password-tag-add) - Add a tag to password to Log archive
-        * [h1 log credential password tag delete](#h1-log-credential-password-tag-delete) - Delete a tag of password to Log archive
+      * [h1 log credential password list](#h1-log-credential-password-list) - List password credential of Log archive
+      * [h1 log credential password show](#h1-log-credential-password-show) - Show password credential of Log archive
+      * [h1 log credential password rename](#h1-log-credential-password-rename) - Rename password credential of Log archive
+      * [h1 log credential password delete](#h1-log-credential-password-delete) - Delete password credential of Log archive
+      * [h1 log credential password add](#h1-log-credential-password-add) - Add password credential of Log archive
+      * [h1 log credential password list](#h1-log-credential-password-list) - List password credential of Log archive
   * [h1 log tag](#h1-log-tag) - Manage your tag
     * [h1 log tag list](#h1-log-tag-list) - List tag
     * [h1 log tag add](#h1-log-tag-add) - Add a tag to Log archive
@@ -351,11 +339,11 @@ echo 'Log message' | h1 log logger --log my-log --token my-secret-token --hostna
 
 ## h1 log credential
 
-Manage your credentials to Log archive
+Manage your credentials of Log archive
 
 ## h1 log credential list
 
-List credential of log
+List credential of Log archive
 
 ### Syntax
 
@@ -374,7 +362,7 @@ h1 log credential list --log my-log
 
 ## h1 log credential show
 
-Show credential of log
+Show credential of Log archive
 
 ### Syntax
 
@@ -390,7 +378,7 @@ h1 log credential show --credential my-credential
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
-| ```--credential CREDENTIAL``` |  | Credential of log ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Log archive ID or name |
 
 ## h1 log credential password
 
@@ -398,7 +386,7 @@ Manage your password Log archive
 
 ## h1 log credential password list
 
-List password to Log archive
+List password credential of Log archive
 
 ### Syntax
 
@@ -417,7 +405,7 @@ h1 log credential password list --log my-log
 
 ## h1 log credential password show
 
-Show password to Log archive
+Show password credential of Log archive
 
 ### Syntax
 
@@ -433,51 +421,11 @@ h1 log credential password show --password my-password
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
-
-## h1 log credential password delete
-
-Delete password to Log archive
-
-### Syntax
-
-```h1 log credential password delete | --log LOG --password PASSWORD```
-### Example
-
-```bash
-h1 log credential password delete --password my-password --log my-log
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
-
-## h1 log credential password history
-
-History of password to Log archive
-
-### Syntax
-
-```h1 log credential password history | --password PASSWORD --log LOG```
-### Example
-
-```bash
-h1 log credential password history --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--password PASSWORD``` |  | Password credential of Log archive ID or name |
 
 ## h1 log credential password rename
 
-Rename password to Log archive
+Rename password credential of Log archive
 
 ### Syntax
 
@@ -493,117 +441,12 @@ h1 log credential password rename --password my-password --new-name my-renamed-p
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 log credential password service
-
-Manage your services of password to Log archive
-
-## h1 log credential password service list
-
-List Service for password to Log archive
-
-### Syntax
-
-```h1 log credential password service list | --log LOG --password PASSWORD```
-### Example
-
-```bash
-h1 log credential password service list --password test-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
-
-## h1 log credential password service show
-
-Show Service for password to Log archive
-
-### Syntax
-
-```h1 log credential password service show | --log LOG --password PASSWORD --service SERVICE```
-### Example
-
-```bash
-h1 log credential password service show --service my-service --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
-| ```--service SERVICE``` |  | Service for password to Log archive ID or name |
-
-## h1 log credential password list
-
-List password to Log archive
-
-### Syntax
-
-```h1 log credential password list | --log LOG```
-### Example
-
-```bash
-h1 log credential password list --log my-log
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-
-## h1 log credential password show
-
-Show password to Log archive
-
-### Syntax
-
-```h1 log credential password show | --log LOG --password PASSWORD```
-### Example
-
-```bash
-h1 log credential password show --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
-
-## h1 log credential password rename
-
-Rename password to Log archive
-
-### Syntax
-
-```h1 log credential password rename | --log LOG --password PASSWORD --new-name NEW-NAME```
-### Example
-
-```bash
-h1 log credential password rename --password my-password --new-name my-renamed-password --log my-log
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
+| ```--password PASSWORD``` |  | Password credential of Log archive ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 log credential password delete
 
-Delete password to Log archive
+Delete password credential of Log archive
 
 ### Syntax
 
@@ -619,11 +462,11 @@ h1 log credential password delete --password my-password --log my-log
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
+| ```--password PASSWORD``` |  | Password credential of Log archive ID or name |
 
 ## h1 log credential password add
 
-Add password to Log archive
+Add password credential of Log archive
 
 ### Syntax
 
@@ -649,7 +492,7 @@ h1 log credential password add --name my-pass --password secret-password --log m
 
 ## h1 log credential password list
 
-List credential of password to Log archive
+List password credential of Log archive
 
 ### Syntax
 
@@ -665,77 +508,6 @@ h1 log credential password list --log my-log
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log LOG``` |  | Log archive ID or name |
-
-## h1 log credential password tag
-
-Manage your tag
-
-## h1 log credential password tag list
-
-List tag
-
-### Syntax
-
-```h1 log credential password tag list | --log LOG --password PASSWORD```
-### Example
-
-```bash
-h1 log credential password tag list --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
-
-## h1 log credential password tag add
-
-Add a tag to password to Log archive
-
-### Syntax
-
-```h1 log credential password tag add | --log LOG --password PASSWORD [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 log credential password tag add --password test-password --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 log credential password tag delete
-
-Delete a tag of password to Log archive
-
-### Syntax
-
-```h1 log credential password tag delete | --tag TAG --log LOG --password PASSWORD```
-### Example
-
-```bash
-h1 log credential password tag delete --password test-password --tag prod
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password to Log archive ID or name |
 
 ## h1 log tag
 
