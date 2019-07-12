@@ -23,28 +23,24 @@ ${Chalk.underline('Sample usage:')}
 `,
 });
 
-cli.addChild(require('./config'));
-cli.addChild(require('./login'));
-cli.addChild(require('./reservation'));
-cli.addChild(require('./volume'));
-cli.addChild(require('./container'));
-cli.addChild(require('./website'));
+const loadModules = (cli, modules) => modules
+    .filter(resource => process.argv.includes(resource) || // load if apply to resource
+        process.env.NODE_ENV !== 'production' || // optimize only in production for docs, tests etc.
+        process.argv.filter(x => x.startsWith('--')).length < 3 // allow "h1 --help"
+    )
+    .forEach(resource => cli.addChild(require(`./${resource}`)));
+
+loadModules(cli, ['config', 'login']);
 
 if (config.get('profile.apiKey') || process.env.NODE_ENV !== 'production') {
-    cli.addChild(require('./user'));
-    cli.addChild(require('./project'));
-    cli.addChild(require('./service'));
-    cli.addChild(require('./organisation'));
-    cli.addChild(require('./logout'));
-    cli.addChild(require('./env'));
+    loadModules(cli, ['user', 'project', 'service', 'organisation', 'logout', 'env']);
 }
 
-const cli_resources = [
+loadModules(cli, [
+    'reservation', 'volume', 'container',
     'vm', 'disk', 'replica',  'iso', 'network', 'ip', 'dns', 'netgw', 'firewall',
     'vault', 'snapshot', 'image', 'reservation', 'journal', 'agent', 'database', 'registry',
-];
-
-cli_resources.forEach(resource => cli.addChild(require(`./${resource}`)));
+]);
 
 // inject defaultValues from config defaults
 const applyDefault = (element, defaults) => {
@@ -99,7 +95,7 @@ Cli.flatten(cli).forEach(node => {
 
     context = Object.assign({}, context, options.context);
 
-    if (options.dirname) {
+    if (options.dirname && process.argv.includes('--help')) {
         epilog.examples(node, options.dirname, context);
     }
 
