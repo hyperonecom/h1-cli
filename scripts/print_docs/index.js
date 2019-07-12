@@ -2,7 +2,7 @@
 
 process.env.HYPERONE_PROJECT = 'dummy-project';
 process.env.HYPERONE_EARLY_ADOPTERS = '1';
-
+process.argv.push('--help');
 require(`../../scope/${process.env.SCOPE_NAME || 'h1' }`);
 
 const cli = require('../../bin/index');

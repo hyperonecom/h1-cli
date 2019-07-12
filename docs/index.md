@@ -4,14 +4,13 @@
   * [h1 user](user.md) - Manage your User
   * [h1 project](project.md) - Manage your Project
   * [h1 config](config.md) - Manage config of CLI
-  * [h1 reservation](reservation.md) - Manage your Reservation
-  * [h1 volume](volume.md) - Manage your Volume
-  * [h1 container](container.md) - Manage your Container
-  * [h1 website](website.md) - Manage your Website
   * [h1 service](service.md) - Explore available services
   * [h1 organisation](organisation.md) - Manage your Organisation
   * [h1 logout](logout.md) - Remove user session
   * [h1 env](env.md) - Get environment variables to manage project as user
+  * [h1 reservation](reservation.md) - Manage your Reservation
+  * [h1 volume](volume.md) - Manage your Volume
+  * [h1 container](container.md) - Manage your Container
   * [h1 vm](vm.md) - Manage your Virtual machine
   * [h1 disk](disk.md) - Manage your Disk
   * [h1 replica](replica.md) - Manage your Replica
