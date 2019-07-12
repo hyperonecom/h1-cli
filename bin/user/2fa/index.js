@@ -9,7 +9,7 @@ module.exports = resource => {
     const category = Cli.createCategory('2fa', {
         description: 'Manage two factor authentication',
         url: () => 'user/me/credential/password',
-        defaultQuery: '[].{id: _id, type: type, name: name, createdOn: createdOn}',
+        defaultQuery: '[].{id: id, type: type, name: name, createdOn: createdOn}',
     });
 
     category.addChild(require('./enable')(resource));
