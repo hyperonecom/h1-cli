@@ -17,7 +17,7 @@ module.exports = resource => {
 
     const subresource = {
         name: 'tag',
-        defaultQuery: '[].{id:_id,name:name,type:flavour,state:state,processing:processing}',
+        defaultQuery: '[].{id:id,name:name,type:flavour,state:state,processing:processing}',
         url: () => 'vm',
         plugins: genericDefaults.plugins,
         commands: ['list', 'show'],

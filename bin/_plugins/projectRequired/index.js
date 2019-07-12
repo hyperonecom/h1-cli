@@ -17,7 +17,7 @@ module.exports = {
     dirname: __dirname,
     onBeforeConfigure: context => Object.entries(options).forEach(([k, v]) => context.node.addOption(k, v)),
     onBeforeHandler: context => {
-        const apiKey = config.get('profile.project._id');
+        const apiKey = config.get('profile.project.id');
         if (context.args['project-select']) { // use command line parameter
             api.setProject(context.args['project-select']);
         } else if (config.getProjectEnv()) { // then try environment variable

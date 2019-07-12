@@ -28,7 +28,7 @@ const schema = {
 };
 const resource = {
     name: 'database',
-    defaultQuery: '[].{id:_id,name:name,type:type,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id,name:name,type:type,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'database',
     plugins: genericDefaults.plugins,
     extraCommands: ['start', 'create', 'stop', 'credential', 'transfer'],

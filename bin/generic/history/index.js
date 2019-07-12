@@ -18,7 +18,7 @@ module.exports = resource => {
         options: Object.assign({}, options, resource.options),
         resource: resource,
         handler: args => {
-            args.query = '[].{id:_id,name:name,createdBy:createdBy,queued:queued,state:state}';
+            args.query = '[].{id:id,name:name,createdBy:createdBy,queued:queued,state:state}';
 
             return args.helpers.api
                 .get(`${resource.url(args)}/${args[resource.name]}/queue`)

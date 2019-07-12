@@ -57,7 +57,7 @@ const schema = {
 
 const resource = {
     name: 'website',
-    defaultQuery: '[].{id:_id,name:name,image:image,domains:join(\',\',domain), state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id,name:name,image:image,domains:join(\',\',domain), state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'website',
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,

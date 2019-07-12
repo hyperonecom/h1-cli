@@ -10,9 +10,9 @@ const mysqlQuery = async (database, password, query) => {
     console.log(new Date(), `Execute query '${query}' on database '${database.fqdn}'`);
     const connection = await mysql.createConnection({
         host: database.fqdn,
-        user: database._id,
+        user: database.id,
         password: password,
-        database: database._id,
+        database: database.id,
     });
     try {
         const [results, fields] = await connection.execute(query);
@@ -53,7 +53,7 @@ const query = {
     ava.serial(`database stop & start - ${flavour}`, async t => {
         const password = await tests.getToken();
         const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour}`);
-        await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database._id}  --password ${password}`);
+        await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database.id}  --password ${password}`);
         await query[flavour](database, password, 'SELECT 1');
         await tests.run(`database stop --database ${database._id}`);
         await t.throwsAsync(() => query[flavour](database, password, 'SELECT 1'));

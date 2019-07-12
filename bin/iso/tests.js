@@ -38,13 +38,13 @@ ava.serial('iso use in vm local uploaded', async t => {
     const secret = await tests.getToken();
 
     const vm = await tests.run(`vm create --name ${tests.getName(t.title)} --type a1.nano --password ${secret} --no-start`);
-    await tests.run(`vm dvd insert --vm ${vm._id} --iso ${iso._id}`);
+    await tests.run(`vm dvd insert --vm ${vm.id} --iso ${iso.id}`);
 
-    await tests.run(`vm start --vm ${vm._id}`);
-    const vm_started = await tests.run(`vm show --vm ${vm._id}`);
+    await tests.run(`vm start --vm ${vm.id}`);
+    const vm_started = await tests.run(`vm show --vm ${vm.id}`);
 
     t.true(vm_started.state === 'Running');
-    await tests.run(`vm dvd eject --yes --vm ${vm._id}`);
+    await tests.run(`vm dvd eject --yes --vm ${vm.id}`);
 
     await tests.remove('iso', iso);
     await tests.remove('vm', vm);

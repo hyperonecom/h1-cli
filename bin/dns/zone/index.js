@@ -14,7 +14,7 @@ const schema = {
 };
 const resource = {
     name: 'zone',
-    defaultQuery: '[].{id:_id,name:name}',
+    defaultQuery: '[].{id:id,name:name}',
     plugins: defaults.plugins,
     url: () => 'dns/zone',
     title: 'DNS Zone',

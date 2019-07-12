@@ -28,9 +28,9 @@ module.exports = resource => Cli.createCommand('shell', {
 
             const cmdArgs = [
                 '-h', database.fqdn,
-                '-u', database._id,
+                '-u', database.id,
                 '--enable-cleartext-plugin',
-                database._id,
+                database.id,
             ];
 
             if (cmdArgs.verbose) {

@@ -43,7 +43,7 @@ module.exports = (parent) => {
 
     const category = Cli.createCategory(resource.name, {
         description: `Manage your services of ${parent.title}`,
-        defaultQuery: '[].{id:_id,name:name,type:type}',
+        defaultQuery: '[].{id:id,name:name,type:type}',
         context: parent.context,
         resource: resource,
     });

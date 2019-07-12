@@ -14,7 +14,7 @@ const options = {
 const resource = {
     name: 'nic',
     // eslint-disable-next-line quotes
-    defaultQuery: "[].{id:_id,mac:macaddress,speed:speed,firewall:firewall,ipaddress:join(',',ip[].address),tags:join(',',keys(tag || `{}`) )}",
+    defaultQuery: "[].{id:id,mac:macaddress,speed:speed,firewall:firewall,ipaddress:join(',',ip[].address),tags:join(',',keys(tag || `{}`) )}",
     url: args => `vm/${args.vm}/netadp`,
     options: options,
     plugins: defaults.plugins,

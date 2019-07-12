@@ -16,7 +16,7 @@ const logMetrics = (type, resource, ws, callback) => ws.on('message', message =>
 });
 
 const combineMetrics = async (api, type, resource, all) => {
-    const ws = await api.wsMetrics(`${type}/${resource._id}/metrics`);
+    const ws = await api.wsMetrics(`${type}/${resource.id}/metrics`);
     all[type] = all[type] || [];
 
     const obj = {

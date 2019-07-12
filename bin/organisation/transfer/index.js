@@ -7,7 +7,7 @@ module.exports = parent => {
     const resource = {
         name: 'transfer',
         description: `Manage your transfer for ${parent.title}`,
-        defaultQuery: '[].{id:_id,name:name}',
+        defaultQuery: '[].{id:id,name:name}',
         url: args => `${parent.url(args)}/transfer`,
         params: parent.params,
         options: parent.options,

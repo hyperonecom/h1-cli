@@ -62,9 +62,9 @@ ava.serial('vm stop & start & turnoff', async t => {
     ];
 
     for (const action of actions) {
-        const action_vm = await tests.run(`vm ${action.name} --vm ${vm._id}`);
+        const action_vm = await tests.run(`vm ${action.name} --vm ${vm.id}`);
         t.true(action_vm.state === action.state);
-        const updated_vm = await tests.run(`vm show --vm ${vm._id}`);
+        const updated_vm = await tests.run(`vm show --vm ${vm.id}`);
         t.true(updated_vm.state === action.state);
     }
 
@@ -78,9 +78,9 @@ ava.serial('vm userdata', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params.createParams}`);
 
-    await tests.run(`vm userdata --vm ${vm._id} --userdata-file '${tmp_file}'`);
+    await tests.run(`vm userdata --vm ${vm.id} --userdata-file '${tmp_file}'`);
 
-    const userdata_vm = await tests.run(`vm show --vm ${vm._id}`);
+    const userdata_vm = await tests.run(`vm show --vm ${vm.id}`);
     const userdata_text = Buffer.from(userdata_vm.userMetadata, 'base64').toString('ascii');
 
     t.true(userdata_text === my_metadata);
@@ -115,9 +115,9 @@ ava.serial('vm disk attach & detach', async t => {
     ];
 
     for (const action of actions) {
-        await tests.run(`vm disk ${action.name} --vm ${vm._id} --disk ${disk._id}`);
-        const list = await tests.run(`vm disk list --vm ${vm._id}`);
-        t.true(list.some(x => x.disk._id === disk._id) === action.result);
+        await tests.run(`vm disk ${action.name} --vm ${vm.id} --disk ${disk.id}`);
+        const list = await tests.run(`vm disk list --vm ${vm.id}`);
+        t.true(list.some(x => x.disk.id === disk.id) === action.result);
     }
 
     await common.cleanup();
@@ -133,12 +133,12 @@ ava.serial('vm nic life cycle', async t => {
 
     await tests.resourceLifeCycle('vm nic', {
         stateCreated: 'Online',
-        createParams: `--vm ${vm._id} --type private --network ${network._id}`,
-        listParams: `--vm ${vm._id}`,
-        showParams: `--vm ${vm._id}`,
-        tagParams: `--vm ${vm._id}`,
-        deleteParams: `--vm ${vm._id}`,
-        historyParams: `--vm ${vm._id}`,
+        createParams: `--vm ${vm.id} --type private --network ${network.id}`,
+        listParams: `--vm ${vm.id}`,
+        showParams: `--vm ${vm.id}`,
+        tagParams: `--vm ${vm.id}`,
+        deleteParams: `--vm ${vm.id}`,
+        historyParams: `--vm ${vm.id}`,
         skipService: true,
         skipFqdn: true,
         skipTransfer: true,
@@ -156,13 +156,13 @@ ava.serial('vm nic firewall life cycle', async t => {
     const firewall = await tests.run(`firewall create --name ${tests.getName(t.title)}`);
     const network = await tests.run(`network create --name ${tests.getName(t.title)}`);
     const vm = await tests.run(`vm create --no-start ${common.params.createParams}`);
-    const nic_list = await tests.run(`vm nic list --vm ${vm._id}`);
+    const nic_list = await tests.run(`vm nic list --vm ${vm.id}`);
     const nic = nic_list[0];
-    await tests.run(`vm nic firewall add --vm ${vm.name} --nic ${nic._id} --firewall ${firewall.name} `);
+    await tests.run(`vm nic firewall add --vm ${vm.name} --nic ${nic.id} --firewall ${firewall.name} `);
 
-    const nic_with_firewall = await tests.run(`vm nic show --vm ${vm._id} --nic ${nic._id}`);
-    t.true(nic_with_firewall.firewall === firewall._id);
-    await tests.run(`vm nic firewall remove --vm ${vm.name} --nic ${nic._id}`);
+    const nic_with_firewall = await tests.run(`vm nic show --vm ${vm.id} --nic ${nic.id}`);
+    t.true(nic_with_firewall.firewall === firewall.id);
+    await tests.run(`vm nic firewall remove --vm ${vm.name} --nic ${nic.id}`);
     await common.cleanup();
     await tests.remove('network', network);
     await tests.remove('firewall', firewall);
@@ -190,10 +190,10 @@ ava.serial('vm nic ip life cycle', async t => {
     });
     const vm = await tests.run(`vm create ${common.params.createParams}`);
     const ip = await tests.run('ip create');
-    const nic_list = await tests.run(`vm nic list --vm ${vm._id}`);
+    const nic_list = await tests.run(`vm nic list --vm ${vm.id}`);
 
     await subresourceLifeCycle(t, 'vm nic ip', {
-        commonParams: `--vm ${vm._id} --nic ${nic_list[0]._id}`,
+        commonParams: `--vm ${vm.id} --nic ${nic_list[0].id}`,
         actionParams: `--ip ${ip.name}`,
         deleteParams: '--yes',
         test_fn: x => x.address === ip.address,
@@ -211,11 +211,11 @@ ava.serial('vm nic ip replace', async t => {
     const ip = await tests.run('ip create');
     const new_ip = await tests.run('ip create');
 
-    const nic_list = await tests.run(`vm nic list --vm ${vm._id}`);
-    await tests.run(`vm nic ip add --vm ${vm._id} --nic ${nic_list[0]._id} --ip ${ip._id}`);
-    await tests.run(`vm nic ip replace --vm ${vm._id} --nic ${nic_list[0]._id} --ip ${ip._id} --new-ip ${new_ip._id}`);
-    const new_nic = await tests.run(`vm nic show --vm ${vm._id} --nic ${nic_list[0]._id}`);
-    t.true(new_nic.ip.some(x => x._id === new_ip._id));
+    const nic_list = await tests.run(`vm nic list --vm ${vm.id}`);
+    await tests.run(`vm nic ip add --vm ${vm.id} --nic ${nic_list[0].id} --ip ${ip.id}`);
+    await tests.run(`vm nic ip replace --vm ${vm.id} --nic ${nic_list[0].id} --ip ${ip.id} --new-ip ${new_ip.id}`);
+    const new_nic = await tests.run(`vm nic show --vm ${vm.id} --nic ${nic_list[0].id}`);
+    t.true(new_nic.ip.some(x => x.id === new_ip.id));
 
     await common.cleanup();
     await tests.remove('ip', ip);
@@ -228,16 +228,16 @@ ava.serial('vm nic ip persistent', async t => {
     });
     const vm = await tests.run(`vm create ${common.params.createParams}`);
 
-    const nic_list = await tests.run(`vm nic list --vm ${vm._id}`);
+    const nic_list = await tests.run(`vm nic list --vm ${vm.id}`);
     const ip = nic_list[0].ip[0];
 
     const ip_list = await tests.run('ip list');
-    t.true(!ip_list.some(x => x._id === ip._id));
+    t.true(!ip_list.some(x => x.id === ip.id));
 
-    await tests.run(`vm nic ip persistent --vm ${vm._id} --nic ${nic_list[0]._id} --ip ${ip._id}`);
+    await tests.run(`vm nic ip persistent --vm ${vm.id} --nic ${nic_list[0].id} --ip ${ip.id}`);
 
     const new_ip_list = await tests.run('ip list');
-    t.true(new_ip_list.some(x => x._id === ip._id));
+    t.true(new_ip_list.some(x => x.id === ip.id));
 
     await common.cleanup();
     await tests.remove('ip', ip);
@@ -248,12 +248,12 @@ ava.serial('vm dvd cycle', async t => {
     const vm = await tests.run(`vm create ${common.params.createParams}`);
     const iso = await tests.run(`iso create --name iso-test-${now} --source-url ${tests.iso_url}`);
 
-    await tests.run(`vm dvd insert --vm ${vm._id} --iso ${iso._id}`);
+    await tests.run(`vm dvd insert --vm ${vm.id} --iso ${iso.id}`);
 
-    const list = await tests.run(`vm dvd list --vm ${vm._id}`);
-    t.true(list.some(dvd => dvd.iso._id === iso._id));
+    const list = await tests.run(`vm dvd list --vm ${vm.id}`);
+    t.true(list.some(dvd => dvd.iso.id === iso.id));
 
-    await tests.run(`vm dvd eject --vm ${vm._id} --yes`);
+    await tests.run(`vm dvd eject --vm ${vm.id} --yes`);
 
     await tests.remove('iso', iso);
     await common.cleanup();
@@ -264,7 +264,7 @@ ava.serial('vm serialport log', async t => {
     const vm = await tests.run(`vm create ${common.params.createParams}`);
     t.true(vm.created);
 
-    await tests.run(`vm serialport log --vm ${vm._id}`);
+    await tests.run(`vm serialport log --vm ${vm.id}`);
 
     await common.cleanup();
 });
@@ -295,9 +295,9 @@ ava.serial('vm service change', async t => {
     t.true(vm.memory === 0.5, 'Unexpected memory size of the created virtual machine.');
     await verify_vm_size_match(t, vm, password);
 
-    await tests.run(`vm stop --vm ${vm._id}`);
-    await tests.run(`vm service change --vm ${vm._id} --new-type m2.medium`);
-    const started_vm = await tests.run(`vm start --vm ${vm._id}`);
+    await tests.run(`vm stop --vm ${vm.id}`);
+    await tests.run(`vm service change --vm ${vm.id} --new-type m2.medium`);
+    const started_vm = await tests.run(`vm start --vm ${vm.id}`);
 
     t.true(started_vm.flavour === 'm2.medium', 'Flavor has not been updated');
     t.true(started_vm.cpu === 2, 'Unexpected number of CPUs of the updated virtual machine.');

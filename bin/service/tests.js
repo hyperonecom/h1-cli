@@ -11,7 +11,7 @@ ava.serial('service all', async t => {
     const service = await tests.show('service', list[0]);
 
     t.true(service.name === list[0].name);
-    t.true(service._id === list[0]._id);
+    t.true(service.id === list[0].id);
 });
 
 ava.serial('service project', async t => {

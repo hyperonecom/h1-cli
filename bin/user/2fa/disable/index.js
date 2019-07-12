@@ -17,7 +17,7 @@ module.exports = resource => Cli.createCommand('disable', {
         const password = passwords.find(p => p.type === args.type);
 
         if (password) {
-            await args.helpers.api.delete(`${args.$node.parent.config.url(args)}/${password._id}`);
+            await args.helpers.api.delete(`${args.$node.parent.config.url(args)}/${password.id}`);
             console.log('Done');
         } else {
             console.log(`${args.type} not found`);
