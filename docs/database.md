@@ -13,28 +13,16 @@
   * [h1 database stop](#h1-database-stop) - Stop Database
   * [h1 database transfer](#h1-database-transfer) - Transfer Database to other project
   * [h1 database shell](#h1-database-shell) - Connect to Database using standard client
-  * [h1 database credential](#h1-database-credential) - Manage your credentials to Database
-    * [h1 database credential list](#h1-database-credential-list) - List credential of database
-    * [h1 database credential show](#h1-database-credential-show) - Show credential of database
+  * [h1 database credential](#h1-database-credential) - Manage your credentials of Database
+    * [h1 database credential list](#h1-database-credential-list) - List credential of Database
+    * [h1 database credential show](#h1-database-credential-show) - Show credential of Database
     * [h1 database credential password](#h1-database-credential-password) - Manage your password Database
-      * [h1 database credential password list](#h1-database-credential-password-list) - List password to Database
-      * [h1 database credential password show](#h1-database-credential-password-show) - Show password to Database
-      * [h1 database credential password delete](#h1-database-credential-password-delete) - Delete password to Database
-      * [h1 database credential password history](#h1-database-credential-password-history) - History of password to Database
-      * [h1 database credential password rename](#h1-database-credential-password-rename) - Rename password to Database
-      * [h1 database credential password service](#h1-database-credential-password-service) - Manage your services of password to Database
-        * [h1 database credential password service list](#h1-database-credential-password-service-list) - List Service for password to Database
-        * [h1 database credential password service show](#h1-database-credential-password-service-show) - Show Service for password to Database
-      * [h1 database credential password list](#h1-database-credential-password-list) - List password to Database
-      * [h1 database credential password show](#h1-database-credential-password-show) - Show password to Database
-      * [h1 database credential password rename](#h1-database-credential-password-rename) - Rename password to Database
-      * [h1 database credential password delete](#h1-database-credential-password-delete) - Delete password to Database
-      * [h1 database credential password add](#h1-database-credential-password-add) - Add password to Database
-      * [h1 database credential password list](#h1-database-credential-password-list) - List credential of password to Database
-      * [h1 database credential password tag](#h1-database-credential-password-tag) - Manage your tag
-        * [h1 database credential password tag list](#h1-database-credential-password-tag-list) - List tag
-        * [h1 database credential password tag add](#h1-database-credential-password-tag-add) - Add a tag to password to Database
-        * [h1 database credential password tag delete](#h1-database-credential-password-tag-delete) - Delete a tag of password to Database
+      * [h1 database credential password list](#h1-database-credential-password-list) - List password credential of Database
+      * [h1 database credential password show](#h1-database-credential-password-show) - Show password credential of Database
+      * [h1 database credential password rename](#h1-database-credential-password-rename) - Rename password credential of Database
+      * [h1 database credential password delete](#h1-database-credential-password-delete) - Delete password credential of Database
+      * [h1 database credential password add](#h1-database-credential-password-add) - Add password credential of Database
+      * [h1 database credential password list](#h1-database-credential-password-list) - List password credential of Database
   * [h1 database tag](#h1-database-tag) - Manage your tag
     * [h1 database tag list](#h1-database-tag-list) - List tag
     * [h1 database tag add](#h1-database-tag-add) - Add a tag to Database
@@ -302,11 +290,11 @@ Note: You need valid credentials to access *Database* any way.
 
 ## h1 database credential
 
-Manage your credentials to Database
+Manage your credentials of Database
 
 ## h1 database credential list
 
-List credential of database
+List credential of Database
 
 ### Syntax
 
@@ -325,7 +313,7 @@ h1 database credential list --database my-database
 
 ## h1 database credential show
 
-Show credential of database
+Show credential of Database
 
 ### Syntax
 
@@ -341,7 +329,7 @@ h1 database credential show --credential my-credential
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--database DATABASE``` |  | Database ID or name |
-| ```--credential CREDENTIAL``` |  | Credential of database ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Database ID or name |
 
 ## h1 database credential password
 
@@ -349,7 +337,7 @@ Manage your password Database
 
 ## h1 database credential password list
 
-List password to Database
+List password credential of Database
 
 ### Syntax
 
@@ -368,7 +356,7 @@ h1 database credential password list --database my-database
 
 ## h1 database credential password show
 
-Show password to Database
+Show password credential of Database
 
 ### Syntax
 
@@ -384,51 +372,11 @@ h1 database credential password show --password my-password
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
-
-## h1 database credential password delete
-
-Delete password to Database
-
-### Syntax
-
-```h1 database credential password delete | --database DATABASE --password PASSWORD```
-### Example
-
-```bash
-h1 database credential password delete --password my-password --database my-database
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
-
-## h1 database credential password history
-
-History of password to Database
-
-### Syntax
-
-```h1 database credential password history | --password PASSWORD --database DATABASE```
-### Example
-
-```bash
-h1 database credential password history --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
-| ```--database DATABASE``` |  | Database ID or name |
+| ```--password PASSWORD``` |  | Password credential of Database ID or name |
 
 ## h1 database credential password rename
 
-Rename password to Database
+Rename password credential of Database
 
 ### Syntax
 
@@ -444,117 +392,12 @@ h1 database credential password rename --password my-password --new-name my-rena
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 database credential password service
-
-Manage your services of password to Database
-
-## h1 database credential password service list
-
-List Service for password to Database
-
-### Syntax
-
-```h1 database credential password service list | --database DATABASE --password PASSWORD```
-### Example
-
-```bash
-h1 database credential password service list --password test-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
-
-## h1 database credential password service show
-
-Show Service for password to Database
-
-### Syntax
-
-```h1 database credential password service show | --database DATABASE --password PASSWORD --service SERVICE```
-### Example
-
-```bash
-h1 database credential password service show --service my-service --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
-| ```--service SERVICE``` |  | Service for password to Database ID or name |
-
-## h1 database credential password list
-
-List password to Database
-
-### Syntax
-
-```h1 database credential password list | --database DATABASE```
-### Example
-
-```bash
-h1 database credential password list --database my-database
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
-
-## h1 database credential password show
-
-Show password to Database
-
-### Syntax
-
-```h1 database credential password show | --database DATABASE --password PASSWORD```
-### Example
-
-```bash
-h1 database credential password show --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
-
-## h1 database credential password rename
-
-Rename password to Database
-
-### Syntax
-
-```h1 database credential password rename | --database DATABASE --password PASSWORD --new-name NEW-NAME```
-### Example
-
-```bash
-h1 database credential password rename --password my-password --new-name my-renamed-password --database my-database
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
+| ```--password PASSWORD``` |  | Password credential of Database ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 database credential password delete
 
-Delete password to Database
+Delete password credential of Database
 
 ### Syntax
 
@@ -570,11 +413,11 @@ h1 database credential password delete --password my-password --database my-data
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
+| ```--password PASSWORD``` |  | Password credential of Database ID or name |
 
 ## h1 database credential password add
 
-Add password to Database
+Add password credential of Database
 
 ### Syntax
 
@@ -600,7 +443,7 @@ h1 database credential password add --name my-pass --password secret-password --
 
 ## h1 database credential password list
 
-List credential of password to Database
+List password credential of Database
 
 ### Syntax
 
@@ -616,77 +459,6 @@ h1 database credential password list --database my-database
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--database DATABASE``` |  | Database ID or name |
-
-## h1 database credential password tag
-
-Manage your tag
-
-## h1 database credential password tag list
-
-List tag
-
-### Syntax
-
-```h1 database credential password tag list | --database DATABASE --password PASSWORD```
-### Example
-
-```bash
-h1 database credential password tag list --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
-
-## h1 database credential password tag add
-
-Add a tag to password to Database
-
-### Syntax
-
-```h1 database credential password tag add | --database DATABASE --password PASSWORD [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 database credential password tag add --password test-password --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 database credential password tag delete
-
-Delete a tag of password to Database
-
-### Syntax
-
-```h1 database credential password tag delete | --tag TAG --database DATABASE --password PASSWORD```
-### Example
-
-```bash
-h1 database credential password tag delete --password test-password --tag prod
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
-| ```--database DATABASE``` |  | Database ID or name |
-| ```--password PASSWORD``` |  | Password to Database ID or name |
 
 ## h1 database tag
 

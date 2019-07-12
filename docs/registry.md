@@ -17,28 +17,16 @@
     * [h1 registry repository tag](#h1-registry-repository-tag) - Manage your tag in repository
       * [h1 registry repository tag list](#h1-registry-repository-tag-list) - List tag in repository
       * [h1 registry repository tag delete](#h1-registry-repository-tag-delete) - Delete tag in repository
-  * [h1 registry credential](#h1-registry-credential) - Manage your credentials to Registry
-    * [h1 registry credential list](#h1-registry-credential-list) - List credential of registry
-    * [h1 registry credential show](#h1-registry-credential-show) - Show credential of registry
+  * [h1 registry credential](#h1-registry-credential) - Manage your credentials of Registry
+    * [h1 registry credential list](#h1-registry-credential-list) - List credential of Registry
+    * [h1 registry credential show](#h1-registry-credential-show) - Show credential of Registry
     * [h1 registry credential password](#h1-registry-credential-password) - Manage your password Registry
-      * [h1 registry credential password list](#h1-registry-credential-password-list) - List password to Registry
-      * [h1 registry credential password show](#h1-registry-credential-password-show) - Show password to Registry
-      * [h1 registry credential password delete](#h1-registry-credential-password-delete) - Delete password to Registry
-      * [h1 registry credential password history](#h1-registry-credential-password-history) - History of password to Registry
-      * [h1 registry credential password rename](#h1-registry-credential-password-rename) - Rename password to Registry
-      * [h1 registry credential password service](#h1-registry-credential-password-service) - Manage your services of password to Registry
-        * [h1 registry credential password service list](#h1-registry-credential-password-service-list) - List Service for password to Registry
-        * [h1 registry credential password service show](#h1-registry-credential-password-service-show) - Show Service for password to Registry
-      * [h1 registry credential password list](#h1-registry-credential-password-list) - List password to Registry
-      * [h1 registry credential password show](#h1-registry-credential-password-show) - Show password to Registry
-      * [h1 registry credential password rename](#h1-registry-credential-password-rename) - Rename password to Registry
-      * [h1 registry credential password delete](#h1-registry-credential-password-delete) - Delete password to Registry
-      * [h1 registry credential password add](#h1-registry-credential-password-add) - Add password to Registry
-      * [h1 registry credential password list](#h1-registry-credential-password-list) - List credential of password to Registry
-      * [h1 registry credential password tag](#h1-registry-credential-password-tag) - Manage your tag
-        * [h1 registry credential password tag list](#h1-registry-credential-password-tag-list) - List tag
-        * [h1 registry credential password tag add](#h1-registry-credential-password-tag-add) - Add a tag to password to Registry
-        * [h1 registry credential password tag delete](#h1-registry-credential-password-tag-delete) - Delete a tag of password to Registry
+      * [h1 registry credential password list](#h1-registry-credential-password-list) - List password credential of Registry
+      * [h1 registry credential password show](#h1-registry-credential-password-show) - Show password credential of Registry
+      * [h1 registry credential password rename](#h1-registry-credential-password-rename) - Rename password credential of Registry
+      * [h1 registry credential password delete](#h1-registry-credential-password-delete) - Delete password credential of Registry
+      * [h1 registry credential password add](#h1-registry-credential-password-add) - Add password credential of Registry
+      * [h1 registry credential password list](#h1-registry-credential-password-list) - List password credential of Registry
   * [h1 registry tag](#h1-registry-tag) - Manage your tag
     * [h1 registry tag list](#h1-registry-tag-list) - List tag
     * [h1 registry tag add](#h1-registry-tag-add) - Add a tag to Registry
@@ -380,11 +368,11 @@ h1 registry repository tag delete --tag my-tag --registry my-registry --reposito
 
 ## h1 registry credential
 
-Manage your credentials to Registry
+Manage your credentials of Registry
 
 ## h1 registry credential list
 
-List credential of registry
+List credential of Registry
 
 ### Syntax
 
@@ -403,7 +391,7 @@ h1 registry credential list --registry my-registry
 
 ## h1 registry credential show
 
-Show credential of registry
+Show credential of Registry
 
 ### Syntax
 
@@ -419,7 +407,7 @@ h1 registry credential show --credential my-credential
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--credential CREDENTIAL``` |  | Credential of registry ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Registry ID or name |
 
 ## h1 registry credential password
 
@@ -427,7 +415,7 @@ Manage your password Registry
 
 ## h1 registry credential password list
 
-List password to Registry
+List password credential of Registry
 
 ### Syntax
 
@@ -446,7 +434,7 @@ h1 registry credential password list --registry my-registry
 
 ## h1 registry credential password show
 
-Show password to Registry
+Show password credential of Registry
 
 ### Syntax
 
@@ -462,51 +450,11 @@ h1 registry credential password show --password my-password
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
-
-## h1 registry credential password delete
-
-Delete password to Registry
-
-### Syntax
-
-```h1 registry credential password delete | --registry REGISTRY --password PASSWORD```
-### Example
-
-```bash
-h1 registry credential password delete --password my-password --registry my-registry
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
-
-## h1 registry credential password history
-
-History of password to Registry
-
-### Syntax
-
-```h1 registry credential password history | --password PASSWORD --registry REGISTRY```
-### Example
-
-```bash
-h1 registry credential password history --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
-| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--password PASSWORD``` |  | Password credential of Registry ID or name |
 
 ## h1 registry credential password rename
 
-Rename password to Registry
+Rename password credential of Registry
 
 ### Syntax
 
@@ -522,117 +470,12 @@ h1 registry credential password rename --password my-password --new-name my-rena
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 registry credential password service
-
-Manage your services of password to Registry
-
-## h1 registry credential password service list
-
-List Service for password to Registry
-
-### Syntax
-
-```h1 registry credential password service list | --registry REGISTRY --password PASSWORD```
-### Example
-
-```bash
-h1 registry credential password service list --password test-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
-
-## h1 registry credential password service show
-
-Show Service for password to Registry
-
-### Syntax
-
-```h1 registry credential password service show | --registry REGISTRY --password PASSWORD --service SERVICE```
-### Example
-
-```bash
-h1 registry credential password service show --service my-service --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
-| ```--service SERVICE``` |  | Service for password to Registry ID or name |
-
-## h1 registry credential password list
-
-List password to Registry
-
-### Syntax
-
-```h1 registry credential password list | --registry REGISTRY```
-### Example
-
-```bash
-h1 registry credential password list --registry my-registry
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-
-## h1 registry credential password show
-
-Show password to Registry
-
-### Syntax
-
-```h1 registry credential password show | --registry REGISTRY --password PASSWORD```
-### Example
-
-```bash
-h1 registry credential password show --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
-
-## h1 registry credential password rename
-
-Rename password to Registry
-
-### Syntax
-
-```h1 registry credential password rename | --registry REGISTRY --password PASSWORD --new-name NEW-NAME```
-### Example
-
-```bash
-h1 registry credential password rename --password my-password --new-name my-renamed-password --registry my-registry
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
+| ```--password PASSWORD``` |  | Password credential of Registry ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 registry credential password delete
 
-Delete password to Registry
+Delete password credential of Registry
 
 ### Syntax
 
@@ -648,11 +491,11 @@ h1 registry credential password delete --password my-password --registry my-regi
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
+| ```--password PASSWORD``` |  | Password credential of Registry ID or name |
 
 ## h1 registry credential password add
 
-Add password to Registry
+Add password credential of Registry
 
 ### Syntax
 
@@ -678,7 +521,7 @@ h1 registry credential password add --name my-pass --password secret-password --
 
 ## h1 registry credential password list
 
-List credential of password to Registry
+List password credential of Registry
 
 ### Syntax
 
@@ -694,77 +537,6 @@ h1 registry credential password list --registry my-registry
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
-
-## h1 registry credential password tag
-
-Manage your tag
-
-## h1 registry credential password tag list
-
-List tag
-
-### Syntax
-
-```h1 registry credential password tag list | --registry REGISTRY --password PASSWORD```
-### Example
-
-```bash
-h1 registry credential password tag list --password my-password
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
-
-## h1 registry credential password tag add
-
-Add a tag to password to Registry
-
-### Syntax
-
-```h1 registry credential password tag add | --registry REGISTRY --password PASSWORD [--tag TAG [--tag TAG ...]]```
-### Example
-
-```bash
-h1 registry credential password tag add --password test-password --tag prod=true
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-
-## h1 registry credential password tag delete
-
-Delete a tag of password to Registry
-
-### Syntax
-
-```h1 registry credential password tag delete | --tag TAG --registry REGISTRY --password PASSWORD```
-### Example
-
-```bash
-h1 registry credential password tag delete --password test-password --tag prod
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG``` |  | Tag |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-| ```--password PASSWORD``` |  | Password to Registry ID or name |
 
 ## h1 registry tag
 

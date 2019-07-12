@@ -6,11 +6,11 @@ module.exports = (parent) => {
 
     const resource = {
         name: 'password',
-        title: `password to ${parent.resource.title}`,
+        title: `password ${parent.title}`,
         description: `Manage your password ${parent.resource.title}`,
         defaultQuery: parent.defaultQuery,
         url: args => parent.url(args),
-        cmd: [],
+        commands: [],
         options: parent.options,
         plugins: parent.plugins,
         context: parent.context,

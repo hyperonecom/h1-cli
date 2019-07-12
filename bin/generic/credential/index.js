@@ -21,9 +21,9 @@ module.exports = (resource) => {
         commands: [],
         options: options,
         plugins: resource.plugins,
-        description: `Manage your credentials to ${resource.title}`,
+        description: `Manage your credentials of ${resource.title}`,
         resource: resource,
-        title: `credential of ${resource.name}`,
+        title: `credential of ${resource.title}`,
         priority: 75,
         credential_types: resource.credential_types || [],
         context: {
