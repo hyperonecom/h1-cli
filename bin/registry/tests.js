@@ -99,3 +99,8 @@ ava.serial('registry repository tag delete', async t => {
         await tests.remove('registry', registry);
     }
 });
+
+ava.serial('registry docker reachable', async t => {
+    const output = await tests.runProcess('docker system info');
+    t.true(output.includes('Containers: '));
+});

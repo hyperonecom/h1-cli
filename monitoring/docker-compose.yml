@@ -12,6 +12,8 @@ services:
       HYPERONE_PROJECT: ${HYPERONE_PROJECT}
       MONITORING_EMAILS: 'fail@example.com'
       MONITORING_SUCCESS_EMAILS: 'success@example.com'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
   mailhog:
     image: mailhog/mailhog
     ports:
