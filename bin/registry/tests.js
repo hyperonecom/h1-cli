@@ -42,12 +42,12 @@ ava.serial('registry manage repositories & tags', async t => {
     try {
         await tests.runProcess(`docker login --username anything --password ${password} ${registry.fqdn}`);
         await copyImage(registry.fqdn, hubImage, tagName);
-        // const repository = await tests.run(`registry repository show --registry ${registry.name} --repository ${hubImage}`);
-        // t.true(repository._id === hubImage);
+        const repository = await tests.run(`registry repository show --registry ${registry.name} --repository ${hubImage}`);
+        t.true(repository._id === hubImage);
         let repositories = await tests.run(`registry repository list --registry ${registry.name}`);
         t.true(repositories.some(x => x.id === hubImage));
-        // const tag = await tests.run(`registry repository tag show --registry ${registry.name} --image ${hubImage} --tag ${tagName}`);
-        // t.true(tag.id === tagName);
+        const tag = await tests.run(`registry repository tag show --registry ${registry.name} --repository ${hubImage} --tag ${tagName}`);
+        t.true(tag.id === tagName);
         const tags = await tests.run(`registry repository tag list --registry ${registry.name} --repository ${hubImage}`);
         t.true(tags.some(x => x.id === tagName));
         await tests.run(`registry repository tag delete --yes --registry ${registry.name} --repository ${hubImage} --tag ${tagName}`);
