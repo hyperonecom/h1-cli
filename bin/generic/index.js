@@ -28,7 +28,11 @@ module.exports = function(resource) {
         ...resource.commands,
         ...resource.extraCommands,
     ];
-    resource.commands.forEach(cmd => category.addChild(require(`bin/generic/${cmd}`)(resource)));
+    resource.commands.forEach(cmd => {
+        let child = require(`bin/generic/${cmd}`)(resource);
+        if (!Array.isArray(child)) child = [child];
+        child.map(x => category.addChild(x));
+    });
 
     return category;
 };

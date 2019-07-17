@@ -71,7 +71,7 @@ ava.serial('registry reachable through custom domain', async t => {
     });
     try {
         await tests.run(`dns record-set cname create --name ${rset} --zone ${zone.id} --value ${registry.fqdn}. --ttl 1`);
-        await tests.run(`registry update domain --registry ${registry.id} --domain ${host}`);
+        await tests.run(`registry domain add --registry ${registry.id} --domain ${host}`);
         await tests.run(`registry start --registry ${registry.id}`);
         await tests.delay(10000);
         await tests.runProcess(`docker login --username anything --password ${password} ${host}`);

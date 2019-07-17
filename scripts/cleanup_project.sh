@@ -11,6 +11,10 @@ SKIPPED_CREDENTIALS=${HYPERONE_USER_CREDENTIALS:--}
 # Decompose resources
 h1 network      list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 network firewall remove --network
 h1 netgw        list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 netgw       detach --netgw
+h1 website list --project-select $PROJECT -o id | while read WEBSITE; do
+	h1 website snapshot list --project-select $PROJECT --website "$WEBSITE" -o id | \
+	xargs -n 1 -P 8 h1 website snapshot delete --yes --project-select $PROJECT --website "$WEBSITE" --snapshot;
+done;
 # Delete all resources
 h1 vm           list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 vm          delete --yes --vm
 h1 image        list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 image       delete --yes --image
