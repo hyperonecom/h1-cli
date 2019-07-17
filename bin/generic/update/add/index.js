@@ -1,9 +1,10 @@
 'use strict';
 const Cli = require('lib/cli');
+const {deCamelCase, rmRight} = require('lib/text');
 
 module.exports = (resource, field_name) => {
     const parameter = resource.schema[field_name];
-    const name = parameter.name || field_name;
+    const name = rmRight(deCamelCase(parameter.name || field_name).trimRight('s'), 's');
     const options = {
         [name]: Object.assign({},
             parameter,

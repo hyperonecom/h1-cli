@@ -27,7 +27,7 @@ const schema = {
         onCreate: true,
         onUpdate: false,
     },
-    enabledService: {
+    enabledServices: {
         description: 'Enabled service',
         type: 'string',
         append: [],

@@ -5,12 +5,12 @@ const addCommand = require('./add');
 const deleteCommand = require('./delete');
 const listCommand = require('./list');
 const replaceCommand = require('./replace');
-const {deCamelCase} = require('lib/text');
+const {deCamelCase, rmRight} = require('lib/text');
 
 const update_list = (resource, field_name) => {
     const parameter = resource.schema[field_name];
 
-    const category = Cli.createCategory(deCamelCase(parameter.command || field_name), {
+    const category = Cli.createCategory(rmRight(deCamelCase(parameter.command || field_name), 's'), {
         description: `Manage ${parameter.description} of ${resource.title}`,
         context: resource.context,
         defaultQuery: `[].{${field_name}: @}`,
