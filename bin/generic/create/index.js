@@ -1,7 +1,7 @@
 'use strict';
 
 const Cli = require('lib/cli');
-const {pickBy} = require('lib/transform');
+const {pickBy, set} = require('lib/transform');
 
 module.exports = resource => {
     const options = pickBy(resource.schema, field => field.onCreate && !field.virtual);
@@ -51,10 +51,12 @@ module.exports = resource => {
                     .getCredentialCreate(args, credential_type);
             }
 
-            Object.keys(options).forEach(name => {
-                const dest = options[name].destBody || name;
-                body[dest] = args[name];
-            });
+            Object.keys(options)
+                .filter(name => args[name])
+                .forEach(name => {
+                    const dest = options[name].destBody || name;
+                    set(body, dest, args[name], args[name]);
+                });
 
             return args.helpers.api
                 .post(resource.url(args), body)
