@@ -12,9 +12,13 @@
   * [h1 registry start](#h1-registry-start) - Start Registry
   * [h1 registry stop](#h1-registry-stop) - Stop Registry
   * [h1 registry transfer](#h1-registry-transfer) - Transfer Registry to other project
+  * [h1 registry update](#h1-registry-update) - Update Registry
+    * [h1 registry update domain](#h1-registry-update-domain) - Update domain of Registry
   * [h1 registry repository](#h1-registry-repository) - Manage your repository of Registry
+    * [h1 registry repository show](#h1-registry-repository-show) - Show repository of Registry
     * [h1 registry repository list](#h1-registry-repository-list) - List repository of Registry
     * [h1 registry repository tag](#h1-registry-repository-tag) - Manage your tag in repository
+      * [h1 registry repository tag show](#h1-registry-repository-tag-show) - Show tag in repository
       * [h1 registry repository tag list](#h1-registry-repository-tag-list) - List tag in repository
       * [h1 registry repository tag delete](#h1-registry-repository-tag-delete) - Delete tag in repository
   * [h1 registry credential](#h1-registry-credential) - Manage your credentials of Registry
@@ -279,6 +283,24 @@ h1 registry transfer --registry test-registry --new-project OtherProject
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
 
+## h1 registry update
+
+Update Registry
+
+## h1 registry update domain
+
+Update domain of Registry
+
+### Syntax
+
+```h1 registry update domain | --domain DOMAIN [--domain DOMAIN ...] --registry REGISTRY```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+
 ## h1 registry repository
 
 Manage your repository of Registry
@@ -302,6 +324,26 @@ Note (1): To identify registry id use ```h1 registry list```.
 
 Note (2): To login to registry using Docker use your username as login and password you provided creating registry as password.
 
+## h1 registry repository show
+
+Show repository of Registry
+
+### Syntax
+
+```h1 registry repository show | --registry REGISTRY --repository REPOSITORY```
+### Example
+
+```bash
+h1 registry repository show --repository my-repository
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--repository REPOSITORY``` |  | Repository of Registry ID or name |
+
 ## h1 registry repository list
 
 List repository of Registry
@@ -324,6 +366,27 @@ h1 registry repository list
 ## h1 registry repository tag
 
 Manage your tag in repository
+
+## h1 registry repository tag show
+
+Show tag in repository
+
+### Syntax
+
+```h1 registry repository tag show | --registry REGISTRY --repository REPOSITORY --tag TAG```
+### Example
+
+```bash
+h1 registry repository tag show --tag my-tag
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--repository REPOSITORY``` |  | Repository of Registry ID |
+| ```--tag TAG``` |  | Tag in repository ID or name |
 
 ## h1 registry repository tag list
 

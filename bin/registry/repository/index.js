@@ -12,7 +12,7 @@ module.exports = (parent) => {
         options: parent.options,
         plugins: genericDefaults.plugins,
         dirname: __dirname,
-        commands: ['list'],
+        commands: ['show', 'list'],
         extraCommands: [],
         title: `repository of ${parent.title}`,
     };
