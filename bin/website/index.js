@@ -39,6 +39,20 @@ const schema = {
         virtual: true,
         onCreate: true,
     },
+    'source-website': {
+        description: 'Website ID or name which contains Snapshot',
+        type: 'string',
+        destBody: 'source.website',
+        required: false,
+        onCreate: true,
+    },
+    'source-snapshot': {
+        description: 'Snapshots to use as base of new Website',
+        type: 'string',
+        destBody: 'source.snapshot',
+        required: false,
+        onCreate: true,
+    },
 };
 
 const resource = {
@@ -47,7 +61,7 @@ const resource = {
     url: () => 'website',
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
-    extraCommands: ['ssh', 'sftp', 'create', 'start', 'stop', 'credential', 'update', 'log', 'transfer'],
+    extraCommands: ['ssh', 'sftp', 'start', 'stop', 'credential', 'update', 'log', 'transfer'],
     title: 'Website',
     dirname: __dirname,
     schema,
@@ -55,5 +69,9 @@ const resource = {
 };
 
 const category = genericResource(resource);
+
+category.addChild(require('./create')(resource));
+
+category.addChild(require('./snapshot')(resource));
 
 module.exports = category;

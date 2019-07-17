@@ -13,10 +13,16 @@
   * [h1 website sftp](#h1-website-sftp) - Connect to Website using SFTP
   * [h1 website start](#h1-website-start) - Start Website
   * [h1 website stop](#h1-website-stop) - Stop Website
-  * [h1 website update](#h1-website-update) - Update Website
-    * [h1 website update domain](#h1-website-update-domain) - Update domain of Website
+  * [h1 website domain](#h1-website-domain) - Manage Domain name of Website
+    * [h1 website domain add](#h1-website-domain-add) - Add Domain name to Website
+    * [h1 website domain list](#h1-website-domain-list) - List Domain name of Website
+    * [h1 website domain delete](#h1-website-domain-delete) - Delete Domain name from Website
   * [h1 website log](#h1-website-log) - Live logs of Website
   * [h1 website transfer](#h1-website-transfer) - Transfer Website to other project
+  * [h1 website snapshot](#h1-website-snapshot) - Manage your snapshot of Website
+    * [h1 website snapshot create](#h1-website-snapshot-create) - Create snapshot of Website
+    * [h1 website snapshot list](#h1-website-snapshot-list) - List snapshot of Website
+    * [h1 website snapshot delete](#h1-website-snapshot-delete) - Delete snapshot of Website
   * [h1 website credential](#h1-website-credential) - Manage your credentials of Website
     * [h1 website credential list](#h1-website-credential-list) - List credential of Website
     * [h1 website credential show](#h1-website-credential-show) - Show credential of Website
@@ -55,7 +61,7 @@ The functionality is available as part of the *Early adopters* program. Operatio
 #### Create Website with SSH credential
 
 ```bash
-h1 website create --name my-website --type website --image 'quay.io/hyperone/php-apache:7.2' --ssh my-key
+h1 website create --name my-website --type website --image 'h1cr.io/website/php-apache:7.2' --ssh my-key
 ```
 
 Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
@@ -66,13 +72,13 @@ Create Website
 
 ### Syntax
 
-```h1 website create | --name NAME --type TYPE --image IMAGE [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]]```
+```h1 website create | --name NAME --type TYPE --image IMAGE [--source-website SOURCE-WEBSITE] [--source-snapshot SOURCE-SNAPSHOT] [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]]```
 ### Examples
 
 #### Create Website with SSH credential
 
 ```bash
-h1 website create --name my-website --type website --image 'quay.io/hyperone/php-apache:7.2' --ssh my-key
+h1 website create --name my-website --type website --image 'h1cr.io/website/php-apache:7.2' --ssh my-key
 ```
 
 Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
@@ -89,6 +95,8 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--source-website SOURCE-WEBSITE``` |  | Website ID or name which contains Snapshot |
+| ```--source-snapshot SOURCE-SNAPSHOT``` |  | Snapshots to use as base of new Website |
 | ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. Recommends to use SSH keys. The parameter may occur repeatedly |
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
@@ -311,17 +319,44 @@ h1 website stop --website my-website
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 
-## h1 website update
+## h1 website domain
 
-Update Website
+Manage Domain name of Website
 
-## h1 website update domain
+## h1 website domain add
 
-Update domain of Website
+Add Domain name to Website
 
 ### Syntax
 
-```h1 website update domain | --domain DOMAIN [--domain DOMAIN ...] --website WEBSITE```
+```h1 website domain add | --domain DOMAIN [--domain DOMAIN ...] --website WEBSITE```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website domain list
+
+List Domain name of Website
+
+### Syntax
+
+```h1 website domain list | --website WEBSITE```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website domain delete
+
+Delete Domain name from Website
+
+### Syntax
+
+```h1 website domain delete | --domain DOMAIN [--domain DOMAIN ...] --website WEBSITE```
 ### Required arguments
 
 | Name | Default | Description |
@@ -373,6 +408,83 @@ h1 website transfer --website test-website --new-project OtherProject
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
+
+## h1 website snapshot
+
+Manage your snapshot of Website
+
+### Examples
+
+#### List available snaspshots
+
+```bash
+h1 website snapshot list --website my-website
+```
+
+Hint: Use ```h1 website list``` to list available *Website*.
+
+## h1 website snapshot create
+
+Create snapshot of Website
+
+### Syntax
+
+```h1 website snapshot create | --name NAME --website WEBSITE```
+### Examples
+
+#### Create Website with SSH credential
+
+```bash
+h1 website snapshot create --name my-website --type website --image 'h1cr.io/website/php-apache:7.2' --ssh my-key
+```
+
+Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to list available SSH keys.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Snapshot name |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website snapshot list
+
+List snapshot of Website
+
+### Syntax
+
+```h1 website snapshot list | --website WEBSITE```
+### Example
+
+```bash
+h1 website snapshot list --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website snapshot delete
+
+Delete snapshot of Website
+
+### Syntax
+
+```h1 website snapshot delete | --website WEBSITE --snapshot SNAPSHOT```
+### Example
+
+```bash
+h1 website snapshot delete --snapshot my-snapshot --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--snapshot SNAPSHOT``` |  | Snapshot of Website ID or name |
 
 ## h1 website credential
 

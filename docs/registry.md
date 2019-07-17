@@ -12,8 +12,10 @@
   * [h1 registry start](#h1-registry-start) - Start Registry
   * [h1 registry stop](#h1-registry-stop) - Stop Registry
   * [h1 registry transfer](#h1-registry-transfer) - Transfer Registry to other project
-  * [h1 registry update](#h1-registry-update) - Update Registry
-    * [h1 registry update domain](#h1-registry-update-domain) - Update domain of Registry
+  * [h1 registry domain](#h1-registry-domain) - Manage Domain name of Registry
+    * [h1 registry domain add](#h1-registry-domain-add) - Add Domain name to Registry
+    * [h1 registry domain list](#h1-registry-domain-list) - List Domain name of Registry
+    * [h1 registry domain delete](#h1-registry-domain-delete) - Delete Domain name from Registry
   * [h1 registry repository](#h1-registry-repository) - Manage your repository of Registry
     * [h1 registry repository show](#h1-registry-repository-show) - Show repository of Registry
     * [h1 registry repository list](#h1-registry-repository-list) - List repository of Registry
@@ -283,17 +285,44 @@ h1 registry transfer --registry test-registry --new-project OtherProject
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
 
-## h1 registry update
+## h1 registry domain
 
-Update Registry
+Manage Domain name of Registry
 
-## h1 registry update domain
+## h1 registry domain add
 
-Update domain of Registry
+Add Domain name to Registry
 
 ### Syntax
 
-```h1 registry update domain | --domain DOMAIN [--domain DOMAIN ...] --registry REGISTRY```
+```h1 registry domain add | --domain DOMAIN [--domain DOMAIN ...] --registry REGISTRY```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+
+## h1 registry domain list
+
+List Domain name of Registry
+
+### Syntax
+
+```h1 registry domain list | --registry REGISTRY```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+
+## h1 registry domain delete
+
+Delete Domain name from Registry
+
+### Syntax
+
+```h1 registry domain delete | --domain DOMAIN [--domain DOMAIN ...] --registry REGISTRY```
 ### Required arguments
 
 | Name | Default | Description |

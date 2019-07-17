@@ -25,6 +25,13 @@ const schema = {
     tags: {
         virtual: true,
         onCreate: true,
+        onUpdate: false,
+    },
+    enabledService: {
+        description: 'Enabled service',
+        type: 'string',
+        append: [],
+        action: 'append',
         onUpdate: true,
     },
 };
@@ -34,7 +41,7 @@ const resource = {
     defaultQuery: '[].{id:_id,name:name,type:type,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'agent',
     plugins: genericDefaults.plugins,
-    extraCommands: ['create', 'transfer'],
+    extraCommands: ['create', 'transfer', 'update'],
     dirname: __dirname,
     earlyAdoptersOnly: true,
     title: 'Agent',
@@ -60,18 +67,6 @@ const category = genericResource(resource);
 category.addChild(require('bin/generic/inspect')(resource));
 category.addChild(require('./resource')(actionDefault));
 category.addChild(require('../generic/credential')(resource));
-
-category.addChild(require('bin/generic/set-update')(Object.assign({}, actionDefault, {
-    url: args => `${actionDefault.url(args)}/enabledServices`,
-    title: 'enabled service',
-    name: 'enabled-service',
-    update_name: 'service',
-    context: {
-        addParams: `--${resource.name} my-${resource.name}`,
-        listParams: `--${resource.name} my-${resource.name}`,
-        deleteParams: `--${resource.name} my-${resource.name}`,
-    },
-})));
 
 category.addChild(genericAction(actionDefault, 'suspend'));
 category.addChild(genericAction(actionDefault, 'start'));

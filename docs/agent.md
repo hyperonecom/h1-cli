@@ -10,15 +10,15 @@
     * [h1 agent service list](#h1-agent-service-list) - List Service for Agent
     * [h1 agent service show](#h1-agent-service-show) - Show Service for Agent
   * [h1 agent transfer](#h1-agent-transfer) - Transfer Agent to other project
+  * [h1 agent enabled-service](#h1-agent-enabled-service) - Manage Enabled service of Agent
+    * [h1 agent enabled-service add](#h1-agent-enabled-service-add) - Add Enabled service to Agent
+    * [h1 agent enabled-service list](#h1-agent-enabled-service-list) - List Enabled service of Agent
+    * [h1 agent enabled-service delete](#h1-agent-enabled-service-delete) - Delete Enabled service from Agent
   * [h1 agent inspect](#h1-agent-inspect) - Inspect of Agent
   * [h1 agent resource](#h1-agent-resource) - Manage your Resource of Agent
     * [h1 agent resource list](#h1-agent-resource-list) - List Resource of Agent
     * [h1 agent resource inspect](#h1-agent-resource-inspect) - Inspect of Resource of Agent
     * [h1 agent resource recreate](#h1-agent-resource-recreate) - Recreate Resource of Agent
-  * [h1 agent enabled-service](#h1-agent-enabled-service) - Manage your enabled service
-    * [h1 agent enabled-service add](#h1-agent-enabled-service-add) - Add enabled service
-    * [h1 agent enabled-service list](#h1-agent-enabled-service-list) - List enabled service
-    * [h1 agent enabled-service delete](#h1-agent-enabled-service-delete) - Delete enabled service
   * [h1 agent suspend](#h1-agent-suspend) - Suspend Agent
   * [h1 agent start](#h1-agent-start) - Start Agent
   * [h1 agent credential](#h1-agent-credential) - Manage your credentials of Agent
@@ -238,6 +238,51 @@ h1 agent transfer --agent test-agent --new-project OtherProject
 | ```--agent AGENT``` |  | Agent ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
 
+## h1 agent enabled-service
+
+Manage Enabled service of Agent
+
+## h1 agent enabled-service add
+
+Add Enabled service to Agent
+
+### Syntax
+
+```h1 agent enabled-service add | --enabledService ENABLEDSERVICE [--enabledService ENABLEDSERVICE ...] --agent AGENT```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--enabledService ENABLEDSERVICE [--enabledService ENABLEDSERVICE ...]``` |  | Enabled service. The parameter may occur repeatedly |
+| ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent enabled-service list
+
+List Enabled service of Agent
+
+### Syntax
+
+```h1 agent enabled-service list | --agent AGENT```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
+## h1 agent enabled-service delete
+
+Delete Enabled service from Agent
+
+### Syntax
+
+```h1 agent enabled-service delete | --enabledService ENABLEDSERVICE [--enabledService ENABLEDSERVICE ...] --agent AGENT```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--enabledService ENABLEDSERVICE [--enabledService ENABLEDSERVICE ...]``` |  | Enabled service. The parameter may occur repeatedly |
+| ```--agent AGENT``` |  | Agent ID or name |
+
 ## h1 agent inspect
 
 Inspect of Agent
@@ -319,69 +364,6 @@ h1 agent resource recreate --agent container-agent --resource container-id
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
 | ```--resource RESOURCE``` |  | Resource of Agent ID or name |
-
-## h1 agent enabled-service
-
-Manage your enabled service
-
-## h1 agent enabled-service add
-
-Add enabled service
-
-### Syntax
-
-```h1 agent enabled-service add | --agent AGENT --service SERVICE```
-### Example
-
-```
-h1 agent enabled-service add --agent my-agent --service value
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--service SERVICE``` |  | New enabled service |
-
-## h1 agent enabled-service list
-
-List enabled service
-
-### Syntax
-
-```h1 agent enabled-service list | --agent AGENT```
-### Example
-
-```bash
-h1 agent enabled-service list --agent my-agent
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-
-## h1 agent enabled-service delete
-
-Delete enabled service
-
-### Syntax
-
-```h1 agent enabled-service delete | --agent AGENT --service SERVICE```
-### Example
-
-```
-h1 agent enabled-service delete --agent my-agent --service value
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-| ```--service SERVICE``` |  | Deleted enabled service |
 
 ## h1 agent suspend
 
