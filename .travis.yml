@@ -20,8 +20,12 @@ jobs:
     - scripts/markown_lint.sh
     - npm publish --dry-run
     - npm run-script build
-    - ./scripts/test_version_output.sh dist/h1-linux
-    - ./scripts/test_version_output.sh dist/h1-alpine alpine
+    - tar -xzvf ./dist/h1-linux.tar.gz
+    - ./scripts/test_version_output.sh ./h1
+    - rm ./h1
+    - tar -xzvf ./dist/h1-alpine.tar.gz
+    - ./scripts/test_version_output.sh ./h1 alpine
+    - rm ./h1
   - stage: build & deploy
     sudo: required
     script:
