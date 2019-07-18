@@ -22,7 +22,7 @@ module.exports = (resource, field_name) => {
         plugins: resource.plugins,
         options: Object.assign({}, options, resource.options),
         handler: async args => {
-            const obj = args.helpers.api
+            const obj = await args.helpers.api
                 .get(`${resource.url(args)}/${args[resource.name]}`);
             const value = obj[field_name] || [];
             return args.helpers.api
