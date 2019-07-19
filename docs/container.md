@@ -38,7 +38,7 @@ Create Container
 
 ### Syntax
 
-```h1 container create | --name NAME --image IMAGE --type TYPE [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volume VOLUME [--volume VOLUME ...]] [--command COMMAND] [--tag TAG [--tag TAG ...]]```
+```h1 container create | --name NAME --image IMAGE --type TYPE [--tag TAG [--tag TAG ...]] [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volume VOLUME [--volume VOLUME ...]] [--command COMMAND]```
 ### Examples
 
 #### Create nginx container
@@ -65,6 +65,7 @@ h1 container create --name nginx --type b1.nano --image registry.example.com/my-
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
 | ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
 | ```--registry-dockercfg``` |  | Use credentials from .dockercfg |
@@ -72,7 +73,6 @@ h1 container create --name nginx --type b1.nano --image registry.example.com/my-
 | ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
 | ```--volume VOLUME [--volume VOLUME ...]``` |  | Attach a Volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
 | ```--command COMMAND``` |  | Override the default command |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 container list
 
@@ -364,7 +364,7 @@ Add a tag to Container
 
 ### Syntax
 
-```h1 container tag add | --container CONTAINER [--tag TAG [--tag TAG ...]]```
+```h1 container tag add | --tag TAG [--tag TAG ...] --container CONTAINER```
 ### Example
 
 ```bash
@@ -375,13 +375,8 @@ h1 container tag add --container test-container --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--container CONTAINER``` |  | Container ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--container CONTAINER``` |  | Container ID or name |
 
 ## h1 container tag delete
 

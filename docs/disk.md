@@ -224,7 +224,7 @@ Create Disk
 
 ### Syntax
 
-```h1 disk create | --name NAME [--type TYPE] [--size SIZE] [--source-file SOURCE-FILE] [--source-disk SOURCE-DISK] [--no-progress] [--tag TAG [--tag TAG ...]]```
+```h1 disk create | --name NAME [--tag TAG [--tag TAG ...]] [--type TYPE] [--size SIZE] [--source-file SOURCE-FILE] [--source-disk SOURCE-DISK] [--no-progress]```
 ### Examples
 
 #### Create 10 GB SSD disk
@@ -255,12 +255,12 @@ h1 disk create --name new-disk --source-disk existing-disk
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--type TYPE``` |  | Disk type ID or name. Required if no source disk is specified |
 | ```--size SIZE``` |  | Disk size in GiB. Required if no source file and no disk is specified |
 | ```--source-file SOURCE-FILE``` |  | Path to .vhdx file to import |
 | ```--source-disk SOURCE-DISK``` |  | Source disk name or ID used during cloning |
 | ```--no-progress``` |  | Disable progress bar |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 disk download
 
@@ -317,7 +317,7 @@ Add a tag to Disk
 
 ### Syntax
 
-```h1 disk tag add | --disk DISK [--tag TAG [--tag TAG ...]]```
+```h1 disk tag add | --tag TAG [--tag TAG ...] --disk DISK```
 ### Example
 
 ```bash
@@ -328,13 +328,8 @@ h1 disk tag add --disk test-disk --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--disk DISK``` |  | Disk ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--disk DISK``` |  | Disk ID or name |
 
 ## h1 disk tag delete
 

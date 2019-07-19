@@ -218,7 +218,7 @@ Create Network
 
 ### Syntax
 
-```h1 network create | --name NAME [--address ADDRESS] [--gateway GATEWAY] [--tag TAG [--tag TAG ...]]```
+```h1 network create | --name NAME [--tag TAG [--tag TAG ...]] [--address ADDRESS] [--gateway GATEWAY]```
 ### Examples
 
 #### Create a network
@@ -243,9 +243,9 @@ h1 network create --name my-ip-network --address 10.214.180.0/24 --gateway 10.21
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--address ADDRESS``` |  | Network address space as CIDR, network address and prefix eg. 10.214.180.0/24 |
 | ```--gateway GATEWAY``` |  | IP address of network gateway within the network address space eg. 10.214.180.10 |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 network ip
 
@@ -297,7 +297,7 @@ Create IP address
 
 ### Syntax
 
-```h1 network ip create | --network NETWORK [--address ADDRESS] [--tag TAG [--tag TAG ...]]```
+```h1 network ip create | --network NETWORK [--tag TAG [--tag TAG ...]] [--address ADDRESS]```
 ### Examples
 
 #### Create a new IP address in network
@@ -322,8 +322,8 @@ h1 network ip create --name my-ip-network --address 10.214.180.10
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--address ADDRESS``` |  | IP address |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--address ADDRESS``` |  | IP address |
 
 ## h1 network ip list
 
@@ -419,7 +419,7 @@ Add a tag to IP address
 
 ### Syntax
 
-```h1 network ip tag add | --network NETWORK --ip IP [--tag TAG [--tag TAG ...]]```
+```h1 network ip tag add | --tag TAG [--tag TAG ...] --network NETWORK --ip IP```
 ### Example
 
 ```bash
@@ -430,14 +430,9 @@ h1 network ip tag add --ip test-ip --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--network NETWORK``` |  | Network name or ID |
 | ```--ip IP``` |  | IP address ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 network ip tag delete
 
@@ -489,7 +484,7 @@ Add a tag to Network
 
 ### Syntax
 
-```h1 network tag add | --network NETWORK [--tag TAG [--tag TAG ...]]```
+```h1 network tag add | --tag TAG [--tag TAG ...] --network NETWORK```
 ### Example
 
 ```bash
@@ -500,13 +495,8 @@ h1 network tag add --network test-network --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--network NETWORK``` |  | Network ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--network NETWORK``` |  | Network ID or name |
 
 ## h1 network tag delete
 

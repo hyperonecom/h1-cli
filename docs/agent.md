@@ -605,7 +605,7 @@ Add a tag to Agent
 
 ### Syntax
 
-```h1 agent tag add | --agent AGENT [--tag TAG [--tag TAG ...]]```
+```h1 agent tag add | --tag TAG [--tag TAG ...] --agent AGENT```
 ### Example
 
 ```bash
@@ -616,13 +616,8 @@ h1 agent tag add --agent test-agent --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--agent AGENT``` |  | Agent ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--agent AGENT``` |  | Agent ID or name |
 
 ## h1 agent tag delete
 

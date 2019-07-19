@@ -68,7 +68,7 @@ Create Virtual machine
 
 ### Syntax
 
-```h1 vm create | --name NAME --type TYPE [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]]```
+```h1 vm create | --name NAME --type TYPE [--tag TAG [--tag TAG ...]] [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]]```
 ### Examples
 
 #### Create a Debian virtual machine
@@ -106,6 +106,7 @@ Note: You can mount ISO disk and provide stateless services.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--password PASSWORD``` |  | Initial administrator user password |
 | ```--username USERNAME``` |  | Initial administrator username |
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access.. The parameter may occur repeatedly |
@@ -120,7 +121,6 @@ Note: You can mount ISO disk and provide stateless services.
 | ```--no-start``` |  | Do not start Virtual machine after creation |
 | ```--userdata-file USERDATA-FILE``` |  | Read userdata from file |
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 vm list
 
@@ -584,7 +584,7 @@ Create Network adapter
 
 ### Syntax
 
-```h1 vm nic create | --vm VM --type TYPE [--network NETWORK] [--ip IP] [--tag TAG [--tag TAG ...]]```
+```h1 vm nic create | --vm VM --type TYPE [--tag TAG [--tag TAG ...]] [--network NETWORK] [--ip IP]```
 ### Examples
 
 #### Create network adapter with public IP
@@ -612,9 +612,9 @@ Note (4): To list available networks use ```h1 network list```.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--network NETWORK``` |  | ID or name of Network to connect |
 | ```--ip IP``` |  | IP address to assign |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 vm nic show
 
@@ -873,7 +873,7 @@ Add a tag to Network adapter
 
 ### Syntax
 
-```h1 vm nic tag add | --vm VM --nic NIC [--tag TAG [--tag TAG ...]]```
+```h1 vm nic tag add | --tag TAG [--tag TAG ...] --vm VM --nic NIC```
 ### Example
 
 ```bash
@@ -884,14 +884,9 @@ h1 vm nic tag add --nic test-nic --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--nic NIC``` |  | Network adapter ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 vm nic tag delete
 
@@ -1082,7 +1077,7 @@ Add a tag to Virtual machine
 
 ### Syntax
 
-```h1 vm tag add | --vm VM [--tag TAG [--tag TAG ...]]```
+```h1 vm tag add | --tag TAG [--tag TAG ...] --vm VM```
 ### Example
 
 ```bash
@@ -1093,13 +1088,8 @@ h1 vm tag add --vm test-vm --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm tag delete
 

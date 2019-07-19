@@ -309,7 +309,7 @@ Add a tag to Organisation
 
 ### Syntax
 
-```h1 organisation tag add | --organisation ORGANISATION [--tag TAG [--tag TAG ...]]```
+```h1 organisation tag add | --tag TAG [--tag TAG ...] --organisation ORGANISATION```
 ### Example
 
 ```bash
@@ -320,13 +320,8 @@ h1 organisation tag add --organisation test-organisation --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--organisation ORGANISATION``` |  | Organisation ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
 
 ## h1 organisation tag delete
 

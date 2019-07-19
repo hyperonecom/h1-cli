@@ -269,7 +269,7 @@ ISO import
 
 ### Syntax
 
-```h1 iso create | --name NAME [--source-file SOURCE-FILE] [--source-url SOURCE-URL] [--tag TAG [--tag TAG ...]]```
+```h1 iso create | --name NAME [--tag TAG [--tag TAG ...]] [--source-file SOURCE-FILE] [--source-url SOURCE-URL]```
 ### Examples
 
 #### Create an ISO using a local file
@@ -293,9 +293,9 @@ h1 iso create --name myiso --source-url http://example.com/some.iso
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--source-file SOURCE-FILE``` |  | Source file for ISO import. |
 | ```--source-url SOURCE-URL``` |  | Source url for ISO import. Required if source-file is not specified. |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 iso tag
 
@@ -326,7 +326,7 @@ Add a tag to ISO
 
 ### Syntax
 
-```h1 iso tag add | --iso ISO [--tag TAG [--tag TAG ...]]```
+```h1 iso tag add | --tag TAG [--tag TAG ...] --iso ISO```
 ### Example
 
 ```bash
@@ -337,13 +337,8 @@ h1 iso tag add --iso test-iso --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--iso ISO``` |  | ISO ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--iso ISO``` |  | ISO ID or name |
 
 ## h1 iso tag delete
 

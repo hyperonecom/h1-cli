@@ -538,7 +538,7 @@ Add a tag to Log archive
 
 ### Syntax
 
-```h1 log tag add | --log LOG [--tag TAG [--tag TAG ...]]```
+```h1 log tag add | --tag TAG [--tag TAG ...] --log LOG```
 ### Example
 
 ```bash
@@ -549,13 +549,8 @@ h1 log tag add --log test-log --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--log LOG``` |  | Log archive ID or name |
 
 ## h1 log tag delete
 

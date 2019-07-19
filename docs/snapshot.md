@@ -217,7 +217,7 @@ Add a tag to snapshot
 
 ### Syntax
 
-```h1 snapshot tag add | --snapshot SNAPSHOT [--tag TAG [--tag TAG ...]]```
+```h1 snapshot tag add | --tag TAG [--tag TAG ...] --snapshot SNAPSHOT```
 ### Example
 
 ```bash
@@ -228,13 +228,8 @@ h1 snapshot tag add --snapshot test-snapshot --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 
 ## h1 snapshot tag delete
 

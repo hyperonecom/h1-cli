@@ -293,7 +293,7 @@ Add a tag to Network gateway
 
 ### Syntax
 
-```h1 netgw tag add | --netgw NETGW [--tag TAG [--tag TAG ...]]```
+```h1 netgw tag add | --tag TAG [--tag TAG ...] --netgw NETGW```
 ### Example
 
 ```bash
@@ -304,13 +304,8 @@ h1 netgw tag add --netgw test-netgw --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--netgw NETGW``` |  | Network gateway ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--netgw NETGW``` |  | Network gateway ID or name |
 
 ## h1 netgw tag delete
 

@@ -50,7 +50,7 @@ Create Vault
 
 ### Syntax
 
-```h1 vault create | --name NAME --size SIZE [--snapshot SNAPSHOT] [--tag TAG [--tag TAG ...]] [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]]```
+```h1 vault create | --name NAME --size SIZE [--tag TAG [--tag TAG ...]] [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--snapshot SNAPSHOT]```
 ### Examples
 
 #### Create Vault with SSH credential
@@ -80,11 +80,11 @@ Hint: Use ```h1 snapshot list``` to list available snapshots.
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. Recommends to use SSH keys. The parameter may occur repeatedly |
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
+| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 
 ## h1 vault list
 
@@ -673,7 +673,7 @@ Add a tag to Vault
 
 ### Syntax
 
-```h1 vault tag add | --vault VAULT [--tag TAG [--tag TAG ...]]```
+```h1 vault tag add | --tag TAG [--tag TAG ...] --vault VAULT```
 ### Example
 
 ```bash
@@ -684,13 +684,8 @@ h1 vault tag add --vault test-vault --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--vault VAULT``` |  | Vault ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--vault VAULT``` |  | Vault ID or name |
 
 ## h1 vault tag delete
 

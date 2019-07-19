@@ -225,7 +225,7 @@ Add a tag to Reservation
 
 ### Syntax
 
-```h1 reservation tag add | --reservation RESERVATION [--tag TAG [--tag TAG ...]]```
+```h1 reservation tag add | --tag TAG [--tag TAG ...] --reservation RESERVATION```
 ### Example
 
 ```bash
@@ -236,13 +236,8 @@ h1 reservation tag add --reservation test-reservation --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--reservation RESERVATION``` |  | Reservation ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--reservation RESERVATION``` |  | Reservation ID or name |
 
 ## h1 reservation tag delete
 

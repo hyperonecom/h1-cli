@@ -245,7 +245,7 @@ Add a tag to Volume
 
 ### Syntax
 
-```h1 volume tag add | --volume VOLUME [--tag TAG [--tag TAG ...]]```
+```h1 volume tag add | --tag TAG [--tag TAG ...] --volume VOLUME```
 ### Example
 
 ```bash
@@ -256,13 +256,8 @@ h1 volume tag add --volume test-volume --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--volume VOLUME``` |  | Volume ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--volume VOLUME``` |  | Volume ID or name |
 
 ## h1 volume tag delete
 

@@ -1014,7 +1014,7 @@ Add a tag to Project
 
 ### Syntax
 
-```h1 project tag add | --project PROJECT [--tag TAG [--tag TAG ...]]```
+```h1 project tag add | --tag TAG [--tag TAG ...] --project PROJECT```
 ### Example
 
 ```bash
@@ -1025,13 +1025,8 @@ h1 project tag add --project test-project --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project tag delete
 
