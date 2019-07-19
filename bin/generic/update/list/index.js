@@ -16,7 +16,7 @@ module.exports = (resource, field_name) => {
         description: `List ${parameter.description} of ${resource.title}`,
         plugins: resource.plugins,
         options: Object.assign({}, options, resource.options),
-        handler: async args => args.helpers.api
+        handler: args => args.helpers.api
             .get(`${resource.url(args)}/${args[resource.name]}`)
             .then(result => args.helpers.sendOutput(args, result[field_name] || [])),
     });

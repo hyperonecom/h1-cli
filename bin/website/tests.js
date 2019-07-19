@@ -58,6 +58,41 @@ ava.serial('website put index via SFTP & password', async t => {
     await tests.remove('website', website);
 });
 
+ava.serial('website management domain', async t => {
+    const domain = 'website.h1.jawnosc.tk';
+    const rset_cname = 'website-reachable-cname';
+    const rset_txt = 'website-reachable-txt';
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
+    await tests.run(`website stop --website ${website.id}`);
+    const zone = await tests.run(`dns zone show --zone ${domain}`).catch(() => {
+        return tests.run(`dns zone create --name ${domain}`);
+    });
+    try {
+        await tests.run(`dns record-set cname create --name ${rset_txt} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
+        await tests.run(`website domain add --website ${website.id} --domain ${rset_txt}.${zone.name}`);
+        let domains = await tests.run(`website domain list --website ${website.id}`);
+        t.true(domains.includes(`${rset_txt}.${zone.name}`));
+        t.true(!domains.includes(`${rset_cname}.${zone.name}`));
+        t.true(domains.length === 1);
+
+        await tests.run(`dns record-set txt create --name ${rset_cname} --zone ${zone.id} --value '\"${website.fqdn}\"' --ttl 1`);
+        await tests.run(`website domain add --website ${website.id} --domain ${rset_cname}.${zone.name}`);
+        domains = await tests.run(`website domain list --website ${website.id}`);
+        t.true(domains.includes(`${rset_txt}.${zone.name}`));
+        t.true(domains.includes(`${rset_cname}.${zone.name}`));
+        t.true(domains.length === 2);
+
+        await tests.run(`website domain delete --website ${website.id} --domain ${rset_txt}.${zone.name}`);
+        domains = await tests.run(`website domain list --website ${website.id}`);
+        t.true(!domains.includes(`${rset_txt}.${zone.name}`));
+        t.true(domains.includes(`${rset_cname}.${zone.name}`));
+        t.true(domains.length === 1);
+    } finally {
+        await tests.remove('dns zone', zone);
+        await tests.remove('website', website);
+    }
+});
+
 ava.serial('website reachable through custom domain', async t => {
     const domain = 'website.h1.jawnosc.tk';
     const rset = 'website-reachable';

@@ -18,7 +18,7 @@ module.exports = (resource, field_name) => {
         description: `Update ${parameter.description} of ${resource.title}`,
         plugins: resource.plugins,
         options: Object.assign({}, options, resource.options),
-        handler: async args => args.helpers.api
+        handler: args => args.helpers.api
             .post(`${resource.url(args)}/${args[resource.name]}/actions/update_${field_name}`, {
                 [field_name]: args[name],
             })
