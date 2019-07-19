@@ -25,5 +25,7 @@ module.exports = (resource, subresource) => Cli.createCommand('add', {
             require('lib/tags').createTagObject(args.tag)
         )
         .then(result => Object.entries(result).map(([key, value])=> ({key, value})))
-        .then(result => args.helpers.sendOutput(args, result)),
+        .then(() => args.helpers.sendOutput(args,
+            require('lib/tags').createTagObject(args.tag)
+        )),
 });
