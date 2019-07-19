@@ -370,7 +370,7 @@ Live logs of Website
 
 ### Syntax
 
-```h1 website log | --website WEBSITE [--log-file LOG-FILE]```
+```h1 website log | --website WEBSITE [--log-file LOG-FILE] [--head HEAD]```
 ### Example
 
 ```
@@ -388,6 +388,7 @@ h1 website log --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log-file LOG-FILE``` |  | Path of output log file |
+| ```--head HEAD``` |  | Number of incoming messages to show |
 
 ## h1 website transfer
 

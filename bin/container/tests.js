@@ -54,9 +54,16 @@ ava.serial('container process list', async t => {
     }
 });
 
-// no longer tested after the archival logs have been abandoned, since
-// until found way to interrupt CLI command that follows the logs.
-ava.todo('container log');
+ava.serial('container log', async t => {
+    const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams} --expose 80:80`);
+    try {
+        await tests.logStreamProcess(t, 'container', container,
+            (id_request) => tests.get(`http://${container.fqdn}/?${id_request}`)
+        );
+    } finally {
+        await tests.remove('container', container);
+    }
+});
 
 ava.serial('container create with volume', async t => {
     const volume = await tests.run(`volume create --name ${tests.getName(t.title, 'volume')} --type volume --size 1`);

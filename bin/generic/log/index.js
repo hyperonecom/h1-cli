@@ -15,7 +15,11 @@ module.exports = resource => {
             type: 'string',
             required: true,
         },
-
+        head: {
+            description: 'Number of incoming messages to show',
+            type: 'int',
+            required: false,
+        },
     };
 
     return Cli.createCommand('log', {
@@ -26,8 +30,16 @@ module.exports = resource => {
         options: Object.assign({}, options, resource.options),
         handler: async args => {
             const ws = await args.helpers.api.wsLogs(`${resource.url(args)}/${args[resource.name]}/log`);
+            let count  = 0;
             return new Promise((resolve, reject) => {
-                ws.on('message', msg => args['log-file'].write(msg));
+                ws.on('message', msg => {
+                    args['log-file'].write(msg);
+                    if (args.head && count >= args.head) {
+                        ws.close();
+                        return resolve();
+                    }
+                    count+=1;
+                });
                 ws.on('close', resolve);
                 ws.on('error', reject);
             });
