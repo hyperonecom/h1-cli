@@ -1,6 +1,4 @@
 'use strict';
-const request = require('superagent');
-
 const ava = require('ava');
 
 require('../../scope/h1');
@@ -42,7 +40,7 @@ ava.serial('website empty page results', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     // TODO: Validate default page according scope
     await tests.delay(5); // Workaround for full page startup
-    const resp = await request.get(`http://${website.fqdn}/`).ok(res => [403, 200].includes(res.status));
+    const resp = await tests.get(`http://${website.fqdn}/`).ok(res => [403, 200].includes(res.status));
     t.true(resp.text.includes("You don't have permission to access /"));
     await tests.remove('website', website);
 });
@@ -53,7 +51,7 @@ ava.serial('website put index via SFTP & password', async t => {
     // Upload file
     const token = await tests.getToken();
     await putFileWebsite(website, {password}, 'public/index.html', token);
-    const resp = await request.get(`http://${website.fqdn}/`);
+    const resp = await tests.get(`http://${website.fqdn}/`);
     t.true(resp.text === token);
     await tests.remove('website', website);
 });
@@ -77,10 +75,10 @@ ava.serial('website reachable through custom domain', async t => {
         t.true(files.some(f => f.filename === 'public'));
         await ssh.execResource(website, {password}, 'ls -lah /data/public');
         await putFileWebsite(website, {password}, 'public/index.html', token);
-        await tests.delay(5*1000);
+        await tests.delay(5 * 1000);
         // Test content
         for (const proto of ['http', 'https']) {
-            const resp = await request.get(`${proto}://${rset}.${domain}/`);
+            const resp = await tests.get(`${proto}://${rset}.${domain}/`);
             t.true(resp.text === token);
         }
     } finally {
@@ -98,7 +96,7 @@ ava.serial('website put index via SFTP & ssh-key', async t => {
     const token = await tests.getToken();
     await putFileWebsite(website, {privateKey: sshKeyPair.privateKey}, 'public/index.html', token);
     // Test content
-    const resp = await request.get(`http://${website.fqdn}/`);
+    const resp = await tests.get(`http://${website.fqdn}/`);
     t.true(resp.text === token);
 
     await tests.remove('website', website);
@@ -160,10 +158,10 @@ ava.serial('website runtime access rights match of sftp', async t => {
     const content = images[image].code.replace('TOKEN', token);
     await putFileWebsite(website, {password}, 'public/test.php', content);
     // Call script
-    const resp_call = await request.get(`http://${website.fqdn}/test.php`);
+    const resp_call = await tests.get(`http://${website.fqdn}/test.php`);
     t.true(resp_call.text === '');
     // Verify content
-    const resp_test = await request.get(`http://${website.fqdn}/test.txt`);
+    const resp_test = await tests.get(`http://${website.fqdn}/test.txt`);
     t.true(resp_test.text === token);
     // Verify permission to remove
     await rmFileWebsite(website, {password}, 'public/test.txt');
@@ -217,4 +215,17 @@ ava.serial('website snapshot restore', async t => {
     t.true(contentRestored.trim() === content);
     await tests.remove('website', website); // remove source of snapshot first
     await tests.remove('website', websiteRestored);
+});
+
+ava.serial('website log', async t => {
+    const password = await tests.getToken();
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+    try {
+        await putFileWebsite(website, {password}, 'public/test.txt', await tests.getToken());
+        await tests.logStreamProcess(t, 'website', website,
+            (id_request) => tests.get(`http://${website.fqdn}/test.txt?${id_request}`)
+        );
+    } finally {
+        await tests.remove('website', website);
+    }
 });

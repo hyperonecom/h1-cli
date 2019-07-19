@@ -213,7 +213,7 @@ Live logs of Container
 
 ### Syntax
 
-```h1 container log | --container CONTAINER [--log-file LOG-FILE]```
+```h1 container log | --container CONTAINER [--log-file LOG-FILE] [--head HEAD]```
 ### Example
 
 ```
@@ -231,6 +231,7 @@ h1 container log --container my-container
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--log-file LOG-FILE``` |  | Path of output log file |
+| ```--head HEAD``` |  | Number of incoming messages to show |
 
 ## h1 container start
 
