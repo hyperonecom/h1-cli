@@ -227,7 +227,7 @@ Add a tag to Replica
 
 ### Syntax
 
-```h1 replica tag add | --replica REPLICA [--tag TAG [--tag TAG ...]]```
+```h1 replica tag add | --tag TAG [--tag TAG ...] --replica REPLICA```
 ### Example
 
 ```bash
@@ -238,13 +238,8 @@ h1 replica tag add --replica test-replica --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--replica REPLICA``` |  | Replica ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--replica REPLICA``` |  | Replica ID or name |
 
 ## h1 replica tag delete
 

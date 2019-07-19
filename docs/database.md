@@ -489,7 +489,7 @@ Add a tag to Database
 
 ### Syntax
 
-```h1 database tag add | --database DATABASE [--tag TAG [--tag TAG ...]]```
+```h1 database tag add | --tag TAG [--tag TAG ...] --database DATABASE```
 ### Example
 
 ```bash
@@ -500,13 +500,8 @@ h1 database tag add --database test-database --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--database DATABASE``` |  | Database ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--database DATABASE``` |  | Database ID or name |
 
 ## h1 database tag delete
 

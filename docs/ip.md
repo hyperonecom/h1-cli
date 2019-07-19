@@ -163,7 +163,7 @@ Create IP address
 
 ### Syntax
 
-```h1 ip create | [--ptr-record PTR-RECORD] [--tag TAG [--tag TAG ...]]```
+```h1 ip create | [--tag TAG [--tag TAG ...]] [--ptr-record PTR-RECORD]```
 ### Examples
 
 #### Create a new public IP
@@ -176,8 +176,8 @@ h1 ip create
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ptr-record PTR-RECORD``` |  | Value of PTR record |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--ptr-record PTR-RECORD``` |  | Value of PTR record |
 
 ## h1 ip associate
 
@@ -269,7 +269,7 @@ Add a tag to IP address
 
 ### Syntax
 
-```h1 ip tag add | --ip IP [--tag TAG [--tag TAG ...]]```
+```h1 ip tag add | --tag TAG [--tag TAG ...] --ip IP```
 ### Example
 
 ```bash
@@ -280,13 +280,8 @@ h1 ip tag add --ip test-ip --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--ip IP``` |  | IP address ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--ip IP``` |  | IP address ID or name |
 
 ## h1 ip tag delete
 

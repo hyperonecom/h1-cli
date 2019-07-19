@@ -659,7 +659,7 @@ Add a tag to Registry
 
 ### Syntax
 
-```h1 registry tag add | --registry REGISTRY [--tag TAG [--tag TAG ...]]```
+```h1 registry tag add | --tag TAG [--tag TAG ...] --registry REGISTRY```
 ### Example
 
 ```bash
@@ -670,13 +670,8 @@ h1 registry tag add --registry test-registry --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--registry REGISTRY``` |  | Registry ID or name |
 
 ## h1 registry tag delete
 

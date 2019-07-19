@@ -578,7 +578,7 @@ Add a tag to Firewall
 
 ### Syntax
 
-```h1 firewall tag add | --firewall FIREWALL [--tag TAG [--tag TAG ...]]```
+```h1 firewall tag add | --tag TAG [--tag TAG ...] --firewall FIREWALL```
 ### Example
 
 ```bash
@@ -589,13 +589,8 @@ h1 firewall tag add --firewall test-firewall --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--firewall FIREWALL``` |  | Firewall ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 
 ## h1 firewall tag delete
 

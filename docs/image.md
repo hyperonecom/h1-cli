@@ -236,7 +236,7 @@ Create Image
 
 ### Syntax
 
-```h1 image create | --name NAME [--description DESCRIPTION] [--vm VM] [--replica REPLICA] [--tag TAG [--tag TAG ...]]```
+```h1 image create | --name NAME [--tag TAG [--tag TAG ...]] [--description DESCRIPTION] [--vm VM] [--replica REPLICA]```
 ### Example
 
 ```bash
@@ -253,10 +253,10 @@ h1 image create --vm test-vm --name dev-image
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--description DESCRIPTION``` |  | Description of image |
 | ```--vm VM``` |  | Virtual machine name or ID |
 | ```--replica REPLICA``` |  | Replica name or ID |
-| ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 
 ## h1 image list
 
@@ -334,7 +334,7 @@ Add a tag to Image
 
 ### Syntax
 
-```h1 image tag add | --image IMAGE [--tag TAG [--tag TAG ...]]```
+```h1 image tag add | --tag TAG [--tag TAG ...] --image IMAGE```
 ### Example
 
 ```bash
@@ -345,13 +345,8 @@ h1 image tag add --image test-image --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--image IMAGE``` |  | Image ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--image IMAGE``` |  | Image ID or name |
 
 ## h1 image tag delete
 

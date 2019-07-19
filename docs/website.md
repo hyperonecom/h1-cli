@@ -72,7 +72,7 @@ Create Website
 
 ### Syntax
 
-```h1 website create | --name NAME --type TYPE --image IMAGE [--source-website SOURCE-WEBSITE] [--source-snapshot SOURCE-SNAPSHOT] [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]]```
+```h1 website create | --name NAME --type TYPE --image IMAGE [--password PASSWORD [--password PASSWORD ...]] [--ssh SSH [--ssh SSH ...]] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]] [--tag TAG [--tag TAG ...]] [--source-website SOURCE-WEBSITE] [--source-snapshot SOURCE-SNAPSHOT]```
 ### Examples
 
 #### Create Website with SSH credential
@@ -95,12 +95,12 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--source-website SOURCE-WEBSITE``` |  | Website ID or name which contains Snapshot |
-| ```--source-snapshot SOURCE-SNAPSHOT``` |  | Snapshots to use as base of new Website |
 | ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. Recommends to use SSH keys. The parameter may occur repeatedly |
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. The parameter may occur repeatedly |
 | ```--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]``` |  | Read SSH key from file. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--source-website SOURCE-WEBSITE``` |  | Website ID or name which contains Snapshot |
+| ```--source-snapshot SOURCE-SNAPSHOT``` |  | Snapshots to use as base of new Website |
 
 ## h1 website list
 
@@ -818,7 +818,7 @@ Add a tag to Website
 
 ### Syntax
 
-```h1 website tag add | --website WEBSITE [--tag TAG [--tag TAG ...]]```
+```h1 website tag add | --tag TAG [--tag TAG ...] --website WEBSITE```
 ### Example
 
 ```bash
@@ -829,13 +829,8 @@ h1 website tag add --website test-website --tag prod=true
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--website WEBSITE``` |  | Website ID or name |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website tag delete
 
