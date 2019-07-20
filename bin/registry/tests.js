@@ -1,5 +1,6 @@
 'use strict';
 const ava = require('ava');
+const superagent = require('superagent');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
@@ -8,14 +9,14 @@ const commonCreateParams = '--type container';
 const hubImage = 'busybox';
 const tagName = 'musl';
 
-const copyImage = async (host, hubImage, tagName) => {
-    await tests.runProcess(`docker pull ${hubImage}:${tagName}`);
-    const remoteImage = `${host}/${hubImage}`;
-    await tests.runProcess(`docker tag ${hubImage}:${tagName} ${remoteImage}:${tagName}`);
+const copyImage = async (host, image, tagName) => {
+    await tests.runProcess(`docker pull ${image}:${tagName}`);
+    const remoteImage = `${host}/${image}`;
+    await tests.runProcess(`docker tag ${image}:${tagName} ${remoteImage}:${tagName}`);
     await tests.runProcess(`docker push ${remoteImage}:${tagName}`);
     await tests.runProcess(`docker image rm ${remoteImage}:${tagName}`);
-    await tests.runProcess(`docker pull ${host}/${hubImage}:${tagName}`);
-    await tests.runProcess(`docker image rm ${host}/${hubImage}:${tagName}`);
+    await tests.runProcess(`docker pull ${host}/${image}:${tagName}`);
+    await tests.runProcess(`docker image rm ${host}/${image}:${tagName}`);
 };
 
 ava.serial('registry life cycle', tests.resourceLifeCycle('registry', {
@@ -103,4 +104,25 @@ ava.serial('registry repository tag delete', async t => {
 ava.serial('registry docker reachable', async t => {
     const output = await tests.runProcess('docker system info');
     t.true(output.includes('Containers: '));
+});
+
+ava.serial('registry is container compatible', async t => {
+    const password = await tests.getToken();
+    const registry = await tests.run(`registry create --name ${tests.getName(t.title)} --password ${password} ${commonCreateParams}`);
+    try {
+        await tests.runProcess(`docker login --username anything --password ${password} ${registry.fqdn}`);
+        const containerImage = 'nginx';
+        const tagName = 'alpine';
+        await copyImage(registry.fqdn, containerImage, tagName);
+        const fullImage = `${registry.fqdn}/${containerImage}:${tagName}`;
+        const container = await tests.run(`container create --name ${tests.getName(t.title)} --type b1.nano --image ${fullImage} --expose 80:80 --registry-username any --registry-password ${password}`);
+        t.true(container.image === fullImage);
+        try {
+            await superagent.get(`http://${container.fqdn}`);
+        } finally {
+            await tests.remove('container', container);
+        }
+    } finally {
+        await tests.remove('registry', registry);
+    }
 });
