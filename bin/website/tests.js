@@ -1,5 +1,6 @@
 'use strict';
 const ava = require('ava');
+const fs = require('fs');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
@@ -263,4 +264,31 @@ ava.serial('website log', async t => {
     } finally {
         await tests.remove('website', website);
     }
+});
+
+ava.serial('website snapshot download', async t => {
+    const password = await tests.getToken();
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+
+    const content = await tests.getToken();
+    await putFileWebsite(website, {password}, 'public/test.txt', content);
+    const snapshot = await tests.run(`website snapshot create --website ${website.id} --name ${tests.getName('snapshot', t.title)}`);
+
+    const content_append = await tests.getToken();
+    await putFileWebsite(website, {password}, 'public/append.txt', content_append);
+    const second_snapshot = await tests.run(`website snapshot create --website ${website.id} --name ${tests.getName('diff', t.title)}`);
+
+    const output_file = await tests.getRandomFile();
+    await tests.run(`website snapshot download --website ${website.name} --snapshot ${snapshot.id} --destination-file ${output_file}`);
+
+    const output_diff_file = await tests.getRandomFile();
+    await tests.run(`website snapshot download --website ${website.name} --snapshot ${second_snapshot.id} --difference ${snapshot.id} --destination-file ${output_diff_file}`);
+
+    await tests.run(`website snapshot delete --yes --website ${website.name} --snapshot ${snapshot.id}`);
+    await tests.run(`website snapshot delete --yes --website ${website.name} --snapshot ${second_snapshot.id}`);
+
+    t.true(fs.readFileSync(output_file).length > 0);
+    t.true(fs.readFileSync(output_diff_file).length > 0);
+
+    await tests.remove('website', website);
 });

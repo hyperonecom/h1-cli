@@ -23,6 +23,7 @@
     * [h1 website snapshot create](#h1-website-snapshot-create) - Create snapshot of Website
     * [h1 website snapshot list](#h1-website-snapshot-list) - List snapshot of Website
     * [h1 website snapshot delete](#h1-website-snapshot-delete) - Delete snapshot of Website
+    * [h1 website snapshot download](#h1-website-snapshot-download) - Download snapshot of Website to a ZFS file
   * [h1 website credential](#h1-website-credential) - Manage your credentials of Website
     * [h1 website credential list](#h1-website-credential-list) - List credential of Website
     * [h1 website credential show](#h1-website-credential-show) - Show credential of Website
@@ -486,6 +487,34 @@ h1 website snapshot delete --snapshot my-snapshot --website my-website
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--snapshot SNAPSHOT``` |  | Snapshot of Website ID or name |
+
+## h1 website snapshot download
+
+Download snapshot of Website to a ZFS file
+
+### Syntax
+
+```h1 website snapshot download | --website WEBSITE --snapshot SNAPSHOT --destination-file DESTINATION-FILE [--no-progress] [--difference DIFFERENCE]```
+### Example
+
+```
+h1 website snapshot download --website my-website --snapshot my-snapshot
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--snapshot SNAPSHOT``` |  | Snapshot name or ID |
+| ```--destination-file DESTINATION-FILE``` |  | Path to .vhdx file to save |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--no-progress``` |  | Disable progress bar |
+| ```--difference DIFFERENCE``` |  | Snapshot relative to which difference should be downloaded |
 
 ## h1 website credential
 

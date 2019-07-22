@@ -39,5 +39,9 @@ module.exports = (parent) => {
         },
     };
 
-    return genericResource(resource);
+    const category = genericResource(resource);
+
+    category.addChild(require('./download')(resource));
+
+    return category;
 };
