@@ -21,6 +21,7 @@
   * [h1 website transfer](#h1-website-transfer) - Transfer Website to other project
   * [h1 website snapshot](#h1-website-snapshot) - Manage your snapshot of Website
     * [h1 website snapshot create](#h1-website-snapshot-create) - Create snapshot of Website
+    * [h1 website snapshot show](#h1-website-snapshot-show) - Show snapshot of Website
     * [h1 website snapshot list](#h1-website-snapshot-list) - List snapshot of Website
     * [h1 website snapshot delete](#h1-website-snapshot-delete) - Delete snapshot of Website
     * [h1 website snapshot download](#h1-website-snapshot-download) - Download snapshot of Website to a ZFS file
@@ -448,6 +449,26 @@ Hint: Use ```h1 project credentials list``` or ```h1 user credentials list``` to
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Snapshot name |
 | ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website snapshot show
+
+Show snapshot of Website
+
+### Syntax
+
+```h1 website snapshot show | --website WEBSITE --snapshot SNAPSHOT```
+### Example
+
+```bash
+h1 website snapshot show --snapshot my-snapshot --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--snapshot SNAPSHOT``` |  | Snapshot of Website ID or name |
 
 ## h1 website snapshot list
 
