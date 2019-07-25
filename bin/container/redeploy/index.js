@@ -66,9 +66,9 @@ module.exports = resource => {
             );
 
             await rename(old_container.name, `${old_container.name}-old`);
-            console.log(`Renamed container as '${old_container.name}' (ID: ${new_container.id}`);
+            console.log(`Renamed container as '${old_container.name}-old' (ID: ${new_container.id}`);
             await rename(new_container.name, old_container.name);
-            console.log(`Renamed container as '${old_container.name}' (ID: ${new_container.id}`);
+            console.log(`Renamed container as '${old_container.name}' (ID: ${old_container.id}`);
             await args.helpers.api.delete(`${resource.url(args)}/${old_container.name}-old`);
             console.log(`Delete old container (ID: ${new_container.id} `);
         },
