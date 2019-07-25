@@ -1,6 +1,7 @@
 # TOC
 
   * [h1 container create](#h1-container-create) - Create Container
+  * [h1 container redeploy](#h1-container-redeploy) - Redeploy Container
   * [h1 container list](#h1-container-list) - List Container
   * [h1 container show](#h1-container-show) - Show Container
   * [h1 container delete](#h1-container-delete) - Delete Container
@@ -73,6 +74,39 @@ h1 container create --name nginx --type b1.nano --image registry.example.com/my-
 | ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
 | ```--volume VOLUME [--volume VOLUME ...]``` |  | Attach a Volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
 | ```--command COMMAND``` |  | Override the default command |
+
+## h1 container redeploy
+
+Redeploy Container
+
+### Syntax
+
+```h1 container redeploy | --container CONTAINER [--image IMAGE]```
+### Examples
+
+#### Create nginx container
+
+```bash
+h1 container redeploy --name nginx --type b1.nano --image nginx --expose 80:80
+```
+
+#### Create container from image stored in private docker registry
+
+```bash
+h1 container redeploy --name nginx --type b1.nano --image registry.example.com/my-app --expose 80:80 --registry-dockercfg reach
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--container CONTAINER``` |  | Container ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Container image eg. h1cr.io/website/php-apache |
 
 ## h1 container list
 
