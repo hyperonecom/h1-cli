@@ -28,27 +28,18 @@ module.exports = resource => Cli.createCommand('download', {
     dirname: __dirname,
     resource: resource,
     handler: async args => {
-
         const disk = await args.helpers.api.get(`${resource.url(args)}/${args.disk}`);
-
         return new Promise((resolve, reject) => {
             const writeStream = fs.createWriteStream(args['destination-file']);
-            const req = args.helpers.api.download(disk.downloadUrl);
-            // const req = args.helpers.api.download(`http://localhost:3000/disk/${disk._id}`);
+            const req = args.helpers.api.download_raw(disk.downloadUrl);
             req.on('error', reject);
             req.on('end', resolve);
             req.on('response', response => {
-
-                if (response.statusCode !== 200) {
-                    return reject(`${response.statusMessage} ${response.request.href}`);
-                }
-
                 if (!args['no-progress']) {
                     showProgressBar(req, response);
                 }
-
-                req.pipe(writeStream);
             });
+            req.pipe(writeStream);
         });
     },
 });
@@ -62,5 +53,5 @@ const showProgressBar = (req, response) => {
         total: parseInt(response.headers['content-length']),
         stream: process.stderr,
     });
-    req.on('data', chunk => bar.tick(chunk.length));
+    response.on('data', chunk => bar.tick(chunk.length));
 };
