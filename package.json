@@ -3,8 +3,8 @@
   "version": "1.6.1",
   "description": "HyperOne Command Line Interface",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/hyperonecom/h1-cli.git"
+    "type": "git",
+    "url": "https://github.com/hyperonecom/h1-cli.git"
   },
   "license": "MIT",
   "author": "",
