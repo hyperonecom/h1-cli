@@ -1,4 +1,5 @@
 #!/bin/sh
+set -eux
 # Script designed to remove user's resources and data left after testing to ensure correct
 # future testing in a clean environment.
 
@@ -13,7 +14,7 @@ h1 network      list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 net
 h1 netgw        list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 netgw       detach --netgw
 h1 website list --project-select $PROJECT -o id | while read WEBSITE; do
 	h1 website snapshot list --project-select $PROJECT --website "$WEBSITE" -o id | \
-	xargs -n 1 -P 8 h1 website snapshot delete --yes --project-select $PROJECT --website "$WEBSITE" --snapshot;
+	xargs -r -n 1 -P 8 h1 website snapshot delete --yes --project-select $PROJECT --website "$WEBSITE" --snapshot;
 done;
 # Delete all resources
 h1 vm           list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 vm          delete --yes --vm
