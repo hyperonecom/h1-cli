@@ -1,5 +1,4 @@
 #!/bin/sh
-set -eux
 # Script designed to remove user's resources and data left after testing to ensure correct
 # future testing in a clean environment.
 
