@@ -48,6 +48,7 @@ module.exports = resource => {
         plugins: [
             require('bin/_plugins/api'),
             require('bin/_plugins/projectRequired'),
+            require('bin/_plugins/loginRequired'),
         ],
         options: options,
         handler: args => args.helpers.api
@@ -74,7 +75,7 @@ module.exports = resource => {
                             if (args.verbose) {
                                 console.error(`Queue size is ${requests.size}`);
                             }
-                            if (requests.size < 500) {
+                            if (lineReader.paused && requests.size < 500) {
                                 lineReader.resume();
                                 if (args.verbose) {
                                     console.error('lineReader resumed');
@@ -85,7 +86,7 @@ module.exports = resource => {
                     if (args.verbose) {
                         console.error(`Queue size is ${requests.size}`);
                     }
-                    if (requests.size > 2000) {
+                    if (!lineReader.paused && requests.size > 2000) {
                         lineReader.pause();
                         if (args.verbose) {
                             console.error('lineReader paused.');
