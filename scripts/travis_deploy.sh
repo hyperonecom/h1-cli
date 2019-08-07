@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -eux
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   TAG_NAME="${TRAVIS_BRANCH}";
