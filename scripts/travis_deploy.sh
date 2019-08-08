@@ -11,7 +11,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
   docker build . -t "${DOCKER_REGISTRY}/cli:${TAG_NAME}"
   docker push "${DOCKER_REGISTRY}/cli:${TAG_NAME}"
   docker run --rm "${DOCKER_REGISTRY}/cli:${TAG_NAME}" h1 --help
-  if [[ "${TRAVIS_BRANCH}" == "master" ]]; then
+  if [[ "${TRAVIS_BRANCH}" == "develop" ]]; then
     cd ./monitoring;
     ./deploy_image.sh;
   fi;
