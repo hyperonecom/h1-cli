@@ -2,8 +2,7 @@
 
 const Cli = require('lib/cli');
 
-const addTrailingDot = require('../../lib').addTrailingDot;
-const formatRecordName = require('../../lib').formatRecordName;
+const findRRset = require('../../lib').findRRset;
 const recordOptions = require('../common').recordOptions;
 
 const options = {
@@ -15,18 +14,17 @@ const options = {
 };
 
 
-module.exports = (resource) => Cli.createCommand('delete-record', {
+module.exports = (resource, type) => Cli.createCommand('delete-record', {
     dirname: __dirname,
     description: 'Delete record',
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options, recordOptions),
     resource: resource,
     handler: async args => {
-        args.zone = addTrailingDot(args.zone);
-        const name = formatRecordName(args.name, args.zone);
-        const url = `${resource.url(args)}/${name}`;
-        const rset = await args.helpers.api.get(url);
-        rset.records = rset.records.filter(record => !args.values.includes(record.content));
+        const rset = await findRRset(resource, args, type);
+        const url = `${resource.url(args)}/recordset/${rset.id}`;
+
+        rset.record = rset.record.filter(record => !args.values.includes(record.content));
 
         return args.helpers.api
             .patch(url, rset)

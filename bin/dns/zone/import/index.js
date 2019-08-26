@@ -33,59 +33,70 @@ const supported_label = supported_types
     .map(x => x.toUpperCase())
     .join(', ');
 
-const handle = (args) => args.helpers.api
-    .get(`${args.$node.parent.config.url(args)}/${args.zone}`)
-    .then(async remote_zone => {
-        const local_zone = zonefile.parse(fs.readFileSync(args['zone-file'], 'utf-8'));
-
-        for (const type of supported_types) {
-            const remote_rrset_names = new Set(remote_zone.rrsets
-                .filter(rrset => rrset.type === type.toUpperCase())
-                .map(record => record.name === remote_zone.name ? '@' : record.name));
-            const local_rrset_type = local_zone[type] || [];
-            const local_rrset_names = new Set(local_rrset_type.map(x => x.name));
-
-            const need_to_remove = set_difference(remote_rrset_names, local_rrset_names);
-
-            if (args.delete) {
-                for (const rrset_name of need_to_remove) {
-                    const remote_name = rrset_name === '@' ? remote_zone.name : rrset_name;
-                    const url = `${args.$node.parent.config.url(args)}/${args.zone}/rrsets/${type.toUpperCase()}/${remote_name}`;
-                    await args.helpers.api.delete(url);
-                }
-            }
-
-            for (const rrset_name of local_rrset_names) {
-                const remote_name = rrset_name === '@' ? remote_zone.name : rrset_name;
-                const records = local_rrset_type
-                    .filter(rrset => rrset.name === rrset_name)
-                    .map(record => recordTypes[type].to_content(record, remote_zone))
-                    .map(content => ({
-                        content: content,
-                        disabled: false,
-                    }));
-
-                const ttl = local_rrset_type.find(rrset => rrset.name === rrset_name).ttl | local_zone.$ttl;
-
-                const data = {
-                    name: formatRecordName(remote_name, remote_zone.name),
-                    ttl: ttl,
-                    records: records,
-                };
-
-                const url = `${args.$node.parent.config.url(args)}/${args.zone}/rrsets/${type.toUpperCase()}`;
-                await args.helpers.api.post(url, data);
-            }
-        }
-        return args.helpers.api
-            .get(`${args.$node.parent.config.url(args)}/${args.zone}`)
-            .then(result => args.helpers.sendOutput(args, result));
-    });
-
 module.exports = (resource) => Cli.createCommand('import', {
     description: `Import ${supported_label} records of ${resource.title} from BIND-compatible format`,
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options),
-    handler: handle,
     dirname: __dirname,
+    handler: (args) => args.helpers.api
+        .get(`${args.$node.parent.config.url(args)}/${args.zone}`)
+        .then(async remote_zone => {
+            const local_zone = zonefile.parse(fs.readFileSync(args['zone-file'], 'utf-8'));
+
+            for (const type of supported_types) {
+                const remote_rrset_names = new Set(remote_zone.recordset
+                    .filter(rrset => rrset.type === type.toUpperCase())
+                    .map(record => record.name));
+
+                const local_rrset_type = local_zone[type.toLowerCase()] || [];
+                const local_rrset_names = new Set(local_rrset_type.map(x => formatRecordName(x.name, remote_zone.name)));
+                const need_to_remove = set_difference(remote_rrset_names, local_rrset_names);
+                // Delete
+                if (args.delete) {
+                    for (const rrset_name of need_to_remove) {
+                        const rrset = remote_zone.recordset.find(x => x.type === type.toUpperCase() && formatRecordName(x.name, remote_zone.name) === rrset_name);
+                        const url = `${resource.url(args)}/${args.zone}/recordset/${rrset.id}`;
+                        await args.helpers.api.delete(url);
+                        console.error(`Delete ${type.toUpperCase()} ${rrset_name}`);
+                    }
+                }
+
+                // Upsert
+                const need_to_upsert = set_difference(local_rrset_names, need_to_remove);
+                for (const rrset_name of need_to_upsert) {
+                    const records = local_rrset_type
+                        .filter(rrset => rrset.name === rrset_name)
+                        .map(record => recordTypes[type].to_content(record, remote_zone))
+                        .map(content => ({
+                            content: content,
+                            disabled: false,
+                        }));
+
+                    const ttl = local_rrset_type.find(rrset => formatRecordName(rrset.name, remote_zone.name) === rrset_name).ttl | local_zone.$ttl;
+
+                    const data = {
+                        name: rrset_name,
+                        ttl: ttl,
+                        type: type.toUpperCase(),
+                        record: records,
+                    };
+
+                    const remote_rrset = remote_zone.recordset.find(rrset => rrset.type === type.toUpperCase() && rrset.name === rrset_name);
+                    if (remote_rrset) {
+                        // Update
+                        const url = `${resource.url(args)}/${args.zone}/recordset/${remote_rrset.id}`;
+                        await args.helpers.api.patch(url, data);
+                        console.error(`Update ${type.toUpperCase()} ${rrset_name}`);
+                    } else {
+                        // Add
+                        const url = `${resource.url(args)}/${args.zone}/recordset`;
+                        await args.helpers.api.post(url, data);
+                        console.error(`Add ${type.toUpperCase()} ${rrset_name}`);
+                    }
+                }
+            }
+            return args.helpers.api
+                .get(`${resource.url(args)}/${args.zone}`)
+                .then(result => args.helpers.sendOutput(args, result));
+        }),
 });

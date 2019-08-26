@@ -31,10 +31,10 @@ const handle = (args) => args.helpers.api.get(
         $ttl: 3600,
     };
 
-    const soa_rrset = result.rrsets.find(x => x.type === 'SOA');
+    const soa_rrset = result.recordset.find(x => x.type === 'SOA');
 
-    if (soa_rrset && soa_rrset.records) {
-        const parts = soa_rrset.records[0].content.split(' ');
+    if (soa_rrset && soa_rrset.record.length) {
+        const parts = soa_rrset.record[0].content.split(' ');
         zone.soa = {
             mname: parts[0],
             rname: parts[1],
@@ -49,10 +49,10 @@ const handle = (args) => args.helpers.api.get(
     supported_types
         .forEach(type => {
             zone[type] = [];
-            result.rrsets
+            result.recordset
                 .filter(x => x.type === type.toUpperCase())
                 .map(rrset => {
-                    zone[type].push(...rrset.records.map(record => Object.assign(
+                    zone[type].push(...rrset.record.map(record => Object.assign(
                         {
                             ttl: rrset.ttl,
                             name: rrset.name !== result.name ? rrset.name : null,
