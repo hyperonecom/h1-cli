@@ -2,8 +2,8 @@
 
 const Cli = require('lib/cli');
 
-const addTrailingDot = require('../../lib').addTrailingDot;
-const formatRecordName = require('../../lib').formatRecordName;
+const findRRset = require('../../lib').findRRset;
+
 const recordOptions = require('../common').recordOptions;
 
 const options = {
@@ -15,25 +15,22 @@ const options = {
 };
 
 
-module.exports = resource => Cli.createCommand('add-record', {
+module.exports = (resource, type) => Cli.createCommand('add-record', {
     dirname: __dirname,
     description: 'Add record',
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options, recordOptions),
     resource: resource,
     handler: async args => {
-
-        args.zone = addTrailingDot(args.zone);
-        const name = formatRecordName(args.name, args.zone);
-        const url = `${resource.url(args)}/${name}`;
+        const rset = await findRRset(resource, args, type);
+        const url = `${resource.url(args)}/recordset/${rset.id}`;
 
         const new_records = args.values.map(value => ({
             content: value,
-            disabled: false,
+            enabled: true,
         }));
 
-        const rset = await args.helpers.api.get(url);
-        rset.records.push(...new_records);
+        rset.record.push(...new_records);
 
         return args.helpers.api
             .patch(url, rset)

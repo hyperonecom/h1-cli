@@ -11,16 +11,27 @@ const schema = {
         required: true,
         onCreate: true,
     },
+    type: {
+        description: 'Zone type name or ID',
+        type: 'string',
+        required: true,
+        onCreate: true,
+        destBody: 'service',
+    },
+    tags: {
+        virtual: true,
+        onCreate: true,
+    },
 };
 const resource = {
     name: 'zone',
-    defaultQuery: '[].{id:id,name:name}',
+    defaultQuery: '[].{id:id,name:name, flavour:flavour}',
     plugins: defaults.plugins,
-    url: () => 'dns/zone',
+    url: () => 'zone',
     title: 'DNS Zone',
     schema,
     dirname: __dirname,
-    commands: ['create', 'list', 'show', 'delete'],
+    commands: ['create', 'history', 'tag', 'list', 'show', 'delete'],
 };
 
 const category = genericResource(resource);
