@@ -292,3 +292,31 @@ ava.serial('website snapshot download', async t => {
 
     await tests.remove('website', website);
 });
+
+ava.serial('website snapshot receive to zfs', async t => {
+    const zfs_list = await tests.runProcess('zfs list');
+    t.true(zfs_list.includes('h1_cli_test'), 'Missing dataset. Run: zpool create h1_cli_test /dev/sdb');
+    await tests.runProcess('zfs destroy -r h1_cli_test');
+    await tests.runProcess('zfs umount h1_cli_test').catch(err => {
+        if (!err.output.includes('not currently mounted')) throw err;
+    });
+
+    const password = await tests.getToken();
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+
+    const content = await tests.getToken();
+    await putFileWebsite(website, {password}, 'public/test.txt', content);
+    const snapshot = await tests.run(`website snapshot create --website ${website.id} --name ${tests.getName('snapshot', t.title)}`);
+
+    const output_file = await tests.getRandomFile();
+    await tests.run(`website snapshot download --website ${website.name} --snapshot ${snapshot.id} --destination-file ${output_file}`);
+    await tests.runProcess(`sh -c "cat ${output_file} | zfs receive -F h1_cli_test"`);
+    await tests.runProcess('zfs set mountpoint=/h1_cli_test h1_cli_test');
+    await tests.runProcess('zfs mount h1_cli_test').catch(err => {
+        if (!err.output.includes('filesystem already mounted')) throw err;
+    });
+    const readed = fs.readFileSync('/h1_cli_test/public/test.txt');
+    t.true(readed.includes(content));
+
+    await tests.runProcess('zfs destroy -r h1_cli_test');
+});
