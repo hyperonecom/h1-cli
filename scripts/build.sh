@@ -1,7 +1,5 @@
 #!/bin/sh
 set -eux
-DOCKER_UID=$(id -u);
-DOCKER_GID=$(id -g);
 NODE_VERSION="12"
 
 for scope in h1 rbx; do
@@ -21,5 +19,3 @@ for scope in h1 rbx; do
 	tar czf ./dist/${scope}-alpine.tar.gz -C ./dist/ ${scope}
 	rm -f ./dist/${scope}
 done;
-sudo chown "$DOCKER_UID:$DOCKER_GID" ./dist/*;
-chmod +x ./dist/*;
