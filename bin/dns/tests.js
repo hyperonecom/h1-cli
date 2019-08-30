@@ -50,7 +50,10 @@ const recordTypes = {
         values: ['127.0.0.2', '127.0.0.3'],
         lookup: ['127.0.0.2'],
     },
-    // aaaa: ['fdda:5cc1:23:4::1f', 'fdda:5cc1:23:4::1e'],
+    aaaa: {
+        values: ['fdda:5cc1:23:4::1f', 'fdda:5cc1:23:4::1e'],
+        lookup: ['fdda:5cc1:23:4::1f'],
+    },
     cname: {
         values: ['cname.example.com.', 'cname2.example.com.'],
         lookup: ['cname.example.com'],
