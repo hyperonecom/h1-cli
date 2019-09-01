@@ -71,7 +71,17 @@ Create Virtual machine
 ```h1 vm create | --name NAME --type TYPE [--tag TAG [--tag TAG ...]] [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]]```
 ### Examples
 
-#### Create a Debian virtual machine
+#### Create Debian Virtual Machine with recommended disk
+
+```bash
+h1 vm create --name test-vm --type a1.nano
+```
+
+Note (1): By default, all user SSH keys are used. To manage user SSH keys use ```h1 user credentials list```.
+
+Note (1): By default, image ```debian```  are used.
+
+#### Create Ubuntu Virtual Machine with custom disk size
 
 ```bash
 h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh
@@ -85,15 +95,6 @@ Note (3): To list available SSH keys use ```h1 project credentials list``` or ``
 
 Note (4): To list available cloud-provided images use ```h1 image list --recommend```.
           For them you can also ```<distro>[:<release>]``` as ID.
-
-#### Create a diskless virtual machine in private network
-
-```bash
-h1 vm create --name test-vm --type a1.nano --network my-network --ssh my-ssh
-```
-
-Note: You can mount ISO disk and provide stateless services.
-      This allows you to reduce the costs of server disks.
 
 ### Required arguments
 
