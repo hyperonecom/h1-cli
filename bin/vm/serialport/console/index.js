@@ -23,7 +23,7 @@ module.exports = resource => Cli.createCommand('console', {
     options: Object.assign({}, options, resource.options),
     dirname: __dirname,
     handler: args => args.helpers.api.get(`vm/${args.vm}`)
-        .then(vm => websocketTerminal(`/vm/${vm._id}/serialport/${args.port}`)),
+        .then(vm => websocketTerminal(`/vm/${vm.id}/serialport/${args.port}`)),
 });
 
 

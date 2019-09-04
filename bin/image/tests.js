@@ -13,7 +13,7 @@ const getCommon = async (t, options = {}) => {
     return {
         vm, disk_name, vm_name,
         cleanup: async () => {
-            await tests.remove('vm', vm._id);
+            await tests.remove('vm', vm.id);
             await tests.remove('disk', disk_name);
         },
     };
@@ -23,7 +23,7 @@ ava.serial('image life cycle', async t => {
     const common = await getCommon(t);
     try {
         await tests.resourceLifeCycle('image', {
-            createParams: `--vm ${common.vm._id} --name ${tests.getName(t.title)}`,
+            createParams: `--vm ${common.vm.id} --name ${tests.getName(t.title)}`,
             stateCreated: 'Online',
             skipFqdn: true,
         })(t);
@@ -35,7 +35,7 @@ ava.serial('image life cycle', async t => {
 ava.serial('image rename', async t => {
     const common = await getCommon(t);
     try {
-        await tests.resourceRename('image', `--vm ${common.vm._id} --name ${tests.getName(t.title)}`)(t);
+        await tests.resourceRename('image', `--vm ${common.vm.id} --name ${tests.getName(t.title)}`)(t);
     } finally {
         await common.cleanup();
     }
@@ -45,7 +45,7 @@ for (const [name, project] of Object.entries(tests.access_test_case)) {
     ava.serial(`image access: ${name}`, async t => {
         const common = await getCommon(t);
         try {
-            await tests.resourceAccessCycle('image', project, `--vm ${common.vm._id} --name ${tests.getName(t.title)}`)(t);
+            await tests.resourceAccessCycle('image', project, `--vm ${common.vm.id} --name ${tests.getName(t.title)}`)(t);
         } finally {
             await common.cleanup();
         }

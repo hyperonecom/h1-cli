@@ -23,7 +23,7 @@ module.exports = resource => {
             .get(`${resource.url(args)}/${args[resource.name]}`)
             .then(result => {
                 const sshArgs = [
-                    `${result._id}@${result.fqdn}`,
+                    `${result.id}@${result.fqdn}`,
                 ];
 
                 console.log(`sftp ${sshArgs.join(' ')}`);

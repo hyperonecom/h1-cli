@@ -28,11 +28,11 @@ module.exports = resource => {
 
             let r = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);
 
-            const ws = await args.helpers.api.wsUpload(`${resource.url(args)}/${r._id}/upload`);
+            const ws = await args.helpers.api.wsUpload(`${resource.url(args)}/${r.id}/upload`);
 
             await websocketStream.upload(ws, args['source-file']);
 
-            r = await args.helpers.api.get(`${resource.url(args)}/${r._id}`);
+            r = await args.helpers.api.get(`${resource.url(args)}/${r.id}`);
 
             return args.helpers.sendOutput(args, r);
         },

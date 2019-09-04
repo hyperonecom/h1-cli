@@ -17,13 +17,13 @@ ava.serial('network rename', tests.resourceRename('network', `--name network-tes
 ava.serial('network ip life cycle', async t => {
     const network = await tests.run(`network create --name network-test-${now}`);
     await tests.resourceLifeCycle('network ip', {
-        createParams: `--network ${network._id}`,
-        listParams: `--network ${network._id}`,
-        showParams: `--network ${network._id}`,
-        deleteParams: `--network ${network._id}`,
-        tagParams: `--network ${network._id}`,
-        serviceListParams: `--network ${network._id}`,
-        serviceShowParams: `--network ${network._id}`,
+        createParams: `--network ${network.id}`,
+        listParams: `--network ${network.id}`,
+        showParams: `--network ${network.id}`,
+        deleteParams: `--network ${network.id}`,
+        tagParams: `--network ${network.id}`,
+        serviceListParams: `--network ${network.id}`,
+        serviceShowParams: `--network ${network.id}`,
         skipHistory: true,
         stateCreated: 'Unallocated',
         schemaRef: '#/components/schemas/ip',
@@ -51,8 +51,8 @@ ava.serial('network firewall', async t => {
     const firewall = await tests.run(`firewall create --name ${tests.getName(t.title)}`);
 
     await tests.run(`network firewall add --firewall ${firewall.name} --network ${network.name}`);
-    const network_with_firewall = await tests.run(`network show --network ${network._id}`);
-    t.true(network_with_firewall.firewall === firewall._id);
+    const network_with_firewall = await tests.run(`network show --network ${network.id}`);
+    t.true(network_with_firewall.firewall === firewall.id);
 
     await tests.run(`network firewall remove --network ${network.name}`);
 

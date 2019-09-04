@@ -23,7 +23,7 @@ ava.serial('create agent with credentials', async t => {
 
     const agent = await tests.run(`agent create --name ${tests.getName(t.title)} --type container --ssh-file ${sshFilename}`);
 
-    const credentials = await tests.run(`agent credential cert list --agent ${agent._id}`);
+    const credentials = await tests.run(`agent credential cert list --agent ${agent.id}`);
     t.true(credentials.length > 0);
 
     await tests.remove('agent', agent);

@@ -5,7 +5,7 @@ require('../../scope/h1');
 const tests = require('../../lib/tests');
 const config = require('lib/config');
 
-const active_project = config.get('profile.project._id');
+const active_project = config.get('profile.project.id');
 
 ava.serial('organisation life cycle', async t => {
     const project = await tests.run(`project show --project ${active_project}`);
