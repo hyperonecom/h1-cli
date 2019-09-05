@@ -8,7 +8,7 @@ module.exports = (parent) => {
         name: 'rule',
         description: `Manage your ${parent.title} network access control rule`,
         // eslint-disable-next-line quotes
-        defaultQuery: '[].{id:_id,name:name,type:type,value:value}',
+        defaultQuery: '[].{id:id,name:name,type:type,value:value}',
         plugins: parent.plugins,
         options: parent.options,
         url: args => `${parent.url(args)}/networkAcl`,

@@ -39,7 +39,7 @@ const schema = {
 
 const resource = {
     name: 'registry',
-    defaultQuery: '[].{id:_id,name:name,service:flavour,size:sizeUsed,created:createdOn,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id,name:name,service:flavour,size:sizeUsed,created:createdOn,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'registry',
     plugins: genericDefaults.plugins,
     extraCommands: ['create', 'start', 'stop', 'transfer', 'update', 'credential'],

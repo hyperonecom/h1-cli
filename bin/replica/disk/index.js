@@ -15,7 +15,7 @@ module.exports = resource => {
     const subresource = {
         title: `Disk of ${resource.title}`,
         name: 'disk',
-        defaultQuery: '[].{id:disk._id, location: _id, size:disk.size, type:disk.type}',
+        defaultQuery: '[].{id:disk.id, location: id, size:disk.size, type:disk.type}',
         url: args => `${resource.url(args)}/${args.replica}/hdd`,
         commands: ['list'],
         options: options,

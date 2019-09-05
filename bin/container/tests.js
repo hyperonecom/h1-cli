@@ -68,7 +68,7 @@ ava.serial('container log', async t => {
 ava.serial('container create with volume', async t => {
     const volume = await tests.run(`volume create --name ${tests.getName(t.title, 'volume')} --type volume --size 1`);
     try {
-        const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams} --expose 80:80 --volume ${volume._id}/path:/usr/share/nginx/html`);
+        const container = await tests.run(`container create --name ${tests.getName(t.title)} ${createParams} --expose 80:80 --volume ${volume.id}/path:/usr/share/nginx/html`);
         try {
             const res = await request.get(`http://${container.fqdn}/`).ok(res => res.status === 403);
             t.true(res.status === 403);

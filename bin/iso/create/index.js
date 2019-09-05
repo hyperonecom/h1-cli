@@ -59,11 +59,11 @@ module.exports = resource => Cli.createCommand('create', {
                 },
             });
 
-            const ws = await args.helpers.api.wsUpload(`iso/${iso._id}/upload`);
+            const ws = await args.helpers.api.wsUpload(`iso/${iso.id}/upload`);
 
             await websocketStream.upload(ws, args['source-file']);
 
-            iso = await args.helpers.api.get(`${resource.url(args)}/${iso._id}`);
+            iso = await args.helpers.api.get(`${resource.url(args)}/${iso.id}`);
         }
 
         return args.helpers.sendOutput(args, iso);

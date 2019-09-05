@@ -100,11 +100,11 @@ module.exports = resource => Cli.createCommand('create', {
 
         if (args['source-file']) {
 
-            const ws = await args.helpers.api.wsUpload(`disk/${disk._id}/upload`);
+            const ws = await args.helpers.api.wsUpload(`disk/${disk.id}/upload`);
 
             await websocketStream.upload(ws, args['source-file'], {progress: !args['no-progress']});
 
-            disk = await args.helpers.api.get(`${resource.url(args)}/${disk._id}`);
+            disk = await args.helpers.api.get(`${resource.url(args)}/${disk.id}`);
         }
 
         return args.helpers.sendOutput(args, disk);

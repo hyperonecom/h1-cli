@@ -7,7 +7,7 @@ module.exports = (table, parent) => {
     const resource = {
         name: table,
         // eslint-disable-next-line quotes
-        defaultQuery: `[].{id:_id, name:name, priority:priority, action: action, filter:join(',',filter), external:join(',',external), internal:join(',',internal)}`,
+        defaultQuery: `[].{id:id, name:name, priority:priority, action: action, filter:join(',',filter), external:join(',',external), internal:join(',',internal)}`,
         plugins: parent.plugins,
         options: {
             firewall: {

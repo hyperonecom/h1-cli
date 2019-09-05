@@ -17,7 +17,7 @@ module.exports = resource => Cli.createCommand('disk', {
     options: Object.assign({}, resource.options, options),
     params: resource.params,
     handler: async args => {
-        args.query = '[].{id:disk._id,name:disk.name,type:type,size:size}';
+        args.query = '[].{id:disk.id,name:disk.name,type:type,size:size}';
 
         const image = await args.helpers.api.get(`${resource.url(args)}/${args.image}`);
 

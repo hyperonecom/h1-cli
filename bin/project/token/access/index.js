@@ -8,7 +8,7 @@ module.exports = parent => {
         name: 'access',
         plugins: parent.plugins,
         description: `Manage your ${parent.name} access`,
-        defaultQuery: '[].{id:_id,method:method,path:path}',
+        defaultQuery: '[].{id:id,method:method,path:path}',
         url: args => `${parent.url(args)}/access`,
         params: parent.params,
         options: parent.options,

@@ -16,7 +16,7 @@ module.exports = (resource) => {
 
     const defaults = {
         name: 'credential',
-        defaultQuery: '[].{id:_id,name:name,type:type}',
+        defaultQuery: '[].{id:id,name:name,type:type}',
         url: args => `${resource.url(args)}/${args[resource.name]}`,
         commands: [],
         options: options,

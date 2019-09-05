@@ -39,7 +39,7 @@ ava.serial('test websocket message', async t => {
 
             const event = msg.message.data;
 
-            if (resource._id === msg.resource.data._id) {
+            if (resource.id === msg.resource.data.id) {
                 if (event.state === 'finished') {
                     return resolve(resource);
                 } else if (event.state === 'error') {

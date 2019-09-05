@@ -13,7 +13,7 @@ const options = {
 
 const resource = {
     name: 'dvd',
-    defaultQuery: '[].{id:_id,iso:iso._id,isoname:iso.name}',
+    defaultQuery: '[].{id:id,iso:iso.id,isoname:iso.name}',
     url: args => `vm/${args.vm}/dvddrive`,
     commands: ['list'],
     plugins: genericDefaults.plugins,

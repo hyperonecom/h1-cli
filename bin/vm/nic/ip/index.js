@@ -14,7 +14,7 @@ module.exports = (parent) => {
 
     const resource = {
         name: 'ip',
-        defaultQuery: '[].{id:_id,address:address,mac:mac,ptrRecord:ptrRecord,network:network,fip:associated.fip,state:state}',
+        defaultQuery: '[].{id:id,address:address,mac:mac,ptrRecord:ptrRecord,network:network,fip:associated.fip,state:state}',
         url: args => `${parent.url(args)}/${args[parent.name]}/ip`,
         plugins: defaults.plugins,
         options: Object.assign({}, parent.options, options),

@@ -24,12 +24,12 @@ ava.serial('log logger & stream', async t => {
     const log_file = tests.getRandomFile(content);
     const output_file = tests.randomFileName();
     const log = await tests.run(`log create --name log-logger-${now}`);
-    await tests.run(`log credential password add --log ${log._id} --name my-token --password ${token}`);
-    await tests.run(`log logger --log ${log._id} --token ${token} --log-file ${log_file}`);
+    await tests.run(`log credential password add --log ${log.id} --name my-token --password ${token}`);
+    await tests.run(`log logger --log ${log.id} --token ${token} --log-file ${log_file}`);
     let log_content;
     for (let i = 0; i <= 3; i++) {
         await tests.delay(1000); // to receive message
-        await tests.run(`log stream --log ${log._id} --jsonl-file ${output_file}`);
+        await tests.run(`log stream --log ${log.id} --jsonl-file ${output_file}`);
         log_content = fs.readFileSync(output_file, 'utf-8');
         if (log_content) {
             break;

@@ -13,7 +13,7 @@ const ssh = require('../../lib/ssh');
 const now = Date.now();
 
 const download = (resource, destination) => tests.run(`disk download
-                                                       --disk ${resource._id}
+                                                       --disk ${resource.id}
                                                        --destination-file '${destination}'
                                                        --no-progress`);
 
@@ -75,15 +75,15 @@ ava.serial('disk resize', tests.resourceResizeCycle('disk', {
         const consistent_content = await tests.getToken();
         await ssh.execVm(vm, {privateKey: sshKeyPair.privateKey}, `echo '${consistent_content}' > ${testFilePath}; sync;`);
         if (mode === 'offline') {
-            await tests.run(`vm stop  --vm ${vm._id}`);
+            await tests.run(`vm stop  --vm ${vm.id}`);
         }
         await tests.run(`disk create --name ${cloneDisk} --source-disk ${osDisk}`);
         if (mode === 'online') {
-            await tests.run(`vm stop  --vm ${vm._id}`);
+            await tests.run(`vm stop  --vm ${vm.id}`);
         }
-        await tests.run(`vm disk detach --disk ${osDisk} --vm ${vm._id}`);
-        await tests.run(`vm disk attach --disk ${cloneDisk} --vm ${vm._id}`);
-        await tests.run(`vm start --vm ${vm._id}`);
+        await tests.run(`vm disk detach --disk ${osDisk} --vm ${vm.id}`);
+        await tests.run(`vm disk attach --disk ${cloneDisk} --vm ${vm.id}`);
+        await tests.run(`vm start --vm ${vm.id}`);
         const readable_content = await ssh.execVm(vm, {privateKey: sshKeyPair.privateKey},  `cat ${testFilePath}`);
 
         t.true(readable_content.trim() === consistent_content.trim());

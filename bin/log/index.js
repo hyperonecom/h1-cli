@@ -31,7 +31,7 @@ const schema = {
 const resource = {
     name: 'log',
     apiName: 'logArchive',
-    defaultQuery: '[].{id:_id,name:name,retention:retention,sizeUsed:sizeUsed,state:state,processing:processing}',
+    defaultQuery: '[].{id:id,name:name,retention:retention,sizeUsed:sizeUsed,state:state,processing:processing}',
     commands: ['show', 'delete', 'rename', 'create', 'list', 'history', 'tag', 'service', 'transfer', 'credential'],
     plugins: genericDefaults.plugins,
     url: () => 'logArchive',

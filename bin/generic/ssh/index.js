@@ -27,7 +27,7 @@ module.exports = resource => {
             .then(resource => {
 
                 const sshArgs = [
-                    `${resource._id}@${resource.fqdn}`,
+                    `${resource.id}@${resource.fqdn}`,
                 ];
 
                 if (args.command) {

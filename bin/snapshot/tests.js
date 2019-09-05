@@ -13,7 +13,7 @@ ava.serial('snapshot life cycle', async t => {
     const name = `snapshot-test-${now}`;
 
     await tests.resourceLifeCycle('snapshot', {
-        createParams: `--vault ${vault._id} --name ${name}`,
+        createParams: `--vault ${vault.id} --name ${name}`,
         stateCreated: 'Online',
         skipTransfer: true,
         skipFqdn: true,
@@ -28,7 +28,7 @@ ava.serial('snapshot rename', async t => {
     const name = `snapshot-test-${now}`;
 
     await tests.resourceRename('snapshot', {
-        createParams: `--vault ${vault._id} --name ${name}`,
+        createParams: `--vault ${vault.id} --name ${name}`,
     })(t);
 
     await tests.remove('vault', vault);

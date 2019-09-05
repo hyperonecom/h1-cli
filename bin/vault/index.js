@@ -35,7 +35,7 @@ const schema = {
 
 const resource = {
     name: 'vault',
-    defaultQuery: '[].{id:_id,name:name,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id,name:name,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'vault',
     plugins: genericDefaults.plugins,
     extraCommands: ['resize', 'ssh', 'sftp', 'start', 'stop', 'credential'],
