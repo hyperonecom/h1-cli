@@ -27,21 +27,18 @@ module.exports = resource => Cli.createCommand('download', {
     options: Object.assign({}, resource.options, options),
     dirname: __dirname,
     resource: resource,
-    handler: async args => {
-        const disk = await args.helpers.api.get(`${resource.url(args)}/${args.disk}`);
-        return new Promise((resolve, reject) => {
-            const writeStream = fs.createWriteStream(args['destination-file']);
-            const req = args.helpers.api.download_raw(disk.downloadUrl);
-            req.on('error', reject);
-            req.on('end', resolve);
-            req.on('response', response => {
-                if (!args['no-progress']) {
-                    showProgressBar(req, response);
-                }
-            });
-            req.pipe(writeStream);
+    handler: args => new Promise((resolve, reject) => {
+        const writeStream = fs.createWriteStream(args['destination-file']);
+        const req = args.helpers.api.download(`${resource.url(args)}/${args.disk}/download`);
+        req.on('error', reject);
+        req.on('end', resolve);
+        req.on('response', response => {
+            if (!args['no-progress']) {
+                showProgressBar(req, response);
+            }
         });
-    },
+        req.pipe(writeStream);
+    }),
 });
 
 const showProgressBar = (req, response) => {
