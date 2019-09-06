@@ -216,6 +216,6 @@ ava.serial('import zone from file', async t => {
 //     const ip = await requests.get('https://api.ipify.org?format=json')
 //         .then(resp => resp.body.ip);
 //     await test_record_values(t, zone, 'a', `my-home.${zone.name}`, [ip]);
-//
+
 //     await tests.remove('dns zone', zone);
 // });

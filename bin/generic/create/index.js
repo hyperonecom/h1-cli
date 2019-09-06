@@ -1,7 +1,7 @@
 'use strict';
 
 const Cli = require('lib/cli');
-const {pickBy, set} = require('lib/transform');
+const { pickBy, set } = require('lib/transform');
 
 module.exports = resource => {
     const options = pickBy(resource.schema, field => field.onCreate && !field.virtual);
@@ -52,10 +52,13 @@ module.exports = resource => {
             }
 
             Object.keys(options)
-                .filter(name => args[name])
                 .forEach(name => {
+                    const value = options[name].getValue ? options[name].getValue(args) : args[name];
+                    if (!value) {
+                        return;
+                    }
                     const dest = options[name].destBody || name;
-                    set(body, dest, args[name], args[name]);
+                    return set(body, dest, value);
                 });
 
             return args.helpers.api

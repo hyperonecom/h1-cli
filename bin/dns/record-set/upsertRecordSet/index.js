@@ -21,7 +21,7 @@ const options = {
 
 module.exports = (resource, type) => Cli.createCommand('upsert', {
     dirname: __dirname,
-    description: 'Upsert record set',
+    description: 'Updates or - if not available - creates record set',
     plugins: resource.plugins,
     options: Object.assign({}, options, resource.options, recordOptions),
     priority: 25,
