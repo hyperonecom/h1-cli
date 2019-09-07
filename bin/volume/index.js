@@ -5,20 +5,20 @@ const genericResource = require('bin/generic');
 
 const schema = {
     name: {
-        description: 'Disk name',
+        description: 'Volume name',
         type: 'string',
         required: true,
         onCreate: true,
     },
     type: {
-        description: 'Disk type ID or name',
+        description: 'Volume type ID or name',
         type: 'string',
         required: true,
         onCreate: true,
         destBody: 'service',
     },
     size: {
-        description: 'Disk size in GiB',
+        description: 'Volume size in GiB',
         type: 'int',
         required: true,
         onCreate: true,

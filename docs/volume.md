@@ -53,9 +53,9 @@ h1 volume create --name volume --type volume --size 10
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | Disk name |
-| ```--type TYPE``` |  | Disk type ID or name |
-| ```--size SIZE``` |  | Disk size in GiB |
+| ```--name NAME``` |  | Volume name |
+| ```--type TYPE``` |  | Volume type ID or name |
+| ```--size SIZE``` |  | Volume size in GiB |
 
 ### Optional arguments
 
