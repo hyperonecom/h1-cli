@@ -35,13 +35,6 @@ ava.serial('vault life cycle', async t => {
     await ssh.cleanup();
 });
 
-ava.serial('vault rename', async t => {
-    const ssh = await createUserCredentials(t);
-
-    await tests.resourceRename('vault', `--name ${tests.getName(t.title)} --size 10 --ssh ${ssh.name}`)(t);
-
-    await ssh.cleanup();
-});
 
 ava.serial('vault stop & start', async t => {
     const vault = await tests.run(`vault create --name ${tests.getName(t.title)} --size 10`);

@@ -24,7 +24,6 @@ const download = (resource, destination) => tests.run(`disk download
         stateCreated: 'Detached',
         skipFqdn: true,
     }));
-    ava.serial(`disk rename ${type}`, tests.resourceRename('disk', createParams));
 });
 
 // TODO find a way to stop disk upload

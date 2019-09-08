@@ -43,12 +43,6 @@ ava.todo('vm passwordreset');
     });
 });
 
-ava.serial('vm rename', async t => {
-    const common = await getCommon(t.title);
-    await tests.resourceRename('vm', common.params)(t);
-    await tests.remove('disk', common.disk_name);
-});
-
 ava.serial('vm stop & start & turnoff', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params.createParams}`);

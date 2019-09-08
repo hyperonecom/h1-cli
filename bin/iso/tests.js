@@ -14,8 +14,6 @@ ava.serial('iso life cycle', tests.resourceLifeCycle('iso', {
     skipFqdn: true,
 }));
 
-ava.serial('iso rename', tests.resourceRename('iso', `--name ${tests.getName('iso-rename')}  ${createParams}`));
-
 for (const [name, project] of Object.entries(tests.access_test_case)) {
     ava.serial(`iso access: ${name}`, tests.resourceAccessCycle('iso', project, `--name ${tests.getName('iso-access')}  ${createParams}`));
 }

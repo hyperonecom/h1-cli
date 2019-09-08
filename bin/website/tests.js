@@ -68,23 +68,23 @@ ava.serial('website management domain', async t => {
     });
     try {
         await tests.run(`dns record-set cname create --name ${rset_txt} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
-        await tests.run(`website domain add --website ${website.id} --domain ${rset_txt}.${zone.name}`);
+        await tests.run(`website domain add --website ${website.id} --domain ${rset_txt}.${zone.dnsName}`);
         let domains = await tests.run(`website domain list --website ${website.id}`);
-        t.true(domains.includes(`${rset_txt}.${zone.name}`));
-        t.true(!domains.includes(`${rset_cname}.${zone.name}`));
+        t.true(domains.includes(`${rset_txt}.${zone.dnsName}`));
+        t.true(!domains.includes(`${rset_cname}.${zone.dnsName}`));
         t.true(domains.length === 1);
 
         await tests.run(`dns record-set txt create --name ${rset_cname} --zone ${zone.id} --value '\"${website.fqdn}\"' --ttl 1`);
-        await tests.run(`website domain add --website ${website.id} --domain ${rset_cname}.${zone.name}`);
+        await tests.run(`website domain add --website ${website.id} --domain ${rset_cname}.${zone.dnsName}`);
         domains = await tests.run(`website domain list --website ${website.id}`);
-        t.true(domains.includes(`${rset_txt}.${zone.name}`));
-        t.true(domains.includes(`${rset_cname}.${zone.name}`));
+        t.true(domains.includes(`${rset_txt}.${zone.dnsName}`));
+        t.true(domains.includes(`${rset_cname}.${zone.dnsName}`));
         t.true(domains.length === 2);
 
-        await tests.run(`website domain delete --website ${website.id} --domain ${rset_txt}.${zone.name}`);
+        await tests.run(`website domain delete --website ${website.id} --domain ${rset_txt}.${zone.dnsName}`);
         domains = await tests.run(`website domain list --website ${website.id}`);
-        t.true(!domains.includes(`${rset_txt}.${zone.name}`));
-        t.true(domains.includes(`${rset_cname}.${zone.name}`));
+        t.true(!domains.includes(`${rset_txt}.${zone.dnsName}`));
+        t.true(domains.includes(`${rset_cname}.${zone.dnsName}`));
         t.true(domains.length === 1);
     } finally {
         await tests.remove('dns zone', zone);
@@ -103,7 +103,7 @@ ava.serial('website reachable through custom domain', async t => {
     });
     try {
         await tests.run(`dns record-set cname create --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
-        await tests.run(`website domain add --website ${website.id} --domain ${rset}.${zone.name}`);
+        await tests.run(`website domain add --website ${website.id} --domain ${rset}.${zone.dnsName}`);
         await tests.run(`website start --website ${website.id}`);
         // Upload file
         const token = await tests.getToken();
