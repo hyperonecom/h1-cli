@@ -164,11 +164,6 @@ module.exports = resource => Cli.createCommand('create', {
             newVM.sshKeys = sshKeys;
         }
 
-        if (!args['ssh-file'] && !args.ssh) {
-            const keys = await args.helpers.api.get('user/me/credential/certificate');
-            newVM.sshKeys = keys.filter(x => x.type === 'ssh').map(x => x.id);
-        }
-
         if (args['userdata-file']) {
             const content = await fs.getFileContent(args['userdata-file']);
             newVM.userMetadata = content.toString('base64');
