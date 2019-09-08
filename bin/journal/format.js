@@ -2,6 +2,7 @@
 
 const default_fields = ['facility', 'level', 'ts', 'host', 'appName', 'pid', 'messageid', 'message'];
 const filters = require('./filters');
+const {get} = require('../../lib/transform');
 
 const csv_encode = values => values.map(value => {
     if (typeof value === 'undefined') {
@@ -41,7 +42,7 @@ const outputFormat = {
     },
     csv: {
         header: (fields) => csv_encode(fields),
-        row: (fields, row) => csv_encode(fields.map(field => row[field])),
+        row: (fields, row) => csv_encode(fields.map(field => get(row, field))),
     },
 };
 
@@ -70,7 +71,6 @@ const formatter = options => {
     options.output = options.output || outputOptions.output.defaultValue;
     options.filters = options.filters || [];
     options.fields = options.fields || default_fields;
-
     return {
         print_header: () => {
             const header = outputFormat[options.output].header(options.fields);
@@ -82,11 +82,13 @@ const formatter = options => {
         print_jsonl: (jsonl) => {
             if (filters.matches(options.filters, jsonl)) {
                 if (options['jsonl-file']) {
-                    options['jsonl-file'].write(`${JSON.stringify(jsonl)  }\n`);
+                    options['jsonl-file'].write(`${JSON.stringify(jsonl)}\n`);
                 } else {
                     console.log(outputFormat[options.output].row(options.fields, jsonl));
                 }
+                return true;
             }
+            return false;
         },
     };
 };

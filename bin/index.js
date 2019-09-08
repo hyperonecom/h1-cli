@@ -41,7 +41,7 @@ if (config.get('profile.apiKey') || process.env.NODE_ENV !== 'production') {
 
 const cli_resources = [
     'vm', 'disk', 'replica',  'iso', 'network', 'ip', 'dns', 'netgw', 'firewall',
-    'vault', 'snapshot', 'image', 'reservation', 'log', 'agent', 'database', 'registry',
+    'vault', 'snapshot', 'image', 'reservation', 'journal', 'agent', 'database', 'registry',
 ];
 
 cli_resources.forEach(resource => cli.addChild(require(`./${resource}`)));
