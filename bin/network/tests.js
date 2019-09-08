@@ -12,8 +12,6 @@ ava.serial('network life cycle', tests.resourceLifeCycle('network', {
     skipFqdn: true,
 }));
 
-ava.serial('network rename', tests.resourceRename('network', `--name network-test-${now}`));
-
 ava.serial('network ip life cycle', async t => {
     const network = await tests.run(`network create --name network-test-${now}`);
     await tests.resourceLifeCycle('network ip', {

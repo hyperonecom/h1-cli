@@ -23,7 +23,7 @@ const findRRset = async (resource, args, type) => {
     const zone = await args.helpers.api.get(resource.url(args));
     args.zone = zone.id;
     const recordsets = await args.helpers.api.get(`${resource.url(args)}/recordset`);
-    const rset = recordsets.find(rs => rs.type == type.toUpperCase() && rs.name == module.exports.formatRecordName(args.name, zone.name));
+    const rset = recordsets.find(rs => rs.type == type.toUpperCase() && rs.name == module.exports.formatRecordName(args.name, zone.dnsName));
 
     if (!rset) {
         throw Cli.error.notFound(`Not found ${type.toUpperCase()} '${args.name}' record-set`);

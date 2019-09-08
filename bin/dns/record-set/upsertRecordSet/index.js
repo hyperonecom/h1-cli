@@ -30,7 +30,7 @@ module.exports = (resource, type) => Cli.createCommand('upsert', {
         args.zone = addTrailingDot(args.zone);
         const zone = await args.helpers.api.get(resource.url(args));
         const rrset = {
-            name: formatRecordName(args.name, zone.name),
+            name: formatRecordName(args.name, zone.dnsName),
             ttl: args.ttl,
             type: type.toUpperCase(),
             record: args.values.map(value => ({

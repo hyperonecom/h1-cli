@@ -49,12 +49,12 @@ module.exports = (resource) => Cli.createCommand('import', {
                     .map(record => record.name));
 
                 const local_rrset_type = local_zone[type.toLowerCase()] || [];
-                const local_rrset_names = new Set(local_rrset_type.map(x => formatRecordName(x.name, remote_zone.name)));
+                const local_rrset_names = new Set(local_rrset_type.map(x => formatRecordName(x.name, remote_zone.dnsName)));
                 const need_to_remove = set_difference(remote_rrset_names, local_rrset_names);
                 // Delete
                 if (args.delete) {
                     for (const rrset_name of need_to_remove) {
-                        const rrset = remote_zone.recordset.find(x => x.type === type.toUpperCase() && formatRecordName(x.name, remote_zone.name) === rrset_name);
+                        const rrset = remote_zone.recordset.find(x => x.type === type.toUpperCase() && formatRecordName(x.name, remote_zone.dnsName) === rrset_name);
                         const url = `${resource.url(args)}/${args.zone}/recordset/${rrset.id}`;
                         await args.helpers.api.delete(url);
                         console.error(`Delete ${type.toUpperCase()} ${rrset_name}`);
@@ -72,7 +72,7 @@ module.exports = (resource) => Cli.createCommand('import', {
                             disabled: false,
                         }));
 
-                    const ttl = local_rrset_type.find(rrset => formatRecordName(rrset.name, remote_zone.name) === rrset_name).ttl | local_zone.$ttl;
+                    const ttl = local_rrset_type.find(rrset => formatRecordName(rrset.name, remote_zone.dnsName) === rrset_name).ttl | local_zone.$ttl;
 
                     const data = {
                         name: rrset_name,

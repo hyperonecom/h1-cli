@@ -25,7 +25,7 @@ module.exports = resource => Cli.createCommand('dynamic-dns', {
         args.zone = addTrailingDot(args.zone);
         const zone = await args.helpers.api.get(resource.url(args));
         const rrset = {
-            name: formatRecordName(args.name, zone.name),
+            name: formatRecordName(args.name, zone.dnsName),
             ttl: args.ttl,
             type: 'A',
             record: [

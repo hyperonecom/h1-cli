@@ -44,7 +44,7 @@ module.exports = {
         to_bind: content => ({
             host: content,
         }),
-        to_content: (record, zone) => formatRecordName(record.host, zone.name),
+        to_content: (record, zone) => formatRecordName(record.host, zone.dnsName),
     },
     srv: {
         value: '10 5 11 s1.example.com.',

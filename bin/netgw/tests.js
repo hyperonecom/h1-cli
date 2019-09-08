@@ -17,11 +17,6 @@ ava.serial('netgw life cycle', async t => {
     await tests.remove('ip', ip);
 });
 
-ava.serial('netgw rename', async t => {
-    const ip = await tests.run('ip create');
-    await tests.resourceRename('netgw', `--name netgw-test-${now} --ip ${ip.id}`)(t);
-    await tests.remove('ip', ip);
-});
 
 ava.serial('netgw attach & detach', async t => {
     const ip = await tests.run('ip create');

@@ -2,6 +2,7 @@
 
   * [h1 dns zone](#h1-dns-zone) - Manage your DNS Zone
     * [h1 dns zone create](#h1-dns-zone-create) - Create DNS Zone
+    * [h1 dns zone rename](#h1-dns-zone-rename) - Rename DNS Zone
     * [h1 dns zone history](#h1-dns-zone-history) - History of DNS Zone
     * [h1 dns zone list](#h1-dns-zone-list) - List DNS Zone
     * [h1 dns zone show](#h1-dns-zone-show) - Show DNS Zone
@@ -15,57 +16,57 @@
   * [h1 dns record-set](#h1-dns-record-set) - Manage your record-set
     * [h1 dns record-set a](#h1-dns-record-set-a) - Manage record set type A
       * [h1 dns record-set a create](#h1-dns-record-set-a-create) - Create record set
-      * [h1 dns record-set a upsert](#h1-dns-record-set-a-upsert) - Upsert record set
+      * [h1 dns record-set a upsert](#h1-dns-record-set-a-upsert) - Updates or - if not available - creates record set
       * [h1 dns record-set a list](#h1-dns-record-set-a-list) - List record A
       * [h1 dns record-set a delete](#h1-dns-record-set-a-delete) - Delete record set
       * [h1 dns record-set a add-record](#h1-dns-record-set-a-add-record) - Add record
       * [h1 dns record-set a delete-record](#h1-dns-record-set-a-delete-record) - Delete record
-      * [h1 dns record-set a dynamic-dns](#h1-dns-record-set-a-dynamic-dns) - Replaces the record set with the client IP address
+      * [h1 dns record-set a dynamic-dns](#h1-dns-record-set-a-dynamic-dns) - Updates or - if not available - creates record set with client IP address
     * [h1 dns record-set aaaa](#h1-dns-record-set-aaaa) - Manage record set type AAAA
       * [h1 dns record-set aaaa create](#h1-dns-record-set-aaaa-create) - Create record set
-      * [h1 dns record-set aaaa upsert](#h1-dns-record-set-aaaa-upsert) - Upsert record set
+      * [h1 dns record-set aaaa upsert](#h1-dns-record-set-aaaa-upsert) - Updates or - if not available - creates record set
       * [h1 dns record-set aaaa list](#h1-dns-record-set-aaaa-list) - List record AAAA
       * [h1 dns record-set aaaa delete](#h1-dns-record-set-aaaa-delete) - Delete record set
       * [h1 dns record-set aaaa add-record](#h1-dns-record-set-aaaa-add-record) - Add record
       * [h1 dns record-set aaaa delete-record](#h1-dns-record-set-aaaa-delete-record) - Delete record
     * [h1 dns record-set cname](#h1-dns-record-set-cname) - Manage record set type CNAME
       * [h1 dns record-set cname create](#h1-dns-record-set-cname-create) - Create record set
-      * [h1 dns record-set cname upsert](#h1-dns-record-set-cname-upsert) - Upsert record set
+      * [h1 dns record-set cname upsert](#h1-dns-record-set-cname-upsert) - Updates or - if not available - creates record set
       * [h1 dns record-set cname list](#h1-dns-record-set-cname-list) - List record CNAME
       * [h1 dns record-set cname delete](#h1-dns-record-set-cname-delete) - Delete record set
       * [h1 dns record-set cname add-record](#h1-dns-record-set-cname-add-record) - Add record
       * [h1 dns record-set cname delete-record](#h1-dns-record-set-cname-delete-record) - Delete record
     * [h1 dns record-set txt](#h1-dns-record-set-txt) - Manage record set type TXT
       * [h1 dns record-set txt create](#h1-dns-record-set-txt-create) - Create record set
-      * [h1 dns record-set txt upsert](#h1-dns-record-set-txt-upsert) - Upsert record set
+      * [h1 dns record-set txt upsert](#h1-dns-record-set-txt-upsert) - Updates or - if not available - creates record set
       * [h1 dns record-set txt list](#h1-dns-record-set-txt-list) - List record TXT
       * [h1 dns record-set txt delete](#h1-dns-record-set-txt-delete) - Delete record set
       * [h1 dns record-set txt add-record](#h1-dns-record-set-txt-add-record) - Add record
       * [h1 dns record-set txt delete-record](#h1-dns-record-set-txt-delete-record) - Delete record
     * [h1 dns record-set mx](#h1-dns-record-set-mx) - Manage record set type MX
       * [h1 dns record-set mx create](#h1-dns-record-set-mx-create) - Create record set
-      * [h1 dns record-set mx upsert](#h1-dns-record-set-mx-upsert) - Upsert record set
+      * [h1 dns record-set mx upsert](#h1-dns-record-set-mx-upsert) - Updates or - if not available - creates record set
       * [h1 dns record-set mx list](#h1-dns-record-set-mx-list) - List record MX
       * [h1 dns record-set mx delete](#h1-dns-record-set-mx-delete) - Delete record set
       * [h1 dns record-set mx add-record](#h1-dns-record-set-mx-add-record) - Add record
       * [h1 dns record-set mx delete-record](#h1-dns-record-set-mx-delete-record) - Delete record
     * [h1 dns record-set ns](#h1-dns-record-set-ns) - Manage record set type NS
       * [h1 dns record-set ns create](#h1-dns-record-set-ns-create) - Create record set
-      * [h1 dns record-set ns upsert](#h1-dns-record-set-ns-upsert) - Upsert record set
+      * [h1 dns record-set ns upsert](#h1-dns-record-set-ns-upsert) - Updates or - if not available - creates record set
       * [h1 dns record-set ns list](#h1-dns-record-set-ns-list) - List record NS
       * [h1 dns record-set ns delete](#h1-dns-record-set-ns-delete) - Delete record set
       * [h1 dns record-set ns add-record](#h1-dns-record-set-ns-add-record) - Add record
       * [h1 dns record-set ns delete-record](#h1-dns-record-set-ns-delete-record) - Delete record
     * [h1 dns record-set srv](#h1-dns-record-set-srv) - Manage record set type SRV
       * [h1 dns record-set srv create](#h1-dns-record-set-srv-create) - Create record set
-      * [h1 dns record-set srv upsert](#h1-dns-record-set-srv-upsert) - Upsert record set
+      * [h1 dns record-set srv upsert](#h1-dns-record-set-srv-upsert) - Updates or - if not available - creates record set
       * [h1 dns record-set srv list](#h1-dns-record-set-srv-list) - List record SRV
       * [h1 dns record-set srv delete](#h1-dns-record-set-srv-delete) - Delete record set
       * [h1 dns record-set srv add-record](#h1-dns-record-set-srv-add-record) - Add record
       * [h1 dns record-set srv delete-record](#h1-dns-record-set-srv-delete-record) - Delete record
     * [h1 dns record-set soa](#h1-dns-record-set-soa) - Manage record set type SOA
       * [h1 dns record-set soa create](#h1-dns-record-set-soa-create) - Create record set
-      * [h1 dns record-set soa upsert](#h1-dns-record-set-soa-upsert) - Upsert record set
+      * [h1 dns record-set soa upsert](#h1-dns-record-set-soa-upsert) - Updates or - if not available - creates record set
       * [h1 dns record-set soa list](#h1-dns-record-set-soa-list) - List record SOA
       * [h1 dns record-set soa delete](#h1-dns-record-set-soa-delete) - Delete record set
       * [h1 dns record-set soa add-record](#h1-dns-record-set-soa-add-record) - Add record
@@ -121,7 +122,7 @@ Create DNS Zone
 
 ### Syntax
 
-```h1 dns zone create | --name NAME --type TYPE [--tag TAG [--tag TAG ...]]```
+```h1 dns zone create | --name NAME --type TYPE [--tag TAG [--tag TAG ...]] [--dns-name DNS-NAME]```
 ### Example
 
 ```bash
@@ -132,7 +133,7 @@ h1 dns zone create --name my-domain.tld
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--name NAME``` |  | DNS zone name |
+| ```--name NAME``` |  | Zone name |
 | ```--type TYPE``` |  | Zone type name or ID |
 
 ### Optional arguments
@@ -140,6 +141,27 @@ h1 dns zone create --name my-domain.tld
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+| ```--dns-name DNS-NAME``` |  | DNS zone name (zone name by default) |
+
+## h1 dns zone rename
+
+Rename DNS Zone
+
+### Syntax
+
+```h1 dns zone rename | --zone ZONE --new-name NEW-NAME```
+### Example
+
+```bash
+h1 dns zone rename --zone my-zone --new-name my-renamed-zone
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--zone ZONE``` |  | DNS Zone ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 dns zone history
 
@@ -358,7 +380,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set a upsert
 
-Upsert record set
+Updates or - if not available - creates record set
 
 ### Syntax
 
@@ -468,7 +490,7 @@ h1 dns record-set a delete-record --zone 'my-domain.tld' --name www --value '8.8
 
 ## h1 dns record-set a dynamic-dns
 
-Replaces the record set with the client IP address
+Updates or - if not available - creates record set with client IP address
 
 ### Note
 
@@ -525,7 +547,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set aaaa upsert
 
-Upsert record set
+Updates or - if not available - creates record set
 
 ### Syntax
 
@@ -668,7 +690,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set cname upsert
 
-Upsert record set
+Updates or - if not available - creates record set
 
 ### Syntax
 
@@ -811,7 +833,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set txt upsert
 
-Upsert record set
+Updates or - if not available - creates record set
 
 ### Syntax
 
@@ -954,7 +976,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set mx upsert
 
-Upsert record set
+Updates or - if not available - creates record set
 
 ### Syntax
 
@@ -1097,7 +1119,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set ns upsert
 
-Upsert record set
+Updates or - if not available - creates record set
 
 ### Syntax
 
@@ -1240,7 +1262,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set srv upsert
 
-Upsert record set
+Updates or - if not available - creates record set
 
 ### Syntax
 
@@ -1383,7 +1405,7 @@ Note (1): Use ```--name '.'``` to put record at top of the zone.
 
 ## h1 dns record-set soa upsert
 
-Upsert record set
+Updates or - if not available - creates record set
 
 ### Syntax
 

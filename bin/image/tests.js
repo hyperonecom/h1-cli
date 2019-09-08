@@ -32,15 +32,6 @@ ava.serial('image life cycle', async t => {
     }
 });
 
-ava.serial('image rename', async t => {
-    const common = await getCommon(t);
-    try {
-        await tests.resourceRename('image', `--vm ${common.vm.id} --name ${tests.getName(t.title)}`)(t);
-    } finally {
-        await common.cleanup();
-    }
-});
-
 for (const [name, project] of Object.entries(tests.access_test_case)) {
     ava.serial(`image access: ${name}`, async t => {
         const common = await getCommon(t);
