@@ -9,6 +9,9 @@ const queryFilter = (args, result) => {
 
     const config = args.$node.parent.config;
     const query = args.query || config.defaultQuery || '[].[_id]';
+    if (config.transform) {
+        result = config.transform(result);
+    }
     result = Array.isArray(result) ? result : [result];
     result = jmespath.search(result, query);
     return result;
