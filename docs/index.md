@@ -25,7 +25,7 @@
   * [h1 snapshot](snapshot.md) - Manage your snapshot
   * [h1 image](image.md) - Manage your Image
   * [h1 reservation](reservation.md) - Manage your Reservation
-  * [h1 log](log.md) - Manage your Log archive
+  * [h1 journal](journal.md) - Manage your Journal
   * [h1 agent](agent.md) - Manage your Agent
   * [h1 database](database.md) - Manage your Database
   * [h1 registry](registry.md) - Manage your Registry

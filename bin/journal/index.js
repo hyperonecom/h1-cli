@@ -10,13 +10,20 @@ const schema = {
         required: true,
         onCreate: true,
     },
-    // retention: {
-    //     description: 'Data retention period (in days)',
-    //     type: 'int',
-    //     required: true,
-    //     defaultValue: 30,
-    //     onCreate: true
-    // },
+    type: {
+        description: 'Volume type ID or name',
+        type: 'string',
+        required: false,
+        onCreate: true,
+        destBody: 'service',
+    },
+    retention: {
+        description: 'Data retention period (in days)',
+        type: 'int',
+        required: false,
+        defaultValue: 90,
+        onCreate: true,
+    },
     credentials: {
         virtual: true,
         onCreate: false,
@@ -29,16 +36,16 @@ const schema = {
 };
 
 const resource = {
-    name: 'log',
-    apiName: 'logArchive',
+    name: 'journal',
+    apiName: 'journal',
     defaultQuery: '[].{id:id,name:name,retention:retention,sizeUsed:sizeUsed,state:state,processing:processing}',
     commands: ['show', 'delete', 'rename', 'create', 'list', 'history', 'tag', 'service', 'transfer', 'credential'],
     plugins: genericDefaults.plugins,
-    url: () => 'logArchive',
+    url: () => 'journal',
     dirname: __dirname,
     schema: schema,
     earlyAdoptersOnly: true,
-    title: 'Log archive',
+    title: 'Journal',
     credential_types: ['sha512'],
 };
 

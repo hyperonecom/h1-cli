@@ -1,38 +1,38 @@
 # TOC
 
-  * [h1 log create](#h1-log-create) - Create Log archive
-  * [h1 log show](#h1-log-show) - Show Log archive
-  * [h1 log delete](#h1-log-delete) - Delete Log archive
-  * [h1 log rename](#h1-log-rename) - Rename Log archive
-  * [h1 log list](#h1-log-list) - List Log archive
-  * [h1 log history](#h1-log-history) - History of Log archive
-  * [h1 log service](#h1-log-service) - Manage your services of Log archive
-    * [h1 log service list](#h1-log-service-list) - List Service for Log archive
-    * [h1 log service show](#h1-log-service-show) - Show Service for Log archive
-  * [h1 log transfer](#h1-log-transfer) - Transfer Log archive to other project
-  * [h1 log stream](#h1-log-stream) - Stream or read messages of Log archive
-  * [h1 log logger](#h1-log-logger) - Log messages to Log archive
-  * [h1 log credential](#h1-log-credential) - Manage your credentials of Log archive
-    * [h1 log credential list](#h1-log-credential-list) - List credential of Log archive
-    * [h1 log credential show](#h1-log-credential-show) - Show credential of Log archive
-    * [h1 log credential password](#h1-log-credential-password) - Manage your password Log archive
-      * [h1 log credential password list](#h1-log-credential-password-list) - List password credential of Log archive
-      * [h1 log credential password show](#h1-log-credential-password-show) - Show password credential of Log archive
-      * [h1 log credential password rename](#h1-log-credential-password-rename) - Rename password credential of Log archive
-      * [h1 log credential password delete](#h1-log-credential-password-delete) - Delete password credential of Log archive
-      * [h1 log credential password add](#h1-log-credential-password-add) - Add password credential of Log archive
-      * [h1 log credential password list](#h1-log-credential-password-list) - List password credential of Log archive
+  * [h1 log create](#h1-log-create) - Create Journal
+  * [h1 log show](#h1-log-show) - Show Journal
+  * [h1 log delete](#h1-log-delete) - Delete Journal
+  * [h1 log rename](#h1-log-rename) - Rename Journal
+  * [h1 log list](#h1-log-list) - List Journal
+  * [h1 log history](#h1-log-history) - History of Journal
+  * [h1 log service](#h1-log-service) - Manage your services of Journal
+    * [h1 log service list](#h1-log-service-list) - List Service for Journal
+    * [h1 log service show](#h1-log-service-show) - Show Service for Journal
+  * [h1 log transfer](#h1-log-transfer) - Transfer Journal to other project
+  * [h1 log stream](#h1-log-stream) - Stream or read messages of Journal
+  * [h1 log logger](#h1-log-logger) - Log messages to Journal
+  * [h1 log credential](#h1-log-credential) - Manage your credentials of Journal
+    * [h1 log credential list](#h1-log-credential-list) - List credential of Journal
+    * [h1 log credential show](#h1-log-credential-show) - Show credential of Journal
+    * [h1 log credential password](#h1-log-credential-password) - Manage your password Journal
+      * [h1 log credential password list](#h1-log-credential-password-list) - List password credential of Journal
+      * [h1 log credential password show](#h1-log-credential-password-show) - Show password credential of Journal
+      * [h1 log credential password rename](#h1-log-credential-password-rename) - Rename password credential of Journal
+      * [h1 log credential password delete](#h1-log-credential-password-delete) - Delete password credential of Journal
+      * [h1 log credential password add](#h1-log-credential-password-add) - Add password credential of Journal
+      * [h1 log credential password list](#h1-log-credential-password-list) - List password credential of Journal
   * [h1 log tag](#h1-log-tag) - Manage your tag
     * [h1 log tag list](#h1-log-tag-list) - List tag
-    * [h1 log tag add](#h1-log-tag-add) - Add a tag to Log archive
-    * [h1 log tag delete](#h1-log-tag-delete) - Delete a tag of Log archive
+    * [h1 log tag add](#h1-log-tag-add) - Add a tag to Journal
+    * [h1 log tag delete](#h1-log-tag-delete) - Delete a tag of Journal
 
 
 # Specification
 
 ## h1 log
 
-Manage your Log archive
+Manage your Journal
 
 ### Note
 
@@ -94,7 +94,7 @@ h1 log stream --log my-server-log --follow
 
 ## h1 log create
 
-Create Log archive
+Create Journal
 
 ### Syntax
 
@@ -122,7 +122,7 @@ h1 log create --name my-server-log --password my-password
 
 ## h1 log show
 
-Show Log archive
+Show Journal
 
 ### Syntax
 
@@ -137,11 +137,11 @@ h1 log show --log my-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 
 ## h1 log delete
 
-Delete Log archive
+Delete Journal
 
 ### Syntax
 
@@ -156,11 +156,11 @@ h1 log delete --log my-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 
 ## h1 log rename
 
-Rename Log archive
+Rename Journal
 
 ### Syntax
 
@@ -175,12 +175,12 @@ h1 log rename --log my-log --new-name my-renamed-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 log list
 
-List Log archive
+List Journal
 
 ### Syntax
 
@@ -193,7 +193,7 @@ h1 log list
 
 ## h1 log history
 
-History of Log archive
+History of Journal
 
 ### Syntax
 
@@ -208,15 +208,15 @@ h1 log history --log my-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 
 ## h1 log service
 
-Manage your services of Log archive
+Manage your services of Journal
 
 ## h1 log service list
 
-List Service for Log archive
+List Service for Journal
 
 ### Syntax
 
@@ -231,11 +231,11 @@ h1 log service list --log test-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 
 ## h1 log service show
 
-Show Service for Log archive
+Show Service for Journal
 
 ### Syntax
 
@@ -250,12 +250,12 @@ h1 log service show --service my-service --log my-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--service SERVICE``` |  | Service for Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
+| ```--service SERVICE``` |  | Service for Journal ID or name |
 
 ## h1 log transfer
 
-Transfer Log archive to other project
+Transfer Journal to other project
 
 ### Syntax
 
@@ -270,12 +270,12 @@ h1 log transfer --log test-log --new-project OtherProject
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
 
 ## h1 log stream
 
-Stream or read messages of Log archive
+Stream or read messages of Journal
 
 ### Syntax
 
@@ -298,7 +298,7 @@ h1 log stream --log my-server-log --follow --filter appName~nginx
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 
 ### Optional arguments
 
@@ -312,7 +312,7 @@ h1 log stream --log my-server-log --follow --filter appName~nginx
 
 ## h1 log logger
 
-Log messages to Log archive
+Log messages to Journal
 
 ### Syntax
 
@@ -327,8 +327,8 @@ echo 'Log message' | h1 log logger --log my-log --token my-secret-token --hostna
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--token TOKEN``` |  | Token entitling to write to Log archive. Can be set also via environment variable HYPERONE_LOG_TOKEN. |
+| ```--log LOG``` |  | Journal ID or name |
+| ```--token TOKEN``` |  | Token entitling to write to Journal. Can be set also via environment variable HYPERONE_LOG_TOKEN. |
 
 ### Optional arguments
 
@@ -339,11 +339,11 @@ echo 'Log message' | h1 log logger --log my-log --token my-secret-token --hostna
 
 ## h1 log credential
 
-Manage your credentials of Log archive
+Manage your credentials of Journal
 
 ## h1 log credential list
 
-List credential of Log archive
+List credential of Journal
 
 ### Syntax
 
@@ -358,11 +358,11 @@ h1 log credential list --log my-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 
 ## h1 log credential show
 
-Show credential of Log archive
+Show credential of Journal
 
 ### Syntax
 
@@ -377,16 +377,16 @@ h1 log credential show --credential my-credential
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--credential CREDENTIAL``` |  | Credential of Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Journal ID or name |
 
 ## h1 log credential password
 
-Manage your password Log archive
+Manage your password Journal
 
 ## h1 log credential password list
 
-List password credential of Log archive
+List password credential of Journal
 
 ### Syntax
 
@@ -401,11 +401,11 @@ h1 log credential password list --log my-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 
 ## h1 log credential password show
 
-Show password credential of Log archive
+Show password credential of Journal
 
 ### Syntax
 
@@ -420,12 +420,12 @@ h1 log credential password show --password my-password
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password credential of Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
+| ```--password PASSWORD``` |  | Password credential of Journal ID or name |
 
 ## h1 log credential password rename
 
-Rename password credential of Log archive
+Rename password credential of Journal
 
 ### Syntax
 
@@ -440,13 +440,13 @@ h1 log credential password rename --password my-password --new-name my-renamed-p
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password credential of Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
+| ```--password PASSWORD``` |  | Password credential of Journal ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 log credential password delete
 
-Delete password credential of Log archive
+Delete password credential of Journal
 
 ### Syntax
 
@@ -461,12 +461,12 @@ h1 log credential password delete --password my-password --log my-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
-| ```--password PASSWORD``` |  | Password credential of Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
+| ```--password PASSWORD``` |  | Password credential of Journal ID or name |
 
 ## h1 log credential password add
 
-Add password credential of Log archive
+Add password credential of Journal
 
 ### Syntax
 
@@ -481,7 +481,7 @@ h1 log credential password add --name my-pass --password secret-password --log m
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 | ```--name NAME``` |  | Name |
 
 ### Optional arguments
@@ -492,7 +492,7 @@ h1 log credential password add --name my-pass --password secret-password --log m
 
 ## h1 log credential password list
 
-List password credential of Log archive
+List password credential of Journal
 
 ### Syntax
 
@@ -507,7 +507,7 @@ h1 log credential password list --log my-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 
 ## h1 log tag
 
@@ -530,11 +530,11 @@ h1 log tag list --log my-log
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 
 ## h1 log tag add
 
-Add a tag to Log archive
+Add a tag to Journal
 
 ### Syntax
 
@@ -550,11 +550,11 @@ h1 log tag add --log test-log --tag prod=true
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 
 ## h1 log tag delete
 
-Delete a tag of Log archive
+Delete a tag of Journal
 
 ### Syntax
 
@@ -570,5 +570,5 @@ h1 log tag delete --log test-log --tag prod
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG``` |  | Tag |
-| ```--log LOG``` |  | Log archive ID or name |
+| ```--log LOG``` |  | Journal ID or name |
 

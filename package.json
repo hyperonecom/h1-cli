@@ -35,6 +35,8 @@
     "opn": "^5.5.0",
     "progress": "^2.0.3",
     "qrcode": "^1.4.1",
+    "qs": "^6.8.0",
+    "readline-transform": "^1.0.0",
     "sha512crypt-node": "^0.1.0",
     "shell-quote": "^1.7.1",
     "speakeasy": "^2.0.0",
@@ -43,7 +45,7 @@
     "superagent": "^5.1.0",
     "tabula": "^1.10.0",
     "websocket-stream": "^5.5.0",
-    "ws": "^6.2.1",
+    "ws": "^7.1.2",
     "ws-streamify": "^0.1.4"
   },
   "pkg": {
