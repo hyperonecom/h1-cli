@@ -87,7 +87,6 @@ const recordTypes = {
     soa: {
         values: [
             'pns.hyperone.com. hostmaster.hyperone.com. 2018092401 15 180 1209600 1800',
-            'ns1.hyperone.com. hostmaster.hyperone.com. 2018092401 15 90 1209600 1800',
         ],
         lookup: {
             nsname: 'pns.hyperone.com',
@@ -119,18 +118,19 @@ Object.entries(recordTypes).forEach(([type, { lookup, values }]) => {
         await tests.run(`dns record-set ${type} create --name ${name} --zone ${zone.dnsName} --value '${values[0]}'`);
         await test_record_values(t, zone, type, full_name, [values[0]]);
 
-        // Add record to record-set
-        await tests.run(`dns record-set ${type} add-record --name ${name} --zone ${zone.dnsName} --value '${values[1]}'`);
-        await test_record_values(t, zone, type, full_name, [values[0], values[1]]);
+        if (values.length > 1) {
+            // Add record to record-set
+            await tests.run(`dns record-set ${type} add-record --name ${name} --zone ${zone.dnsName} --value '${values[1]}'`);
+            await test_record_values(t, zone, type, full_name, [values[0], values[1]]);
 
-        // Delete record from record-set
-        await tests.run(`dns record-set ${type} delete-record --name ${name} --zone ${zone.dnsName} --value '${values[1]}'`);
-        await test_record_values(t, zone, type, full_name, [values[0]]);
+            // Delete record from record-set
+            await tests.run(`dns record-set ${type} delete-record --name ${name} --zone ${zone.dnsName} --value '${values[1]}'`);
+            await test_record_values(t, zone, type, full_name, [values[0]]);
 
-        // Upsert record-set
-        await tests.run(`dns record-set ${type} upsert --name ${name} --zone ${zone.dnsName} --value '${values[0]}'`);
-        await test_record_values(t, zone, type, full_name, [values[0]]);
-
+            // Upsert record-set
+            await tests.run(`dns record-set ${type} upsert --name ${name} --zone ${zone.dnsName} --value '${values[0]}'`);
+            await test_record_values(t, zone, type, full_name, [values[0]]);
+        }
         // Remove record-set at all
         await tests.run(`dns record-set ${type} delete --name ${name} --zone ${zone.dnsName}`);
         const list = await tests.run(`dns record-set ${type} list --zone ${zone.dnsName}`);
@@ -166,20 +166,22 @@ Object.entries(recordTypes).forEach(([type, { lookup, values }]) => {
 
             const recordset_start = await tests.run(`dns record-set ${type} list --zone ${zone.dnsName}`);
             const zone_start_content = await tests.run(`dns zone export --zone ${zone.dnsName}`);
-            await tests.run(`dns record-set ${type} create --name ${name} --zone ${zone.dnsName}
-                         --value '${values[0]}' --value '${values[1]}'`);
+            const argv = values.map(x => `--value '${x}'`);
+            await tests.run(`dns record-set ${type} create --name ${name} --zone ${zone.dnsName} ${argv.join(' ')}`);
             // Validates that export works
             const content = await tests.run(`dns zone export --zone ${zone.dnsName}`);
-            t.true(content.includes(values[0].split(/\s+/)[0].replace(/ /g, '\t')));
-            t.true(content.includes(values[1].split(/\s+/)[0].replace(/ /g, '\t')));
+            for (const value of values) {
+                t.true(content.includes(value.split(/\s+/)[0].replace(/ /g, '\t')));
+            }
 
             const zone_file = tests.getRandomFile(content.replace(new RegExp(zone.dnsName, 'g'), zone_import.name));
             await tests.run(`dns zone import --zone ${zone_import.name} --zone-file ${zone_file}`);
 
             // Validates that import works via validated export
             const content_export = await tests.run(`dns zone export --zone ${zone_import.name}`);
-            t.true(content_export.includes(values[0].split(/\s+/)[0].replace(/ /g, '\t')));
-            t.true(content_export.includes(values[1].split(/\s+/)[0].replace(/ /g, '\t')));
+            for (const value of values) {
+                t.true(content_export.includes(value.split(/\s+/)[0].replace(/ /g, '\t')));
+            }
             const recordset_imported = await tests.run(`dns record-set ${type} list --zone ${zone.dnsName}`);
             t.true(recordset_imported.length > recordset_start.length);
 
@@ -216,12 +218,12 @@ ava.serial('import zone from file', async t => {
     await fsPromiseUnlink(zone_file);
 });
 
-// ava.serial('dns record-set a dynamic-dns', async t => {
-//     const zone = await tests.run(`dns zone create --name ddns-${now}.com`);
-//     await tests.run(`dns record-set a dynamic-dns --name my-home --zone ${zone.dnsName}`);
-//     const ip = await requests.get('https://api.ipify.org?format=json')
-//         .then(resp => resp.body.ip);
-//     await test_record_values(t, zone, 'a', `my-home.${zone.dnsName}`, [ip]);
-
-//     await tests.remove('dns zone', zone);
-// });
+ava.serial('dns record-set a dynamic-dns', async t => {
+    const zone = await tests.run(`dns zone create --name ddns-${now}.com --type public`);
+    const rrset = await tests.run(`dns record-set a dynamic-dns --name my-home-${now} --zone ${zone.dnsName}`);
+    const ip = await tests.get('https://api.ipify.org?format=json').then(resp => resp.body.ip);
+    await test_record_values(t, zone, 'a', rrset.name, [ip]);
+    const response = await queryNameserver(rrset.name, 'A', zone.nameserver);
+    t.deepEqual(response, [ip]);
+    await tests.remove('dns zone', zone);
+});
