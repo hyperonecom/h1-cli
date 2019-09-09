@@ -16,8 +16,8 @@ module.exports = resource => {
         },
     };
 
-    return Cli.createCommand('redeploy', {
-        description: `Redeploy ${resource.title}`,
+    return Cli.createCommand('recreate', {
+        description: `Recreate ${resource.title}`,
         plugins: resource.plugins,
         priority: 25,
         options: Object.assign({}, options, resource.options),
@@ -29,15 +29,15 @@ module.exports = resource => {
                     `${resource.url(args)}/${args[resource.name]}`);
             } catch (err) {
                 if (err.status === 404) {
-                    console.error(`Not found container '${args[resource.name]}'. Create container manually first.`);
-                    throw err;
+                    console.error(`Not found container '${args[resource.name]}'. Create container first.`);
                 }
+                throw err;
             }
             try {
                 const partial = await args.helpers.api.get(
                     `${resource.url(args)}/${args[resource.name]}-new`
                 );
-                console.error('Detected partial-redeployed container.');
+                console.error('Detected partial-recreated container.');
                 console.error(`Deleting '${partial.name}' (ID: ${partial.id}`);
                 await args.helpers.api.delete(
                     `${resource.url(args)}/${args[resource.name]}-new`
