@@ -31,6 +31,7 @@ ava.serial('netgw attach & detach', async t => {
     await tests.run(`netgw attach --netgw ${netgw.id} --network ${network.id}`);
 
     const attached_netgw = await tests.run(`netgw show --netgw ${netgw.id}`);
+    t.true(attached_netgw.state == 'Attached');
     t.true(attached_netgw.network === network.id);
 
     await tests.run(`netgw detach --netgw ${netgw.id}`);
