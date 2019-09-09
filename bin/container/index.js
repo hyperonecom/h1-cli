@@ -19,7 +19,7 @@ const resource = {
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
-category.addChild(require('./redeploy')(resource));
+category.addChild(require('./recreate')(resource));
 
 const childDefault = Object.assign({}, resource, {
     options: {
