@@ -27,7 +27,7 @@ h1 firewall     list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 fir
 h1 dns zone     list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 dns zone    delete --project-select $PROJECT --yes --zone
 h1 snapshot     list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 snapshot    delete --project-select $PROJECT --yes --snapshot
 h1 vault        list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 vault       delete --project-select $PROJECT --yes --vault
-h1 log          list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 log         delete --project-select $PROJECT --yes --log
+h1 journal      list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 journal     delete --project-select $PROJECT --yes --journal
 h1 reservation  list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 reservation delete --project-select $PROJECT --yes --reservation
 h1 volume       list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 volume      delete --project-select $PROJECT --yes --volume
 h1 container    list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 container   delete --project-select $PROJECT --yes --container
