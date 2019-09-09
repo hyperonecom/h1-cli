@@ -9,7 +9,7 @@ const now = Date.now();
 
 ava.serial('journal life cycle', tests.resourceLifeCycle('journal', {
     createParams: `--name journal-life-cycle-${now}`,
-    schemaRef: '#/components/schemas/logArchive',
+    schemaRef: '#/components/schemas/journal',
 }));
 
 ava.serial('journal credential password life cycle', async t => {
