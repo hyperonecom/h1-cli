@@ -962,7 +962,7 @@ Create record set
 ### Example
 
 ```bash
-h1 dns record-set caa create --name '.' --zone 'my-domain.tld' --value '0 issue "ca.example.net"'
+h1 dns record-set caa create --name '.' --zone 'my-domain.tld' --value '0 issue "letsencrypt.org"'
 ```
 
 Note (1): Use ```--name '.'``` to put record at top of the zone.
@@ -991,7 +991,7 @@ Updates or - if not available - creates record set
 ### Example
 
 ```bash
-h1 dns record-set caa upsert --name '.' --zone 'my-domain.tld' --value '0 issue "ca.example.net"'
+h1 dns record-set caa upsert --name '.' --zone 'my-domain.tld' --value '0 issue "letsencrypt.org"'
 ```
 
 Note (1): Use ```--name '.'``` to put record at top of the zone.
@@ -1059,7 +1059,7 @@ Add record
 ### Example
 
 ```bash
-h1 dns record-set caa add-record --zone 'my-domain.tld' --name subdomain --value '0 issue "ca.example.net"'
+h1 dns record-set caa add-record --zone 'my-domain.tld' --name subdomain --value '0 issue "letsencrypt.org"'
 ```
 
 ### Required arguments
@@ -1080,7 +1080,7 @@ Delete record
 ### Example
 
 ```bash
-h1 dns record-set caa delete-record --zone 'my-domain.tld' --name www --value '0 issue "ca.example.net"'
+h1 dns record-set caa delete-record --zone 'my-domain.tld' --name www --value '0 issue "letsencrypt.org"'
 ```
 
 ### Required arguments
