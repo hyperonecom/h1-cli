@@ -30,16 +30,43 @@ const loadModules = (cli, modules) => modules
     )
     .forEach(resource => cli.addChild(require(`./${resource}`)));
 
-loadModules(cli, ['config', 'login']);
+loadModules(cli, [
+    'config',
+    'login',
+]);
 
 if (config.get('profile.apiKey') || process.env.NODE_ENV !== 'production') {
-    loadModules(cli, ['user', 'project', 'service', 'organisation', 'logout', 'env']);
+    loadModules(cli, [
+        'project',
+        'user',
+        'service',
+        'organisation',
+        'logout',
+        'env',
+    ]);
 }
 
 loadModules(cli, [
-    'reservation', 'volume', 'container',
-    'vm', 'disk', 'replica',  'iso', 'network', 'ip', 'dns', 'netgw', 'firewall',
-    'vault', 'snapshot', 'image', 'reservation', 'journal', 'agent', 'database', 'registry',
+    'agent',
+    'container',
+    'database',
+    'disk',
+    'dns',
+    'firewall',
+    'image',
+    'ip',
+    'iso',
+    'journal',
+    'netgw',
+    'network',
+    'registry',
+    'replica',
+    'reservation',
+    'snapshot',
+    'vault',
+    'vm',
+    'volume',
+    'website',
 ]);
 
 // inject defaultValues from config defaults
