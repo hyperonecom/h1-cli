@@ -2,6 +2,7 @@
 
   * [h1 reservation create](#h1-reservation-create) - Create Reservation
   * [h1 reservation list](#h1-reservation-list) - List Reservation
+  * [h1 reservation rename](#h1-reservation-rename) - Rename Reservation
   * [h1 reservation show](#h1-reservation-show) - Show Reservation
   * [h1 reservation service](#h1-reservation-service) - Manage your services of Reservation
     * [h1 reservation service list](#h1-reservation-service-list) - List Service for Reservation
@@ -68,6 +69,26 @@ List Reservation
 ```bash
 h1 reservation list
 ```
+
+## h1 reservation rename
+
+Rename Reservation
+
+### Syntax
+
+```h1 reservation rename | --reservation RESERVATION --new-name NEW-NAME```
+### Example
+
+```bash
+h1 reservation rename --reservation my-reservation --new-name my-renamed-reservation
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--reservation RESERVATION``` |  | Reservation ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
 
 ## h1 reservation show
 

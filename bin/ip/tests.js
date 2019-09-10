@@ -10,6 +10,7 @@ const now = Date.now();
 ava.serial('ip life cycle', tests.resourceLifeCycle('ip', {
     createParams: '',
     skipHistoryCreated: true,
+    skipRename: true,
     stateCreated: 'Unallocated',
 }));
 
