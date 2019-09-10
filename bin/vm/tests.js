@@ -134,7 +134,7 @@ ava.serial('vm nic life cycle', async t => {
         deleteParams: `--vm ${vm.id}`,
         historyParams: `--vm ${vm.id}`,
         skipService: true,
-        skipFqdn: true,
+        skipRename: true,
         skipTransfer: true,
         schemaRef: '#/components/schemas/netadp',
     })(t);

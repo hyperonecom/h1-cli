@@ -29,7 +29,7 @@ const resource = {
     defaultQuery: '[].{id:id,name:name,state:state,resource:resource,type:flavour,assigned:assigned}',
     url: () => 'reservation',
     plugins: genericDefaults.plugins,
-    commands: [ 'list', 'show', 'service', 'create', 'tag', 'history', 'delete'],
+    commands: [ 'list', 'rename', 'show', 'service', 'create', 'tag', 'history', 'delete'],
     title: 'Reservation',
     schema,
     dirname: __dirname,

@@ -63,7 +63,7 @@ ava.serial('website management domain', async t => {
     const rset_txt = 'website-reachable-txt';
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     await tests.run(`website stop --website ${website.id}`);
-    const zone = await tests.run(`dns zone show --zone ${domain}`).catch(() => {
+    const zone = await tests.run(`dns zone show --zone ${domain} --type public`).catch(() => {
         return tests.run(`dns zone create --name ${domain}`);
     });
     try {
