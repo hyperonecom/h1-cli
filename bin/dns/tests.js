@@ -79,7 +79,7 @@ const recordTypes = {
         expected: [{
             flags: 0,
             tag: 'issue',
-            value: '"comodoca.com"',
+            value: 'comodoca.com',
             issuerCritical: false,
         }],
     },
