@@ -7,8 +7,8 @@
     * [h1 dns zone list](#h1-dns-zone-list) - List DNS Zone
     * [h1 dns zone show](#h1-dns-zone-show) - Show DNS Zone
     * [h1 dns zone delete](#h1-dns-zone-delete) - Delete DNS Zone
-    * [h1 dns zone import](#h1-dns-zone-import) - Import A, AAAA, CNAME, TXT, MX, NS, SRV records of DNS Zone from BIND-compatible format
-    * [h1 dns zone export](#h1-dns-zone-export) - Export A, AAAA, CNAME, TXT, MX, NS, SRV, SOA records of DNS Zone in BIND-compatible format
+    * [h1 dns zone import](#h1-dns-zone-import) - Import A, AAAA, CNAME, TXT, CAA, MX, NS, SRV records of DNS Zone from BIND-compatible format
+    * [h1 dns zone export](#h1-dns-zone-export) - Export A, AAAA, CNAME, TXT, CAA, MX, NS, SRV, SOA records of DNS Zone in BIND-compatible format
     * [h1 dns zone tag](#h1-dns-zone-tag) - Manage your tag
       * [h1 dns zone tag list](#h1-dns-zone-tag-list) - List tag
       * [h1 dns zone tag add](#h1-dns-zone-tag-add) - Add a tag to DNS Zone
@@ -43,6 +43,13 @@
       * [h1 dns record-set txt delete](#h1-dns-record-set-txt-delete) - Delete record set
       * [h1 dns record-set txt add-record](#h1-dns-record-set-txt-add-record) - Add record
       * [h1 dns record-set txt delete-record](#h1-dns-record-set-txt-delete-record) - Delete record
+    * [h1 dns record-set caa](#h1-dns-record-set-caa) - Manage record set type CAA
+      * [h1 dns record-set caa create](#h1-dns-record-set-caa-create) - Create record set
+      * [h1 dns record-set caa upsert](#h1-dns-record-set-caa-upsert) - Updates or - if not available - creates record set
+      * [h1 dns record-set caa list](#h1-dns-record-set-caa-list) - List record CAA
+      * [h1 dns record-set caa delete](#h1-dns-record-set-caa-delete) - Delete record set
+      * [h1 dns record-set caa add-record](#h1-dns-record-set-caa-add-record) - Add record
+      * [h1 dns record-set caa delete-record](#h1-dns-record-set-caa-delete-record) - Delete record
     * [h1 dns record-set mx](#h1-dns-record-set-mx) - Manage record set type MX
       * [h1 dns record-set mx create](#h1-dns-record-set-mx-create) - Create record set
       * [h1 dns record-set mx upsert](#h1-dns-record-set-mx-upsert) - Updates or - if not available - creates record set
@@ -235,7 +242,7 @@ h1 dns zone delete --zone my-zone
 
 ## h1 dns zone import
 
-Import A, AAAA, CNAME, TXT, MX, NS, SRV records of DNS Zone from BIND-compatible format
+Import A, AAAA, CNAME, TXT, CAA, MX, NS, SRV records of DNS Zone from BIND-compatible format
 
 ### Syntax
 
@@ -261,7 +268,7 @@ h1 dns zone import --zone 'my-domain.tld' --zone-file my-zone-export.txt
 
 ## h1 dns zone export
 
-Export A, AAAA, CNAME, TXT, MX, NS, SRV, SOA records of DNS Zone in BIND-compatible format
+Export A, AAAA, CNAME, TXT, CAA, MX, NS, SRV, SOA records of DNS Zone in BIND-compatible format
 
 ### Syntax
 
@@ -931,6 +938,149 @@ Delete record
 
 ```bash
 h1 dns record-set txt delete-record --zone 'my-domain.tld' --name www --value '"some-text-value"'
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record set name |
+| ```--zone ZONE``` |  | Zone name or ID |
+| ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+## h1 dns record-set caa
+
+Manage record set type CAA
+
+## h1 dns record-set caa create
+
+Create record set
+
+### Syntax
+
+```h1 dns record-set caa create | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
+### Example
+
+```bash
+h1 dns record-set caa create --name '.' --zone 'my-domain.tld' --value '0 issue "ca.example.net"'
+```
+
+Note (1): Use ```--name '.'``` to put record at top of the zone.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record set name |
+| ```--zone ZONE``` |  | Zone name or ID |
+| ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ttl TTL``` |  | Record set Time To Live (TTL) |
+
+## h1 dns record-set caa upsert
+
+Updates or - if not available - creates record set
+
+### Syntax
+
+```h1 dns record-set caa upsert | --name NAME --zone ZONE --value VALUE [--value VALUE ...] [--ttl TTL]```
+### Example
+
+```bash
+h1 dns record-set caa upsert --name '.' --zone 'my-domain.tld' --value '0 issue "ca.example.net"'
+```
+
+Note (1): Use ```--name '.'``` to put record at top of the zone.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record set name |
+| ```--zone ZONE``` |  | Zone name or ID |
+| ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--ttl TTL``` |  | Record set Time To Live (TTL) |
+
+## h1 dns record-set caa list
+
+List record CAA
+
+### Syntax
+
+```h1 dns record-set caa list | --zone ZONE```
+### Example
+
+```bash
+h1 dns record-set caa list --zone my-zone
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--zone ZONE``` |  | Zone name or ID |
+
+## h1 dns record-set caa delete
+
+Delete record set
+
+### Syntax
+
+```h1 dns record-set caa delete | --name NAME --zone ZONE```
+### Example
+
+```bash
+h1 dns record-set caa delete --zone 'my-domain.tld' --name www
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record set name |
+| ```--zone ZONE``` |  | Zone name or ID |
+
+## h1 dns record-set caa add-record
+
+Add record
+
+### Syntax
+
+```h1 dns record-set caa add-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
+### Example
+
+```bash
+h1 dns record-set caa add-record --zone 'my-domain.tld' --name subdomain --value '0 issue "ca.example.net"'
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Record set name |
+| ```--zone ZONE``` |  | Zone name or ID |
+| ```--value VALUE [--value VALUE ...]``` |  | Value. The parameter may occur repeatedly |
+
+## h1 dns record-set caa delete-record
+
+Delete record
+
+### Syntax
+
+```h1 dns record-set caa delete-record | --name NAME --zone ZONE --value VALUE [--value VALUE ...]```
+### Example
+
+```bash
+h1 dns record-set caa delete-record --zone 'my-domain.tld' --name www --value '0 issue "ca.example.net"'
 ```
 
 ### Required arguments
