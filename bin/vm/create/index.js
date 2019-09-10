@@ -106,8 +106,6 @@ module.exports = resource => Cli.createCommand('create', {
             if (args.network) {
                 netadp.network = args.network;
                 netadp.service = 'private';
-            } else {
-                netadp.service = 'public';
             }
 
             if (args.ip) {
