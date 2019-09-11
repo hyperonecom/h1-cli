@@ -19,6 +19,7 @@ const resource = {
 const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
+category.addChild(require('./recreate')(resource));
 
 const childDefault = Object.assign({}, resource, {
     options: {
@@ -34,6 +35,7 @@ const childDefault = Object.assign({}, resource, {
 
 category.addChild(require('./attach')(childDefault));
 category.addChild(require('./process')(childDefault));
+
 const actionDefault = Object.assign({}, resource, childDefault, {
     dirname: `${__dirname}/action`,
 });

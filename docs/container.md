@@ -1,6 +1,7 @@
 # TOC
 
   * [h1 container create](#h1-container-create) - Create Container
+  * [h1 container recreate](#h1-container-recreate) - Recreate Container
   * [h1 container list](#h1-container-list) - List Container
   * [h1 container show](#h1-container-show) - Show Container
   * [h1 container delete](#h1-container-delete) - Delete Container
@@ -73,6 +74,33 @@ h1 container create --name nginx --type b1.nano --image registry.example.com/my-
 | ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
 | ```--volume VOLUME [--volume VOLUME ...]``` |  | Attach a Volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
 | ```--command COMMAND``` |  | Override the default command |
+
+## h1 container recreate
+
+Recreate Container
+
+### Syntax
+
+```h1 container recreate | --container CONTAINER [--image IMAGE]```
+### Examples
+
+#### Update container image
+
+```bash
+h1 container recreate --container my-container --image mysql:8
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--container CONTAINER``` |  | Container ID or name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Container image eg. h1cr.io/website/php-apache |
 
 ## h1 container list
 
