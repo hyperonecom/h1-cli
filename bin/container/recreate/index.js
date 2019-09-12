@@ -1,6 +1,7 @@
 'use strict';
 
 const Cli = require('lib/cli');
+const registry = require('../registry');
 
 module.exports = resource => {
     const options = {
@@ -20,7 +21,7 @@ module.exports = resource => {
         description: `Recreate ${resource.title}`,
         plugins: resource.plugins,
         priority: 25,
-        options: Object.assign({}, options, resource.options),
+        options: Object.assign({}, options, resource.options, registry.options),
         dirname: __dirname,
         handler: async args => {
             let old_container;
@@ -49,6 +50,7 @@ module.exports = resource => {
             }
 
             const new_container = await args.helpers.api.post(resource.url(args), {
+                registry: await registry.parseArgs(args),
                 name: `${old_container.name}-new`,
                 image: args.image || old_container.image,
                 expose: old_container.expose || [],
