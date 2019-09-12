@@ -39,7 +39,7 @@ Create Container
 
 ### Syntax
 
-```h1 container create | --name NAME --image IMAGE --type TYPE [--tag TAG [--tag TAG ...]] [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volume VOLUME [--volume VOLUME ...]] [--command COMMAND]```
+```h1 container create | --name NAME --image IMAGE --type TYPE [--tag TAG [--tag TAG ...]] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volume VOLUME [--volume VOLUME ...]] [--command COMMAND] [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg]```
 ### Examples
 
 #### Create nginx container
@@ -67,13 +67,13 @@ h1 container create --name nginx --type b1.nano --image registry.example.com/my-
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-| ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
-| ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
-| ```--registry-dockercfg``` |  | Use credentials from .dockercfg |
 | ```--expose EXPOSE [--expose EXPOSE ...]``` |  | Mapping port to expose to the world as external:internal. The parameter may occur repeatedly |
 | ```--env ENV [--env ENV ...]``` |  | Add environment variable. The parameter may occur repeatedly |
 | ```--volume VOLUME [--volume VOLUME ...]``` |  | Attach a Volume as volumeId/volumePath:containerPath. The parameter may occur repeatedly |
 | ```--command COMMAND``` |  | Override the default command |
+| ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
+| ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
+| ```--registry-dockercfg``` |  | Use credentials to access container registry from .dockercfg |
 
 ## h1 container recreate
 
@@ -81,7 +81,7 @@ Recreate Container
 
 ### Syntax
 
-```h1 container recreate | --container CONTAINER [--image IMAGE]```
+```h1 container recreate | --container CONTAINER [--image IMAGE] [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg]```
 ### Examples
 
 #### Update container image
@@ -101,6 +101,9 @@ h1 container recreate --container my-container --image mysql:8
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Container image eg. h1cr.io/website/php-apache |
+| ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
+| ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
+| ```--registry-dockercfg``` |  | Use credentials to access container registry from .dockercfg |
 
 ## h1 container list
 
