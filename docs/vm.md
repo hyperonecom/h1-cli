@@ -110,7 +110,7 @@ Note (4): To list available cloud-provided images use ```h1 image list --recomme
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--password PASSWORD``` |  | Initial administrator user password |
 | ```--username USERNAME``` |  | Initial administrator username |
-| ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access.. The parameter may occur repeatedly |
+| ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. If not provided, use all user SSH keys.. The parameter may occur repeatedly |
 | ```--image IMAGE``` |  | Image ID or name |
 | ```--iso ISO``` |  | ISO ID or name |
 | ```--os-disk-name OS-DISK-NAME``` |  | OS disk name |
