@@ -24,8 +24,12 @@ module.exports = resource => {
         resource: resource,
         options: Object.assign({}, resource.options, options),
         handler: async args => {
+            const prefetch = resource.prefetch_delete ? await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`) : undefined;
+
+            const label = prefetch ? prefetch.name || args[resource.name]: args[resource.name];
+
             if (!args.yes) {
-                const answer = await interactive.confirm(`Are you sure you want to delete resource "${args[resource.name]}"?`);
+                const answer = await interactive.confirm(`Are you sure you want to delete ${resource.title} "${label}"?`);
                 if (answer.value !== true) {
                     throw Cli.error.cancelled('Canceled', undefined);
                 }
@@ -33,7 +37,7 @@ module.exports = resource => {
 
             const result = await args.helpers.api.delete(`${resource.url(args)}/${args[resource.name]}`, args.helpers.body || {});
 
-            return args.helpers.sendOutput(args, result);
+            return args.helpers.sendOutput(args, prefetch || result);
         },
     });
 };

@@ -28,6 +28,7 @@
   * [h1 website credential](#h1-website-credential) - Manage your credentials of Website
     * [h1 website credential list](#h1-website-credential-list) - List credential of Website
     * [h1 website credential show](#h1-website-credential-show) - Show credential of Website
+    * [h1 website credential delete](#h1-website-credential-delete) - Delete credential of Website
     * [h1 website credential cert](#h1-website-credential-cert) - Manage your certificate credential of Website
       * [h1 website credential cert list](#h1-website-credential-cert-list) - List certificate credential of Website
       * [h1 website credential cert show](#h1-website-credential-cert-show) - Show certificate credential of Website
@@ -571,6 +572,26 @@ Show credential of Website
 
 ```bash
 h1 website credential show --credential my-credential
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Website ID or name |
+
+## h1 website credential delete
+
+Delete credential of Website
+
+### Syntax
+
+```h1 website credential delete | --website WEBSITE --credential CREDENTIAL```
+### Example
+
+```bash
+h1 website credential delete --credential my-credential --website my-website
 ```
 
 ### Required arguments

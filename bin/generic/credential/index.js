@@ -26,6 +26,7 @@ module.exports = (resource) => {
         title: `credential of ${resource.title}`,
         priority: 75,
         credential_types: resource.credential_types || [],
+        prefetch_delete: true,
         context: {
             listParams: `--${resource.name} my-${resource.name}`,
             deleteParams: `--${resource.name} my-${resource.name}`,
@@ -36,7 +37,7 @@ module.exports = (resource) => {
 
     const category = genericResource(defaults);
 
-    ['list', 'show'].forEach(cmd => {
+    ['list', 'show', 'delete'].forEach(cmd => {
         category.addChild(require(`bin/generic/${cmd}`)(Object.assign({}, defaults, {
             url: args => `${resource.url(args)}/${args[resource.name]}/credential`,
         })));

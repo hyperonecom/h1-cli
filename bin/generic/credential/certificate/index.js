@@ -16,6 +16,7 @@ module.exports = parent => {
         plugins: parent.plugins,
         deprecated: true,
         credential_types: parent.credential_types,
+        prefetch_delete: true,
         resource: parent,
     };
 

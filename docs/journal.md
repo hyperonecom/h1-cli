@@ -15,6 +15,7 @@
   * [h1 journal credential](#h1-journal-credential) - Manage your credentials of Journal
     * [h1 journal credential list](#h1-journal-credential-list) - List credential of Journal
     * [h1 journal credential show](#h1-journal-credential-show) - Show credential of Journal
+    * [h1 journal credential delete](#h1-journal-credential-delete) - Delete credential of Journal
     * [h1 journal credential password](#h1-journal-credential-password) - Manage your password Journal
       * [h1 journal credential password list](#h1-journal-credential-password-list) - List password credential of Journal
       * [h1 journal credential password show](#h1-journal-credential-password-show) - Show password credential of Journal
@@ -376,6 +377,26 @@ Show credential of Journal
 
 ```bash
 h1 journal credential show --credential my-credential
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--journal JOURNAL``` |  | Journal ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Journal ID or name |
+
+## h1 journal credential delete
+
+Delete credential of Journal
+
+### Syntax
+
+```h1 journal credential delete | --journal JOURNAL --credential CREDENTIAL```
+### Example
+
+```bash
+h1 journal credential delete --credential my-credential --journal my-journal
 ```
 
 ### Required arguments

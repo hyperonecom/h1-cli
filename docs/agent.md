@@ -24,6 +24,7 @@
   * [h1 agent credential](#h1-agent-credential) - Manage your credentials of Agent
     * [h1 agent credential list](#h1-agent-credential-list) - List credential of Agent
     * [h1 agent credential show](#h1-agent-credential-show) - Show credential of Agent
+    * [h1 agent credential delete](#h1-agent-credential-delete) - Delete credential of Agent
     * [h1 agent credential cert](#h1-agent-credential-cert) - Manage your certificate credential of Agent
       * [h1 agent credential cert list](#h1-agent-credential-cert-list) - List certificate credential of Agent
       * [h1 agent credential cert show](#h1-agent-credential-cert-show) - Show certificate credential of Agent
@@ -437,6 +438,26 @@ Show credential of Agent
 
 ```bash
 h1 agent credential show --credential my-credential
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Agent ID or name |
+
+## h1 agent credential delete
+
+Delete credential of Agent
+
+### Syntax
+
+```h1 agent credential delete | --agent AGENT --credential CREDENTIAL```
+### Example
+
+```bash
+h1 agent credential delete --credential my-credential --agent my-agent
 ```
 
 ### Required arguments

@@ -16,6 +16,7 @@
   * [h1 database credential](#h1-database-credential) - Manage your credentials of Database
     * [h1 database credential list](#h1-database-credential-list) - List credential of Database
     * [h1 database credential show](#h1-database-credential-show) - Show credential of Database
+    * [h1 database credential delete](#h1-database-credential-delete) - Delete credential of Database
     * [h1 database credential password](#h1-database-credential-password) - Manage your password Database
       * [h1 database credential password list](#h1-database-credential-password-list) - List password credential of Database
       * [h1 database credential password show](#h1-database-credential-password-show) - Show password credential of Database
@@ -322,6 +323,26 @@ Show credential of Database
 
 ```bash
 h1 database credential show --credential my-credential
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--database DATABASE``` |  | Database ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Database ID or name |
+
+## h1 database credential delete
+
+Delete credential of Database
+
+### Syntax
+
+```h1 database credential delete | --database DATABASE --credential CREDENTIAL```
+### Example
+
+```bash
+h1 database credential delete --credential my-credential --database my-database
 ```
 
 ### Required arguments
