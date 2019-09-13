@@ -49,10 +49,10 @@ ava.serial('vm stop & start & turnoff', async t => {
     t.true(vm.state === 'Running');
 
     const actions = [
-        {name: 'stop', state: 'Off'},
-        {name: 'start', state: 'Running'},
-        {name: 'restart', state: 'Running'},
-        {name: 'turnoff', state: 'Off'},
+        { name: 'stop', state: 'Off' },
+        { name: 'start', state: 'Running' },
+        { name: 'restart', state: 'Running' },
+        { name: 'turnoff', state: 'Off' },
     ];
 
     for (const action of actions) {
@@ -93,7 +93,7 @@ ava.serial('vm usermetadata execute in cloud-init', async t => {
 
     fs.unlinkSync(tmp_file);
 
-    const content = await ssh.execVm(vm, {password: common.password}, `cat ${remote_tmp_path}`);
+    const content = await ssh.execVm(vm, { password: common.password }, `cat ${remote_tmp_path}`);
     t.true(content === token);
     await common.cleanup();
 });
@@ -104,8 +104,8 @@ ava.serial('vm disk attach & detach', async t => {
     const disk = await tests.run(`disk create --name disk-extra-${common.name} --type ssd --size 10`);
 
     const actions = [
-        {name: 'attach', result: true},
-        {name: 'detach', result: false},
+        { name: 'attach', result: true },
+        { name: 'detach', result: false },
     ];
 
     for (const action of actions) {
@@ -118,29 +118,61 @@ ava.serial('vm disk attach & detach', async t => {
     await tests.remove('disk', disk);
 });
 
-ava.serial('vm nic life cycle', async t => {
+const commonNicSkip = {
+    skipService: true,
+    skipRename: true,
+    skipTransfer: true,
+};
+
+ava.serial('vm nic life cycle for private network', async t => {
+    const network = await tests.run(`network create --name network-vm-test-${now}`);
     const common = await getCommon(t.title, {
         type: 'm2.tiny',
     });
-    const vm = await tests.run(`vm create --no-start ${common.params.createParams}`);
+    try {
+        const vm = await tests.run(`vm create --no-start ${common.params.createParams}`);
+
+        await tests.resourceLifeCycle('vm nic', Object.assign({
+            stateCreated: 'Online',
+            createParams: `--vm ${vm.id} --type private --network ${network.id}`,
+            listParams: `--vm ${vm.id}`,
+            showParams: `--vm ${vm.id}`,
+            tagParams: `--vm ${vm.id}`,
+            deleteParams: `--vm ${vm.id}`,
+            historyParams: `--vm ${vm.id}`,
+            schemaRef: '#/components/schemas/netadp',
+            skipFqdn: true,
+        }, commonNicSkip))(t);
+
+        await common.cleanup();
+    } finally {
+        await tests.remove('network', network);
+    }
+});
+
+ava.serial('vm nic life cycle for public network', async t => {
     const network = await tests.run(`network create --name network-vm-test-${now}`);
+    const common = await getCommon(t.title, {
+        type: 'm2.tiny',
+    });
+    try {
+        const vm = await tests.run(`vm create --no-start ${common.params.createParams} --network ${network.id}`);
 
-    await tests.resourceLifeCycle('vm nic', {
-        stateCreated: 'Online',
-        createParams: `--vm ${vm.id} --type private --network ${network.id}`,
-        listParams: `--vm ${vm.id}`,
-        showParams: `--vm ${vm.id}`,
-        tagParams: `--vm ${vm.id}`,
-        deleteParams: `--vm ${vm.id}`,
-        historyParams: `--vm ${vm.id}`,
-        skipService: true,
-        skipRename: true,
-        skipTransfer: true,
-        schemaRef: '#/components/schemas/netadp',
-    })(t);
+        await tests.resourceLifeCycle('vm nic', Object.assign({
+            stateCreated: 'Online',
+            createParams: `--vm ${vm.id} --type public`,
+            listParams: `--vm ${vm.id}`,
+            showParams: `--vm ${vm.id}`,
+            tagParams: `--vm ${vm.id}`,
+            deleteParams: `--vm ${vm.id}`,
+            historyParams: `--vm ${vm.id}`,
+            schemaRef: '#/components/schemas/netadp',
+        }, commonNicSkip))(t);
 
-    await common.cleanup();
-    await tests.remove('network', network);
+        await common.cleanup();
+    } finally {
+        await tests.remove('network', network);
+    }
 });
 
 ava.serial('vm nic firewall life cycle', async t => {
@@ -164,8 +196,8 @@ ava.serial('vm nic firewall life cycle', async t => {
 
 const subresourceLifeCycle = async (t, type, options) => {
     const actions = [
-        {name: 'add', result: true},
-        {name: 'delete', result: false, params: options.deleteParams || ''},
+        { name: 'add', result: true },
+        { name: 'delete', result: false, params: options.deleteParams || '' },
     ];
 
     for (const action of actions) {
@@ -269,9 +301,9 @@ function round_step(value, step = 0.5) {
 }
 
 async function verify_vm_size_match(t, vm, password) {
-    t.true(parseInt(await ssh.execVm(vm, {password}, 'nproc')) === vm.cpu,
+    t.true(parseInt(await ssh.execVm(vm, { password }, 'nproc')) === vm.cpu,
         'The number of processors does not match the number declared');
-    const content = await ssh.execVm(vm, {password}, 'cat /proc/meminfo');
+    const content = await ssh.execVm(vm, { password }, 'cat /proc/meminfo');
     const memory_kb = content.match(/MemTotal:\s+([0-9]+)\s+/)[1];
     const memory_gb = round_step(parseInt(memory_kb) / 10 ** 6);
     t.true(memory_gb === vm.memory,
@@ -281,7 +313,7 @@ async function verify_vm_size_match(t, vm, password) {
 }
 
 ava.serial('vm service change', async t => {
-    const common = await getCommon(t.title, {type: 'a1.nano'});
+    const common = await getCommon(t.title, { type: 'a1.nano' });
     const password = common.password;
     const vm = await tests.run(`vm create ${common.params.createParams}`);
 
@@ -314,7 +346,7 @@ ava.serial('vm service change', async t => {
 
         const vm = await tests.run(`vm create ${common.params.createParams} --ssh ${ssh_name}`);
 
-        const content = await ssh.execVm(vm, {privateKey: sshKeyPair.privateKey}, 'uptime');
+        const content = await ssh.execVm(vm, { privateKey: sshKeyPair.privateKey }, 'uptime');
         t.true(content.includes('load average'));
         fs.unlinkSync(sshFilename);
 
