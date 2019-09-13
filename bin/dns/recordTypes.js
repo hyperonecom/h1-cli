@@ -31,6 +31,15 @@ module.exports = {
         }),
         to_content: record => record.txt,
     },
+    caa: {
+        value: '0 issue "letsencrypt.org"',
+        to_bind: content => ({
+            flags: content.split(' ')[0],
+            tag: content.split(' ')[1],
+            value: content.split(' ')[2],
+        }),
+        to_content: record => `${record.flags} ${record.tag} "${record.value}"`,
+    },
     mx: {
         value: '10 mail.example.com',
         to_bind: content => ({
