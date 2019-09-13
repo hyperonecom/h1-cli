@@ -15,8 +15,6 @@ const relativeTime = (value) => {
     return value;
 };
 
-const formatHelp = 'Format is YYYY-MM-DD or ISO 8601 or relative time eg. 1 hour';
-
 module.exports = resource => {
     const options = {
         [resource.name]: {
@@ -25,11 +23,11 @@ module.exports = resource => {
             required: true,
         },
         since: {
-            description: `Start of period for which you want to receive logs. ${formatHelp}`,
+            description: 'Show logs since timestamp (YYYY-MM-DD or ISO 8601) or relative (e.g. 13m for 13 minutes ago from now).',
             type: relativeTime,
         },
         until: {
-            description: `End of period for which you want to receive logs. ${formatHelp}`,
+            description: 'Show logs before a timestamp (YYYY-MM-DD or ISO 8601) or relative (e.g. 13m for 13 minutes ago from now).',
             type: relativeTime,
         },
         tail: {

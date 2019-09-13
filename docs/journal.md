@@ -307,8 +307,8 @@ h1 journal stream --log my-server-log --follow --filter appName~nginx
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-| ```--since SINCE``` |  | Start of period for which you want to receive logs. Format is YYYY-MM-DD or ISO 8601 or relative eg. 1 hour |
-| ```--until UNTIL``` |  | End of period for which you want to receive logs. Format is YYYY-MM-DD or ISO 8601 or relative eg. 1 hour |
+| ```--since SINCE``` |  | Show logs since timestamp (YYYY-MM-DD or ISO 8601) or relative (e.g. 13m for 13 minutes ago from now). |
+| ```--until UNTIL``` |  | Show logs before a timestamp (YYYY-MM-DD or ISO 8601) or relative (e.g. 13m for 13 minutes ago from now). |
 | ```--tail TAIL``` |  | Number of lines to show from the end of the logs. All if skipped. |
 | ```--follow``` |  | Output current messages in real time as they arrive |
 | ```--head HEAD``` |  | Maximum number of lines to show. All if skipped. |
