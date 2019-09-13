@@ -5,6 +5,17 @@ const Cli = require('lib/cli');
 const text = require('lib/text');
 const qs = require('qs');
 const format = require('../format');
+const ms = require('ms');
+
+const relativeTime = (value) => {
+    const parsed = ms(value);
+    if (parsed) {
+        return new Date(new Date() - parsed).toISOString();
+    }
+    return value;
+};
+
+const formatHelp = 'Format is YYYY-MM-DD or ISO 8601 or relative time eg. 1 hour';
 
 module.exports = resource => {
     const options = {
@@ -14,12 +25,12 @@ module.exports = resource => {
             required: true,
         },
         since: {
-            description: 'Start of period for which you want to receive logs. Format: YYYY-MM-DD',
-            type: 'string',
+            description: `Start of period for which you want to receive logs. ${formatHelp}`,
+            type: relativeTime,
         },
         until: {
-            description: 'End of period for which you want to receive logs. Format: YYYY-MM-DD',
-            type: 'string',
+            description: `End of period for which you want to receive logs. ${formatHelp}`,
+            type: relativeTime,
         },
         tail: {
             description: 'Number of lines to show from the end of the logs. All if skipped.',
