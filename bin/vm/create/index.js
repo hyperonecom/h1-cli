@@ -2,8 +2,9 @@
 
 const Cli = require('lib/cli');
 const fs = require('lib/fs');
-const {hashPassword} = require('lib/credentials');
+const { hashPassword } = require('lib/credentials');
 const genericDefaults = require('bin/generic/defaults');
+const logger = require('lib/logger');
 
 const options = {
     name: {
@@ -26,13 +27,14 @@ const options = {
     },
     ssh: {
         action: 'append',
-        description: 'SSH key ID or name that allows access.',
+        description: 'SSH key ID or name that allows access. If not provided, use all user SSH keys.',
         type: 'string',
         dest: 'sshKeys',
     },
     image: {
         description: 'Image ID or name',
         type: 'string',
+        defaultValue: 'debian',
     },
     iso: {
         description: 'ISO ID or name',
@@ -54,7 +56,6 @@ const options = {
         description: 'OS disk: [name,] type, size',
         type: 'string',
     },
-
     network: {
         description: 'Network ID or name to attach',
         type: 'string',
@@ -118,9 +119,8 @@ module.exports = resource => Cli.createCommand('create', {
         if (args['no-start']) {
             newVM.boot = false;
         }
-
+        newVM.disk = [];
         if (args['os-disk'] || args['os-disk-name'] && args['os-disk-type'] && args['os-disk-size']) {
-            newVM.disk = [];
 
             let osDisk = args['os-disk'] ? args['os-disk'].split(',') : [];
             osDisk = osDisk.length === 2 ? [`${args.name}-os`, ...osDisk] : osDisk;
@@ -129,6 +129,22 @@ module.exports = resource => Cli.createCommand('create', {
                 service: osDisk[1] || args['os-disk-type'],
                 size: osDisk[2] || args['os-disk-size'],
             });
+        } else {
+            const image = await args.helpers.api.get(`image/${args.image}`);
+            try {
+                const dsc = JSON.parse(image.description);
+                newVM.disk.push({
+                    name: `${args.name}-os`,
+                    service: dsc.recommended && dsc.recommended.disk && dsc.recommended.disk.service || 'ssd',
+                    size: dsc.recommended && dsc.recommended.disk && dsc.recommended.disk.size || 25,
+                });
+            } catch (err) {
+                newVM.disk.push({
+                    name: `${args.name}-os`,
+                    service: 'ssd',
+                    size: 25,
+                });
+            }
         }
 
         ['iso', 'image', 'sshKeys'].forEach(param => {
@@ -136,7 +152,6 @@ module.exports = resource => Cli.createCommand('create', {
                 newVM[param] = args[param];
             }
         });
-
 
         if (args['ssh-file']) {
             const sshKeys = newVM.sshKeys || [];
@@ -146,6 +161,15 @@ module.exports = resource => Cli.createCommand('create', {
                 ).then(keys => keys.map(x => x.toString('utf-8')))
             );
             newVM.sshKeys = sshKeys;
+        }
+
+        if (!args['ssh-file'] && !args.ssh) {
+            try {
+                const keys = await args.helpers.api.get('user/me/credential/certificate');
+                newVM.sshKeys = keys.filter(x => x.type === 'ssh').map(x => x.id);
+            } catch (err) {
+                logger('warn', 'Unable to discovery user SSH keys. No SSH key will be used. Use the "--ssh-file" or "--ssh" parameter to specify one.');
+            }
         }
 
         if (args['userdata-file']) {
