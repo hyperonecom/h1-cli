@@ -36,6 +36,6 @@ ava.serial('journal logger & stream', async t => {
         }
     }
     t.true(!!log_content);
-    t.true(JSON.parse(log_content).line === content);
+    t.true(JSON.parse(log_content).message === content);
     await tests.remove('journal', journal);
 });
