@@ -39,7 +39,7 @@ Create Container
 
 ### Syntax
 
-```h1 container create | --name NAME --image IMAGE --type TYPE [--tag TAG [--tag TAG ...]] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volume VOLUME [--volume VOLUME ...]] [--command COMMAND] [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg]```
+```h1 container create | --name NAME --image IMAGE --type TYPE [--tag TAG [--tag TAG ...]] [--expose EXPOSE [--expose EXPOSE ...]] [--env ENV [--env ENV ...]] [--volume VOLUME [--volume VOLUME ...]] [--command COMMAND] [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD]```
 ### Examples
 
 #### Create nginx container
@@ -73,7 +73,6 @@ h1 container create --name nginx --type b1.nano --image registry.example.com/my-
 | ```--command COMMAND``` |  | Override the default command |
 | ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
 | ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
-| ```--registry-dockercfg``` |  | Use credentials to access container registry from .dockercfg |
 
 ## h1 container recreate
 
@@ -81,7 +80,7 @@ Recreate Container
 
 ### Syntax
 
-```h1 container recreate | --container CONTAINER [--image IMAGE] [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD] [--registry-dockercfg]```
+```h1 container recreate | --container CONTAINER [--image IMAGE] [--registry-username REGISTRY-USERNAME] [--registry-password REGISTRY-PASSWORD]```
 ### Examples
 
 #### Update container image
@@ -103,7 +102,6 @@ h1 container recreate --container my-container --image mysql:8
 | ```--image IMAGE``` |  | Container image eg. h1cr.io/website/php-apache |
 | ```--registry-username REGISTRY-USERNAME``` |  | Username to access container registry |
 | ```--registry-password REGISTRY-PASSWORD``` |  | Username to access container registry |
-| ```--registry-dockercfg``` |  | Use credentials to access container registry from .dockercfg |
 
 ## h1 container list
 
