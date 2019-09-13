@@ -4,6 +4,7 @@ const Cli = require('lib/cli');
 const fs = require('lib/fs');
 const { hashPassword } = require('lib/credentials');
 const genericDefaults = require('bin/generic/defaults');
+const logger = require('lib/logger');
 
 const options = {
     name: {
@@ -26,7 +27,7 @@ const options = {
     },
     ssh: {
         action: 'append',
-        description: 'SSH key ID or name that allows access.',
+        description: 'SSH key ID or name that allows access. If not provided, use all user SSH keys.',
         type: 'string',
         dest: 'sshKeys',
     },
@@ -162,6 +163,15 @@ module.exports = resource => Cli.createCommand('create', {
                 ).then(keys => keys.map(x => x.toString('utf-8')))
             );
             newVM.sshKeys = sshKeys;
+        }
+
+        if (!args['ssh-file'] && !args.ssh) {
+            try {
+                const keys = await args.helpers.api.get('user/me/credential/certificate');
+                newVM.sshKeys = keys.filter(x => x.type === 'ssh').map(x => x.id);
+            } catch (err) {
+                logger('warn', 'Unable to discovery user SSH keys. No SSH key will be used. Use the "--ssh-file" or "--ssh" parameter to specify one.');
+            }
         }
 
         if (args['userdata-file']) {
