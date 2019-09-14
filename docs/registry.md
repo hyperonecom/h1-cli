@@ -26,6 +26,7 @@
   * [h1 registry credential](#h1-registry-credential) - Manage your credentials of Registry
     * [h1 registry credential list](#h1-registry-credential-list) - List credential of Registry
     * [h1 registry credential show](#h1-registry-credential-show) - Show credential of Registry
+    * [h1 registry credential delete](#h1-registry-credential-delete) - Delete credential of Registry
     * [h1 registry credential password](#h1-registry-credential-password) - Manage your password Registry
       * [h1 registry credential password list](#h1-registry-credential-password-list) - List password credential of Registry
       * [h1 registry credential password show](#h1-registry-credential-password-show) - Show password credential of Registry
@@ -492,6 +493,26 @@ Show credential of Registry
 
 ```bash
 h1 registry credential show --credential my-credential
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Registry ID or name |
+
+## h1 registry credential delete
+
+Delete credential of Registry
+
+### Syntax
+
+```h1 registry credential delete | --registry REGISTRY --credential CREDENTIAL```
+### Example
+
+```bash
+h1 registry credential delete --credential my-credential --registry my-registry
 ```
 
 ### Required arguments

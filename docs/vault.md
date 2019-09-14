@@ -18,6 +18,7 @@
   * [h1 vault credential](#h1-vault-credential) - Manage your credentials of Vault
     * [h1 vault credential list](#h1-vault-credential-list) - List credential of Vault
     * [h1 vault credential show](#h1-vault-credential-show) - Show credential of Vault
+    * [h1 vault credential delete](#h1-vault-credential-delete) - Delete credential of Vault
     * [h1 vault credential cert](#h1-vault-credential-cert) - Manage your certificate credential of Vault
       * [h1 vault credential cert list](#h1-vault-credential-cert-list) - List certificate credential of Vault
       * [h1 vault credential cert show](#h1-vault-credential-cert-show) - Show certificate credential of Vault
@@ -376,6 +377,26 @@ Show credential of Vault
 
 ```bash
 h1 vault credential show --credential my-credential
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Vault ID or name |
+
+## h1 vault credential delete
+
+Delete credential of Vault
+
+### Syntax
+
+```h1 vault credential delete | --vault VAULT --credential CREDENTIAL```
+### Example
+
+```bash
+h1 vault credential delete --credential my-credential --vault my-vault
 ```
 
 ### Required arguments
