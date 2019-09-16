@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eux
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-  TAG_NAME="${TRAVIS_BRANCH}";
+  TAG_NAME=$( echo "$TRAVIS_BRANCH" | tr -cd 'a-zA-Z0-9\-_ ' );
 
   if [[ "${TRAVIS_BRANCH}" == "master" ]]; then
       TAG_NAME="latest";
