@@ -62,16 +62,22 @@ ava.serial('registry manage repositories & tags', async t => {
 
 ava.serial('registry reachable through custom domain', async t => {
     const domain = 'registry.h1.jawnosc.tk';
-    const rset = 'registry-reachable';
+    const rset = 'registry'; // static name to avoid SSL issue
     const host = `${rset}.${domain}`;
     const password = await tests.getToken();
     const registry = await tests.run(`registry create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     await tests.run(`registry stop --registry ${registry.id}`);
-    const zone = await tests.run(`dns zone show --zone ${domain}`).catch(() => {
-        return tests.run(`dns zone create --name ${domain} --type public`);
-    });
+    const zone = await tests.run('dns zone show --zone registry').catch(() =>
+        tests.run(`dns zone create --name ${domain} --type public`)
+    ).then(zone =>
+        tests.run(`dns zone rename --new-name registry --zone ${zone.id}`)
+    );
     try {
-        await tests.run(`dns record-set cname create --name ${rset} --zone ${zone.id} --value ${registry.fqdn}. --ttl 1`);
+        const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${registry.fqdn}. --ttl 1`);
+        await tests.delay(5 * 1000);
+        const cname_response = await tests.dnsResolve(rrset.name, 'CNAME');
+        t.true(cname_response.includes(registry.fqdn));
+
         await tests.run(`registry domain add --registry ${registry.id} --domain ${host}`);
         await tests.run(`registry start --registry ${registry.id}`);
         await tests.delay(10000);
@@ -80,8 +86,8 @@ ava.serial('registry reachable through custom domain', async t => {
         const repositories = await tests.run(`registry repository list --registry ${registry.name}`);
         t.true(repositories.some(x => x.id === hubImage));
     } finally {
-        await tests.remove('dns zone', zone);
-        await tests.remove('registry', registry);
+        // await tests.remove('dns zone', zone);
+        // await tests.remove('registry', registry);
     }
 });
 
