@@ -49,7 +49,8 @@ const outputFormat = {
             ).join('\n')
         ;
     },
-    json: (args, result) => args.query ? queryFilter(args, result) : result,
+    json: (args, result) => JSON.stringify(args.query ? queryFilter(args, result) : result, null, 4),
+    js: (args, result) => args.query ? queryFilter(args, result) : result,
     id: (args, result) => queryFilter(args, result).map(x => x.id || x.id).join('\n'),
     yaml: (args, result) => yaml.safeDump(args.query ? queryFilter(args, result) : result),
 };
