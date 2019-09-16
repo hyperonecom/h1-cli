@@ -59,22 +59,32 @@ ava.serial('website put index via SFTP & password', async t => {
 
 ava.serial('website management domain', async t => {
     const domain = 'website.h1.jawnosc.tk';
-    const rset_cname = 'website-reachable-cname';
-    const rset_txt = 'website-reachable-txt';
+    const rset_cname = tests.getName('cname', t.title);
+    const rset_txt = tests.getName('txt', t.title);
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     await tests.run(`website stop --website ${website.id}`);
-    const zone = await tests.run(`dns zone show --zone ${domain} --type public`).catch(() => {
-        return tests.run(`dns zone create --name ${domain}`);
-    });
+    const zone = await tests.run('dns zone show --zone website').catch(() =>
+        tests.run(`dns zone create --name ${domain} --type public`)
+    ).then(zone =>
+        tests.run(`dns zone rename --new-name website --zone ${zone.id}`)
+    );
     try {
-        await tests.run(`dns record-set cname create --name ${rset_txt} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
+        const rrset_txt = await tests.run(`dns record-set txt upsert --name ${rset_txt} --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
+        await tests.delay(5 * 1000);
+        const txt_response = (await tests.dnsResolve(rrset_txt.name, 'TXT')).flat(2);
+        t.true(txt_response.includes(website.fqdn), txt_response);
+
         await tests.run(`website domain add --website ${website.id} --domain ${rset_txt}.${zone.dnsName}`);
         let domains = await tests.run(`website domain list --website ${website.id}`);
         t.true(domains.includes(`${rset_txt}.${zone.dnsName}`));
         t.true(!domains.includes(`${rset_cname}.${zone.dnsName}`));
         t.true(domains.length === 1);
 
-        await tests.run(`dns record-set txt create --name ${rset_cname} --zone ${zone.id} --value '\"${website.fqdn}\"' --ttl 1`);
+        const rrset_cname = await tests.run(`dns record-set cname upsert --name ${rset_cname} --zone ${zone.id} --value '${website.fqdn}' --ttl 1`);
+        await tests.delay(5 * 1000);
+        const cname_response = await tests.dnsResolve(rrset_cname.name, 'CNAME');
+        t.true(cname_response.includes(website.fqdn));
+
         await tests.run(`website domain add --website ${website.id} --domain ${rset_cname}.${zone.dnsName}`);
         domains = await tests.run(`website domain list --website ${website.id}`);
         t.true(domains.includes(`${rset_txt}.${zone.dnsName}`));
@@ -98,11 +108,17 @@ ava.serial('website reachable through custom domain', async t => {
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     await tests.run(`website stop --website ${website.id}`);
-    const zone = await tests.run(`dns zone show --zone ${domain}`).catch(() => {
-        return tests.run(`dns zone create --name ${domain}`);
-    });
+    const zone = await tests.run('dns zone show --zone website').catch(() =>
+        tests.run(`dns zone create --name ${domain} --type public`)
+    ).then(zone =>
+        tests.run(`dns zone rename --new-name website --zone ${zone.id}`)
+    );
     try {
-        await tests.run(`dns record-set cname create --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
+        const rrset_txt = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
+        await tests.delay(5 * 1000);
+        const dns_response = await tests.dnsResolve(rrset_txt.name, 'CNAME');
+        t.true(dns_response.includes(website.fqdn), dns_response);
+
         await tests.run(`website domain add --website ${website.id} --domain ${rset}.${zone.dnsName}`);
         await tests.run(`website start --website ${website.id}`);
         // Upload file
