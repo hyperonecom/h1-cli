@@ -27,6 +27,7 @@ ava.serial('network ip life cycle', async t => {
         schemaRef: '#/components/schemas/ip',
         skipTransfer: true,
         skipFqdn: true,
+        skipRename: true,
     })(t);
     await tests.remove('network', network);
 });
