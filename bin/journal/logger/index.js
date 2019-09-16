@@ -70,7 +70,7 @@ module.exports = resource => {
                     },
                 }))
                 .pipe(superagent.
-                    post(`http://${log.fqdn}/resource/${log.id}/log`).
+                    post(`https://${log.fqdn}/log`).
                     set('x-auth-password', args.token).
                     once('error', reject)
                 )
