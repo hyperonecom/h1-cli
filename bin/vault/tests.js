@@ -10,14 +10,16 @@ const ssh = require('../../lib/ssh');
 const now = Date.now();
 
 const createUserCredentials = async (t) => {
-    const file = tests.getRandomFile();
+    const sshKeyPair = await ssh.generateKey();
+    const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
+
     const name = tests.getName(t.title, 'user-cred');
-    await tests.run(`user credentials add --name ${name} --sshkey-file '${file}'`);
+    await tests.run(`user credentials add --name ${name} --sshkey-file '${sshFilename}'`);
     return {
-        file: file,
+        file: sshFilename,
         name: name,
         cleanup: async () => {
-            fs.unlinkSync(file);
+            fs.unlinkSync(sshFilename);
             await tests.remove('user credentials', name);
         },
     };
@@ -100,10 +102,11 @@ ava.serial('vault credential password life cycle', async t => {
 ['project', 'user'].forEach(type => {
     ava.serial(`vault credential ${type} ssh use`, async t => {
         const name = tests.getName(t.title);
-        const ssh_file = tests.getRandomFile();
+        const sshKeyPair = await ssh.generateKey();
+        const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
 
         const ssh_name = `${name}-${type}-key`;
-        const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${ssh_file}'`);
+        const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${sshFilename}'`);
         const vault = await tests.run(`vault create --name my-vault --size 10 --ssh ${ssh_name}`);
 
         const list = await tests.run(`vault credential cert list --vault ${vault.id}`);
@@ -112,7 +115,7 @@ ava.serial('vault credential password life cycle', async t => {
         await tests.remove(`${type} credentials`, credentials);
         await tests.remove('vault', vault);
 
-        fs.unlinkSync(ssh_file);
+        fs.unlinkSync(sshFilename);
     });
 });
 
