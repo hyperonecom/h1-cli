@@ -86,8 +86,8 @@ ava.serial('registry reachable through custom domain', async t => {
         const repositories = await tests.run(`registry repository list --registry ${registry.name}`);
         t.true(repositories.some(x => x.id === hubImage));
     } finally {
-        // await tests.remove('dns zone', zone);
-        // await tests.remove('registry', registry);
+        await tests.remove('dns zone', zone);
+        await tests.remove('registry', registry);
     }
 });
 
