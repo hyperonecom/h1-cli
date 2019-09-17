@@ -2,7 +2,7 @@
 
 const default_fields = ['facility', 'level', 'ts', 'host', 'appName', 'pid', 'messageid', 'message'];
 const filters = require('./filters');
-const {get} = require('../../lib/transform');
+const { get } = require('../../lib/transform');
 
 const csv_encode = values => values.map(value => {
     if (typeof value === 'undefined') {
@@ -18,10 +18,15 @@ const csv_encode = values => values.map(value => {
 }).join(',');
 
 const outputFormat = {
-    json: {
+    js: {
         header: () => {
         },
         row: (fields, row) => row,
+    },
+    json: {
+        header: () => {
+        },
+        row: (fields, row) => JSON.stringify(row, null, 4),
     },
     tsv: {
         header: () => {
