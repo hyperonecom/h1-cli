@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const Cli = require('lib/cli');
 const text = require('lib/text');
+const tags = require('lib/tags');
 const qs = require('qs');
 const format = require('../format');
 const ms = require('ms');
@@ -64,19 +65,20 @@ module.exports = resource => {
             const query = {
                 follow: args.follow,
             };
-            ['since', 'until', ' tag', 'tail'].forEach(name => {
+            ['since', 'until', 'tail'].forEach(name => {
                 if (args[name]) {
                     query[name] = args[name];
                 }
             });
 
+            if (args.tag) {
+                query.tag = tags.createTagObject(args.tag);
+            }
             const formatter = format.formatter(args);
             formatter.print_header();
             const url = `${resource.url(args)}/${args[resource.name]}/log?${qs.stringify(query)}`;
-            // const ws = await args.helpers.api.wsLogs(url);
-            // const stream = WebSocket.createWebSocketStream(ws);
             let count = 0;
-            const stream = args.helpers.api.stream(url);
+            const stream = await args.helpers.api.stream(url);
             return new Promise((resolve, reject) => stream
                 .on('data', jsonl => {
                     if (formatter.print_jsonl(jsonl)) {
