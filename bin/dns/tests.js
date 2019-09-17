@@ -234,7 +234,8 @@ ava.serial('dns record-set a dynamic-dns', async t => {
     const ip = await tests.get('https://api.ipify.org?format=json').then(resp => resp.body.ip);
     await test_record_values(t, zone, 'a', rrset.name, [ip]);
     const response = await queryNameserver(rrset.name, 'A', zone.nameserver);
-    t.deepEqual(response, [ip]);
+    t.true(response.answers.length > 0);
+    t.deepEqual(response.answers.map(x => x.data), [ip]);
     await tests.remove('dns zone', zone);
 });
 
