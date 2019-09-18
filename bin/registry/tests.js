@@ -61,32 +61,26 @@ ava.serial('registry manage repositories & tags', async t => {
 });
 
 ava.serial('registry reachable through custom domain', async t => {
-    const domain = 'registry.h1.jawnosc.tk';
     const rset = 'registry'; // static name to avoid SSL issue
-    const host = `${rset}.${domain}`;
     const password = await tests.getToken();
     const registry = await tests.run(`registry create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     await tests.run(`registry stop --registry ${registry.id}`);
-    const zone = await tests.run('dns zone show --zone registry').catch(() =>
-        tests.run(`dns zone create --name ${domain} --type public`)
-    ).then(zone =>
-        tests.run(`dns zone rename --new-name registry --zone ${zone.id}`)
-    );
+    const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
     try {
         const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${registry.fqdn}. --ttl 1`);
-        await tests.delay(5 * 1000);
+        const host = rrset.name.slice(0, rrset.name.length - 1);
+        await tests.delay(10 * 1000);
         const cname_response = await tests.dnsResolve(rrset.name, 'CNAME');
         t.true(cname_response.includes(registry.fqdn));
 
-        await tests.run(`registry domain add --registry ${registry.id} --domain ${host}`);
+        await tests.run(`registry domain add --registry ${registry.id} --domain ${rrset.name}`);
         await tests.run(`registry start --registry ${registry.id}`);
-        await tests.delay(10000);
-        await tests.runProcess(`docker login --username anything --password ${password} ${host}`);
+        await tests.delay(15 * 1000);
+        await tests.runProcess(`docker login --username anything --password ${password} ${rrset.name}`);
         await copyImage(host, hubImage, tagName);
         const repositories = await tests.run(`registry repository list --registry ${registry.name}`);
         t.true(repositories.some(x => x.id === hubImage));
     } finally {
-        await tests.remove('dns zone', zone);
         await tests.remove('registry', registry);
     }
 });
