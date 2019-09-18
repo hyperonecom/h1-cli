@@ -27,7 +27,7 @@ ava.serial('journal logger & stream', async t => {
     try {
         await tests.run(`journal credential password add --journal ${journal.id} --name my-token --password ${token}`);
         await tests.run(`journal logger --journal ${journal.id} --token ${token} --log-file ${log_file}`);
-        await tests.run(`journal stream --head 1 -v --journal ${journal.id} --jsonl-file ${output_file}`);
+        await tests.run(`journal stream --head 1 --journal ${journal.id} --jsonl-file ${output_file}`);
         const log_content = fs.readFileSync(output_file, 'utf-8');
         t.true(!!log_content);
         t.true(JSON.parse(log_content).message === content);
@@ -46,13 +46,12 @@ ava.serial('journal logger & stream with tags', async t => {
     const output_file = tests.randomFileName();
     const journal = await tests.run(`journal create --name log-logger-${now} --password ${token}`);
     try {
-        await tests.run(`journal logger --journal ${journal.id} --token ${token} --log-file ${log_file_with_tag}`);
-        await tests.run(`journal logger --journal ${journal.id} --token ${token} --log-file ${log_file_without_tag} --tag host=123`);
-        await tests.run(`journal stream --head 1 -v --journal ${journal.id} --jsonl-file ${output_file} --tag host=123`);
+        await tests.run(`journal logger --journal ${journal.id} --token ${token} --log-file ${log_file_with_tag} --tag host=123`);
+        await tests.run(`journal logger --journal ${journal.id} --token ${token} --log-file ${log_file_without_tag}`);
+        await tests.run(`journal stream --journal ${journal.id} --jsonl-file ${output_file} --tag host=123`);
         const log_content = fs.readFileSync(output_file, 'utf-8');
         t.true(!!log_content);
         const logs = log_content.split('\n').filter(x => !!x).map(x => JSON.parse(x));
-        console.log({logs});
         t.true(logs.some(x => x.message === content_with_tag));
         t.true(!logs.some(x => x.message === content_without_tag));
     } finally {
