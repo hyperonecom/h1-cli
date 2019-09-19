@@ -76,7 +76,7 @@ ava.serial('registry reachable through custom domain', async t => {
         await tests.run(`registry domain add --registry ${registry.id} --domain ${rrset.name}`);
         await tests.run(`registry start --registry ${registry.id}`);
         await tests.delay(15 * 1000);
-        await tests.runProcess(`docker login --username anything --password ${password} ${rrset.name}`);
+        await tests.runProcess(`docker login --username anything --password ${password} ${host}`);
         await copyImage(host, hubImage, tagName);
         const repositories = await tests.run(`registry repository list --registry ${registry.name}`);
         t.true(repositories.some(x => x.id === hubImage));
