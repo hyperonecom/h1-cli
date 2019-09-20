@@ -279,9 +279,6 @@ ava.serial('vm nic ip persistent', async t => {
     const nic_list = await tests.run(`vm nic list --vm ${vm.id}`);
     const ip = nic_list[0].ip[0];
 
-    const ip_list = await tests.run('ip list');
-    t.true(!ip_list.some(x => x.id === ip.id));
-
     await tests.run(`vm nic ip persistent --vm ${vm.id} --nic ${nic_list[0].id} --ip ${ip.id}`);
 
     const new_ip_list = await tests.run('ip list');
