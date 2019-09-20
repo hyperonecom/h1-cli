@@ -66,6 +66,7 @@
     "@hyperone/eslint-config": "^1.0.4",
     "ajv": "^6.10.2",
     "ava": "^2.4.0",
+    "babel-eslint": "^10.0.3",
     "dns-socket": "^4.2.0",
     "eslint": "^6.4.0",
     "fast-glob": "^3.0.4",

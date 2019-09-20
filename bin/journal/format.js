@@ -32,17 +32,16 @@ const outputFormat = {
         header: () => {
         },
         row: (fields, row) => {
-            const values = fields.map(field => row[field]);
+            const values = fields.map(field => get(row, field));
             return values.map(value => {
                 if (typeof value === 'number' || typeof value === 'boolean') {
-                    return value;
+                    return `${value}`;
                 }
                 if (typeof value === 'string') {
                     return value.match(/\t/) ? `"${value}"` : value;
                 }
                 return '-';
             }).join('\t');
-
         },
     },
     csv: {
@@ -60,7 +59,7 @@ const outputOptions = {
     },
     fields: {
         type: (val) => val.split(','),
-        description: 'Fields displayed. Not apply to "jsonl" output.',
+        description: 'Fields displayed. Apply only to "tsv" & "csv" output.',
         defaultValue: default_fields.join(','),
     },
     filter: {

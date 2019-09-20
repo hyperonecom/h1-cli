@@ -1,5 +1,6 @@
 'use strict';
 
 module.exports = {
-    extends: '@hyperone'
+    extends: '@hyperone',
+    parser: "babel-eslint",
 };
