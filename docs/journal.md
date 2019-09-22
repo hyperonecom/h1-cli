@@ -10,6 +10,7 @@
     * [h1 journal service list](#h1-journal-service-list) - List Service for Journal
     * [h1 journal service show](#h1-journal-service-show) - Show Service for Journal
   * [h1 journal transfer](#h1-journal-transfer) - Transfer Journal to other project
+  * [h1 journal retention](#h1-journal-retention) - Update Data retention period (in days) of Journal
   * [h1 journal stream](#h1-journal-stream) - Stream or read messages of Journal
   * [h1 journal logger](#h1-journal-logger) - Log messages to Journal
   * [h1 journal credential](#h1-journal-credential) - Manage your credentials of Journal
@@ -275,6 +276,20 @@ h1 journal transfer --journal test-journal --new-project OtherProject
 | ---- | ------- | ----------- |
 | ```--journal JOURNAL``` |  | Journal ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
+
+## h1 journal retention
+
+Update Data retention period (in days) of Journal
+
+### Syntax
+
+```h1 journal retention | --retention RETENTION --journal JOURNAL```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--retention RETENTION``` |  | Data retention period (in days) |
+| ```--journal JOURNAL``` |  | Journal ID or name |
 
 ## h1 journal stream
 
