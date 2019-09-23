@@ -2,7 +2,10 @@
 const Cli = require('lib/cli');
 
 module.exports = (resource, field_name) => {
-    const parameter = resource.schema[field_name];
+    const parameter = Object.assign({},
+        resource.schema[field_name],
+        { required: true }
+    );
 
     const name = parameter.name || field_name;
 

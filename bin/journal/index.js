@@ -23,6 +23,7 @@ const schema = {
         required: false,
         defaultValue: 90,
         onCreate: true,
+        onUpdate: true,
     },
     credentials: {
         virtual: true,
@@ -31,7 +32,6 @@ const schema = {
     tags: {
         virtual: true,
         onCreate: true,
-        onUpdate: true,
     },
 };
 
@@ -39,7 +39,7 @@ const resource = {
     name: 'journal',
     apiName: 'journal',
     defaultQuery: '[].{id:id,name:name,retention:retention,sizeUsed:sizeUsed,state:state,processing:processing}',
-    commands: ['show', 'delete', 'rename', 'create', 'list', 'history', 'tag', 'service', 'transfer', 'credential'],
+    commands: ['show', 'delete', 'rename', 'create', 'list', 'history', 'tag', 'service', 'transfer', 'update', 'credential'],
     plugins: genericDefaults.plugins,
     url: () => 'journal',
     dirname: __dirname,
