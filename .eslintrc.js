@@ -2,5 +2,5 @@
 
 module.exports = {
     extends: '@hyperone',
-    parser: "babel-eslint",
+    parser: 'babel-eslint',
 };
