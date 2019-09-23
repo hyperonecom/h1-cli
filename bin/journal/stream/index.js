@@ -79,19 +79,14 @@ module.exports = resource => {
             const url = `${resource.url(args)}/${args[resource.name]}/log?${qs.stringify(query)}`;
             let count = 0;
             const stream = await args.helpers.api.stream(url);
-            return new Promise((resolve, reject) => stream
-                .on('data', jsonl => {
-                    if (formatter.print_jsonl(jsonl)) {
-                        count += 1;
-                    }
-                    if (args.head && count >= args.head) {
-                        stream.end();
-                    }
-                })
-                .on('error', reject)
-                .on('end', resolve)
-                .resume()
-            );
+            for await (const jsonl of stream) {
+                if (formatter.print_jsonl(jsonl)) {
+                    count += 1;
+                }
+                if (args.head && count >= args.head) {
+                    stream.end();
+                }
+            }
         },
     });
 

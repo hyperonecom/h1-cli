@@ -53,34 +53,6 @@ h1 journal create --name my-server-log
 h1 journal credential password add --log my-server-log --name syslog --password my-strong-secret
 ```
 
-#### Configure rsyslog
-
-Open or create a new configuration file for rsyslog:
-
-```
-sudo nano /etc/rsyslog.d/50-hyperone.conf
-```
-
-Paste in this configuration:
-
-```
-$template HyperOneFormat,"<%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [{log_id}:{secret}@HyperOne tag=\"Rsyslog\"]%msg%\n"
-
-*.* @@{log_id}.logarchive.{region}.hyperone.cloud:6514; HyperOneFormat
-```
-
-Replace the following values in the example:
-
-* ```{log_id}``` - ID of log. To identify available logs use ```h1 log list```.
-* ```{secret}``` - The password added to given log. See example above how to create a write-only password.
-* ```{region}``` - Region where resource exists eg. ```pl-waw-1```
-
-Remember to restart rsyslog:
-
-```
-sudo service rsyslog restart
-```
-
 #### Display today's log entries
 
 ```bash
@@ -294,8 +266,20 @@ h1 journal stream --log my-server-log
 #### View live-stream of log entries for the Nginx application
 
 ```bash
-h1 journal stream --log my-server-log --follow --filter appName~nginx
+h1 journal stream --log my-server-log --follow --filter appName=~nginx
 ```
+
+#### Filtering
+
+Parameter ```--filter``` accept following query format:
+
+* `{fieldName}=~{value}` - filter by regexp pattern. Example ```--filter 'message=~.*isAuthenticated: true.*'```
+* `{fieldName}={value}` - filter by exact match field to value. Example: ```--filter 'tag.containerId=1234'```
+* `{fieldName}={value}` - filter by values higher than ```{value}``
+* `{fieldName}={value}` - filter by values lower than ```{value}``
+
+```{fieldName}``` is name of property of log entry. It can contains any character in range of ```A-Za-z.``` .
+The ```.``` sign is specially treated and is used to refer to the nested properties of the object.
 
 ### Required arguments
 
