@@ -15,21 +15,17 @@ const resource = {
     title: 'Virtual machine',
 };
 
-const childDefaults = Object.assign({}, resource, {
-    options: {
-        [resource.name]: {
-            description: `${text.toTitleCase(resource.title)} ID or name`,
-            type: 'string',
-            required: true,
-        },
+const childDefaults = { ...resource, options: {
+    [resource.name]: {
+        description: `${text.toTitleCase(resource.title)} ID or name`,
+        type: 'string',
+        required: true,
     },
-    url: args => `${resource.url(args)}/${args[resource.name]}`,
-    dirname: __dirname,
-});
+},
+url: args => `${resource.url(args)}/${args[resource.name]}`,
+dirname: __dirname};
 
-const actionDefault = Object.assign({}, childDefaults, {
-    dirname: `${__dirname}/action`,
-});
+const actionDefault = { ...childDefaults, dirname: `${__dirname}/action`};
 
 const category = genericResource(resource);
 

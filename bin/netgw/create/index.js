@@ -9,11 +9,11 @@ module.exports = resource => Cli.createCommand('create', {
     plugins: genericDefaults.plugins,
     dirname: __dirname,
     genericOptions: ['tag'],
-    options: Object.assign(
-        {},
-        resource.options,
-        pickBy(resource.schema, field => field.onCreate && !field.virtual)
-    ),
+    options: {
+
+        ...resource.options,
+        ...pickBy(resource.schema, field => field.onCreate && !field.virtual),
+    },
     params: resource.params,
     handler: (args) => args.helpers.api
         .post('netgw', {

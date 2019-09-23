@@ -16,7 +16,7 @@ module.exports = (resource, type) => Cli.createCommand('delete', {
     dirname: __dirname,
     description: 'Delete record set',
     plugins: resource.plugins,
-    options: Object.assign({}, options, resource.options),
+    options: { ...options, ...resource.options},
     resource: resource,
     handler: async args => {
         const rset = await findRRset(resource, args, type);

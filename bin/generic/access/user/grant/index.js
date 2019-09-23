@@ -22,7 +22,7 @@ module.exports = resource => Cli.createCommand('grant', {
     plugins: resource.plugins,
     params: resource.params,
     context: resource.context,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: args => {
         const data = {
             id: args.email,

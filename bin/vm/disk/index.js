@@ -21,17 +21,13 @@ const resource = {
     title: 'Disk',
 };
 
-const childOptions = Object.assign({}, resource.options, {
-    disk: {
-        description: `${text.toTitleCase(resource.title)} name or ID`,
-        type: 'string',
-        required: true,
-    },
-});
+const childOptions = { ...resource.options, disk: {
+    description: `${text.toTitleCase(resource.title)} name or ID`,
+    type: 'string',
+    required: true,
+}};
 
-const childDefaults = Object.assign({}, resource, {
-    options: childOptions,
-});
+const childDefaults = { ...resource, options: childOptions};
 
 const category = genericResource(resource);
 

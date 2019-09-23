@@ -17,7 +17,7 @@ module.exports = (parent) => {
         defaultQuery: '[].{id:id,address:address,mac:mac,ptrRecord:ptrRecord,network:network,fip:associated.fip,state:state}',
         url: args => `${parent.url(args)}/${args[parent.name]}/ip`,
         plugins: defaults.plugins,
-        options: Object.assign({}, parent.options, options),
+        options: { ...parent.options, ...options},
         commands: ['list', 'delete'],
         transform: data => data.ip || data,
         title: `IP address of ${parent.title}`,
@@ -31,8 +31,6 @@ module.exports = (parent) => {
     category.addChild(require('./add')(resource));
     category.addChild(require('./replace')(resource));
     category.addChild(require('./persistent')(resource));
-    category.addChild(require('bin/generic/show')(Object.assign({}, resource, {
-        url: () => 'ip',
-    })));
+    category.addChild(require('bin/generic/show')({ ...resource, url: () => 'ip'}));
     return category;
 };

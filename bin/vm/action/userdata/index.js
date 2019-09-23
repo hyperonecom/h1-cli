@@ -16,7 +16,7 @@ module.exports = (resource) => Cli.createCommand('userdata', {
     description: `Manage userdata for ${resource.title}`,
     dirname: __dirname,
     plugins: genericDefaults.plugins,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     params: resource.params,
     handler: args => fs.getFileContent(args['userdata-file'])
         .then(content => args.helpers.api.patch(`vm/${args[resource.name]}`, {

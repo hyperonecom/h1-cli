@@ -13,7 +13,7 @@ const options = {
 module.exports = resource => Cli.createCommand('persistent', {
     description: `Persistent ${resource.title}`,
     plugins: resource.plugins,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     dirname: __dirname,
     handler: args => args.helpers.api
         .post(`ip/${args.ip}/actions`,

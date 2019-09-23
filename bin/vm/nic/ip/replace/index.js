@@ -19,7 +19,7 @@ const options = {
 module.exports = resource => Cli.createCommand('replace', {
     description: `Replace ${resource.title}`,
     plugins: resource.plugins,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     dirname: __dirname,
     handler: args => args.helpers.api
         .post(`vm/${args.vm}/netadp/${args.nic}/actions`,

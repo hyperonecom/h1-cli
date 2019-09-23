@@ -52,13 +52,11 @@ const handle = (args) => args.helpers.api.get(
             result.recordset
                 .filter(x => x.type === type.toUpperCase())
                 .map(rrset => {
-                    zone[type].push(...rrset.record.map(record => Object.assign(
-                        {
-                            ttl: rrset.ttl,
-                            name: rrset.name !== result.name ? rrset.name : null,
-                        },
-                        recordTypes[type].to_bind(record.content)
-                    )));
+                    zone[type].push(...rrset.record.map(record => ({
+                        ttl: rrset.ttl,
+                        name: rrset.name !== result.name ? rrset.name : null,
+                        ...recordTypes[type].to_bind(record.content),
+                    })));
                 });
         });
     return zonefile.generate(zone);
@@ -67,7 +65,7 @@ const handle = (args) => args.helpers.api.get(
 module.exports = (resource) => Cli.createCommand('export', {
     description: `Export ${supported_label} records of ${resource.title} in BIND-compatible format`,
     plugins: resource.plugins,
-    options: Object.assign({}, options, resource.options),
+    options: { ...options, ...resource.options},
     handler: handle,
     dirname: __dirname,
 });

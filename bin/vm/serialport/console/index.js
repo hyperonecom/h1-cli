@@ -20,7 +20,7 @@ module.exports = resource => Cli.createCommand('console', {
     description: `Connect to ${resource.title} using Serial Console`,
     plugins: resource.plugins,
     params: resource.params,
-    options: Object.assign({}, options, resource.options),
+    options: { ...options, ...resource.options},
     dirname: __dirname,
     handler: args => args.helpers.api.get(`vm/${args.vm}`)
         .then(vm => websocketTerminal(`/vm/${vm.id}/serialport/${args.port}`)),

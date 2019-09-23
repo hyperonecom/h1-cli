@@ -20,5 +20,5 @@ module.exports = resource => Cli.createCommand('detach', {
     description: `Detach ${resource.title} from network`,
     plugins: resource.plugins,
     handler: handler,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
 });

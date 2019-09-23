@@ -21,7 +21,7 @@ module.exports = resource => Cli.createCommand('shell', {
     description: `Connect to ${resource.title} using standard client`,
     plugins: resource.plugins,
     dirname: __dirname,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: args => args.helpers.api
         .get(`${resource.url(args)}/${args.database}`)
         .then(database => {
@@ -43,9 +43,7 @@ module.exports = resource => Cli.createCommand('shell', {
             return new Promise((resolve, reject) => {
                 const ssh = spawn(database.flavour, cmdArgs, {
                     stdio: 'inherit',
-                    env: Object.assign({}, process.env, {
-                        MYSQL_PWD: args.password,
-                    }),
+                    env: { ...process.env, MYSQL_PWD: args.password},
                 });
 
                 ssh.on('close', resolve);

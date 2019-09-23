@@ -15,7 +15,7 @@ module.exports = resource => Cli.createCommand('detach', {
     description: 'Network gateway detach from a network',
     dirname: __dirname,
     plugins: genericDefaults.plugins,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     params: resource.params,
     handler: (args) => args.helpers.api
         .post(`netgw/${args.netgw}/actions`, { name: 'detach' })

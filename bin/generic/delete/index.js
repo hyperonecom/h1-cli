@@ -22,7 +22,7 @@ module.exports = resource => {
             require('bin/_plugins/confirmYes'),
         ],
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         handler: async args => {
             const prefetch = resource.prefetch_delete ? await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`) : undefined;
 

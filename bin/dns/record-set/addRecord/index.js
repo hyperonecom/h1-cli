@@ -19,7 +19,7 @@ module.exports = (resource, type) => Cli.createCommand('add-record', {
     dirname: __dirname,
     description: 'Add record',
     plugins: resource.plugins,
-    options: Object.assign({}, options, resource.options, recordOptions),
+    options: { ...options, ...resource.options, ...recordOptions},
     resource: resource,
     handler: async args => {
         const rset = await findRRset(resource, args, type);

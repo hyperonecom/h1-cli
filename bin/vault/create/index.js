@@ -13,7 +13,7 @@ module.exports = resource => {
         dirname: __dirname,
         priority: 25,
         resource: resource,
-        options: Object.assign({}, options, resource.options),
+        options: { ...options, ...resource.options},
         handler: async args => {
             const body = {
                 name: args.name,

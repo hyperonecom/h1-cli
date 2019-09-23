@@ -23,7 +23,7 @@ module.exports = (resource, type) => Cli.createCommand('upsert', {
     dirname: __dirname,
     description: 'Updates or - if not available - creates record set',
     plugins: resource.plugins,
-    options: Object.assign({}, options, resource.options, recordOptions),
+    options: { ...options, ...resource.options, ...recordOptions},
     priority: 25,
     resource: resource,
     handler: async args => {

@@ -25,19 +25,15 @@ module.exports = parent => {
 
     category.addChild(require('./add')(resource));
 
-    const childDefaults = Object.assign({}, resource, {
-        options: Object.assign({},
-            resource.options,
-            {
-                token: {
-                    description: 'Token ID',
-                    type: 'string',
-                    required: true,
-                },
-            }
-        ),
-        url: args => `${resource.url(args)}/${args.token}`,
-    });
+    const childDefaults = { ...resource, options: {
+        ...resource.options,
+        token: {
+            description: 'Token ID',
+            type: 'string',
+            required: true,
+        },
+    },
+    url: args => `${resource.url(args)}/${args.token}`};
 
     category.addChild(require('./access')(childDefaults));
     category.addChild(require('./env')(childDefaults));

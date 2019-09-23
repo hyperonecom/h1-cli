@@ -29,27 +29,19 @@ const resource = {
 
 const category = genericResource(resource);
 
-const childDefaults = Object.assign({}, resource, {
-    options: Object.assign({}, options, {
-        ip: {
-            description: `${text.toTitleCase(resource.title)} ID or name`,
-            type: 'string',
-            required: true,
-        },
-    }),
-    dirname: __dirname,
-});
+const childDefaults = { ...resource, options: { ...options, ip: {
+    description: `${text.toTitleCase(resource.title)} ID or name`,
+    type: 'string',
+    required: true,
+}},
+dirname: __dirname};
 
 
-const childIpDefaults = Object.assign({}, childDefaults, {
-    url: () => 'ip',
-});
+const childIpDefaults = { ...childDefaults, url: () => 'ip'};
 
 category.addChild(require('./create')(resource));
 
-category.addChild(require('bin/generic/list')(Object.assign({}, resource, {
-    url: args => `ip?network=${args.network}`,
-})));
+category.addChild(require('bin/generic/list')({ ...resource, url: args => `ip?network=${args.network}`}));
 
 category.addChild(require('bin/generic/service')(childIpDefaults));
 category.addChild(require('bin/generic/tag')(childIpDefaults));

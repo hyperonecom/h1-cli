@@ -23,7 +23,7 @@ module.exports = resource => {
         description: `Resume create upload of ${resource.title}`,
         dirname: __dirname,
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         handler: async args => {
 
             let r = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);

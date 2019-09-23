@@ -16,7 +16,7 @@ module.exports = (resource, subresource) => Cli.createCommand('delete', {
     plugins: subresource.plugins,
     params: subresource.params,
     resource: resource,
-    options: Object.assign({}, options, subresource.options),
+    options: { ...options, ...subresource.options},
     handler: async args => {
         const tags = await args.helpers.api.get(`${args.$node.parent.config.url(args)}`);
         const name = args.tag.split('=')[0];

@@ -18,7 +18,7 @@ module.exports = function(resource) {
         dirname: __dirname,
         description: `List of access rights for ${resource.title}`,
         plugins: genericDefaults.plugins,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         resource: resource,
         handler: args => args.helpers.api
             .get(`${resource.url(args)}/${args[resource.name]}/accessrights`)

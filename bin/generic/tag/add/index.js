@@ -18,7 +18,7 @@ module.exports = (resource, subresource) => Cli.createCommand('add', {
     genericOptions: ['tag'],
     resource: resource,
     dirname: __dirname,
-    options: Object.assign({}, subresource.options, options),
+    options: { ...subresource.options, ...options},
     handler: args => args.helpers.api
         .patch(
             args.$node.parent.config.url(args),

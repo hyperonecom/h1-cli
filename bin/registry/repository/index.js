@@ -17,20 +17,16 @@ module.exports = (parent) => {
         title: `repository of ${parent.title}`,
     };
 
-    const childDefaults = Object.assign({}, resource, {
-        options: Object.assign(
-            {},
-            parent.options,
-            {
-                [resource.name]: {
-                    description: `${text.toTitleCase(resource.title)} ID`,
-                    type: 'string',
-                    required: true,
-                },
-            }
-        ),
-        url: args => `${resource.url(args)}/${args[resource.name]}`,
-    });
+    const childDefaults = { ...resource, options: {
+
+        ...parent.options,
+        [resource.name]: {
+            description: `${text.toTitleCase(resource.title)} ID`,
+            type: 'string',
+            required: true,
+        },
+    },
+    url: args => `${resource.url(args)}/${args[resource.name]}`};
 
     const category = genericResource(resource);
 

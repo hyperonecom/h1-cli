@@ -24,7 +24,7 @@ module.exports = (resource) => {
         description: `Revoke access rights for ${resource.title}`,
         plugins: genericDefaults.plugins,
         params: resource.params,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         resource: resource,
         handler: args => args.helpers.api
             .delete(`${resource.name}/${args[resource.name]}/accessrights/${args.project}`)

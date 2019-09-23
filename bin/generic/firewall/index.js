@@ -9,20 +9,16 @@ module.exports = resource => {
         defaultQuery: resource.defaultQuery,
     });
 
-    const childResource = Object.assign({}, resource, {
-        options: Object.assign({}, resource.options, {
-            [resource.name]: {
-                description: `${text.toTitleCase(resource.title)} ID or name`,
-                type: 'string',
-                required: true,
-            },
-        }),
-        url: (args) => `${resource.url(args)}/${args[resource.name]}`,
-        context: {
-            addFirewallParams: `--${resource.name} my-${resource.name}`,
-            removeFirewallParams: `--${resource.name} my-${resource.name}`,
-        },
-    });
+    const childResource = { ...resource, options: { ...resource.options, [resource.name]: {
+        description: `${text.toTitleCase(resource.title)} ID or name`,
+        type: 'string',
+        required: true,
+    }},
+    url: (args) => `${resource.url(args)}/${args[resource.name]}`,
+    context: {
+        addFirewallParams: `--${resource.name} my-${resource.name}`,
+        removeFirewallParams: `--${resource.name} my-${resource.name}`,
+    }};
 
 
     category.addChild(require('./add')(childResource));

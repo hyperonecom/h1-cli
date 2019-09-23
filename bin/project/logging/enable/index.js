@@ -29,7 +29,7 @@ module.exports = resource => Cli.createCommand('enable', {
         require('bin/_plugins/api'),
         require('bin/_plugins/outputFormat'),
     ],
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: args => args.helpers.api
         .put(resource.url(args), {
             logArchive: args.log,

@@ -21,7 +21,7 @@ module.exports = resource => {
         description: `Recreate ${resource.title}`,
         plugins: resource.plugins,
         priority: 25,
-        options: Object.assign({}, options, resource.options, registry.options),
+        options: { ...options, ...resource.options, ...registry.options},
         dirname: __dirname,
         handler: async args => {
             let old_container;

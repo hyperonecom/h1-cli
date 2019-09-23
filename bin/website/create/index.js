@@ -13,7 +13,7 @@ module.exports = resource => {
         plugins: resource.plugins,
         priority: 25,
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         handler: async args => {
             Cli.mutually_inclusive_validate(args, 'website', 'snapshot');
 

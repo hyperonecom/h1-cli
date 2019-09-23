@@ -131,7 +131,7 @@ const runProcess = async (cmd, env = {}, timeout = 60 * 30) => new Promise((reso
     const arg = shell_quote.parse(cmd);
 
     const proc = childProcess.spawn(arg[0], arg.slice(1), {
-        env: Object.assign({}, process.env, env),
+        env: { ...process.env, ...env},
         stdio: [null, 'pipe', 'pipe'],
     });
     let output = '';

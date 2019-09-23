@@ -73,7 +73,7 @@ module.exports = resource => Cli.createCommand('metrics', {
                 ];
 
                 tabula(
-                    resources.map(data => Object.assign({ name: data.resource.name }, data.metrics))
+                    resources.map(data => ({name: data.resource.name, ...data.metrics}))
                     , { columns: columns }
                 );
             });

@@ -21,7 +21,7 @@ module.exports = resource => Cli.createCommand('associate', {
     description: `Associate ${resource.title}`,
     plugins: genericDefaults.plugins,
     defaultQuery: resource.defaultQuery,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: args => args.helpers.api
         .post(`ip/${args.ip}/actions/associate`, {ip: args['private-ip']})
         .then(result => args.helpers.sendOutput(args, result)),

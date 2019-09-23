@@ -20,7 +20,7 @@ module.exports = resource => Cli.createCommand('attach', {
     description: 'Network gateway attach to a network',
     dirname: __dirname,
     plugins: genericDefaults.plugins,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     params: resource.params,
     handler: (args) => args.helpers.api
         .post(`netgw/${args.netgw}/actions`, { name: 'attach', data: { private: { network: args.network } } })

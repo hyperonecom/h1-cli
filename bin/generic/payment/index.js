@@ -18,7 +18,7 @@ module.exports = parent => {
         defaultQuery: '[].{id:id, creditsFree:creditsFree, credits:credits, channel:channel, type:type, project:project, createdOn:createdOn}',
         url: args => `${parent.url(args)}/${args[parent.name]}/payment`,
         params: parent.params,
-        options: Object.assign({}, parent.options, options),
+        options: { ...parent.options, ...options},
         commands: ['show', 'list'],
         plugins: parent.plugins,
         title: 'payment',

@@ -20,7 +20,7 @@ module.exports = resource => {
     return Cli.createCommand('assign', {
         description: `Assign ${resource.title} to resource`,
         plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options),
+        options: { ...options, ...resource.options},
         handler: args => args.helpers.api
             .post(`${resource.url(args)}/${args[resource.name]}/actions`, {
                 name: 'assign',

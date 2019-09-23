@@ -21,7 +21,7 @@ module.exports = resource => {
         plugins: resource.plugins,
         dirname: __dirname,
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         handler: args => args.helpers.api
             .get(`${resource.url(args)}/${args[resource.name]}`)
             .then(resource => {

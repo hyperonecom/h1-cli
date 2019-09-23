@@ -50,16 +50,14 @@ const resource = {
     credential_types: ['sha512'],
 };
 
-const childDefaults = Object.assign({}, resource, {
-    options: {
-        [resource.name]: {
-            description: `${text.toTitleCase(resource.title)} ID or name`,
-            type: 'string',
-            required: true,
-        },
+const childDefaults = { ...resource, options: {
+    [resource.name]: {
+        description: `${text.toTitleCase(resource.title)} ID or name`,
+        type: 'string',
+        required: true,
     },
-    url: args => `${resource.url(args)}/${args[resource.name]}`,
-});
+},
+url: args => `${resource.url(args)}/${args[resource.name]}`};
 
 const category = genericResource(resource);
 

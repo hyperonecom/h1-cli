@@ -15,7 +15,7 @@ module.exports = (resource, field_name) => {
     return Cli.createCommand('list', {
         description: `List ${parameter.description} of ${resource.title}`,
         plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options),
+        options: { ...options, ...resource.options},
         handler: args => args.helpers.api
             .get(`${resource.url(args)}/${args[resource.name]}`)
             .then(result => args.helpers.sendOutput(args, result[field_name] || [])),

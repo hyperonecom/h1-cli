@@ -5,14 +5,12 @@ const Cli = require('lib/cli');
 
 module.exports = resource => {
     const options = {
-        [resource.parameter_name]: Object.assign(
-            {},
-            {
-                description: `Deleted ${resource.title}`,
-                required: true,
-            },
-            resource.extra_parameter
-        ),
+        [resource.parameter_name]: {
+
+            description: `Deleted ${resource.title}`,
+            required: true,
+            ...resource.extra_parameter,
+        },
     };
 
     return Cli.createCommand('delete', {
@@ -20,7 +18,7 @@ module.exports = resource => {
         dirname: __dirname,
         plugins: resource.plugins,
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         handler: args => args.helpers.api
             .get(resource.url(args))
             .then(values => values.filter(x => x !== args[resource.parameter_name]))

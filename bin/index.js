@@ -120,7 +120,7 @@ Cli.flatten(cli).forEach(node => {
             options.context);
     }
 
-    context = Object.assign({}, context, options.context);
+    context = { ...context, ...options.context};
 
     if (options.dirname && process.argv.includes('--help')) {
         epilog.examples(node, options.dirname, context);

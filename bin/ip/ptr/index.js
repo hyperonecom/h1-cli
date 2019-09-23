@@ -24,7 +24,7 @@ module.exports = resource => Cli.createCommand('ptr', {
     dirname: __dirname,
     description: `Update PTR record of ${resource.title}`,
     plugins: genericDefaults.plugins,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     params: resource.params,
     handler: handler,
 });

@@ -18,7 +18,7 @@ module.exports = resource => Cli.createCommand('dynamic-dns', {
     dirname: __dirname,
     description: 'Updates or - if not available - creates record set with client IP address',
     plugins: resource.plugins,
-    options: Object.assign({}, options, resource.options),
+    options: { ...options, ...resource.options},
     resource: resource,
     earlyAdoptersOnly: true,
     handler: async args => {

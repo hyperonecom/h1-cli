@@ -20,7 +20,7 @@ module.exports = (resource) => Cli.createCommand('add', {
     dirname: __dirname,
     description: `Add ${resource.title}`,
     resource: resource,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: async args => {
         const remote_resource = await args.helpers.api.get(resource.url(args));
         const resourceService = remote_resource.services.find(service => service.type === 'flavour');

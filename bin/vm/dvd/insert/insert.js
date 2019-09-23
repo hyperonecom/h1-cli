@@ -14,7 +14,7 @@ module.exports = resource => Cli.createCommand('insert', {
     description: `Insert ISO into DVD drive of ${resource.title}`,
     plugins: resource.plugins,
     params: resource.params,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     dirname: __dirname,
     handler: args => args.helpers.api
         .put(args.$node.parent.config.url(args), { iso: args.iso })

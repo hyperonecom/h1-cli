@@ -22,7 +22,7 @@ module.exports = resource => {
             require('bin/_plugins/api'),
         ],
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         handler: async args => args.helpers.api
             .get(`${resource.url(args)}/${args[resource.name]}/inspect`),
     });

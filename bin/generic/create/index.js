@@ -22,7 +22,7 @@ module.exports = resource => {
         priority: 25,
         dirname: `${resource.dirname}/create`,
         resource: resource,
-        options: Object.assign({}, options, resource.options),
+        options: { ...options, ...resource.options},
         handler: async args => {
             const body = {
                 tag: require('lib/tags').createTagObject(args.tag),

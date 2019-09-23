@@ -132,8 +132,7 @@ ava.serial('vm nic life cycle for private network', async t => {
     try {
         const vm = await tests.run(`vm create --no-start ${common.params.createParams}`);
 
-        await tests.resourceLifeCycle('vm nic', Object.assign({
-            stateCreated: 'Online',
+        await tests.resourceLifeCycle('vm nic', {stateCreated: 'Online',
             createParams: `--vm ${vm.id} --type private --network ${network.id}`,
             listParams: `--vm ${vm.id}`,
             showParams: `--vm ${vm.id}`,
@@ -141,8 +140,7 @@ ava.serial('vm nic life cycle for private network', async t => {
             deleteParams: `--vm ${vm.id}`,
             historyParams: `--vm ${vm.id}`,
             schemaRef: '#/components/schemas/netadp',
-            skipFqdn: true,
-        }, commonNicSkip))(t);
+            skipFqdn: true, ...commonNicSkip})(t);
 
         await common.cleanup();
     } finally {
@@ -158,16 +156,14 @@ ava.serial('vm nic life cycle for public network', async t => {
     try {
         const vm = await tests.run(`vm create --no-start ${common.params.createParams} --network ${network.id}`);
 
-        await tests.resourceLifeCycle('vm nic', Object.assign({
-            stateCreated: 'Online',
+        await tests.resourceLifeCycle('vm nic', {stateCreated: 'Online',
             createParams: `--vm ${vm.id} --type public`,
             listParams: `--vm ${vm.id}`,
             showParams: `--vm ${vm.id}`,
             tagParams: `--vm ${vm.id}`,
             deleteParams: `--vm ${vm.id}`,
             historyParams: `--vm ${vm.id}`,
-            schemaRef: '#/components/schemas/netadp',
-        }, commonNicSkip))(t);
+            schemaRef: '#/components/schemas/netadp', ...commonNicSkip})(t);
 
         await common.cleanup();
     } finally {

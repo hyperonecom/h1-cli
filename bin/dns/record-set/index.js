@@ -27,7 +27,7 @@ const category = (resource) => {
         url: () => resource.name,
     };
 
-    resource = Object.assign({}, defaults, resourceDefaults, resource);
+    resource = { ...defaults, ...resourceDefaults, ...resource};
 
     const category = Cli.createCategory(resource.name, {
         description: `Manage your ${resource.name}`,
@@ -37,9 +37,7 @@ const category = (resource) => {
 
     Object.keys(recordTypes).forEach(type => category.addChild(record(type, resource)));
 
-    category.addChild(require('bin/generic/list')(Object.assign({}, resource, {
-        url: args => `zone/${addTrailingDot(args.zone)}/recordset`,
-    })));
+    category.addChild(require('bin/generic/list')({ ...resource, url: args => `zone/${addTrailingDot(args.zone)}/recordset`}));
 
     return category;
 };
@@ -50,19 +48,13 @@ const record = (type, parent) => {
         defaultQuery: `[?type=='${type.toUpperCase()}'][].{id:id, name:name, type:type, ttl:ttl, record:join(',',record[].content)}`,
     });
 
-    const resource = Object.assign({}, parent, {
-        title: `record ${type.toUpperCase()}`,
+    const resource = { ...parent, title: `record ${type.toUpperCase()}`,
         url: args => `zone/${addTrailingDot(args.zone)}`,
-        context: Object.assign({}, parent.context, {
-            listParams: '--zone my-zone',
+        context: { ...parent.context, listParams: '--zone my-zone',
             dns_type: type,
-            dns_value: recordTypes[type].value,
-        }),
-    });
+            dns_value: recordTypes[type].value} };
 
-    category.addChild(require('bin/generic/list')(Object.assign({}, resource, {
-        url: args => `zone/${addTrailingDot(args.zone)}/recordset`,
-    })));
+    category.addChild(require('bin/generic/list')({ ...resource, url: args => `zone/${addTrailingDot(args.zone)}/recordset`}));
     category.addChild(require('./createRecordSet')(resource, type));
     category.addChild(require('./deleteRecordSet')(resource, type));
     category.addChild(require('./upsertRecordSet')(resource, type));

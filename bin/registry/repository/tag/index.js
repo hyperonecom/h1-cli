@@ -16,22 +16,18 @@ module.exports = (parent) => {
         title: `tag in ${parent.name}`,
     };
 
-    const deleteDefault = Object.assign({}, resource, {
-        options: Object.assign(
-            {},
-            parent.options,
-            {
-                [resource.name]: {
-                    description: `${text.toTitleCase(resource.title)} ID`,
-                    type: 'string',
-                    required: true,
-                },
-            }
-        ),
-        context: {
-            deleteParams: '--registry my-registry --repository my-repository',
+    const deleteDefault = { ...resource, options: {
+
+        ...parent.options,
+        [resource.name]: {
+            description: `${text.toTitleCase(resource.title)} ID`,
+            type: 'string',
+            required: true,
         },
-    });
+    },
+    context: {
+        deleteParams: '--registry my-registry --repository my-repository',
+    }};
 
     const category = genericResource(resource);
 

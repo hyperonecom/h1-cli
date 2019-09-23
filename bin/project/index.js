@@ -43,17 +43,15 @@ const category = genericResource(resource);
 
 const active_project = config.get_active_project();
 
-const childDefaults = Object.assign({}, resource, {
-    options: {
-        project: {
-            description: 'Project ID or name. Active project by default',
-            type: 'string',
-            required: !active_project,
-            defaultValue: active_project,
-        },
+const childDefaults = { ...resource, options: {
+    project: {
+        description: 'Project ID or name. Active project by default',
+        type: 'string',
+        required: !active_project,
+        defaultValue: active_project,
     },
-    url: args => `${resource.url(args)}/${args.project}`,
-});
+},
+url: args => `${resource.url(args)}/${args.project}`};
 
 category.addChild(require('./list')(resource));
 category.addChild(require('./transfer')(childDefaults));
@@ -63,18 +61,16 @@ category.addChild(require('./select')(childDefaults));
 category.addChild(require('./limits')(childDefaults));
 category.addChild(require('./logging')(childDefaults));
 
-category.addChild(require('bin/generic/credentials')(Object.assign(
-    {}
-    , childDefaults
-    , {
-        url: args => `${childDefaults.url(args)}/credentialStore`,
-        context: {
-            addParams: '--project my-project',
-            deleteParams: '--project my-project',
-            listParams: '--project my-project',
-            renameParams: '--project my-project',
-        },
-    }
-)));
+category.addChild(require('bin/generic/credentials')({
+
+    ...childDefaults,
+    url: args => `${childDefaults.url(args)}/credentialStore`,
+    context: {
+        addParams: '--project my-project',
+        deleteParams: '--project my-project',
+        listParams: '--project my-project',
+        renameParams: '--project my-project',
+    },
+}));
 
 module.exports = category;

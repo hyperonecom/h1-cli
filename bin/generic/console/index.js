@@ -18,7 +18,7 @@ module.exports = (resource, url_func) => {
         dirname: __dirname,
         description: `Open ${resource.title} console in web-browser`,
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         handler: async args => {
             const instance = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);
             const url = url_func(args, instance);

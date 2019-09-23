@@ -17,7 +17,7 @@ module.exports = (resource, field_name) => {
     return Cli.createCommand(parameter.command || name, {
         description: `Update ${parameter.description} of ${resource.title}`,
         plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options),
+        options: { ...options, ...resource.options},
         handler: args => args.helpers.api
             .post(`${resource.url(args)}/${args[resource.name]}/actions/update_${field_name}`, {
                 [field_name]: args[name],

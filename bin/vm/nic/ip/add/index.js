@@ -13,7 +13,7 @@ const options = {
 module.exports = resource => Cli.createCommand('add', {
     description: `Add IP address to ${resource.title}`,
     plugins: resource.plugins,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     dirname: __dirname,
     handler: args => args.helpers.api
         .post(resource.url(args), { ip: args.ip })

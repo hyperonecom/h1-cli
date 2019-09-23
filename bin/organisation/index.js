@@ -17,16 +17,14 @@ const resource = {
 
 const category = genericResource(resource);
 
-const childDefaults = Object.assign({}, resource, {
-    options: {
-        organisation: {
-            description: 'Organisation ID or name',
-            type: 'string',
-            required: true,
-        },
+const childDefaults = { ...resource, options: {
+    organisation: {
+        description: 'Organisation ID or name',
+        type: 'string',
+        required: true,
     },
-    url: args => `${resource.url(args)}/${args.organisation}`,
-});
+},
+url: args => `${resource.url(args)}/${args.organisation}`};
 
 category.addChild(require('./transfer')(childDefaults));
 module.exports = category;

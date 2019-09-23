@@ -22,7 +22,7 @@ module.exports = resource => {
         description: `Rename ${resource.title}`,
         dirname: __dirname,
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         handler: args => args.helpers.api
             .patch(`${resource.url(args)}/${args[resource.name]}`, {
                 name: args['new-name'],

@@ -38,9 +38,7 @@ module.exports = (resource) => {
     const category = genericResource(defaults);
 
     ['list', 'show', 'delete'].forEach(cmd => {
-        category.addChild(require(`bin/generic/${cmd}`)(Object.assign({}, defaults, {
-            url: args => `${resource.url(args)}/${args[resource.name]}/credential`,
-        })));
+        category.addChild(require(`bin/generic/${cmd}`)({ ...defaults, url: args => `${resource.url(args)}/${args[resource.name]}/credential`}));
     });
 
     ['certificate', 'password'].filter(kind =>

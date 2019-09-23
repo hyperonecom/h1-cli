@@ -50,17 +50,15 @@ const resource = {
 };
 
 
-const actionDefault = Object.assign({}, resource, {
-    options: {
-        [resource.name]: {
-            description: `${text.toTitleCase(resource.title)} ID or name`,
-            type: 'string',
-            required: true,
-        },
+const actionDefault = { ...resource, options: {
+    [resource.name]: {
+        description: `${text.toTitleCase(resource.title)} ID or name`,
+        type: 'string',
+        required: true,
     },
-    url: args => `${resource.url(args)}/${args[resource.name]}`,
-    dirname: __dirname,
-});
+},
+url: args => `${resource.url(args)}/${args[resource.name]}`,
+dirname: __dirname};
 
 const category = genericResource(resource);
 

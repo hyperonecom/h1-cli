@@ -20,10 +20,8 @@ module.exports = (table, parent) => {
         title: `rule ${table} of ${parent.title}`,
     };
 
-    const category = Cli.createCategory(table, Object.assign({}, resource, {
-        description: `Manage ${table} rules of ${parent.title}`,
-        dirname: __dirname,
-    }));
+    const category = Cli.createCategory(table, { ...resource, description: `Manage ${table} rules of ${parent.title}`,
+        dirname: __dirname});
 
     category.addChild(require('./list')(table, resource));
     category.addChild(require('./add')(table, resource));

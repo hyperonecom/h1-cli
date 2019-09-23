@@ -21,24 +21,21 @@ const category = genericResource(resource);
 category.addChild(require('./create')(resource));
 category.addChild(require('./recreate')(resource));
 
-const childDefault = Object.assign({}, resource, {
-    options: {
-        [resource.name]: {
-            description: `${text.toTitleCase(resource.title)} ID or name`,
-            type: 'string',
-            required: true,
-        },
+const childDefault = { ...resource, options: {
+    [resource.name]: {
+        description: `${text.toTitleCase(resource.title)} ID or name`,
+        type: 'string',
+        required: true,
     },
-    url: args => `${resource.url(args)}/${args[resource.name]}`,
+},
+url: args => `${resource.url(args)}/${args[resource.name]}`,
     // dirname: __dirname,
-});
+};
 
 category.addChild(require('./attach')(childDefault));
 category.addChild(require('./process')(childDefault));
 
-const actionDefault = Object.assign({}, resource, childDefault, {
-    dirname: `${__dirname}/action`,
-});
+const actionDefault = { ...resource, ...childDefault, dirname: `${__dirname}/action`};
 
 category.addChild(genericAction(actionDefault, 'restart'));
 

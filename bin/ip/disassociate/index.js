@@ -20,6 +20,6 @@ module.exports = resource => Cli.createCommand('disassociate', {
     dirname: __dirname,
     description: `Disassociate ${resource.title}`,
     plugins: genericDefaults.plugins,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: handler,
 });

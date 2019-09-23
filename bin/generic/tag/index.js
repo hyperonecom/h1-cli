@@ -7,13 +7,11 @@ const text = require('lib/text');
 
 module.exports = resource => {
 
-    const options = Object.assign({}, resource.options, {
-        [resource.name]: {
-            description: `${text.toTitleCase(resource.title)} ID or name`,
-            type: 'string',
-            required: true,
-        },
-    });
+    const options = { ...resource.options, [resource.name]: {
+        description: `${text.toTitleCase(resource.title)} ID or name`,
+        type: 'string',
+        required: true,
+    }};
 
     const subresource = {
         name: 'tag',

@@ -27,7 +27,7 @@ module.exports = resource => {
 
     return Cli.createCommand('download', {
         description: `Download ${resource.title} to a ZFS file`,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         dirname: __dirname,
         resource: resource,
         handler: async args => {

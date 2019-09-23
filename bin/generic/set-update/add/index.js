@@ -6,14 +6,12 @@ const Cli = require('lib/cli');
 module.exports = resource => {
 
     const options = {
-        [resource.parameter_name]: Object.assign(
-            {},
-            {
-                description: `New ${resource.title}`,
-                required: true,
-            },
-            resource.extra_parameter
-        ),
+        [resource.parameter_name]: {
+
+            description: `New ${resource.title}`,
+            required: true,
+            ...resource.extra_parameter,
+        },
     };
 
 
@@ -22,7 +20,7 @@ module.exports = resource => {
         dirname: __dirname,
         plugins: resource.plugins,
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         handler: args => args.helpers.api
             .get(resource.url(args))
             .then(value => [

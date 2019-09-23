@@ -15,7 +15,7 @@ module.exports = resource => Cli.createCommand('create', {
     genericOptions: ['tag'],
     description: `Create ${resource.title}`,
     plugins: genericDefaults.plugins,
-    options: Object.assign({}, options, resource.options),
+    options: { ...options, ...resource.options},
     handler: (args) => {
         const body = {
             tag: require('lib/tags').createTagObject(args.tag),

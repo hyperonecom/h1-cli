@@ -14,13 +14,13 @@ const plugin = {
 
     },
     onBeforeHandler: context => {
-        context.args.helpers = Object.assign(
-            { body: { removeDisks: context.args.disk }}
-            , context.args.helpers
-        );
+        context.args.helpers = {
+            body: { removeDisks: context.args.disk },
+            ...context.args.helpers,
+        };
     },
 };
 
 module.exports = resource => {
-    return genericDelete(Object.assign({}, resource, { plugins: [...resource.plugins, plugin ] }));
+    return genericDelete({ ...resource, plugins: [...resource.plugins, plugin ]});
 };

@@ -14,7 +14,7 @@ const options = {
 module.exports = (resource) => Cli.createCommand('rename', {
     description: `Rename ${resource.title}`,
     plugins: genericDefaults.plugins,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     params: resource.params,
     dirname: __dirname,
     handler: args => args.helpers.api

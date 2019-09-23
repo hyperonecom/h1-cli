@@ -26,7 +26,7 @@ module.exports = resource => Cli.createCommand('add', {
     dirname: __dirname,
     plugins: resource.plugins,
     params: resource.params,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: args => {
         let value = args.value;
         if (args.type === 'subnet' && !value.includes('/')) {

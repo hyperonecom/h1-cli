@@ -25,7 +25,7 @@ module.exports = (parent) => {
         name: 'snapshot',
         defaultQuery: '[].{id:id}',
         url: args => `${parent.url(args)}/${args[parent.name]}/snapshot`,
-        options: Object.assign({}, parent.options, options),
+        options: { ...parent.options, ...options},
         plugins: genericDefaults.plugins,
         commands: ['show', 'create', 'list', 'delete'],
         extraCommands: [],

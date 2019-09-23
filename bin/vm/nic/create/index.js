@@ -23,7 +23,7 @@ module.exports = (resource) => {
     return Cli.createCommand('create', {
         description: `Create ${resource.title}`,
         plugins: resource.plugins,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         genericOptions: ['tag'],
         dirname: __dirname,
         handler: (args) => {

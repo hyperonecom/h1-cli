@@ -29,7 +29,7 @@ module.exports = resource => Cli.createCommand('add', {
     plugins: resource.plugins,
     params: resource.params,
     resource: resource,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: args => {
 
         if (!args.sshkey && !args['sshkey-file']) {

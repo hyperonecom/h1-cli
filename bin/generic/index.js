@@ -10,7 +10,7 @@ module.exports = function(resource) {
         title: resource.name,
     };
 
-    resource = Object.assign({}, defaults, resourceDefaults, resource);
+    resource = { ...defaults, ...resourceDefaults, ...resource};
 
     const category = Cli.createCategory(resource.name, {
         description: resource.description || `Manage your ${resource.title}`,

@@ -48,7 +48,7 @@ module.exports = (table, resource) => Cli.createCommand('add', {
     description: `Add ${resource.title}`,
     plugins: resource.plugins,
     params: resource.params,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: args => args.helpers.api
         .post(`firewall/${args.firewall}/${table}`, {
             name: args.name,

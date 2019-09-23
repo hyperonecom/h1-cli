@@ -25,7 +25,7 @@ module.exports = resource => Cli.createCommand('ssh', {
     description: `Connect to ${resource.title} using SSH`,
     resource: resource,
     dirname: __dirname,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: async args => {
         const vm = await args.helpers.api.get(resource.url(args));
         const username = args.username || vm.data.username || 'guru';

@@ -15,7 +15,7 @@ module.exports = resource => {
     return Cli.createCommand('history', {
         description: `History of ${resource.title}`,
         dirname: __dirname,
-        options: Object.assign({}, options, resource.options),
+        options: { ...options, ...resource.options},
         resource: resource,
         handler: args => {
             args.query = '[].{id:id,name:name,createdBy:createdBy,queued:queued,state:state}';

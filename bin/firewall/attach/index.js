@@ -24,7 +24,7 @@ module.exports = resource => Cli.createCommand('attach', {
     dirname: __dirname,
     description: `Attach ${resource.title} to a network`,
     plugins: resource.plugins,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: handler,
     params: resource.params,
 });

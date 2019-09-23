@@ -23,7 +23,7 @@ module.exports = resource => Cli.createCommand('env', {
     plugins: defaults.plugins,
     dirname: __dirname,
     params: resource.params,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: args => args.helpers.api.get(resource.url(args))
         .then(token => {
             if (!args.shell || !shell.set_environment[args.shell]) {

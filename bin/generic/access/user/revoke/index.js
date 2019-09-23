@@ -16,7 +16,7 @@ module.exports = resource => Cli.createCommand('revoke', {
     plugins: resource.plugins,
     params: resource.params,
     context: resource.context,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     handler: args => args.helpers.api
         .delete(`${resource.url(args)}/${args.email}`)
         .then(result => args.helpers.sendOutput(args, result)),

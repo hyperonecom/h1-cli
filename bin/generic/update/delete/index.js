@@ -6,10 +6,10 @@ module.exports = (resource, field_name) => {
     const parameter = resource.schema[field_name];
     const name = rmRight(deCamelCase(parameter.name || field_name), 's');
     const options = {
-        [name]: Object.assign({},
-            parameter,
-            {required: true}
-        ),
+        [name]: {
+            ...parameter,
+            required: true,
+        },
         [resource.name]: {
             description: `${resource.title} ID or name`,
             type: 'string',
@@ -20,7 +20,7 @@ module.exports = (resource, field_name) => {
     return Cli.createCommand('delete', {
         description: `Delete ${parameter.description} from ${resource.title}`,
         plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options),
+        options: { ...options, ...resource.options},
         handler: async args => {
             const obj = await args.helpers.api
                 .get(`${resource.url(args)}/${args[resource.name]}`);

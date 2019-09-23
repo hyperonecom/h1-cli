@@ -18,7 +18,7 @@ module.exports = resource => Cli.createCommand('log', {
     description: `Log Serial Console buffer of ${resource.title}`,
     plugins: resource.plugins,
     params: resource.params,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     dirname: __dirname,
     handler: async args => {
         if (args.follow) {

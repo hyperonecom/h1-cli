@@ -7,8 +7,7 @@ module.exports = resource => {
         description: 'Manage your notifications',
     });
 
-    category.addChild(require('bin/generic/set-update')(Object.assign({}, resource, {
-        url: args => `${resource.url(args)}/threshold/credits/levels`,
+    category.addChild(require('bin/generic/set-update')({ ...resource, url: args => `${resource.url(args)}/threshold/credits/levels`,
         title: 'credits limit',
         name: 'credits',
         update_name: 'limit',
@@ -17,8 +16,7 @@ module.exports = resource => {
             addParams: '--project my-project',
             listParams: '--project my-project',
             deleteParams: '--project my-project',
-        },
-    })));
+        }}));
 
     return category;
 };

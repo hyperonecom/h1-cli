@@ -22,7 +22,7 @@ module.exports = resource => {
         description: `Transfer ${resource.title} to other project`,
         dirname: __dirname,
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options},
         handler: args => args.helpers.api
             .post(`${args.$node.parent.config.url(args)}/${args[resource.name]}/actions`, {
                 name: 'transfer',

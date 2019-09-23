@@ -27,7 +27,7 @@ module.exports = resource => {
         dirname: __dirname,
         plugins: resource.plugins,
         resource,
-        options: Object.assign({}, options, resource.options),
+        options: { ...options, ...resource.options},
         handler: async args => {
             const ws = await args.helpers.api.wsLogs(`${resource.url(args)}/${args[resource.name]}/log`);
             let count  = 0;

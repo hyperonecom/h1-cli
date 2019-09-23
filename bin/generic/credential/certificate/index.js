@@ -23,9 +23,7 @@ module.exports = parent => {
     const category = genericResource(resource);
 
     ['list', 'show', 'rename', 'delete'].forEach(cmd => {
-        category.addChild(require(`bin/generic/${cmd}`)(Object.assign({}, resource, {
-            url: args => `${resource.url(args)}/credential/certificate`,
-        })));
+        category.addChild(require(`bin/generic/${cmd}`)({ ...resource, url: args => `${resource.url(args)}/credential/certificate`}));
     });
 
     category.addChild(require('./add')(resource));

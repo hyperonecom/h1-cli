@@ -15,7 +15,7 @@ module.exports = resource => {
     return Cli.createCommand('extend', {
         description: `Extend ${resource.title}`,
         plugins: resource.plugins,
-        options: Object.assign({}, options, resource.options),
+        options: { ...options, ...resource.options},
         handler: args => args.helpers.api
             .post(`${resource.url(args)}/${args[resource.name]}/actions`, {
                 name: 'extend', data: {},

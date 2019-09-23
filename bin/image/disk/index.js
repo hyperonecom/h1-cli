@@ -14,7 +14,7 @@ module.exports = resource => Cli.createCommand('disk', {
     description: `List all disks of ${resource.title}`,
     dirname: __dirname,
     plugins: resource.plugins,
-    options: Object.assign({}, resource.options, options),
+    options: { ...resource.options, ...options},
     params: resource.params,
     handler: async args => {
         args.query = '[].{id:disk.id,name:disk.name,type:type,size:size}';

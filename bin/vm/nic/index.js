@@ -30,9 +30,7 @@ const resource = {
     },
 };
 
-const rootChildResource = Object.assign({}, resource, {
-    url: () => 'netadp',
-});
+const rootChildResource = { ...resource, url: () => 'netadp'};
 
 const category = genericResource(resource);
 

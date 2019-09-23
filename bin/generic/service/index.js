@@ -26,17 +26,13 @@ module.exports = (parent) => {
         url: args => `${parent.url(args)}/${args[parent.name]}/services`,
         commands: ['show', 'list'],
         plugins: genericDefaults.plugins,
-        context: Object.assign({}, parent.context, {
-            parent_name: parent.name,
-            showParams: `--${parent.name} my-${parent.name}`,
-        }),
-        options: Object.assign({}, parent.options, {
-            [parent.name]: {
-                description: `${text.toTitleCase(parent.title)} ID or name`,
-                type: 'string',
-                required: true,
-            },
-        }),
+        context: { ...parent.context, parent_name: parent.name,
+            showParams: `--${parent.name} my-${parent.name}`},
+        options: { ...parent.options, [parent.name]: {
+            description: `${text.toTitleCase(parent.title)} ID or name`,
+            type: 'string',
+            required: true,
+        }},
     };
 
     const cmd = parent.serviceCommands || ['list', 'show'];
@@ -50,9 +46,7 @@ module.exports = (parent) => {
 
     cmd.forEach(cmd =>
         category.addChild(require(availableCommands[cmd].path)(
-            Object.assign({}, resource, {
-                url: availableCommands[cmd].url,
-            })
+            { ...resource, url: availableCommands[cmd].url}
         ))
     );
 

@@ -36,7 +36,7 @@ const supported_label = supported_types
 module.exports = (resource) => Cli.createCommand('import', {
     description: `Import ${supported_label} records of ${resource.title} from BIND-compatible format`,
     plugins: resource.plugins,
-    options: Object.assign({}, options, resource.options),
+    options: { ...options, ...resource.options},
     dirname: __dirname,
     handler: (args) => args.helpers.api
         .get(`${args.$node.parent.config.url(args)}/${args.zone}`)
