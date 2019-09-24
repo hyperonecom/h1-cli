@@ -54,56 +54,84 @@ ava.serial('dns zone export', async t => {
 const recordTypes = {
     a: {
         values: ['127.0.0.2', '127.0.0.3'],
-        expected: ['127.0.0.2'],
+        expected: {
+            section: 'answers',
+            values: ['127.0.0.2'],
+        },
+
     },
     aaaa: {
         values: ['fdda:5cc1:23:4::1f', 'fdda:5cc1:23:4::1e'],
-        expected: ['fdda:5cc1:23:4::1f'],
+        expected: {
+            section: 'answers',
+            values: ['fdda:5cc1:23:4::1f'],
+        },
     },
     cname: {
         values: ['cname.example.com.', 'cname2.example.com.'],
-        expected: ['cname.example.com'],
+        expected: {
+            section: 'answers',
+            values: ['cname.example.com'],
+        },
     },
     txt: {
-        values: ['"txt.example.com"', '"txt2.example.com"'],
-        expected: [
-            [Buffer.from('"txt.example.com"')],
-        ],
+        values: ['txt.example.com', 'txt2.example.com'],
+        expected: {
+            section: 'answers',
+            values: [
+                [Buffer.from('txt.example.com')],
+            ],
+        },
     },
     mx: {
         values: ['10 mx.example.com.', '5 mx.example.com.'],
-        expected: [{ preference: 10, exchange: 'mx.example.com' }],
+        expected: {
+            section: 'answers',
+            values: [{ preference: 10, exchange: 'mx.example.com' }],
+        },
     },
     caa: {
         values: ['0 issue "comodoca.com"'],
-        expected: [{
-            flags: 0,
-            tag: 'issue',
-            value: 'comodoca.com',
-            issuerCritical: false,
-        }],
+        expected: {
+            section: 'answers',
+            values: [{
+                flags: 0,
+                tag: 'issue',
+                value: 'comodoca.com',
+                issuerCritical: false,
+            }],
+        },
     },
     ns: {
         values: ['ns3.example.com.', 'ns4.example.com.'],
-        expected: ['ns3.example.com'],
+        expected: {
+            section: 'authorities',
+            values: ['ns3.example.com'],
+        },
     },
     srv: {
         values: ['10 1 5060 s1.example.com.', '5 1 5060 s2.example.com.'],
-        expected: [{ priority: 10, weight: 1, port: 5060, target: 's1.example.com' }],
+        expected: {
+            section: 'answers',
+            values: [{ priority: 10, weight: 1, port: 5060, target: 's1.example.com' }],
+        },
     },
     soa: {
         values: [
             'pns.hyperone.com. hostmaster.hyperone.com. 2018092401 15 180 1209600 1800',
         ],
-        expected: [{
-            mname: 'pns.hyperone.com',
-            rname: 'hostmaster.hyperone.com',
-            serial: 2018092401,
-            refresh: 15,
-            retry: 180,
-            expire: 1209600,
-            minimum: 1800,
-        }],
+        expected: {
+            section: 'answers',
+            values: [{
+                mname: 'pns.hyperone.com',
+                rname: 'hostmaster.hyperone.com',
+                serial: 2018092401,
+                refresh: 15,
+                retry: 180,
+                expire: 1209600,
+                minimum: 1800,
+            }],
+        },
     },
 };
 
@@ -156,10 +184,13 @@ Object.entries(recordTypes).forEach(([type, { expected, values }]) => {
             // Create record-set
             await tests.run(`dns record-set ${type} create --name ${name} --zone ${zone.dnsName} --value '${values[0]}'`);
             await test_record_values(t, zone, type, full_name, [values[0]]);
+            await tests.delay(5 * 1000);
             const response = await queryNameserver(full_name, type.toUpperCase(), zone.nameserver);
-            t.true(response.answers.length > 0);
-            t.true(response.answers[0].type === type.toUpperCase());
-            t.deepEqual(response.answers.map(x => x.data), expected);
+            t.true(response[expected.section].length > 0);
+            t.deepEqual(
+                response[expected.section].filter(x => x.type === type.toUpperCase()).map(x => x.data).map(x => x.toString('utf-8')),
+                expected.values.map(x => x.toString('utf-8'))
+            );
         } finally {
             // Clean up
             await tests.remove('dns zone', zone);
