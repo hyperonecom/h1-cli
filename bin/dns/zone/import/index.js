@@ -64,7 +64,6 @@ module.exports = (resource) => Cli.createCommand('import', {
                 // Upsert
                 const need_to_upsert = set_difference(local_rrset_names, need_to_remove);
                 for (const rrset_name of need_to_upsert) {
-                    console.log({rrset_name});
                     const records = local_rrset_type
                         .filter(rrset => formatRecordName(rrset.name, remote_zone.dnsName) === rrset_name)
                         .map(record => recordTypes[type].to_content(record, remote_zone))
