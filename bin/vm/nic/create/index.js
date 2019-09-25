@@ -28,7 +28,7 @@ module.exports = (resource) => {
         dirname: __dirname,
         handler: (args) => {
             const body = {
-                type: args.type,
+                service: args.type,
                 tag: require('lib/tags').createTagObject(args.tag),
             };
             if (args.network) {
