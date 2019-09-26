@@ -51,19 +51,19 @@ h1 journal create --name my-server-log
 #### Create a write-only password for client
 
 ```bash
-h1 journal credential password add --log my-server-log --name syslog --password my-strong-secret
+h1 journal credential password add --journal my-server-journal --name syslog --password my-strong-secret
 ```
 
 #### Display today's log entries
 
 ```bash
-h1 journal stream --log my-server-log
+h1 journal stream --journal my-server-log
 ```
 
 #### View live-stream of log entries
 
 ```bash
-h1 journal stream --log my-server-log --follow
+h1 journal stream --journal my-server-log --follow
 ```
 
 ## h1 journal create
@@ -275,13 +275,13 @@ Stream or read messages of Journal
 #### Display today's log entries
 
 ```bash
-h1 journal stream --log my-server-log
+h1 journal stream --journal my-server-log
 ```
 
 #### View live-stream of log entries for the Nginx application
 
 ```bash
-h1 journal stream --log my-server-log --follow --filter appName=~nginx
+h1 journal stream --journal my-server-log --follow --filter appName=~nginx
 ```
 
 #### Filtering
@@ -324,7 +324,7 @@ Log messages to Journal
 ### Example
 
 ```
-echo 'Log message' | h1 journal logger --log my-log --token my-secret-token --hostname srv-01
+echo 'Log message' | h1 journal logger --journal my-log --token my-secret-token --hostname srv-01
 ```
 
 ### Required arguments

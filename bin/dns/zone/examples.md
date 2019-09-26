@@ -1,5 +1,5 @@
 # Create new zone
 
 ```bash
-{{command_name}} create --name my-domain.tld
+{{command_name}} create --name my-domain.tld --type public
 ```

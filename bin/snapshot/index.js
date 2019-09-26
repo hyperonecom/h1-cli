@@ -24,7 +24,7 @@ const schema = {
 
 const resource = {
     name: 'snapshot',
-    defaultQuery: '[].{id:id,name:name,size:sizeUsed,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id,name:name,type:flavour, size:sizeUsed, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'snapshot',
     extraCommands: ['create'],
     dirname: __dirname,
