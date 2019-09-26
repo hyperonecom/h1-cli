@@ -8,7 +8,7 @@ const text = require('lib/text');
 
 const resource = {
     name: 'container',
-    defaultQuery: '[].{id:id,name:name,image:image,state:state }',
+    defaultQuery: '[].{id:id, name:name, type:flavour, image:image, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'container',
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,

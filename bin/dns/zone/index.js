@@ -32,7 +32,7 @@ const schema = {
 };
 const resource = {
     name: 'zone',
-    defaultQuery: '[].{id:id, name:name, dnsName:dnsName, flavour:flavour}',
+    defaultQuery: '[].{id:id, name:name, type:flavour, dnsName:dnsName, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
     plugins: defaults.plugins,
     url: () => 'zone',
     title: 'DNS Zone',

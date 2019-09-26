@@ -4,7 +4,7 @@ const genericResource = require('bin/generic');
 
 const resource = {
     name: 'organisation',
-    defaultQuery: '[].{id:id,name:name,billing:billing.company,active:active,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id, name:name, billing:billing.company, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'organisation',
     plugins: [
         require('bin/_plugins/loginRequired'),

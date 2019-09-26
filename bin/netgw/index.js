@@ -23,7 +23,7 @@ const schema = {
 };
 const resource = {
     name: 'netgw',
-    defaultQuery: '[].{id:id,name:name,IP:primaryIP,network:network, tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id, name:name, type:flavour, IP:primaryIP, network:network, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'netgw',
     title: 'Network gateway',
     schema,

@@ -120,7 +120,7 @@ Manage your DNS Zone
 #### Create new zone
 
 ```bash
-h1 dns zone create --name my-domain.tld
+h1 dns zone create --name my-domain.tld --type public
 ```
 
 ## h1 dns zone create

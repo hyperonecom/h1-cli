@@ -26,7 +26,7 @@ const schema = {
 
 const resource = {
     name: 'project',
-    defaultQuery: '[].{id:id,name:name,tags:join(\',\',keys(tag || `{}`) ), active: active, organisation:organisation }',
+    defaultQuery: '[].{id:id, name:name, type:flavour, organisation:organisation, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'project',
     plugins: [
         require('bin/_plugins/loginRequired'),
