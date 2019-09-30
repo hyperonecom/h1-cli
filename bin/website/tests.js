@@ -103,12 +103,13 @@ ava.serial('website reachable through custom domain', async t => {
     await tests.run(`website stop --website ${website.id}`);
     const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
     try {
-        const rrset_txt = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
+        const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
         await tests.delay(5 * 1000);
-        const dns_response = await tests.dnsResolve(rrset_txt.name, 'CNAME');
+        const host = rrset.name.slice(0, rrset.name.length - 1);
+        const dns_response = await tests.dnsResolve(rrset.name, 'CNAME');
         t.true(dns_response.includes(website.fqdn));
 
-        await tests.run(`website domain add --website ${website.id} --domain ${rrset_txt.name}`);
+        await tests.run(`website domain add --website ${website.id} --domain ${host}`);
         await tests.run(`website start --website ${website.id}`);
         // Upload file
         const token = await tests.getToken();
@@ -119,7 +120,7 @@ ava.serial('website reachable through custom domain', async t => {
         await tests.delay(5 * 1000);
         // Test content
         for (const proto of ['http', 'https']) {
-            const resp = await tests.get(`${proto}://${rrset_txt.name.slice(0, rrset_txt.name.length - 1)}/`);
+            const resp = await tests.get(`${proto}://${rrset.name.slice(0, rrset.name.length - 1)}/`);
             t.true(resp.text === token);
         }
     } finally {
