@@ -188,7 +188,7 @@ Object.entries(recordTypes).forEach(([type, { expected, values }]) => {
             const response = await queryNameserver(full_name, type.toUpperCase(), zone.nameserver);
             t.true(response[expected.section].length > 0);
             t.deepEqual(
-                response[expected.section].filter(x => x.type === type.toUpperCase()).map(x => x.data).map(x => x.toString('utf-8')),
+                response[expected.section].filter(x => x.type === type.toUpperCase()).map(x => x.data.toString('utf-8')),
                 expected.values.map(x => x.toString('utf-8'))
             );
         } finally {
@@ -285,5 +285,32 @@ ava.serial('dns responds on wildcard requests', async t => {
     await tests.run(`dns record-set a create --name '*.wildcard' --zone ${zone.id} --value ${value}`);
     const response = await queryNameserver(`anything.wildcard.${zone.dnsName}`, 'A', zone.nameserver);
     t.deepEqual(response.answers.map(x => x.data), [value]);
+    await tests.remove('dns zone', zone);
+});
+
+ava.serial('dns resolve cname at apex', async t => {
+    const ip = '2.2.2.2';
+
+    const content = await tests.getToken();
+    const zone = await tests.run(`dns zone create --type public --name ${tests.getName(t.title)}.com`);
+
+    await tests.run(`dns record-set cname create --name '@' --zone ${zone.id} --value ${ip}.xip.io`);
+    await tests.run(`dns record-set txt create --name '@' --zone ${zone.id} --value ${content}`);
+
+    const responseA = await queryNameserver(zone.dnsName, 'A', zone.nameserver);
+    t.deepEqual(
+        responseA.answers.filter(x => x.type === 'A').map(x => x.data),
+        [ip]
+    );
+
+    const responseTXT = await queryNameserver(zone.dnsName, 'TXT', zone.nameserver);
+    t.deepEqual(
+        responseTXT.answers.filter(x => x.type === 'TXT').map(x => x.data.toString('utf-8')),
+        [content]
+    );
+
+    const responseCNAME = await queryNameserver(zone.dnsName, 'CNAME', zone.nameserver);
+    t.true(responseCNAME.answers.length == 0);
+
     await tests.remove('dns zone', zone);
 });
