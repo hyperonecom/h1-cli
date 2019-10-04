@@ -128,6 +128,39 @@ ava.serial('website reachable through custom domain', async t => {
     }
 });
 
+ava.serial('website reachable through apex record', async t => {
+    const password = await tests.getToken();
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+    await tests.run(`website stop --website ${website.id}`);
+    const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
+    try {
+        const rrset = await tests.run(`dns record-set cname upsert --name '@' --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
+        await tests.run(`dns record-set txt upsert --name '@' --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
+        await tests.delay(5 * 1000);
+        const host = rrset.name.slice(0, rrset.name.length - 1);
+        const dns_response = await tests.dnsResolve(rrset.name, 'TXT');
+        t.true(dns_response.includes(website.fqdn));
+
+        await tests.run(`website domain add --website ${website.id} --domain ${host}`);
+        await tests.run(`website start --website ${website.id}`);
+        // Upload file
+        const token = await tests.getToken();
+        const files = await lsWebsite(website, { password }, '/data');
+        t.true(files.some(f => f.filename === 'public'));
+        await ssh.execResource(website, { password }, 'ls -lah /data/public');
+        await putFileWebsite(website, { password }, 'public/index.html', token);
+        await tests.delay(5 * 1000);
+        // Test content
+        for (const proto of ['http', 'https']) {
+            const resp = await tests.get(`${proto}://${rrset.name.slice(0, rrset.name.length - 1)}/`);
+            t.true(resp.text === token);
+        }
+    } finally {
+        await tests.remove('website', website);
+    }
+});
+
+
 ['h1cr.io/website/nginx-static:latest', 'h1cr.io/website/php-apache:7.2', 'h1cr.io/website/php-apache:5.6'].forEach(image => {
     ava.serial(`website reachable index.html - ${image}`, async t => {
         const sshKeyPair = await ssh.generateKey();
