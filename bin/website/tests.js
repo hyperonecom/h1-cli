@@ -21,6 +21,13 @@ const putFileWebsite = (website, auth, path, content) => {
     }, auth));
 };
 
+const mkDirWebsite = (website, auth, path) => {
+    console.log(new Date(), `Make directory in website ${website.id} at '${path}'`);
+    return ssh.mkDir(path, Object.assign({
+        host: website.fqdn,
+        username: website.id,
+    }, auth));
+};
 const rmFileWebsite = (website, auth, path) => {
     console.log(new Date(), `Remove file of website ${website.id} at '${path}'`);
     return ssh.rmFile(path, Object.assign({
@@ -214,13 +221,27 @@ ava.serial('website stop & start', async t => {
 
 const languages = {
     php: '<?php error_reporting(E_ALL); file_put_contents("/data/public/test.txt", "TOKEN"); ?>',
+    node: `const rand = Math.random();
+    require('http').createServer(
+        (req, res) => res.end((25).toString())
+    ).listen(require('process').env.PORT);`,
 };
+
 const images = {
     'h1cr.io/website/php-apache:7.2': {
         code: languages.php,
     },
     'h1cr.io/website/php-apache:5.6': {
         code: languages.php,
+    },
+    'h1cr.io/website/node:10': {
+        code: languages.node,
+    },
+    'h1cr.io/website/node:11': {
+        code: languages.node,
+    },
+    'h1cr.io/website/node:12': {
+        code: languages.node,
     },
 };
 
@@ -271,7 +292,6 @@ ava.serial('website snapshot management', async t => {
         t.true(snapshots.some(x => x.id === snapshotName));
         snapshots = await tests.run(`website snapshot list --website ${website.name}`);
         t.true(!snapshots.some(x => x.id === snapshotName));
-        await tests.delay(5);
     } finally {
         await tests.remove('website', website);
     }
@@ -351,4 +371,21 @@ ava.serial('website snapshot receive to zfs', async t => {
     t.true(readed.includes(content));
 
     await tests.runProcess('zfs destroy -r h1_cli_test');
+});
+
+ava.serial('website restart nodejs app', async t => {
+    const password = await tests.getToken();
+    const image = 'h1cr.io/website/node:12';
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website-dedicated --image '${image}' --password ${password}`);
+    const content = images[image].code;
+    await mkDirWebsite(website, { password}, 'app');
+    await putFileWebsite(website, { password }, 'app/index.js', content);
+    await tests.run(`website restart --website ${website.id}`);
+    await tests.delay(5 * 1000);
+    const response_before = await tests.get(`http://${website.fqdn}/`);
+    await tests.run(`website restart --website ${website.id}`);
+    const response_after = await tests.get(`http://${website.fqdn}/`);
+    await tests.delay(5 * 1000);
+    t.true(response_after.body != response_before.body);
+    await tests.remove('website', website);
 });
