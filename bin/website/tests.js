@@ -8,6 +8,7 @@ const ssh = require('../../lib/ssh');
 
 const commonCreateParams = '--type website --image h1cr.io/website/php-apache:7.2';
 
+
 ava.serial('website life cycle', tests.resourceLifeCycle('website', {
     createParams: `--name ${tests.getName('website-life-cycle')} ${commonCreateParams} `,
     stateCreated: 'Running',
@@ -47,7 +48,7 @@ const lsWebsite = (website, auth, path) => {
 ava.serial('website empty page results', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     // TODO: Validate default page according scope
-    await tests.delay(5); // Workaround for full page startup
+    await tests.delay(tests.DELAY.website_start);
     const resp = await tests.get(`http://${website.fqdn}/`).ok(res => [403, 200].includes(res.status));
     t.true(resp.text.includes("You don't have permission to access /"));
     await tests.remove('website', website);
@@ -73,7 +74,7 @@ ava.serial('website management domain', async t => {
     try {
         const rrset_txt = await tests.run(`dns record-set txt upsert --name ${rset_txt} --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
         const rrset_cname = await tests.run(`dns record-set cname upsert --name ${rset_cname} --zone ${zone.id} --value '${website.fqdn}' --ttl 1`);
-        await tests.delay(5 * 1000);
+        await tests.delay(tests.DELAY.dns_propagate);
 
         const txt_response = (await tests.dnsResolve(rrset_txt.name, 'TXT')).flat(2);
         t.true(txt_response.includes(website.fqdn));
@@ -111,7 +112,7 @@ ava.serial('website reachable through custom domain', async t => {
     const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
     try {
         const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
-        await tests.delay(5 * 1000);
+        await tests.delay(tests.DELAY.dns_propagate);
         const host = rrset.name.slice(0, rrset.name.length - 1);
         const dns_response = await tests.dnsResolve(rrset.name, 'CNAME');
         t.true(dns_response.includes(website.fqdn));
@@ -124,7 +125,7 @@ ava.serial('website reachable through custom domain', async t => {
         t.true(files.some(f => f.filename === 'public'));
         await ssh.execResource(website, { password }, 'ls -lah /data/public');
         await putFileWebsite(website, { password }, 'public/index.html', token);
-        await tests.delay(5 * 1000);
+        await tests.delay(tests.DELAY.website_start);
         // Test content
         for (const proto of ['http', 'https']) {
             const resp = await tests.get(`${proto}://${rrset.name.slice(0, rrset.name.length - 1)}/`);
@@ -143,7 +144,7 @@ ava.serial('website reachable through apex record', async t => {
     try {
         const rrset = await tests.run(`dns record-set cname upsert --name '@' --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
         await tests.run(`dns record-set txt upsert --name '@' --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
-        await tests.delay(5 * 1000);
+        await tests.delay(tests.DELAY.dns_propagate);
         const host = rrset.name.slice(0, rrset.name.length - 1);
         const dns_response = await tests.dnsResolve(rrset.name, 'TXT');
         t.true(dns_response.includes(website.fqdn));
@@ -223,8 +224,8 @@ const languages = {
     php: '<?php error_reporting(E_ALL); file_put_contents("/data/public/test.txt", "TOKEN"); ?>',
     node: `const rand = Math.random();
     require('http').createServer(
-        (req, res) => res.end((25).toString())
-    ).listen(require('process').env.PORT);`,
+        (req, res) => res.end(rand.toString())
+    ).listen(process.env.PORT);`,
 };
 
 const images = {
@@ -381,11 +382,11 @@ ava.serial('website restart nodejs app', async t => {
     await mkDirWebsite(website, { password}, 'app');
     await putFileWebsite(website, { password }, 'app/index.js', content);
     await tests.run(`website restart --website ${website.id}`);
-    await tests.delay(5 * 1000);
+    await tests.delay(tests.DELAY.website_start);
     const response_before = await tests.get(`http://${website.fqdn}/`);
     await tests.run(`website restart --website ${website.id}`);
     const response_after = await tests.get(`http://${website.fqdn}/`);
-    await tests.delay(5 * 1000);
+    await tests.delay(tests.DELAY.website_start);
     t.true(response_after.body != response_before.body);
     await tests.remove('website', website);
 });
