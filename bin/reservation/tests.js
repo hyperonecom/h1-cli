@@ -26,10 +26,10 @@ ava.serial('reservation assign limits', async t => {
     t.true(reservation_list.some(x => x.id === reservation.id));
     const token = await tests.getToken();
 
-    const common_vm_params = `--type ${vm_flavour} --no-start --password ${token}`;
-    const vm_wrong_type = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} ${common_vm_params}`);
-    const vm_valid = await tests.run(`vm create --name ${tests.getName(t.title, 'vm valid')} ${common_vm_params} `);
-    const vm_over_limit = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} ${common_vm_params}`);
+    const common_vm_params = `--no-start --password ${token}`;
+    const vm_wrong_type = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} --type a1.nano ${common_vm_params}`);
+    const vm_valid = await tests.run(`vm create --name ${tests.getName(t.title, 'vm valid')} --type ${vm_flavour} ${common_vm_params} `);
+    const vm_over_limit = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} --type ${vm_flavour} ${common_vm_params}`);
 
     await t.throwsAsync(() => tests.run(`reservation assign --reservation ${reservation.name} --resource ${vm_wrong_type.id}`));
     await tests.run(`reservation assign --reservation ${reservation.name} --resource ${vm_valid.id}`);
@@ -37,7 +37,7 @@ ava.serial('reservation assign limits', async t => {
 
     const assigned = await tests.run(`reservation show --reservation ${reservation.id}`);
     t.true(assigned.assigned === vm_valid.id);
-    t.true(assigned.state === 'Attached');
+    t.true(assigned.state === 'Attached', `State of resource: ${assigned.state}`);
 
     await tests.remove('vm', vm_valid);
     await tests.remove('vm', vm_over_limit);
@@ -47,7 +47,8 @@ ava.serial('reservation assign limits', async t => {
 ava.serial('reservation extend', async t => {
     const reservation = await tests.run(`reservation create --name ${tests.getName(t.title, 'vm-wrong-type')} --type '${reservation_flavour}'`);
     await tests.delay(tests.DELAY.reservation_bill);
-    t.true(reservation.state === 'Detached');
+    const refreshed = await tests.run(`reservation show --reservation ${reservation.id}`);
+    t.true(refreshed.state === 'Detached');
     await tests.run(`reservation extend --reservation ${reservation.name}`);
     await t.throwsAsync(() => tests.run(`reservation extend --reservation ${reservation.name}`));
     // TODO: Add verification real change of billing period
