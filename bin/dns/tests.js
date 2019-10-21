@@ -314,3 +314,13 @@ ava.serial('dns resolve cname at apex', async t => {
 
     await tests.remove('dns zone', zone);
 });
+
+ava.serial('dns NS record-set match nameservers', async t => {
+    const zone = await tests.run(`dns zone create --type public --name ${tests.getName(t.title)}.com`);
+    try {
+        await test_record_values(t, zone, 'ns', zone.dnsName, zone.nameserver.map(x => `${x}.`));
+    } finally {
+        await tests.remove('dns zone', zone);
+
+    }
+});
