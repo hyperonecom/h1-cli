@@ -45,7 +45,7 @@
     "structured-cli": "^1.0.5",
     "superagent": "^5.1.0",
     "tabula": "^1.10.0",
-    "ws": "^7.1.2",
+    "ws": "^7.2.0",
     "ws-streamify": "^0.1.4"
   },
   "pkg": {
@@ -68,8 +68,8 @@
     "ava": "^2.4.0",
     "babel-eslint": "^10.0.3",
     "dns-socket": "^4.2.0",
-    "eslint": "^6.4.0",
-    "fast-glob": "^3.0.4",
+    "eslint": "^6.6.0",
+    "fast-glob": "^3.1.0",
     "imap": "^0.8.19",
     "mysql2": "^1.7.0",
     "node-forge": "^0.7.6",
