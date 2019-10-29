@@ -63,7 +63,7 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@hyperone/eslint-config": "^1.0.4",
+    "@hyperone/eslint-config": "^1.0.5",
     "ajv": "^6.10.2",
     "ava": "^2.4.0",
     "babel-eslint": "^10.0.3",
