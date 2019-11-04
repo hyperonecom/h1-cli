@@ -18,7 +18,7 @@ module.exports = (resource, url_func) => {
         dirname: __dirname,
         description: `Open ${resource.title} console in web-browser`,
         resource: resource,
-        options: Object.assign({}, resource.options, options),
+        options: { ...resource.options, ...options },
         handler: async args => {
             const instance = await args.helpers.api.get(`${resource.url(args)}`);
             const url = await url_func(args, instance);
@@ -29,7 +29,7 @@ module.exports = (resource, url_func) => {
             console.error();
             console.error('If the console does not automatically open, please copy this address and paste it into your browser.');
 
-            return Open(url).then(() => {});
+            return Open(url, { url: true }).then(() => {});
         },
     });
 };
