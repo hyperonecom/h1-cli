@@ -269,7 +269,7 @@ ISO import
 
 ### Syntax
 
-```h1 iso create | --name NAME [--tag TAG [--tag TAG ...]] [--source-file SOURCE-FILE] [--source-url SOURCE-URL]```
+```h1 iso create | --name NAME [--tag TAG [--tag TAG ...]] [--source-file SOURCE-FILE] [--source-url SOURCE-URL] [--no-progress]```
 ### Examples
 
 #### Create an ISO using a local file
@@ -296,6 +296,7 @@ h1 iso create --name myiso --source-url http://example.com/some.iso
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--source-file SOURCE-FILE``` |  | Source file for ISO import. |
 | ```--source-url SOURCE-URL``` |  | Source url for ISO import. Required if source-file is not specified. |
+| ```--no-progress``` |  | Disable progress bar |
 
 ## h1 iso tag
 
