@@ -40,7 +40,7 @@ const lsWebsite = (website, auth, path) => {
 ava.serial('website empty page results', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     // TODO: Validate default page according scope
-    await tests.delay(5); // Workaround for full page startup
+    await tests.delay(5 * 1000); // Workaround for full page startup
     const resp = await tests.get(`http://${website.fqdn}/`).ok(res => [403, 200].includes(res.status));
     t.true(resp.text.includes("You don't have permission to access /"));
     await tests.remove('website', website);
