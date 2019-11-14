@@ -6,6 +6,7 @@ const dns = require('dns');
 const util = require('util');
 const fs = require('fs');
 const dnsSocket = require('dns-socket');
+const punycode = require('punycode');
 
 const now = Date.now();
 const dnsResolve = util.promisify(dns.resolve);
@@ -284,6 +285,18 @@ ava.serial('dns responds on wildcard requests', async t => {
     const zone = await tests.run(`dns zone create --type public --name A.dns-record-set-${now}.com`);
     await tests.run(`dns record-set a create --name '*.wildcard' --zone ${zone.id} --value ${value}`);
     const response = await queryNameserver(`anything.wildcard.${zone.dnsName}`, 'A', zone.nameserver);
+    t.deepEqual(response.answers.map(x => x.data), [value]);
+    await tests.remove('dns zone', zone);
+});
+
+ava.serial('dns punycode encoded', async t => {
+    const name = `${now}-zażółć-gęślą-jaźń.com.`;
+    const value = '3.3.3.3';
+    const zone = await tests.run(`dns zone create --type public --name ${name}`);
+    t.true(zone.name === name);
+    t.true(zone.dnsName === punycode.toASCII(zone.name));
+    await tests.run(`dns record-set a create --name x --zone ${zone.id} --value ${value}`);
+    const response = await queryNameserver(`x.${zone.dnsName}`, 'A', zone.nameserver);
     t.deepEqual(response.answers.map(x => x.data), [value]);
     await tests.remove('dns zone', zone);
 });
