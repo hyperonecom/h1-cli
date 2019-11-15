@@ -67,6 +67,7 @@ loadModules(cli, [
     'vm',
     'volume',
     'website',
+    'vmhost',
 ]);
 
 // inject defaultValues from config defaults

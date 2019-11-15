@@ -28,3 +28,4 @@
   * [h1 vm](vm.md) - Manage your Virtual machine
   * [h1 volume](volume.md) - Manage your Volume
   * [h1 website](website.md) - Manage your Website
+  * [h1 vmhost](vmhost.md) - Manage your Dedicated host
