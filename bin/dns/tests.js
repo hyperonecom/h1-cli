@@ -301,6 +301,15 @@ ava.serial('dns punycode encoded', async t => {
     await tests.remove('dns zone', zone);
 });
 
+ava.serial('dns create with probing', async t => {
+    const value = '3.3.3.3';
+    const name = `${tests.getName(t.title)}.${value}.xip.io.`;
+    const zone = await tests.run(`dns zone create --type public --name ${name} --dns-probing`);
+    t.true(zone.name === name);
+    await test_record_values(t, zone, 'a', zone.dnsName, [value]);
+    await tests.remove('dns zone', zone);
+});
+
 ava.serial('dns resolve cname at apex', async t => {
     const ip = '2.2.2.2';
 

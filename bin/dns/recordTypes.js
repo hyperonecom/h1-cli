@@ -22,7 +22,7 @@ module.exports = {
         to_bind: content => ({
             alias: content,
         }),
-        to_content: record => record.alias,
+        to_content: (record, name) => formatRecordName(record.alias, name),
     },
     txt: {
         value: 'some-text-value',
@@ -46,14 +46,14 @@ module.exports = {
             preference: content.split(' ')[0],
             host: content.split(' ')[1],
         }),
-        to_content: record => `${record.preference} ${record.host}`,
+        to_content: (record, name) => `${record.preference} ${formatRecordName(record.host, name)}`,
     },
     ns: {
         value: 'ns1.example.com',
         to_bind: content => ({
             host: content,
         }),
-        to_content: (record, zone) => formatRecordName(record.host, zone.dnsName),
+        to_content: (record, name) => formatRecordName(record.host, name),
     },
     srv: {
         value: '10 5 11 s1.example.com.',
@@ -63,7 +63,7 @@ module.exports = {
             port: content.split(' ')[2],
             target: content.split(' ')[3],
         }),
-        to_content: record => `${record.priority} ${record.weight} ${record.port} ${record.target}`,
+        to_content: (record, name) => `${record.priority} ${record.weight} ${record.port} ${formatRecordName(record.target, name)}`,
     },
     soa: {
         value: 'pns.hyperone.com. hostmaster.hyperone.com. 2018093002 15 180 1209600 1800',

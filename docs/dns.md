@@ -129,11 +129,19 @@ Create DNS Zone
 
 ### Syntax
 
-```h1 dns zone create | --name NAME --type TYPE [--tag TAG [--tag TAG ...]] [--dns-name DNS-NAME]```
-### Example
+```h1 dns zone create | --name NAME --type TYPE [--tag TAG [--tag TAG ...]] [--dns-name DNS-NAME] [--dns-probing]```
+### Examples
+
+#### Create zone
 
 ```bash
-h1 dns zone create --name my-domain.tld
+h1 dns zone create --name my-domain.tld --type public
+```
+
+#### Create zone and probe current DNS nameserver to guess DNS records
+
+```bash
+h1 dns zone import --zone 'my-domain.tld' --nameserver 8.8.8.8
 ```
 
 ### Required arguments
@@ -149,6 +157,7 @@ h1 dns zone create --name my-domain.tld
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--dns-name DNS-NAME``` |  | DNS zone name (zone name by default) |
+| ```--dns-probing``` |  | Probe current DNS nameserver to guess DNS records |
 
 ## h1 dns zone rename
 
