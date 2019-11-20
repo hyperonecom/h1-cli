@@ -79,7 +79,7 @@ h1 vm create --name test-vm --type a1.nano
 
 Note (1): By default, all user SSH keys are used. To manage user SSH keys use ```h1 user credentials list```.
 
-Note (1): By default, image ```debian```  are used.
+Note (1): By default, image ```debian``` is used.
 
 #### Create Ubuntu Virtual Machine with custom disk size
 
