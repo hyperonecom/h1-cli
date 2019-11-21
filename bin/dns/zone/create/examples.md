@@ -7,5 +7,5 @@
 # Create zone and probe current DNS nameserver to guess DNS records
 
 ```bash
-h1 dns zone import --zone 'my-domain.tld' --nameserver 8.8.8.8
+h1 dns zone create --zone 'my-domain.tld' --type public --dns-probing
 ```
