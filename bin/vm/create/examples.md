@@ -14,7 +14,7 @@ Note (1): By default, image ```debian``` is used.
 {{command_name}} --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh
 ```
 
-Note (1): To identify available disk type use ```{{scope}} service list --resource disk``` .
+Note (1): To identify available disk type use ```{{scope}} service list --resource disk```.
 
 Note (2): To identify available instance type use ```{{scope}} service list --resource vm --type flavour```.
 
