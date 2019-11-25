@@ -107,7 +107,7 @@ ava.serial('vault credential password life cycle', async t => {
 
         const ssh_name = `${name}-${type}-key`;
         const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${sshFilename}'`);
-        const vault = await tests.run(`vault create --name my-vault --size 10 --ssh ${ssh_name}`);
+        const vault = await tests.run(`vault create --name ${name} --size 10 --ssh ${ssh_name}`);
 
         const list = await tests.run(`vault credential cert list --vault ${vault.id}`);
         t.true(list.some(p => p.name === ssh_name));
