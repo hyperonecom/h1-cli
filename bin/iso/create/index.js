@@ -21,7 +21,10 @@ const options = {
         description: 'Source url for ISO import. Required if source-file is not specified.',
         type: 'string',
     },
-
+    'no-progress': {
+        description: 'Disable progress bar',
+        type: 'boolean',
+    },
 };
 
 module.exports = resource => Cli.createCommand('create', {
@@ -61,7 +64,7 @@ module.exports = resource => Cli.createCommand('create', {
 
             const ws = await args.helpers.api.wsUpload(`iso/${iso.id}/upload`);
 
-            await websocketStream.upload(ws, args['source-file']);
+            await websocketStream.upload(ws, args['source-file'], {progress: !args['no-progress']});
 
             iso = await args.helpers.api.get(`${resource.url(args)}/${iso.id}`);
         }

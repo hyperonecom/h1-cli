@@ -48,9 +48,13 @@ const lsWebsite = (website, auth, path) => {
 ava.serial('website empty page results', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     // TODO: Validate default page according scope
+<<<<<<< HEAD
     await tests.delay(tests.DELAY.website_start);
+=======
+    await tests.delay(5 * 1000); // Workaround for full page startup
+>>>>>>> 8ded3524992e87696104a24efbb09934e43caeb5
     const resp = await tests.get(`http://${website.fqdn}/`).ok(res => [403, 200].includes(res.status));
-    t.true(resp.text.includes("You don't have permission to access /"));
+    t.true(resp.text.includes("You don't have permission to access"));
     await tests.remove('website', website);
 });
 
@@ -226,6 +230,10 @@ const languages = {
     require('http').createServer(
         (req, res) => res.end(rand.toString())
     ).listen(process.env.PORT);`,
+    // Warning: Python is tab-sensitive
+    python: `import time; start=str(time.time()); def application(environ, start_response):
+    start_response('200 OK', [('Content-type', 'text/plain')])
+    return [start]`,
 };
 
 const images = {
@@ -243,6 +251,12 @@ const images = {
     },
     'h1cr.io/website/node:12': {
         code: languages.node,
+    },
+    'h1cr.io/website/python-passenger:3': {
+        code: languages.python,
+    },
+    'h1cr.io/website/python-passenger:3.7': {
+        code: languages.python,
     },
 };
 
@@ -377,10 +391,27 @@ ava.serial('website snapshot receive to zfs', async t => {
 ava.serial('website restart nodejs app', async t => {
     const password = await tests.getToken();
     const image = 'h1cr.io/website/node:12';
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website-dedicated --image '${image}' --password ${password}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website --image '${image}' --password ${password}`);
     const content = images[image].code;
     await mkDirWebsite(website, { password}, 'app');
     await putFileWebsite(website, { password }, 'app/index.js', content);
+    await tests.run(`website restart --website ${website.id}`);
+    await tests.delay(tests.DELAY.website_start);
+    const response_before = await tests.get(`http://${website.fqdn}/`);
+    await tests.run(`website restart --website ${website.id}`);
+    const response_after = await tests.get(`http://${website.fqdn}/`);
+    await tests.delay(tests.DELAY.website_start);
+    t.true(response_after.body != response_before.body);
+    await tests.remove('website', website);
+});
+
+ava.serial('website serve python app', async t => {
+    const password = await tests.getToken();
+    const image = 'h1cr.io/website/python-passenger:3.7';
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website-dedicated --image '${image}' --password ${password}`);
+    const content = images[image].code;
+    await mkDirWebsite(website, { password}, 'app');
+    await putFileWebsite(website, { password }, 'app/python_passenger.py', content);
     await tests.run(`website restart --website ${website.id}`);
     await tests.delay(tests.DELAY.website_start);
     const response_before = await tests.get(`http://${website.fqdn}/`);

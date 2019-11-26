@@ -11,60 +11,6 @@ const options = {
         type: 'string',
         required: true,
     },
-    vm: {
-        description: 'Virtual machine ID or name',
-        type: 'string',
-        required: true,
-        dest: 'id',
-    },
-};
-
-const handler = args => {
-    logger('info', 'Generating key pair...');
-
-    const rsa = new NodeRSA().generateKeyPair();
-    const components = rsa.exportKey('components');
-    const modulus = components.n.toString('base64');
-
-    const b = Buffer.alloc(4);
-    b.writeUInt32BE(components.e);
-    const exponent = b.toString('base64');
-
-    args.query = args.query || '[].{"New Password":password}';
-
-    return args.helpers.api
-        .post(`${args.$node.parent.config.url(args)}/${args.id}/actions`, {
-            name: 'password_reset',
-            data: {
-                userName: args.user,
-                modulus : modulus,
-                exponent: exponent,
-            },
-        })
-        .then(() => new Promise(r => setTimeout(r, 2000))) //TODO use websocket
-        .then(() => args.helpers.api.get(`/vm/${args.id}/serialport/2`))
-        .then(data => {
-            try {
-                // In the absence of an agent, we do not receive a response.
-                // On May 30, 2018, the agent is available only for Windows.
-                const line = data.split('\n').filter(line => line.trim().length > 0).pop();
-                data = JSON.parse(line);
-            } catch (e) {
-                console.log('Invalid response from agent. Unable to reset password.');
-                console.log('Response: ', data);
-                process.exit(-1);
-            }
-            if (data.modulus !== modulus) {
-                return Promise.reject('modulus differs');
-            }
-
-            if (data.exponent !== exponent) {
-                return Promise.reject('exponent differs');
-            }
-
-            return { password: rsa.decrypt(data.encryptedPassword).toString() };
-        })
-        .then(result => args.helpers.sendOutput(args, result));
 };
 
 module.exports = resource => Cli.createCommand('passwordreset', {
@@ -72,6 +18,46 @@ module.exports = resource => Cli.createCommand('passwordreset', {
     plugins: resource.plugins,
     params: resource.params,
     options: Object.assign({}, options, resource.options),
-    handler: handler,
     dirname: __dirname,
+    handler: async args => {
+        logger('info', 'Generating key pair...');
+
+        const rsa = new NodeRSA().generateKeyPair();
+        const components = rsa.exportKey('components');
+        const modulus = components.n.toString('base64');
+
+        const b = Buffer.alloc(4);
+        b.writeUInt32BE(components.e);
+        const exponent = b.toString('base64');
+
+        args.query = args.query || '[].{"New Password":password}';
+
+        await args.helpers.api
+            .post(`${resource.url(args)}/actions/password_reset`, {
+                userName: args.user,
+                modulus: modulus,
+                exponent: exponent,
+            });
+        await new Promise(r => setTimeout(r, 2000));
+        const content = await args.helpers.api.get(`${resource.url(args)}/serialport/2`);
+        const line = content.split('\n').filter(line => line.trim().length > 0).pop();
+        let data;
+        try {
+            // In the absence of an agent, we do not receive a response.
+            // On May 30, 2018, the agent is available only for Windows.
+            data = JSON.parse(line);
+        } catch (e) {
+            throw Cli.error.serverError(`Invalid response from agent. Unable to reset password. Response: ${line}`);
+        }
+
+        if (data.modulus !== modulus) {
+            throw Cli.error.serverError('modulus differs');
+        }
+
+        if (data.exponent !== exponent) {
+            throw Cli.error.serverError('exponent differs');
+        }
+
+        return args.helpers.sendOutput(args, { password: rsa.decrypt(data.encryptedPassword).toString() });
+    },
 });
