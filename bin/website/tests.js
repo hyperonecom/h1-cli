@@ -408,7 +408,7 @@ ava.serial('website restart nodejs app', async t => {
 ava.serial('website serve python app', async t => {
     const password = await tests.getToken();
     const image = 'h1cr.io/website/python-passenger:3.7';
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website-dedicated --image '${image}' --password ${password}`);
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website --image '${image}' --password ${password}`);
     const content = images[image].code;
     await mkDirWebsite(website, { password}, 'app');
     await putFileWebsite(website, { password }, 'app/passenger_wsgi.py', content);
