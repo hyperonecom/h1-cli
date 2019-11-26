@@ -48,11 +48,7 @@ const lsWebsite = (website, auth, path) => {
 ava.serial('website empty page results', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     // TODO: Validate default page according scope
-<<<<<<< HEAD
     await tests.delay(tests.DELAY.website_start);
-=======
-    await tests.delay(5 * 1000); // Workaround for full page startup
->>>>>>> 8ded3524992e87696104a24efbb09934e43caeb5
     const resp = await tests.get(`http://${website.fqdn}/`).ok(res => [403, 200].includes(res.status));
     t.true(resp.text.includes("You don't have permission to access"));
     await tests.remove('website', website);
@@ -231,9 +227,13 @@ const languages = {
         (req, res) => res.end(rand.toString())
     ).listen(process.env.PORT);`,
     // Warning: Python is tab-sensitive
-    python: `import time; start=str(time.time()); def application(environ, start_response):
+    python: `
+import time
+start=str(time.time());
+def application(environ, start_response):
     start_response('200 OK', [('Content-type', 'text/plain')])
-    return [start]`,
+    return [start]
+`.trim(),
 };
 
 const images = {
@@ -411,7 +411,7 @@ ava.serial('website serve python app', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website-dedicated --image '${image}' --password ${password}`);
     const content = images[image].code;
     await mkDirWebsite(website, { password}, 'app');
-    await putFileWebsite(website, { password }, 'app/python_passenger.py', content);
+    await putFileWebsite(website, { password }, 'app/passenger_wsgi.py', content);
     await tests.run(`website restart --website ${website.id}`);
     await tests.delay(tests.DELAY.website_start);
     const response_before = await tests.get(`http://${website.fqdn}/`);
