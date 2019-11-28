@@ -246,9 +246,6 @@ const images = {
     'h1cr.io/website/node:10': {
         code: languages.node,
     },
-    'h1cr.io/website/node:11': {
-        code: languages.node,
-    },
     'h1cr.io/website/node:12': {
         code: languages.node,
     },
