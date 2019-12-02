@@ -44,7 +44,7 @@ ava.serial('vm passwordreset', async t => {
     const ip = await tests.run('ip create');
     const netgw = await tests.run(`netgw create --name ${tests.getName(t.title)} --ip ${ip.id}`);
     await tests.run(`netgw attach --network ${network.id} --netgw ${netgw.id}`);
-    const vm = await tests.run(`vm create --type m2.medium --password ${token} --name ${vm_name} --image windows:2016 --network ${network.id} --os-disk ${disk_name},ssd,30`);
+    const vm = await tests.run(`vm create --type m2.medium --password ${token} --name ${vm_name} --image windows:2016 --network ${network.id} --os-disk ${disk_name},ssd,40`);
     try {
         await tests.delay(vm_windows_boot);
         const result = await tests.run(`vm passwordreset --vm ${vm.id} --user Administrator`);
