@@ -20,7 +20,7 @@ if (notifier.update) {
     const boxen = require('boxen');
     const message = [
         `Update available: ${chalk.dim(notifier.update.current)} ${chalk.reset(' → ')} ${chalk.green(notifier.update.latest)}`,
-        'Read documentation how to install latest version:',
+        'Read documentation how to install the latest version:',
         chalk.cyan('https://www.hyperone.com/tools/cli/guides/installation.html'),
     ].join('\n');
     console.error(`${boxen(message, {
