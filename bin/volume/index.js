@@ -36,7 +36,7 @@ const schema = {
 const resource = {
     name: 'volume',
     title: 'Volume',
-    defaultQuery: '[].{id:_id,name:name,type:type,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id, name:name, type:type, size:size, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'volume',
     plugins: genericDefaults.plugins,
     extraCommands: ['resize', 'create'],

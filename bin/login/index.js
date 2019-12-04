@@ -4,12 +4,15 @@ const Cli = require('lib/cli');
 
 const logger = require('lib/logger');
 const interactive = require('lib/interactive');
+const config = require('lib/config');
+
+const active_user = config.get_active_user();
 
 const options = {
     username: {
         description: 'Your username',
         type: 'string',
-        required: true,
+        required: !active_user,
     },
     password: {
         description: 'Password',
@@ -19,11 +22,11 @@ const options = {
 
 const handler = async args => {
     let p;
-
+    const username = args.username || active_user;
     if (args.password) {
-        p = args.helpers.api.getApiKey(args.username, { password: args.password });
+        p = args.helpers.api.getApiKey(username, { password: args.password });
     } else {
-        p = args.helpers.api.getApiKeySSH(args.username)
+        p = args.helpers.api.getApiKeySSH(username)
             .catch(err => {
                 if (err.message.includes('host fingerprint verification failed')) {
                     throw Cli.error.serverError(err.message);
@@ -34,7 +37,7 @@ const handler = async args => {
                     name: 'value',
                     validate: input => input.length === 0 ? 'Incorrect password' : true,
                 })
-                    .then(password => args.helpers.api.getApiKey(args.username, { password: password.value }));
+                    .then(password => args.helpers.api.getApiKey(username, { password: password.value }));
             });
     }
 

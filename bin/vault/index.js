@@ -1,6 +1,7 @@
 'use strict';
 const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
+const text = require('lib/text');
 
 
 const schema = {
@@ -35,7 +36,7 @@ const schema = {
 
 const resource = {
     name: 'vault',
-    defaultQuery: '[].{id:id,name:name,size:size,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id, name:name, type:flavour, size:size, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'vault',
     plugins: genericDefaults.plugins,
     extraCommands: ['resize', 'ssh', 'sftp', 'start', 'stop', 'credential'],
@@ -46,7 +47,19 @@ const resource = {
 
 const category = genericResource(resource);
 
+const childDefaults = Object.assign({}, resource, {
+    options: {
+        [resource.name]: {
+            description: `${text.toTitleCase(resource.title)} ID or name`,
+            type: 'string',
+            required: true,
+        },
+    },
+    url: args => `${resource.url(args)}/${args[resource.name]}`,
+    dirname: __dirname,
+});
+
 category.addChild(require('./create')(resource));
-category.addChild(require('./console')(resource));
+category.addChild(require('./console')(childDefaults));
 
 module.exports = category;

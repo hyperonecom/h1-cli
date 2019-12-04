@@ -19,7 +19,7 @@ const schema = {
 
 const resource = {
     name: 'firewall',
-    defaultQuery: '[].{id:id,name:name,network:network,state:state,tags:join(\',\',keys(tag || `{}`) )}',
+    defaultQuery: '[].{id:id, name:name, type:flavour, image:image, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'firewall',
     plugins: genericDefaults.plugins,
     extraCommands: ['transfer', 'create'],

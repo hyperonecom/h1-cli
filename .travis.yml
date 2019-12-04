@@ -2,6 +2,7 @@ language: node_js
 
 node_js: '12'
 dist: xenial
+os: linux
 
 services:
   - docker
@@ -27,6 +28,5 @@ jobs:
     - ./scripts/test_version_output.sh ./h1 alpine
     - rm ./h1
   - stage: build & deploy
-    sudo: required
     script:
     - ./scripts/travis_deploy.sh

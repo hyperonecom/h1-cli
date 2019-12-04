@@ -2,7 +2,7 @@
 
 const default_fields = ['facility', 'level', 'ts', 'host', 'appName', 'pid', 'messageid', 'message'];
 const filters = require('./filters');
-const {get} = require('../../lib/transform');
+const { get } = require('../../lib/transform');
 
 const csv_encode = values => values.map(value => {
     if (typeof value === 'undefined') {
@@ -18,26 +18,30 @@ const csv_encode = values => values.map(value => {
 }).join(',');
 
 const outputFormat = {
-    json: {
+    js: {
         header: () => {
         },
         row: (fields, row) => row,
+    },
+    json: {
+        header: () => {
+        },
+        row: (fields, row) => JSON.stringify(row, null, 4),
     },
     tsv: {
         header: () => {
         },
         row: (fields, row) => {
-            const values = fields.map(field => row[field]);
+            const values = fields.map(field => get(row, field));
             return values.map(value => {
                 if (typeof value === 'number' || typeof value === 'boolean') {
-                    return value;
+                    return `${value}`;
                 }
                 if (typeof value === 'string') {
                     return value.match(/\t/) ? `"${value}"` : value;
                 }
                 return '-';
             }).join('\t');
-
         },
     },
     csv: {
@@ -55,7 +59,7 @@ const outputOptions = {
     },
     fields: {
         type: (val) => val.split(','),
-        description: 'Fields displayed. Not apply to "jsonl" output.',
+        description: 'Fields displayed. Apply only to "tsv" & "csv" output.',
         defaultValue: default_fields.join(','),
     },
     filter: {

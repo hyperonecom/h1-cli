@@ -26,7 +26,7 @@ const schema = {
 
 const resource = {
     name: 'reservation',
-    defaultQuery: '[].{id:id,name:name,state:state,resource:resource,type:flavour,assigned:assigned}',
+    defaultQuery: '[].{id:id,name:name, type:flavour, assigned:assigned, resource:resource,state:state, tags:join(\',\',keys(tag || `{}`)) }',
     url: () => 'reservation',
     plugins: genericDefaults.plugins,
     commands: [ 'list', 'rename', 'show', 'service', 'create', 'tag', 'history', 'delete'],

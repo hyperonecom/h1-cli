@@ -9,7 +9,6 @@
     * [h1 vm service show](#h1-vm-service-show) - Show Service for Virtual machine
     * [h1 vm service change](#h1-vm-service-change) - Change type of Service for Virtual machine
   * [h1 vm delete](#h1-vm-delete) - Delete Virtual machine
-  * [h1 vm console](#h1-vm-console) - Open Virtual machine console in web-browser
   * [h1 vm stop](#h1-vm-stop) - Stop Virtual machine
   * [h1 vm start](#h1-vm-start) - Start Virtual machine
   * [h1 vm restart](#h1-vm-restart) - Restart Virtual machine
@@ -47,6 +46,7 @@
     * [h1 vm dvd list](#h1-vm-dvd-list) - List DVD
     * [h1 vm dvd insert](#h1-vm-dvd-insert) - Insert ISO into DVD drive of DVD
     * [h1 vm dvd eject](#h1-vm-dvd-eject) - Eject ISO from DVD drive of DVD
+  * [h1 vm console](#h1-vm-console) - Open Virtual machine console in web-browser
   * [h1 vm ssh](#h1-vm-ssh) - Connect to Virtual machine using SSH
   * [h1 vm passwordreset](#h1-vm-passwordreset) - Password reset for Virtual machine
   * [h1 vm metrics](#h1-vm-metrics) - Get live metrics of Virtual machine
@@ -79,7 +79,7 @@ h1 vm create --name test-vm --type a1.nano
 
 Note (1): By default, all user SSH keys are used. To manage user SSH keys use ```h1 user credentials list```.
 
-Note (1): By default, image ```debian```  are used.
+Note (1): By default, image ```debian``` is used.
 
 #### Create Ubuntu Virtual Machine with custom disk size
 
@@ -87,7 +87,7 @@ Note (1): By default, image ```debian```  are used.
 h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh
 ```
 
-Note (1): To identify available disk type use ```h1 service list --resource disk``` .
+Note (1): To identify available disk type use ```h1 service list --resource disk```.
 
 Note (2): To identify available instance type use ```h1 service list --resource vm --type flavour```.
 
@@ -248,25 +248,6 @@ Delete Virtual machine
 
 ```bash
 h1 vm delete --vm my-vm
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--vm VM``` |  | Virtual machine ID or name |
-
-## h1 vm console
-
-Open Virtual machine console in web-browser
-
-### Syntax
-
-```h1 vm console | --vm VM```
-### Example
-
-```bash
-h1 vm console --vm test-vm
 ```
 
 ### Required arguments
@@ -973,6 +954,25 @@ h1 vm dvd eject --vm test-vm
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
+
+## h1 vm console
+
+Open Virtual machine console in web-browser
+
+### Syntax
+
+```h1 vm console | --vm VM```
+### Example
+
+```bash
+h1 vm console --vm test-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm ssh
 

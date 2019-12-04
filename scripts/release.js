@@ -47,14 +47,28 @@ const upload = (releaseId, filePath, name) => new Promise((resolve, reject) => {
 });
 
 const main = async () => {
+
+    let body = 'Description of the release';
+
+    //release issue
+    const issue = process.argv[2];
+    if (issue) {
+        body = await superagent
+            .get(`https://api.github.com/repos/hyperonecom/h1-cli/issues/${issue}`)
+            .set('user-agent', 'h1-cli-release')
+            .then(rsp => rsp.body.body)
+        ;
+    }
+
     const release = await superagent
         .post('https://api.github.com/repos/hyperonecom/h1-cli/releases')
+        .set('user-agent', 'h1-cli-release')
         .set('Authorization', `token ${process.env.GH_TOKEN}`)
         .send({
             tag_name: `v${info.version}`,
             target_commitish: 'master',
             name: `v${info.version}`,
-            body: 'Description of the release',
+            body,
             draft: true,
             prerelease: false,
         })

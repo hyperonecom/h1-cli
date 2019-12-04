@@ -25,7 +25,7 @@ module.exports = {
         to_content: record => record.alias,
     },
     txt: {
-        value: '"some-text-value"',
+        value: 'some-text-value',
         to_bind: content => ({
             txt: content,
         }),

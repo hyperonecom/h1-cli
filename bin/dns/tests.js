@@ -6,6 +6,7 @@ const dns = require('dns');
 const util = require('util');
 const fs = require('fs');
 const dnsSocket = require('dns-socket');
+const punycode = require('punycode');
 
 const now = Date.now();
 const dnsResolve = util.promisify(dns.resolve);
@@ -54,56 +55,84 @@ ava.serial('dns zone export', async t => {
 const recordTypes = {
     a: {
         values: ['127.0.0.2', '127.0.0.3'],
-        expected: ['127.0.0.2'],
+        expected: {
+            section: 'answers',
+            values: ['127.0.0.2'],
+        },
+
     },
     aaaa: {
         values: ['fdda:5cc1:23:4::1f', 'fdda:5cc1:23:4::1e'],
-        expected: ['fdda:5cc1:23:4::1f'],
+        expected: {
+            section: 'answers',
+            values: ['fdda:5cc1:23:4::1f'],
+        },
     },
     cname: {
         values: ['cname.example.com.', 'cname2.example.com.'],
-        expected: ['cname.example.com'],
+        expected: {
+            section: 'answers',
+            values: ['cname.example.com'],
+        },
     },
     txt: {
-        values: ['"txt.example.com"', '"txt2.example.com"'],
-        expected: [
-            [Buffer.from('"txt.example.com"')],
-        ],
+        values: ['txt.example.com', 'txt2.example.com'],
+        expected: {
+            section: 'answers',
+            values: [
+                [Buffer.from('txt.example.com')],
+            ],
+        },
     },
     mx: {
         values: ['10 mx.example.com.', '5 mx.example.com.'],
-        expected: [{ preference: 10, exchange: 'mx.example.com' }],
+        expected: {
+            section: 'answers',
+            values: [{ preference: 10, exchange: 'mx.example.com' }],
+        },
     },
     caa: {
         values: ['0 issue "comodoca.com"'],
-        expected: [{
-            flags: 0,
-            tag: 'issue',
-            value: 'comodoca.com',
-            issuerCritical: false,
-        }],
+        expected: {
+            section: 'answers',
+            values: [{
+                flags: 0,
+                tag: 'issue',
+                value: 'comodoca.com',
+                issuerCritical: false,
+            }],
+        },
     },
     ns: {
         values: ['ns3.example.com.', 'ns4.example.com.'],
-        expected: ['ns3.example.com'],
+        expected: {
+            section: 'authorities',
+            values: ['ns3.example.com'],
+        },
     },
     srv: {
         values: ['10 1 5060 s1.example.com.', '5 1 5060 s2.example.com.'],
-        expected: [{ priority: 10, weight: 1, port: 5060, target: 's1.example.com' }],
+        expected: {
+            section: 'answers',
+            values: [{ priority: 10, weight: 1, port: 5060, target: 's1.example.com' }],
+        },
     },
     soa: {
         values: [
             'pns.hyperone.com. hostmaster.hyperone.com. 2018092401 15 180 1209600 1800',
         ],
-        expected: [{
-            mname: 'pns.hyperone.com',
-            rname: 'hostmaster.hyperone.com',
-            serial: 2018092401,
-            refresh: 15,
-            retry: 180,
-            expire: 1209600,
-            minimum: 1800,
-        }],
+        expected: {
+            section: 'answers',
+            values: [{
+                mname: 'pns.hyperone.com',
+                rname: 'hostmaster.hyperone.com',
+                serial: 2018092401,
+                refresh: 15,
+                retry: 180,
+                expire: 1209600,
+                minimum: 1800,
+            }],
+        },
     },
 };
 
@@ -156,10 +185,13 @@ Object.entries(recordTypes).forEach(([type, { expected, values }]) => {
             // Create record-set
             await tests.run(`dns record-set ${type} create --name ${name} --zone ${zone.dnsName} --value '${values[0]}'`);
             await test_record_values(t, zone, type, full_name, [values[0]]);
+            await tests.delay(5 * 1000);
             const response = await queryNameserver(full_name, type.toUpperCase(), zone.nameserver);
-            t.true(response.answers.length > 0);
-            t.true(response.answers[0].type === type.toUpperCase());
-            t.deepEqual(response.answers.map(x => x.data), expected);
+            t.true(response[expected.section].length > 0);
+            t.deepEqual(
+                response[expected.section].filter(x => x.type === type.toUpperCase()).map(x => x.data.toString('utf-8')),
+                expected.values.map(x => x.toString('utf-8'))
+            );
         } finally {
             // Clean up
             await tests.remove('dns zone', zone);
@@ -234,7 +266,8 @@ ava.serial('dns record-set a dynamic-dns', async t => {
     const ip = await tests.get('https://api.ipify.org?format=json').then(resp => resp.body.ip);
     await test_record_values(t, zone, 'a', rrset.name, [ip]);
     const response = await queryNameserver(rrset.name, 'A', zone.nameserver);
-    t.deepEqual(response, [ip]);
+    t.true(response.answers.length > 0);
+    t.deepEqual(response.answers.map(x => x.data), [ip]);
     await tests.remove('dns zone', zone);
 });
 
@@ -254,4 +287,53 @@ ava.serial('dns responds on wildcard requests', async t => {
     const response = await queryNameserver(`anything.wildcard.${zone.dnsName}`, 'A', zone.nameserver);
     t.deepEqual(response.answers.map(x => x.data), [value]);
     await tests.remove('dns zone', zone);
+});
+
+ava.serial('dns punycode encoded', async t => {
+    const name = `${now}-zażółć-gęślą-jaźń.com.`;
+    const value = '3.3.3.3';
+    const zone = await tests.run(`dns zone create --type public --name ${name}`);
+    t.true(zone.name === name);
+    t.true(zone.dnsName === punycode.toASCII(zone.name));
+    await tests.run(`dns record-set a create --name x --zone ${zone.id} --value ${value}`);
+    const response = await queryNameserver(`x.${zone.dnsName}`, 'A', zone.nameserver);
+    t.deepEqual(response.answers.map(x => x.data), [value]);
+    await tests.remove('dns zone', zone);
+});
+
+ava.serial('dns resolve cname at apex', async t => {
+    const ip = '2.2.2.2';
+
+    const content = await tests.getToken();
+    const zone = await tests.run(`dns zone create --type public --name ${tests.getName(t.title)}.com`);
+
+    await tests.run(`dns record-set cname create --name '@' --zone ${zone.id} --value ${ip}.xip.io`);
+    await tests.run(`dns record-set txt create --name '@' --zone ${zone.id} --value ${content}`);
+
+    const responseA = await queryNameserver(zone.dnsName, 'A', zone.nameserver);
+    t.deepEqual(
+        responseA.answers.filter(x => x.type === 'A').map(x => x.data),
+        [ip]
+    );
+
+    const responseTXT = await queryNameserver(zone.dnsName, 'TXT', zone.nameserver);
+    t.deepEqual(
+        responseTXT.answers.filter(x => x.type === 'TXT').map(x => x.data.toString('utf-8')),
+        [content]
+    );
+
+    const responseCNAME = await queryNameserver(zone.dnsName, 'CNAME', zone.nameserver);
+    t.true(responseCNAME.answers.length == 0);
+
+    await tests.remove('dns zone', zone);
+});
+
+ava.serial('dns NS record-set match nameservers', async t => {
+    const zone = await tests.run(`dns zone create --type public --name ${tests.getName(t.title)}.com`);
+    try {
+        await test_record_values(t, zone, 'ns', zone.dnsName, zone.nameserver.map(x => `${x}.`));
+    } finally {
+        await tests.remove('dns zone', zone);
+
+    }
 });

@@ -16,38 +16,39 @@ ava.serial('reservation life cycle', tests.resourceLifeCycle('reservation', {
     // The resource is available earlier than it will be charged.
     // The resource is not in an optimal state before charging.
     // We wait a certain period for charging.
-    delayStateTest: 4 * 60 * 1000,
+    delayStateTest: tests.DELAY.reservation_bill,
 }));
 
-ava.skip('reservation assign limits', async t => {
+ava.serial('reservation assign limits', async t => {
     const reservation = await tests.run(`reservation create --name ${tests.getName(t.title)} --type '${reservation_flavour}'`);
 
-    const reversation_list = await tests.run('reservation list');
-    t.true(reversation_list.some(x => x.id === reservation.id));
+    const reservation_list = await tests.run('reservation list');
+    t.true(reservation_list.some(x => x.id === reservation.id));
     const token = await tests.getToken();
 
-    const common_vm_params = `--type ${vm_flavour} --no-start --password ${token}`;
-    const vm_wrong_type = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} ${common_vm_params}`);
-    const vm_valid = await tests.run(`vm create --name ${tests.getName(t.title, 'vm valid')} ${common_vm_params} `);
-    const vm_over_limit = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} ${common_vm_params}`);
-    await tests.delay(4 * 60 * 1000);
+    const common_vm_params = `--no-start --password ${token}`;
+    const vm_wrong_type = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} --type a1.nano ${common_vm_params}`);
+    const vm_valid = await tests.run(`vm create --name ${tests.getName(t.title, 'vm valid')} --type ${vm_flavour} ${common_vm_params} `);
+    const vm_over_limit = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} --type ${vm_flavour} ${common_vm_params}`);
+
+    await t.throwsAsync(() => tests.run(`reservation assign --reservation ${reservation.name} --resource ${vm_wrong_type.id}`));
     await tests.run(`reservation assign --reservation ${reservation.name} --resource ${vm_valid.id}`);
     await t.throwsAsync(() => tests.run(`reservation assign --reservation ${reservation.name} --resource ${vm_over_limit.id}`));
-    await t.throwsAsync(() => tests.run(`reservation assign --reservation ${reservation.name} --resource ${vm_wrong_type.id}`));
 
     const assigned = await tests.run(`reservation show --reservation ${reservation.id}`);
     t.true(assigned.assigned === vm_valid.id);
-    t.true(assigned.state === 'Attached');
+    t.true(assigned.state === 'Attached', `State of resource: ${assigned.state}`);
 
     await tests.remove('vm', vm_valid);
     await tests.remove('vm', vm_over_limit);
     await tests.remove('vm', vm_wrong_type);
 });
 
-ava.skip('reservation extend', async t => {
+ava.serial('reservation extend', async t => {
     const reservation = await tests.run(`reservation create --name ${tests.getName(t.title, 'vm-wrong-type')} --type '${reservation_flavour}'`);
-    await tests.delay(4 * 60 * 1000);
-    t.true(reservation.state === 'Detached');
+    await tests.delay(tests.DELAY.reservation_bill);
+    const refreshed = await tests.run(`reservation show --reservation ${reservation.id}`);
+    t.true(refreshed.state === 'Detached');
     await tests.run(`reservation extend --reservation ${reservation.name}`);
     await t.throwsAsync(() => tests.run(`reservation extend --reservation ${reservation.name}`));
     // TODO: Add verification real change of billing period

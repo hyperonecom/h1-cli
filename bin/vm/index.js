@@ -35,7 +35,6 @@ const category = genericResource(resource);
 
 category.addChild(require('./create')(resource));
 category.addChild(require('./delete')(resource));
-category.addChild(require('./console')(resource));
 
 category.addChild(genericAction(actionDefault, 'stop'));
 category.addChild(genericAction(actionDefault, 'start'));
@@ -48,9 +47,9 @@ category.addChild(require('./serialport')(actionDefault));
 category.addChild(require('./disk'));
 category.addChild(require('./nic'));
 category.addChild(require('./dvd'));
-
+category.addChild(require('./console')(childDefaults));
 category.addChild(require('./ssh/ssh')(childDefaults));
-category.addChild(require('./passwordreset')(resource));
+category.addChild(require('./passwordreset')(childDefaults));
 category.addChild(require('./metrics')(childDefaults));
 
 module.exports = category;

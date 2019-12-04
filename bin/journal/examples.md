@@ -7,45 +7,17 @@
 # Create a write-only password for client
 
 ```bash
-{{command_name}} credential password add --log my-server-log --name syslog --password my-strong-secret
-```
-
-# Configure rsyslog
-
-Open or create a new configuration file for rsyslog:
-
-```
-sudo nano /etc/rsyslog.d/50-hyperone.conf
-```
-
-Paste in this configuration:
-
-```
-$template HyperOneFormat,"<%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [{log_id}:{secret}@HyperOne tag=\"Rsyslog\"]%msg%\n"
-
-*.* @@{log_id}.logarchive.{region}.hyperone.cloud:6514; HyperOneFormat
-```
-
-Replace the following values in the example:
-
-* ```{log_id}``` - ID of log. To identify available logs use ```{{scope}} log list```.
-* ```{secret}``` - The password added to given log. See example above how to create a write-only password.
-* ```{region}``` - Region where resource exists eg. ```pl-waw-1```
-
-Remember to restart rsyslog:
-
-```
-sudo service rsyslog restart
+{{command_name}} credential password add --journal my-server-journal --name syslog --password my-strong-secret
 ```
 
 # Display today's log entries
 
 ```bash
-{{command_name}} stream --log my-server-log 
+{{command_name}} stream --journal my-server-log
 ```
 
 # View live-stream of log entries
 
 ```bash
-{{command_name}} stream --log my-server-log --follow
+{{command_name}} stream --journal my-server-log --follow
 ```

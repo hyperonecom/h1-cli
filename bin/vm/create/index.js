@@ -171,7 +171,7 @@ module.exports = resource => Cli.createCommand('create', {
             newVM.sshKeys = sshKeys;
         }
 
-        if (!args['ssh-file'] && !args.ssh) {
+        if (!args['ssh-file'] && !args.sshKeys) {
             try {
                 const keys = await args.helpers.api.get('user/me/credential/certificate');
                 newVM.sshKeys = keys.filter(x => x.type === 'ssh').map(x => x.id);

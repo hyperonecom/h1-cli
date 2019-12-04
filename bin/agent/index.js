@@ -38,7 +38,7 @@ const schema = {
 
 const resource = {
     name: 'agent',
-    defaultQuery: '[].{id:id,name:name,type:type,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id, name:name, type:flavour, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'agent',
     plugins: genericDefaults.plugins,
     extraCommands: ['create', 'transfer', 'update'],

@@ -120,7 +120,7 @@ Manage your DNS Zone
 #### Create new zone
 
 ```bash
-h1 dns zone create --name my-domain.tld
+h1 dns zone create --name my-domain.tld --type public
 ```
 
 ## h1 dns zone create
@@ -819,7 +819,7 @@ Create record set
 ### Example
 
 ```bash
-h1 dns record-set txt create --name '.' --zone 'my-domain.tld' --value '"some-text-value"'
+h1 dns record-set txt create --name '.' --zone 'my-domain.tld' --value 'some-text-value'
 ```
 
 Note (1): Use ```--name '.'``` to put record at top of the zone.
@@ -848,7 +848,7 @@ Updates or - if not available - creates record set
 ### Example
 
 ```bash
-h1 dns record-set txt upsert --name '.' --zone 'my-domain.tld' --value '"some-text-value"'
+h1 dns record-set txt upsert --name '.' --zone 'my-domain.tld' --value 'some-text-value'
 ```
 
 Note (1): Use ```--name '.'``` to put record at top of the zone.
@@ -916,7 +916,7 @@ Add record
 ### Example
 
 ```bash
-h1 dns record-set txt add-record --zone 'my-domain.tld' --name subdomain --value '"some-text-value"'
+h1 dns record-set txt add-record --zone 'my-domain.tld' --name subdomain --value 'some-text-value'
 ```
 
 ### Required arguments
@@ -937,7 +937,7 @@ Delete record
 ### Example
 
 ```bash
-h1 dns record-set txt delete-record --zone 'my-domain.tld' --name www --value '"some-text-value"'
+h1 dns record-set txt delete-record --zone 'my-domain.tld' --name www --value 'some-text-value'
 ```
 
 ### Required arguments

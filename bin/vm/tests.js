@@ -8,6 +8,8 @@ const tests = require('../../lib/tests');
 const ssh = require('../../lib/ssh');
 const now = Date.now();
 
+const vm_windows_boot = 5 * 60 * 1000;
+
 const getCommon = async (test_name, options = {}) => {
     const type = options.type || 'a1.nano';
     const vm_name = tests.getName(`vm-test-${test_name}-${now}`);
@@ -33,7 +35,29 @@ const getCommon = async (test_name, options = {}) => {
 
 ava.todo('vm console');
 ava.todo('vm serialport console');
-ava.todo('vm passwordreset');
+
+ava.serial('vm passwordreset', async t => {
+    const token = await tests.getToken();
+    const vm_name = tests.getName(t.title);
+    const disk_name = tests.getName('disk', t.title);
+    const network = await tests.run(`network create --name ${tests.getName(t.title)}`);
+    const ip = await tests.run('ip create');
+    const netgw = await tests.run(`netgw create --name ${tests.getName(t.title)} --ip ${ip.id}`);
+    await tests.run(`netgw attach --network ${network.id} --netgw ${netgw.id}`);
+    const vm = await tests.run(`vm create --type m2.medium --password ${token} --name ${vm_name} --image windows:2016 --network ${network.id} --os-disk ${disk_name},ssd,30`);
+    try {
+        await tests.delay(vm_windows_boot);
+        const result = await tests.run(`vm passwordreset --vm ${vm.id} --user Administrator`);
+        t.true(!!result[0]['New Password']);
+    } finally {
+        await tests.remove('vm', vm_name);
+        await tests.remove('disk', disk_name);
+        await tests.run(`netgw detach --netgw ${netgw.id}`);
+        await tests.remove('netgw', netgw);
+        await tests.remove('ip', ip);
+        await tests.remove('network', network);
+    }
+});
 
 ['a1.nano', 'm2.tiny', 'm2.medium'].forEach(flavour => {
     ava.serial(`vm life cycle ${flavour}`, async t => {
@@ -278,9 +302,6 @@ ava.serial('vm nic ip persistent', async t => {
 
     const nic_list = await tests.run(`vm nic list --vm ${vm.id}`);
     const ip = nic_list[0].ip[0];
-
-    const ip_list = await tests.run('ip list');
-    t.true(!ip_list.some(x => x.id === ip.id));
 
     await tests.run(`vm nic ip persistent --vm ${vm.id} --nic ${nic_list[0].id} --ip ${ip.id}`);
 

@@ -10,6 +10,7 @@
     * [h1 journal service list](#h1-journal-service-list) - List Service for Journal
     * [h1 journal service show](#h1-journal-service-show) - Show Service for Journal
   * [h1 journal transfer](#h1-journal-transfer) - Transfer Journal to other project
+  * [h1 journal retention](#h1-journal-retention) - Update Data retention period (in days) of Journal
   * [h1 journal stream](#h1-journal-stream) - Stream or read messages of Journal
   * [h1 journal logger](#h1-journal-logger) - Log messages to Journal
   * [h1 journal credential](#h1-journal-credential) - Manage your credentials of Journal
@@ -50,47 +51,19 @@ h1 journal create --name my-server-log
 #### Create a write-only password for client
 
 ```bash
-h1 journal credential password add --log my-server-log --name syslog --password my-strong-secret
-```
-
-#### Configure rsyslog
-
-Open or create a new configuration file for rsyslog:
-
-```
-sudo nano /etc/rsyslog.d/50-hyperone.conf
-```
-
-Paste in this configuration:
-
-```
-$template HyperOneFormat,"<%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [{log_id}:{secret}@HyperOne tag=\"Rsyslog\"]%msg%\n"
-
-*.* @@{log_id}.logarchive.{region}.hyperone.cloud:6514; HyperOneFormat
-```
-
-Replace the following values in the example:
-
-* ```{log_id}``` - ID of log. To identify available logs use ```h1 log list```.
-* ```{secret}``` - The password added to given log. See example above how to create a write-only password.
-* ```{region}``` - Region where resource exists eg. ```pl-waw-1```
-
-Remember to restart rsyslog:
-
-```
-sudo service rsyslog restart
+h1 journal credential password add --journal my-server-journal --name syslog --password my-strong-secret
 ```
 
 #### Display today's log entries
 
 ```bash
-h1 journal stream --log my-server-log
+h1 journal stream --journal my-server-log
 ```
 
 #### View live-stream of log entries
 
 ```bash
-h1 journal stream --log my-server-log --follow
+h1 journal stream --journal my-server-log --follow
 ```
 
 ## h1 journal create
@@ -276,6 +249,20 @@ h1 journal transfer --journal test-journal --new-project OtherProject
 | ```--journal JOURNAL``` |  | Journal ID or name |
 | ```--new-project NEW-PROJECT``` |  | New name |
 
+## h1 journal retention
+
+Update Data retention period (in days) of Journal
+
+### Syntax
+
+```h1 journal retention | --retention RETENTION --journal JOURNAL```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--retention RETENTION``` |  | Data retention period (in days) |
+| ```--journal JOURNAL``` |  | Journal ID or name |
+
 ## h1 journal stream
 
 Stream or read messages of Journal
@@ -288,14 +275,26 @@ Stream or read messages of Journal
 #### Display today's log entries
 
 ```bash
-h1 journal stream --log my-server-log
+h1 journal stream --journal my-server-log
 ```
 
 #### View live-stream of log entries for the Nginx application
 
 ```bash
-h1 journal stream --log my-server-log --follow --filter appName~nginx
+h1 journal stream --journal my-server-log --follow --filter appName=~nginx
 ```
+
+#### Filtering
+
+Parameter ```--filter``` accept following query format:
+
+* `{fieldName}=~{value}` - filter by regexp pattern. Example ```--filter 'message=~.*isAuthenticated: true.*'```
+* `{fieldName}={value}` - filter by exact match field to value. Example: ```--filter 'tag.containerId=1234'```
+* `{fieldName}={value}` - filter by values higher than ```{value}``
+* `{fieldName}={value}` - filter by values lower than ```{value}``
+
+```{fieldName}``` is name of property of log entry. It can contains any character in range of ```A-Za-z.``` .
+The ```.``` sign is specially treated and is used to refer to the nested properties of the object.
 
 ### Required arguments
 
@@ -325,7 +324,7 @@ Log messages to Journal
 ### Example
 
 ```
-echo 'Log message' | h1 journal logger --log my-log --token my-secret-token --hostname srv-01
+echo 'Log message' | h1 journal logger --journal my-log --token my-secret-token --hostname srv-01
 ```
 
 ### Required arguments

@@ -8,6 +8,7 @@ const ssh = require('../../lib/ssh');
 
 const commonCreateParams = '--type website --image h1cr.io/website/php-apache:7.2';
 
+
 ava.serial('website life cycle', tests.resourceLifeCycle('website', {
     createParams: `--name ${tests.getName('website-life-cycle')} ${commonCreateParams} `,
     stateCreated: 'Running',
@@ -21,6 +22,13 @@ const putFileWebsite = (website, auth, path, content) => {
     }, auth));
 };
 
+const mkDirWebsite = (website, auth, path) => {
+    console.log(new Date(), `Make directory in website ${website.id} at '${path}'`);
+    return ssh.mkDir(path, Object.assign({
+        host: website.fqdn,
+        username: website.id,
+    }, auth));
+};
 const rmFileWebsite = (website, auth, path) => {
     console.log(new Date(), `Remove file of website ${website.id} at '${path}'`);
     return ssh.rmFile(path, Object.assign({
@@ -40,9 +48,9 @@ const lsWebsite = (website, auth, path) => {
 ava.serial('website empty page results', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     // TODO: Validate default page according scope
-    await tests.delay(5); // Workaround for full page startup
+    await tests.delay(tests.DELAY.website_start);
     const resp = await tests.get(`http://${website.fqdn}/`).ok(res => [403, 200].includes(res.status));
-    t.true(resp.text.includes("You don't have permission to access /"));
+    t.true(resp.text.includes("You don't have permission to access"));
     await tests.remove('website', website);
 });
 
@@ -58,68 +66,90 @@ ava.serial('website put index via SFTP & password', async t => {
 });
 
 ava.serial('website management domain', async t => {
-    const domain = 'website.h1.jawnosc.tk';
-    const rset_cname = tests.getName('cname', t.title);
-    const rset_txt = tests.getName('txt', t.title);
+    const rset_cname = 'website-cname';
+    const rset_txt = 'website-txt';
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     await tests.run(`website stop --website ${website.id}`);
-    const zone = await tests.run('dns zone show --zone website').catch(() =>
-        tests.run(`dns zone create --name ${domain} --type public`)
-    ).then(zone =>
-        tests.run(`dns zone rename --new-name website --zone ${zone.id}`)
-    );
+    const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
     try {
         const rrset_txt = await tests.run(`dns record-set txt upsert --name ${rset_txt} --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
-        await tests.delay(5 * 1000);
-        const txt_response = (await tests.dnsResolve(rrset_txt.name, 'TXT')).flat(2);
-        t.true(txt_response.includes(website.fqdn), txt_response);
-
-        await tests.run(`website domain add --website ${website.id} --domain ${rset_txt}.${zone.dnsName}`);
-        let domains = await tests.run(`website domain list --website ${website.id}`);
-        t.true(domains.includes(`${rset_txt}.${zone.dnsName}`));
-        t.true(!domains.includes(`${rset_cname}.${zone.dnsName}`));
-        t.true(domains.length === 1);
-
         const rrset_cname = await tests.run(`dns record-set cname upsert --name ${rset_cname} --zone ${zone.id} --value '${website.fqdn}' --ttl 1`);
-        await tests.delay(5 * 1000);
+        await tests.delay(tests.DELAY.dns_propagate);
+
+        const txt_response = (await tests.dnsResolve(rrset_txt.name, 'TXT')).flat(2);
+        t.true(txt_response.includes(website.fqdn));
+
         const cname_response = await tests.dnsResolve(rrset_cname.name, 'CNAME');
         t.true(cname_response.includes(website.fqdn));
 
-        await tests.run(`website domain add --website ${website.id} --domain ${rset_cname}.${zone.dnsName}`);
+        await tests.run(`website domain add --website ${website.id} --domain ${rrset_txt.name}`);
+        let domains = await tests.run(`website domain list --website ${website.id}`);
+        t.true(domains.includes(`${rrset_txt.name}`));
+        t.true(!domains.includes(`${rrset_cname.name}`));
+        t.true(domains.length === 1);
+
+        await tests.run(`website domain add --website ${website.id} --domain ${rrset_cname.name}`);
         domains = await tests.run(`website domain list --website ${website.id}`);
-        t.true(domains.includes(`${rset_txt}.${zone.dnsName}`));
-        t.true(domains.includes(`${rset_cname}.${zone.dnsName}`));
+        t.true(domains.includes(`${rrset_txt.name}`));
+        t.true(domains.includes(`${rrset_cname.name}`));
         t.true(domains.length === 2);
 
         await tests.run(`website domain delete --website ${website.id} --domain ${rset_txt}.${zone.dnsName}`);
         domains = await tests.run(`website domain list --website ${website.id}`);
-        t.true(!domains.includes(`${rset_txt}.${zone.dnsName}`));
-        t.true(domains.includes(`${rset_cname}.${zone.dnsName}`));
+        t.true(!domains.includes(`${rrset_txt.name}`));
+        t.true(domains.includes(`${rrset_cname.name}`));
         t.true(domains.length === 1);
     } finally {
-        await tests.remove('dns zone', zone);
         await tests.remove('website', website);
     }
 });
 
 ava.serial('website reachable through custom domain', async t => {
-    const domain = 'website.h1.jawnosc.tk';
     const rset = 'website-reachable';
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     await tests.run(`website stop --website ${website.id}`);
-    const zone = await tests.run('dns zone show --zone website').catch(() =>
-        tests.run(`dns zone create --name ${domain} --type public`)
-    ).then(zone =>
-        tests.run(`dns zone rename --new-name website --zone ${zone.id}`)
-    );
+    const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
     try {
-        const rrset_txt = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
-        await tests.delay(5 * 1000);
-        const dns_response = await tests.dnsResolve(rrset_txt.name, 'CNAME');
-        t.true(dns_response.includes(website.fqdn), dns_response);
+        const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
+        await tests.delay(tests.DELAY.dns_propagate);
+        const host = rrset.name.slice(0, rrset.name.length - 1);
+        const dns_response = await tests.dnsResolve(rrset.name, 'CNAME');
+        t.true(dns_response.includes(website.fqdn));
 
-        await tests.run(`website domain add --website ${website.id} --domain ${rset}.${zone.dnsName}`);
+        await tests.run(`website domain add --website ${website.id} --domain ${host}`);
+        await tests.run(`website start --website ${website.id}`);
+        // Upload file
+        const token = await tests.getToken();
+        const files = await lsWebsite(website, { password }, '/data');
+        t.true(files.some(f => f.filename === 'public'));
+        await ssh.execResource(website, { password }, 'ls -lah /data/public');
+        await putFileWebsite(website, { password }, 'public/index.html', token);
+        await tests.delay(tests.DELAY.website_start);
+        // Test content
+        for (const proto of ['http', 'https']) {
+            const resp = await tests.get(`${proto}://${rrset.name.slice(0, rrset.name.length - 1)}/`);
+            t.true(resp.text === token);
+        }
+    } finally {
+        await tests.remove('website', website);
+    }
+});
+
+ava.serial('website reachable through apex record', async t => {
+    const password = await tests.getToken();
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+    await tests.run(`website stop --website ${website.id}`);
+    const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
+    try {
+        const rrset = await tests.run(`dns record-set cname upsert --name '@' --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
+        await tests.run(`dns record-set txt upsert --name '@' --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
+        await tests.delay(tests.DELAY.dns_propagate);
+        const host = rrset.name.slice(0, rrset.name.length - 1);
+        const dns_response = await tests.dnsResolve(rrset.name, 'TXT');
+        t.true(dns_response.includes(website.fqdn));
+
+        await tests.run(`website domain add --website ${website.id} --domain ${host}`);
         await tests.run(`website start --website ${website.id}`);
         // Upload file
         const token = await tests.getToken();
@@ -130,14 +160,14 @@ ava.serial('website reachable through custom domain', async t => {
         await tests.delay(5 * 1000);
         // Test content
         for (const proto of ['http', 'https']) {
-            const resp = await tests.get(`${proto}://${rset}.${domain}/`);
+            const resp = await tests.get(`${proto}://${rrset.name.slice(0, rrset.name.length - 1)}/`);
             t.true(resp.text === token);
         }
     } finally {
-        await tests.remove('dns zone', zone);
         await tests.remove('website', website);
     }
 });
+
 
 ['h1cr.io/website/nginx-static:latest', 'h1cr.io/website/php-apache:7.2', 'h1cr.io/website/php-apache:5.6'].forEach(image => {
     ava.serial(`website reachable index.html - ${image}`, async t => {
@@ -192,13 +222,38 @@ ava.serial('website stop & start', async t => {
 
 const languages = {
     php: '<?php error_reporting(E_ALL); file_put_contents("/data/public/test.txt", "TOKEN"); ?>',
+    node: `const rand = Math.random();
+    require('http').createServer(
+        (req, res) => res.end(rand.toString())
+    ).listen(process.env.PORT);`,
+    // Warning: Python is tab-sensitive
+    python: `
+import time
+start=str(time.time());
+def application(environ, start_response):
+    start_response('200 OK', [('Content-type', 'text/plain')])
+    return [start]
+`.trim(),
 };
+
 const images = {
     'h1cr.io/website/php-apache:7.2': {
         code: languages.php,
     },
     'h1cr.io/website/php-apache:5.6': {
         code: languages.php,
+    },
+    'h1cr.io/website/node:10': {
+        code: languages.node,
+    },
+    'h1cr.io/website/node:12': {
+        code: languages.node,
+    },
+    'h1cr.io/website/python-passenger:3': {
+        code: languages.python,
+    },
+    'h1cr.io/website/python-passenger:3.7': {
+        code: languages.python,
     },
 };
 
@@ -249,7 +304,6 @@ ava.serial('website snapshot management', async t => {
         t.true(snapshots.some(x => x.id === snapshotName));
         snapshots = await tests.run(`website snapshot list --website ${website.name}`);
         t.true(!snapshots.some(x => x.id === snapshotName));
-        await tests.delay(5);
     } finally {
         await tests.remove('website', website);
     }
@@ -314,10 +368,7 @@ ava.serial('website snapshot receive to zfs', async t => {
     const zfs_list = await tests.runProcess('zfs list');
     t.true(zfs_list.includes('h1_cli_test'), 'Missing dataset. Run: zpool create h1_cli_test /dev/sdb');
     await tests.runProcess('zfs destroy -r h1_cli_test');
-    await tests.runProcess('zfs umount h1_cli_test').catch(err => {
-        if (!err.output.includes('not currently mounted')) throw err;
-    });
-
+    const dataset = await tests.getName(t.title);
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
 
@@ -327,13 +378,43 @@ ava.serial('website snapshot receive to zfs', async t => {
 
     const output_file = await tests.getRandomFile();
     await tests.run(`website snapshot download --website ${website.name} --snapshot ${snapshot.id} --destination-file ${output_file}`);
-    await tests.runProcess(`sh -c "cat ${output_file} | zfs receive -F h1_cli_test"`);
-    await tests.runProcess('zfs set mountpoint=/h1_cli_test h1_cli_test');
-    await tests.runProcess('zfs mount h1_cli_test').catch(err => {
-        if (!err.output.includes('filesystem already mounted')) throw err;
-    });
-    const readed = fs.readFileSync('/h1_cli_test/public/test.txt');
+    await tests.runProcess(`sh -c "cat ${output_file} | zfs receive -F h1_cli_test/${dataset}"`);
+    const readed = fs.readFileSync(`/h1_cli_test/${dataset}/public/test.txt`);
     t.true(readed.includes(content));
 
     await tests.runProcess('zfs destroy -r h1_cli_test');
+});
+
+ava.serial('website restart nodejs app', async t => {
+    const password = await tests.getToken();
+    const image = 'h1cr.io/website/node:12';
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website --image '${image}' --password ${password}`);
+    const content = images[image].code;
+    await mkDirWebsite(website, { password}, 'app');
+    await putFileWebsite(website, { password }, 'app/index.js', content);
+    await tests.run(`website restart --website ${website.id}`);
+    await tests.delay(tests.DELAY.website_start);
+    const response_before = await tests.get(`http://${website.fqdn}/`);
+    await tests.run(`website restart --website ${website.id}`);
+    const response_after = await tests.get(`http://${website.fqdn}/`);
+    await tests.delay(tests.DELAY.website_start);
+    t.true(response_after.body != response_before.body);
+    await tests.remove('website', website);
+});
+
+ava.serial('website serve python app', async t => {
+    const password = await tests.getToken();
+    const image = 'h1cr.io/website/python-passenger:3.7';
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website --image '${image}' --password ${password}`);
+    const content = images[image].code;
+    await mkDirWebsite(website, { password}, 'app');
+    await putFileWebsite(website, { password }, 'app/passenger_wsgi.py', content);
+    await tests.run(`website restart --website ${website.id}`);
+    await tests.delay(tests.DELAY.website_start);
+    const response_before = await tests.get(`http://${website.fqdn}/`);
+    await tests.run(`website restart --website ${website.id}`);
+    const response_after = await tests.get(`http://${website.fqdn}/`);
+    await tests.delay(tests.DELAY.website_start);
+    t.true(response_after.body != response_before.body);
+    await tests.remove('website', website);
 });

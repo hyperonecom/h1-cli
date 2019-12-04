@@ -38,7 +38,7 @@ const category = (resource) => {
     Object.keys(recordTypes).forEach(type => category.addChild(record(type, resource)));
 
     category.addChild(require('bin/generic/list')(Object.assign({}, resource, {
-        url: args => `zone/${addTrailingDot(args.zone)}/recordset`,
+        url: args => `zone/${args.zone}/recordset`,
     })));
 
     return category;
@@ -52,7 +52,7 @@ const record = (type, parent) => {
 
     const resource = Object.assign({}, parent, {
         title: `record ${type.toUpperCase()}`,
-        url: args => `zone/${addTrailingDot(args.zone)}`,
+        url: args => `zone/${args.zone}`,
         context: Object.assign({}, parent.context, {
             listParams: '--zone my-zone',
             dns_type: type,
@@ -61,7 +61,7 @@ const record = (type, parent) => {
     });
 
     category.addChild(require('bin/generic/list')(Object.assign({}, resource, {
-        url: args => `zone/${addTrailingDot(args.zone)}/recordset`,
+        url: args => `zone/${args.zone}/recordset`,
     })));
     category.addChild(require('./createRecordSet')(resource, type));
     category.addChild(require('./deleteRecordSet')(resource, type));
