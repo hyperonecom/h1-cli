@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@hyperone/vhdx": "^1.0.1",
+    "boxen": "^4.1.0",
     "chalk": "^2.4.2",
     "cookie": "^0.4.0",
     "dns-zonefile": "^0.2.3",
@@ -46,6 +47,7 @@
     "superagent": "^5.1.0",
     "tabula": "^1.10.0",
     "ws": "^7.2.0",
+    "update-notifier": "^3.0.1",
     "ws-streamify": "^0.1.4"
   },
   "pkg": {
