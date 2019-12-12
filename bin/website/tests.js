@@ -396,8 +396,8 @@ ava.serial('website restart nodejs app', async t => {
     await tests.delay(tests.DELAY.website_start);
     const response_before = await tests.get(`http://${website.fqdn}/`);
     await tests.run(`website restart --website ${website.id}`);
-    const response_after = await tests.get(`http://${website.fqdn}/`);
     await tests.delay(tests.DELAY.website_start);
+    const response_after = await tests.get(`http://${website.fqdn}/`);
     t.true(response_after.body != response_before.body);
     await tests.remove('website', website);
 });
@@ -413,8 +413,8 @@ ava.serial('website serve python app', async t => {
     await tests.delay(tests.DELAY.website_start);
     const response_before = await tests.get(`http://${website.fqdn}/`);
     await tests.run(`website restart --website ${website.id}`);
-    const response_after = await tests.get(`http://${website.fqdn}/`);
     await tests.delay(tests.DELAY.website_start);
+    const response_after = await tests.get(`http://${website.fqdn}/`);
     t.true(response_after.body != response_before.body);
     await tests.remove('website', website);
 });
