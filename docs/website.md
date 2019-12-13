@@ -546,6 +546,12 @@ Restart Website
 ### Syntax
 
 ```h1 website restart | --website WEBSITE```
+### Example
+
+```bash
+h1 website restart --website my-website
+```
+
 ### Required arguments
 
 | Name | Default | Description |
