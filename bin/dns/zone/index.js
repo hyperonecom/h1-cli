@@ -29,7 +29,14 @@ const schema = {
         virtual: true,
         onCreate: true,
     },
+    'dns-probing': {
+        type: 'boolean',
+        onCreate: true,
+        destBody: 'source.dnsProbing',
+        description: 'Probe current DNS nameserver to guess DNS records',
+    },
 };
+
 const resource = {
     name: 'zone',
     defaultQuery: '[].{id:id, name:name, type:flavour, dnsName:dnsName, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
