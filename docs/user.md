@@ -1,6 +1,10 @@
 # TOC
 
   * [h1 user create](#h1-user-create) - Create an account
+  * [h1 user invitation](#h1-user-invitation) - Manage your invitation of User
+    * [h1 user invitation list](#h1-user-invitation-list) - List invitation of User
+    * [h1 user invitation decline](#h1-user-invitation-decline) - Decline invitation of User
+    * [h1 user invitation accept](#h1-user-invitation-accept) - Accept invitation of User
   * [h1 user credentials](#h1-user-credentials) - Manage your credentials
     * [h1 user credentials show](#h1-user-credentials-show) - Show credentials
     * [h1 user credentials list](#h1-user-credentials-list) - List credentials
@@ -31,6 +35,65 @@ Create an account
 ```bash
 h1 user create
 ```
+
+## h1 user invitation
+
+Manage your invitation of User
+
+## h1 user invitation list
+
+List invitation of User
+
+### Syntax
+
+```h1 user invitation list | ```
+### Example
+
+```bash
+h1 user invitation list
+```
+
+## h1 user invitation decline
+
+Decline invitation of User
+
+### Syntax
+
+```h1 user invitation decline | --invitation INVITATION```
+### Examples
+
+#### Decline invitation
+
+```bash
+h1 user invitation decline --invitation 5d88097cd6249ff5478540b2
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--invitation INVITATION``` |  | Invitation ID |
+
+## h1 user invitation accept
+
+Accept invitation of User
+
+### Syntax
+
+```h1 user invitation accept | --invitation INVITATION```
+### Examples
+
+#### Accept invitation
+
+```bash
+h1 user invitation accept --invitation 5d88097cd6249ff5478540b2
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--invitation INVITATION``` |  | Invitation ID |
 
 ## h1 user credentials
 
