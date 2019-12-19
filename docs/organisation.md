@@ -11,6 +11,7 @@
   * [h1 organisation payment](#h1-organisation-payment) - Manage your payment for Organisation
     * [h1 organisation payment show](#h1-organisation-payment-show) - Show payment
     * [h1 organisation payment list](#h1-organisation-payment-list) - List payment
+  * [h1 organisation delete](#h1-organisation-delete) - Delete Organisation
   * [h1 organisation transfer](#h1-organisation-transfer) - Manage your transfer for Organisation
     * [h1 organisation transfer show](#h1-organisation-transfer-show) - Show transfer
     * [h1 organisation transfer list](#h1-organisation-transfer-list) - List transfer
@@ -208,6 +209,25 @@ List payment
 
 ```bash
 h1 organisation payment list --Organisation my-Organisation
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--organisation ORGANISATION``` |  | Organisation ID or name |
+
+## h1 organisation delete
+
+Delete Organisation
+
+### Syntax
+
+```h1 organisation delete | --organisation ORGANISATION```
+### Example
+
+```bash
+h1 organisation delete --organisation my-organisation
 ```
 
 ### Required arguments

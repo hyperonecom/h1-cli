@@ -79,7 +79,7 @@ h1 vm create --name test-vm --type a1.nano
 
 Note (1): By default, all user SSH keys are used. To manage user SSH keys use ```h1 user credentials list```.
 
-Note (1): By default, image ```debian```  are used.
+Note (1): By default, image ```debian``` is used.
 
 #### Create Ubuntu Virtual Machine with custom disk size
 
@@ -87,7 +87,7 @@ Note (1): By default, image ```debian```  are used.
 h1 vm create --name test-vm --os-disk ssd,10 --type a1.nano --image debian --ssh my-ssh
 ```
 
-Note (1): To identify available disk type use ```h1 service list --resource disk``` .
+Note (1): To identify available disk type use ```h1 service list --resource disk```.
 
 Note (2): To identify available instance type use ```h1 service list --resource vm --type flavour```.
 

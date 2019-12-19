@@ -7,7 +7,7 @@
 # Create disk from .vhdx file
 
 ```bash
-{{command_name}} --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
+{{command_name}} --name new-disk --type ssd --source-file ./my-disk.vhdx
 ```
 
 # Clone disk

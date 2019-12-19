@@ -8,8 +8,30 @@ const Cli = require('lib/cli');
 const epilog = require('lib/epilog');
 const config = require('lib/config');
 
+const updateNotifier = require('update-notifier');
+
 const Package = require('../package.json');
+
 const scope = process.env.SCOPE_NAME;
+
+const notifier = updateNotifier({ pkg: Package });
+if (notifier.update) {
+    const chalk = require('chalk');
+    const boxen = require('boxen');
+    const message = [
+        `Update available: ${chalk.dim(notifier.update.current)} ${chalk.reset(' → ')} ${chalk.green(notifier.update.latest)}`,
+        'Read documentation how to install the latest version:',
+        chalk.cyan('https://www.hyperone.com/tools/cli/guides/installation.html'),
+    ].join('\n');
+    console.error(`${boxen(message, {
+        padding: 1,
+        margin: 1,
+        align: 'center',
+        borderColor: 'yellow',
+        borderStyle: 'round',
+    })}`);
+}
+
 
 const cli = Cli.createCategory(scope, {
     description: Package.description,

@@ -99,48 +99,17 @@ ava.serial('vault credential password life cycle', async t => {
     await tests.remove('vault', vault);
 });
 
-['project', 'user'].forEach(type => {
-    ava.serial(`vault credential ${type} ssh use`, async t => {
-        const name = tests.getName(t.title);
-        const sshKeyPair = await ssh.generateKey();
-        const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
+ava.serial('vault ssh using cert', async t => {
+    const { privateKey, publicKey } = await ssh.generateKey();
 
-        const ssh_name = `${name}-${type}-key`;
-        const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${sshFilename}'`);
-        const vault = await tests.run(`vault create --name my-vault --size 10 --ssh ${ssh_name}`);
+    const name = tests.getName(t.title);
 
-        const list = await tests.run(`vault credential cert list --vault ${vault.id}`);
-        t.true(list.some(p => p.name === ssh_name));
+    const vault = await tests.run(`vault create --name ${name} --size 10 --ssh '${publicKey}'`);
 
-        await tests.remove(`${type} credentials`, credentials);
-        await tests.remove('vault', vault);
+    const content = await ssh.execResource(vault, { privateKey}, 'uptime');
+    t.true(content.includes('load average'), content);
 
-        fs.unlinkSync(sshFilename);
-    });
-});
-
-['project', 'user'].forEach(type => {
-    ava.serial(`vault ssh using ${type} ssh-key`, async t => {
-        const sshKeyPair = await ssh.generateKey();
-        const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
-
-        const name = tests.getName(t.title);
-        const ssh_name = `${name}-${type}-key`;
-
-        const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${sshFilename}'`);
-
-        const vault = await tests.run(`vault create --name ${name} --size 10 --ssh ${ssh_name}`);
-
-        const content = await ssh.execResource(vault, {
-            privateKey: sshKeyPair.privateKey,
-        }, 'uptime');
-        t.true(content.includes('load average'), content);
-
-        fs.unlinkSync(sshFilename);
-
-        await tests.remove(`${type} credentials`, credentials);
-        await tests.remove('vault', vault);
-    });
+    await tests.remove('vault', vault);
 });
 
 ava.serial('vault ssh using password', async t => {

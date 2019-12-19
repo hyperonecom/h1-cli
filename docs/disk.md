@@ -236,7 +236,7 @@ h1 disk create --name db-disk --type ssd --size 10
 #### Create disk from .vhdx file
 
 ```bash
-h1 disk create --name new-disk --size 1 --type ssd --source-file ./my-disk.vhdx
+h1 disk create --name new-disk --type ssd --source-file ./my-disk.vhdx
 ```
 
 #### Clone disk

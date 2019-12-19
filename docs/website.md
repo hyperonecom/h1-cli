@@ -25,6 +25,7 @@
     * [h1 website snapshot list](#h1-website-snapshot-list) - List snapshot of Website
     * [h1 website snapshot delete](#h1-website-snapshot-delete) - Delete snapshot of Website
     * [h1 website snapshot download](#h1-website-snapshot-download) - Download snapshot of Website to a ZFS file
+  * [h1 website restart](#h1-website-restart) - Restart Website
   * [h1 website credential](#h1-website-credential) - Manage your credentials of Website
     * [h1 website credential list](#h1-website-credential-list) - List credential of Website
     * [h1 website credential show](#h1-website-credential-show) - Show credential of Website
@@ -537,6 +538,25 @@ h1 website snapshot download --website my-website --snapshot my-snapshot
 | ---- | ------- | ----------- |
 | ```--no-progress``` |  | Disable progress bar |
 | ```--difference DIFFERENCE``` |  | Snapshot relative to which difference should be downloaded |
+
+## h1 website restart
+
+Restart Website
+
+### Syntax
+
+```h1 website restart | --website WEBSITE```
+### Example
+
+```bash
+h1 website restart --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website credential
 

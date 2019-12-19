@@ -44,7 +44,7 @@ ava.serial('vm passwordreset', async t => {
     const ip = await tests.run('ip create');
     const netgw = await tests.run(`netgw create --name ${tests.getName(t.title)} --ip ${ip.id}`);
     await tests.run(`netgw attach --network ${network.id} --netgw ${netgw.id}`);
-    const vm = await tests.run(`vm create --type m2.medium --password ${token} --name ${vm_name} --image windows:2016 --network ${network.id} --os-disk ${disk_name},ssd,30`);
+    const vm = await tests.run(`vm create --type m2.medium --password ${token} --name ${vm_name} --image windows:2016 --network ${network.id} --os-disk ${disk_name},ssd,40`);
     try {
         await tests.delay(vm_windows_boot);
         const result = await tests.run(`vm passwordreset --vm ${vm.id} --user Administrator`);
@@ -376,24 +376,14 @@ ava.serial('vm service change', async t => {
     await common.cleanup();
 });
 
-['project', 'user'].forEach(type => {
-    ava.serial(`vm ssh using ${type} ssh-key`, async t => {
-        const common = await getCommon(t.title);
+ava.serial('vm ssh using ssh-key', async t => {
+    const common = await getCommon(t.title);
 
-        const sshKeyPair = await ssh.generateKey();
-        const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
+    const { privateKey, publicKey } = await ssh.generateKey();
+    const vm = await tests.run(`vm create ${common.params.createParams} --ssh '${publicKey}'`);
 
-        const ssh_name = `vm-ssh-key-${now}-${type}-key`;
+    const content = await ssh.execVm(vm, { privateKey }, 'uptime');
+    t.true(content.includes('load average'));
 
-        const credentials = await tests.run(`${type} credentials add --name ${ssh_name} --sshkey-file '${sshFilename}'`);
-
-        const vm = await tests.run(`vm create ${common.params.createParams} --ssh ${ssh_name}`);
-
-        const content = await ssh.execVm(vm, { privateKey: sshKeyPair.privateKey }, 'uptime');
-        t.true(content.includes('load average'));
-        fs.unlinkSync(sshFilename);
-
-        await tests.remove(`${type} credentials`, credentials);
-        await common.cleanup();
-    });
+    await common.cleanup();
 });
