@@ -68,7 +68,7 @@ Create Virtual machine
 
 ### Syntax
 
-```h1 vm create | --name NAME --type TYPE [--tag TAG [--tag TAG ...]] [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]]```
+```h1 vm create | --name NAME --type TYPE [--tag TAG [--tag TAG ...]] [--password PASSWORD] [--username USERNAME] [--ssh SSH [--ssh SSH ...]] [--image IMAGE] [--no-image] [--iso ISO] [--os-disk-name OS-DISK-NAME] [--os-disk-type OS-DISK-TYPE] [--os-disk-size OS-DISK-SIZE] [--os-disk OS-DISK] [--network NETWORK] [--ip IP] [--no-start] [--userdata-file USERDATA-FILE] [--ssh-file SSH-FILE [--ssh-file SSH-FILE ...]]```
 ### Examples
 
 #### Create Debian Virtual Machine with recommended disk
@@ -111,12 +111,13 @@ Note (4): To list available cloud-provided images use ```h1 image list --recomme
 | ```--password PASSWORD``` |  | Initial administrator user password |
 | ```--username USERNAME``` |  | Initial administrator username |
 | ```--ssh SSH [--ssh SSH ...]``` |  | SSH key ID or name that allows access. If not provided, use all user SSH keys.. The parameter may occur repeatedly |
-| ```--image IMAGE``` |  | Image ID or name |
+| ```--image IMAGE``` |  | Image ID or name. If not given and not used "no-image" parameter, "debian" will be used. |
+| ```--no-image``` |  | Do not use image. Parameter excludes the use of "image" parameter and disable default image. |
 | ```--iso ISO``` |  | ISO ID or name |
-| ```--os-disk-name OS-DISK-NAME``` |  | OS disk name |
-| ```--os-disk-type OS-DISK-TYPE``` |  | OS disk type |
-| ```--os-disk-size OS-DISK-SIZE``` |  | OS disk size |
-| ```--os-disk OS-DISK``` |  | OS disk: [name,] type, size |
+| ```--os-disk-name OS-DISK-NAME``` |  | OS disk name. Parameter excludes the use of "os-disk" parameter. |
+| ```--os-disk-type OS-DISK-TYPE``` |  | OS disk type. Parameter excludes the use of "os-disk" parameter. |
+| ```--os-disk-size OS-DISK-SIZE``` |  | OS disk size. Parameter excludes the use of "os-disk" parameter. |
+| ```--os-disk OS-DISK``` |  | OS disk: [[name,] type, size | id] |
 | ```--network NETWORK``` |  | Network ID or name to attach |
 | ```--ip IP``` |  | IP address for Virtual machine |
 | ```--no-start``` |  | Do not start Virtual machine after creation |

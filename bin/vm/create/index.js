@@ -6,6 +6,8 @@ const { hashPassword } = require('lib/credentials');
 const genericDefaults = require('bin/generic/defaults');
 const logger = require('lib/logger');
 
+const DEFAULT_IMAGE = 'debian';
+
 const options = {
     name: {
         description: 'Virtual machine name',
@@ -32,28 +34,31 @@ const options = {
         dest: 'sshKeys',
     },
     image: {
-        description: 'Image ID or name',
+        description: 'Image ID or name. If not given and not used "no-image" parameter, "debian" will be used.',
         type: 'string',
-        defaultValue: 'debian',
+    },
+    'no-image': {
+        description: 'Do not use image. Parameter excludes the use of "image" parameter and disable default image.',
+        type: 'boolean',
     },
     iso: {
         description: 'ISO ID or name',
         type: 'string',
     },
     'os-disk-name': {
-        description: 'OS disk name',
+        description: 'OS disk name. Parameter excludes the use of "os-disk" parameter.',
         type: 'string',
     },
     'os-disk-type': {
-        description: 'OS disk type',
+        description: 'OS disk type. Parameter excludes the use of "os-disk" parameter.',
         type: 'string',
     },
     'os-disk-size': {
-        description: 'OS disk size',
+        description: 'OS disk size. Parameter excludes the use of "os-disk" parameter.',
         type: 'int',
     },
     'os-disk': {
-        description: 'OS disk: [name,] type, size',
+        description: 'OS disk: [[name,] type, size | id]',
         type: 'string',
     },
     network: {
@@ -124,21 +129,50 @@ module.exports = resource => Cli.createCommand('create', {
             newVM.netadp = [netadp];
         }
 
+        if (!args['no-image']) {
+            newVM.image = args.image || DEFAULT_IMAGE;
+        } else if (args.image) {
+            throw Cli.error.cancelled('Parameters \'no-image\' and \'image\' are mutually exclusive.');
+        }
+
         if (args['no-start']) {
             newVM.boot = false;
         }
-        newVM.disk = [];
-        if (args['os-disk'] || args['os-disk-name'] && args['os-disk-type'] && args['os-disk-size']) {
 
-            let osDisk = args['os-disk'] ? args['os-disk'].split(',') : [];
-            osDisk = osDisk.length === 2 ? [`${args.name}-os`, ...osDisk] : osDisk;
+        newVM.disk = [];
+        if (args['os-disk']) {
+            Cli.mutually_exclusive_validate(args, 'os-disk', 'os-disk-name');
+            Cli.mutually_exclusive_validate(args, 'os-disk', 'os-disk-type');
+            Cli.mutually_exclusive_validate(args, 'os-disk', 'os-disk-size');
+
+            const osDisk = args['os-disk'] ? args['os-disk'].split(',') : [];
+            if (osDisk.length == 1) {
+                newVM.disk.push({
+                    id: osDisk[0],
+                });
+            } else if (osDisk.length == 2) {
+                newVM.disk.push({
+                    name: `${args.name}-os`,
+                    type: osDisk[1],
+                    size: osDisk[2],
+                });
+            } else if (osDisk.length == 3) {
+                newVM.disk.push({
+                    name: osDisk[0],
+                    type: osDisk[1],
+                    size: osDisk[2],
+                });
+            } else {
+                throw Cli.error.cancelled(`Invalid format of 'os-disk': ${args['os-disk']}`);
+            }
+        } else if (args['os-disk-name'] || args['os-disk-type'] || args['os-disk-size']) {
             newVM.disk.push({
-                name: osDisk[0] || args['os-disk-name'],
-                service: osDisk[1] || args['os-disk-type'],
-                size: osDisk[2] || args['os-disk-size'],
+                name: args['os-disk-name'] || `${args.name}-os`,
+                type: args['os-disk-type'],
+                size: args['os-disk-size'],
             });
-        } else {
-            const image = await args.helpers.api.get(`image/${args.image}`);
+        } else if (newVM.image) {
+            const image = await args.helpers.api.get(`image/${newVM.image}`);
             try {
                 const dsc = JSON.parse(image.description);
                 newVM.disk.push({
@@ -155,7 +189,7 @@ module.exports = resource => Cli.createCommand('create', {
             }
         }
 
-        ['iso', 'image', 'sshKeys'].forEach(param => {
+        ['iso', 'sshKeys'].forEach(param => {
             if (args[param] != null) {
                 newVM[param] = args[param];
             }

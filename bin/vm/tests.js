@@ -230,6 +230,23 @@ ava.serial('vm create passing private ip', async t => {
     await tests.remove('network', network);
 });
 
+ava.serial('vm create passing pre-created disk', async t => {
+    const disk = await tests.run(`disk create --name ${tests.getName(t.title)} --type ssd --size 10`);
+    const vm = await tests.run(`vm create  --name ${tests.getName(t.title)} --no-start --type a1.nano --os-disk ${disk.id}`);
+    const hdds = await tests.run(`vm disk list --vm ${vm.id}`);
+    t.true(hdds.some(hdd => hdd.disk.id == disk.id));
+    t.true(hdds.length == 1);
+    await tests.remove('vm', vm);
+    await tests.remove('disk', disk);
+});
+
+ava.serial('vm create without disk', async t => {
+    const vm = await tests.run(`vm create --name ${tests.getName(t.title)} --no-start --type a1.nano --no-image`);
+    const hdds = await tests.run(`vm disk list --vm ${vm.id}`);
+    t.true(hdds.length == 0);
+    await tests.remove('vm', vm);
+});
+
 ava.serial('vm create passing public ip', async t => {
     const common = await getCommon(t.title);
     const ip = await tests.run('ip create');
