@@ -57,6 +57,7 @@ ava.serial('website empty page results', async t => {
 ava.serial('website put index via SFTP & password', async t => {
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+    await tests.delay(tests.DELAY.website_start);
     // Upload file
     const token = await tests.getToken();
     await putFileWebsite(website, { password }, 'public/index.html', token);
@@ -119,6 +120,7 @@ ava.serial('website reachable through custom domain', async t => {
 
         await tests.run(`website domain add --website ${website.id} --domain ${host}`);
         await tests.run(`website start --website ${website.id}`);
+        await tests.delay(tests.DELAY.website_start);
         // Upload file
         const token = await tests.getToken();
         const files = await lsWebsite(website, { password }, '/data');
@@ -261,6 +263,7 @@ ava.serial('website runtime access rights match of sftp', async t => {
     const image = 'h1cr.io/website/php-apache:7.2';
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+    await tests.delay(tests.DELAY.website_start);
     // Put code on website
     const token = await tests.getToken();
     const content = images[image].code.replace('TOKEN', token);
