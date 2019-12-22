@@ -153,13 +153,13 @@ module.exports = resource => Cli.createCommand('create', {
             } else if (osDisk.length == 2) {
                 newVM.disk.push({
                     name: `${args.name}-os`,
-                    type: osDisk[1],
+                    service: osDisk[1],
                     size: osDisk[2],
                 });
             } else if (osDisk.length == 3) {
                 newVM.disk.push({
                     name: osDisk[0],
-                    type: osDisk[1],
+                    service: osDisk[1],
                     size: osDisk[2],
                 });
             } else {
@@ -168,7 +168,7 @@ module.exports = resource => Cli.createCommand('create', {
         } else if (args['os-disk-name'] || args['os-disk-type'] || args['os-disk-size']) {
             newVM.disk.push({
                 name: args['os-disk-name'] || `${args.name}-os`,
-                type: args['os-disk-type'],
+                service: args['os-disk-type'],
                 size: args['os-disk-size'],
             });
         } else if (newVM.image) {
