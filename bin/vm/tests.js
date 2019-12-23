@@ -233,7 +233,7 @@ ava.serial('vm create passing private ip', async t => {
 ava.serial('vm create passing pre-created disk', async t => {
     const disk = await tests.run(`disk create --name ${tests.getName(t.title)} --type ssd --size 10`);
     const password = await tests.getToken();
-    const vm = await tests.run(`vm create  --name ${tests.getName(t.title)} --password ${password} --no-start --type a1.nano --os-disk ${disk.id}`);
+    const vm = await tests.run(`vm create  --name ${tests.getName(t.title)} --password ${password} --no-start --type a1.nano --no-image --os-disk ${disk.id}`);
     const hdds = await tests.run(`vm disk list --vm ${vm.id}`);
     t.true(hdds.some(hdd => hdd.disk.id == disk.id));
     t.true(hdds.length == 1);
