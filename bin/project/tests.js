@@ -1,6 +1,6 @@
 'use strict';
 const ava = require('ava');
-const {URL} = require('url');
+const { URL } = require('url');
 const Imap = require('imap');
 
 require('../../scope/h1');
@@ -140,7 +140,7 @@ const getLatestImapMessageDate = (query, options) => new Promise((resolve, rejec
         imap.openBox('INBOX', true, err => {
             if (err) return reject(err);
             const dates = [];
-            console.log(new Date().toISOString(), 'Query IMAP', {query});
+            console.log(new Date().toISOString(), 'Query IMAP', { query });
             imap.search(query, function (err, results) {
                 if (err) return reject(err);
                 const f = imap.fetch(results, {
@@ -180,6 +180,16 @@ const dateDiffMinutes = (date1, date2) => {
     return Math.abs((date1 - date2) / 1000 / 60 / 60);
 };
 
+const checkEmailReceived = async (query, options) => {
+    for (let i = 0; i < 10; i++) {
+        await tests.delay(15 * 1000); // to delivery messages to mailbox
+        const latest_date = await getLatestImapMessageDate(query, options);
+        if (dateDiffMinutes(new Date(), new Date(latest_date)) < 5) {
+            return true;
+        }
+    }
+    throw new Error(`Timeout ${15 * 10} seconds to receive mail.`);
+};
 
 ava.serial('project notification credits integration test', async t => {
     // The total execution time of test should not exceed 300 seconds (5 minutes).
@@ -209,28 +219,38 @@ ava.serial('project notification credits integration test', async t => {
         }
         t.true(charged, `Timeout ${charge_timeout} seconds to apply charges.`);
 
-        const month = new Date().toLocaleString('en-us', {month: 'long'});
+        const month = new Date().toLocaleString('en-us', { month: 'long' });
         const day = new Date().getDay();
         const year = new Date().getMonth();
         const query = ['ALL',
             ['SINCE', `${month} ${day}, ${year}`],
             ['SUBJECT', 'Osiągnięty próg środków'],
         ];
-
         const options = getImapOptions(process.env.IMAP_URL);
-
-        let received_mail = false;
-        for (let i = 0; i < 10; i++) {
-            await tests.delay(15 * 1000); // to delivery messages to mailbox
-            const latest_date = await getLatestImapMessageDate(query, options);
-            if (dateDiffMinutes(new Date(), new Date(latest_date)) < 5) {
-                received_mail = true;
-                break;
-            }
-        }
-        t.true(received_mail, `Timeout ${15 * 10} seconds to receive mail.`);
+        await checkEmailReceived(query, options);
     } finally {
         await tests.run(`project notification credits delete ${commonParams} --limit ${limit}`);
+    }
+});
+
+ava.serial('project access grant invite', async t => {
+    const email = `${Math.random()}@${process.env.IMAP_CATCHALL_DOMAIN}`;
+    const month = new Date().toLocaleString('en-us', { month: 'long' });
+    const day = new Date().getDay();
+    const year = new Date().getMonth();
+    const query = ['ALL',
+        ['TO', email],
+        ['SINCE', `${month} ${day}, ${year}`],
+        ['SUBJECT', 'Zaproszenie do projektu'],
+    ];
+    await tests.run(`project access grant --project ${active_project} --email ${email} --role owner`);
+    try {
+        const options = getImapOptions(process.env.IMAP_URL);
+        await checkEmailReceived(query, options);
+        const members = await tests.run(`project access list --project ${active_project}`);
+        t.true(members.some(member => member.id === email && member.state === 'Invited'));
+    } finally {
+        await tests.run(`project access revoke --project ${active_project} --email ${email}`);
     }
 });
 
