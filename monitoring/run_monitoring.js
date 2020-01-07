@@ -153,7 +153,7 @@ const sendMail = async (config, success, report) => {
 const safe = text => `${text}`.replace(/[^a-zA-Z0-9\-]/g, '_');
 
 const sendInflux = (conn, measurement, labels, fields, timestamp) => {
-    const unix = `${timestamp || +new Date() * 1000000}`;
+    const unix = `${timestamp || Date.now() * 1000000}`;
 
     const label_content = Object.entries(labels).map(([key, value]) => `${safe(key)}=${safe(value)}`).join(',');
     const fields_content = Object.entries(fields).map(([key, value]) => `${safe(key)}=${value}`).join(',');
