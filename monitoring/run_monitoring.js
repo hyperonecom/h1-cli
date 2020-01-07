@@ -8,7 +8,9 @@ const tests = require('../lib/tests');
 const fg = require('fast-glob');
 const util = require('util');
 const fs = require('fs');
+const ms = require('ms');
 const mkDir = util.promisify(fs.mkdir);
+const superagent = require('superagent');
 
 const getConfigValue = (name, options = {}) => {
     if (!process.env[name] && typeof options.defaultValue === 'undefined') {
@@ -67,6 +69,26 @@ const getConfig = () => {
             parse: v => parseInt(v),
             defaultValue: 60 * 30,
         },
+        INFLUXDB_PROTOCOL: {
+            label: 'Protocol to send metrics to influxdb',
+            defaultValue: 'http',
+        },
+        INFLUXDB_ADDRESS: {
+            label: 'Address instructs exporter to send metrics to influxdb at this address.',
+            defaultValue: undefined,
+        },
+        INFLUXDB_DATABASE: {
+            label: 'InfluxDB database used when protocol is http.',
+            defaultValue: 'cli_monitoring',
+        },
+        INFLUXDB_USERNAME: {
+            label: 'InfluxDB username',
+            defaultValue: undefined,
+        },
+        INFLUXDB_PASSWORD: {
+            label: 'InfluxDB password',
+            defaultValue: undefined,
+        },
     };
 
     const config = {};
@@ -75,6 +97,8 @@ const getConfig = () => {
     });
     return config;
 };
+
+const startTime = Date.now();
 
 const keywordsMatches = (keywords, str) => keywords.some(keyword => str.includes(keyword));
 
@@ -92,7 +116,7 @@ const sendMail = async (config, success, report) => {
         // ava process error
         'exited with a non-zero exit',
         // own error
-        'Process exited with code ',  'Process timed out after ',
+        'Process exited with code ', 'Process timed out after ',
         // header of files
         'tests.js ==',
         // CLI
@@ -126,7 +150,67 @@ const sendMail = async (config, success, report) => {
     await smtpTransport.close();
 };
 
-const runProcess = async (cmd, env = {}, timeout = 60 * 30) => new Promise((resolve, reject) => {
+const safe = text => `${text}`.replace(/[^a-zA-Z0-9\-]/g, '_');
+
+const sendInflux = (conn, measurement, labels, fields, timestamp) => {
+    const unix = `${timestamp || Date.now() * 1000000}`;
+
+    const label_content = Object.entries(labels).map(([key, value]) => `${safe(key)}=${safe(value)}`).join(',');
+    const fields_content = Object.entries(fields).map(([key, value]) => `${safe(key)}=${value}`).join(',');
+    const content = `${measurement},${label_content} ${fields_content} ${unix}`;
+    console.log({ measurement, labels, fields, content });
+    return superagent.post(`http://${conn.address}/write`)
+        .query({ db: conn.database })
+        .send(content)
+        .auth(conn.username, conn.password);
+};
+
+const parseMetric = async (conn, line) => {
+    if (!['  ✖ ', ' ◌ ', ' ✔ '].some(y => line.includes(y))) {
+        return;
+    }
+    if (line.includes(' ✔ ')) {
+        const matches = line.trim().match(' *✔ (.+?) \\((.+?)\\)$');
+        console.log({ line, matches });
+        if (!matches) {
+            console.log('RegExp failed');
+        }
+        const [, title, duration_text] = matches;
+        const duration = duration_text.split(' ').map(x => ms(x)).reduce((a, b) => a + b, 0);
+        console.log({ duration, duration_text });
+        return sendInflux(conn, 'testcase', {
+            title,
+        }, {
+            duration: duration,
+            run: startTime,
+            result: 1,
+        });
+    } else if (line.includes(' ✖ ')) {
+        const [, title, help] = line.trim().match(' *✖ (.+?)( Rejected promise returned by test)?$');
+        if ([' Timed out while running tests'].includes(help)) {
+            return;
+        }
+        return sendInflux(conn, 'testcase', {
+            title,
+            run: startTime,
+        }, {
+            result: -1,
+        });
+    } else if (line.includes(' ◌ ')) {
+        const [, title] = line.match(' ◌ (.+?)$');
+        return sendInflux(conn, 'testcase', {
+            title,
+            run: startTime,
+        }, {
+            result: 0,
+        });
+    }
+    console.log(`Failed to match line: ${line}`);
+};
+
+const runProcess = async (cmd, env = {}, options = {}) => new Promise((resolve, reject) => {
+    const timeout = options.timeout || 60 * 30;
+    const influxConn = options.influxConn;
     console.log(`Started process: ${cmd}`);
     const arg = shell_quote.parse(cmd);
 
@@ -158,6 +242,13 @@ const runProcess = async (cmd, env = {}, timeout = 60 * 30) => new Promise((reso
     proc.stdout.on('data', (data) => {
         process.stdout.write(data);
         output += data;
+        if (influxConn) {
+            return parseMetric(influxConn, `${data}`).then(() => {
+                console.log('Delivered metrics to influxDB');
+            }).catch(err => {
+                console.log(err);
+            });
+        }
     });
 
     proc.stderr.on('data', (data) => {
@@ -165,14 +256,17 @@ const runProcess = async (cmd, env = {}, timeout = 60 * 30) => new Promise((reso
         output += data;
     });
 });
-const runIsolated = async (config, cmd, options={}) => {
+const runIsolated = async (config, cmd, options = {}) => {
     const project = options.project || config.HYPERONE_PROJECT_MASTER;
     const config_dir = `/tmp/${Math.random()}/`;
     await mkDir(config_dir);
-    const envIsolate = {HYPERONE_CONFIG_PATH: config_dir};
+    const envIsolate = { HYPERONE_CONFIG_PATH: config_dir };
     await runProcess(`h1 login --username ${config.HYPERONE_USER} --password ${config.HYPERONE_PASSWORD}`, envIsolate);
     await runProcess(`h1 project select --project ${project}`, envIsolate);
-    return runProcess(cmd, envIsolate, config.MONITORING_TIMEOUT);
+    return runProcess(cmd, envIsolate, {
+        timeout: config.MONITORING_TIMEOUT,
+        influxConn: options.influxConn,
+    });
 };
 
 const main = async () => {
@@ -181,11 +275,18 @@ const main = async () => {
 
     const files = await fg(config.MONITORING_GLOB);
 
+    const influxConn = {
+        address: config.INFLUXDB_ADDRESS,
+        username: config.INFLUXDB_USERNAME,
+        password: config.INFLUXDB_PASSWORD,
+        database: config.INFLUXDB_DATABASE,
+    };
+
     let all_pass = true;
     const runTest = async test_path => {
         let output = `== ${test_path} ==\n`;
         try {
-            output+= await runIsolated(config, `${config.MONITORING_CMD} ${test_path}`);
+            output += await runIsolated(config, `${config.MONITORING_CMD} ${test_path}`, { influxConn });
         } catch (err) {
             all_pass = false;
             output += `${err.message}\n${err.output}\n${err.message}\n`;
