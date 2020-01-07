@@ -180,9 +180,9 @@ const parseMetric = async (conn, line) => {
         console.log({ duration, duration_text });
         return sendInflux(conn, 'testcase', {
             title,
-            run: startTime,
         }, {
             duration: duration,
+            run: startTime,
             result: 1,
         });
     } else if (line.includes(' ✖ ')) {
