@@ -180,10 +180,10 @@ const parseMetric = async (conn, line) => {
         console.log({ duration, duration_text });
         return sendInflux(conn, 'testcase', {
             title,
+            result: 'pass',
         }, {
             duration: duration,
             run: startTime,
-            result: 1,
         });
     } else if (line.includes(' ✖ ')) {
         const [, title, help] = line.trim().match(' *✖ (.+?)( Rejected promise returned by test)?$');
@@ -192,17 +192,17 @@ const parseMetric = async (conn, line) => {
         }
         return sendInflux(conn, 'testcase', {
             title,
-            run: startTime,
+            result: 'fail',
         }, {
-            result: -1,
+            run: startTime,
         });
     } else if (line.includes(' ◌ ')) {
         const [, title] = line.match(' ◌ (.+?)$');
         return sendInflux(conn, 'testcase', {
             title,
-            run: startTime,
+            result: 'timeout',
         }, {
-            result: 0,
+            run: startTime,
         });
     }
     console.log(`Failed to match line: ${line}`);
