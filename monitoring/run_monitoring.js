@@ -289,7 +289,6 @@ const main = async () => {
         try {
             output += await runIsolated(config, `${config.MONITORING_CMD} ${test_path}`, { influxConn });
         } catch (err) {
-            console.log(err);
             all_pass = false;
             output += `${err.message}\n${err.output}\n${err.message}\n`;
         }
