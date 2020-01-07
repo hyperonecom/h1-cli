@@ -262,7 +262,7 @@ const runIsolated = async (config, cmd, options = {}) => {
     const config_dir = `/tmp/${Math.random()}/`;
     await mkDir(config_dir);
     const envIsolate = { HYPERONE_CONFIG_PATH: config_dir };
-    await runProcess(`h1 login -v --username ${config.HYPERONE_USER} --password ${config.HYPERONE_PASSWORD}`, envIsolate);
+    await runProcess(`h1 login --username ${config.HYPERONE_USER} --password ${config.HYPERONE_PASSWORD}`, envIsolate);
     await runProcess(`h1 project select --project ${project}`, envIsolate);
     return runProcess(cmd, envIsolate, {
         timeout: config.MONITORING_TIMEOUT,
