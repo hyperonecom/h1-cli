@@ -98,7 +98,7 @@ const getConfig = () => {
     return config;
 };
 
-const startTime = +new Date();
+const startTime = Date.now();
 
 const keywordsMatches = (keywords, str) => keywords.some(keyword => str.includes(keyword));
 
