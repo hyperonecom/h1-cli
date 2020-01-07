@@ -153,8 +153,8 @@ module.exports = resource => Cli.createCommand('create', {
             } else if (osDisk.length == 2) {
                 newVM.disk.push({
                     name: `${args.name}-os`,
-                    service: osDisk[1],
-                    size: osDisk[2],
+                    service: osDisk[0],
+                    size: osDisk[1],
                 });
             } else if (osDisk.length == 3) {
                 newVM.disk.push({
