@@ -211,7 +211,6 @@ const parseMetric = async (conn, line) => {
 const runProcess = async (cmd, env = {}, options = {}) => new Promise((resolve, reject) => {
     const timeout = options.timeout || 60 * 30;
     const influxConn = options.influxConn;
-    console.log({ timeout, influxConn });
     console.log(`Started process: ${cmd}`);
     const arg = shell_quote.parse(cmd);
 
