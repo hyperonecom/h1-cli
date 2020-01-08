@@ -143,6 +143,9 @@ const getLatestImapMessageDate = (query, options) => new Promise((resolve, rejec
             console.log(new Date().toISOString(), 'Query IMAP', { query });
             imap.search(query, function (err, results) {
                 if (err) return reject(err);
+                if (!results || !results.length) {
+                    return resolve();
+                }
                 const f = imap.fetch(results, {
                     bodies: ['HEADER.FIELDS (DATE)'],
                 });
@@ -165,7 +168,7 @@ const getLatestImapMessageDate = (query, options) => new Promise((resolve, rejec
                 f.once('end', function () {
                     imap.end();
                     if (!dates) {
-                        return reject('No message received');
+                        return resolve();
                     }
                     return resolve(new Date(Math.max.apply(null, dates)));
                 });
@@ -184,7 +187,7 @@ const checkEmailReceived = async (query, options) => {
     for (let i = 0; i < 10; i++) {
         await tests.delay(15 * 1000); // to delivery messages to mailbox
         const latest_date = await getLatestImapMessageDate(query, options);
-        if (dateDiffMinutes(new Date(), new Date(latest_date)) < 5) {
+        if (latest_date && dateDiffMinutes(new Date(), latest_date) < 5) {
             return true;
         }
     }
