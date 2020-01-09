@@ -2,6 +2,7 @@
 
 const Cli = require('lib/cli');
 const credentials = require('lib/credentials');
+const crypto = require('lib/crypto');
 
 const options = {
     name: {
@@ -40,7 +41,7 @@ module.exports = (resource) => Cli.createCommand('add', {
         let password = args.password;
 
         if (!password) {
-            password = await credentials.randomPassword();
+            password = await crypto.randomPassword();
             console.error(`The generated password is: ${password}`);
         }
 
