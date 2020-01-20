@@ -37,7 +37,7 @@ h1 database     list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 dat
 h1 registry     list --project-select $PROJECT -o id | xargs -r -n 1 -P 8 h1 registry    delete --project-select $PROJECT --yes --registry
 h1 user credentials list -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 h1 user credentials delete --yes --credentials
 h1 project credentials list --project "$PROJECT" -o id | grep -v "$SKIPPED_CREDENTIALS" | xargs -r -n 1 h1 project credentials delete --yes --project "$PROJECT" --credentials
-h1 project notification credits list --project "$PROJECT" -o id | xargs -r -n 1 h1 project notification credits delete --project "$PROJECT" --limit
+h1 project notification credits list --project "$PROJECT" -o tsv | xargs -r -n 1 h1 project notification credits delete --project "$PROJECT" --limit
 h1 project token list --project "$PROJECT" -o id | xargs -r -n 1 h1 project token delete --yes --project "$PROJECT" --token
 [ -n "$HYPERONE_PROJECT_SLAVE" ] && [ -z "$HYPERONE_PROJECT_MASTER" ] && {
 	h1 project list -o tsv  | \
