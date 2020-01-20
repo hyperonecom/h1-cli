@@ -66,17 +66,17 @@
   "keywords": [],
   "devDependencies": {
     "@hyperone/eslint-config": "^1.0.5",
-    "ajv": "^6.10.2",
+    "ajv": "^6.11.0",
     "ava": "^2.4.0",
     "babel-eslint": "^10.0.3",
     "dns-socket": "^4.2.0",
     "eslint": "^6.8.0",
     "fast-glob": "^3.1.1",
     "imap": "^0.8.19",
-    "mysql2": "^1.7.0",
-    "node-forge": "^0.7.6",
-    "nodemailer": "^4.7.0",
-    "pg": "^7.17.0",
+    "mysql2": "^2.1.0",
+    "node-forge": "^0.9.1",
+    "nodemailer": "^6.4.2",
+    "pg": "^7.17.1",
     "pkg": "^4.4.2"
   },
   "ava": {
