@@ -8,9 +8,9 @@ const ssh = require('../../lib/ssh');
 
 const commonCreateParams = '--type website --image h1cr.io/website/php-apache:7.2';
 
-const fetchMultiproto = async (t, domain, test, path='') => {
+const fetchMultiproto = async (t, urn, test) => {
     for (const proto of ['http', 'https']) {
-        const resp = await tests.get(`${proto}://${domain}/${path}`);
+        const resp = await tests.get(`${proto}://${urn}`);
         await t.true(test(resp));
     }
 };
@@ -67,7 +67,7 @@ ava.serial('website put index via SFTP & password', async t => {
     // Upload file
     const token = await tests.getToken();
     await putFileWebsite(website, { password }, 'public/index.html', token);
-    await fetchMultiproto(t, website.fqdn, resp=>resp.text === token);
+    await fetchMultiproto(t, website.fqdn, resp => resp.text === token);
     await tests.remove('website', website);
 });
 
@@ -134,7 +134,7 @@ ava.serial('website reachable through custom domain', async t => {
         await putFileWebsite(website, { password }, 'public/index.html', token);
         await tests.delay(tests.DELAY.website_start);
         // Test content
-        await fetchMultiproto(t, `${rrset.name.slice(0, rrset.name.length - 1)}`, resp=>resp.text === token);
+        await fetchMultiproto(t, rrset.name.slice(0, rrset.name.length - 1), resp => resp.text === token);
     } finally {
         await tests.remove('website', website);
     }
@@ -163,7 +163,7 @@ ava.serial('website reachable through apex record', async t => {
         await putFileWebsite(website, { password }, 'public/index.html', token);
         await tests.delay(5 * 1000);
         // Test content
-        await fetchMultiproto(t, `${rrset.name.slice(0, rrset.name.length - 1)}`, resp=>resp.text === token);
+        await fetchMultiproto(t, rrset.name.slice(0, rrset.name.length - 1), resp => resp.text === token);
     } finally {
         await tests.remove('website', website);
     }
@@ -180,7 +180,7 @@ ava.serial('website reachable through apex record', async t => {
         const token = await tests.getToken();
         await putFileWebsite(website, { privateKey: sshKeyPair.privateKey }, 'public/index.html', token);
         // Test content
-        await fetchMultiproto(t, website.fqdn, resp=>resp.text === token);
+        await fetchMultiproto(t, website.fqdn, resp => resp.text === token);
         await tests.remove('website', website);
     });
 });
@@ -266,8 +266,8 @@ ava.serial('website runtime access rights match of sftp', async t => {
     const content = images[image].code.replace('TOKEN', token);
     await putFileWebsite(website, { password }, 'public/test.php', content);
     // Call script
-    await fetchMultiproto(t, website.fqdn, resp=>resp.text === '', 'test.php');
-    await fetchMultiproto(t, website.fqdn, resp=>resp.text === token, 'test.txt');
+    await fetchMultiproto(t, `${website.fqdn}/test.php`, resp => resp.text === '');
+    await fetchMultiproto(t, `${website.fqdn}/test.txt`, resp => resp.text === token);
 
     // Verify permission to remove
     await rmFileWebsite(website, { password }, 'public/test.txt');
@@ -388,7 +388,7 @@ ava.serial('website restart nodejs app', async t => {
     const image = 'h1cr.io/website/node:12';
     const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website --image '${image}' --password ${password}`);
     const content = images[image].code;
-    await mkDirWebsite(website, { password}, 'app');
+    await mkDirWebsite(website, { password }, 'app');
     await putFileWebsite(website, { password }, 'app/index.js', content);
     await tests.run(`website restart --website ${website.id}`);
     await tests.delay(tests.DELAY.website_start);
@@ -405,7 +405,7 @@ ava.serial('website serve python app', async t => {
     const image = 'h1cr.io/website/python-passenger:3.7';
     const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website --image '${image}' --password ${password}`);
     const content = images[image].code;
-    await mkDirWebsite(website, { password}, 'app');
+    await mkDirWebsite(website, { password }, 'app');
     await putFileWebsite(website, { password }, 'app/passenger_wsgi.py', content);
     await tests.run(`website restart --website ${website.id}`);
     await tests.delay(tests.DELAY.website_start);
