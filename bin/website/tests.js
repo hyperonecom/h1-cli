@@ -119,7 +119,7 @@ ava.serial('website reachable through custom domain', async t => {
     try {
         const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
         await tests.delay(tests.DELAY.dns_propagate);
-        const host = rrset.name.slice(0, rrset.name.length - 1);
+        const host = rrset.name.slice(0, -1);
         const dns_response = await tests.dnsResolve(rrset.name, 'CNAME');
         t.true(dns_response.includes(website.fqdn));
 
@@ -134,7 +134,7 @@ ava.serial('website reachable through custom domain', async t => {
         await putFileWebsite(website, { password }, 'public/index.html', token);
         await tests.delay(tests.DELAY.website_start);
         // Test content
-        await fetchMultiproto(t, rrset.name.slice(0, rrset.name.length - 1), resp => resp.text === token);
+        await fetchMultiproto(t, rrset.name.slice(0, -1), resp => resp.text === token);
     } finally {
         await tests.remove('website', website);
     }
@@ -149,7 +149,7 @@ ava.serial('website reachable through apex record', async t => {
         const rrset = await tests.run(`dns record-set cname upsert --name '@' --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
         await tests.run(`dns record-set txt upsert --name '@' --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
         await tests.delay(tests.DELAY.dns_propagate);
-        const host = rrset.name.slice(0, rrset.name.length - 1);
+        const host = rrset.name.slice(0, -1);
         const dns_response = await tests.dnsResolve(rrset.name, 'TXT');
         t.true(dns_response.includes(website.fqdn));
 
@@ -163,7 +163,7 @@ ava.serial('website reachable through apex record', async t => {
         await putFileWebsite(website, { password }, 'public/index.html', token);
         await tests.delay(5 * 1000);
         // Test content
-        await fetchMultiproto(t, rrset.name.slice(0, rrset.name.length - 1), resp => resp.text === token);
+        await fetchMultiproto(t, rrset.name.slice(0, -1), resp => resp.text === token);
     } finally {
         await tests.remove('website', website);
     }
