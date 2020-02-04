@@ -8,6 +8,12 @@ const ssh = require('../../lib/ssh');
 
 const commonCreateParams = '--type website --image h1cr.io/website/php-apache:7.2';
 
+const fetchMultiproto = async (t, domain, test, path='') => {
+    for (const proto of ['http', 'https']) {
+        const resp = await tests.get(`${proto}://${domain}/${path}`);
+        await t.true(test(resp));
+    }
+};
 
 ava.serial('website life cycle', tests.resourceLifeCycle('website', {
     createParams: `--name ${tests.getName('website-life-cycle')} ${commonCreateParams} `,
@@ -61,8 +67,7 @@ ava.serial('website put index via SFTP & password', async t => {
     // Upload file
     const token = await tests.getToken();
     await putFileWebsite(website, { password }, 'public/index.html', token);
-    const resp = await tests.get(`http://${website.fqdn}/`);
-    t.true(resp.text === token);
+    await fetchMultiproto(t, website.fqdn, resp=>resp.text === token);
     await tests.remove('website', website);
 });
 
@@ -129,10 +134,7 @@ ava.serial('website reachable through custom domain', async t => {
         await putFileWebsite(website, { password }, 'public/index.html', token);
         await tests.delay(tests.DELAY.website_start);
         // Test content
-        for (const proto of ['http', 'https']) {
-            const resp = await tests.get(`${proto}://${rrset.name.slice(0, rrset.name.length - 1)}/`);
-            t.true(resp.text === token);
-        }
+        await fetchMultiproto(t, `${rrset.name.slice(0, rrset.name.length - 1)}`, resp=>resp.text === token);
     } finally {
         await tests.remove('website', website);
     }
@@ -161,10 +163,7 @@ ava.serial('website reachable through apex record', async t => {
         await putFileWebsite(website, { password }, 'public/index.html', token);
         await tests.delay(5 * 1000);
         // Test content
-        for (const proto of ['http', 'https']) {
-            const resp = await tests.get(`${proto}://${rrset.name.slice(0, rrset.name.length - 1)}/`);
-            t.true(resp.text === token);
-        }
+        await fetchMultiproto(t, `${rrset.name.slice(0, rrset.name.length - 1)}`, resp=>resp.text === token);
     } finally {
         await tests.remove('website', website);
     }
@@ -181,9 +180,7 @@ ava.serial('website reachable through apex record', async t => {
         const token = await tests.getToken();
         await putFileWebsite(website, { privateKey: sshKeyPair.privateKey }, 'public/index.html', token);
         // Test content
-        const resp = await tests.get(`http://${website.fqdn}/`);
-        t.true(resp.text === token);
-
+        await fetchMultiproto(t, website.fqdn, resp=>resp.text === token);
         await tests.remove('website', website);
     });
 });
@@ -269,11 +266,9 @@ ava.serial('website runtime access rights match of sftp', async t => {
     const content = images[image].code.replace('TOKEN', token);
     await putFileWebsite(website, { password }, 'public/test.php', content);
     // Call script
-    const resp_call = await tests.get(`http://${website.fqdn}/test.php`);
-    t.true(resp_call.text === '');
-    // Verify content
-    const resp_test = await tests.get(`http://${website.fqdn}/test.txt`);
-    t.true(resp_test.text === token);
+    await fetchMultiproto(t, website.fqdn, resp=>resp.text === '', 'test.php');
+    await fetchMultiproto(t, website.fqdn, resp=>resp.text === token, 'test.txt');
+
     // Verify permission to remove
     await rmFileWebsite(website, { password }, 'public/test.txt');
     await tests.remove('website', website);
