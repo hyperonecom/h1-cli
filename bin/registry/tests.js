@@ -68,7 +68,7 @@ ava.serial('registry reachable through custom domain', async t => {
     const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
     try {
         const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${registry.fqdn}. --ttl 1`);
-        const host = rrset.name.slice(0, rrset.name.length - 1);
+        const host = rrset.name.slice(0, -1);
         await tests.delay(10 * 1000);
         const cname_response = await tests.dnsResolve(rrset.name, 'CNAME');
         t.true(cname_response.includes(registry.fqdn));
