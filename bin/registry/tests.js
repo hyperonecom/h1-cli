@@ -65,7 +65,7 @@ ava.serial('registry reachable through custom domain', async t => {
     const password = await tests.getToken();
     const registry = await tests.run(`registry create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     await tests.run(`registry stop --registry ${registry.id}`);
-    const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
+    const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);
     try {
         const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${registry.fqdn}. --ttl 1`);
         const host = rrset.name.slice(0, -1);

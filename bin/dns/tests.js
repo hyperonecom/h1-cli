@@ -302,12 +302,12 @@ ava.serial('dns punycode encoded', async t => {
 });
 
 ava.serial('dns create with probing', async t => {
-    const value = '3.3.3.3';
-    const name = `${tests.getName(t.title)}.${value}.nip.io.`;
+    const name = `${tests.getName(t.title)}.probing.${tests.test_zone}.`;
     await tests.run(`dns zone create --type public --name ${name} --dns-probing`);
     const zone = await tests.run(`dns zone show --zone ${name}`);
     t.true(zone.name === name);
-    await test_record_values(t, zone, 'a', zone.dnsName, [value]);
+    await test_record_values(t, zone, 'txt', zone.dnsName, ['test-content']);
+    await test_record_values(t, zone, 'a', `api.${zone.dnsName}`, ['8.8.8.8']);
     await tests.remove('dns zone', zone);
 });
 

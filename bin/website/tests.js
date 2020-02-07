@@ -76,7 +76,7 @@ ava.serial('website management domain', async t => {
     const rset_txt = 'website-txt';
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
     await tests.run(`website stop --website ${website.id}`);
-    const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
+    const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}`);
     try {
         const rrset_txt = await tests.run(`dns record-set txt upsert --name ${rset_txt} --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
         const rrset_cname = await tests.run(`dns record-set cname upsert --name ${rset_cname} --zone ${zone.id} --value '${website.fqdn}' --ttl 1`);
@@ -115,7 +115,7 @@ ava.serial('website reachable through custom domain', async t => {
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     await tests.run(`website stop --website ${website.id}`);
-    const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
+    const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);
     try {
         const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
         await tests.delay(tests.DELAY.dns_propagate);
@@ -144,7 +144,7 @@ ava.serial('website reachable through apex record', async t => {
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     await tests.run(`website stop --website ${website.id}`);
-    const zone = await tests.run(`dns zone show --zone ${tests.test_zone}`);
+    const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);
     try {
         const rrset = await tests.run(`dns record-set cname upsert --name '@' --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
         await tests.run(`dns record-set txt upsert --name '@' --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
