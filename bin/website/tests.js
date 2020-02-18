@@ -288,6 +288,32 @@ ava.serial('website connect via ssh', async t => {
     }
 });
 
+ava.serial('website wordpress installation', async t => {
+    const password = await tests.getToken();
+    const token = await tests.getToken();
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+    try {
+        const database = await tests.run(`database create --name ${tests.getName('database', t.title)} --type mysql:5.7`);
+        try {
+            await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database.id}  --password ${password}`);
+            const content = `#!/bin/sh
+            set -eux;
+            cd public;
+            wp core download --locale=pl_PL;
+            wp config create --dbhost=${database.fqdn} --dbname=${database.id} --dbuser=${database.id} --dbpass=${password}
+            wp core install --url='https://${website.fqdn}/' --title=${token} --admin_user=superuser --admin_email=admin@example.com`;
+            await putFileWebsite(website, { password }, './install.sh', content);
+            await ssh.execResource(website, { password }, 'sh /data/install.sh');
+            await fetchMultiproto(t, website.fqdn, resp => resp.text.includes(token));
+            await fetchMultiproto(t, website.fqdn, resp => resp.text.includes('WordPress'));
+        } finally {
+            await tests.remove('database', database);
+        }
+    } finally {
+        await tests.remove('website', website);
+    }
+});
+
 ava.serial('website snapshot management', async t => {
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
