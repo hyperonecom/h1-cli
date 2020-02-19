@@ -326,6 +326,7 @@ ava.serial('website log', async t => {
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     try {
+        await tests.delay(tests.DELAY.website_start);
         await putFileWebsite(website, { password }, 'public/test.txt', await tests.getToken());
         await tests.logStreamProcess(t, 'website', website,
             (id_request) => tests.get(`http://${website.fqdn}/test.txt?${id_request}`)
