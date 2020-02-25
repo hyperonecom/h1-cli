@@ -7,21 +7,22 @@ const config = require('lib/config');
 
 const active_project = config.get('profile.project.id');
 
-// ava.serial('organisation life cycle', async t => {
-//     const project = await tests.run(`project show --project ${active_project}`);
-//     const organization_id = project.organisation;
-//     const organisation = await tests.run(`organisation show --organisation ${organization_id}`);
-//     await tests.resourceLifeCycle('organisation', {
-//         resource: organisation,
-//         stateCreated: 'Active',
-//         skipHistoryCreated: true,
-//         skipService: true,
-//         skipCreate: true,
-//         skipDelete: true,
-//         skipFqdn: true,
-//         skipTransfer: true,
-//     })(t);
-// });
+ava.serial('organisation life cycle', async t => {
+    const project = await tests.run(`project show --project ${active_project}`);
+    const organization_id = project.organisation;
+    const organisation = await tests.run(`organisation show --organisation ${organization_id}`);
+
+    await tests.resourceLifeCycle('organisation', {
+        resource: organisation,
+        stateCreated: 'Active',
+        skipHistoryCreated: true,
+        skipService: true,
+        skipCreate: true,
+        skipDelete: true,
+        skipFqdn: true,
+        skipTransfer: true,
+    })(t);
+});
 
 ava.serial('organization access of user cycle', async t => {
     const project = await tests.run(`project show --project ${active_project}`);
