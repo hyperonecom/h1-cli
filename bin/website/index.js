@@ -31,6 +31,7 @@ const schema = {
         description: 'Website image',
         type: 'string',
         required: true,
+        onUpdate: true,
         onCreate: true,
     },
     credentials: {
@@ -89,5 +90,6 @@ const actionDefault = Object.assign({}, resource, {
 });
 
 category.addChild(genericAction(actionDefault, 'restart'));
+category.addChild(require('./env')(actionDefault));
 
 module.exports = category;

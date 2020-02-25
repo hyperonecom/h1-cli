@@ -17,6 +17,7 @@
     * [h1 website domain add](#h1-website-domain-add) - Add Domain name to Website
     * [h1 website domain list](#h1-website-domain-list) - List Domain name of Website
     * [h1 website domain delete](#h1-website-domain-delete) - Delete Domain name from Website
+  * [h1 website image](#h1-website-image) - Update Website image of Website
   * [h1 website log](#h1-website-log) - Live logs of Website
   * [h1 website transfer](#h1-website-transfer) - Transfer Website to other project
   * [h1 website snapshot](#h1-website-snapshot) - Manage your snapshot of Website
@@ -26,6 +27,11 @@
     * [h1 website snapshot delete](#h1-website-snapshot-delete) - Delete snapshot of Website
     * [h1 website snapshot download](#h1-website-snapshot-download) - Download snapshot of Website to a ZFS file
   * [h1 website restart](#h1-website-restart) - Restart Website
+  * [h1 website env](#h1-website-env) - Manage your environment variables of Website
+    * [h1 website env create](#h1-website-env-create) - Create environment variables of Website
+    * [h1 website env show](#h1-website-env-show) - Show environment variables of Website
+    * [h1 website env list](#h1-website-env-list) - List environment variables of Website
+    * [h1 website env delete](#h1-website-env-delete) - Delete environment variables of Website
   * [h1 website credential](#h1-website-credential) - Manage your credentials of Website
     * [h1 website credential list](#h1-website-credential-list) - List credential of Website
     * [h1 website credential show](#h1-website-credential-show) - Show credential of Website
@@ -368,6 +374,20 @@ Delete Domain name from Website
 | ```--domain DOMAIN [--domain DOMAIN ...]``` |  | Domain name. The parameter may occur repeatedly |
 | ```--website WEBSITE``` |  | Website ID or name |
 
+## h1 website image
+
+Update Website image of Website
+
+### Syntax
+
+```h1 website image | --image IMAGE --website WEBSITE```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Website image |
+| ```--website WEBSITE``` |  | Website ID or name |
+
 ## h1 website log
 
 Live logs of Website
@@ -557,6 +577,92 @@ h1 website restart --website my-website
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website env
+
+Manage your environment variables of Website
+
+### Examples
+
+#### Create environment variable of Website
+
+```bash
+h1 website env --website my-website --name DEBUG --value false
+```
+
+## h1 website env create
+
+Create environment variables of Website
+
+### Syntax
+
+```h1 website env create | --name NAME --value VALUE --website WEBSITE```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--name NAME``` |  | Environment variable name |
+| ```--value VALUE``` |  | Environment variable value |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website env show
+
+Show environment variables of Website
+
+### Syntax
+
+```h1 website env show | --website WEBSITE --env ENV```
+### Example
+
+```bash
+h1 website env show --env my-env
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--env ENV``` |  | Environment variables of Website ID or name |
+
+## h1 website env list
+
+List environment variables of Website
+
+### Syntax
+
+```h1 website env list | --website WEBSITE```
+### Example
+
+```bash
+h1 website env list
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website env delete
+
+Delete environment variables of Website
+
+### Syntax
+
+```h1 website env delete | --website WEBSITE --env ENV```
+### Example
+
+```bash
+h1 website env delete --env my-env
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--env ENV``` |  | Environment variables of Website ID or name |
 
 ## h1 website credential
 
