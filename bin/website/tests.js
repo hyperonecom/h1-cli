@@ -8,6 +8,16 @@ const ssh = require('../../lib/ssh');
 
 const commonCreateParams = '--type website --image h1cr.io/website/php-apache:7.2';
 
+const withOff = async (resourceType, resource, fn) => {
+    await tests.run(`${resourceType} stop --website ${resource.id}`);
+    try {
+        return await fn();
+    } finally {
+        await tests.run(`${resourceType} start --website ${resource.id}`);
+        await tests.delay(tests.DELAY.website_start);
+    }
+};
+
 const fetchMultiproto = async (t, urn, test) => {
     for (const proto of ['http', 'https']) {
         const resp = await tests.get(`${proto}://${urn}`);
@@ -114,7 +124,6 @@ ava.serial('website reachable through custom domain', async t => {
     const rset = 'website-reachable';
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
-    await tests.run(`website stop --website ${website.id}`);
     const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);
     try {
         const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
@@ -122,9 +131,10 @@ ava.serial('website reachable through custom domain', async t => {
         const host = rrset.name.slice(0, -1);
         const dns_response = await tests.dnsResolve(rrset.name, 'CNAME');
         t.true(dns_response.includes(website.fqdn));
+        await withOff('website', website,
+            () => tests.run(`website domain add --website ${website.id} --domain ${host}`)
+        );
 
-        await tests.run(`website domain add --website ${website.id} --domain ${host}`);
-        await tests.run(`website start --website ${website.id}`);
         await tests.delay(tests.DELAY.website_start);
         // Upload file
         const token = await tests.getToken();
@@ -143,7 +153,6 @@ ava.serial('website reachable through custom domain', async t => {
 ava.serial('website reachable through apex record', async t => {
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
-    await tests.run(`website stop --website ${website.id}`);
     const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);
     try {
         const rrset = await tests.run(`dns record-set cname upsert --name '@' --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
@@ -153,8 +162,9 @@ ava.serial('website reachable through apex record', async t => {
         const dns_response = await tests.dnsResolve(rrset.name, 'TXT');
         t.true(dns_response.includes(website.fqdn));
 
-        await tests.run(`website domain add --website ${website.id} --domain ${host}`);
-        await tests.run(`website start --website ${website.id}`);
+        await withOff('website', website,
+            () => tests.run(`website domain add --website ${website.id} --domain ${host}`)
+        );
         // Upload file
         const token = await tests.getToken();
         const files = await lsWebsite(website, { password }, '/data');
@@ -218,6 +228,8 @@ ava.serial('website stop & start', async t => {
     t.true(started_website.state === 'Running');
     await tests.remove('website', website);
 });
+
+const phpinfo = '<?php phpinfo(); ?>';
 
 const languages = {
     php: '<?php error_reporting(E_ALL); file_put_contents("/data/public/test.txt", "TOKEN"); ?>',
@@ -324,10 +336,73 @@ ava.serial('website snapshot management', async t => {
         t.true(snapshot.id === snapshotName);
         let snapshots = await tests.run(`website snapshot list --website ${website.name}`);
         t.true(snapshots.some(x => x.id === snapshotName));
+
         await tests.run(`website snapshot delete --yes --website ${website.name} --snapshot ${snapshotName}`);
-        t.true(snapshots.some(x => x.id === snapshotName));
+
         snapshots = await tests.run(`website snapshot list --website ${website.name}`);
         t.true(!snapshots.some(x => x.id === snapshotName));
+    } finally {
+        await tests.remove('website', website);
+    }
+});
+
+ava.serial('website env management', async t => {
+    const token = await tests.getToken();
+    const name = 'TOKEN';
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
+    try {
+        const env = await withOff('website', website,
+            () => tests.run(`website env create --website ${website.name} --name ${name} --value ${token}`)
+        );
+
+        const envByName = await tests.run(`website env show --website ${website.name} --env ${env.id}`);
+        t.true(envByName.name === name);
+        t.true(envByName.value === token);
+
+        const envById = await tests.run(`website env show --website ${website.name} --env ${env.name}`);
+        t.true(envById.name === name);
+        t.true(envById.value === token);
+
+        let envs = await tests.run(`website env list --website ${website.name}`);
+        t.true(envs.some(x => x.name === name));
+        await tests.run(`website env delete --yes --website ${website.name} --env ${env.id}`);
+        envs = await tests.run(`website snapshot list --website ${website.name}`);
+        t.true(!envs.some(x => x.name === name));
+    } finally {
+        await tests.remove('website', website);
+    }
+});
+
+
+ava.serial('website env exposed to runtime', async t => {
+    const password = await tests.getToken();
+    const token = await tests.getToken();
+    const name = 'TOKEN';
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+    try {
+        await withOff('website', website,
+            () => tests.run(`website env create --website ${website.name} --name ${name} --value ${token}`)
+        );
+        await putFileWebsite(website, { password }, 'public/index.php', phpinfo);
+        await fetchMultiproto(t, website.fqdn, resp => resp.text.includes(token));
+        const shell = await ssh.execResource(website, { password }, 'bash -c "export"');
+        t.true(shell.includes(token));
+    } finally {
+        await tests.remove('website', website);
+    }
+});
+
+ava.serial('website image update', async t => {
+    const password = await tests.getToken();
+    const new_image = 'h1cr.io/website/php-apache:7.3';
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+    try {
+        await putFileWebsite(website, { password }, 'public/index.php', phpinfo);
+        await fetchMultiproto(t, website.fqdn, resp => !resp.text.includes('PHP 7.3'));
+        await withOff('website', website,
+            () => tests.run(`website image --website ${website.name} --image ${new_image}`)
+        );
+        await fetchMultiproto(t, website.fqdn, resp => resp.text.includes('PHP 7.3'));
     } finally {
         await tests.remove('website', website);
     }
@@ -347,6 +422,7 @@ ava.serial('website snapshot restore', async t => {
     await tests.remove('website', website); // remove source of snapshot first
     await tests.remove('website', websiteRestored);
 });
+
 
 ava.serial('website log', async t => {
     const password = await tests.getToken();
