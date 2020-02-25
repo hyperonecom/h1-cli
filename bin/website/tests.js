@@ -342,11 +342,25 @@ ava.serial('website snapshot restore', async t => {
     await tests.run(`website snapshot create --website ${website.name} --name ${snapshotName}`);
     const websiteRestored = await tests.run(`website create --name ${tests.getName('restored', t.title)} ${commonCreateParams} --password ${password} --source-website ${website.id} --source-snapshot ${snapshotName}`);
     await tests.run(`website snapshot delete --yes --website ${website.name} --snapshot ${snapshotName}`);
-    const contentRestored = await ssh.execResource(website, { password }, 'cat public/test.txt');
+    const contentRestored = await ssh.execResource(websiteRestored, { password }, 'cat public/test.txt');
     t.true(contentRestored.trim() === content);
     await tests.remove('website', website); // remove source of snapshot first
     await tests.remove('website', websiteRestored);
 });
+
+ava.serial('website snapshot access via .zfs', async t => {
+    const password = await tests.getToken();
+    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+    const content = await tests.getToken();
+    await putFileWebsite(website, { password }, 'public/test.txt', content);
+    const snapshotName = tests.getName('snapshot', t.title);
+    await tests.run(`website snapshot create --website ${website.name} --name ${snapshotName}`);
+    const contentRestored = await ssh.execResource(website, { password }, `cat /data/.zfs/snapshot/${snapshotName}/public/test.txt`);
+    t.true(contentRestored.trim() === content);
+    await tests.run(`website snapshot delete --yes --website ${website.name} --snapshot ${snapshotName}`);
+    await tests.remove('website', website);
+});
+
 
 ava.serial('website log', async t => {
     const password = await tests.getToken();
