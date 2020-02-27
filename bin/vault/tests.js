@@ -75,9 +75,10 @@ ava.serial('vault credential credentials life cycle', async t => {
 ava.serial('vault recreate from snapshot', async t => {
     const name = tests.getName(t.title);
     const password = await tests.getToken();
+    const token = await tests.getToken();
     const vault = await tests.run(`vault create --name ${name} --size 10 --password ${password}`);
 
-    const filename = `my-secret-file-${now}.txt`;
+    const filename = `${token}.txt`;
     await ssh.execResource(vault, {password}, `touch ~/${filename}`);
 
     const snapshot = await tests.run(`snapshot create --vault ${vault.id} --name snapshot-${name}`);
@@ -86,7 +87,7 @@ ava.serial('vault recreate from snapshot', async t => {
     t.true(recreated_vault.created);
 
     const content = await ssh.execResource(recreated_vault, {password}, 'ls -lah ~/');
-    t.true(content.includes(filename));
+    t.true(content.includes(filename), 'Invalid content: ${content}`);
 
     await tests.remove('vault', recreated_vault);
     await tests.remove('snapshot', snapshot);
