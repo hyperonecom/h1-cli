@@ -1,5 +1,5 @@
 # Create environment variable of Website
 
 ```bash
-{{command_name}} --website my-website --name DEBUG --value false
+{{command_name}} create --website my-website --name DEBUG --value false
 ```
