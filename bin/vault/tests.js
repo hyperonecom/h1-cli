@@ -87,7 +87,7 @@ ava.serial('vault recreate from snapshot', async t => {
     t.true(recreated_vault.created);
 
     const content = await ssh.execResource(recreated_vault, {password}, 'ls -lah ~/');
-    t.true(content.includes(filename), 'Invalid content: ${content}`);
+    t.true(content.includes(filename), `Invalid content: ${content}`);
 
     await tests.remove('vault', recreated_vault);
     await tests.remove('snapshot', snapshot);
