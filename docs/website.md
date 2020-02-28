@@ -587,7 +587,7 @@ Manage your environment variables of Website
 #### Create environment variable of Website
 
 ```bash
-h1 website env --website my-website --name DEBUG --value false
+h1 website env create --website my-website --name DEBUG --value false
 ```
 
 ## h1 website env create
@@ -597,6 +597,14 @@ Create environment variables of Website
 ### Syntax
 
 ```h1 website env create | --name NAME --value VALUE --website WEBSITE```
+### Examples
+
+#### Create environment variable of Website
+
+```bash
+h1 website env create --website my-website --name DEBUG --value false
+```
+
 ### Required arguments
 
 | Name | Default | Description |
