@@ -7,8 +7,6 @@ require('../../scope/h1');
 const tests = require('../../lib/tests');
 const ssh = require('../../lib/ssh');
 
-const now = Date.now();
-
 const createUserCredentials = async (t) => {
     const sshKeyPair = await ssh.generateKey();
     const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
