@@ -29,7 +29,7 @@ ava.serial('reservation assign limits', async t => {
     const common_vm_params = `--no-start --password ${token}`;
     const vm_wrong_type = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} --no-image --type a1.nano ${common_vm_params}`);
     const vm_valid = await tests.run(`vm create --name ${tests.getName(t.title, 'vm valid')} --no-image --type ${vm_flavour} ${common_vm_params} `);
-    const vm_over_limit = await tests.run(`vm create --name ${tests.getName(t.title, 'vm wrong type')} --no-image --type ${vm_flavour} ${common_vm_params}`);
+    const vm_over_limit = await tests.run(`vm create --name ${tests.getName(t.title, 'vm over limit')} --no-image --type ${vm_flavour} ${common_vm_params}`);
 
     await tests.delay(tests.DELAY.resource_bill); // billing item need to be created
 
@@ -47,7 +47,7 @@ ava.serial('reservation assign limits', async t => {
 });
 
 ava.serial('reservation extend', async t => {
-    const reservation = await tests.run(`reservation create --name ${tests.getName(t.title, 'vm-wrong-type')} --type '${reservation_flavour}'`);
+    const reservation = await tests.run(`reservation create --name ${tests.getName(t.title, 'vm-extend')} --type '${reservation_flavour}'`);
     await tests.delay(tests.DELAY.reservation_bill);
     const refreshed = await tests.run(`reservation show --reservation ${reservation.id}`);
     t.true(refreshed.state === 'Detached');
