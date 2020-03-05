@@ -2,6 +2,7 @@
 
 const cli = require('./index');
 const logger = require('lib/logger');
+const complete = require('../lib/complete');
 
 process.env.NODE_ENV = process.pkg ? 'production' : process.env.NODE_ENV;
 
@@ -12,10 +13,10 @@ const matches = (prop, value, callback) => err => {
     throw err;
 };
 
-cli.run()
+complete.autocomplete(cli, () => cli.run()
     .then(result => {
         if (typeof result === 'object') {
-            console.dir(result, {depth: null});
+            console.dir(result, { depth: null });
         } else if (result) {
             console.log(result);
         }
@@ -62,4 +63,5 @@ cli.run()
         logger('error', err.stack);
 
         process.exit(99);
-    });
+    })
+);

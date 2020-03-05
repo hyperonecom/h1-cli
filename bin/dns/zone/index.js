@@ -3,6 +3,7 @@
 const genericResource = require('bin/generic');
 const defaults = require('bin/generic/defaults');
 const addTrailingDot = require('../lib').addTrailingDot;
+const autocomplete = require('lib/complete');
 
 const schema = {
     name: {
@@ -24,6 +25,7 @@ const schema = {
         required: true,
         onCreate: true,
         destBody: 'service',
+        complete: autocomplete.completeService('zone'),
     },
     tags: {
         virtual: true,

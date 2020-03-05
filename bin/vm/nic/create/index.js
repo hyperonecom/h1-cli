@@ -1,6 +1,7 @@
 'use strict';
 
 const Cli = require('lib/cli');
+const complete = require('lib/complete');
 
 module.exports = (resource) => {
     const options = {
@@ -10,9 +11,10 @@ module.exports = (resource) => {
             required: false,
         },
         type: {
-            description: 'Type of Network Adapter',
+            description: 'Network Adapter type or ID',
             type: 'string',
             required: true,
+            complete: complete.completeService('netadp'),
         },
         ip: {
             description: 'IP address to assign',

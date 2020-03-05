@@ -60,7 +60,7 @@ h1 container create --name nginx --type b1.nano --image registry.example.com/my-
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Container name |
 | ```--image IMAGE``` |  | Container image eg. h1cr.io/website/php-apache |
-| ```--type TYPE``` |  | Container type |
+| ```--type TYPE``` |  | Container type name or ID |
 
 ### Optional arguments
 

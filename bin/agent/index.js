@@ -3,6 +3,7 @@ const text = require('lib/text');
 const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
 const genericAction = require('bin/generic/action');
+const complete = require('lib/complete');
 
 const schema = {
     name: {
@@ -17,6 +18,7 @@ const schema = {
         required: true,
         onCreate: true,
         destBody: 'service',
+        complete: complete.completeService('agent'),
     },
     credentials: {
         virtual: true,

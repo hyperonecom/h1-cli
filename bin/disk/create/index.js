@@ -7,6 +7,7 @@ const path = require('path');
 const fs = require('fs');
 
 const Cli = require('lib/cli');
+const complete = require('lib/complete');
 
 const options = {
     name: {
@@ -17,6 +18,7 @@ const options = {
     type: {
         description: 'Disk type ID or name. Required if no source disk is specified',
         type: 'string',
+        complete: complete.completeService('disk'),
     },
     size: {
         description: 'Disk size in GiB. Required if no source file and no disk is specified',
