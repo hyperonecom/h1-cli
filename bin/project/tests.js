@@ -131,6 +131,7 @@ const getImapOptions = imapUrl => {
             parsed_url.port || 993 :
             parsed_url.port || 143,
         tls: parsed_url.protocol === 'imaps:',
+        tlsOptions: { servername: parsed_url.hostname },
     };
 };
 
@@ -187,7 +188,7 @@ const checkEmailReceived = async (query, options) => {
     for (let i = 0; i < 10; i++) {
         await tests.delay(15 * 1000); // to delivery messages to mailbox
         const latest_date = await getLatestImapMessageDate(query, options);
-        if (latest_date && dateDiffMinutes(new Date(), latest_date) < 5) {
+        if (latest_date && dateDiffMinutes(new Date(), latest_date) < 15) {
             return true;
         }
     }
@@ -224,7 +225,7 @@ ava.serial('project notification credits integration test', async t => {
 
         const month = new Date().toLocaleString('en-us', { month: 'long' });
         const day = new Date().getDay();
-        const year = new Date().getMonth();
+        const year = new Date().getFullYear();
         const query = ['ALL',
             ['SINCE', `${month} ${day}, ${year}`],
             ['SUBJECT', 'Osiągnięty próg środków'],
@@ -237,10 +238,10 @@ ava.serial('project notification credits integration test', async t => {
 });
 
 ava.serial('project access grant invite', async t => {
-    const email = `${Math.random()}@${process.env.IMAP_CATCHALL_DOMAIN}`;
+    const email = process.env.IMAP_DYNAMIC_MAIL_TEMPLATE.replace('$', Math.random());
     const month = new Date().toLocaleString('en-us', { month: 'long' });
     const day = new Date().getDay();
-    const year = new Date().getMonth();
+    const year = new Date().getFullYear();
     const query = ['ALL',
         ['TO', email],
         ['SINCE', `${month} ${day}, ${year}`],
