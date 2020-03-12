@@ -39,6 +39,12 @@ const getConfig = () => {
         HYPERONE_PROJECT_SLAVE: {
             label: 'HyperOne slave project ID or name',
         },
+        IMAP_DYNAMIC_MAIL_TEMPLATE: {
+            label: 'Template of e-mail address. Use $ for dynamic part',
+        },
+        IMAP_URL: {
+            label: 'URL to access IMAP server',
+        },
         MONITORING_EMAILS: {
             label: 'Recipients of monitoring notification',
             parse: v => v.split(','),
