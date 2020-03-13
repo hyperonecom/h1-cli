@@ -263,7 +263,7 @@ ava.serial('import zone from file', async t => {
 ava.serial('dns record-set a dynamic-dns', async t => {
     const zone = await tests.run(`dns zone create --name ddns-${now}.com --type public`);
     const rrset = await tests.run(`dns record-set a dynamic-dns --name my-home-${now} --zone ${zone.dnsName}`);
-    const ip = await tests.get('https://api.ipify.org?format=json').then(resp => resp.body.ip);
+    const ip = await tests.getMyIp();
     await test_record_values(t, zone, 'a', rrset.name, [ip]);
     const response = await queryNameserver(rrset.name, 'A', zone.nameserver);
     t.true(response.answers.length > 0);
