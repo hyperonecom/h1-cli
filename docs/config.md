@@ -1,7 +1,7 @@
 # TOC
 
   * [h1 config autocomplete](#h1-config-autocomplete) - Manage autocomplete for CLI
-    * [h1 config autocomplete setup](#h1-config-autocomplete-setup) - Update shell configuration to support autocomplete
+    * [h1 config autocomplete init](#h1-config-autocomplete-init) - Update shell configuration to support autocomplete
     * [h1 config autocomplete remove](#h1-config-autocomplete-remove) - Update shell configuration to remove autocomplete
   * [h1 config show](#h1-config-show) - Show config
   * [h1 config set](#h1-config-set) - Set config value
@@ -19,19 +19,19 @@ Manage config of CLI
 
 Manage autocomplete for CLI
 
-## h1 config autocomplete setup
+## h1 config autocomplete init
 
 Update shell configuration to support autocomplete
 
 ### Syntax
 
-```h1 config autocomplete setup | ```
+```h1 config autocomplete init | ```
 ### Examples
 
 #### Get default virtual machine type for a new one
 
 ```
-h1 config autocomplete setup
+h1 config autocomplete init
 ```
 
 #### Introduces changes

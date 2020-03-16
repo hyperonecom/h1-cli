@@ -3,7 +3,7 @@
 const Cli = require('lib/cli');
 const complete = require('lib/complete');
 
-module.exports = Cli.createCommand('setup', {
+module.exports = Cli.createCommand('init', {
     dirname: __dirname,
     description: 'Update shell configuration to support autocomplete',
     plugins: [
