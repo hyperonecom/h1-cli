@@ -26,8 +26,8 @@
     "boxen": "^4.2.0",
     "chalk": "^2.4.2",
     "cookie": "^0.4.0",
-    "dns-zonefile": "^0.2.3",
-    "inquirer": "^7.0.4",
+    "dns-zonefile": "^0.2.5",
+    "inquirer": "^7.1.0",
     "jmespath": "^0.15.0",
     "js-yaml": "^3.13.1",
     "marked": "^0.7.0",
@@ -47,7 +47,7 @@
     "superagent": "^5.2.2",
     "tabula": "^1.10.0",
     "update-notifier": "^3.0.1",
-    "ws": "^7.2.1",
+    "ws": "^7.2.3",
     "ws-streamify": "^0.1.4"
   },
   "pkg": {
@@ -75,9 +75,9 @@
     "imap": "^0.8.19",
     "mysql2": "^2.1.0",
     "node-forge": "^0.9.1",
-    "nodemailer": "^6.4.3",
+    "nodemailer": "^6.4.5",
     "pg": "^7.18.2",
-    "pkg": "^4.4.3"
+    "pkg": "^4.4.4"
   },
   "ava": {
     "files": [
