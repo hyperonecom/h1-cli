@@ -2,6 +2,7 @@
 
 const Cli = require('lib/cli');
 const registry = require('../registry');
+const complete = require('lib/complete');
 
 const options = {
     name: {
@@ -15,9 +16,10 @@ const options = {
         required: true,
     },
     type: {
-        description: 'Container type',
+        description: 'Container type name or ID',
         type: 'string',
         required: true,
+        complete: complete.completeService('container'),
     },
     expose: {
         description: 'Mapping port to expose to the world as external:internal',

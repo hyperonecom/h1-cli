@@ -2,6 +2,7 @@
 
 const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
+const complete = require('lib/complete');
 
 const schema = {
     name: {
@@ -16,6 +17,7 @@ const schema = {
         required: false,
         onCreate: true,
         destBody: 'service',
+        complete: complete.completeService('journal'),
     },
     retention: {
         description: 'Data retention period (in days)',

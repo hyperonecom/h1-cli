@@ -589,7 +589,7 @@ Note (4): To list available networks use ```h1 network list```.
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
-| ```--type TYPE``` |  | Type of Network Adapter |
+| ```--type TYPE``` |  | Network Adapter type or ID |
 
 ### Optional arguments
 

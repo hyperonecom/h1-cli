@@ -1,6 +1,7 @@
 'use strict';
 const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
+const complete = require('lib/complete');
 
 const schema = {
     name: {
@@ -10,11 +11,12 @@ const schema = {
         onCreate: true,
     },
     type: {
-        description: 'Database type',
+        description: 'Database type name or ID',
         type: 'string',
         required: true,
         onCreate: true,
         destBody: 'service',
+        complete: complete.completeService('database'),
     },
     credentials: {
         virtual: true,

@@ -5,8 +5,8 @@ const fs = require('lib/fs');
 const { hashPassword } = require('lib/credentials');
 const genericDefaults = require('bin/generic/defaults');
 const logger = require('lib/logger');
-
 const DEFAULT_IMAGE = 'debian';
+const complete = require('lib/complete');
 
 const options = {
     name: {
@@ -18,6 +18,7 @@ const options = {
         description: 'Virtual machine type name or ID',
         type: 'string',
         required: true,
+        complete: complete.completeService('vm'),
     },
     password: {
         description: 'Initial administrator user password',
@@ -52,6 +53,7 @@ const options = {
     'os-disk-type': {
         description: 'OS disk type. Parameter excludes the use of "os-disk" parameter.',
         type: 'string',
+        complete: complete.completeService('disk'),
     },
     'os-disk-size': {
         description: 'OS disk size. Parameter excludes the use of "os-disk" parameter.',

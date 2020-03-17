@@ -2,6 +2,7 @@
 
 const genericDefaults = require('bin/generic/defaults');
 const genericResource = require('bin/generic');
+const complete = require('lib/complete');
 
 const schema = {
     name: {
@@ -11,11 +12,12 @@ const schema = {
         onCreate: true,
     },
     type: {
-        description: 'Reservation type',
+        description: 'Reservation type name or ID',
         type: 'string',
         required: true,
         onCreate: true,
         destBody: 'service',
+        reservation: complete.completeService('reservation'),
     },
     tags: {
         virtual: true,

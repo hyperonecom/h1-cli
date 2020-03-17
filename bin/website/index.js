@@ -3,6 +3,7 @@ const genericDefaults = require('bin/generic/defaults');
 const genericAction = require('bin/generic/action');
 const genericResource = require('bin/generic');
 const text = require('lib/text');
+const complete = require('lib/complete');
 
 const schema = {
     name: {
@@ -12,11 +13,12 @@ const schema = {
         onCreate: true,
     },
     type: {
-        description: 'Website type',
+        description: 'Website type name or ID',
         type: 'string',
         required: true,
         onCreate: true,
         destBody: 'service',
+        complete: complete.completeService('website'),
     },
     domain: {
         description: 'Domain name',
