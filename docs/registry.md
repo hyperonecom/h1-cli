@@ -1,6 +1,8 @@
 # TOC
 
   * [h1 registry create](#h1-registry-create) - Create Registry
+  * [h1 registry config](#h1-registry-config) - Manage config of integrated software
+    * [h1 registry config docker](#h1-registry-config-docker) - Update Docker-CLI configuration for credentials
   * [h1 registry list](#h1-registry-list) - List Registry
   * [h1 registry show](#h1-registry-show) - Show Registry
   * [h1 registry delete](#h1-registry-delete) - Delete Registry
@@ -94,6 +96,29 @@ Note (2): To add new resources to registry repository you must set password.
 | ---- | ------- | ----------- |
 | ```--password PASSWORD [--password PASSWORD ...]``` |  | Password to access. The parameter may occur repeatedly |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
+
+## h1 registry config
+
+Manage config of integrated software
+
+## h1 registry config docker
+
+Update Docker-CLI configuration for credentials
+
+### Syntax
+
+```h1 registry config docker | --registry REGISTRY [--mode {helper,token}]```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--mode {helper,token}``` |  |  |
 
 ## h1 registry list
 

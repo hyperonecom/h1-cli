@@ -12,7 +12,7 @@ module.exports = (resource) => {
             type: 'string',
             required: true,
         },
-        project: {
+        'authorized-project': {
             description: 'Project name or ID',
             type: 'string',
             required: true,
@@ -27,7 +27,7 @@ module.exports = (resource) => {
         options: Object.assign({}, resource.options, options),
         resource: resource,
         handler: args => args.helpers.api
-            .delete(`${resource.name}/${args[resource.name]}/accessrights/${args.project}`)
+            .delete(`${resource.name}/${args[resource.name]}/accessrights/${args['authorized-project']}`)
             .then(result => args.helpers.sendOutput(args, result)),
     });
 };

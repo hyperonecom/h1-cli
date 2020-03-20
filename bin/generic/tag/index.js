@@ -1,7 +1,7 @@
 'use strict';
 
 const genericResource = require('bin/generic');
-const genericDefaults = require('bin/generic/defaults');
+// const genericDefaults = require('bin/generic/defaults');
 const text = require('lib/text');
 
 
@@ -19,9 +19,9 @@ module.exports = resource => {
         name: 'tag',
         defaultQuery: '[].{id:id,name:name,type:flavour,state:state,processing:processing}',
         url: () => 'vm',
-        plugins: genericDefaults.plugins,
         commands: ['list', 'show'],
         title: `tag of ${resource.title}`,
+        plugins: resource.plugins,
         options: options,
     };
 
@@ -31,6 +31,7 @@ module.exports = resource => {
         url: args => `${resource.url(args)}/${args[resource.name]}/tag`,
         transform: data => Object.entries(data).map(([key, value]) => ({key, value})),
         commands: ['list'],
+        plugins: subresource.plugins,
         options: subresource.options,
         priority: 80,
         resource: resource,

@@ -42,7 +42,7 @@ const schema = {
 const resource = {
     name: 'registry',
     defaultQuery: '[].{id:id, name:name, type:flavour, size:sizeUsed, state: state, tags:join(\',\',keys(tag || `{}`) ) }',
-    url: () => 'registry',
+    url: () => 'container/registry',
     plugins: genericDefaults.plugins,
     extraCommands: ['create', 'start', 'stop', 'transfer', 'update', 'credential'],
     dirname: __dirname,
@@ -66,5 +66,6 @@ const childDefaults = Object.assign({}, resource, {
 const category = genericResource(resource);
 
 category.addChild(require('./repository')(childDefaults));
+category.addChild(require('./config')(childDefaults));
 
 module.exports = category;

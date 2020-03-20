@@ -2,7 +2,7 @@
 
 const Cli = require('lib/cli');
 const text = require('lib/text');
-const genericDefaults = require('bin/generic/defaults');
+// const genericDefaults = require('bin/generic/defaults');
 
 module.exports = (parent) => {
     const availableCommands = {
@@ -25,7 +25,7 @@ module.exports = (parent) => {
         name: 'service',
         url: args => `${parent.url(args)}/${args[parent.name]}/services`,
         commands: ['show', 'list'],
-        plugins: genericDefaults.plugins,
+        plugins: parent.plugins,
         context: Object.assign({}, parent.context, {
             parent_name: parent.name,
             showParams: `--${parent.name} my-${parent.name}`,

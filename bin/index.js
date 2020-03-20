@@ -65,6 +65,9 @@ if (config.get('profile.apiKey') || process.env.NODE_ENV !== 'production') {
         'organisation',
         'logout',
         'env',
+        'sa',
+        'role',
+        'policy',
     ]);
 }
 

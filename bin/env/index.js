@@ -42,7 +42,7 @@ module.exports = Cli.createCommand('env', {
             console.error(`Run this command to configure your shell:\n${shell.run_command[args.shell](shell.current())}\n\n`);
         }
         return [
-            shellView(`${process.env.SCOPE_FULL_NAME.toUpperCase()}_PROJECT`, config.get_active_project()),
+            shellView(`${process.env.SCOPE_FULL_NAME.toUpperCase()}_PROJECT`, args.project),
             shellView(`${process.env.SCOPE_FULL_NAME.toUpperCase()}_ACCESS_TOKEN_ID`, config.get('profile.apiKey')),
             shellView(`${process.env.SCOPE_FULL_NAME.toUpperCase()}_ACCESS_TOKEN_SECRET`, config.get('profile.apiKey')),
         ].join('\n');

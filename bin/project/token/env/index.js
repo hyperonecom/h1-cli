@@ -1,7 +1,7 @@
 'use strict';
 const process = require('process');
 const Cli = require('lib/cli');
-const defaults = require('bin/generic/defaults');
+// const defaults = require('bin/generic/defaults');
 const shell = require('lib/shell');
 
 const options = {
@@ -20,7 +20,7 @@ const options = {
 
 module.exports = resource => Cli.createCommand('env', {
     description: 'Get environment variables to manage project by service account',
-    plugins: defaults.plugins,
+    plugins: resource.plugins,
     dirname: __dirname,
     params: resource.params,
     options: Object.assign({}, resource.options, options),

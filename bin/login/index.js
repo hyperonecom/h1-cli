@@ -2,54 +2,36 @@
 
 const Cli = require('lib/cli');
 
-const logger = require('lib/logger');
-const interactive = require('lib/interactive');
+// const logger = require('lib/logger');
+// const interactive = require('lib/interactive');
 const config = require('lib/config');
 
-const active_user = config.get_active_user();
+// const active_user = config.get_active_user();
 
 const options = {
     username: {
-        description: 'Your username',
+        description: 'Username',
         type: 'string',
-        required: !active_user,
+        required: true,
     },
-    password: {
-        description: 'Password',
+    'cert-id': {
+        description: 'Certificate ID',
         type: 'string',
+        required: true,
+    },
+    'cert-path': {
+        description: 'Auth-key path',
+        type: 'string',
+        required: true,
     },
 };
 
 const handler = async args => {
-    let p;
-    const username = args.username || active_user;
-    if (args.password) {
-        p = args.helpers.api.getApiKey(username, { password: args.password });
-    } else {
-        p = args.helpers.api.getApiKeySSH(username)
-            .catch(err => {
-                if (err.message.includes('host fingerprint verification failed')) {
-                    throw Cli.error.serverError(err.message);
-                }
-
-                return interactive.prompt('Password', {
-                    type: 'password',
-                    name: 'value',
-                    validate: input => input.length === 0 ? 'Incorrect password' : true,
-                })
-                    .then(password => args.helpers.api.getApiKey(username, { password: password.value }));
-            });
-    }
-
-    return p
-        .then(async () => {
-            return logger('info', 'You successfully logged and stored your session identifier in config file');
-        }).catch(e => {
-            if (e.status === 404 || e.status === 401) {
-                return logger('error', `Your login or password is incorrect (${e.status})`);
-            }
-            throw e;
-        });
+    const identity = `/iam/user/${args.username}`;
+    config.set('auth.identity', identity);
+    config.set('auth.credential.id', args['cert-id']);
+    const path = require('path').resolve(args['cert-path']);
+    config.set('auth.credential.path', path);
 };
 
 module.exports = Cli.createCommand('login', {

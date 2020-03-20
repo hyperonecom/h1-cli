@@ -8,6 +8,9 @@
   * [h1 organisation](organisation.md) - Manage your Organisation
   * [h1 logout](logout.md) - Remove user session
   * [h1 env](env.md) - Get environment variables to manage project as user
+  * [h1 sa](sa.md) - Manage your Service account
+  * [h1 role](role.md) - Manage your Role
+  * [h1 policy](policy.md) - Manage your Policy
   * [h1 agent](agent.md) - Manage your Agent
   * [h1 container](container.md) - Manage your Container
   * [h1 database](database.md) - Manage your Database

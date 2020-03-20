@@ -190,11 +190,11 @@ Grant access rights for ISO
 
 ### Syntax
 
-```h1 iso access grant | --iso ISO --project PROJECT```
+```h1 iso access grant | --iso ISO --authorized-project AUTHORIZED-PROJECT```
 ### Example
 
 ```bash
-h1 iso access grant --iso test-image --project 5b28f7c9ddd5b3c5e9ec14c4
+h1 iso access grant --iso test-image --authorized-project 5b28f7c9ddd5b3c5e9ec14c4
 ```
 
 ### Required arguments
@@ -202,7 +202,7 @@ h1 iso access grant --iso test-image --project 5b28f7c9ddd5b3c5e9ec14c4
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
-| ```--project PROJECT``` |  | Project name or ID |
+| ```--authorized-project AUTHORIZED-PROJECT``` |  | Project name or ID |
 
 ## h1 iso access revoke
 
@@ -210,11 +210,11 @@ Revoke access rights for ISO
 
 ### Syntax
 
-```h1 iso access revoke | --iso ISO --project PROJECT```
+```h1 iso access revoke | --iso ISO --authorized-project AUTHORIZED-PROJECT```
 ### Example
 
 ```bash
-h1 iso access revoke --iso test-iso --project MyFavouriteProject
+h1 iso access revoke --iso test-iso --authorized-project MyFavouriteProject
 ```
 
 ### Required arguments
@@ -222,7 +222,7 @@ h1 iso access revoke --iso test-iso --project MyFavouriteProject
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
-| ```--project PROJECT``` |  | Project name or ID |
+| ```--authorized-project AUTHORIZED-PROJECT``` |  | Project name or ID |
 
 ## h1 iso access list
 

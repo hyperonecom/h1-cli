@@ -5,7 +5,7 @@ const Cli = require('lib/cli');
 const api = require('lib/api');
 
 const options = {
-    'project-select': Cli.richOption({
+    project: Cli.richOption({
         description: 'Override current project on the request',
         type: 'string',
         env: 'PROJECT',
@@ -16,15 +16,20 @@ module.exports = {
     options: options,
     dirname: __dirname,
     onBeforeConfigure: context => Object.entries(options).forEach(([k, v]) => context.node.addOption(k, v)),
-    onBeforeHandler: context => {
+    onBeforeHandler: ({ args }) => {
+        if (args.project) {
+            api.setProject(args.project);
+            return;
+        }
+        if (config.getProjectEnv()) { // then try environment variable
+            args.project = config.getProjectEnv();
+        }
         const configProject = config.get('profile.project.id');
-        if (context.args['project-select']) { // use command line parameter
-            api.setProject(context.args['project-select']);
-        } else if (config.getProjectEnv()) { // then try environment variable
-            api.setProject(config.getProjectEnv());
-        } else if (configProject) { // then try config
-            api.setProject(configProject);
-        } else if (!config.getTokenEnv()) { // then reject if no service account used
+        if (configProject) { // then try environment variable
+            args.project = configProject;
+        }
+        api.setProject(args.project);
+        if (!args.project) { // then reject if no service account used
             throw Cli.error.cancelled('You need to select project before you can manage your resources');
         }
     },

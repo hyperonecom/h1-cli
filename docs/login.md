@@ -6,7 +6,7 @@ Obtain your apiKey
 
 ## Syntax
 
-```h1 login | --username USERNAME [--password PASSWORD]```
+```h1 login | --username USERNAME --cert-id CERT-ID --cert-path CERT-PATH```
 ## Example
 
 ```bash
@@ -17,11 +17,7 @@ h1 login --username user@example.com
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--username USERNAME``` |  | Your username |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--password PASSWORD``` |  | Password |
+| ```--username USERNAME``` |  | Username |
+| ```--cert-id CERT-ID``` |  | Certificate ID |
+| ```--cert-path CERT-PATH``` |  | Auth-key path |
 

@@ -19,6 +19,7 @@ module.exports = resource => Cli.createCommand('accept', {
     description: `Accept ${resource.title}`,
     resource: resource,
     dirname: __dirname,
+    plugins: resource.plugins,
     options: Object.assign({}, resource.options, options),
     handler: args => args.helpers.api
         .post(`organisation/${args.organisation}/actions`, {

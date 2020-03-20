@@ -2,12 +2,10 @@
 
 const Cli = require('lib/cli');
 
-const genericDefaults = require('bin/generic/defaults');
-
 module.exports = (resource) => Cli.createCommand('list', {
     dirname: __dirname,
     description: `List ${resource.title}`,
-    plugins: genericDefaults.plugins,
+    plugins: resource.plugins,
     options: resource.options,
     resource: resource,
     handler: args => args.helpers.api

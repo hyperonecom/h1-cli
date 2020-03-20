@@ -2,8 +2,6 @@
 
 const genericResource = require('bin/generic');
 
-const config = require('lib/config');
-
 const schema = {
     name: {
         description: 'ISO name',
@@ -41,17 +39,7 @@ const resource = {
 };
 const category = genericResource(resource);
 
-const active_project = config.get_active_project();
-
 const childDefaults = Object.assign({}, resource, {
-    options: {
-        project: {
-            description: 'Project ID or name. Active project by default',
-            type: 'string',
-            required: !active_project,
-            defaultValue: active_project,
-        },
-    },
     url: args => `${resource.url(args)}/${args.project}`,
 });
 

@@ -5,5 +5,5 @@ A parameter intended for selecting an ad-hoc project for a single command.
 ## List virtual machine on selected project
 
 ```bash
-{{scope}} vm list --output tsv --project-select MyProject
+{{scope}} vm list --output tsv --project MyProject
 ```

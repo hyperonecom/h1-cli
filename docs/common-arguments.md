@@ -112,7 +112,7 @@ h1 disk delete --disk test-disk --yes
 ```
 
 Note (1): Pretty useful when writing automatic scripts.
-## Argument ```--project-select```
+## Argument ```--project```
 Override current project on the request. Can be set also via environment variable HYPERONE_PROJECT.
 
 A parameter intended for selecting an ad-hoc project for a single command.
@@ -122,5 +122,5 @@ A parameter intended for selecting an ad-hoc project for a single command.
 ##### List virtual machine on selected project
 
 ```bash
-h1 vm list --output tsv --project-select MyProject
+h1 vm list --output tsv --project MyProject
 ```

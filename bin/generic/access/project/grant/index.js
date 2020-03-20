@@ -13,7 +13,7 @@ module.exports = function(resource) {
             type: 'string',
             required: true,
         },
-        project: {
+        'authorized-project': {
             description: 'Project name or ID',
             type: 'string',
             required: true,
@@ -27,7 +27,7 @@ module.exports = function(resource) {
         options: options,
         resource: resource,
         handler: args => args.helpers.api
-            .post(`${resource.name}/${args[resource.name]}/accessrights`, { identity: args.project })
-            .then(() => args.helpers.sendOutput(args, [args.project])),
+            .post(`${resource.name}/${args[resource.name]}/accessrights`, { identity: args['authorized-project'] })
+            .then(() => args.helpers.sendOutput(args, [args['authorized-project']])),
     });
 };

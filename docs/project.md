@@ -417,7 +417,7 @@ Show Token
 
 ### Syntax
 
-```h1 project token show | --token TOKEN [--project PROJECT]```
+```h1 project token show | --token TOKEN```
 ### Example
 
 ```bash
@@ -430,30 +430,18 @@ h1 project token show --token my-token
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | Token ID or name |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project token list
 
 List Token
 
 ### Syntax
 
-```h1 project token list | [--project PROJECT]```
+```h1 project token list | ```
 ### Example
 
 ```bash
 h1 project token list
 ```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project token delete
 
@@ -461,7 +449,7 @@ Delete Token
 
 ### Syntax
 
-```h1 project token delete | --token TOKEN [--project PROJECT]```
+```h1 project token delete | --token TOKEN```
 ### Example
 
 ```bash
@@ -474,19 +462,13 @@ h1 project token delete --token my-token --project my-project
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | Token ID or name |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project token rename
 
 Rename Token
 
 ### Syntax
 
-```h1 project token rename | --token TOKEN --new-name NEW-NAME [--project PROJECT]```
+```h1 project token rename | --token TOKEN --new-name NEW-NAME```
 ### Example
 
 ```bash
@@ -500,19 +482,13 @@ h1 project token rename --token my-token --new-name my-renamed-token
 | ```--token TOKEN``` |  | Token ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project token add
 
 Add Token
 
 ### Syntax
 
-```h1 project token add | --name NAME [--project PROJECT]```
+```h1 project token add | --name NAME```
 ### Example
 
 ```bash
@@ -525,12 +501,6 @@ h1 project token add --project 6oAoJqgyLZP4Le9UUNHrEOYP --name secret-token-1
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project token access
 
 Manage your token access
@@ -541,7 +511,7 @@ List access rule
 
 ### Syntax
 
-```h1 project token access list | --token TOKEN [--project PROJECT]```
+```h1 project token access list | --token TOKEN```
 ### Example
 
 ```bash
@@ -554,19 +524,13 @@ h1 project token access list --project my-project --token my-token --access my-a
 | ---- | ------- | ----------- |
 | ```--token TOKEN``` |  | Token ID |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project token access show
 
 Show access rule
 
 ### Syntax
 
-```h1 project token access show | --token TOKEN --access ACCESS [--project PROJECT]```
+```h1 project token access show | --token TOKEN --access ACCESS```
 ### Example
 
 ```bash
@@ -580,19 +544,13 @@ h1 project token access show --access my-access
 | ```--token TOKEN``` |  | Token ID |
 | ```--access ACCESS``` |  | Access rule ID or name |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project token access delete
 
 Delete access rule
 
 ### Syntax
 
-```h1 project token access delete | --token TOKEN --access ACCESS [--project PROJECT]```
+```h1 project token access delete | --token TOKEN --access ACCESS```
 ### Example
 
 ```bash
@@ -606,19 +564,13 @@ h1 project token access delete --access my-access --project my-project --token m
 | ```--token TOKEN``` |  | Token ID |
 | ```--access ACCESS``` |  | Access rule ID or name |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project token access add
 
 Add access rule
 
 ### Syntax
 
-```h1 project token access add | --method METHOD --path PATH --token TOKEN [--project PROJECT]```
+```h1 project token access add | --method METHOD --path PATH --token TOKEN```
 ### Examples
 
 #### Grant access to token for snapshots of selected Vault
@@ -635,19 +587,13 @@ h1 project token access add --project 6oAoJqgyLZP4Le9UUNHrEOYP --method POST --p
 | ```--path PATH``` |  | URL path, eg: /disk |
 | ```--token TOKEN``` |  | Token ID |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project token env
 
 Get environment variables to manage project by service account
 
 ### Syntax
 
-```h1 project token env | --token TOKEN [--project PROJECT] [--shell {powershell,cmd,sh,bash}] [--unset]```
+```h1 project token env | --token TOKEN [--shell {powershell,cmd,sh,bash}] [--unset]```
 ### Examples
 
 #### Get and set environment variables in sh/bash shell
@@ -666,7 +612,6 @@ eval $(h1 project token env --token 189d9053248c4f6fbacebe90558ff538)
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 | ```--shell {powershell,cmd,sh,bash}``` |  | Shell type |
 | ```--unset``` |  | Reverses operations of setting environment variables |
 
@@ -684,7 +629,7 @@ Add credits limit
 
 ### Syntax
 
-```h1 project notification credits add | --limit LIMIT [--project PROJECT]```
+```h1 project notification credits add | --limit LIMIT```
 ### Example
 
 ```
@@ -697,30 +642,18 @@ h1 project notification credits add --project my-project --limit value
 | ---- | ------- | ----------- |
 | ```--limit LIMIT``` |  | New credits limit |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project notification credits list
 
 List credits limit
 
 ### Syntax
 
-```h1 project notification credits list | [--project PROJECT]```
+```h1 project notification credits list | ```
 ### Example
 
 ```bash
 h1 project notification credits list --project my-project
 ```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project notification credits delete
 
@@ -728,7 +661,7 @@ Delete credits limit
 
 ### Syntax
 
-```h1 project notification credits delete | --limit LIMIT [--project PROJECT]```
+```h1 project notification credits delete | --limit LIMIT```
 ### Example
 
 ```
@@ -741,30 +674,18 @@ h1 project notification credits delete --project my-project --limit value
 | ---- | ------- | ----------- |
 | ```--limit LIMIT``` |  | Deleted credits limit |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project select
 
 Select Project context
 
 ### Syntax
 
-```h1 project select | [--project PROJECT]```
+```h1 project select | ```
 ### Example
 
 ```bash
 h1 project select --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project limit
 
@@ -772,7 +693,7 @@ Cloud limits set for project
 
 ### Syntax
 
-```h1 project limit | [--project PROJECT]```
+```h1 project limit | ```
 ### Example
 
 ```bash
@@ -780,12 +701,6 @@ h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
 
 Contact technical support to request increase the limits.
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project logging
 
@@ -801,7 +716,7 @@ Enable compliance log
 
 ### Syntax
 
-```h1 project logging enable | --log LOG --password PASSWORD [--project PROJECT] [--mode {basic,full}]```
+```h1 project logging enable | --log LOG --password PASSWORD [--mode {basic,full}]```
 ### Example
 
 ```
@@ -819,7 +734,6 @@ h1 project logging enable --project MyProject --logArchive 5beabe03680cffd11f0e6
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 | ```--mode {basic,full}``` |  | Logging mode (determines the scope of registered information) |
 
 ## h1 project logging disable
@@ -828,18 +742,12 @@ Disable compliance log
 
 ### Syntax
 
-```h1 project logging disable | [--project PROJECT]```
+```h1 project logging disable | ```
 ### Example
 
 ```
 h1 project logging disable --project MyProject
 ```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project logging show
 
@@ -847,18 +755,12 @@ Show compliance log
 
 ### Syntax
 
-```h1 project logging show | [--project PROJECT]```
+```h1 project logging show | ```
 ### Example
 
 ```
 h1 project logging show --project MyProject
 ```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project credentials
 
@@ -870,7 +772,7 @@ Show credentials
 
 ### Syntax
 
-```h1 project credentials show | --credentials CREDENTIALS [--project PROJECT]```
+```h1 project credentials show | --credentials CREDENTIALS```
 ### Example
 
 ```bash
@@ -883,30 +785,18 @@ h1 project credentials show --credentials my-credentials
 | ---- | ------- | ----------- |
 | ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project credentials list
 
 List credentials
 
 ### Syntax
 
-```h1 project credentials list | [--project PROJECT]```
+```h1 project credentials list | ```
 ### Example
 
 ```bash
 h1 project credentials list --project my-project
 ```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project credentials delete
 
@@ -914,7 +804,7 @@ Delete credentials
 
 ### Syntax
 
-```h1 project credentials delete | --credentials CREDENTIALS [--project PROJECT]```
+```h1 project credentials delete | --credentials CREDENTIALS```
 ### Example
 
 ```bash
@@ -927,19 +817,13 @@ h1 project credentials delete --credentials my-credentials --project my-project
 | ---- | ------- | ----------- |
 | ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project credentials rename
 
 Rename credentials
 
 ### Syntax
 
-```h1 project credentials rename | --credentials CREDENTIALS --new-name NEW-NAME [--project PROJECT]```
+```h1 project credentials rename | --credentials CREDENTIALS --new-name NEW-NAME```
 ### Example
 
 ```bash
@@ -953,19 +837,13 @@ h1 project credentials rename --credentials my-credentials --new-name my-renamed
 | ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
 ## h1 project credentials add
 
 Add public SSH key for Project
 
 ### Syntax
 
-```h1 project credentials add | --name NAME --sshkey-file SSHKEY-FILE [--project PROJECT]```
+```h1 project credentials add | --name NAME --sshkey-file SSHKEY-FILE```
 ### Example
 
 ```bash
@@ -978,12 +856,6 @@ h1 project credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub --
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project tag
 

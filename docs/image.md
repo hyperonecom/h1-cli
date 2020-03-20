@@ -177,11 +177,11 @@ Grant access rights for Image
 
 ### Syntax
 
-```h1 image access grant | --image IMAGE --project PROJECT```
+```h1 image access grant | --image IMAGE --authorized-project AUTHORIZED-PROJECT```
 ### Example
 
 ```bash
-h1 image access grant --image test-image --project 5b28f7c9ddd5b3c5e9ec14c4
+h1 image access grant --image test-image --authorized-project 5b28f7c9ddd5b3c5e9ec14c4
 ```
 
 ### Required arguments
@@ -189,7 +189,7 @@ h1 image access grant --image test-image --project 5b28f7c9ddd5b3c5e9ec14c4
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
-| ```--project PROJECT``` |  | Project name or ID |
+| ```--authorized-project AUTHORIZED-PROJECT``` |  | Project name or ID |
 
 ## h1 image access revoke
 
@@ -197,11 +197,11 @@ Revoke access rights for Image
 
 ### Syntax
 
-```h1 image access revoke | --image IMAGE --project PROJECT```
+```h1 image access revoke | --image IMAGE --authorized-project AUTHORIZED-PROJECT```
 ### Example
 
 ```bash
-h1 image access revoke --image test-image --project MyFavouriteProject
+h1 image access revoke --image test-image --authorized-project MyFavouriteProject
 ```
 
 ### Required arguments
@@ -209,7 +209,7 @@ h1 image access revoke --image test-image --project MyFavouriteProject
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--image IMAGE``` |  | Image ID or name |
-| ```--project PROJECT``` |  | Project name or ID |
+| ```--authorized-project AUTHORIZED-PROJECT``` |  | Project name or ID |
 
 ## h1 image access list
 

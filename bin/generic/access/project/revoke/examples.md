@@ -1,3 +1,3 @@
 ```bash
-{{command_name}} --{{type}} test-{{type}} --project MyFavouriteProject
+{{command_name}} --{{type}} test-{{type}} --authorized-project MyFavouriteProject
 ```
