@@ -13,7 +13,7 @@
     "h1": "./bin/h1",
     "rbx": "./bin/rbx",
     "docker-credential-h1-login": "./bin/docker-credential-h1-login",
-    "docker-credential-rbx-login": "./bin/docker-credential-h1-login"
+    "docker-credential-rbx-login": "./bin/docker-credential-rbx-login"
   },
   "scripts": {
     "start": "./bin/h1.js",

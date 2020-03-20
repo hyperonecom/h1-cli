@@ -28,8 +28,11 @@ module.exports = resource => {
                 tag: require('lib/tags').createTagObject(args.tag),
             };
 
-            if (resource.schema.credentials) {
-                const services = await args.helpers.api.get('/service/', {
+            const no_creds = !args.password || args.password.length > 0 ||
+                !args.ssh || args.ssh.length > 0 ||
+                !args['ssh-file'] || args['ssh-file'].length > 0;
+            if (resource.schema.credentials && !no_creds) {
+                const services = await args.helpers.api.get('billing/service/', {
                     resource: resource.apiName || resource.name,
                     type: 'flavour',
                     name: args.type,

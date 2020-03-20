@@ -42,7 +42,7 @@ const schema = {
 const resource = {
     name: 'registry',
     defaultQuery: '[].{id:id, name:name, type:flavour, size:sizeUsed, state: state, tags:join(\',\',keys(tag || `{}`) ) }',
-    url: () => 'container/registry',
+    url: args => `container/${args.location}/project/${args.project}/registry`,
     plugins: genericDefaults.plugins,
     extraCommands: ['create', 'start', 'stop', 'transfer', 'update', 'credential'],
     dirname: __dirname,

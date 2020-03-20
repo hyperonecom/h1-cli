@@ -124,3 +124,9 @@ A parameter intended for selecting an ad-hoc project for a single command.
 ```bash
 h1 vm list --output tsv --project MyProject
 ```
+## Argument ```--location```
+Specify location of resources
+
+```bash
+h1 registry list --location pl-waw-1
+```

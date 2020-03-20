@@ -22,7 +22,7 @@ module.exports = (resource, field_name) => {
         plugins: resource.plugins,
         options: Object.assign({}, options, resource.options),
         handler: args => args.helpers.api
-            .post(`${resource.url(args)}/${args[resource.name]}/actions/update_${field_name}`, {
+            .patch(`${resource.url(args)}/${args[resource.name]}`, {
                 [field_name]: args[name],
             })
             .then(result => args.helpers.sendOutput(args, result)),

@@ -20,6 +20,6 @@ module.exports = Cli.createCommand('show', {
     plugins: genericDefaults.plugins,
     options: options,
     params: params,
-    handler: (args) => args.helpers.api.get(`service/${args.id}`)
+    handler: (args) => args.helpers.api.get(`billing/service/${args.id}`)
         .then(result => args.helpers.sendOutput(args, result)),
 });

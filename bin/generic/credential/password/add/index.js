@@ -30,7 +30,7 @@ module.exports = (resource) => Cli.createCommand('add', {
                 'The service flavour of resource was not found'
             );
         }
-        const service = await args.helpers.api.get(`service/${resourceService.sourceService}`);
+        const service = await args.helpers.api.get(`billing/service/${resourceService.sourceService}`);
         let credential_type = service.data && service.data.credential && service.data.credential.type;
         if (!credential_type && remote_resource.credential_types) {
             credential_type = remote_resource.credential_types;

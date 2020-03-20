@@ -118,7 +118,7 @@ Update Docker-CLI configuration for credentials
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--registry REGISTRY``` |  | Registry ID |
+| ```--registry REGISTRY``` |  | Registry ID or name |
 
 ### Optional arguments
 
