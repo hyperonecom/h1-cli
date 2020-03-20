@@ -9,8 +9,12 @@
   * [h1 sa service](#h1-sa-service) - Manage your services of Service account
     * [h1 sa service list](#h1-sa-service-list) - List Service for Service account
     * [h1 sa service show](#h1-sa-service-show) - Show Service for Service account
+  * [h1 sa access](#h1-sa-access) - Manage your Service account access rights
+    * [h1 sa access check](#h1-sa-access-check) - Check access rights for Service account
   * [h1 sa transfer](#h1-sa-transfer) - Transfer Service account to other project
   * [h1 sa credential](#h1-sa-credential) - Manage your credentials of Service account
+    * [h1 sa credential access](#h1-sa-credential-access) - Manage your credential of Service account access rights
+      * [h1 sa credential access check](#h1-sa-credential-access-check) - Check access rights for credential of Service account
     * [h1 sa credential list](#h1-sa-credential-list) - List credential of Service account
     * [h1 sa credential show](#h1-sa-credential-show) - Show credential of Service account
     * [h1 sa credential delete](#h1-sa-credential-delete) - Delete credential of Service account
@@ -198,6 +202,29 @@ h1 sa service show --service my-service --sa my-sa
 | ```--sa SA``` |  | Service account ID or name |
 | ```--service SERVICE``` |  | Service for Service account ID or name |
 
+## h1 sa access
+
+Manage your Service account access rights
+
+## h1 sa access check
+
+Check access rights for Service account
+
+### Syntax
+
+```h1 sa access check | --sa SA```
+### Example
+
+```bash
+h1 sa access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--sa SA``` |  | Service account ID or name |
+
 ## h1 sa transfer
 
 Transfer Service account to other project
@@ -221,6 +248,30 @@ h1 sa transfer --sa test-sa --new-project OtherProject
 ## h1 sa credential
 
 Manage your credentials of Service account
+
+## h1 sa credential access
+
+Manage your credential of Service account access rights
+
+## h1 sa credential access check
+
+Check access rights for credential of Service account
+
+### Syntax
+
+```h1 sa credential access check | --sa SA --credential CREDENTIAL```
+### Example
+
+```bash
+h1 sa credential access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--sa SA``` |  | Service account ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Service account ID or name |
 
 ## h1 sa credential list
 

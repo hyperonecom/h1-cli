@@ -12,7 +12,7 @@ module.exports = (parent) => {
         url: args => `${parent.url(args)}/resource`,
         options: parent.options,
         plugins: genericDefaults.plugins,
-        commands: ['list'],
+        commands: ['list', 'access/resource'],
         extraCommands: [],
         title: 'Resource of Agent',
     };

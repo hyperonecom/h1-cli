@@ -11,7 +11,7 @@ module.exports = (parent) => {
         url: args => `${parent.url(args)}/tag`,
         options: parent.options,
         plugins: genericDefaults.plugins,
-        commands: ['show', 'list'],
+        commands: ['show', 'access/resource', 'list'],
         extraCommands: [],
         title: `tag in ${parent.name}`,
     };

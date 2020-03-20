@@ -6,7 +6,7 @@ const genericResource = require('bin/generic');
 const resource = {
     name: 'image',
     defaultQuery: '[].{id:id, name:name, type:flavour, fileSize:ceil(fileSize), state:state, tags:join(\',\',keys(tag || `{}`) ) }',
-    commands: ['show', 'delete', 'rename', 'history', 'tag', 'transfer', 'service', 'access/project'],
+    commands: ['show', 'access/resource', 'delete', 'rename', 'history', 'tag', 'transfer', 'service', 'access/project'],
     plugins: genericDefaults.plugins,
     url: () => 'image',
     title: 'Image',

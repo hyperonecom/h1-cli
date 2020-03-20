@@ -2,6 +2,8 @@
 
   * [h1 dns zone](#h1-dns-zone) - Manage your DNS Zone
     * [h1 dns zone create](#h1-dns-zone-create) - Create DNS Zone
+    * [h1 dns zone access](#h1-dns-zone-access) - Manage your DNS Zone access rights
+      * [h1 dns zone access check](#h1-dns-zone-access-check) - Check access rights for DNS Zone
     * [h1 dns zone rename](#h1-dns-zone-rename) - Rename DNS Zone
     * [h1 dns zone history](#h1-dns-zone-history) - History of DNS Zone
     * [h1 dns zone list](#h1-dns-zone-list) - List DNS Zone
@@ -158,6 +160,29 @@ h1 dns zone create --zone 'my-domain.tld' --type public --dns-probing
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
 | ```--dns-name DNS-NAME``` |  | DNS zone name (zone name by default) |
 | ```--dns-probing``` |  | Probe current DNS nameserver to guess DNS records |
+
+## h1 dns zone access
+
+Manage your DNS Zone access rights
+
+## h1 dns zone access check
+
+Check access rights for DNS Zone
+
+### Syntax
+
+```h1 dns zone access check | --zone ZONE```
+### Example
+
+```bash
+h1 dns zone access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--zone ZONE``` |  | DNS Zone ID or name |
 
 ## h1 dns zone rename
 

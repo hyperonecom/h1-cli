@@ -9,6 +9,8 @@
   * [h1 netgw service](#h1-netgw-service) - Manage your services of Network gateway
     * [h1 netgw service list](#h1-netgw-service-list) - List Service for Network gateway
     * [h1 netgw service show](#h1-netgw-service-show) - Show Service for Network gateway
+  * [h1 netgw access](#h1-netgw-access) - Manage your Network gateway access rights
+    * [h1 netgw access check](#h1-netgw-access-check) - Check access rights for Network gateway
   * [h1 netgw create](#h1-netgw-create) - Network gateway create
   * [h1 netgw detach](#h1-netgw-detach) - Network gateway detach from a network
   * [h1 netgw attach](#h1-netgw-attach) - Network gateway attach to a network
@@ -194,6 +196,29 @@ h1 netgw service show --service my-service --netgw my-netgw
 | ---- | ------- | ----------- |
 | ```--netgw NETGW``` |  | Network gateway ID or name |
 | ```--service SERVICE``` |  | Service for Network gateway ID or name |
+
+## h1 netgw access
+
+Manage your Network gateway access rights
+
+## h1 netgw access check
+
+Check access rights for Network gateway
+
+### Syntax
+
+```h1 netgw access check | --netgw NETGW```
+### Example
+
+```bash
+h1 netgw access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--netgw NETGW``` |  | Network gateway ID or name |
 
 ## h1 netgw create
 

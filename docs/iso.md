@@ -8,6 +8,8 @@
   * [h1 iso service](#h1-iso-service) - Manage your services of ISO
     * [h1 iso service list](#h1-iso-service-list) - List Service for ISO
     * [h1 iso service show](#h1-iso-service-show) - Show Service for ISO
+  * [h1 iso access](#h1-iso-access) - Manage your ISO access rights
+    * [h1 iso access check](#h1-iso-access-check) - Check access rights for ISO
   * [h1 iso transfer](#h1-iso-transfer) - Transfer ISO to other project
   * [h1 iso access](#h1-iso-access) - Manage your ISO access rights
     * [h1 iso access grant](#h1-iso-access-grant) - Grant access rights for ISO
@@ -159,6 +161,29 @@ h1 iso service show --service my-service --iso my-iso
 | ---- | ------- | ----------- |
 | ```--iso ISO``` |  | ISO ID or name |
 | ```--service SERVICE``` |  | Service for ISO ID or name |
+
+## h1 iso access
+
+Manage your ISO access rights
+
+## h1 iso access check
+
+Check access rights for ISO
+
+### Syntax
+
+```h1 iso access check | --iso ISO```
+### Example
+
+```bash
+h1 iso access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--iso ISO``` |  | ISO ID or name |
 
 ## h1 iso transfer
 

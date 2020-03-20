@@ -18,7 +18,7 @@ module.exports = (resource) => {
         name: 'credential',
         defaultQuery: '[].{id:id,name:name,type:type}',
         url: args => `${resource.url(args)}/${args[resource.name]}`,
-        commands: [],
+        commands: ['access/resource'],
         options: options,
         plugins: resource.plugins,
         description: `Manage your credentials of ${resource.title}`,

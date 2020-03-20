@@ -15,7 +15,7 @@ const resource = {
     name: 'dvd',
     defaultQuery: '[].{id:id,iso:iso.id,isoname:iso.name}',
     url: args => `vm/${args.vm}/dvddrive`,
-    commands: ['list'],
+    commands: ['list', 'access/resource'],
     plugins: genericDefaults.plugins,
     options: options,
     title: 'DVD',

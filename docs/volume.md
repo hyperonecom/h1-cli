@@ -9,6 +9,8 @@
   * [h1 volume service](#h1-volume-service) - Manage your services of Volume
     * [h1 volume service list](#h1-volume-service-list) - List Service for Volume
     * [h1 volume service show](#h1-volume-service-show) - Show Service for Volume
+  * [h1 volume access](#h1-volume-access) - Manage your Volume access rights
+    * [h1 volume access check](#h1-volume-access-check) - Check access rights for Volume
   * [h1 volume resize](#h1-volume-resize) - Resize Volume
   * [h1 volume tag](#h1-volume-tag) - Manage your tag
     * [h1 volume tag list](#h1-volume-tag-list) - List tag
@@ -195,6 +197,29 @@ h1 volume service show --service my-service --volume my-volume
 | ---- | ------- | ----------- |
 | ```--volume VOLUME``` |  | Volume ID or name |
 | ```--service SERVICE``` |  | Service for Volume ID or name |
+
+## h1 volume access
+
+Manage your Volume access rights
+
+## h1 volume access check
+
+Check access rights for Volume
+
+### Syntax
+
+```h1 volume access check | --volume VOLUME```
+### Example
+
+```bash
+h1 volume access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--volume VOLUME``` |  | Volume ID or name |
 
 ## h1 volume resize
 

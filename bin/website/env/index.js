@@ -11,7 +11,7 @@ module.exports = (parent) => {
         options: parent.options,
         plugins: genericDefaults.plugins,
         dirname: __dirname,
-        commands: ['create', 'show', 'list', 'delete'],
+        commands: ['create', 'show', 'list', 'delete', 'access/resource'],
         extraCommands: [],
         schema: {
             name: {

@@ -8,6 +8,8 @@
   * [h1 disk service](#h1-disk-service) - Manage your services of Disk
     * [h1 disk service list](#h1-disk-service-list) - List Service for Disk
     * [h1 disk service show](#h1-disk-service-show) - Show Service for Disk
+  * [h1 disk access](#h1-disk-access) - Manage your Disk access rights
+    * [h1 disk access check](#h1-disk-access-check) - Check access rights for Disk
   * [h1 disk resize](#h1-disk-resize) - Resize Disk
   * [h1 disk resume](#h1-disk-resume) - Resume create upload of Disk
   * [h1 disk transfer](#h1-disk-transfer) - Transfer Disk to other project
@@ -157,6 +159,29 @@ h1 disk service show --service my-service --disk my-disk
 | ---- | ------- | ----------- |
 | ```--disk DISK``` |  | Disk ID or name |
 | ```--service SERVICE``` |  | Service for Disk ID or name |
+
+## h1 disk access
+
+Manage your Disk access rights
+
+## h1 disk access check
+
+Check access rights for Disk
+
+### Syntax
+
+```h1 disk access check | --disk DISK```
+### Example
+
+```bash
+h1 disk access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--disk DISK``` |  | Disk ID or name |
 
 ## h1 disk resize
 

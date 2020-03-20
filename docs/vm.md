@@ -8,6 +8,8 @@
     * [h1 vm service list](#h1-vm-service-list) - List Service for Virtual machine
     * [h1 vm service show](#h1-vm-service-show) - Show Service for Virtual machine
     * [h1 vm service change](#h1-vm-service-change) - Change type of Service for Virtual machine
+  * [h1 vm access](#h1-vm-access) - Manage your Virtual machine access rights
+    * [h1 vm access check](#h1-vm-access-check) - Check access rights for Virtual machine
   * [h1 vm delete](#h1-vm-delete) - Delete Virtual machine
   * [h1 vm stop](#h1-vm-stop) - Stop Virtual machine
   * [h1 vm start](#h1-vm-start) - Start Virtual machine
@@ -20,11 +22,15 @@
     * [h1 vm serialport log](#h1-vm-serialport-log) - Log Serial Console buffer of Virtual machine
   * [h1 vm disk](#h1-vm-disk) - Manage your Disk
     * [h1 vm disk list](#h1-vm-disk-list) - List Disk
+    * [h1 vm disk access](#h1-vm-disk-access) - Manage your Disk access rights
+      * [h1 vm disk access check](#h1-vm-disk-access-check) - Check access rights for Disk
     * [h1 vm disk attach](#h1-vm-disk-attach) - Attach disk to Disk
     * [h1 vm disk detach](#h1-vm-disk-detach) - Detach disk from Disk
   * [h1 vm nic](#h1-vm-nic) - Manage your Network adapter
     * [h1 vm nic list](#h1-vm-nic-list) - List Network adapter
     * [h1 vm nic delete](#h1-vm-nic-delete) - Delete Network adapter
+    * [h1 vm nic access](#h1-vm-nic-access) - Manage your Network adapter access rights
+      * [h1 vm nic access check](#h1-vm-nic-access-check) - Check access rights for Network adapter
     * [h1 vm nic create](#h1-vm-nic-create) - Create Network adapter
     * [h1 vm nic show](#h1-vm-nic-show) - Show Network adapter
     * [h1 vm nic firewall](#h1-vm-nic-firewall) - Manage Firewall of Network adapter
@@ -34,6 +40,8 @@
     * [h1 vm nic ip](#h1-vm-nic-ip) - Manage your IP address of Network adapter
       * [h1 vm nic ip list](#h1-vm-nic-ip-list) - List IP address of Network adapter
       * [h1 vm nic ip delete](#h1-vm-nic-ip-delete) - Delete IP address of Network adapter
+      * [h1 vm nic ip access](#h1-vm-nic-ip-access) - Manage your IP address of Network adapter access rights
+        * [h1 vm nic ip access check](#h1-vm-nic-ip-access-check) - Check access rights for IP address of Network adapter
       * [h1 vm nic ip add](#h1-vm-nic-ip-add) - Add IP address to IP address of Network adapter
       * [h1 vm nic ip replace](#h1-vm-nic-ip-replace) - Replace IP address of Network adapter
       * [h1 vm nic ip persistent](#h1-vm-nic-ip-persistent) - Persistent IP address of Network adapter
@@ -44,6 +52,8 @@
       * [h1 vm nic tag delete](#h1-vm-nic-tag-delete) - Delete a tag of Network adapter
   * [h1 vm dvd](#h1-vm-dvd) - Manage your DVD
     * [h1 vm dvd list](#h1-vm-dvd-list) - List DVD
+    * [h1 vm dvd access](#h1-vm-dvd-access) - Manage your DVD access rights
+      * [h1 vm dvd access check](#h1-vm-dvd-access-check) - Check access rights for DVD
     * [h1 vm dvd insert](#h1-vm-dvd-insert) - Insert ISO into DVD drive of DVD
     * [h1 vm dvd eject](#h1-vm-dvd-eject) - Eject ISO from DVD drive of DVD
   * [h1 vm console](#h1-vm-console) - Open Virtual machine console in web-browser
@@ -237,6 +247,29 @@ h1 vm service change --vm my-vm --new-type m2.medium
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 | ```--new-type NEW-TYPE``` |  | New type |
+
+## h1 vm access
+
+Manage your Virtual machine access rights
+
+## h1 vm access check
+
+Check access rights for Virtual machine
+
+### Syntax
+
+```h1 vm access check | --vm VM```
+### Example
+
+```bash
+h1 vm access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
 
 ## h1 vm delete
 
@@ -460,6 +493,30 @@ h1 vm disk list
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine ID or name |
 
+## h1 vm disk access
+
+Manage your Disk access rights
+
+## h1 vm disk access check
+
+Check access rights for Disk
+
+### Syntax
+
+```h1 vm disk access check | --vm VM --disk DISK```
+### Example
+
+```bash
+h1 vm disk access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine ID or name |
+| ```--disk DISK``` |  | Disk ID or name |
+
 ## h1 vm disk attach
 
 Attach disk to Disk
@@ -552,6 +609,30 @@ Delete Network adapter
 
 ```bash
 h1 vm nic delete --nic my-nic --vm test-vm
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID or name |
+
+## h1 vm nic access
+
+Manage your Network adapter access rights
+
+## h1 vm nic access check
+
+Check access rights for Network adapter
+
+### Syntax
+
+```h1 vm nic access check | --vm VM --nic NIC```
+### Example
+
+```bash
+h1 vm nic access check --vm test-vm --user root
 ```
 
 ### Required arguments
@@ -719,6 +800,31 @@ Delete IP address of Network adapter
 
 ```bash
 h1 vm nic ip delete --ip my-ip --vm my-vm --nic nic-of-vm --ip 123.0.0.50
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--nic NIC``` |  | Network adapter ID |
+| ```--ip IP``` |  | IP address of Network adapter ID or name |
+
+## h1 vm nic ip access
+
+Manage your IP address of Network adapter access rights
+
+## h1 vm nic ip access check
+
+Check access rights for IP address of Network adapter
+
+### Syntax
+
+```h1 vm nic ip access check | --vm VM --nic NIC --ip IP```
+### Example
+
+```bash
+h1 vm nic ip access check --vm test-vm --user root
 ```
 
 ### Required arguments
@@ -914,6 +1020,30 @@ h1 vm dvd list --vm my-vm
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--vm VM``` |  | Virtual machine name or ID |
+
+## h1 vm dvd access
+
+Manage your DVD access rights
+
+## h1 vm dvd access check
+
+Check access rights for DVD
+
+### Syntax
+
+```h1 vm dvd access check | --vm VM --dvd DVD```
+### Example
+
+```bash
+h1 vm dvd access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vm VM``` |  | Virtual machine name or ID |
+| ```--dvd DVD``` |  | DVD ID or name |
 
 ## h1 vm dvd insert
 

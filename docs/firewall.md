@@ -9,6 +9,8 @@
   * [h1 firewall service](#h1-firewall-service) - Manage your services of Firewall
     * [h1 firewall service list](#h1-firewall-service-list) - List Service for Firewall
     * [h1 firewall service show](#h1-firewall-service-show) - Show Service for Firewall
+  * [h1 firewall access](#h1-firewall-access) - Manage your Firewall access rights
+    * [h1 firewall access check](#h1-firewall-access-check) - Check access rights for Firewall
   * [h1 firewall transfer](#h1-firewall-transfer) - Transfer Firewall to other project
   * [h1 firewall attach](#h1-firewall-attach) - Attach Firewall to a network
   * [h1 firewall detach](#h1-firewall-detach) - Detach Firewall from network
@@ -199,6 +201,29 @@ h1 firewall service show --service my-service --firewall my-firewall
 | ---- | ------- | ----------- |
 | ```--firewall FIREWALL``` |  | Firewall ID or name |
 | ```--service SERVICE``` |  | Service for Firewall ID or name |
+
+## h1 firewall access
+
+Manage your Firewall access rights
+
+## h1 firewall access check
+
+Check access rights for Firewall
+
+### Syntax
+
+```h1 firewall access check | --firewall FIREWALL```
+### Example
+
+```bash
+h1 firewall access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--firewall FIREWALL``` |  | Firewall ID or name |
 
 ## h1 firewall transfer
 

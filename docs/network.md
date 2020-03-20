@@ -8,6 +8,8 @@
   * [h1 network service](#h1-network-service) - Manage your services of Network
     * [h1 network service list](#h1-network-service-list) - List Service for Network
     * [h1 network service show](#h1-network-service-show) - Show Service for Network
+  * [h1 network access](#h1-network-access) - Manage your Network access rights
+    * [h1 network access check](#h1-network-access-check) - Check access rights for Network
   * [h1 network firewall](#h1-network-firewall) - Manage Firewall of Network
     * [h1 network firewall add](#h1-network-firewall-add) - Add firewall to Network
     * [h1 network firewall remove](#h1-network-firewall-remove) - Remove firewall from Network
@@ -168,6 +170,29 @@ h1 network service show --service my-service --network my-network
 | ---- | ------- | ----------- |
 | ```--network NETWORK``` |  | Network ID or name |
 | ```--service SERVICE``` |  | Service for Network ID or name |
+
+## h1 network access
+
+Manage your Network access rights
+
+## h1 network access check
+
+Check access rights for Network
+
+### Syntax
+
+```h1 network access check | --network NETWORK```
+### Example
+
+```bash
+h1 network access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--network NETWORK``` |  | Network ID or name |
 
 ## h1 network firewall
 

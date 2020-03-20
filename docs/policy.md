@@ -9,6 +9,8 @@
   * [h1 policy service](#h1-policy-service) - Manage your services of Policy
     * [h1 policy service list](#h1-policy-service-list) - List Service for Policy
     * [h1 policy service show](#h1-policy-service-show) - Show Service for Policy
+  * [h1 policy access](#h1-policy-access) - Manage your Policy access rights
+    * [h1 policy access check](#h1-policy-access-check) - Check access rights for Policy
   * [h1 policy name](#h1-policy-name) - Update Policy name of Policy
   * [h1 policy actor](#h1-policy-actor) - Manage your actor of Policy
     * [h1 policy actor create](#h1-policy-actor-create) - Create actor of Policy
@@ -193,6 +195,29 @@ h1 policy service show --service my-service --policy my-policy
 | ---- | ------- | ----------- |
 | ```--policy POLICY``` |  | Policy ID or name |
 | ```--service SERVICE``` |  | Service for Policy ID or name |
+
+## h1 policy access
+
+Manage your Policy access rights
+
+## h1 policy access check
+
+Check access rights for Policy
+
+### Syntax
+
+```h1 policy access check | --policy POLICY```
+### Example
+
+```bash
+h1 policy access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--policy POLICY``` |  | Policy ID or name |
 
 ## h1 policy name
 

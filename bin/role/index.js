@@ -39,7 +39,7 @@ const resource = {
     url: (args) => `iam/project/${args.project}/role`,
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
-    extraCommands: ['create', 'service', 'update'],
+    extraCommands: ['create', 'service', 'update', 'access/project'],
     title: 'Role',
     dirname: __dirname,
     schema,

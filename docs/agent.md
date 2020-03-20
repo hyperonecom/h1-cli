@@ -9,6 +9,8 @@
   * [h1 agent service](#h1-agent-service) - Manage your services of Agent
     * [h1 agent service list](#h1-agent-service-list) - List Service for Agent
     * [h1 agent service show](#h1-agent-service-show) - Show Service for Agent
+  * [h1 agent access](#h1-agent-access) - Manage your Agent access rights
+    * [h1 agent access check](#h1-agent-access-check) - Check access rights for Agent
   * [h1 agent transfer](#h1-agent-transfer) - Transfer Agent to other project
   * [h1 agent enabled-service](#h1-agent-enabled-service) - Manage Enabled service of Agent
     * [h1 agent enabled-service add](#h1-agent-enabled-service-add) - Add Enabled service to Agent
@@ -17,11 +19,15 @@
   * [h1 agent inspect](#h1-agent-inspect) - Inspect of Agent
   * [h1 agent resource](#h1-agent-resource) - Manage your Resource of Agent
     * [h1 agent resource list](#h1-agent-resource-list) - List Resource of Agent
+    * [h1 agent resource access](#h1-agent-resource-access) - Manage your Resource of Agent access rights
+      * [h1 agent resource access check](#h1-agent-resource-access-check) - Check access rights for Resource of Agent
     * [h1 agent resource inspect](#h1-agent-resource-inspect) - Inspect of Resource of Agent
     * [h1 agent resource recreate](#h1-agent-resource-recreate) - Recreate Resource of Agent
   * [h1 agent suspend](#h1-agent-suspend) - Suspend Agent
   * [h1 agent start](#h1-agent-start) - Start Agent
   * [h1 agent credential](#h1-agent-credential) - Manage your credentials of Agent
+    * [h1 agent credential access](#h1-agent-credential-access) - Manage your credential of Agent access rights
+      * [h1 agent credential access check](#h1-agent-credential-access-check) - Check access rights for credential of Agent
     * [h1 agent credential list](#h1-agent-credential-list) - List credential of Agent
     * [h1 agent credential show](#h1-agent-credential-show) - Show credential of Agent
     * [h1 agent credential delete](#h1-agent-credential-delete) - Delete credential of Agent
@@ -219,6 +225,29 @@ h1 agent service show --service my-service --agent my-agent
 | ```--agent AGENT``` |  | Agent ID or name |
 | ```--service SERVICE``` |  | Service for Agent ID or name |
 
+## h1 agent access
+
+Manage your Agent access rights
+
+## h1 agent access check
+
+Check access rights for Agent
+
+### Syntax
+
+```h1 agent access check | --agent AGENT```
+### Example
+
+```bash
+h1 agent access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+
 ## h1 agent transfer
 
 Transfer Agent to other project
@@ -326,6 +355,30 @@ h1 agent resource list
 | ---- | ------- | ----------- |
 | ```--agent AGENT``` |  | Agent ID or name |
 
+## h1 agent resource access
+
+Manage your Resource of Agent access rights
+
+## h1 agent resource access check
+
+Check access rights for Resource of Agent
+
+### Syntax
+
+```h1 agent resource access check | --agent AGENT --resource RESOURCE```
+### Example
+
+```bash
+h1 agent resource access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--resource RESOURCE``` |  | Resource of Agent ID or name |
+
 ## h1 agent resource inspect
 
 Inspect of Resource of Agent
@@ -407,6 +460,30 @@ h1 agent start --agent my-agent
 ## h1 agent credential
 
 Manage your credentials of Agent
+
+## h1 agent credential access
+
+Manage your credential of Agent access rights
+
+## h1 agent credential access check
+
+Check access rights for credential of Agent
+
+### Syntax
+
+```h1 agent credential access check | --agent AGENT --credential CREDENTIAL```
+### Example
+
+```bash
+h1 agent credential access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--agent AGENT``` |  | Agent ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Agent ID or name |
 
 ## h1 agent credential list
 

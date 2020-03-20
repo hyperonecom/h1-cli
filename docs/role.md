@@ -9,11 +9,17 @@
   * [h1 role service](#h1-role-service) - Manage your services of Role
     * [h1 role service list](#h1-role-service-list) - List Service for Role
     * [h1 role service show](#h1-role-service-show) - Show Service for Role
+  * [h1 role access](#h1-role-access) - Manage your Role access rights
+    * [h1 role access check](#h1-role-access-check) - Check access rights for Role
   * [h1 role service](#h1-role-service) - Manage your services of Role
     * [h1 role service list](#h1-role-service-list) - List Service for Role
     * [h1 role service show](#h1-role-service-show) - Show Service for Role
   * [h1 role name](#h1-role-name) - Update Role name of Role
   * [h1 role description](#h1-role-description) - Update Description name of Role
+  * [h1 role access](#h1-role-access) - Manage your Role access rights
+    * [h1 role access grant](#h1-role-access-grant) - Grant access rights for Role
+    * [h1 role access revoke](#h1-role-access-revoke) - Revoke access rights for Role
+    * [h1 role access list](#h1-role-access-list) - List of access rights for Role
   * [h1 role permission](#h1-role-permission) - Manage your permission of Role
     * [h1 role permission create](#h1-role-permission-create) - Create permission of Role
     * [h1 role permission show](#h1-role-permission-show) - Show permission of Role
@@ -197,6 +203,29 @@ h1 role service show --service my-service --role my-role
 | ```--role ROLE``` |  | Role ID or name |
 | ```--service SERVICE``` |  | Service for Role ID or name |
 
+## h1 role access
+
+Manage your Role access rights
+
+## h1 role access check
+
+Check access rights for Role
+
+### Syntax
+
+```h1 role access check | --role ROLE```
+### Example
+
+```bash
+h1 role access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--role ROLE``` |  | Role ID or name |
+
 ## h1 role service
 
 Manage your services of Role
@@ -266,6 +295,69 @@ Update Description name of Role
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--description DESCRIPTION``` |  | Description name |
+| ```--role ROLE``` |  | Role ID or name |
+
+## h1 role access
+
+Manage your Role access rights
+
+## h1 role access grant
+
+Grant access rights for Role
+
+### Syntax
+
+```h1 role access grant | --role ROLE --authorized-project AUTHORIZED-PROJECT```
+### Example
+
+```bash
+h1 role access grant --role test-image --authorized-project 5b28f7c9ddd5b3c5e9ec14c4
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--role ROLE``` |  | Role ID or name |
+| ```--authorized-project AUTHORIZED-PROJECT``` |  | Project name or ID |
+
+## h1 role access revoke
+
+Revoke access rights for Role
+
+### Syntax
+
+```h1 role access revoke | --role ROLE --authorized-project AUTHORIZED-PROJECT```
+### Example
+
+```bash
+h1 role access revoke --role test-role --authorized-project MyFavouriteProject
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--role ROLE``` |  | Role ID or name |
+| ```--authorized-project AUTHORIZED-PROJECT``` |  | Project name or ID |
+
+## h1 role access list
+
+List of access rights for Role
+
+### Syntax
+
+```h1 role access list | --role ROLE```
+### Example
+
+```bash
+h1 role access list --role test-image
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
 | ```--role ROLE``` |  | Role ID or name |
 
 ## h1 role permission

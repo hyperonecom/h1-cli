@@ -19,7 +19,7 @@ const resource = {
     options: options,
     plugins: defaults.plugins,
     title: 'Network adapter',
-    commands: ['list', 'delete'],
+    commands: ['list', 'delete', 'access/resource'],
     dirname: __dirname,
     context: {
         listParams: '--vm test-vm',

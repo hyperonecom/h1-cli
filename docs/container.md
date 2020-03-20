@@ -10,6 +10,8 @@
   * [h1 container service](#h1-container-service) - Manage your services of Container
     * [h1 container service list](#h1-container-service-list) - List Service for Container
     * [h1 container service show](#h1-container-service-show) - Show Service for Container
+  * [h1 container access](#h1-container-access) - Manage your Container access rights
+    * [h1 container access check](#h1-container-access-check) - Check access rights for Container
   * [h1 container log](#h1-container-log) - Live logs of Container
   * [h1 container start](#h1-container-start) - Start Container
   * [h1 container stop](#h1-container-stop) - Stop Container
@@ -235,6 +237,29 @@ h1 container service show --service my-service --container my-container
 | ---- | ------- | ----------- |
 | ```--container CONTAINER``` |  | Container ID or name |
 | ```--service SERVICE``` |  | Service for Container ID or name |
+
+## h1 container access
+
+Manage your Container access rights
+
+## h1 container access check
+
+Check access rights for Container
+
+### Syntax
+
+```h1 container access check | --container CONTAINER```
+### Example
+
+```bash
+h1 container access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--container CONTAINER``` |  | Container ID or name |
 
 ## h1 container log
 

@@ -9,6 +9,8 @@
   * [h1 vault service](#h1-vault-service) - Manage your services of Vault
     * [h1 vault service list](#h1-vault-service-list) - List Service for Vault
     * [h1 vault service show](#h1-vault-service-show) - Show Service for Vault
+  * [h1 vault access](#h1-vault-access) - Manage your Vault access rights
+    * [h1 vault access check](#h1-vault-access-check) - Check access rights for Vault
   * [h1 vault resize](#h1-vault-resize) - Resize Vault
   * [h1 vault ssh](#h1-vault-ssh) - Connect to Vault using SSH
   * [h1 vault sftp](#h1-vault-sftp) - Connect to Vault using SFTP
@@ -16,6 +18,8 @@
   * [h1 vault stop](#h1-vault-stop) - Stop Vault
   * [h1 vault console](#h1-vault-console) - Open Vault console in web-browser
   * [h1 vault credential](#h1-vault-credential) - Manage your credentials of Vault
+    * [h1 vault credential access](#h1-vault-credential-access) - Manage your credential of Vault access rights
+      * [h1 vault credential access check](#h1-vault-credential-access-check) - Check access rights for credential of Vault
     * [h1 vault credential list](#h1-vault-credential-list) - List credential of Vault
     * [h1 vault credential show](#h1-vault-credential-show) - Show credential of Vault
     * [h1 vault credential delete](#h1-vault-credential-delete) - Delete credential of Vault
@@ -220,6 +224,29 @@ h1 vault service show --service my-service --vault my-vault
 | ```--vault VAULT``` |  | Vault ID or name |
 | ```--service SERVICE``` |  | Service for Vault ID or name |
 
+## h1 vault access
+
+Manage your Vault access rights
+
+## h1 vault access check
+
+Check access rights for Vault
+
+### Syntax
+
+```h1 vault access check | --vault VAULT```
+### Example
+
+```bash
+h1 vault access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+
 ## h1 vault resize
 
 Resize Vault
@@ -346,6 +373,30 @@ h1 vault console --vault test-vault
 ## h1 vault credential
 
 Manage your credentials of Vault
+
+## h1 vault credential access
+
+Manage your credential of Vault access rights
+
+## h1 vault credential access check
+
+Check access rights for credential of Vault
+
+### Syntax
+
+```h1 vault credential access check | --vault VAULT --credential CREDENTIAL```
+### Example
+
+```bash
+h1 vault credential access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--vault VAULT``` |  | Vault ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Vault ID or name |
 
 ## h1 vault credential list
 

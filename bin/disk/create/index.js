@@ -48,6 +48,7 @@ module.exports = resource => Cli.createCommand('create', {
     plugins: resource.plugins,
     options: options,
     handler: async args => {
+        console.log(args);
         if (args.type === null && !args['source-disk']) {
             throw Cli.error.cancelled('The \'--type\' parameter is required if no source disk is specified');
         }

@@ -14,6 +14,8 @@
   * [h1 journal stream](#h1-journal-stream) - Stream or read messages of Journal
   * [h1 journal logger](#h1-journal-logger) - Log messages to Journal
   * [h1 journal credential](#h1-journal-credential) - Manage your credentials of Journal
+    * [h1 journal credential access](#h1-journal-credential-access) - Manage your credential of Journal access rights
+      * [h1 journal credential access check](#h1-journal-credential-access-check) - Check access rights for credential of Journal
     * [h1 journal credential list](#h1-journal-credential-list) - List credential of Journal
     * [h1 journal credential show](#h1-journal-credential-show) - Show credential of Journal
     * [h1 journal credential delete](#h1-journal-credential-delete) - Delete credential of Journal
@@ -345,6 +347,30 @@ echo 'Log message' | h1 journal logger --journal my-log --token my-secret-token 
 ## h1 journal credential
 
 Manage your credentials of Journal
+
+## h1 journal credential access
+
+Manage your credential of Journal access rights
+
+## h1 journal credential access check
+
+Check access rights for credential of Journal
+
+### Syntax
+
+```h1 journal credential access check | --journal JOURNAL --credential CREDENTIAL```
+### Example
+
+```bash
+h1 journal credential access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--journal JOURNAL``` |  | Journal ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Journal ID or name |
 
 ## h1 journal credential list
 

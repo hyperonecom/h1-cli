@@ -28,7 +28,6 @@ module.exports = {
         if (configProject) { // then try environment variable
             args.project = configProject;
         }
-        api.setProject(args.project);
         if (!args.project) { // then reject if no service account used
             throw Cli.error.cancelled('You need to select project before you can manage your resources');
         }

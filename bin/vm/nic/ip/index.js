@@ -18,7 +18,7 @@ module.exports = (parent) => {
         url: args => `${parent.url(args)}/${args[parent.name]}/ip`,
         plugins: defaults.plugins,
         options: Object.assign({}, parent.options, options),
-        commands: ['list', 'delete'],
+        commands: ['list', 'delete', 'access/resource'],
         transform: data => data.ip || data,
         title: `IP address of ${parent.title}`,
         context: {

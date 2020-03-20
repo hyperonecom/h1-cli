@@ -10,7 +10,7 @@ const resource = {
     defaultQuery: '[].{id:id,name:name,type:flavour,state:state,tags:join(\',\',keys(tag || `{}`) ) }',
     url: () => 'vm',
     plugins: genericDefaults.plugins,
-    commands: [ 'list', 'show', 'history', 'tag', 'service'],
+    commands: [ 'list', 'show', 'history', 'tag', 'service', 'access/resource'],
     serviceCommands: ['list', 'show', 'change'],
     title: 'Virtual machine',
 };

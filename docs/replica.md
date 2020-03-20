@@ -8,6 +8,8 @@
   * [h1 replica service](#h1-replica-service) - Manage your services of Replica
     * [h1 replica service list](#h1-replica-service-list) - List Service for Replica
     * [h1 replica service show](#h1-replica-service-show) - Show Service for Replica
+  * [h1 replica access](#h1-replica-access) - Manage your Replica access rights
+    * [h1 replica access check](#h1-replica-access-check) - Check access rights for Replica
   * [h1 replica create](#h1-replica-create) - Setup VM replication
   * [h1 replica disk](#h1-replica-disk) - Manage your Disk of Replica
     * [h1 replica disk list](#h1-replica-disk-list) - List Disk of Replica
@@ -155,6 +157,29 @@ h1 replica service show --service my-service --replica my-replica
 | ---- | ------- | ----------- |
 | ```--replica REPLICA``` |  | Replica ID or name |
 | ```--service SERVICE``` |  | Service for Replica ID or name |
+
+## h1 replica access
+
+Manage your Replica access rights
+
+## h1 replica access check
+
+Check access rights for Replica
+
+### Syntax
+
+```h1 replica access check | --replica REPLICA```
+### Example
+
+```bash
+h1 replica access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--replica REPLICA``` |  | Replica ID or name |
 
 ## h1 replica create
 

@@ -1,6 +1,8 @@
 # TOC
 
   * [h1 image show](#h1-image-show) - Show Image
+  * [h1 image access](#h1-image-access) - Manage your Image access rights
+    * [h1 image access check](#h1-image-access-check) - Check access rights for Image
   * [h1 image delete](#h1-image-delete) - Delete Image
   * [h1 image rename](#h1-image-rename) - Rename Image
   * [h1 image history](#h1-image-history) - History of Image
@@ -38,6 +40,29 @@ Show Image
 
 ```bash
 h1 image show --image my-image
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--image IMAGE``` |  | Image ID or name |
+
+## h1 image access
+
+Manage your Image access rights
+
+## h1 image access check
+
+Check access rights for Image
+
+### Syntax
+
+```h1 image access check | --image IMAGE```
+### Example
+
+```bash
+h1 image access check --vm test-vm --user root
 ```
 
 ### Required arguments

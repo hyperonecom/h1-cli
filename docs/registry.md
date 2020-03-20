@@ -11,6 +11,8 @@
   * [h1 registry service](#h1-registry-service) - Manage your services of Registry
     * [h1 registry service list](#h1-registry-service-list) - List Service for Registry
     * [h1 registry service show](#h1-registry-service-show) - Show Service for Registry
+  * [h1 registry access](#h1-registry-access) - Manage your Registry access rights
+    * [h1 registry access check](#h1-registry-access-check) - Check access rights for Registry
   * [h1 registry start](#h1-registry-start) - Start Registry
   * [h1 registry stop](#h1-registry-stop) - Stop Registry
   * [h1 registry transfer](#h1-registry-transfer) - Transfer Registry to other project
@@ -23,9 +25,13 @@
     * [h1 registry repository list](#h1-registry-repository-list) - List repository of Registry
     * [h1 registry repository tag](#h1-registry-repository-tag) - Manage your tag in repository
       * [h1 registry repository tag show](#h1-registry-repository-tag-show) - Show tag in repository
+      * [h1 registry repository tag access](#h1-registry-repository-tag-access) - Manage your tag in repository access rights
+        * [h1 registry repository tag access check](#h1-registry-repository-tag-access-check) - Check access rights for tag in repository
       * [h1 registry repository tag list](#h1-registry-repository-tag-list) - List tag in repository
       * [h1 registry repository tag delete](#h1-registry-repository-tag-delete) - Delete tag in repository
   * [h1 registry credential](#h1-registry-credential) - Manage your credentials of Registry
+    * [h1 registry credential access](#h1-registry-credential-access) - Manage your credential of Registry access rights
+      * [h1 registry credential access check](#h1-registry-credential-access-check) - Check access rights for credential of Registry
     * [h1 registry credential list](#h1-registry-credential-list) - List credential of Registry
     * [h1 registry credential show](#h1-registry-credential-show) - Show credential of Registry
     * [h1 registry credential delete](#h1-registry-credential-delete) - Delete credential of Registry
@@ -253,6 +259,29 @@ h1 registry service show --service my-service --registry my-registry
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--service SERVICE``` |  | Service for Registry ID or name |
 
+## h1 registry access
+
+Manage your Registry access rights
+
+## h1 registry access check
+
+Check access rights for Registry
+
+### Syntax
+
+```h1 registry access check | --registry REGISTRY```
+### Example
+
+```bash
+h1 registry access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+
 ## h1 registry start
 
 Start Registry
@@ -443,6 +472,31 @@ h1 registry repository tag show --tag my-tag
 | ```--repository REPOSITORY``` |  | Repository of Registry ID |
 | ```--tag TAG``` |  | Tag in repository ID or name |
 
+## h1 registry repository tag access
+
+Manage your tag in repository access rights
+
+## h1 registry repository tag access check
+
+Check access rights for tag in repository
+
+### Syntax
+
+```h1 registry repository tag access check | --registry REGISTRY --repository REPOSITORY --tag TAG```
+### Example
+
+```bash
+h1 registry repository tag access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--repository REPOSITORY``` |  | Repository of Registry ID |
+| ```--tag TAG``` |  | Tag in repository ID or name |
+
 ## h1 registry repository tag list
 
 List tag in repository
@@ -487,6 +541,30 @@ h1 registry repository tag delete --tag my-tag --registry my-registry --reposito
 ## h1 registry credential
 
 Manage your credentials of Registry
+
+## h1 registry credential access
+
+Manage your credential of Registry access rights
+
+## h1 registry credential access check
+
+Check access rights for credential of Registry
+
+### Syntax
+
+```h1 registry credential access check | --registry REGISTRY --credential CREDENTIAL```
+### Example
+
+```bash
+h1 registry credential access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--registry REGISTRY``` |  | Registry ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Registry ID or name |
 
 ## h1 registry credential list
 

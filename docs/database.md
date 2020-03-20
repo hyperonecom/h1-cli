@@ -9,11 +9,15 @@
   * [h1 database service](#h1-database-service) - Manage your services of Database
     * [h1 database service list](#h1-database-service-list) - List Service for Database
     * [h1 database service show](#h1-database-service-show) - Show Service for Database
+  * [h1 database access](#h1-database-access) - Manage your Database access rights
+    * [h1 database access check](#h1-database-access-check) - Check access rights for Database
   * [h1 database start](#h1-database-start) - Start Database
   * [h1 database stop](#h1-database-stop) - Stop Database
   * [h1 database transfer](#h1-database-transfer) - Transfer Database to other project
   * [h1 database shell](#h1-database-shell) - Connect to Database using standard client
   * [h1 database credential](#h1-database-credential) - Manage your credentials of Database
+    * [h1 database credential access](#h1-database-credential-access) - Manage your credential of Database access rights
+      * [h1 database credential access check](#h1-database-credential-access-check) - Check access rights for credential of Database
     * [h1 database credential list](#h1-database-credential-list) - List credential of Database
     * [h1 database credential show](#h1-database-credential-show) - Show credential of Database
     * [h1 database credential delete](#h1-database-credential-delete) - Delete credential of Database
@@ -209,6 +213,29 @@ h1 database service show --service my-service --database my-database
 | ```--database DATABASE``` |  | Database ID or name |
 | ```--service SERVICE``` |  | Service for Database ID or name |
 
+## h1 database access
+
+Manage your Database access rights
+
+## h1 database access check
+
+Check access rights for Database
+
+### Syntax
+
+```h1 database access check | --database DATABASE```
+### Example
+
+```bash
+h1 database access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--database DATABASE``` |  | Database ID or name |
+
 ## h1 database start
 
 Start Database
@@ -292,6 +319,30 @@ Note: You need valid credentials to access *Database* any way.
 ## h1 database credential
 
 Manage your credentials of Database
+
+## h1 database credential access
+
+Manage your credential of Database access rights
+
+## h1 database credential access check
+
+Check access rights for credential of Database
+
+### Syntax
+
+```h1 database credential access check | --database DATABASE --credential CREDENTIAL```
+### Example
+
+```bash
+h1 database credential access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--database DATABASE``` |  | Database ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Database ID or name |
 
 ## h1 database credential list
 

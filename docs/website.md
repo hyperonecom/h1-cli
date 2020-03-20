@@ -9,6 +9,8 @@
   * [h1 website service](#h1-website-service) - Manage your services of Website
     * [h1 website service list](#h1-website-service-list) - List Service for Website
     * [h1 website service show](#h1-website-service-show) - Show Service for Website
+  * [h1 website access](#h1-website-access) - Manage your Website access rights
+    * [h1 website access check](#h1-website-access-check) - Check access rights for Website
   * [h1 website ssh](#h1-website-ssh) - Connect to Website using SSH
   * [h1 website sftp](#h1-website-sftp) - Connect to Website using SFTP
   * [h1 website start](#h1-website-start) - Start Website
@@ -25,6 +27,8 @@
     * [h1 website snapshot show](#h1-website-snapshot-show) - Show snapshot of Website
     * [h1 website snapshot list](#h1-website-snapshot-list) - List snapshot of Website
     * [h1 website snapshot delete](#h1-website-snapshot-delete) - Delete snapshot of Website
+    * [h1 website snapshot access](#h1-website-snapshot-access) - Manage your snapshot of Website access rights
+      * [h1 website snapshot access check](#h1-website-snapshot-access-check) - Check access rights for snapshot of Website
     * [h1 website snapshot download](#h1-website-snapshot-download) - Download snapshot of Website to a ZFS file
   * [h1 website restart](#h1-website-restart) - Restart Website
   * [h1 website env](#h1-website-env) - Manage your environment variables of Website
@@ -32,7 +36,11 @@
     * [h1 website env show](#h1-website-env-show) - Show environment variables of Website
     * [h1 website env list](#h1-website-env-list) - List environment variables of Website
     * [h1 website env delete](#h1-website-env-delete) - Delete environment variables of Website
+    * [h1 website env access](#h1-website-env-access) - Manage your environment variables of Website access rights
+      * [h1 website env access check](#h1-website-env-access-check) - Check access rights for environment variables of Website
   * [h1 website credential](#h1-website-credential) - Manage your credentials of Website
+    * [h1 website credential access](#h1-website-credential-access) - Manage your credential of Website access rights
+      * [h1 website credential access check](#h1-website-credential-access-check) - Check access rights for credential of Website
     * [h1 website credential list](#h1-website-credential-list) - List credential of Website
     * [h1 website credential show](#h1-website-credential-show) - Show credential of Website
     * [h1 website credential delete](#h1-website-credential-delete) - Delete credential of Website
@@ -244,6 +252,29 @@ h1 website service show --service my-service --website my-website
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--service SERVICE``` |  | Service for Website ID or name |
+
+## h1 website access
+
+Manage your Website access rights
+
+## h1 website access check
+
+Check access rights for Website
+
+### Syntax
+
+```h1 website access check | --website WEBSITE```
+### Example
+
+```bash
+h1 website access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
 
 ## h1 website ssh
 
@@ -531,6 +562,30 @@ h1 website snapshot delete --snapshot my-snapshot --website my-website
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--snapshot SNAPSHOT``` |  | Snapshot of Website ID or name |
 
+## h1 website snapshot access
+
+Manage your snapshot of Website access rights
+
+## h1 website snapshot access check
+
+Check access rights for snapshot of Website
+
+### Syntax
+
+```h1 website snapshot access check | --website WEBSITE --snapshot SNAPSHOT```
+### Example
+
+```bash
+h1 website snapshot access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--snapshot SNAPSHOT``` |  | Snapshot of Website ID or name |
+
 ## h1 website snapshot download
 
 Download snapshot of Website to a ZFS file
@@ -672,9 +727,57 @@ h1 website env delete --env my-env
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--env ENV``` |  | Environment variables of Website ID or name |
 
+## h1 website env access
+
+Manage your environment variables of Website access rights
+
+## h1 website env access check
+
+Check access rights for environment variables of Website
+
+### Syntax
+
+```h1 website env access check | --website WEBSITE --env ENV```
+### Example
+
+```bash
+h1 website env access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--env ENV``` |  | Environment variables of Website ID or name |
+
 ## h1 website credential
 
 Manage your credentials of Website
+
+## h1 website credential access
+
+Manage your credential of Website access rights
+
+## h1 website credential access check
+
+Check access rights for credential of Website
+
+### Syntax
+
+```h1 website credential access check | --website WEBSITE --credential CREDENTIAL```
+### Example
+
+```bash
+h1 website credential access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of Website ID or name |
 
 ## h1 website credential list
 

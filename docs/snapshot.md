@@ -9,6 +9,8 @@
   * [h1 snapshot service](#h1-snapshot-service) - Manage your services of snapshot
     * [h1 snapshot service list](#h1-snapshot-service-list) - List Service for snapshot
     * [h1 snapshot service show](#h1-snapshot-service-show) - Show Service for snapshot
+  * [h1 snapshot access](#h1-snapshot-access) - Manage your snapshot access rights
+    * [h1 snapshot access check](#h1-snapshot-access-check) - Check access rights for snapshot
   * [h1 snapshot tag](#h1-snapshot-tag) - Manage your tag
     * [h1 snapshot tag list](#h1-snapshot-tag-list) - List tag
     * [h1 snapshot tag add](#h1-snapshot-tag-add) - Add a tag to snapshot
@@ -187,6 +189,29 @@ h1 snapshot service show --service my-service --snapshot my-snapshot
 | ---- | ------- | ----------- |
 | ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 | ```--service SERVICE``` |  | Service for snapshot ID or name |
+
+## h1 snapshot access
+
+Manage your snapshot access rights
+
+## h1 snapshot access check
+
+Check access rights for snapshot
+
+### Syntax
+
+```h1 snapshot access check | --snapshot SNAPSHOT```
+### Example
+
+```bash
+h1 snapshot access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--snapshot SNAPSHOT``` |  | Snapshot ID or name |
 
 ## h1 snapshot tag
 

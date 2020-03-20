@@ -47,7 +47,7 @@ const resource = {
     title: 'DNS Zone',
     schema,
     dirname: __dirname,
-    commands: ['create', 'rename', 'history', 'tag', 'list', 'show', 'delete'],
+    commands: ['create', 'access/resource', 'rename', 'history', 'tag', 'list', 'show', 'delete'],
 };
 
 const category = genericResource(resource);

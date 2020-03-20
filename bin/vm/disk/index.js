@@ -17,7 +17,7 @@ const resource = {
     defaultQuery: '[].{id:id,iops:maximumIOPS,diskname:disk.name,diskId:disk.id,diskName:disk.name,diskType:disk.type,diskSize:disk.size}',
     url: args => `vm/${args.vm}/hdd`,
     options: options,
-    commands: ['list'],
+    commands: ['list', 'access/resource'],
     title: 'Disk',
 };
 
