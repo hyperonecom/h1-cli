@@ -6,10 +6,7 @@ const genericResource = require('bin/generic');
 const resource = {
     name: 'disk',
     defaultQuery: '[].{id:id, name:name, type:flavour, size:size, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
-    url: args => {
-        console.log(args);
-        return 'disk';
-    },
+    url: () => 'disk',
     plugins: genericDefaults.plugins,
     extraCommands: ['resize', 'resume', 'transfer'],
     title: 'Disk',
