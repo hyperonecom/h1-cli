@@ -300,7 +300,10 @@ const main = async () => {
         return output;
     };
 
-    const outputs = await Promise.all(files.map(runTest));
+    const outputs = [
+        ...await Promise.all(files.filter(x => x.includes('reservation')).map(runTest)),
+        ...await Promise.all(files.filter(x => !x.includes('reservation')).map(runTest)),
+    ];
     const cleanup = [
         runIsolated(config, `./scripts/cleanup_project.sh ${config.HYPERONE_PROJECT_MASTER}`),
         runIsolated(config, `./scripts/cleanup_project.sh ${config.HYPERONE_PROJECT_SLAVE}`),
