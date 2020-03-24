@@ -7,7 +7,7 @@ module.exports = (parent) => {
 
     const resource = {
         name: 'repository',
-        defaultQuery: '[].{id:id}',
+        defaultQuery: '[].{id:id, name:name}',
         url: args => `${parent.url(args)}/repository`,
         options: parent.options,
         plugins: genericDefaults.plugins,
