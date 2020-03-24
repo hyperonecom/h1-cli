@@ -6,14 +6,14 @@ const text = require('lib/text');
 module.exports = (parent) => {
 
     const resource = {
-        name: 'tag',
+        name: 'image',
         defaultQuery: '[].{id:id,created:createdOn}',
-        url: args => `${parent.url(args)}/tag`,
+        url: args => `${parent.url(args)}/image`,
         options: parent.options,
         plugins: genericDefaults.plugins,
         commands: ['show', 'access/resource', 'list'],
         extraCommands: [],
-        title: `tag in ${parent.name}`,
+        title: `image in ${parent.name}`,
     };
 
     const deleteDefault = Object.assign({}, resource, {

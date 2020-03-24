@@ -34,7 +34,7 @@ module.exports = (parent) => {
 
     const category = genericResource(resource);
 
-    category.addChild(require('./tag')(childDefaults));
+    category.addChild(require('./image')(childDefaults));
 
     return category;
 };

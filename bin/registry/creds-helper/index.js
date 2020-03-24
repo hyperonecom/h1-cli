@@ -7,5 +7,6 @@ const category = Cli.createCategory('docker', {
 });
 
 category.addChild(require('./get'));
+category.addChild(require('./store'));
 
 module.exports = category;

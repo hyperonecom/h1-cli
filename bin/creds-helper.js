@@ -14,6 +14,8 @@ const cli = Cli.createCategory(`docker-credential-${scope}-login`, {
 });
 
 cli.addChild(require('bin/registry/creds-helper/get'));
+cli.addChild(require('bin/registry/creds-helper/store'));
+cli.addChild(require('bin/registry/creds-helper/erase'));
 
 Cli.run(cli);
 

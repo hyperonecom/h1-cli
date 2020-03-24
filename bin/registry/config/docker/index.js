@@ -57,5 +57,6 @@ module.exports = resource => Cli.createCommand('docker', {
         } else {
             await setupToken(args, registry);
         }
+        console.log(`Use 'docker push ${registry.fqdn}/image_name' to create image`);
     },
 });
