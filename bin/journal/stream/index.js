@@ -4,6 +4,10 @@ const fs = require('fs');
 const Cli = require('lib/cli');
 const text = require('lib/text');
 const tags = require('lib/tags');
+const { Transform } = require('stream');
+const api = require('lib/api');
+const readlineTransform = require('readline-transform');
+const superagent = require('superagent');
 const qs = require('qs');
 const format = require('../format');
 const ms = require('ms');
@@ -76,9 +80,24 @@ module.exports = resource => {
             }
             const formatter = format.formatter(args);
             formatter.print_header();
-            const url = `${resource.url(args)}/${args[resource.name]}/log?${qs.stringify(query)}`;
+            const log = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);
             let count = 0;
-            const stream = await args.helpers.api.stream(url);
+            const token = api.getToken(log.fqdn);
+            const stream = await superagent.get(`http://${log.fqdn}/log`)
+                .query(qs.stringify(query))
+                .set('Authorization', `Bearer ${token}`)
+                .buffer(false)
+                .pipe(new readlineTransform())
+                .pipe(new Transform({
+                    objectMode: true,
+                    transform(line, encoding, callback) {
+                        try {
+                            return callback(null, JSON.parse(line.toString('utf-8')));
+                        } catch (err) {
+                            return callback(err);
+                        }
+                    },
+                }));
             for await (const jsonl of stream) {
                 if (formatter.print_jsonl(jsonl)) {
                     count += 1;

@@ -4,6 +4,7 @@ const os = require('os');
 const readlineTransform = require('readline-transform');
 const superagent = require('superagent');
 const Cli = require('lib/cli');
+const api = require('lib/api');
 const text = require('lib/text');
 const format = require('../format');
 const { Transform } = require('stream');
@@ -16,12 +17,6 @@ module.exports = resource => {
             type: 'string',
             required: true,
         },
-        token: Cli.richOption({
-            description: `Token entitling to write to ${resource.title}`,
-            type: 'string',
-            env: 'LOG_TOKEN',
-            required: true,
-        }),
         hostname: {
             description: 'Name of the host recorded in the log',
             type: 'string',
@@ -43,6 +38,34 @@ module.exports = resource => {
         },
     };
 
+    const handler = async args => {
+        const log = await args.helpers.api
+            .get(`${resource.url(args)}/${args[resource.name]}`);
+        let count = 0;
+        const token = api.getToken(log.fqdn);
+        return new Promise((resolve, reject) => args['log-file']
+            .pipe(new readlineTransform())
+            .pipe(new Transform({
+                transform(line, encoding, callback) {
+                    count +=1;
+                    this.push(JSON.stringify({
+                        host: args.hostname,
+                        message: line.toString('utf-8'),
+                        tag: tags.createTagObject(args.tag) || {},
+                    }));
+                    this.push('\n');
+                    return callback(null);
+                },
+            }))
+            .pipe(superagent.
+                post(`http://${log.fqdn}/log`).
+                set('Authorization', `Bearer ${token}`).
+                once('error', reject).
+                once('response', () => resolve(`Send ${count} messages`))
+            )
+            .once('error', reject)
+        );
+    };
 
     const cmd = Cli.createCommand('logger', {
         description: `Log messages to ${resource.title}`,
@@ -54,29 +77,7 @@ module.exports = resource => {
             require('bin/_plugins/loginRequired'),
         ],
         options: options,
-        handler: args => args.helpers.api
-            .get(`${resource.url(args)}/${args[resource.name]}`)
-            .then(log => new Promise((resolve, reject) => args['log-file']
-                .pipe(new readlineTransform())
-                .pipe(new Transform({
-                    transform(line, encoding, callback) {
-                        this.push(JSON.stringify({
-                            host: args.hostname,
-                            message: line.toString('utf-8'),
-                            tag: tags.createTagObject(args.tag) || {},
-                        }));
-                        this.push('\n');
-                        return callback(null);
-                    },
-                }))
-                .pipe(superagent.
-                    post(`https://${log.fqdn}/log`).
-                    set('x-auth-password', args.token).
-                    once('error', reject)
-                )
-                .once('error', reject)
-                .once('end', resolve)
-            )),
+        handler,
     });
 
     cmd.addOptionGroup('Output options', format.outputOptions);
