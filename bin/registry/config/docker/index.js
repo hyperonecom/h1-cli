@@ -36,11 +36,11 @@ const setupToken = async (args, registry) => {
     } catch (err) {
         throw Cli.error.cancelled('Unable to start \'docker\'. Verify Docker CLI installation.');
     }
-
+    const token = args.helpers.api.getToken(registry.fqdn);
     await docker.set_token(
         registry.fqdn,
         config.get('auth.identity'),
-        args.helpers.api.getToken(registry.fqdn)
+        token
     );
     console.log(`Successfully configured token for registry '${registry.name}'`);
 };

@@ -12,6 +12,7 @@ module.exports = resource => Cli.createCommand('select', {
         require('bin/_plugins/loginRequired'),
         require('bin/_plugins/api'),
         require('bin/_plugins/outputFormat'),
+        require('bin/_plugins/projectRequired'),
     ],
     options: resource.options,
     handler: args => args.helpers.api
