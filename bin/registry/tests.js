@@ -31,7 +31,7 @@ ava.serial('registry reachable through fqdn', async t => {
         await tests.runProcess(`docker login --username anything --password ${password} ${registry.fqdn}`);
         await copyImage(registry.fqdn, hubImage, 'latest');
         const repositories = await tests.run(`registry repository list --registry ${registry.name}`);
-        t.true(repositories.some(x => x.id === hubImage));
+        t.true(repositories.some(x => x.name === hubImage));
     } finally {
         await tests.remove('registry', registry);
     }
@@ -43,18 +43,27 @@ ava.serial('registry manage repositories & tags', async t => {
     try {
         await tests.runProcess(`docker login --username anything --password ${password} ${registry.fqdn}`);
         await copyImage(registry.fqdn, hubImage, tagName);
-        const repository = await tests.run(`registry repository show --registry ${registry.name} --repository ${hubImage}`);
-        t.true(repository.id === hubImage);
+
         let repositories = await tests.run(`registry repository list --registry ${registry.name}`);
-        t.true(repositories.some(x => x.id === hubImage));
-        const tag = await tests.run(`registry repository tag show --registry ${registry.name} --repository ${hubImage} --tag ${tagName}`);
-        t.true(tag.id === tagName);
-        const tags = await tests.run(`registry repository tag list --registry ${registry.name} --repository ${hubImage}`);
-        t.true(tags.some(x => x.id === tagName));
-        await tests.run(`registry repository tag delete --yes --registry ${registry.name} --repository ${hubImage} --tag ${tagName}`);
+        let repository = repositories.find(x => x.name === hubImage);
+        t.true(!!repository);
+        t.true(repository.name === hubImage);
+
+        repository = await tests.run(`registry repository show --registry ${registry.name} --repository ${repository.id}`);
+        t.true(repository.name === hubImage);
+
+        const tags = await tests.run(`registry repository tag list --registry ${registry.name} --repository ${repository.id}`);
+        let tag = tags.find(x => x.name === tagName);
+        t.true(!!tag);
+        t.true(tag.name === tagName);
+
+        tag = await tests.run(`registry repository tag show --registry ${registry.name} --repository ${repository.id} --tag ${tag.id}`);
+        t.true(tag.name === tagName);
+
+        await tests.run(`registry repository tag delete --yes --registry ${registry.name} --repository ${repository.id} --tag ${tag.id}`);
 
         repositories = await tests.run(`registry repository list --registry ${registry.name}`);
-        t.true(!repositories.some(x => x.id === hubImage));
+        t.true(!repositories.some(x => x.name === hubImage));
     } finally {
         await tests.remove('registry', registry);
     }
@@ -79,23 +88,7 @@ ava.serial('registry reachable through custom domain', async t => {
         await tests.runProcess(`docker login --username anything --password ${password} ${host}`);
         await copyImage(host, hubImage, tagName);
         const repositories = await tests.run(`registry repository list --registry ${registry.name}`);
-        t.true(repositories.some(x => x.id === hubImage));
-    } finally {
-        await tests.remove('registry', registry);
-    }
-});
-
-ava.serial('registry repository tag delete', async t => {
-    const password = await tests.getToken();
-    const registry = await tests.run(`registry create --name ${tests.getName(t.title)} --password ${password} ${commonCreateParams}`);
-    try {
-        await tests.runProcess(`docker login --username anything --password ${password} ${registry.fqdn}`);
-        await copyImage(registry.fqdn, hubImage, tagName);
-        let repositories = await tests.run(`registry repository list --registry ${registry.name}`);
-        t.true(repositories.some(x => x.id === hubImage));
-        await tests.run(`registry repository tag delete --yes --registry ${registry.name} --repository ${hubImage} --tag ${tagName}`);
-        repositories = await tests.run(`registry repository list --registry ${registry.name}`);
-        t.true(!repositories.some(x => x.id === hubImage));
+        t.true(repositories.some(x => x.name === hubImage));
     } finally {
         await tests.remove('registry', registry);
     }
