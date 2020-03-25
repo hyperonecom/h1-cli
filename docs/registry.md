@@ -23,12 +23,12 @@
   * [h1 registry repository](#h1-registry-repository) - Manage your repository of Registry
     * [h1 registry repository show](#h1-registry-repository-show) - Show repository of Registry
     * [h1 registry repository list](#h1-registry-repository-list) - List repository of Registry
-    * [h1 registry repository tag](#h1-registry-repository-tag) - Manage your tag in repository
-      * [h1 registry repository tag show](#h1-registry-repository-tag-show) - Show tag in repository
-      * [h1 registry repository tag access](#h1-registry-repository-tag-access) - Manage your tag in repository access rights
-        * [h1 registry repository tag access check](#h1-registry-repository-tag-access-check) - Check access rights for tag in repository
-      * [h1 registry repository tag list](#h1-registry-repository-tag-list) - List tag in repository
-      * [h1 registry repository tag delete](#h1-registry-repository-tag-delete) - Delete tag in repository
+    * [h1 registry repository image](#h1-registry-repository-image) - Manage your image in repository
+      * [h1 registry repository image show](#h1-registry-repository-image-show) - Show image in repository
+      * [h1 registry repository image access](#h1-registry-repository-image-access) - Manage your image in repository access rights
+        * [h1 registry repository image access check](#h1-registry-repository-image-access-check) - Check access rights for image in repository
+      * [h1 registry repository image list](#h1-registry-repository-image-list) - List image in repository
+      * [h1 registry repository image delete](#h1-registry-repository-image-delete) - Delete image in repository
   * [h1 registry credential](#h1-registry-credential) - Manage your credentials of Registry
     * [h1 registry credential access](#h1-registry-credential-access) - Manage your credential of Registry access rights
       * [h1 registry credential access check](#h1-registry-credential-access-check) - Check access rights for credential of Registry
@@ -447,21 +447,21 @@ h1 registry repository list
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
 
-## h1 registry repository tag
+## h1 registry repository image
 
-Manage your tag in repository
+Manage your image in repository
 
-## h1 registry repository tag show
+## h1 registry repository image show
 
-Show tag in repository
+Show image in repository
 
 ### Syntax
 
-```h1 registry repository tag show | --registry REGISTRY --repository REPOSITORY --tag TAG```
+```h1 registry repository image show | --registry REGISTRY --repository REPOSITORY --image IMAGE```
 ### Example
 
 ```bash
-h1 registry repository tag show --tag my-tag
+h1 registry repository image show --image my-image
 ```
 
 ### Required arguments
@@ -470,23 +470,23 @@ h1 registry repository tag show --tag my-tag
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--repository REPOSITORY``` |  | Repository of Registry ID |
-| ```--tag TAG``` |  | Tag in repository ID or name |
+| ```--image IMAGE``` |  | Image in repository ID or name |
 
-## h1 registry repository tag access
+## h1 registry repository image access
 
-Manage your tag in repository access rights
+Manage your image in repository access rights
 
-## h1 registry repository tag access check
+## h1 registry repository image access check
 
-Check access rights for tag in repository
+Check access rights for image in repository
 
 ### Syntax
 
-```h1 registry repository tag access check | --registry REGISTRY --repository REPOSITORY --tag TAG```
+```h1 registry repository image access check | --registry REGISTRY --repository REPOSITORY --image IMAGE```
 ### Example
 
 ```bash
-h1 registry repository tag access check --vm test-vm --user root
+h1 registry repository image access check --vm test-vm --user root
 ```
 
 ### Required arguments
@@ -495,19 +495,19 @@ h1 registry repository tag access check --vm test-vm --user root
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--repository REPOSITORY``` |  | Repository of Registry ID |
-| ```--tag TAG``` |  | Tag in repository ID or name |
+| ```--image IMAGE``` |  | Image in repository ID or name |
 
-## h1 registry repository tag list
+## h1 registry repository image list
 
-List tag in repository
+List image in repository
 
 ### Syntax
 
-```h1 registry repository tag list | --registry REGISTRY --repository REPOSITORY```
+```h1 registry repository image list | --registry REGISTRY --repository REPOSITORY```
 ### Example
 
 ```bash
-h1 registry repository tag list
+h1 registry repository image list
 ```
 
 ### Required arguments
@@ -517,17 +517,17 @@ h1 registry repository tag list
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--repository REPOSITORY``` |  | Repository of Registry ID |
 
-## h1 registry repository tag delete
+## h1 registry repository image delete
 
-Delete tag in repository
+Delete image in repository
 
 ### Syntax
 
-```h1 registry repository tag delete | --registry REGISTRY --repository REPOSITORY --tag TAG```
+```h1 registry repository image delete | --registry REGISTRY --repository REPOSITORY --image IMAGE```
 ### Example
 
 ```bash
-h1 registry repository tag delete --tag my-tag --registry my-registry --repository my-repository
+h1 registry repository image delete --image my-image --registry my-registry --repository my-repository
 ```
 
 ### Required arguments
@@ -536,7 +536,7 @@ h1 registry repository tag delete --tag my-tag --registry my-registry --reposito
 | ---- | ------- | ----------- |
 | ```--registry REGISTRY``` |  | Registry ID or name |
 | ```--repository REPOSITORY``` |  | Repository of Registry ID |
-| ```--tag TAG``` |  | Tag in repository ID or name |
+| ```--image IMAGE``` |  | Image in repository ID or name |
 
 ## h1 registry credential
 

@@ -1,13 +1,12 @@
 'use strict';
 const fs = require('fs');
-
+const api = require('lib/api');
+const request = require('lib/http');
 const Cli = require('lib/cli');
 const text = require('lib/text');
 const tags = require('lib/tags');
 const { Transform } = require('stream');
-const api = require('lib/api');
 const readlineTransform = require('readline-transform');
-const superagent = require('superagent');
 const qs = require('qs');
 const format = require('../format');
 const ms = require('ms');
@@ -63,6 +62,7 @@ module.exports = resource => {
             require('bin/_plugins/loginRequired'),
             require('bin/_plugins/api'),
             require('bin/_plugins/projectRequired'),
+            require('bin/_plugins/locationRequired'),
         ],
         options: options,
         handler: async args => {
@@ -83,7 +83,8 @@ module.exports = resource => {
             const log = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);
             let count = 0;
             const token = api.getToken(log.fqdn);
-            const stream = await superagent.get(`http://${log.fqdn}/log`)
+
+            const req = request.get(`https://${log.fqdn}/log`)
                 .query(qs.stringify(query))
                 .set('Authorization', `Bearer ${token}`)
                 .buffer(false)
@@ -98,14 +99,20 @@ module.exports = resource => {
                         }
                     },
                 }));
-            for await (const jsonl of stream) {
+
+            req.on('data', jsonl => {
                 if (formatter.print_jsonl(jsonl)) {
                     count += 1;
                 }
                 if (args.head && count >= args.head) {
-                    stream.end();
+                    req.end();
                 }
-            }
+            });
+
+            return new Promise((resolve, reject) => req
+                .on('end', resolve)
+                .on('error', reject)
+            );
         },
     });
 

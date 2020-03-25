@@ -58,7 +58,7 @@ module.exports = resource => {
                 },
             }))
             .pipe(superagent.
-                post(`http://${log.fqdn}/log`).
+                post(`https://${log.fqdn}/log`).
                 set('Authorization', `Bearer ${token}`).
                 once('error', reject).
                 once('response', () => resolve(`Send ${count} messages`))
@@ -75,6 +75,7 @@ module.exports = resource => {
             require('bin/_plugins/api'),
             require('bin/_plugins/projectRequired'),
             require('bin/_plugins/loginRequired'),
+            require('bin/_plugins/locationRequired'),
         ],
         options: options,
         handler,

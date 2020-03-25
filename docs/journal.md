@@ -322,7 +322,7 @@ Log messages to Journal
 
 ### Syntax
 
-```h1 journal logger | --journal JOURNAL --token TOKEN [--tag TAG [--tag TAG ...]] [--hostname HOSTNAME] [--log-file LOG-FILE]```
+```h1 journal logger | --journal JOURNAL [--tag TAG [--tag TAG ...]] [--hostname HOSTNAME] [--log-file LOG-FILE]```
 ### Example
 
 ```
@@ -334,7 +334,6 @@ echo 'Log message' | h1 journal logger --journal my-log --token my-secret-token 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--journal JOURNAL``` |  | Journal ID or name |
-| ```--token TOKEN``` |  | Token entitling to write to Journal. Can be set also via environment variable HYPERONE_LOG_TOKEN. |
 
 ### Optional arguments
 

@@ -1,5 +1,6 @@
 'use strict';
 
+const logger = require('lib/logger');
 const api = require('lib/api');
 const {richOption} = require('lib/cli');
 
@@ -26,7 +27,7 @@ module.exports = {
     dirname: __dirname,
     onBeforeConfigure: context => Object.entries(options).forEach(([k, v]) => context.node.addOption(k, v)),
     onBeforeHandler: context => {
-        api.setVerbose(context.args.verbose);
+        logger.setVerbose(context.args.verbose);
         api.setArgs(context.args);
 
         context.args.helpers = context.args.helpers || {};
