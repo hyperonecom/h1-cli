@@ -1,9 +1,9 @@
 'use strict';
 
-const NodeRSA = require('node-rsa');
 const Cli = require('lib/cli');
-
+const ssh = require('lib/ssh');
 const logger = require('lib/logger');
+const forge = require('node-forge');
 
 const options = {
     user: {
@@ -22,13 +22,10 @@ module.exports = resource => Cli.createCommand('passwordreset', {
     handler: async args => {
         logger('info', 'Generating key pair...');
 
-        const rsa = new NodeRSA().generateKeyPair();
-        const components = rsa.exportKey('components');
-        const modulus = components.n.toString('base64');
+        const { keypair } = await ssh.generateKey();
 
-        const b = Buffer.alloc(4);
-        b.writeUInt32BE(components.e);
-        const exponent = b.toString('base64');
+        const modulus = forge.util.encode64(forge.util.hexToBytes(keypair.privateKey.n.toString(16)));
+        const exponent = forge.util.encode64(forge.util.hexToBytes(keypair.privateKey.e.toString(16)));
 
         args.query = args.query || '[].{"New Password":password}';
 
@@ -49,7 +46,6 @@ module.exports = resource => Cli.createCommand('passwordreset', {
         } catch (e) {
             throw Cli.error.serverError(`Invalid response from agent. Unable to reset password. Response: ${line}`);
         }
-
         if (data.modulus !== modulus) {
             throw Cli.error.serverError('modulus differs');
         }
@@ -57,7 +53,8 @@ module.exports = resource => Cli.createCommand('passwordreset', {
         if (data.exponent !== exponent) {
             throw Cli.error.serverError('exponent differs');
         }
-
-        return args.helpers.sendOutput(args, { password: rsa.decrypt(data.encryptedPassword).toString() });
+        return args.helpers.sendOutput(args, {
+            password: keypair.privateKey.decrypt(Buffer.from(data.encryptedPassword, 'base64'), 'RSA-OAEP').toString(),
+        });
     },
 });
