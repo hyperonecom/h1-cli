@@ -82,36 +82,37 @@ module.exports = resource => {
             const log = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);
             let count = 0;
             const token = await auth.getToken(log.fqdn);
+            return new Promise((resolve, reject) => {
 
-            const req = request.get(`https://${log.fqdn}/log`)
-                .query(qs.stringify(query))
-                .auth(token, {type: 'bearer'})
-                .buffer(false)
-                .pipe(new readlineTransform())
-                .pipe(new Transform({
-                    objectMode: true,
-                    transform(line, encoding, callback) {
-                        try {
-                            return callback(null, JSON.parse(line.toString('utf-8')));
-                        } catch (err) {
-                            return callback(err);
-                        }
-                    },
-                }));
+                const req = request.get(`https://${log.fqdn}/log`)
+                    .query(qs.stringify(query))
+                    .auth(token, { type: 'bearer' })
+                    .buffer(false)
+                    .on('end', resolve)
+                    .on('error', reject)
+                    .pipe(new readlineTransform())
+                    .pipe(new Transform({
+                        objectMode: true,
+                        transform(line, encoding, callback) {
+                            try {
+                                return callback(null, JSON.parse(line.toString('utf-8')));
+                            } catch (err) {
+                                return callback(err);
+                            }
+                        },
+                    }))
+                    .on('end', resolve)
+                    .on('error', reject);
 
-            req.on('data', jsonl => {
-                if (formatter.print_jsonl(jsonl)) {
-                    count += 1;
-                }
-                if (args.head && count >= args.head) {
-                    req.end();
-                }
+                req.on('data', jsonl => {
+                    if (formatter.print_jsonl(jsonl)) {
+                        count += 1;
+                    }
+                    if (args.head && count >= args.head) {
+                        req.end();
+                    }
+                });
             });
-
-            return new Promise((resolve, reject) => req
-                .on('end', resolve)
-                .on('error', reject)
-            );
         },
     });
 
