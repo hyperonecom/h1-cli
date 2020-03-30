@@ -63,7 +63,7 @@ const schema = {
 const resource = {
     name: 'website',
     defaultQuery: '[].{id:id, name:name, image:image, domains:join(\',\',domain), state:state, tags:join(\',\',keys(tag || `{}`) ) }',
-    url: () => 'website',
+    url: args => `website/${args.location}/project/${args.project}/instance/`,
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
     extraCommands: ['ssh', 'sftp', 'start', 'stop', 'credential', 'update', 'log', 'transfer'],
