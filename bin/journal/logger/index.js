@@ -2,9 +2,9 @@
 const fs = require('fs');
 const os = require('os');
 const readlineTransform = require('readline-transform');
-const superagent = require('superagent');
+const request = require('lib/http');
 const Cli = require('lib/cli');
-const api = require('lib/api');
+const auth = require('lib/auth');
 const text = require('lib/text');
 const format = require('../format');
 const { Transform } = require('stream');
@@ -42,12 +42,12 @@ module.exports = resource => {
         const log = await args.helpers.api
             .get(`${resource.url(args)}/${args[resource.name]}`);
         let count = 0;
-        const token = api.getToken(log.fqdn);
+        const token = await auth.getToken(log.fqdn);
         return new Promise((resolve, reject) => args['log-file']
             .pipe(new readlineTransform())
             .pipe(new Transform({
                 transform(line, encoding, callback) {
-                    count +=1;
+                    count += 1;
                     this.push(JSON.stringify({
                         host: args.hostname,
                         message: line.toString('utf-8'),
@@ -57,9 +57,9 @@ module.exports = resource => {
                     return callback(null);
                 },
             }))
-            .pipe(superagent.
-                post(`https://${log.fqdn}/log`).
-                set('Authorization', `Bearer ${token}`).
+            .pipe(request.
+                post(`http://${log.fqdn}/log`).
+                auth(token, { type: 'bearer' }).
                 once('error', reject).
                 once('response', () => resolve(`Send ${count} messages`))
             )

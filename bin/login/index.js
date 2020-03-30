@@ -22,14 +22,14 @@ const options = {
 
 const handler = async args => {
     // const identity = `/iam/user/${args.username}`;
-    if (!args.username && active_user.id) {
+    if (!args.username && active_user && active_user.id) {
         args.username = active_user.id;
     } else if (!args.username) {
         args.username = await interactive.prompt('Username', {
             type: 'text',
             name: 'value',
             validate: input => input.length === 0 ? 'Missing username' : true,
-        });
+        }).then(x => x.value);
     }
     if (!args.password) {
         args.password = await interactive.prompt('Password', {

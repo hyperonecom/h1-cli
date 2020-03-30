@@ -1,6 +1,6 @@
 'use strict';
 const fs = require('fs');
-const api = require('lib/api');
+const auth = require('lib/auth');
 const request = require('lib/http');
 const Cli = require('lib/cli');
 const text = require('lib/text');
@@ -53,7 +53,6 @@ module.exports = resource => {
         },
     };
 
-
     const cmd = Cli.createCommand('stream', {
         description: `Stream or read messages of ${resource.title}`,
         dirname: __dirname,
@@ -82,11 +81,11 @@ module.exports = resource => {
             formatter.print_header();
             const log = await args.helpers.api.get(`${resource.url(args)}/${args[resource.name]}`);
             let count = 0;
-            const token = api.getToken(log.fqdn);
+            const token = await auth.getToken(log.fqdn);
 
             const req = request.get(`https://${log.fqdn}/log`)
                 .query(qs.stringify(query))
-                .set('Authorization', `Bearer ${token}`)
+                .auth(token, {type: 'bearer'})
                 .buffer(false)
                 .pipe(new readlineTransform())
                 .pipe(new Transform({

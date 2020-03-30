@@ -1,8 +1,7 @@
 'use strict';
 const process = require('process');
 const Cli = require('lib/cli');
-const config = require('lib/config');
-const api = require('lib/api');
+const auth = require('lib/auth');
 
 module.exports = Cli.createCommand('get', {
     description: 'Serve credential as credential helper',
@@ -14,11 +13,11 @@ module.exports = Cli.createCommand('get', {
             buf.push(chunk);
         }
 
-        const server_url = buf.toString('utf-8');
+        const server_url = buf.toString('utf-8').trim();
         console.log(JSON.stringify({
             ServerURL: server_url,
-            Username: config.get('auth.identity'),
-            Secret: api.getToken(server_url),
+            Username: await auth.getIdentity() || 'user',
+            Secret: await auth.getToken(server_url),
         }));
     },
 });
