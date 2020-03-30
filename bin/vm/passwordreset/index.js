@@ -1,7 +1,7 @@
 'use strict';
 
 const Cli = require('lib/cli');
-const ssh = require('lib/ssh');
+const crypto = require('lib/crypto');
 const logger = require('lib/logger');
 const forge = require('node-forge');
 
@@ -22,10 +22,10 @@ module.exports = resource => Cli.createCommand('passwordreset', {
     handler: async args => {
         logger('info', 'Generating key pair...');
 
-        const { keypair } = await ssh.generateKey();
+        const { privateKey, publicKey } = await crypto.generateKeyPair();
 
-        const modulus = forge.util.encode64(forge.util.hexToBytes(keypair.privateKey.n.toString(16)));
-        const exponent = forge.util.encode64(forge.util.hexToBytes(keypair.privateKey.e.toString(16)));
+        const modulus = forge.util.encode64(forge.util.hexToBytes(publicKey.n.toString(16)));
+        const exponent = forge.util.encode64(forge.util.hexToBytes(publicKey.e.toString(16)));
 
         args.query = args.query || '[].{"New Password":password}';
 
@@ -54,7 +54,7 @@ module.exports = resource => Cli.createCommand('passwordreset', {
             throw Cli.error.serverError('exponent differs');
         }
         return args.helpers.sendOutput(args, {
-            password: keypair.privateKey.decrypt(Buffer.from(data.encryptedPassword, 'base64'), 'RSA-OAEP').toString(),
+            password: privateKey.decrypt(Buffer.from(data.encryptedPassword, 'base64'), 'RSA-OAEP').toString(),
         });
     },
 });

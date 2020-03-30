@@ -25,6 +25,7 @@
       * [h1 sa credential cert delete](#h1-sa-credential-cert-delete) - Delete certificate credential of Service account
       * [h1 sa credential cert add](#h1-sa-credential-cert-add) - Add certificate credential of Service account
       * [h1 sa credential cert list](#h1-sa-credential-cert-list) - List certificate credential of Service account
+    * [h1 sa credential generate](#h1-sa-credential-generate) - Generate passport of Service account
   * [h1 sa tag](#h1-sa-tag) - Manage your tag
     * [h1 sa tag list](#h1-sa-tag-list) - List tag
     * [h1 sa tag add](#h1-sa-tag-add) - Add a tag to Service account
@@ -461,6 +462,21 @@ h1 sa credential cert list --sa my-sa
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--sa SA``` |  | Service account ID or name |
+
+## h1 sa credential generate
+
+Generate passport of Service account
+
+### Syntax
+
+```h1 sa credential generate | --sa SA --name NAME --passport-output-file PASSPORT-OUTPUT-FILE```
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--sa SA``` |  | Service account name or ID |
+| ```--name NAME``` |  | Credential name |
+| ```--passport-output-file PASSPORT-OUTPUT-FILE``` |  | Output path to save Service account passport as file |
 
 ## h1 sa tag
 

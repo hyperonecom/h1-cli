@@ -28,6 +28,24 @@ Try to perform operations without making any real changes:
 ```
 h1 disk create --name xxxx.com --type ssd --size 25 --dry-run
 ```
+## Argument ```--as```
+Act as another actor
+
+#### Act as service account
+
+```bash
+h1 journal list --as /iam/project/5af0bbbcb7802508ad844caa/sa/5e73a76c9a229046fa196db3
+```
+## Argument ```--passport-file```
+Passport file to authenticate request. Can be set also via environment variable HYPERONE_PASSPORT_FILE.
+
+#### Authenticate via passport file
+
+```bash
+h1 journal list --passport-file /tmp/passport.json
+```
+
+Hint: Use ```h1 sa credential generate --help``` to see how to create passport file.
 ## Argument ```--output```
 Specify output format of command. Can be set also via environment variable HYPERONE_CLI_OUTPUT.
 
