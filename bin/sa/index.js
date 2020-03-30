@@ -30,7 +30,7 @@ const resource = {
     url: args => `iam/project/${args.project}/sa`,
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
-    extraCommands: ['create', 'credential', 'transfer'],
+    extraCommands: ['create', 'transfer'],
     title: 'Service account',
     dirname: __dirname,
     schema,
@@ -38,5 +38,10 @@ const resource = {
 };
 
 const category = genericResource(resource);
+
+const credential = require('bin/generic/credential')(resource);
+credential.addChild(require('./generate')(resource));
+
+category.addChild(credential);
 
 module.exports = category;

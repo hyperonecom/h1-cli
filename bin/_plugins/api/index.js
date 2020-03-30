@@ -2,7 +2,7 @@
 
 const logger = require('lib/logger');
 const api = require('lib/api');
-const {richOption} = require('lib/cli');
+const { richOption } = require('lib/cli');
 
 const options = {
     verbose: richOption({
@@ -20,6 +20,15 @@ const options = {
         description: 'Dry run for the request',
         type: 'boolean',
     },
+    as: {
+        description: 'Act as another actor',
+        type: 'string',
+    },
+    'passport-file': richOption({
+        description: 'Passport file to authenticate request',
+        env: 'PASSPORT_FILE',
+        type: 'string',
+    }),
 };
 
 module.exports = {
