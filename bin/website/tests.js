@@ -311,7 +311,7 @@ ava.serial('website wordpress installation', async t => {
             const content = `#!/bin/sh
             set -eux;
             cd public;
-            wp core download --locale=pl_PL;
+            wp core download;
             wp config create --dbhost=${database.fqdn} --dbname=${database.id} --dbuser=${database.id} --dbpass=${password}
             wp core install --url='https://${website.fqdn}/' --title=${token} --admin_user=superuser --admin_email=admin@example.com`;
             await putFileWebsite(website, { password }, './install.sh', content);
