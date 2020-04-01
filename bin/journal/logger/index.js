@@ -41,13 +41,12 @@ module.exports = resource => {
     const handler = async args => {
         const log = await args.helpers.api
             .get(`${resource.url(args)}/${args[resource.name]}`);
-        let count = 0;
         const token = await auth.getToken(log.fqdn);
         return new Promise((resolve, reject) => args['log-file']
+            .once('error', reject)
             .pipe(new readlineTransform())
             .pipe(new Transform({
                 transform(line, encoding, callback) {
-                    count += 1;
                     this.push(JSON.stringify({
                         host: args.hostname,
                         message: line.toString('utf-8'),
@@ -61,9 +60,18 @@ module.exports = resource => {
                 post(`http://${log.fqdn}/log`).
                 auth(token, { type: 'bearer' }).
                 once('error', reject).
-                once('response', () => resolve(`Send ${count} messages`))
+                once('response', res => {
+                    if (res.error) {
+                        const err = new Error(
+                            res.statusText || res.text || 'Unsuccessful HTTP response'
+                        );
+                        err.response = res;
+                        err.status = res.status;
+                        return reject(err);
+                    }
+                    return resolve(res);
+                })
             )
-            .once('error', reject)
         );
     };
 

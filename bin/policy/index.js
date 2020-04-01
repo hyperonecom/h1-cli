@@ -40,7 +40,7 @@ const schema = {
 
 const resource = {
     name: 'policy',
-    defaultQuery: '[].{id:id, name:name, role:role, actor:join(\', \',actor[].value) tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id, name:name, role:role, actor:join(\', \',actor[].value), resource:resource, tags:join(\',\',keys(tag || `{}`) ) }',
     url: (args) => `iam/project/${args.project}/policy`,
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,

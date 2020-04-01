@@ -84,7 +84,7 @@ module.exports = resource => {
             const token = await auth.getToken(log.fqdn);
             return new Promise((resolve, reject) => {
 
-                const req = request.get(`https://${log.fqdn}/log`)
+                const req = request.get(`http://${log.fqdn}/log`)
                     .query(qs.stringify(query))
                     .auth(token, { type: 'bearer' })
                     .buffer(false)

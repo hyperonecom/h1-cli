@@ -2,7 +2,6 @@
 'use strict';
 
 require('../lib/injectPath');
-
 const Cli = require('lib/cli');
 const scope = process.env.SCOPE_NAME;
 
@@ -17,6 +16,14 @@ cli.addChild(require('bin/registry/creds-helper/get'));
 cli.addChild(require('bin/registry/creds-helper/store'));
 cli.addChild(require('bin/registry/creds-helper/erase'));
 
-Cli.run(cli);
+Cli.run(cli)
+    .then(result => {
+        if (typeof result === 'object') {
+            console.dir(result, { depth: null });
+        } else if (result) {
+            console.log(result);
+        }
+    })
+    .catch(Cli.handleException);
 
 module.exports = cli;

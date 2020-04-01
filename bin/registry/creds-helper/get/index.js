@@ -6,6 +6,9 @@ const auth = require('lib/auth');
 module.exports = Cli.createCommand('get', {
     description: 'Serve credential as credential helper',
     dirname: __dirname,
+    plugins: [
+        require('bin/_plugins/api'),
+    ],
     handler: async () => {
         const buf = [];
 
