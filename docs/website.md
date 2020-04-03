@@ -30,6 +30,13 @@
     * [h1 website snapshot access](#h1-website-snapshot-access) - Manage your snapshot of Website access rights
       * [h1 website snapshot access check](#h1-website-snapshot-access-check) - Check access rights for snapshot of Website
     * [h1 website snapshot download](#h1-website-snapshot-download) - Download snapshot of Website to a ZFS file
+  * [h1 website link](#h1-website-link) - Manage your link of Website
+    * [h1 website link create](#h1-website-link-create) - Create link of Website
+    * [h1 website link show](#h1-website-link-show) - Show link of Website
+    * [h1 website link list](#h1-website-link-list) - List link of Website
+    * [h1 website link delete](#h1-website-link-delete) - Delete link of Website
+    * [h1 website link access](#h1-website-link-access) - Manage your link of Website access rights
+      * [h1 website link access check](#h1-website-link-access-check) - Check access rights for link of Website
   * [h1 website restart](#h1-website-restart) - Restart Website
   * [h1 website env](#h1-website-env) - Manage your environment variables of Website
     * [h1 website env create](#h1-website-env-create) - Create environment variables of Website
@@ -38,6 +45,13 @@
     * [h1 website env delete](#h1-website-env-delete) - Delete environment variables of Website
     * [h1 website env access](#h1-website-env-access) - Manage your environment variables of Website access rights
       * [h1 website env access check](#h1-website-env-access-check) - Check access rights for environment variables of Website
+  * [h1 website sideapp](#h1-website-sideapp) - Manage your sideapp of Website
+    * [h1 website sideapp create](#h1-website-sideapp-create) - Create sideapp of Website
+    * [h1 website sideapp show](#h1-website-sideapp-show) - Show sideapp of Website
+    * [h1 website sideapp list](#h1-website-sideapp-list) - List sideapp of Website
+    * [h1 website sideapp delete](#h1-website-sideapp-delete) - Delete sideapp of Website
+    * [h1 website sideapp access](#h1-website-sideapp-access) - Manage your sideapp of Website access rights
+      * [h1 website sideapp access check](#h1-website-sideapp-access-check) - Check access rights for sideapp of Website
   * [h1 website credential](#h1-website-credential) - Manage your credentials of Website
     * [h1 website credential access](#h1-website-credential-access) - Manage your credential of Website access rights
       * [h1 website credential access check](#h1-website-credential-access-check) - Check access rights for credential of Website
@@ -614,6 +628,129 @@ h1 website snapshot download --website my-website --snapshot my-snapshot
 | ```--no-progress``` |  | Disable progress bar |
 | ```--difference DIFFERENCE``` |  | Snapshot relative to which difference should be downloaded |
 
+## h1 website link
+
+Manage your link of Website
+
+### Examples
+
+#### List available links
+
+```bash
+h1 website link list --website my-website
+```
+
+Hint: Use ```h1 website list``` to list available *Website*.
+
+## h1 website link create
+
+Create link of Website
+
+### Syntax
+
+```h1 website link create | --purpose {logs} --actor ACTOR --resource RESOURCE --website WEBSITE```
+### Examples
+
+#### Create Website with SSH credential
+
+```bash
+h1 website link create --purpose log --actor /iam/project/5af0bbbcb7802508ad844caa/sa/5e73a73f9a229046fa196da9
+ --resource RESOURCE --website WEBSITE
+ --name my-website --type website --image 'h1cr.io/website/php-apache:7.2' --ssh my-key
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--purpose {logs}``` |  | Purpose |
+| ```--actor ACTOR``` |  | Actor ID |
+| ```--resource RESOURCE``` |  | Target resource ID |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website link show
+
+Show link of Website
+
+### Syntax
+
+```h1 website link show | --website WEBSITE --link LINK```
+### Example
+
+```bash
+h1 website link show --link my-link --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--link LINK``` |  | Link of Website ID or name |
+
+## h1 website link list
+
+List link of Website
+
+### Syntax
+
+```h1 website link list | --website WEBSITE```
+### Example
+
+```bash
+h1 website link list --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website link delete
+
+Delete link of Website
+
+### Syntax
+
+```h1 website link delete | --website WEBSITE --link LINK```
+### Example
+
+```bash
+h1 website link delete --link my-link --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--link LINK``` |  | Link of Website ID or name |
+
+## h1 website link access
+
+Manage your link of Website access rights
+
+## h1 website link access check
+
+Check access rights for link of Website
+
+### Syntax
+
+```h1 website link access check | --website WEBSITE --link LINK```
+### Example
+
+```bash
+h1 website link access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--link LINK``` |  | Link of Website ID or name |
+
 ## h1 website restart
 
 Restart Website
@@ -750,6 +887,127 @@ h1 website env access check --vm test-vm --user root
 | ---- | ------- | ----------- |
 | ```--website WEBSITE``` |  | Website ID or name |
 | ```--env ENV``` |  | Environment variables of Website ID or name |
+
+## h1 website sideapp
+
+Manage your sideapp of Website
+
+### Examples
+
+#### List available links
+
+```bash
+h1 website sideapp list --website my-website
+```
+
+Hint: Use ```h1 website list``` to list available *Website*.
+
+## h1 website sideapp create
+
+Create sideapp of Website
+
+### Syntax
+
+```h1 website sideapp create | --flavour FLAVOUR --website WEBSITE```
+### Examples
+
+#### Create Website with SSH credential
+
+```bash
+h1 website sideapp create --purpose log --actor /iam/project/5af0bbbcb7802508ad844caa/sa/5e73a73f9a229046fa196da9
+ --resource RESOURCE --website WEBSITE
+ --name my-website --type website --image 'h1cr.io/website/php-apache:7.2' --ssh my-key
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--flavour FLAVOUR``` |  | Flavour name or ID |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website sideapp show
+
+Show sideapp of Website
+
+### Syntax
+
+```h1 website sideapp show | --website WEBSITE --sideapp SIDEAPP```
+### Example
+
+```bash
+h1 website sideapp show --sideapp my-sideapp --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--sideapp SIDEAPP``` |  | Sideapp of Website ID or name |
+
+## h1 website sideapp list
+
+List sideapp of Website
+
+### Syntax
+
+```h1 website sideapp list | --website WEBSITE```
+### Example
+
+```bash
+h1 website sideapp list --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+
+## h1 website sideapp delete
+
+Delete sideapp of Website
+
+### Syntax
+
+```h1 website sideapp delete | --website WEBSITE --sideapp SIDEAPP```
+### Example
+
+```bash
+h1 website sideapp delete --sideapp my-sideapp --website my-website
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--sideapp SIDEAPP``` |  | Sideapp of Website ID or name |
+
+## h1 website sideapp access
+
+Manage your sideapp of Website access rights
+
+## h1 website sideapp access check
+
+Check access rights for sideapp of Website
+
+### Syntax
+
+```h1 website sideapp access check | --website WEBSITE --sideapp SIDEAPP```
+### Example
+
+```bash
+h1 website sideapp access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--website WEBSITE``` |  | Website ID or name |
+| ```--sideapp SIDEAPP``` |  | Sideapp of Website ID or name |
 
 ## h1 website credential
 
