@@ -63,7 +63,7 @@ const schema = {
 const resource = {
     name: 'website',
     defaultQuery: '[].{id:id, name:name, image:image, domains:join(\',\',domain), state:state, tags:join(\',\',keys(tag || `{}`) ) }',
-    url: args => `website/${args.location}/project/${args.project}/instance/`,
+    url: args => `website/${args.location}/project/${args.project}/instance`,
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,
     extraCommands: ['ssh', 'sftp', 'start', 'stop', 'credential', 'update', 'log', 'transfer'],
@@ -78,6 +78,7 @@ const category = genericResource(resource);
 category.addChild(require('./create')(resource));
 
 category.addChild(require('./snapshot')(resource));
+category.addChild(require('./link')(resource));
 
 const actionDefault = Object.assign({}, resource, {
     options: {
