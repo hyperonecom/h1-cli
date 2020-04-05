@@ -35,7 +35,7 @@ module.exports = resource => Cli.createCommand('passwordreset', {
                 modulus: modulus,
                 exponent: exponent,
             });
-        await new Promise(r => setTimeout(r, 2000));
+        await new Promise(r => setTimeout(r, 3000));
         const content = await args.helpers.api.get(`${resource.url(args)}/serialport/2`);
         const line = content.split('\n').filter(line => line.trim().length > 0).pop();
         let data;
