@@ -11,6 +11,7 @@ module.exports = parent => {
         url: args => `${parent.url(args)}/compliance`,
         params: parent.params,
         options: parent.options,
+        plugins: parent.plugins,
         commands: [],
         title: 'compliance log',
         earlyAdoptersOnly: true,

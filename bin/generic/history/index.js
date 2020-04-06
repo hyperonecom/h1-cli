@@ -16,12 +16,13 @@ module.exports = resource => {
         description: `History of ${resource.title}`,
         dirname: __dirname,
         options: Object.assign({}, options, resource.options),
+        plugins: resource.plugins,
         resource: resource,
         handler: args => {
             args.query = '[].{id:id,name:name,createdBy:createdBy,queued:queued,state:state}';
 
             return args.helpers.api
-                .get(`${resource.url(args)}/${args[resource.name]}/queue`)
+                .get(`${resource.url(args)}/${args[resource.name]}/event`)
                 .then(result => args.helpers.sendOutput(args, result));
         },
     });

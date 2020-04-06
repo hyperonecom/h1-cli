@@ -19,7 +19,7 @@ const category = genericResource(resource);
 
 const childDefaults = Object.assign({}, resource, {
     options: {
-        organisation: {
+        [resource.name]: {
             description: 'Organisation ID or name',
             type: 'string',
             required: true,
