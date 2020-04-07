@@ -4,9 +4,8 @@
   * [h1 project show](#h1-project-show) - Show Project
   * [h1 project delete](#h1-project-delete) - Delete Project
   * [h1 project access](#h1-project-access) - Manage your Project access rights
-    * [h1 project access grant](#h1-project-access-grant) - Grant access rights for Project
-    * [h1 project access revoke](#h1-project-access-revoke) - Revoke access rights for Project
-    * [h1 project access list](#h1-project-access-list) - List access rights for Project
+    * [h1 project access check](#h1-project-access-check) - Check access rights for Project
+  * [h1 project list](#h1-project-list) - List Project
   * [h1 project history](#h1-project-history) - History of Project
   * [h1 project rename](#h1-project-rename) - Rename Project
   * [h1 project service](#h1-project-service) - Manage your services of Project
@@ -17,18 +16,6 @@
     * [h1 project payment list](#h1-project-payment-list) - List payment
   * [h1 project list](#h1-project-list) - List Project
   * [h1 project transfer](#h1-project-transfer) - Transfer Project to other organisation
-  * [h1 project token](#h1-project-token) - Manage your Project tokens
-    * [h1 project token show](#h1-project-token-show) - Show Token
-    * [h1 project token list](#h1-project-token-list) - List Token
-    * [h1 project token delete](#h1-project-token-delete) - Delete Token
-    * [h1 project token rename](#h1-project-token-rename) - Rename Token
-    * [h1 project token add](#h1-project-token-add) - Add Token
-    * [h1 project token access](#h1-project-token-access) - Manage your token access
-      * [h1 project token access list](#h1-project-token-access-list) - List access rule
-      * [h1 project token access show](#h1-project-token-access-show) - Show access rule
-      * [h1 project token access delete](#h1-project-token-access-delete) - Delete access rule
-      * [h1 project token access add](#h1-project-token-access-add) - Add access rule
-    * [h1 project token env](#h1-project-token-env) - Get environment variables to manage project by service account
   * [h1 project notification](#h1-project-notification) - Manage your notifications
     * [h1 project notification credits](#h1-project-notification-credits) - Manage your credits limit
       * [h1 project notification credits add](#h1-project-notification-credits-add) - Add credits limit
@@ -134,81 +121,37 @@ h1 project delete --project my-project
 
 Manage your Project access rights
 
-### Optional arguments
+## h1 project access check
 
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
-## h1 project access grant
-
-Grant access rights for Project
+Check access rights for Project
 
 ### Syntax
 
-```h1 project access grant | --email EMAIL [--project PROJECT] [--role {owner,billing,user}]```
+```h1 project access check | --project PROJECT```
 ### Example
 
 ```bash
-h1 project access grant --project my-project --email user@example.com
+h1 project access check --vm test-vm --user root
 ```
 
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
-| ```--email EMAIL``` |  | User email (eg: user@example.org) |
+| ```--project PROJECT``` |  | Project ID or name |
 
-### Optional arguments
+## h1 project list
 
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-| ```--role {owner,billing,user}``` |  | Role |
-
-## h1 project access revoke
-
-Revoke access rights for Project
+List Project
 
 ### Syntax
 
-```h1 project access revoke | --email EMAIL [--project PROJECT]```
+```h1 project list | ```
 ### Example
 
 ```bash
-h1 project access revoke --project my-project --email user@example.com
+h1 project list
 ```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--email EMAIL``` |  | User email (eg: user@example.org) |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
-
-## h1 project access list
-
-List access rights for Project
-
-### Syntax
-
-```h1 project access list | [--project PROJECT]```
-### Example
-
-```bash
-h1 project access list --project my-project
-```
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--project PROJECT``` |  | Project ID or name. Active project by default |
 
 ## h1 project history
 
@@ -374,247 +317,6 @@ h1 project transfer --project test-project --organisation target-organisation
 | ```--project PROJECT``` |  | Project ID or name |
 | ```--organisation ORGANISATION``` |  | New organisation |
 
-## h1 project token
-
-Manage your Project tokens
-
-### Examples
-
-#### Create a token
-
-```bash
-h1 project token add --project 6oAoJqgyLZP4Le9UUNHrEOYP --name secret-token-1
-```
-
-#### Grant access to token for snapshots of selected Vault
-
-```bash
-h1 project token access add --project 6oAoJqgyLZP4Le9UUNHrEOYP --method POST --path 'vault/x/actions/snapshot' --token d41d8cd98f00b204e9800998ecf8427e
-```
-
-#### Verify access of token
-
-```
-h1 project token access list --project 6oAoJqgyLZP4Le9UUNHrEOYP \
-    --token d41d8cd98f00b204e9800998ecf8427e
-```
-
-#### Remove some access of token 
-
-```bash
-h1 project token access delete --project 6oAoJqgyLZP4Le9UUNHrEOYP --token d41d8cd98f00b204e9800998ecf8427e --access c4ca4238a0b923820dcc509a6f75849b
-```
-
-#### Perform a snapshot of Vault using API token
-
-```bash
-HYPERONE_ACCESS_TOKEN_SECRET="d41d8cd98f00b204e9800998ecf8427e" h1 vault snapshot --vault x --name $(date +"%s")
-```
-
-## h1 project token show
-
-Show Token
-
-### Syntax
-
-```h1 project token show | --token TOKEN```
-### Example
-
-```bash
-h1 project token show --token my-token
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--token TOKEN``` |  | Token ID or name |
-
-## h1 project token list
-
-List Token
-
-### Syntax
-
-```h1 project token list | ```
-### Example
-
-```bash
-h1 project token list
-```
-
-## h1 project token delete
-
-Delete Token
-
-### Syntax
-
-```h1 project token delete | --token TOKEN```
-### Example
-
-```bash
-h1 project token delete --token my-token --project my-project
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--token TOKEN``` |  | Token ID or name |
-
-## h1 project token rename
-
-Rename Token
-
-### Syntax
-
-```h1 project token rename | --token TOKEN --new-name NEW-NAME```
-### Example
-
-```bash
-h1 project token rename --token my-token --new-name my-renamed-token
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--token TOKEN``` |  | Token ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 project token add
-
-Add Token
-
-### Syntax
-
-```h1 project token add | --name NAME```
-### Example
-
-```bash
-h1 project token add --project 6oAoJqgyLZP4Le9UUNHrEOYP --name secret-token-1
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name |
-
-## h1 project token access
-
-Manage your token access
-
-## h1 project token access list
-
-List access rule
-
-### Syntax
-
-```h1 project token access list | --token TOKEN```
-### Example
-
-```bash
-h1 project token access list --project my-project --token my-token --access my-access-id
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--token TOKEN``` |  | Token ID |
-
-## h1 project token access show
-
-Show access rule
-
-### Syntax
-
-```h1 project token access show | --token TOKEN --access ACCESS```
-### Example
-
-```bash
-h1 project token access show --access my-access
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--token TOKEN``` |  | Token ID |
-| ```--access ACCESS``` |  | Access rule ID or name |
-
-## h1 project token access delete
-
-Delete access rule
-
-### Syntax
-
-```h1 project token access delete | --token TOKEN --access ACCESS```
-### Example
-
-```bash
-h1 project token access delete --access my-access --project my-project --token my-token --access my-access-id
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--token TOKEN``` |  | Token ID |
-| ```--access ACCESS``` |  | Access rule ID or name |
-
-## h1 project token access add
-
-Add access rule
-
-### Syntax
-
-```h1 project token access add | --method METHOD --path PATH --token TOKEN```
-### Examples
-
-#### Grant access to token for snapshots of selected Vault
-
-```bash
-h1 project token access add --project 6oAoJqgyLZP4Le9UUNHrEOYP --method POST --path 'vault/x/actions/snapshot' --token d41d8cd98f00b204e9800998ecf8427e
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--method METHOD``` |  | HTTP method. eg: GET, POST..., ALL (to allow all methods) |
-| ```--path PATH``` |  | URL path, eg: /disk |
-| ```--token TOKEN``` |  | Token ID |
-
-## h1 project token env
-
-Get environment variables to manage project by service account
-
-### Syntax
-
-```h1 project token env | --token TOKEN [--shell {powershell,cmd,sh,bash}] [--unset]```
-### Examples
-
-#### Get and set environment variables in sh/bash shell
-
-```bash
-eval $(h1 project token env --token 189d9053248c4f6fbacebe90558ff538)
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--token TOKEN``` |  | Token ID |
-
-### Optional arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--shell {powershell,cmd,sh,bash}``` |  | Shell type |
-| ```--unset``` |  | Reverses operations of setting environment variables |
-
 ## h1 project notification
 
 Manage your notifications
@@ -629,7 +331,7 @@ Add credits limit
 
 ### Syntax
 
-```h1 project notification credits add | --limit LIMIT```
+```h1 project notification credits add | --project PROJECT --limit LIMIT```
 ### Example
 
 ```
@@ -640,6 +342,7 @@ h1 project notification credits add --project my-project --limit value
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 | ```--limit LIMIT``` |  | New credits limit |
 
 ## h1 project notification credits list
@@ -648,12 +351,18 @@ List credits limit
 
 ### Syntax
 
-```h1 project notification credits list | ```
+```h1 project notification credits list | --project PROJECT```
 ### Example
 
 ```bash
 h1 project notification credits list --project my-project
 ```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project notification credits delete
 
@@ -661,7 +370,7 @@ Delete credits limit
 
 ### Syntax
 
-```h1 project notification credits delete | --limit LIMIT```
+```h1 project notification credits delete | --project PROJECT --limit LIMIT```
 ### Example
 
 ```
@@ -672,6 +381,7 @@ h1 project notification credits delete --project my-project --limit value
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 | ```--limit LIMIT``` |  | Deleted credits limit |
 
 ## h1 project select
@@ -680,12 +390,18 @@ Select Project context
 
 ### Syntax
 
-```h1 project select | ```
+```h1 project select | --project PROJECT```
 ### Example
 
 ```bash
 h1 project select --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project limit
 
@@ -693,7 +409,7 @@ Cloud limits set for project
 
 ### Syntax
 
-```h1 project limit | ```
+```h1 project limit | --project PROJECT```
 ### Example
 
 ```bash
@@ -701,6 +417,12 @@ h1 project limit --project 6oAoJqgyLZP4Le9UUNHrEOYP
 ```
 
 Contact technical support to request increase the limits.
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project logging
 
@@ -716,7 +438,7 @@ Enable compliance log
 
 ### Syntax
 
-```h1 project logging enable | --log LOG --password PASSWORD [--mode {basic,full}]```
+```h1 project logging enable | --project PROJECT --log LOG --password PASSWORD [--mode {basic,full}]```
 ### Example
 
 ```
@@ -727,6 +449,7 @@ h1 project logging enable --project MyProject --logArchive 5beabe03680cffd11f0e6
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 | ```--log LOG``` |  | ID of LogArchive |
 | ```--password PASSWORD``` |  | Credentials of type "password" to access logArchive |
 
@@ -742,12 +465,18 @@ Disable compliance log
 
 ### Syntax
 
-```h1 project logging disable | ```
+```h1 project logging disable | --project PROJECT```
 ### Example
 
 ```
 h1 project logging disable --project MyProject
 ```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project logging show
 
@@ -755,12 +484,18 @@ Show compliance log
 
 ### Syntax
 
-```h1 project logging show | ```
+```h1 project logging show | --project PROJECT```
 ### Example
 
 ```
 h1 project logging show --project MyProject
 ```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project credentials
 
@@ -772,7 +507,7 @@ Show credentials
 
 ### Syntax
 
-```h1 project credentials show | --credentials CREDENTIALS```
+```h1 project credentials show | --project PROJECT --credentials CREDENTIALS```
 ### Example
 
 ```bash
@@ -783,6 +518,7 @@ h1 project credentials show --credentials my-credentials
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 | ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
 ## h1 project credentials list
@@ -791,12 +527,18 @@ List credentials
 
 ### Syntax
 
-```h1 project credentials list | ```
+```h1 project credentials list | --project PROJECT```
 ### Example
 
 ```bash
 h1 project credentials list --project my-project
 ```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 
 ## h1 project credentials delete
 
@@ -804,7 +546,7 @@ Delete credentials
 
 ### Syntax
 
-```h1 project credentials delete | --credentials CREDENTIALS```
+```h1 project credentials delete | --project PROJECT --credentials CREDENTIALS```
 ### Example
 
 ```bash
@@ -815,6 +557,7 @@ h1 project credentials delete --credentials my-credentials --project my-project
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 | ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 
 ## h1 project credentials rename
@@ -823,7 +566,7 @@ Rename credentials
 
 ### Syntax
 
-```h1 project credentials rename | --credentials CREDENTIALS --new-name NEW-NAME```
+```h1 project credentials rename | --project PROJECT --credentials CREDENTIALS --new-name NEW-NAME```
 ### Example
 
 ```bash
@@ -834,6 +577,7 @@ h1 project credentials rename --credentials my-credentials --new-name my-renamed
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 | ```--credentials CREDENTIALS``` |  | Credentials ID or name |
 | ```--new-name NEW-NAME``` |  | New name |
 
@@ -843,7 +587,7 @@ Add public SSH key for Project
 
 ### Syntax
 
-```h1 project credentials add | --name NAME --sshkey-file SSHKEY-FILE```
+```h1 project credentials add | --project PROJECT --name NAME --sshkey-file SSHKEY-FILE```
 ### Example
 
 ```bash
@@ -854,6 +598,7 @@ h1 project credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub --
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
+| ```--project PROJECT``` |  | Project ID or name |
 | ```--name NAME``` |  | Name |
 | ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
 
