@@ -25,7 +25,7 @@ const category = Cli.createCategory(resource.name, {
 category.addChild(require('./create'));
 category.addChild(require('./invitation')(childDefaults));
 
-category.addChild(require('bin/generic/credentials')(Object.assign(
+category.addChild(require('bin/generic/credential')(Object.assign(
     {},
     childDefaults,
     {
