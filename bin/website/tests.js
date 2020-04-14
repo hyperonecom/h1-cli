@@ -235,7 +235,10 @@ const languages = {
     php: '<?php error_reporting(E_ALL); file_put_contents("/data/public/test.txt", "TOKEN"); ?>',
     node: `const rand = Math.random();
     require('http').createServer(
-        (req, res) => res.end(rand.toString())
+        (req, res) => {
+            console.log(new Date());
+            return res.end(rand.toString())
+        }
     ).listen(process.env.PORT);`,
     // Warning: Python is tab-sensitive
     python: `

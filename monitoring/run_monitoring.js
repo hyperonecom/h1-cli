@@ -203,7 +203,7 @@ const parseMetric = async (conn, line) => {
             run: startTime,
         });
     } else if (line.includes(' ◌ ')) {
-        const [, title] = line.match(' ◌ (.+?)$');
+        const [, title] = line.trim().match(' *◌ (.+?)$');
         return sendInflux(conn, 'testcase', {
             title,
             result: 'timeout',
