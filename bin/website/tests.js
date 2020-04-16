@@ -300,6 +300,18 @@ ava.serial('website connect via ssh', async t => {
     }
 });
 
+
+const timeLimit = async (t, limit, fn) => {
+    const start = new Date();
+    const result = await fn();
+    const time = new Date() - start;
+    if (time > limit) {
+        throw new Error(`Execution time ${time}ms exceeded limit ${limit}ms`);
+    }
+    console.log(`Execution time ${time} ms pass limit ${limit} ms`);
+    return result;
+};
+
 ava.serial('website wordpress installation', async t => {
     const password = await tests.getToken();
     const token = await tests.getToken();
@@ -318,6 +330,9 @@ ava.serial('website wordpress installation', async t => {
             await ssh.execResource(website, { password }, 'sh /data/install.sh');
             await fetchMultiproto(t, website.fqdn, resp => resp.text.includes(token));
             await fetchMultiproto(t, website.fqdn, resp => resp.text.includes('WordPress'));
+            await timeLimit(t, 1000, // 2 HTTP requests
+                () => fetchMultiproto(t, website.fqdn, resp => resp.text.includes(token))
+            );
         } finally {
             await tests.remove('database', database);
         }
