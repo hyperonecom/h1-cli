@@ -395,14 +395,24 @@ ava.serial('vm service change', async t => {
     await common.cleanup();
 });
 
-ava.serial('vm ssh using ssh-key', async t => {
-    const common = await getCommon(t.title);
+const images = ['ubuntu', 'debian', 'alpine', 'centos', 'fedora'];
 
-    const { privateKey, publicKey } = await ssh.generateKey();
-    const vm = await tests.run(`vm create ${common.params.createParams} --ssh '${publicKey}'`);
+images.forEach(image => {
+    ava.serial(`vm ssh using ssh-key - ${image}`, async t => {
+        const common = await getCommon(t.title);
 
-    const content = await ssh.execVm(vm, { privateKey }, 'uptime');
-    t.true(content.includes('load average'));
+        const keys = await Promise.all([
+            await ssh.generateKey(),
+            await ssh.generateKey(),
+        ]);
 
-    await common.cleanup();
+        const vm = await tests.run(`vm create ${common.params.createParams} --ssh '${keys[0].publicKey}' --ssh '${keys[1].publicKey}'`);
+
+        for (const key of keys) {
+            const content = await ssh.execVm(vm, { privateKey: key.privateKey }, 'uptime');
+            t.true(content.includes('load average'));
+        }
+
+        await common.cleanup();
+    });
 });
