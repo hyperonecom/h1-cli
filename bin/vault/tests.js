@@ -6,6 +6,7 @@ const fs = require('fs');
 require('../../scope/h1');
 const tests = require('../../lib/tests');
 const ssh = require('../../lib/ssh');
+const dns = require('dns').promises;
 
 const createUserCredentials = async (t) => {
     const sshKeyPair = await ssh.generateKey();
@@ -77,14 +78,14 @@ ava.serial('vault recreate from snapshot', async t => {
     const vault = await tests.run(`vault create --name ${name} --size 10 --password ${password}`);
 
     const filename = `${token}.txt`;
-    await ssh.execResource(vault, {password}, `touch ~/${filename}`);
+    await ssh.execResource(vault, { password }, `touch ~/${filename}`);
 
     const snapshot = await tests.run(`snapshot create --vault ${vault.id} --name snapshot-${name}`);
 
     const recreated_vault = await tests.run(`vault create --name ${name} --size 10 --snapshot ${snapshot.name} --password ${password}`);
     t.true(recreated_vault.created);
 
-    const content = await ssh.execResource(recreated_vault, {password}, 'ls -lah ~/');
+    const content = await ssh.execResource(recreated_vault, { password }, 'ls -lah ~/');
     t.true(content.includes(filename), `Invalid content: ${content}`);
 
     await tests.remove('vault', recreated_vault);
@@ -105,7 +106,7 @@ ava.serial('vault ssh using cert', async t => {
 
     const vault = await tests.run(`vault create --name ${name} --size 10 --ssh '${publicKey}'`);
 
-    const content = await ssh.execResource(vault, { privateKey}, 'uptime');
+    const content = await ssh.execResource(vault, { privateKey }, 'uptime');
     t.true(content.includes('load average'), content);
 
     await tests.remove('vault', vault);
@@ -117,7 +118,19 @@ ava.serial('vault ssh using password', async t => {
 
     const vault = await tests.run(`vault create --name ${name} --password ${password} --size 10`);
 
-    const content = await ssh.execResource(vault, {password}, 'uptime');
+    let addresses = await dns.lookup(vault.fqdn, { all: true });
+    addresses = addresses.map(({address}) => address).sort();
+
+    for (const address of addresses) {
+        const content = await ssh.execute('uptime', {
+            host: address,
+            username: vault.id,
+            password,
+        });
+        t.true(content.includes('load average'));
+    }
+
+    const content = await ssh.execResource(vault, { password }, 'uptime');
     t.true(content.includes('load average'));
 
     await tests.remove('vault', vault);
