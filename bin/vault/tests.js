@@ -119,16 +119,26 @@ ava.serial('vault ssh using password', async t => {
     const vault = await tests.run(`vault create --name ${name} --password ${password} --size 10`);
 
     let addresses = await dns.lookup(vault.fqdn, { all: true });
-    addresses = addresses.map(({address}) => address).sort();
+    addresses = addresses.map(({ address }) => address).sort();
+
+    let any_fail = false;
 
     for (const address of addresses) {
-        const content = await ssh.execute('uptime', {
-            host: address,
-            username: vault.id,
-            password,
-        });
-        t.true(content.includes('load average'));
+        try {
+            const content = await ssh.execute('uptime', {
+                host: address,
+                username: vault.id,
+                password,
+            });
+            if (!content.includes('load average')) {
+                throw new Error("Missing 'load average' in output");
+            }
+        } catch (err) {
+            console.log(err);
+            any_fail = true;
+        }
     }
+    t.true(!any_fail, 'Some execution attempt fail. See logs above');
 
     const content = await ssh.execResource(vault, { password }, 'uptime');
     t.true(content.includes('load average'));
