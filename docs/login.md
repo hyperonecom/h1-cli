@@ -2,7 +2,7 @@
 
 # h1 login
 
-Obtain your apiKey
+Login as user
 
 ## Syntax
 

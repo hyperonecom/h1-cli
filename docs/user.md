@@ -5,16 +5,23 @@
     * [h1 user invitation list](#h1-user-invitation-list) - List invitation of User
     * [h1 user invitation decline](#h1-user-invitation-decline) - Decline invitation of User
     * [h1 user invitation accept](#h1-user-invitation-accept) - Accept invitation of User
-  * [h1 user credentials](#h1-user-credentials) - Manage your credentials
-    * [h1 user credentials show](#h1-user-credentials-show) - Show credentials
-    * [h1 user credentials list](#h1-user-credentials-list) - List credentials
-    * [h1 user credentials delete](#h1-user-credentials-delete) - Delete credentials
-    * [h1 user credentials rename](#h1-user-credentials-rename) - Rename credentials
-    * [h1 user credentials add](#h1-user-credentials-add) - Add public SSH key for User
   * [h1 user 2fa](#h1-user-2fa) - Manage two factor authentication
     * [h1 user 2fa enable](#h1-user-2fa-enable) - Enable factor of authentication
     * [h1 user 2fa disable](#h1-user-2fa-disable) - Disable factor of authentication
     * [h1 user 2fa list](#h1-user-2fa-list) - List authentication factory
+  * [h1 user credential](#h1-user-credential) - Manage your credentials of User
+    * [h1 user credential access](#h1-user-credential-access) - Manage your credential of User access rights
+      * [h1 user credential access check](#h1-user-credential-access-check) - Check access rights for credential of User
+    * [h1 user credential list](#h1-user-credential-list) - List credential of User
+    * [h1 user credential show](#h1-user-credential-show) - Show credential of User
+    * [h1 user credential delete](#h1-user-credential-delete) - Delete credential of User
+    * [h1 user credential cert](#h1-user-credential-cert) - Manage your certificate credential of User
+      * [h1 user credential cert list](#h1-user-credential-cert-list) - List certificate credential of User
+      * [h1 user credential cert show](#h1-user-credential-cert-show) - Show certificate credential of User
+      * [h1 user credential cert rename](#h1-user-credential-cert-rename) - Rename certificate credential of User
+      * [h1 user credential cert delete](#h1-user-credential-cert-delete) - Delete certificate credential of User
+      * [h1 user credential cert add](#h1-user-credential-cert-add) - Add certificate credential of User
+      * [h1 user credential cert list](#h1-user-credential-cert-list) - List certificate credential of User
 
 
 # Specification
@@ -95,101 +102,6 @@ h1 user invitation accept --invitation 5d88097cd6249ff5478540b2
 | ---- | ------- | ----------- |
 | ```--invitation INVITATION``` |  | Invitation ID |
 
-## h1 user credentials
-
-Manage your credentials
-
-## h1 user credentials show
-
-Show credentials
-
-### Syntax
-
-```h1 user credentials show | --credentials CREDENTIALS```
-### Example
-
-```bash
-h1 user credentials show --credentials my-credentials
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
-
-## h1 user credentials list
-
-List credentials
-
-### Syntax
-
-```h1 user credentials list | ```
-### Example
-
-```bash
-h1 user credentials list
-```
-
-## h1 user credentials delete
-
-Delete credentials
-
-### Syntax
-
-```h1 user credentials delete | --credentials CREDENTIALS```
-### Example
-
-```bash
-h1 user credentials delete --credentials my-credentials
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
-
-## h1 user credentials rename
-
-Rename credentials
-
-### Syntax
-
-```h1 user credentials rename | --credentials CREDENTIALS --new-name NEW-NAME```
-### Example
-
-```bash
-h1 user credentials rename --credentials my-credentials --new-name my-renamed-credentials
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--credentials CREDENTIALS``` |  | Credentials ID or name |
-| ```--new-name NEW-NAME``` |  | New name |
-
-## h1 user credentials add
-
-Add public SSH key for User
-
-### Syntax
-
-```h1 user credentials add | --name NAME --sshkey-file SSHKEY-FILE```
-### Example
-
-```bash
-h1 user credentials add --name my-home-ssh --sshkey-file ~/.ssh/id_rsa.pub
-```
-
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--name NAME``` |  | Name |
-| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
-
 ## h1 user 2fa
 
 Manage two factor authentication
@@ -260,4 +172,221 @@ List authentication factory
 ```bash
 h1 user 2fa list
 ```
+
+## h1 user credential
+
+Manage your credentials of User
+
+## h1 user credential access
+
+Manage your credential of User access rights
+
+## h1 user credential access check
+
+Check access rights for credential of User
+
+### Syntax
+
+```h1 user credential access check | --user USER --credential CREDENTIAL```
+### Example
+
+```bash
+h1 user credential access check --vm test-vm --user root
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--user USER``` |  | User ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of User ID or name |
+
+## h1 user credential list
+
+List credential of User
+
+### Syntax
+
+```h1 user credential list | --user USER```
+### Example
+
+```bash
+h1 user credential list --user my-user
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--user USER``` |  | User ID or name |
+
+## h1 user credential show
+
+Show credential of User
+
+### Syntax
+
+```h1 user credential show | --user USER --credential CREDENTIAL```
+### Example
+
+```bash
+h1 user credential show --credential my-credential
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--user USER``` |  | User ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of User ID or name |
+
+## h1 user credential delete
+
+Delete credential of User
+
+### Syntax
+
+```h1 user credential delete | --user USER --credential CREDENTIAL```
+### Example
+
+```bash
+h1 user credential delete --credential my-credential --user my-user
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--user USER``` |  | User ID or name |
+| ```--credential CREDENTIAL``` |  | Credential of User ID or name |
+
+## h1 user credential cert
+
+Manage your certificate credential of User
+
+## h1 user credential cert list
+
+List certificate credential of User
+
+### Syntax
+
+```h1 user credential cert list | --user USER```
+### Example
+
+```bash
+h1 user credential cert list --user my-user
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--user USER``` |  | User ID or name |
+
+## h1 user credential cert show
+
+Show certificate credential of User
+
+### Syntax
+
+```h1 user credential cert show | --user USER --cert CERT```
+### Example
+
+```bash
+h1 user credential cert show --cert my-cert
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--user USER``` |  | User ID or name |
+| ```--cert CERT``` |  | Certificate credential of User ID or name |
+
+## h1 user credential cert rename
+
+Rename certificate credential of User
+
+### Syntax
+
+```h1 user credential cert rename | --user USER --cert CERT --new-name NEW-NAME```
+### Example
+
+```bash
+h1 user credential cert rename --cert my-cert --new-name my-renamed-cert --user my-user
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--user USER``` |  | User ID or name |
+| ```--cert CERT``` |  | Certificate credential of User ID or name |
+| ```--new-name NEW-NAME``` |  | New name |
+
+## h1 user credential cert delete
+
+Delete certificate credential of User
+
+### Syntax
+
+```h1 user credential cert delete | --user USER --cert CERT```
+### Example
+
+```bash
+h1 user credential cert delete --cert my-cert --user my-user
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--user USER``` |  | User ID or name |
+| ```--cert CERT``` |  | Certificate credential of User ID or name |
+
+## h1 user credential cert add
+
+Add certificate credential of User
+
+### Syntax
+
+```h1 user credential cert add | --user USER --name NAME [--sshkey SSHKEY] [--sshkey-file SSHKEY-FILE]```
+### Example
+
+```bash
+h1 user credential cert add --user my-user --name my-key --sshkey my-home-ssh
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--user USER``` |  | User ID or name |
+| ```--name NAME``` |  | Certificate name |
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--sshkey SSHKEY``` |  | Public SSH key ID or name |
+| ```--sshkey-file SSHKEY-FILE``` |  | Public SSH key filename |
+
+## h1 user credential cert list
+
+List certificate credential of User
+
+### Syntax
+
+```h1 user credential cert list | --user USER```
+### Example
+
+```bash
+h1 user credential cert list --user my-user
+```
+
+### Required arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--user USER``` |  | User ID or name |
 

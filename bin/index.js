@@ -54,6 +54,7 @@ const loadModules = (cli, modules) => modules
 
 loadModules(cli, [
     'config',
+    'auth',
     'login',
 ]);
 

@@ -1,9 +1,10 @@
 * [Common arguments](common-arguments.md)
 * Commands
-  * [h1 login](login.md) - Obtain your apiKey
+  * [h1 login](login.md) - Login as user
   * [h1 project](project.md) - Manage your Project
   * [h1 user](user.md) - Manage your User
   * [h1 config](config.md) - Manage config of CLI
+  * [h1 auth](auth.md) - Manage authentication of CLI
   * [h1 service](service.md) - Explore available services
   * [h1 organisation](organisation.md) - Manage your Organisation
   * [h1 logout](logout.md) - Remove user session
