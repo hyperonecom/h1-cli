@@ -2,7 +2,6 @@
 
 const Cli = require('lib/cli');
 
-// const logger = require('lib/logger');
 const auth = require('lib/auth');
 
 const options = {

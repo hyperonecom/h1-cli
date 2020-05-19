@@ -17,7 +17,7 @@ const options = {
 };
 
 const handler = async args => {
-    Cli.mutually_exclusive_validate(args, 'token', 'metadata');
+    Cli.mutually_exclusive_validate(args, 'token', 'discovery');
     if (args.metadata) {
         const { DefaultAzureCredential } = require('@azure/identity');
         const credential = new DefaultAzureCredential();

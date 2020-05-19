@@ -1,22 +1,8 @@
 'use strict';
 
 const Cli = require('lib/cli');
-const aws4 = require('aws4');
 
-const https = require('https');
-
-const sendRequest = opts => new Promise((resolve, reject) => {
-    https.request({
-        ...opts,
-        timeout: 1000,
-    }, (resp) => {
-        const chunks = [];
-        resp.
-            on('data', chunk => chunks.push(chunk)).
-            on('error', reject).
-            on('end', () => resolve(Buffer.concat(chunks).toString('utf-8')));
-    }).end(opts.body);
-});
+const auth = require('lib/auth');
 
 const options = {
     'access-key-id': {
@@ -38,24 +24,32 @@ const options = {
 };
 
 const handler = async args => {
+    Cli.mutually_exclusive_validate(args, 'access-key-id', 'discovery');
+    const aws4 = require('aws4');
     let credential = {
         accessKeyId: args['access-key-id'],
         secretAccessKey: args['secret-access-key'],
         sessionToken:args['session-token'],
     };
+
     if (args.discovery) {
         const awsCredentialProvider = require('@aws-sdk/credential-provider-node');
         credential = await awsCredentialProvider.defaultProvider()();
     }
-    console.log({credential});
+
     const opts = aws4.sign({
         service: 'sts',
         body: 'Action=GetCallerIdentity&Version=2011-06-15',
+        headers: {
+            Accept: 'application/json',
+        },
     }, credential);
-    console.log({opts});
-    const response = await sendRequest(opts);
-    console.log(response);
-    // return auth.introspection();
+    const token = Buffer.from(JSON.stringify(opts)).toString('base64');
+    await auth.federate(token, {
+        subject_token_type: 'aws-caller-identity',
+    });
+
+    return auth.introspection();
 };
 
 module.exports = Cli.createCommand('aws', {
