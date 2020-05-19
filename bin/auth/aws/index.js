@@ -29,12 +29,16 @@ const handler = async args => {
     let credential = {
         accessKeyId: args['access-key-id'],
         secretAccessKey: args['secret-access-key'],
-        sessionToken:args['session-token'],
+        sessionToken: args['session-token'],
     };
 
     if (args.discovery) {
         const awsCredentialProvider = require('@aws-sdk/credential-provider-node');
-        credential = await awsCredentialProvider.defaultProvider()();
+        try {
+            credential = await awsCredentialProvider.defaultProvider()();
+        } catch (err) {
+            throw Cli.error.cancelled('None of the supported AWS credential discovery forms have succeeded.');
+        }
     }
 
     const opts = aws4.sign({
