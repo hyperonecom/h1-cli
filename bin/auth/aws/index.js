@@ -50,7 +50,7 @@ const handler = async args => {
     console.log({credential});
     const opts = aws4.sign({
         service: 'sts',
-        body: 'Action:GetCallerIdentity&Version=2011-06-15',
+        body: 'Action=GetCallerIdentity&Version=2011-06-15',
     }, credential);
     console.log({opts});
     const response = await sendRequest(opts);
