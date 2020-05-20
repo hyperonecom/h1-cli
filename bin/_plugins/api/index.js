@@ -34,7 +34,7 @@ const options = {
 module.exports = {
     options: options,
     dirname: __dirname,
-    onBeforeConfigure: context => Object.entries(options).forEach(([k, v]) => context.node.addOption(k, v)),
+    onBeforeConfigure: context => context.node.addOptionGroup('API options', options),
     onBeforeHandler: context => {
         logger.setVerbose(context.args.verbose);
         api.setArgs(context.args);
