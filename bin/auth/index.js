@@ -9,6 +9,7 @@ const category = Cli.createCategory('auth', {
 
 category.addChild(require('./user'));
 category.addChild(require('./status'));
+category.addChild(require('./print-access-token'));
 category.addChild(require('./logout'));
 category.addChild(require('./azure'));
 category.addChild(require('./aws'));
