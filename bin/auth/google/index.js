@@ -19,14 +19,16 @@ const handler = async args => {
     Cli.mutually_exclusive_validate(args, 'token', 'discovery');
     if (args.discovery) {
         const { GoogleAuth } = require('google-auth-library');
-        const auth = new GoogleAuth();
+        const auth = new GoogleAuth({
+            scopes: ['openid'],
+        });
         const client = await auth.getClient();
-        const token = await client.fetchIdToken(
-            args.helpers.api.API_URL
-        );
-        args.token = token;
+        const accessToken = await client.getAccessToken();
+        args.token = accessToken.token;
     }
-    await auth.federate(args.token);
+    await auth.federate(args.token, {
+        subject_token_type: 'gcp-access-token',
+    });
     return auth.introspection();
 };
 
