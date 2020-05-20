@@ -44,10 +44,8 @@ const handler = async args => {
     const opts = aws4.sign({
         service: 'sts',
         body: 'Action=GetCallerIdentity&Version=2011-06-15',
-        headers: {
-            Accept: 'application/json',
-        },
     }, credential);
+
     const token = Buffer.from(JSON.stringify(opts)).toString('base64');
     await auth.federate(token, {
         subject_token_type: 'aws-caller-identity',
