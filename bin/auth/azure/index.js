@@ -16,13 +16,15 @@ const options = {
     },
 };
 
+const generic_scope = 'https://management.azure.com';
+
 const handler = async args => {
     Cli.mutually_exclusive_validate(args, 'token', 'discovery');
-    if (args.metadata) {
+    if (args.discovery) {
         const { DefaultAzureCredential } = require('@azure/identity');
         const credential = new DefaultAzureCredential();
-        const access_token = await credential.getToken();
-        args.token = access_token.token();
+        const access_token = await credential.getToken(generic_scope);
+        args.token = access_token.token;
     }
     await auth.federate(args.token);
     return auth.introspection();
