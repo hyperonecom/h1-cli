@@ -48,12 +48,18 @@ Create Policy
 ### Syntax
 
 ```h1 policy create | --name NAME --role ROLE --resource RESOURCE [--tag TAG [--tag TAG ...]] [--type TYPE]```
+### Example
+
+```bash
+h1 policy create --name my-website --role /iam/project/5af0bbbcb7802508ad844caa/role/5e739f819a229046fa196d11 --resource /iam/project/5af0bbbcb7802508ad844caa
+```
+
 ### Required arguments
 
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Policy name |
-| ```--role ROLE``` |  | Role name |
+| ```--role ROLE``` |  | Role ID |
 | ```--resource RESOURCE``` |  | Resource ID |
 
 ### Optional arguments
@@ -61,7 +67,7 @@ Create Policy
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-| ```--type TYPE``` |  | Role type name or ID |
+| ```--type TYPE``` |  | Policy type name or ID |
 
 ## h1 policy list
 

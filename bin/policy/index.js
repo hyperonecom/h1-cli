@@ -13,13 +13,13 @@ const schema = {
         onUpdate: true,
     },
     role: {
-        description: 'Role name',
+        description: 'Role ID',
         type: 'string',
         required: true,
         onCreate: true,
     },
     type: {
-        description: 'Role type name or ID',
+        description: 'Policy type name or ID',
         type: 'string',
         required: false,
         onCreate: true,
@@ -40,7 +40,7 @@ const schema = {
 
 const resource = {
     name: 'policy',
-    defaultQuery: '[].{id:id, name:name, role:role, actor:join(\', \',actor[].value), resource:resource, tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id, name:name, role:role, resource:resource, tags:join(\',\',keys(tag || `{}`) ) }',
     url: (args) => `iam/project/${args.project}/policy`,
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,

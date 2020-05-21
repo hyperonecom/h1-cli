@@ -15,7 +15,6 @@
     * [h1 role service list](#h1-role-service-list) - List Service for Role
     * [h1 role service show](#h1-role-service-show) - Show Service for Role
   * [h1 role name](#h1-role-name) - Update Role name of Role
-  * [h1 role description](#h1-role-description) - Update Description name of Role
   * [h1 role access](#h1-role-access) - Manage your Role access rights
     * [h1 role access grant](#h1-role-access-grant) - Grant access rights for Role
     * [h1 role access revoke](#h1-role-access-revoke) - Revoke access rights for Role
@@ -55,7 +54,13 @@ Create Role
 
 ### Syntax
 
-```h1 role create | --name NAME [--tag TAG [--tag TAG ...]] [--description DESCRIPTION] [--type TYPE]```
+```h1 role create | --name NAME [--tag TAG [--tag TAG ...]] [--type TYPE]```
+### Example
+
+```bash
+h1 role create --name my-role
+```
+
 ### Required arguments
 
 | Name | Default | Description |
@@ -67,7 +72,6 @@ Create Role
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--tag TAG [--tag TAG ...]``` |  | Key=value of tag. The parameter may occur repeatedly |
-| ```--description DESCRIPTION``` |  | Description name |
 | ```--type TYPE``` |  | Role type name or ID |
 
 ## h1 role list
@@ -281,20 +285,6 @@ Update Role name of Role
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--name NAME``` |  | Role name |
-| ```--role ROLE``` |  | Role ID or name |
-
-## h1 role description
-
-Update Description name of Role
-
-### Syntax
-
-```h1 role description | --description DESCRIPTION --role ROLE```
-### Required arguments
-
-| Name | Default | Description |
-| ---- | ------- | ----------- |
-| ```--description DESCRIPTION``` |  | Description name |
 | ```--role ROLE``` |  | Role ID or name |
 
 ## h1 role access

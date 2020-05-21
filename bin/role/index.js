@@ -12,13 +12,6 @@ const schema = {
         onCreate: true,
         onUpdate: true,
     },
-    description: {
-        description: 'Description name',
-        type: 'string',
-        required: false,
-        onCreate: true,
-        onUpdate: true,
-    },
     type: {
         description: 'Role type name or ID',
         type: 'string',
@@ -35,7 +28,7 @@ const schema = {
 
 const resource = {
     name: 'role',
-    defaultQuery: '[].{id:id, name:name, tags:join(\',\',keys(tag || `{}`) ), permissions:join(\', \',permission[].value) }',
+    defaultQuery: '[].{id:id, name:name, tags:join(\',\',keys(tag || `{}`) )}',
     url: (args) => `iam/project/${args.project}/role`,
     plugins: genericDefaults.plugins,
     earlyAdoptersOnly: true,

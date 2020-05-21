@@ -47,7 +47,7 @@ The functionality is available as part of the *Early adopters* program. Operatio
 #### Create Service Account with SSH credential
 
 ```bash
-h1 sa create --name my-website --type website
+h1 sa create --name my-sa
 ```
 
 ## h1 sa create
@@ -57,6 +57,14 @@ Create Service account
 ### Syntax
 
 ```h1 sa create | --name NAME [--tag TAG [--tag TAG ...]] [--type TYPE]```
+### Examples
+
+#### Create Service Account with SSH credential
+
+```bash
+h1 sa create create --name my-sa
+```
+
 ### Required arguments
 
 | Name | Default | Description |
