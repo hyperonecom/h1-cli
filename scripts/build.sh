@@ -2,6 +2,13 @@
 set -eux
 NODE_VERSION="12"
 
+# Pkg refuse to build that file due "Failed to make bytecode node12-x64"
+# Temporary drop ES Module file because it's not used and not required
+# See https://github.com/Azure/azure-sdk-for-js/pull/9060 for final solution
+# NodeJS from version 13.2.0, a module mechanism has been introduced, but
+# this still requires a declaration in package.json to take effect.
+rm -f ./node_modules/@opencensus/web-types/build/src/index.js
+
 for scope in h1 rbx; do
 	npx pkg -c ./package.json -t "node${NODE_VERSION}-linux" -o "./dist/${scope}" "./bin/${scope}";
 	npx pkg -c ./package.json -t "node${NODE_VERSION}-linux" -o "./dist/docker-credential-${scope}-login" "./bin/docker-credential-${scope}-login";
