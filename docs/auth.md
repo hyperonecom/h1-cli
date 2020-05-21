@@ -2,6 +2,7 @@
 
   * [h1 auth user](#h1-auth-user) - Login as user
   * [h1 auth status](#h1-auth-status) - Provide information about current session
+  * [h1 auth print-access-token](#h1-auth-print-access-token) - Provide token of current session
   * [h1 auth azure](#h1-auth-azure) - Authenticate using Azure identity
   * [h1 auth aws](#h1-auth-aws) - Authenticate using AWS identity
   * [h1 auth google](#h1-auth-google) - Authenticate using Google identity
@@ -46,6 +47,25 @@ Provide information about current session
 ```bash
 h1 auth status
 ```
+
+## h1 auth print-access-token
+
+Provide token of current session
+
+### Syntax
+
+```h1 auth print-access-token | [--audience AUDIENCE]```
+### Example
+
+```bash
+h1 auth print-access-token
+```
+
+### Optional arguments
+
+| Name | Default | Description |
+| ---- | ------- | ----------- |
+| ```--audience AUDIENCE``` |  | Token audience |
 
 ## h1 auth azure
 
@@ -108,8 +128,8 @@ Credentials is used only to generate the request signature, which only allows yo
 | Name | Default | Description |
 | ---- | ------- | ----------- |
 | ```--access-key-id ACCESS-KEY-ID``` |  | AWS Access Key Id |
-| ```--secret-access-key``` |  | AWS Secret Access Key (only required to generate a signature) |
-| ```--session-token``` |  | AWS Secret Access Key (only required to generate a signature) |
+| ```--secret-access-key``` |  | AWS Secret Access Key (only used to generate a signature) |
+| ```--session-token``` |  | AWS Session Token |
 | ```--discovery``` |  | Use standard AWS mechanisms to find credential |
 
 ## h1 auth google
@@ -132,7 +152,7 @@ h1 auth google --token $(gcloud auth print-access-token)
 Use Google Application Default Credentials as a simple way to get authorization credentials.
 
 ```bash
-h1 auth google --discovery
+GOOGLE_APPLICATION_CREDENTIALS=credential-file.json h1 auth google --discovery
 ```
 
 ### Optional arguments
