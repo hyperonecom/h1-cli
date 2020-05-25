@@ -8,7 +8,7 @@ const resource = {
     description: 'Explore available services',
     defaultQuery: '[].{id:id, name:name, resource:resource, type:type, PLN:billing.price.PLN, period:billing.period}',
     plugins: genericDefaults.plugins,
-    url: () => 'service',
+    url: args => `billing/project/${args.project}/service`,
     commands: [ 'show', 'access/resource'],
     title: 'Service',
 };
