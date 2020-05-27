@@ -51,8 +51,9 @@ ava.serial('image resolver prefer server', async t => {
 
 ava.serial('image preserve license', async t => {
     const disk_name = tests.getName('disk', t.title);
+    const password = await tests.getToken();
     // create vm from recommended image
-    const vm_recommended = await tests.run(`vm create --type a1.nano --name ${tests.getName('vm recommended', t.title)} --image rhel --os-disk ${disk_name},ssd,40 --no-start`);
+    const vm_recommended = await tests.run(`vm create --type a1.nano --name ${tests.getName('vm recommended', t.title)} --image rhel --os-disk ${disk_name},ssd,40 --password ${password} --no-start`);
     const vm_services = await tests.run(`vm service list --vm ${vm_recommended.id}`);
     t.true(vm_services.some(x => x.type == 'license'));
     // create image of vm
@@ -62,7 +63,7 @@ ava.serial('image preserve license', async t => {
     await tests.remove('vm', vm_recommended);
     await tests.remove('disk', disk_name);
     // create vm from user image (with license)
-    const vm_user = await tests.run(`vm create --type a1.nano --name ${tests.getName('vm user', t.title)} --image ${image.id} --os-disk ${disk_name},ssd,40 --no-start`);
+    const vm_user = await tests.run(`vm create --type a1.nano --name ${tests.getName('vm user', t.title)} --image ${image.id} --os-disk ${disk_name},ssd,40 --password ${password} --no-start`);
     const vm_user_services = await tests.run(`vm service list --vm ${vm_user.id}`);
     t.true(vm_user_services.some(x => x.type == 'license'));
     // clean up vm from user image
