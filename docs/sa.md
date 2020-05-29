@@ -57,9 +57,7 @@ Create Service account
 ### Syntax
 
 ```h1 sa create | --name NAME [--tag TAG [--tag TAG ...]] [--type TYPE]```
-### Examples
-
-#### Create Service Account with SSH credential
+### Example
 
 ```bash
 h1 sa create create --name my-sa
