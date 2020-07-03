@@ -1,0 +1,26 @@
+{
+  "name": "h1-cli-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@apidevtools/json-schema-ref-parser": "^9.0.1",
+    "camel-case": "^4.1.1",
+    "commander": "^5.1.0",
+    "jmespath": "^0.15.0",
+    "js-yaml": "^3.14.0",
+    "jsonpatch": "^3.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^2.6.0",
+    "pluralize": "^8.0.0",
+    "tabula": "^1.10.0"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC"
+}

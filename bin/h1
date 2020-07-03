@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+'use strict';
+
+const {buildCli} = require('./../');
+
+const main = async () => {
+    const cli = await buildCli({
+        openapiUrl: 'https://api.hyperone.com/v2/openapi.json'
+    });
+    return cli.parseAsync();
+};
+
+main().catch(console.log);
