@@ -59,7 +59,7 @@ module.exports = {
         },
         query: {
             description: ' JMESPath query string',
-            type: 'string'
+            type: 'string',
         },
     },
     afterHandler: async (ctx, output) => {
@@ -67,5 +67,5 @@ module.exports = {
         const query = '[].{id:id}';
 
         console.log(outputFormat[format](query, output));
-    }
+    },
 };

@@ -1,42 +1,39 @@
-const { Command } = require('commander');
-const { buildCli } = require('./../');
+'use strict';
+const { buildCli } = require('../app');
 const fs = require('fs');
+const { Command } = require('./../lib/cli/entity');
 
-const fullName = (cmd) => {
-    const parts = [];
-    while (cmd.parent) {
-        parts.push([cmd.name()])
-        cmd = cmd.parent;
+const documentCommand = (out, cmd, level) => {
+    const headerPrefix = '#'.repeat(level);
+    out.write(`${headerPrefix} ${cmd.getFullName()}\n`);
+    out.write('\n```\n');
+    out.write(cmd.getUsage().trim());
+    out.write('\n```\n\n');
+    if (!cmd.commands) {
+        return;
     }
-    parts.reverse();
-    return parts.join(" ");
-}
-const documentCommand = (out, cmd, level = 1) => {
-    const headerPrefix = "#".repeat(level);
-    out.write(`${headerPrefix} ${fullName(cmd)}\n\n`)
-    out.write('```\n');
-    out.write(cmd.helpInformation())
-    out.write('```\n\n');
     for (const child of cmd.commands) {
-        documentCommand(out, child, level + 1)
+        documentCommand(out, child, level + 1);
     }
 };
 
-const generator = async (cmd) => {
-    const opts = cmd.opts();
-    const cli = await buildCli({
-        openapiUrl: opts.url
-    });
-    const out = opts.outputFile == '-' ? process.stdout : fs.createWriteStream(opts.outputFile, { encoding: 'utf-8' })
-    for (const cmd of cli.commands) {
-        documentCommand(out, cmd)
-    }
-};
-
-const main = async () => new Command('print').
-    option('--url [url]', 'URL of OpenAPI spec', 'https://api.hyperone.com/v2/openapi.json').
-    option('--output-file [file]', 'Output file', '-').
-    action(generator).
-    parseAsync();
+const main = async () => new Command({
+    name: 'print',
+    summary: 'Print or write documentation of commands',
+    options: [
+        { name: 'url', description: 'URL of OpenAPI spec', defaultValue: 'https://api.hyperone.com/v2/openapi.json' },
+        { name: 'output-file', description: 'Output file', defaultValue: '-' },
+    ],
+    handler: async (opts) => {
+        const cli = await buildCli({
+            openapiUrl: opts.url,
+        });
+        const out = opts['output-file'] == '-' ? process.stdout : fs.createWriteStream(opts['output-file'], { encoding: 'utf-8' });
+        documentCommand(out, cli);
+        for (const cmd of cli.commands) {
+            documentCommand(out, cmd, 2);
+        }
+    },
+}).exec(process.argv.slice(2));
 
 main().catch(console.error);
