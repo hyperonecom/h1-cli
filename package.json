@@ -26,7 +26,12 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "docs": "nodejs ./script/print-docs.js > docs.md"
+  },
+  "bin": {
+    "h1": "./bin/h1",
+    "rbx": "./bin/rbx"
   },
   "author": "",
   "license": "ISC"
