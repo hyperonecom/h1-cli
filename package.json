@@ -27,7 +27,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
-    "docs": "nodejs ./script/print-docs.js > docs.md"
+    "docs": "nodejs ./scripts/print-docs.js > docs.md"
   },
   "bin": {
     "h1": "./bin/h1",

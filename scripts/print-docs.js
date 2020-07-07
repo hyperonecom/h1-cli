@@ -1,5 +1,5 @@
 'use strict';
-const { buildCli } = require('../app');
+const { buildCli } = require('../index');
 const fs = require('fs');
 const { Command } = require('./../lib/cli/entity');
 
