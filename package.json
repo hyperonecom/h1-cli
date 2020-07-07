@@ -8,8 +8,6 @@
     "camel-case": "^4.1.1",
     "command-line-args": "^5.1.1",
     "command-line-usage": "^6.1.0",
-    "commander": "^5.1.0",
-    "eslint-plugin-jest": "^23.17.1",
     "jmespath": "^0.15.0",
     "js-yaml": "^3.14.0",
     "jsonpatch": "^3.0.1",
@@ -22,6 +20,7 @@
   "devDependencies": {
     "@hyperone/eslint-config": "^2.0.1",
     "eslint": "^7.4.0",
+    "eslint-plugin-jest": "^23.18.0",
     "jest": "^26.1.0"
   },
   "scripts": {
