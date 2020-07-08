@@ -1,7 +1,13 @@
+'use strict';
+
 module.exports = {
     extends: [
         '@hyperone',
-        'plugin:jest/recommended',
     ],
-    plugins: ['jest'],
+    plugins: [
+        'jasmine',
+    ],
+    env: {
+        jasmine: true,
+    },
 };

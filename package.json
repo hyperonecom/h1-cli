@@ -8,6 +8,7 @@
     "camel-case": "^4.1.1",
     "command-line-args": "^5.1.1",
     "command-line-usage": "^6.1.0",
+    "eslint-plugin-jasmine": "^4.1.1",
     "jmespath": "^0.15.0",
     "js-yaml": "^3.14.0",
     "jsonpatch": "^3.0.1",
@@ -15,17 +16,19 @@
     "meant": "^1.0.1",
     "node-fetch": "^2.6.0",
     "pluralize": "^8.0.0",
-    "tabula": "^1.10.0"
+    "shell-quote": "^1.7.2",
+    "tabula": "^1.10.0",
+    "untildify": "^4.0.0"
   },
   "devDependencies": {
     "@hyperone/eslint-config": "^2.0.1",
     "eslint": "^7.4.0",
-    "eslint-plugin-jest": "^23.18.0",
-    "jest": "^26.1.0"
+    "jasmine": "^3.5.0"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jasmine",
     "lint": "eslint .",
+    "fmt": "eslint . --fix",
     "docs": "nodejs ./scripts/print-docs.js > docs.md"
   },
   "bin": {

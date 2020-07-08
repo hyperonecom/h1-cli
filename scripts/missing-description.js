@@ -1,7 +1,7 @@
 'use strict';
 
 const openapi = require('../lib/openapi');
-const normalize = (value) => String(value).replace("\n", "\\n");
+const normalize = (value) => String(value).replace('\n', '\\n');
 
 const main = async () => {
     await openapi.init();
