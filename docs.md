@@ -43,7 +43,7 @@ Options
 
 Command List
 
-  settings
+  settings   Manage settings of CLI
 ```
 
  h1-cli config settings
@@ -79,9 +79,8 @@ Synopsis
 
 Options
 
-  --key string                                 
-  --value string                               
-  --help           Show help message and exit.
+  --key string                               
+  --help         Show help message and exit.
 ```
 
  h1-cli config settings dump
@@ -136,13 +135,13 @@ Options
 Command List
 
   spec           Print specification of context 
+  organisation   Management of organisation     
   user           Management of user             
   project        Management of project          
   organisation   Management of organisation     
   policy         Management of policy           
   role           Management of role             
-  sa             Management of sa               
-  organisation   Management of organisation
+  sa             Management of sa
 ```
 
  h1-cli iam spec
@@ -159,6 +158,1112 @@ Synopsis
 Options
 
   --help    Show help message and exit.
+```
+
+ h1-cli iam organisation
+
+```
+h1-cli iam organisation
+
+Synopsis
+
+  $ h1-cli iam organisation <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  policy   Management of policy 
+  role     Management of role
+```
+
+ h1-cli iam organisation policy
+
+```
+h1-cli iam organisation policy
+
+Synopsis
+
+  $ h1-cli iam organisation policy <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec      Print specification of context                     
+  create    Create iam/policy [iam_organisation_policy_create] 
+  list      List iam/policy [iam_organisation_policy_list]     
+  show      Get iam/policy [iam_organisation_policy_get]       
+  update    Update iam/policy [iam_organisation_policy_update] 
+  delete    Delete iam/policy [iam_organisation_policy_delete] 
+  actor     Manage actors of the policy                        
+  service   Manage services of the policy                      
+  tag       Manage tags of the policy                          
+  event     Manage events of the policy
+```
+
+ h1-cli iam organisation policy spec
+
+```
+h1-cli iam organisation policy spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation policy spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+ h1-cli iam organisation policy create
+
+```
+h1-cli iam organisation policy create
+
+  Create iam/policy [iam_organisation_policy_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                                         
+  --x-idempotency-key string                                                                                                
+  --name string                                     Policy name                                                             
+  --service uri                                     Policy service. Provide URI of billing/service                          
+  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string                                 Policy resource                                                         
+  --tag name=name,value=value                       Tag collection                                                          
+  --help                                            Show help message and exit.                                             
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
+  --query string                                    JMESPath query string                                                   
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy list
+
+```
+h1-cli iam organisation policy list
+
+  List iam/policy [iam_organisation_policy_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --name string                                     Filter by name                                  
+  --tag string                                      Filter by tag                                   
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy show
+
+```
+h1-cli iam organisation policy show
+
+  Get iam/policy [iam_organisation_policy_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy update
+
+```
+h1-cli iam organisation policy update
+
+  Update iam/policy [iam_organisation_policy_update] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy update <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                          
+  --policy id-or-uri                                policy Id                                                
+  --name string                                     Policy name. Requires permissions iam/policy.name/update 
+  --help                                            Show help message and exit.                              
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                         
+  --query string                                    JMESPath query string                                    
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy delete
+
+```
+h1-cli iam organisation policy delete
+
+  Delete iam/policy [iam_organisation_policy_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy actor
+
+```
+h1-cli iam organisation policy actor
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                 
+  create   Create iam/policy.actor [iam_organisation_policy_actor_create] 
+  list     List iam/policy.actor [iam_organisation_policy_actor_list]     
+  show     Get iam/policy.actor [iam_organisation_policy_actor_get]       
+  delete   Delete iam/policy.actor [iam_organisation_policy_actor_delete]
+```
+
+ h1-cli iam organisation policy actor spec
+
+```
+h1-cli iam organisation policy actor spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+ h1-cli iam organisation policy actor create
+
+```
+h1-cli iam organisation policy actor create
+
+  Create iam/policy.actor [iam_organisation_policy_actor_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --value string                                    Actor value                                     
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy actor list
+
+```
+h1-cli iam organisation policy actor list
+
+  List iam/policy.actor [iam_organisation_policy_actor_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy actor show
+
+```
+h1-cli iam organisation policy actor show
+
+  Get iam/policy.actor [iam_organisation_policy_actor_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --actor id-or-uri                                 actorId                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy actor delete
+
+```
+h1-cli iam organisation policy actor delete
+
+  Delete iam/policy.actor [iam_organisation_policy_actor_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --actor id-or-uri                                 actorId                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy service
+
+```
+h1-cli iam organisation policy service
+
+Synopsis
+
+  $ h1-cli iam organisation policy service <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec   Print specification of context                                 
+  list   List iam/policy.service [iam_organisation_policy_service_list] 
+  show   Get iam/policy.service [iam_organisation_policy_service_get]
+```
+
+ h1-cli iam organisation policy service spec
+
+```
+h1-cli iam organisation policy service spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation policy service spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+ h1-cli iam organisation policy service list
+
+```
+h1-cli iam organisation policy service list
+
+  List iam/policy.service [iam_organisation_policy_service_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy service list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy service show
+
+```
+h1-cli iam organisation policy service show
+
+  Get iam/policy.service [iam_organisation_policy_service_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy service show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --service id-or-uri                               serviceId                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy tag
+
+```
+h1-cli iam organisation policy tag
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                             
+  create   Create iam/policy.tag [iam_organisation_policy_tag_create] 
+  list     List iam/policy.tag [iam_organisation_policy_tag_list]     
+  show     Get iam/policy.tag [iam_organisation_policy_tag_get]       
+  delete   Delete iam/policy.tag [iam_organisation_policy_tag_delete]
+```
+
+ h1-cli iam organisation policy tag spec
+
+```
+h1-cli iam organisation policy tag spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+ h1-cli iam organisation policy tag create
+
+```
+h1-cli iam organisation policy tag create
+
+  Create iam/policy.tag [iam_organisation_policy_tag_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --name string                                     Tag name                                        
+  --value string                                    Tag value                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy tag list
+
+```
+h1-cli iam organisation policy tag list
+
+  List iam/policy.tag [iam_organisation_policy_tag_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy tag show
+
+```
+h1-cli iam organisation policy tag show
+
+  Get iam/policy.tag [iam_organisation_policy_tag_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --tag id-or-uri                                   tagId                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy tag delete
+
+```
+h1-cli iam organisation policy tag delete
+
+  Delete iam/policy.tag [iam_organisation_policy_tag_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --tag id-or-uri                                   tagId                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation policy event
+
+```
+h1-cli iam organisation policy event
+
+Synopsis
+
+  $ h1-cli iam organisation policy event <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec   Print specification of context                             
+  list   List iam/policy.event [iam_organisation_policy_event_list]
+```
+
+ h1-cli iam organisation policy event spec
+
+```
+h1-cli iam organisation policy event spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation policy event spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+ h1-cli iam organisation policy event list
+
+```
+h1-cli iam organisation policy event list
+
+  List iam/policy.event [iam_organisation_policy_event_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy event list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --$limit string                                   $limit                                          
+  --$skip string                                    $skip                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role
+
+```
+h1-cli iam organisation role
+
+Synopsis
+
+  $ h1-cli iam organisation role <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec         Print specification of context                 
+  create       Create iam/role [iam_organisation_role_create] 
+  list         List iam/role [iam_organisation_role_list]     
+  show         Get iam/role [iam_organisation_role_get]       
+  update       Update iam/role [iam_organisation_role_update] 
+  delete       Delete iam/role [iam_organisation_role_delete] 
+  permission   Manage permissions of the role                 
+  service      Manage services of the role                    
+  tag          Manage tags of the role                        
+  event        Manage events of the role
+```
+
+ h1-cli iam organisation role spec
+
+```
+h1-cli iam organisation role spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation role spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+ h1-cli iam organisation role create
+
+```
+h1-cli iam organisation role create
+
+  Create iam/role [iam_organisation_role_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation role create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --x-idempotency-key string                                                                        
+  --name string                                     Role name                                       
+  --service uri                                     Role service. Provide URI of billing/service    
+  --description string                              Role description                                
+  --permission value=value                          Permission collection                           
+  --tag name=name,value=value                       Tag collection                                  
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role list
+
+```
+h1-cli iam organisation role list
+
+  List iam/role [iam_organisation_role_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation role list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --name string                                     Filter by name                                  
+  --tag string                                      Filter by tag                                   
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role show
+
+```
+h1-cli iam organisation role show
+
+  Get iam/role [iam_organisation_role_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation role show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role update
+
+```
+h1-cli iam organisation role update
+
+  Update iam/role [iam_organisation_role_update] 
+
+Synopsis
+
+  $ h1-cli iam organisation role update <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                                    
+  --role id-or-uri                                  role Id                                                            
+  --name string                                     Role name. Requires permissions iam/role.name/update               
+  --description string                              Role description. Requires permissions iam/role.description/update 
+  --help                                            Show help message and exit.                                        
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                   
+  --query string                                    JMESPath query string                                              
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role delete
+
+```
+h1-cli iam organisation role delete
+
+  Delete iam/role [iam_organisation_role_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation role delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role permission
+
+```
+h1-cli iam organisation role permission
+
+Synopsis
+
+  $ h1-cli iam organisation role permission <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                       
+  create   Create iam/role.permission [iam_organisation_role_permission_create] 
+  list     List iam/role.permission [iam_organisation_role_permission_list]     
+  show     Get iam/role.permission [iam_organisation_role_permission_get]       
+  delete   Delete iam/role.permission [iam_organisation_role_permission_delete]
+```
+
+ h1-cli iam organisation role permission spec
+
+```
+h1-cli iam organisation role permission spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation role permission spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+ h1-cli iam organisation role permission create
+
+```
+h1-cli iam organisation role permission create
+
+  Create iam/role.permission [iam_organisation_role_permission_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation role permission create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --value string                                    Permission value                                
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role permission list
+
+```
+h1-cli iam organisation role permission list
+
+  List iam/role.permission [iam_organisation_role_permission_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation role permission list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role permission show
+
+```
+h1-cli iam organisation role permission show
+
+  Get iam/role.permission [iam_organisation_role_permission_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation role permission show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --permission id-or-uri                            permissionId                                    
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role permission delete
+
+```
+h1-cli iam organisation role permission delete
+
+  Delete iam/role.permission [iam_organisation_role_permission_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation role permission delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --permission id-or-uri                            permissionId                                    
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role service
+
+```
+h1-cli iam organisation role service
+
+Synopsis
+
+  $ h1-cli iam organisation role service <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec   Print specification of context                             
+  list   List iam/role.service [iam_organisation_role_service_list] 
+  show   Get iam/role.service [iam_organisation_role_service_get]
+```
+
+ h1-cli iam organisation role service spec
+
+```
+h1-cli iam organisation role service spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation role service spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+ h1-cli iam organisation role service list
+
+```
+h1-cli iam organisation role service list
+
+  List iam/role.service [iam_organisation_role_service_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation role service list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role service show
+
+```
+h1-cli iam organisation role service show
+
+  Get iam/role.service [iam_organisation_role_service_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation role service show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --service id-or-uri                               serviceId                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role tag
+
+```
+h1-cli iam organisation role tag
+
+Synopsis
+
+  $ h1-cli iam organisation role tag <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                         
+  create   Create iam/role.tag [iam_organisation_role_tag_create] 
+  list     List iam/role.tag [iam_organisation_role_tag_list]     
+  show     Get iam/role.tag [iam_organisation_role_tag_get]       
+  delete   Delete iam/role.tag [iam_organisation_role_tag_delete]
+```
+
+ h1-cli iam organisation role tag spec
+
+```
+h1-cli iam organisation role tag spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation role tag spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+ h1-cli iam organisation role tag create
+
+```
+h1-cli iam organisation role tag create
+
+  Create iam/role.tag [iam_organisation_role_tag_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation role tag create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --name string                                     Tag name                                        
+  --value string                                    Tag value                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role tag list
+
+```
+h1-cli iam organisation role tag list
+
+  List iam/role.tag [iam_organisation_role_tag_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation role tag list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role tag show
+
+```
+h1-cli iam organisation role tag show
+
+  Get iam/role.tag [iam_organisation_role_tag_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation role tag show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --tag id-or-uri                                   tagId                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role tag delete
+
+```
+h1-cli iam organisation role tag delete
+
+  Delete iam/role.tag [iam_organisation_role_tag_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation role tag delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --tag id-or-uri                                   tagId                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+ h1-cli iam organisation role event
+
+```
+h1-cli iam organisation role event
+
+Synopsis
+
+  $ h1-cli iam organisation role event <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec   Print specification of context                         
+  list   List iam/role.event [iam_organisation_role_event_list]
+```
+
+ h1-cli iam organisation role event spec
+
+```
+h1-cli iam organisation role event spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation role event spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+ h1-cli iam organisation role event list
+
+```
+h1-cli iam organisation role event list
+
+  List iam/role.event [iam_organisation_role_event_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation role event list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --$limit string                                   $limit                                          
+  --$skip string                                    $skip                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
  h1-cli iam user
@@ -6376,1112 +7481,6 @@ Options
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
- h1-cli iam organisation
-
-```
-h1-cli iam organisation
-
-Synopsis
-
-  $ h1-cli iam organisation <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  policy   Management of policy 
-  role     Management of role
-```
-
- h1-cli iam organisation policy
-
-```
-h1-cli iam organisation policy
-
-Synopsis
-
-  $ h1-cli iam organisation policy <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec      Print specification of context                     
-  create    Create iam/policy [iam_organisation_policy_create] 
-  list      List iam/policy [iam_organisation_policy_list]     
-  show      Get iam/policy [iam_organisation_policy_get]       
-  update    Update iam/policy [iam_organisation_policy_update] 
-  delete    Delete iam/policy [iam_organisation_policy_delete] 
-  actor     Manage actors of the policy                        
-  service   Manage services of the policy                      
-  tag       Manage tags of the policy                          
-  event     Manage events of the policy
-```
-
- h1-cli iam organisation policy spec
-
-```
-h1-cli iam organisation policy spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation policy spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
- h1-cli iam organisation policy create
-
-```
-h1-cli iam organisation policy create
-
-  Create iam/policy [iam_organisation_policy_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                                         
-  --x-idempotency-key string                                                                                                
-  --name string                                     Policy name                                                             
-  --service uri                                     Policy service. Provide URI of billing/service                          
-  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
-  --resource string                                 Policy resource                                                         
-  --tag name=name,value=value                       Tag collection                                                          
-  --help                                            Show help message and exit.                                             
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
-  --query string                                    JMESPath query string                                                   
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy list
-
-```
-h1-cli iam organisation policy list
-
-  List iam/policy [iam_organisation_policy_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --name string                                     Filter by name                                  
-  --tag string                                      Filter by tag                                   
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy show
-
-```
-h1-cli iam organisation policy show
-
-  Get iam/policy [iam_organisation_policy_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy update
-
-```
-h1-cli iam organisation policy update
-
-  Update iam/policy [iam_organisation_policy_update] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy update <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                          
-  --policy id-or-uri                                policy Id                                                
-  --name string                                     Policy name. Requires permissions iam/policy.name/update 
-  --help                                            Show help message and exit.                              
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                         
-  --query string                                    JMESPath query string                                    
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy delete
-
-```
-h1-cli iam organisation policy delete
-
-  Delete iam/policy [iam_organisation_policy_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy actor
-
-```
-h1-cli iam organisation policy actor
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec     Print specification of context                                 
-  create   Create iam/policy.actor [iam_organisation_policy_actor_create] 
-  list     List iam/policy.actor [iam_organisation_policy_actor_list]     
-  show     Get iam/policy.actor [iam_organisation_policy_actor_get]       
-  delete   Delete iam/policy.actor [iam_organisation_policy_actor_delete]
-```
-
- h1-cli iam organisation policy actor spec
-
-```
-h1-cli iam organisation policy actor spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
- h1-cli iam organisation policy actor create
-
-```
-h1-cli iam organisation policy actor create
-
-  Create iam/policy.actor [iam_organisation_policy_actor_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --value string                                    Actor value                                     
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy actor list
-
-```
-h1-cli iam organisation policy actor list
-
-  List iam/policy.actor [iam_organisation_policy_actor_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy actor show
-
-```
-h1-cli iam organisation policy actor show
-
-  Get iam/policy.actor [iam_organisation_policy_actor_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --actor id-or-uri                                 actorId                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy actor delete
-
-```
-h1-cli iam organisation policy actor delete
-
-  Delete iam/policy.actor [iam_organisation_policy_actor_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --actor id-or-uri                                 actorId                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy service
-
-```
-h1-cli iam organisation policy service
-
-Synopsis
-
-  $ h1-cli iam organisation policy service <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                                 
-  list   List iam/policy.service [iam_organisation_policy_service_list] 
-  show   Get iam/policy.service [iam_organisation_policy_service_get]
-```
-
- h1-cli iam organisation policy service spec
-
-```
-h1-cli iam organisation policy service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation policy service spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
- h1-cli iam organisation policy service list
-
-```
-h1-cli iam organisation policy service list
-
-  List iam/policy.service [iam_organisation_policy_service_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy service list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy service show
-
-```
-h1-cli iam organisation policy service show
-
-  Get iam/policy.service [iam_organisation_policy_service_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy service show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --service id-or-uri                               serviceId                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy tag
-
-```
-h1-cli iam organisation policy tag
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec     Print specification of context                             
-  create   Create iam/policy.tag [iam_organisation_policy_tag_create] 
-  list     List iam/policy.tag [iam_organisation_policy_tag_list]     
-  show     Get iam/policy.tag [iam_organisation_policy_tag_get]       
-  delete   Delete iam/policy.tag [iam_organisation_policy_tag_delete]
-```
-
- h1-cli iam organisation policy tag spec
-
-```
-h1-cli iam organisation policy tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
- h1-cli iam organisation policy tag create
-
-```
-h1-cli iam organisation policy tag create
-
-  Create iam/policy.tag [iam_organisation_policy_tag_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --name string                                     Tag name                                        
-  --value string                                    Tag value                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy tag list
-
-```
-h1-cli iam organisation policy tag list
-
-  List iam/policy.tag [iam_organisation_policy_tag_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy tag show
-
-```
-h1-cli iam organisation policy tag show
-
-  Get iam/policy.tag [iam_organisation_policy_tag_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --tag id-or-uri                                   tagId                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy tag delete
-
-```
-h1-cli iam organisation policy tag delete
-
-  Delete iam/policy.tag [iam_organisation_policy_tag_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --tag id-or-uri                                   tagId                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation policy event
-
-```
-h1-cli iam organisation policy event
-
-Synopsis
-
-  $ h1-cli iam organisation policy event <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                             
-  list   List iam/policy.event [iam_organisation_policy_event_list]
-```
-
- h1-cli iam organisation policy event spec
-
-```
-h1-cli iam organisation policy event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation policy event spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
- h1-cli iam organisation policy event list
-
-```
-h1-cli iam organisation policy event list
-
-  List iam/policy.event [iam_organisation_policy_event_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy event list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --$limit string                                   $limit                                          
-  --$skip string                                    $skip                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role
-
-```
-h1-cli iam organisation role
-
-Synopsis
-
-  $ h1-cli iam organisation role <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec         Print specification of context                 
-  create       Create iam/role [iam_organisation_role_create] 
-  list         List iam/role [iam_organisation_role_list]     
-  show         Get iam/role [iam_organisation_role_get]       
-  update       Update iam/role [iam_organisation_role_update] 
-  delete       Delete iam/role [iam_organisation_role_delete] 
-  permission   Manage permissions of the role                 
-  service      Manage services of the role                    
-  tag          Manage tags of the role                        
-  event        Manage events of the role
-```
-
- h1-cli iam organisation role spec
-
-```
-h1-cli iam organisation role spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation role spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
- h1-cli iam organisation role create
-
-```
-h1-cli iam organisation role create
-
-  Create iam/role [iam_organisation_role_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation role create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --x-idempotency-key string                                                                        
-  --name string                                     Role name                                       
-  --service uri                                     Role service. Provide URI of billing/service    
-  --description string                              Role description                                
-  --permission value=value                          Permission collection                           
-  --tag name=name,value=value                       Tag collection                                  
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role list
-
-```
-h1-cli iam organisation role list
-
-  List iam/role [iam_organisation_role_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation role list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --name string                                     Filter by name                                  
-  --tag string                                      Filter by tag                                   
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role show
-
-```
-h1-cli iam organisation role show
-
-  Get iam/role [iam_organisation_role_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation role show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role update
-
-```
-h1-cli iam organisation role update
-
-  Update iam/role [iam_organisation_role_update] 
-
-Synopsis
-
-  $ h1-cli iam organisation role update <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                                    
-  --role id-or-uri                                  role Id                                                            
-  --name string                                     Role name. Requires permissions iam/role.name/update               
-  --description string                              Role description. Requires permissions iam/role.description/update 
-  --help                                            Show help message and exit.                                        
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                   
-  --query string                                    JMESPath query string                                              
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role delete
-
-```
-h1-cli iam organisation role delete
-
-  Delete iam/role [iam_organisation_role_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation role delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role permission
-
-```
-h1-cli iam organisation role permission
-
-Synopsis
-
-  $ h1-cli iam organisation role permission <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec     Print specification of context                                       
-  create   Create iam/role.permission [iam_organisation_role_permission_create] 
-  list     List iam/role.permission [iam_organisation_role_permission_list]     
-  show     Get iam/role.permission [iam_organisation_role_permission_get]       
-  delete   Delete iam/role.permission [iam_organisation_role_permission_delete]
-```
-
- h1-cli iam organisation role permission spec
-
-```
-h1-cli iam organisation role permission spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation role permission spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
- h1-cli iam organisation role permission create
-
-```
-h1-cli iam organisation role permission create
-
-  Create iam/role.permission [iam_organisation_role_permission_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation role permission create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --value string                                    Permission value                                
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role permission list
-
-```
-h1-cli iam organisation role permission list
-
-  List iam/role.permission [iam_organisation_role_permission_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation role permission list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role permission show
-
-```
-h1-cli iam organisation role permission show
-
-  Get iam/role.permission [iam_organisation_role_permission_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation role permission show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --permission id-or-uri                            permissionId                                    
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role permission delete
-
-```
-h1-cli iam organisation role permission delete
-
-  Delete iam/role.permission [iam_organisation_role_permission_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation role permission delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --permission id-or-uri                            permissionId                                    
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role service
-
-```
-h1-cli iam organisation role service
-
-Synopsis
-
-  $ h1-cli iam organisation role service <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                             
-  list   List iam/role.service [iam_organisation_role_service_list] 
-  show   Get iam/role.service [iam_organisation_role_service_get]
-```
-
- h1-cli iam organisation role service spec
-
-```
-h1-cli iam organisation role service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation role service spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
- h1-cli iam organisation role service list
-
-```
-h1-cli iam organisation role service list
-
-  List iam/role.service [iam_organisation_role_service_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation role service list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role service show
-
-```
-h1-cli iam organisation role service show
-
-  Get iam/role.service [iam_organisation_role_service_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation role service show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --service id-or-uri                               serviceId                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role tag
-
-```
-h1-cli iam organisation role tag
-
-Synopsis
-
-  $ h1-cli iam organisation role tag <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec     Print specification of context                         
-  create   Create iam/role.tag [iam_organisation_role_tag_create] 
-  list     List iam/role.tag [iam_organisation_role_tag_list]     
-  show     Get iam/role.tag [iam_organisation_role_tag_get]       
-  delete   Delete iam/role.tag [iam_organisation_role_tag_delete]
-```
-
- h1-cli iam organisation role tag spec
-
-```
-h1-cli iam organisation role tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation role tag spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
- h1-cli iam organisation role tag create
-
-```
-h1-cli iam organisation role tag create
-
-  Create iam/role.tag [iam_organisation_role_tag_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation role tag create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --name string                                     Tag name                                        
-  --value string                                    Tag value                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role tag list
-
-```
-h1-cli iam organisation role tag list
-
-  List iam/role.tag [iam_organisation_role_tag_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation role tag list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role tag show
-
-```
-h1-cli iam organisation role tag show
-
-  Get iam/role.tag [iam_organisation_role_tag_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation role tag show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --tag id-or-uri                                   tagId                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role tag delete
-
-```
-h1-cli iam organisation role tag delete
-
-  Delete iam/role.tag [iam_organisation_role_tag_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation role tag delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --tag id-or-uri                                   tagId                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli iam organisation role event
-
-```
-h1-cli iam organisation role event
-
-Synopsis
-
-  $ h1-cli iam organisation role event <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                         
-  list   List iam/role.event [iam_organisation_role_event_list]
-```
-
- h1-cli iam organisation role event spec
-
-```
-h1-cli iam organisation role event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation role event spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
- h1-cli iam organisation role event list
-
-```
-h1-cli iam organisation role event list
-
-  List iam/role.event [iam_organisation_role_event_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation role event list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --$limit string                                   $limit                                          
-  --$skip string                                    $skip                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
  h1-cli provider
 
 ```
@@ -11746,8 +11745,7 @@ Options
 Command List
 
   spec       Print specification of context 
-  instance   Management of instance         
-  auth
+  instance   Management of instance
 ```
 
  h1-cli website spec
@@ -12785,22 +12783,6 @@ Options
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
- h1-cli website auth
-
-```
-h1-cli website auth
-
-Synopsis
-
-  $ h1-cli website auth <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
 ```
 
  h1-cli dns
@@ -21081,7 +21063,7 @@ Options
 
 Command List
 
-  settings
+  settings   Manage settings of CLI
 ```
 
 ### h1-cli config settings
@@ -21117,9 +21099,8 @@ Synopsis
 
 Options
 
-  --key string                                 
-  --value string                               
-  --help           Show help message and exit.
+  --key string                               
+  --help         Show help message and exit.
 ```
 
 #### h1-cli config settings dump
@@ -21174,13 +21155,13 @@ Options
 Command List
 
   spec           Print specification of context 
+  organisation   Management of organisation     
   user           Management of user             
   project        Management of project          
   organisation   Management of organisation     
   policy         Management of policy           
   role           Management of role             
-  sa             Management of sa               
-  organisation   Management of organisation
+  sa             Management of sa
 ```
 
 ### h1-cli iam spec
@@ -21197,6 +21178,1112 @@ Synopsis
 Options
 
   --help    Show help message and exit.
+```
+
+### h1-cli iam organisation
+
+```
+h1-cli iam organisation
+
+Synopsis
+
+  $ h1-cli iam organisation <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  policy   Management of policy 
+  role     Management of role
+```
+
+#### h1-cli iam organisation policy
+
+```
+h1-cli iam organisation policy
+
+Synopsis
+
+  $ h1-cli iam organisation policy <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec      Print specification of context                     
+  create    Create iam/policy [iam_organisation_policy_create] 
+  list      List iam/policy [iam_organisation_policy_list]     
+  show      Get iam/policy [iam_organisation_policy_get]       
+  update    Update iam/policy [iam_organisation_policy_update] 
+  delete    Delete iam/policy [iam_organisation_policy_delete] 
+  actor     Manage actors of the policy                        
+  service   Manage services of the policy                      
+  tag       Manage tags of the policy                          
+  event     Manage events of the policy
+```
+
+##### h1-cli iam organisation policy spec
+
+```
+h1-cli iam organisation policy spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation policy spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+##### h1-cli iam organisation policy create
+
+```
+h1-cli iam organisation policy create
+
+  Create iam/policy [iam_organisation_policy_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                                         
+  --x-idempotency-key string                                                                                                
+  --name string                                     Policy name                                                             
+  --service uri                                     Policy service. Provide URI of billing/service                          
+  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string                                 Policy resource                                                         
+  --tag name=name,value=value                       Tag collection                                                          
+  --help                                            Show help message and exit.                                             
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
+  --query string                                    JMESPath query string                                                   
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation policy list
+
+```
+h1-cli iam organisation policy list
+
+  List iam/policy [iam_organisation_policy_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --name string                                     Filter by name                                  
+  --tag string                                      Filter by tag                                   
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation policy show
+
+```
+h1-cli iam organisation policy show
+
+  Get iam/policy [iam_organisation_policy_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation policy update
+
+```
+h1-cli iam organisation policy update
+
+  Update iam/policy [iam_organisation_policy_update] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy update <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                          
+  --policy id-or-uri                                policy Id                                                
+  --name string                                     Policy name. Requires permissions iam/policy.name/update 
+  --help                                            Show help message and exit.                              
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                         
+  --query string                                    JMESPath query string                                    
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation policy delete
+
+```
+h1-cli iam organisation policy delete
+
+  Delete iam/policy [iam_organisation_policy_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation policy actor
+
+```
+h1-cli iam organisation policy actor
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                 
+  create   Create iam/policy.actor [iam_organisation_policy_actor_create] 
+  list     List iam/policy.actor [iam_organisation_policy_actor_list]     
+  show     Get iam/policy.actor [iam_organisation_policy_actor_get]       
+  delete   Delete iam/policy.actor [iam_organisation_policy_actor_delete]
+```
+
+###### h1-cli iam organisation policy actor spec
+
+```
+h1-cli iam organisation policy actor spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+###### h1-cli iam organisation policy actor create
+
+```
+h1-cli iam organisation policy actor create
+
+  Create iam/policy.actor [iam_organisation_policy_actor_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --value string                                    Actor value                                     
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation policy actor list
+
+```
+h1-cli iam organisation policy actor list
+
+  List iam/policy.actor [iam_organisation_policy_actor_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation policy actor show
+
+```
+h1-cli iam organisation policy actor show
+
+  Get iam/policy.actor [iam_organisation_policy_actor_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --actor id-or-uri                                 actorId                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation policy actor delete
+
+```
+h1-cli iam organisation policy actor delete
+
+  Delete iam/policy.actor [iam_organisation_policy_actor_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy actor delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --actor id-or-uri                                 actorId                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation policy service
+
+```
+h1-cli iam organisation policy service
+
+Synopsis
+
+  $ h1-cli iam organisation policy service <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec   Print specification of context                                 
+  list   List iam/policy.service [iam_organisation_policy_service_list] 
+  show   Get iam/policy.service [iam_organisation_policy_service_get]
+```
+
+###### h1-cli iam organisation policy service spec
+
+```
+h1-cli iam organisation policy service spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation policy service spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+###### h1-cli iam organisation policy service list
+
+```
+h1-cli iam organisation policy service list
+
+  List iam/policy.service [iam_organisation_policy_service_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy service list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation policy service show
+
+```
+h1-cli iam organisation policy service show
+
+  Get iam/policy.service [iam_organisation_policy_service_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy service show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --service id-or-uri                               serviceId                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation policy tag
+
+```
+h1-cli iam organisation policy tag
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                             
+  create   Create iam/policy.tag [iam_organisation_policy_tag_create] 
+  list     List iam/policy.tag [iam_organisation_policy_tag_list]     
+  show     Get iam/policy.tag [iam_organisation_policy_tag_get]       
+  delete   Delete iam/policy.tag [iam_organisation_policy_tag_delete]
+```
+
+###### h1-cli iam organisation policy tag spec
+
+```
+h1-cli iam organisation policy tag spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+###### h1-cli iam organisation policy tag create
+
+```
+h1-cli iam organisation policy tag create
+
+  Create iam/policy.tag [iam_organisation_policy_tag_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --name string                                     Tag name                                        
+  --value string                                    Tag value                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation policy tag list
+
+```
+h1-cli iam organisation policy tag list
+
+  List iam/policy.tag [iam_organisation_policy_tag_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation policy tag show
+
+```
+h1-cli iam organisation policy tag show
+
+  Get iam/policy.tag [iam_organisation_policy_tag_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --tag id-or-uri                                   tagId                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation policy tag delete
+
+```
+h1-cli iam organisation policy tag delete
+
+  Delete iam/policy.tag [iam_organisation_policy_tag_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy tag delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --tag id-or-uri                                   tagId                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation policy event
+
+```
+h1-cli iam organisation policy event
+
+Synopsis
+
+  $ h1-cli iam organisation policy event <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec   Print specification of context                             
+  list   List iam/policy.event [iam_organisation_policy_event_list]
+```
+
+###### h1-cli iam organisation policy event spec
+
+```
+h1-cli iam organisation policy event spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation policy event spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+###### h1-cli iam organisation policy event list
+
+```
+h1-cli iam organisation policy event list
+
+  List iam/policy.event [iam_organisation_policy_event_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation policy event list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --policy id-or-uri                                policy Id                                       
+  --$limit string                                   $limit                                          
+  --$skip string                                    $skip                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+#### h1-cli iam organisation role
+
+```
+h1-cli iam organisation role
+
+Synopsis
+
+  $ h1-cli iam organisation role <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec         Print specification of context                 
+  create       Create iam/role [iam_organisation_role_create] 
+  list         List iam/role [iam_organisation_role_list]     
+  show         Get iam/role [iam_organisation_role_get]       
+  update       Update iam/role [iam_organisation_role_update] 
+  delete       Delete iam/role [iam_organisation_role_delete] 
+  permission   Manage permissions of the role                 
+  service      Manage services of the role                    
+  tag          Manage tags of the role                        
+  event        Manage events of the role
+```
+
+##### h1-cli iam organisation role spec
+
+```
+h1-cli iam organisation role spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation role spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+##### h1-cli iam organisation role create
+
+```
+h1-cli iam organisation role create
+
+  Create iam/role [iam_organisation_role_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation role create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --x-idempotency-key string                                                                        
+  --name string                                     Role name                                       
+  --service uri                                     Role service. Provide URI of billing/service    
+  --description string                              Role description                                
+  --permission value=value                          Permission collection                           
+  --tag name=name,value=value                       Tag collection                                  
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation role list
+
+```
+h1-cli iam organisation role list
+
+  List iam/role [iam_organisation_role_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation role list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --name string                                     Filter by name                                  
+  --tag string                                      Filter by tag                                   
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation role show
+
+```
+h1-cli iam organisation role show
+
+  Get iam/role [iam_organisation_role_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation role show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation role update
+
+```
+h1-cli iam organisation role update
+
+  Update iam/role [iam_organisation_role_update] 
+
+Synopsis
+
+  $ h1-cli iam organisation role update <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                                    
+  --role id-or-uri                                  role Id                                                            
+  --name string                                     Role name. Requires permissions iam/role.name/update               
+  --description string                              Role description. Requires permissions iam/role.description/update 
+  --help                                            Show help message and exit.                                        
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                   
+  --query string                                    JMESPath query string                                              
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation role delete
+
+```
+h1-cli iam organisation role delete
+
+  Delete iam/role [iam_organisation_role_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation role delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation role permission
+
+```
+h1-cli iam organisation role permission
+
+Synopsis
+
+  $ h1-cli iam organisation role permission <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                       
+  create   Create iam/role.permission [iam_organisation_role_permission_create] 
+  list     List iam/role.permission [iam_organisation_role_permission_list]     
+  show     Get iam/role.permission [iam_organisation_role_permission_get]       
+  delete   Delete iam/role.permission [iam_organisation_role_permission_delete]
+```
+
+###### h1-cli iam organisation role permission spec
+
+```
+h1-cli iam organisation role permission spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation role permission spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+###### h1-cli iam organisation role permission create
+
+```
+h1-cli iam organisation role permission create
+
+  Create iam/role.permission [iam_organisation_role_permission_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation role permission create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --value string                                    Permission value                                
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation role permission list
+
+```
+h1-cli iam organisation role permission list
+
+  List iam/role.permission [iam_organisation_role_permission_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation role permission list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation role permission show
+
+```
+h1-cli iam organisation role permission show
+
+  Get iam/role.permission [iam_organisation_role_permission_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation role permission show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --permission id-or-uri                            permissionId                                    
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation role permission delete
+
+```
+h1-cli iam organisation role permission delete
+
+  Delete iam/role.permission [iam_organisation_role_permission_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation role permission delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --permission id-or-uri                            permissionId                                    
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation role service
+
+```
+h1-cli iam organisation role service
+
+Synopsis
+
+  $ h1-cli iam organisation role service <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec   Print specification of context                             
+  list   List iam/role.service [iam_organisation_role_service_list] 
+  show   Get iam/role.service [iam_organisation_role_service_get]
+```
+
+###### h1-cli iam organisation role service spec
+
+```
+h1-cli iam organisation role service spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation role service spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+###### h1-cli iam organisation role service list
+
+```
+h1-cli iam organisation role service list
+
+  List iam/role.service [iam_organisation_role_service_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation role service list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation role service show
+
+```
+h1-cli iam organisation role service show
+
+  Get iam/role.service [iam_organisation_role_service_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation role service show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --service id-or-uri                               serviceId                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation role tag
+
+```
+h1-cli iam organisation role tag
+
+Synopsis
+
+  $ h1-cli iam organisation role tag <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                         
+  create   Create iam/role.tag [iam_organisation_role_tag_create] 
+  list     List iam/role.tag [iam_organisation_role_tag_list]     
+  show     Get iam/role.tag [iam_organisation_role_tag_get]       
+  delete   Delete iam/role.tag [iam_organisation_role_tag_delete]
+```
+
+###### h1-cli iam organisation role tag spec
+
+```
+h1-cli iam organisation role tag spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation role tag spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+###### h1-cli iam organisation role tag create
+
+```
+h1-cli iam organisation role tag create
+
+  Create iam/role.tag [iam_organisation_role_tag_create] 
+
+Synopsis
+
+  $ h1-cli iam organisation role tag create <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --name string                                     Tag name                                        
+  --value string                                    Tag value                                       
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation role tag list
+
+```
+h1-cli iam organisation role tag list
+
+  List iam/role.tag [iam_organisation_role_tag_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation role tag list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation role tag show
+
+```
+h1-cli iam organisation role tag show
+
+  Get iam/role.tag [iam_organisation_role_tag_get] 
+
+Synopsis
+
+  $ h1-cli iam organisation role tag show <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --tag id-or-uri                                   tagId                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+###### h1-cli iam organisation role tag delete
+
+```
+h1-cli iam organisation role tag delete
+
+  Delete iam/role.tag [iam_organisation_role_tag_delete] 
+
+Synopsis
+
+  $ h1-cli iam organisation role tag delete <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --tag id-or-uri                                   tagId                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+##### h1-cli iam organisation role event
+
+```
+h1-cli iam organisation role event
+
+Synopsis
+
+  $ h1-cli iam organisation role event <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec   Print specification of context                         
+  list   List iam/role.event [iam_organisation_role_event_list]
+```
+
+###### h1-cli iam organisation role event spec
+
+```
+h1-cli iam organisation role event spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1-cli iam organisation role event spec <options> 
+
+Options
+
+  --help    Show help message and exit.
+```
+
+###### h1-cli iam organisation role event list
+
+```
+h1-cli iam organisation role event list
+
+  List iam/role.event [iam_organisation_role_event_list] 
+
+Synopsis
+
+  $ h1-cli iam organisation role event list <options> 
+
+Options
+
+  --organisation id-or-uri                          organisation Id                                 
+  --role id-or-uri                                  role Id                                         
+  --$limit string                                   $limit                                          
+  --$skip string                                    $skip                                           
+  --help                                            Show help message and exit.                     
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                                    JMESPath query string                           
+  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
 ### h1-cli iam user
@@ -27414,1112 +28501,6 @@ Options
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
-### h1-cli iam organisation
-
-```
-h1-cli iam organisation
-
-Synopsis
-
-  $ h1-cli iam organisation <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  policy   Management of policy 
-  role     Management of role
-```
-
-#### h1-cli iam organisation policy
-
-```
-h1-cli iam organisation policy
-
-Synopsis
-
-  $ h1-cli iam organisation policy <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec      Print specification of context                     
-  create    Create iam/policy [iam_organisation_policy_create] 
-  list      List iam/policy [iam_organisation_policy_list]     
-  show      Get iam/policy [iam_organisation_policy_get]       
-  update    Update iam/policy [iam_organisation_policy_update] 
-  delete    Delete iam/policy [iam_organisation_policy_delete] 
-  actor     Manage actors of the policy                        
-  service   Manage services of the policy                      
-  tag       Manage tags of the policy                          
-  event     Manage events of the policy
-```
-
-##### h1-cli iam organisation policy spec
-
-```
-h1-cli iam organisation policy spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation policy spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
-##### h1-cli iam organisation policy create
-
-```
-h1-cli iam organisation policy create
-
-  Create iam/policy [iam_organisation_policy_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                                         
-  --x-idempotency-key string                                                                                                
-  --name string                                     Policy name                                                             
-  --service uri                                     Policy service. Provide URI of billing/service                          
-  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
-  --resource string                                 Policy resource                                                         
-  --tag name=name,value=value                       Tag collection                                                          
-  --help                                            Show help message and exit.                                             
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
-  --query string                                    JMESPath query string                                                   
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation policy list
-
-```
-h1-cli iam organisation policy list
-
-  List iam/policy [iam_organisation_policy_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --name string                                     Filter by name                                  
-  --tag string                                      Filter by tag                                   
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation policy show
-
-```
-h1-cli iam organisation policy show
-
-  Get iam/policy [iam_organisation_policy_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation policy update
-
-```
-h1-cli iam organisation policy update
-
-  Update iam/policy [iam_organisation_policy_update] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy update <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                          
-  --policy id-or-uri                                policy Id                                                
-  --name string                                     Policy name. Requires permissions iam/policy.name/update 
-  --help                                            Show help message and exit.                              
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                         
-  --query string                                    JMESPath query string                                    
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation policy delete
-
-```
-h1-cli iam organisation policy delete
-
-  Delete iam/policy [iam_organisation_policy_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation policy actor
-
-```
-h1-cli iam organisation policy actor
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec     Print specification of context                                 
-  create   Create iam/policy.actor [iam_organisation_policy_actor_create] 
-  list     List iam/policy.actor [iam_organisation_policy_actor_list]     
-  show     Get iam/policy.actor [iam_organisation_policy_actor_get]       
-  delete   Delete iam/policy.actor [iam_organisation_policy_actor_delete]
-```
-
-###### h1-cli iam organisation policy actor spec
-
-```
-h1-cli iam organisation policy actor spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
-###### h1-cli iam organisation policy actor create
-
-```
-h1-cli iam organisation policy actor create
-
-  Create iam/policy.actor [iam_organisation_policy_actor_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --value string                                    Actor value                                     
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation policy actor list
-
-```
-h1-cli iam organisation policy actor list
-
-  List iam/policy.actor [iam_organisation_policy_actor_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation policy actor show
-
-```
-h1-cli iam organisation policy actor show
-
-  Get iam/policy.actor [iam_organisation_policy_actor_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --actor id-or-uri                                 actorId                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation policy actor delete
-
-```
-h1-cli iam organisation policy actor delete
-
-  Delete iam/policy.actor [iam_organisation_policy_actor_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy actor delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --actor id-or-uri                                 actorId                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation policy service
-
-```
-h1-cli iam organisation policy service
-
-Synopsis
-
-  $ h1-cli iam organisation policy service <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                                 
-  list   List iam/policy.service [iam_organisation_policy_service_list] 
-  show   Get iam/policy.service [iam_organisation_policy_service_get]
-```
-
-###### h1-cli iam organisation policy service spec
-
-```
-h1-cli iam organisation policy service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation policy service spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
-###### h1-cli iam organisation policy service list
-
-```
-h1-cli iam organisation policy service list
-
-  List iam/policy.service [iam_organisation_policy_service_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy service list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation policy service show
-
-```
-h1-cli iam organisation policy service show
-
-  Get iam/policy.service [iam_organisation_policy_service_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy service show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --service id-or-uri                               serviceId                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation policy tag
-
-```
-h1-cli iam organisation policy tag
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec     Print specification of context                             
-  create   Create iam/policy.tag [iam_organisation_policy_tag_create] 
-  list     List iam/policy.tag [iam_organisation_policy_tag_list]     
-  show     Get iam/policy.tag [iam_organisation_policy_tag_get]       
-  delete   Delete iam/policy.tag [iam_organisation_policy_tag_delete]
-```
-
-###### h1-cli iam organisation policy tag spec
-
-```
-h1-cli iam organisation policy tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
-###### h1-cli iam organisation policy tag create
-
-```
-h1-cli iam organisation policy tag create
-
-  Create iam/policy.tag [iam_organisation_policy_tag_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --name string                                     Tag name                                        
-  --value string                                    Tag value                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation policy tag list
-
-```
-h1-cli iam organisation policy tag list
-
-  List iam/policy.tag [iam_organisation_policy_tag_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation policy tag show
-
-```
-h1-cli iam organisation policy tag show
-
-  Get iam/policy.tag [iam_organisation_policy_tag_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --tag id-or-uri                                   tagId                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation policy tag delete
-
-```
-h1-cli iam organisation policy tag delete
-
-  Delete iam/policy.tag [iam_organisation_policy_tag_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy tag delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --tag id-or-uri                                   tagId                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation policy event
-
-```
-h1-cli iam organisation policy event
-
-Synopsis
-
-  $ h1-cli iam organisation policy event <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                             
-  list   List iam/policy.event [iam_organisation_policy_event_list]
-```
-
-###### h1-cli iam organisation policy event spec
-
-```
-h1-cli iam organisation policy event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation policy event spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
-###### h1-cli iam organisation policy event list
-
-```
-h1-cli iam organisation policy event list
-
-  List iam/policy.event [iam_organisation_policy_event_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation policy event list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --policy id-or-uri                                policy Id                                       
-  --$limit string                                   $limit                                          
-  --$skip string                                    $skip                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-#### h1-cli iam organisation role
-
-```
-h1-cli iam organisation role
-
-Synopsis
-
-  $ h1-cli iam organisation role <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec         Print specification of context                 
-  create       Create iam/role [iam_organisation_role_create] 
-  list         List iam/role [iam_organisation_role_list]     
-  show         Get iam/role [iam_organisation_role_get]       
-  update       Update iam/role [iam_organisation_role_update] 
-  delete       Delete iam/role [iam_organisation_role_delete] 
-  permission   Manage permissions of the role                 
-  service      Manage services of the role                    
-  tag          Manage tags of the role                        
-  event        Manage events of the role
-```
-
-##### h1-cli iam organisation role spec
-
-```
-h1-cli iam organisation role spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation role spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
-##### h1-cli iam organisation role create
-
-```
-h1-cli iam organisation role create
-
-  Create iam/role [iam_organisation_role_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation role create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --x-idempotency-key string                                                                        
-  --name string                                     Role name                                       
-  --service uri                                     Role service. Provide URI of billing/service    
-  --description string                              Role description                                
-  --permission value=value                          Permission collection                           
-  --tag name=name,value=value                       Tag collection                                  
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation role list
-
-```
-h1-cli iam organisation role list
-
-  List iam/role [iam_organisation_role_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation role list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --name string                                     Filter by name                                  
-  --tag string                                      Filter by tag                                   
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation role show
-
-```
-h1-cli iam organisation role show
-
-  Get iam/role [iam_organisation_role_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation role show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation role update
-
-```
-h1-cli iam organisation role update
-
-  Update iam/role [iam_organisation_role_update] 
-
-Synopsis
-
-  $ h1-cli iam organisation role update <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                                    
-  --role id-or-uri                                  role Id                                                            
-  --name string                                     Role name. Requires permissions iam/role.name/update               
-  --description string                              Role description. Requires permissions iam/role.description/update 
-  --help                                            Show help message and exit.                                        
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                   
-  --query string                                    JMESPath query string                                              
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation role delete
-
-```
-h1-cli iam organisation role delete
-
-  Delete iam/role [iam_organisation_role_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation role delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation role permission
-
-```
-h1-cli iam organisation role permission
-
-Synopsis
-
-  $ h1-cli iam organisation role permission <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec     Print specification of context                                       
-  create   Create iam/role.permission [iam_organisation_role_permission_create] 
-  list     List iam/role.permission [iam_organisation_role_permission_list]     
-  show     Get iam/role.permission [iam_organisation_role_permission_get]       
-  delete   Delete iam/role.permission [iam_organisation_role_permission_delete]
-```
-
-###### h1-cli iam organisation role permission spec
-
-```
-h1-cli iam organisation role permission spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation role permission spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
-###### h1-cli iam organisation role permission create
-
-```
-h1-cli iam organisation role permission create
-
-  Create iam/role.permission [iam_organisation_role_permission_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation role permission create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --value string                                    Permission value                                
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation role permission list
-
-```
-h1-cli iam organisation role permission list
-
-  List iam/role.permission [iam_organisation_role_permission_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation role permission list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation role permission show
-
-```
-h1-cli iam organisation role permission show
-
-  Get iam/role.permission [iam_organisation_role_permission_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation role permission show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --permission id-or-uri                            permissionId                                    
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation role permission delete
-
-```
-h1-cli iam organisation role permission delete
-
-  Delete iam/role.permission [iam_organisation_role_permission_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation role permission delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --permission id-or-uri                            permissionId                                    
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation role service
-
-```
-h1-cli iam organisation role service
-
-Synopsis
-
-  $ h1-cli iam organisation role service <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                             
-  list   List iam/role.service [iam_organisation_role_service_list] 
-  show   Get iam/role.service [iam_organisation_role_service_get]
-```
-
-###### h1-cli iam organisation role service spec
-
-```
-h1-cli iam organisation role service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation role service spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
-###### h1-cli iam organisation role service list
-
-```
-h1-cli iam organisation role service list
-
-  List iam/role.service [iam_organisation_role_service_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation role service list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation role service show
-
-```
-h1-cli iam organisation role service show
-
-  Get iam/role.service [iam_organisation_role_service_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation role service show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --service id-or-uri                               serviceId                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation role tag
-
-```
-h1-cli iam organisation role tag
-
-Synopsis
-
-  $ h1-cli iam organisation role tag <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec     Print specification of context                         
-  create   Create iam/role.tag [iam_organisation_role_tag_create] 
-  list     List iam/role.tag [iam_organisation_role_tag_list]     
-  show     Get iam/role.tag [iam_organisation_role_tag_get]       
-  delete   Delete iam/role.tag [iam_organisation_role_tag_delete]
-```
-
-###### h1-cli iam organisation role tag spec
-
-```
-h1-cli iam organisation role tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation role tag spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
-###### h1-cli iam organisation role tag create
-
-```
-h1-cli iam organisation role tag create
-
-  Create iam/role.tag [iam_organisation_role_tag_create] 
-
-Synopsis
-
-  $ h1-cli iam organisation role tag create <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --name string                                     Tag name                                        
-  --value string                                    Tag value                                       
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation role tag list
-
-```
-h1-cli iam organisation role tag list
-
-  List iam/role.tag [iam_organisation_role_tag_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation role tag list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation role tag show
-
-```
-h1-cli iam organisation role tag show
-
-  Get iam/role.tag [iam_organisation_role_tag_get] 
-
-Synopsis
-
-  $ h1-cli iam organisation role tag show <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --tag id-or-uri                                   tagId                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-###### h1-cli iam organisation role tag delete
-
-```
-h1-cli iam organisation role tag delete
-
-  Delete iam/role.tag [iam_organisation_role_tag_delete] 
-
-Synopsis
-
-  $ h1-cli iam organisation role tag delete <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --tag id-or-uri                                   tagId                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-##### h1-cli iam organisation role event
-
-```
-h1-cli iam organisation role event
-
-Synopsis
-
-  $ h1-cli iam organisation role event <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                         
-  list   List iam/role.event [iam_organisation_role_event_list]
-```
-
-###### h1-cli iam organisation role event spec
-
-```
-h1-cli iam organisation role event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1-cli iam organisation role event spec <options> 
-
-Options
-
-  --help    Show help message and exit.
-```
-
-###### h1-cli iam organisation role event list
-
-```
-h1-cli iam organisation role event list
-
-  List iam/role.event [iam_organisation_role_event_list] 
-
-Synopsis
-
-  $ h1-cli iam organisation role event list <options> 
-
-Options
-
-  --organisation id-or-uri                          organisation Id                                 
-  --role id-or-uri                                  role Id                                         
-  --$limit string                                   $limit                                          
-  --$skip string                                    $skip                                           
-  --help                                            Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                                    JMESPath query string                           
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
 ## h1-cli provider
 
 ```
@@ -32784,8 +32765,7 @@ Options
 Command List
 
   spec       Print specification of context 
-  instance   Management of instance         
-  auth
+  instance   Management of instance
 ```
 
 ### h1-cli website spec
@@ -33823,22 +33803,6 @@ Options
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
-```
-
-### h1-cli website auth
-
-```
-h1-cli website auth
-
-Synopsis
-
-  $ h1-cli website auth <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
 ```
 
 ## h1-cli dns

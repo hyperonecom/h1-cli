@@ -9,6 +9,7 @@ module.exports = {
             name: 'settings',
             summary: 'Manage settings of CLI',
         });
+
         cmd.addCommand(new Command({
             name: 'get',
             summary: 'Get setting value',
