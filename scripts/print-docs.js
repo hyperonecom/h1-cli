@@ -13,7 +13,7 @@ const documentCommand = async (out, cmd, level) => {
     if (!cmd.commands) {
         return;
     }
-    for (const child of await cmd.getCommands()) {
+    for (const child of await cmd.commands) {
         await documentCommand(out, child, level + 1);
     }
 };
