@@ -20,6 +20,9 @@ const main = async () => {
                 for (const [pname, pvalue] of Object.entries(schema.properties)) {
                     console.log(`| ${endpoint} | ${method} | body/${pname} | description | ${normalize(pvalue.description)} | `);
                 }
+                for (const [pname, pvalue] of Object.entries(schema.properties)) {
+                    console.log(`| ${endpoint} | ${method} | body/${pname} | title | ${normalize(pvalue.title)} | `);
+                }
             }
             for (const parameter of operation.parameters || []) {
                 console.log(`| ${endpoint} | ${method} | ${parameter.in}/${parameter.name} | description | ${normalize(parameter.description)} | `);

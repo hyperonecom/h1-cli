@@ -50,20 +50,20 @@ const outputFormat = {
 
 module.exports = {
     name: 'format',
-    parameters: {
-        output: {
-            description: 'Specify output format of command',
-            type: 'string',
-            defaultValue: 'table',
-            choices: Object.keys(outputFormat),
-        },
-        query: {
-            description: ' JMESPath query string',
-            type: 'string',
-        },
-    },
-    afterHandler: async (ctx, output) => {
-        const format = ctx.input.output || 'table';
+    // parameters: [
+    //     output: {
+    //         description: 'Specify output format of command',
+    //         type: 'string',
+    //         defaultValue: 'table',
+    //         choices: Object.keys(outputFormat),
+    //     },
+    //     query: {
+    //         description: ' JMESPath query string',
+    //         type: 'string',
+    //     },
+    // ],
+    beforeCommandStart: async (opts) => {
+        const format = opts.output ;
         const query = '[].{id:id}';
 
         console.log(outputFormat[format](query, output));
