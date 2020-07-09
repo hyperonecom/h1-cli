@@ -10,12 +10,12 @@ const queryFilter = (query, result) => {
 };
 
 const outputFormat = {
-    table: (query, result) => {
-        result = queryFilter(query, result);
+    table: (result, query, defaultQuery) => {
+        result = queryFilter(query || defaultQuery, result);
         return tabula.format(result);
     },
-    tsv: (query, result) => {
-        result = queryFilter(query, result);
+    tsv: (result, query, defaultQuery) => {
+        result = queryFilter(query || defaultQuery, result);
         return result.map(item =>
             Object.values(item).map(value => {
                 if (typeof value === 'number' || typeof value === 'boolean') {
@@ -29,8 +29,8 @@ const outputFormat = {
             }).join('\t')
         ).join('\n');
     },
-    list: (query, result) => {
-        result = queryFilter(query, result);
+    list: (result, query) => {
+        result = queryFilter(query || defaultQuery, result);
         const maxKeyLength = result[0] ? Math.max(...Object.keys(result[0]).map(i => i.length)) : 0;
         return result
             .map(item => Object
@@ -41,31 +41,32 @@ const outputFormat = {
             ).join('\n')
         ;
     },
-    json: (query, result) => JSON.stringify(result, null, 4),
-    js: (query, result) => query ? queryFilter(query, result) : result,
-    id: (query, result) => queryFilter(query, result).map(x => x.id).join('\n'),
-    uri: (query, result) => queryFilter(query, result).map(x => x.uri).join('\n'),
-    yaml: (query, result) => yaml.safeDump(query ? queryFilter(query, result) : result),
+    json: (result) => JSON.stringify(result, null, 4),
+    js: (result, query) => query ? queryFilter(query, result) : result,
+    id: (result, query) => queryFilter(query, result).map(x => x.id).join('\n'),
+    uri: (result, query) => queryFilter(query, result).map(x => x.uri).join('\n'),
+    yaml: (result, query) => yaml.safeDump(query ? queryFilter(query, result) : result),
 };
 
 module.exports = {
     name: 'format',
-    // parameters: [
-    //     output: {
-    //         description: 'Specify output format of command',
-    //         type: 'string',
-    //         defaultValue: 'table',
-    //         choices: Object.keys(outputFormat),
-    //     },
-    //     query: {
-    //         description: ' JMESPath query string',
-    //         type: 'string',
-    //     },
-    // ],
+    options: [
+        {
+            name: 'output',
+            alias: 'o',
+            description: 'Specify output format of command',
+            type: String,
+            typeLabel: `${Object.keys(outputFormat).join(',')}`,
+            defaultValue: 'table',
+        },
+        {
+            name: 'query',
+            description: 'JMESPath query string',
+            type: String,
+        },
+    ],
     beforeCommandStart: async (opts) => {
-        const format = opts.output ;
-        const query = '[].{id:id}';
-
-        console.log(outputFormat[format](query, output));
+        const formatter = outputFormat[opts._all.output];
+        opts.format = (opts, output) => formatter(output, opts._all.query, opts.defaultQuery);
     },
 };
