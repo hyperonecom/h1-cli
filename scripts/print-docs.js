@@ -3,17 +3,18 @@ const { buildCli } = require('../index');
 const fs = require('fs');
 const { Command } = require('./../lib/cli/entity');
 
-const documentCommand = (out, cmd, level) => {
+const documentCommand = async (out, cmd, level) => {
     const headerPrefix = '#'.repeat(level);
     out.write(`${headerPrefix} ${cmd.getFullName()}\n`);
     out.write('\n```\n');
-    out.write(cmd.getUsage().trim());
+    const help = await cmd.getUsage();
+    out.write(help.trim());
     out.write('\n```\n\n');
     if (!cmd.commands) {
         return;
     }
-    for (const child of cmd.commands) {
-        documentCommand(out, child, level + 1);
+    for (const child of await cmd.getCommands()) {
+        await documentCommand(out, child, level + 1);
     }
 };
 
@@ -29,9 +30,9 @@ const main = async () => new Command({
             openapiUrl: opts.url,
         });
         const out = opts['output-file'] == '-' ? process.stdout : fs.createWriteStream(opts['output-file'], { encoding: 'utf-8' });
-        documentCommand(out, cli);
+        await documentCommand(out, cli);
         for (const cmd of cli.commands) {
-            documentCommand(out, cmd, 2);
+            await documentCommand(out, cmd, 2);
         }
     },
 }).exec(process.argv.slice(2));

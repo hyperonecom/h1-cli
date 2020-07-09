@@ -13,18 +13,111 @@ Options
 
 Command List
 
-  iam          Management of iam        
-  provider     Management of provider   
-  container    Management of container  
-  database     Management of database   
-  insight      Management of insight    
-  website      Management of website    
-  dns          Management of dns        
-  storage      Management of storage    
-  networking   Management of networking 
-  compute      Management of compute    
-  billing      Management of billing    
+  config       Management of CLI configuration 
+  iam          Management of iam               
+  provider     Management of provider          
+  container    Management of container         
+  database     Management of database          
+  insight      Management of insight           
+  website      Management of website           
+  dns          Management of dns               
+  storage      Management of storage           
+  networking   Management of networking        
+  compute      Management of compute           
+  billing      Management of billing           
   vmhost       Management of vmhost
+```
+
+ h1-cli config
+
+```
+h1-cli config
+
+Synopsis
+
+  $ h1-cli config <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  settings
+```
+
+ h1-cli config settings
+
+```
+h1-cli config settings
+
+Synopsis
+
+  $ h1-cli config settings <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  get    Get setting value        
+  dump   Dump all settings values 
+  set    Set setting value
+```
+
+ h1-cli config settings get
+
+```
+h1-cli config settings get
+
+  Get setting value 
+
+Synopsis
+
+  $ h1-cli config settings get <options> 
+
+Options
+
+  --key string                                 
+  --value string                               
+  --help           Show help message and exit.
+```
+
+ h1-cli config settings dump
+
+```
+h1-cli config settings dump
+
+  Dump all settings values 
+
+Synopsis
+
+  $ h1-cli config settings dump <options> 
+
+Options
+
+  --key string                                 
+  --value string                               
+  --help           Show help message and exit.
+```
+
+ h1-cli config settings set
+
+```
+h1-cli config settings set
+
+  Set setting value 
+
+Synopsis
+
+  $ h1-cli config settings set <options> 
+
+Options
+
+  --key string                                 
+  --value string                               
+  --help           Show help message and exit.
 ```
 
  h1-cli iam
@@ -437,13 +530,12 @@ Synopsis
 
 Options
 
-  --user id-or-uri                                  user Id                                                          
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    iam/user.credential.name/update                                  
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --user id-or-uri                                  user Id                                                               
+  --credential id-or-uri                            credentialId                                                          
+  --name string                                     Credential name. Requires permissions iam/user.credential.name/update 
+  --help                                            Show help message and exit.                                           
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                      
+  --query string                                    JMESPath query string                                                 
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -609,14 +701,14 @@ Synopsis
 
 Options
 
-  --x-idempotency-key string                                                                                         
-  --name string                                     Project name                                                     
-  --organisation uri                                Project organisation. Provide URI of iam/organisation. Requires  
-                                                    permissions iam/project/create                                   
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Project name                                                                  
+  --organisation uri                                Project organisation. Provide URI of iam/organisation. Requires permissions   
+                                                    iam/project/create                                                            
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -1167,7 +1259,6 @@ Synopsis
 Options
 
   --project id-or-uri                               project Id                                      
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -1351,18 +1442,16 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --x-idempotency-key string                                                                                         
-  --name string                                     Policy name                                                      
-  --service uri                                     Policy service. Provide URI of billing/service                   
-  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions       
-                                                    iam/role/use                                                     
-  --resource string                                 Policy resource                                                  
-  --actor value=value                               Policy actor                                                     
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                              
+  --x-idempotency-key string                                                                                                
+  --name string                                     Policy name                                                             
+  --service uri                                     Policy service. Provide URI of billing/service                          
+  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string                                 Policy resource                                                         
+  --tag name=name,value=value                       Tag collection                                                          
+  --help                                            Show help message and exit.                                             
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
+  --query string                                    JMESPath query string                                                   
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -1709,7 +1798,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --policy id-or-uri                                policy Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -1902,8 +1990,8 @@ Options
   --name string                                     Role name                                       
   --service uri                                     Role service. Provide URI of billing/service    
   --description string                              Role description                                
-  --permission value=value                          Role permission                                 
-  --tag name=name,value=value                                                                       
+  --permission value=value                          Permission collection                           
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -2254,7 +2342,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --role id-or-uri                                  role Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -2446,7 +2533,7 @@ Options
   --x-idempotency-key string                                                                        
   --name string                                     Sa name                                         
   --service uri                                     Sa service. Provide URI of billing/service      
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -2659,14 +2746,13 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --sa id-or-uri                                    sa Id                                                            
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    iam/sa.credential.name/update                                    
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                          
+  --sa id-or-uri                                    sa Id                                                               
+  --credential id-or-uri                            credentialId                                                        
+  --name string                                     Credential name. Requires permissions iam/sa.credential.name/update 
+  --help                                            Show help message and exit.                                         
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                    
+  --query string                                    JMESPath query string                                               
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -2824,7 +2910,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --sa id-or-uri                                    sa Id                                           
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -3082,14 +3167,12 @@ Synopsis
 
 Options
 
-  --organisation id-or-uri                          organisation Id                                                  
-  --name string                                     Organisation name. Requires permissions                          
-                                                    iam/organisation.name/update                                     
-  --billing string                                  Organisation billing. Requires permissions                       
-                                                    iam/organisation.billing/update                                  
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --organisation id-or-uri                          organisation Id                                                            
+  --name string                                     Organisation name. Requires permissions iam/organisation.name/update       
+  --billing string                                  Organisation billing. Requires permissions iam/organisation.billing/update 
+  --help                                            Show help message and exit.                                                
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                           
+  --query string                                    JMESPath query string                                                      
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -3422,13 +3505,13 @@ Synopsis
 
 Options
 
-  --organisation id-or-uri                          organisation Id                                                  
-  --amount string                                   Proforma amount                                                  
-  --project uri                                     Proforma project. Provide URI of iam/project. Requires           
-                                                    permissions iam/project/get                                      
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --organisation id-or-uri                          organisation Id                                                               
+  --amount string                                   Proforma amount                                                               
+  --project uri                                     Proforma project. Provide URI of iam/project. Requires permissions            
+                                                    iam/project/get                                                               
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -3607,18 +3690,16 @@ Synopsis
 
 Options
 
-  --organisation id-or-uri                          organisation Id                                                  
-  --x-idempotency-key string                                                                                         
-  --name string                                     Policy name                                                      
-  --service uri                                     Policy service. Provide URI of billing/service                   
-  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions       
-                                                    iam/role/use                                                     
-  --resource string                                 Policy resource                                                  
-  --actor value=value                               Policy actor                                                     
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --organisation id-or-uri                          organisation Id                                                         
+  --x-idempotency-key string                                                                                                
+  --name string                                     Policy name                                                             
+  --service uri                                     Policy service. Provide URI of billing/service                          
+  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string                                 Policy resource                                                         
+  --tag name=name,value=value                       Tag collection                                                          
+  --help                                            Show help message and exit.                                             
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
+  --query string                                    JMESPath query string                                                   
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -3965,7 +4046,6 @@ Options
 
   --organisation id-or-uri                          organisation Id                                 
   --policy id-or-uri                                policy Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -4158,8 +4238,8 @@ Options
   --name string                                     Role name                                       
   --service uri                                     Role service. Provide URI of billing/service    
   --description string                              Role description                                
-  --permission value=value                          Role permission                                 
-  --tag name=name,value=value                                                                       
+  --permission value=value                          Permission collection                           
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -4510,7 +4590,6 @@ Options
 
   --organisation id-or-uri                          organisation Id                                 
   --role id-or-uri                                  role Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -4698,18 +4777,16 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --x-idempotency-key string                                                                                         
-  --name string                                     Policy name                                                      
-  --service uri                                     Policy service. Provide URI of billing/service                   
-  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions       
-                                                    iam/role/use                                                     
-  --resource string                                 Policy resource                                                  
-  --actor value=value                               Policy actor                                                     
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                              
+  --x-idempotency-key string                                                                                                
+  --name string                                     Policy name                                                             
+  --service uri                                     Policy service. Provide URI of billing/service                          
+  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string                                 Policy resource                                                         
+  --tag name=name,value=value                       Tag collection                                                          
+  --help                                            Show help message and exit.                                             
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
+  --query string                                    JMESPath query string                                                   
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -5056,7 +5133,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --policy id-or-uri                                policy Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -5249,8 +5325,8 @@ Options
   --name string                                     Role name                                       
   --service uri                                     Role service. Provide URI of billing/service    
   --description string                              Role description                                
-  --permission value=value                          Role permission                                 
-  --tag name=name,value=value                                                                       
+  --permission value=value                          Permission collection                           
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -5601,7 +5677,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --role id-or-uri                                  role Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -5793,7 +5868,7 @@ Options
   --x-idempotency-key string                                                                        
   --name string                                     Sa name                                         
   --service uri                                     Sa service. Provide URI of billing/service      
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -6006,14 +6081,13 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --sa id-or-uri                                    sa Id                                                            
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    iam/sa.credential.name/update                                    
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                          
+  --sa id-or-uri                                    sa Id                                                               
+  --credential id-or-uri                            credentialId                                                        
+  --name string                                     Credential name. Requires permissions iam/sa.credential.name/update 
+  --help                                            Show help message and exit.                                         
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                    
+  --query string                                    JMESPath query string                                               
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -6171,7 +6245,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --sa id-or-uri                                    sa Id                                           
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -6378,18 +6451,16 @@ Synopsis
 
 Options
 
-  --organisation id-or-uri                          organisation Id                                                  
-  --x-idempotency-key string                                                                                         
-  --name string                                     Policy name                                                      
-  --service uri                                     Policy service. Provide URI of billing/service                   
-  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions       
-                                                    iam/role/use                                                     
-  --resource string                                 Policy resource                                                  
-  --actor value=value                               Policy actor                                                     
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --organisation id-or-uri                          organisation Id                                                         
+  --x-idempotency-key string                                                                                                
+  --name string                                     Policy name                                                             
+  --service uri                                     Policy service. Provide URI of billing/service                          
+  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string                                 Policy resource                                                         
+  --tag name=name,value=value                       Tag collection                                                          
+  --help                                            Show help message and exit.                                             
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
+  --query string                                    JMESPath query string                                                   
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -6736,7 +6807,6 @@ Options
 
   --organisation id-or-uri                          organisation Id                                 
   --policy id-or-uri                                policy Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -6929,8 +6999,8 @@ Options
   --name string                                     Role name                                       
   --service uri                                     Role service. Provide URI of billing/service    
   --description string                              Role description                                
-  --permission value=value                          Role permission                                 
-  --tag name=name,value=value                                                                       
+  --permission value=value                          Permission collection                           
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -7281,7 +7351,6 @@ Options
 
   --organisation id-or-uri                          organisation Id                                 
   --role id-or-uri                                  role Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -7514,7 +7583,7 @@ Options
   --x-idempotency-key string                                                                        
   --name string                                     Agent name                                      
   --service uri                                     Agent service. Provide URI of billing/service   
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -7670,15 +7739,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --agent id-or-uri                                 agent Id                                                         
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Agent project. Provide URI of iam/project. Requires permissions  
-                                                    provider/agent/create                                            
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --agent id-or-uri                                 agent Id                                                                      
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Agent project. Provide URI of iam/project. Requires permissions               
+                                                    provider/agent/create                                                         
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -8064,15 +8133,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --agent id-or-uri                                 agent Id                                                         
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    provider/agent.credential.name/update                            
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                  
+  --location id-or-uri                              location Id                                                                 
+  --agent id-or-uri                                 agent Id                                                                    
+  --credential id-or-uri                            credentialId                                                                
+  --name string                                     Credential name. Requires permissions provider/agent.credential.name/update 
+  --help                                            Show help message and exit.                                                 
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                            
+  --query string                                    JMESPath query string                                                       
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -8234,7 +8302,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --agent id-or-uri                                 agent Id                                        
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -8473,10 +8540,10 @@ Options
   --service uri                                                    Instance service. Provide URI of billing/service 
   --image string                                                   Instance image                                   
   --registry string                                                Instance registry                                
-  --expose internal=internal,external=external,protocol=protocol   Instance expose                                  
-  --env string[]                                                   Instance env                                     
-  --volumes source=source,sourcePath=sourcePath,target=target      Instance volumes                                 
-  --tag name=name,value=value                                                                                       
+  --expose internal=internal,external=external,protocol=protocol   Expose collection                                
+  --env string[]                                                   Env collection                                   
+  --volumes source=source,sourcePath=sourcePath,target=target      Volumes collection                               
+  --tag name=name,value=value                                      Tag collection                                   
   --help                                                           Show help message and exit.                      
   -o, --output table,tsv,list,json,js,id,uri,yaml                  Specify output format of command                 
   --query string                                                   JMESPath query string                            
@@ -8834,7 +8901,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --instance id-or-uri                              instance Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -9035,7 +9101,7 @@ Options
   --x-idempotency-key string                                                                         
   --name string                                     Registry name                                    
   --service uri                                     Registry service. Provide URI of billing/service 
-  --tag name=name,value=value                                                                        
+  --tag name=name,value=value                       Tag collection                                   
   --help                                            Show help message and exit.                      
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                 
   --query string                                    JMESPath query string                            
@@ -9100,16 +9166,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --registry id-or-uri                              registry Id                                                      
-  --name string                                     Registry name. Requires permissions                              
-                                                    container/registry.name/update                                   
-  --domain string[]                                 Registry domain. Requires permissions                            
-                                                    container/registry.domain/update                                 
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                               
+  --location id-or-uri                              location Id                                                              
+  --registry id-or-uri                              registry Id                                                              
+  --name string                                     Registry name. Requires permissions container/registry.name/update       
+  --domain string[]                                 Domain collection. Requires permissions container/registry.domain/update 
+  --help                                            Show help message and exit.                                              
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                         
+  --query string                                    JMESPath query string                                                    
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -9194,15 +9258,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --registry id-or-uri                              registry Id                                                      
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Registry project. Provide URI of iam/project. Requires           
-                                                    permissions container/registry/create                            
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --registry id-or-uri                              registry Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Registry project. Provide URI of iam/project. Requires permissions            
+                                                    container/registry/create                                                     
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -9523,15 +9587,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --registry id-or-uri                              registry Id                                                      
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    container/registry.credential.name/update                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --registry id-or-uri                              registry Id                                                                   
+  --credential id-or-uri                            credentialId                                                                  
+  --name string                                     Credential name. Requires permissions                                         
+                                                    container/registry.credential.name/update                                     
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -9694,7 +9758,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --registry id-or-uri                              registry Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -9891,7 +9954,7 @@ Options
   --name string                                     Volume name                                     
   --service uri                                     Volume service. Provide URI of billing/service  
   --size string                                     Volume size                                     
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -10123,7 +10186,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --volume id-or-uri                                volume Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -10358,7 +10420,7 @@ Options
   --x-idempotency-key string                                                                         
   --name string                                     Instance name                                    
   --service uri                                     Instance service. Provide URI of billing/service 
-  --tag name=name,value=value                                                                        
+  --tag name=name,value=value                       Tag collection                                   
   --help                                            Show help message and exit.                      
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                 
   --query string                                    JMESPath query string                            
@@ -10514,15 +10576,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Instance project. Provide URI of iam/project. Requires           
-                                                    permissions database/database/create                             
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --instance id-or-uri                              instance Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Instance project. Provide URI of iam/project. Requires permissions            
+                                                    database/database/create                                                      
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -10651,15 +10713,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    database/instance.credential.name/update                         
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --instance id-or-uri                              instance Id                                                                   
+  --credential id-or-uri                            credentialId                                                                  
+  --name string                                     Credential name. Requires permissions                                         
+                                                    database/instance.credential.name/update                                      
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -10822,7 +10884,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --instance id-or-uri                              instance Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -11057,7 +11118,7 @@ Options
   --name string                                     Journal name                                    
   --service uri                                     Journal service. Provide URI of billing/service 
   --retention string                                Journal retention                               
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -11122,15 +11183,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --journal id-or-uri                               journal Id                                                       
-  --name string                                     Journal name. Requires permissions insight/journal.name/update   
-  --retention string                                Journal retention. Requires permissions                          
-                                                    insight/journal.retention/update                                 
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                               
+  --location id-or-uri                              location Id                                                              
+  --journal id-or-uri                               journal Id                                                               
+  --name string                                     Journal name. Requires permissions insight/journal.name/update           
+  --retention string                                Journal retention. Requires permissions insight/journal.retention/update 
+  --help                                            Show help message and exit.                                              
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                         
+  --query string                                    JMESPath query string                                                    
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -11169,15 +11229,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --journal id-or-uri                               journal Id                                                       
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Journal project. Provide URI of iam/project. Requires            
-                                                    permissions insight/journal/create                               
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --journal id-or-uri                               journal Id                                                                    
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Journal project. Provide URI of iam/project. Requires permissions             
+                                                    insight/journal/create                                                        
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -11366,15 +11426,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --journal id-or-uri                               journal Id                                                       
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    insight/journal.credential.name/update                           
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                   
+  --location id-or-uri                              location Id                                                                  
+  --journal id-or-uri                               journal Id                                                                   
+  --credential id-or-uri                            credentialId                                                                 
+  --name string                                     Credential name. Requires permissions insight/journal.credential.name/update 
+  --help                                            Show help message and exit.                                                  
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                             
+  --query string                                    JMESPath query string                                                        
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -11536,7 +11595,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --journal id-or-uri                               journal Id                                      
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -11688,7 +11746,8 @@ Options
 Command List
 
   spec       Print specification of context 
-  instance   Management of instance
+  instance   Management of instance         
+  auth
 ```
 
  h1-cli website spec
@@ -11771,19 +11830,19 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --name string                                     Instance name                                                    
-  --service uri                                     Instance service. Provide URI of billing/service                 
-  --image string                                    Instance image                                                   
-  --source uri                                      Instance source. Provide URI of website/instance.snapshot.       
-                                                    Requires permissions website/instance.snapshot/use               
-  --env name=name,value=value                       Instance env                                                     
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Instance name                                                                 
+  --service uri                                     Instance service. Provide URI of billing/service                              
+  --image string                                    Instance image                                                                
+  --source uri                                      Instance source. Provide URI of website/instance.snapshot. Requires           
+                                                    permissions website/instance.snapshot/use                                     
+  --env name=name,value=value                       Env collection                                                                
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -11845,17 +11904,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --name string                                     Instance name. Requires permissions website/instance.name/update 
-  --domain string[]                                 Instance domain. Requires permissions                            
-                                                    website/instance.domain/update                                   
-  --image string                                    Instance image. Requires permissions                             
-                                                    website/instance.image/update                                    
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                             
+  --location id-or-uri                              location Id                                                            
+  --instance id-or-uri                              instance Id                                                            
+  --name string                                     Instance name. Requires permissions website/instance.name/update       
+  --domain string[]                                 Domain collection. Requires permissions website/instance.domain/update 
+  --image string                                    Instance image. Requires permissions website/instance.image/update     
+  --help                                            Show help message and exit.                                            
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                       
+  --query string                                    JMESPath query string                                                  
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -11963,15 +12020,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Instance project. Provide URI of iam/project. Requires           
-                                                    permissions website/website/create                               
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --instance id-or-uri                              instance Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Instance project. Provide URI of iam/project. Requires permissions            
+                                                    website/website/create                                                        
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -12187,17 +12244,16 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --actor uri                                       Link actor. Provide URI of iam/sa. Requires permissions          
-                                                    iam/sa/use                                                       
-  --purpose string                                  Link purpose                                                     
-  --resource uri                                    Link resource. Provide URI of insight/journal. Requires          
-                                                    permissions insight/journal/use                                  
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --instance id-or-uri                              instance Id                                                                   
+  --actor uri                                       Link actor. Provide URI of iam/sa. Requires permissions iam/sa/use            
+  --purpose string                                  Link purpose                                                                  
+  --resource uri                                    Link resource. Provide URI of insight/journal. Requires permissions           
+                                                    insight/journal/use                                                           
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -12427,15 +12483,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    website/instance.credential.name/update                          
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --instance id-or-uri                              instance Id                                                                   
+  --credential id-or-uri                            credentialId                                                                  
+  --name string                                     Credential name. Requires permissions website/instance.credential.name/update 
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -12597,7 +12652,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --instance id-or-uri                              instance Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -12733,6 +12787,22 @@ Options
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
+ h1-cli website auth
+
+```
+h1-cli website auth
+
+Synopsis
+
+  $ h1-cli website auth <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+```
+
  h1-cli dns
 
 ```
@@ -12831,7 +12901,7 @@ Options
   --service uri                                     Zone service. Provide URI of billing/service    
   --dns-name string                                 Zone dnsName                                    
   --source string                                   Zone source                                     
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -12987,7 +13057,7 @@ Options
   --name string                                     Recordset name                                  
   --type string                                     Recordset type                                  
   --ttl string                                      Recordset ttl                                   
-  --record name=name,value=value                                                                    
+  --record content=content,enabled=enabled          Record collection                               
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -13141,9 +13211,8 @@ Options
   --location id-or-uri                              location Id                                     
   --zone id-or-uri                                  zone Id                                         
   --recordset id-or-uri                             recordsetId                                     
-  --id string                                       Record id                                       
-  --name string                                     Record name                                     
-  --value string                                    Record value                                    
+  --content string                                  Record content                                  
+  --enabled string                                  Record enabled                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -13356,7 +13425,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --zone id-or-uri                                  zone Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -13589,18 +13657,18 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --name string                                     Disk name                                                        
-  --service uri                                     Disk service. Provide URI of billing/service                     
-  --size string                                     Disk size                                                        
-  --source uri                                      Disk source. Provide URI of storage/disk. Requires permissions   
-                                                    storage/disk/use                                                 
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Disk name                                                                     
+  --service uri                                     Disk service. Provide URI of billing/service                                  
+  --size string                                     Disk size                                                                     
+  --source uri                                      Disk source. Provide URI of storage/disk. Requires permissions                
+                                                    storage/disk/use                                                              
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -13731,15 +13799,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --disk id-or-uri                                  disk Id                                                          
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Disk project. Provide URI of iam/project. Requires permissions   
-                                                    storage/disk/create                                              
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --disk id-or-uri                                  disk Id                                                                       
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Disk project. Provide URI of iam/project. Requires permissions                
+                                                    storage/disk/create                                                           
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -13935,7 +14003,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --disk id-or-uri                                  disk Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -14127,20 +14194,19 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --name string                                     Image name                                                       
-  --service uri                                     Image service. Provide URI of billing/service                    
-  --vm uri                                          Image vm. Provide URI of compute/vm. Requires permissions        
-                                                    compute/vm/use                                                   
-  --replica uri                                     Image replica. Provide URI of compute/replica. Requires          
-                                                    permissions compute/replica/use                                  
-  --description string                              Image description                                                
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Image name                                                                    
+  --service uri                                     Image service. Provide URI of billing/service                                 
+  --vm uri                                          Image vm. Provide URI of compute/vm. Requires permissions compute/vm/use      
+  --replica uri                                     Image replica. Provide URI of compute/replica. Requires permissions           
+                                                    compute/replica/use                                                           
+  --description string                              Image description                                                             
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -14202,15 +14268,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --image id-or-uri                                 image Id                                                         
-  --name string                                     Image name. Requires permissions storage/image.name/update       
-  --description string                              Image description. Requires permissions                          
-                                                    storage/image.description/update                                 
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                               
+  --location id-or-uri                              location Id                                                              
+  --image id-or-uri                                 image Id                                                                 
+  --name string                                     Image name. Requires permissions storage/image.name/update               
+  --description string                              Image description. Requires permissions storage/image.description/update 
+  --help                                            Show help message and exit.                                              
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                         
+  --query string                                    JMESPath query string                                                    
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -14249,15 +14314,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --image id-or-uri                                 image Id                                                         
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Image project. Provide URI of iam/project. Requires permissions  
-                                                    storage/image/create                                             
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --image id-or-uri                                 image Id                                                                      
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Image project. Provide URI of iam/project. Requires permissions               
+                                                    storage/image/create                                                          
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -14396,7 +14461,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --image id-or-uri                                 image Id                                        
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -14595,7 +14659,7 @@ Options
   --service uri                                     Iso service. Provide URI of billing/service     
   --size string                                     Iso size                                        
   --source string                                   Iso source                                      
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -14705,15 +14769,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --iso id-or-uri                                   iso Id                                                           
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Iso project. Provide URI of iam/project. Requires permissions    
-                                                    storage/iso/create                                               
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --iso id-or-uri                                   iso Id                                                                        
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Iso project. Provide URI of iam/project. Requires permissions                 
+                                                    storage/iso/create                                                            
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -14852,7 +14916,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --iso id-or-uri                                   iso Id                                          
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -15043,17 +15106,17 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --name string                                     Snapshot name                                                    
-  --service uri                                     Snapshot service. Provide URI of billing/service                 
-  --vault uri                                       Snapshot vault. Provide URI of storage/vault. Requires           
-                                                    permissions storage/vault.snapshot/create                        
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Snapshot name                                                                 
+  --service uri                                     Snapshot service. Provide URI of billing/service                              
+  --vault uri                                       Snapshot vault. Provide URI of storage/vault. Requires permissions            
+                                                    storage/vault.snapshot/create                                                 
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -15283,7 +15346,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --snapshot id-or-uri                              snapshot Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -15479,18 +15541,18 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --name string                                     Vault name                                                       
-  --service uri                                     Vault service. Provide URI of billing/service                    
-  --size string                                     Vault size                                                       
-  --snapshot uri                                    Vault snapshot. Provide URI of storage/snapshot. Requires        
-                                                    permissions storage/vault.snapshot/use                           
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Vault name                                                                    
+  --service uri                                     Vault service. Provide URI of billing/service                                 
+  --size string                                     Vault size                                                                    
+  --snapshot uri                                    Vault snapshot. Provide URI of storage/snapshot. Requires permissions         
+                                                    storage/vault.snapshot/use                                                    
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -15803,15 +15865,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --vault id-or-uri                                 vault Id                                                         
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    storage/vault.credential.name/update                             
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                 
+  --location id-or-uri                              location Id                                                                
+  --vault id-or-uri                                 vault Id                                                                   
+  --credential id-or-uri                            credentialId                                                               
+  --name string                                     Credential name. Requires permissions storage/vault.credential.name/update 
+  --help                                            Show help message and exit.                                                
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                           
+  --query string                                    JMESPath query string                                                      
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -15973,7 +16034,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --vault id-or-uri                                 vault Id                                        
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -16206,18 +16266,18 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                       
-  --location id-or-uri                              location Id                                      
-  --x-idempotency-key string                                                                         
-  --name string                                     Firewall name                                    
-  --service uri                                     Firewall service. Provide URI of billing/service 
-  --ingress name=name,value=value                                                                    
-  --egress name=name,value=value                                                                     
-  --tag name=name,value=value                                                                        
-  --help                                            Show help message and exit.                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                 
-  --query string                                    JMESPath query string                            
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+  --project id-or-uri                                                                                     project Id                                       
+  --location id-or-uri                                                                                    location Id                                      
+  --x-idempotency-key string                                                                                                                               
+  --name string                                                                                           Firewall name                                    
+  --service uri                                                                                           Firewall service. Provide URI of billing/service 
+  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule collection                                  
+  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule collection                                  
+  --tag name=name,value=value                                                                             Tag collection                                   
+  --help                                                                                                  Show help message and exit.                      
+  -o, --output table,tsv,list,json,js,id,uri,yaml                                                         Specify output format of command                 
+  --query string                                                                                          JMESPath query string                            
+  --passport-file path                                                                                    Passport file. Defaults to ~/.h1/passport.json.
 ```
 
  h1-cli networking firewall list
@@ -16278,14 +16338,13 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --firewall id-or-uri                              firewall Id                                                      
-  --name string                                     Firewall name. Requires permissions                              
-                                                    networking/firewall.name/update                                  
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                          
+  --location id-or-uri                              location Id                                                         
+  --firewall id-or-uri                              firewall Id                                                         
+  --name string                                     Firewall name. Requires permissions networking/firewall.name/update 
+  --help                                            Show help message and exit.                                         
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                    
+  --query string                                    JMESPath query string                                               
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -16324,15 +16383,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --firewall id-or-uri                              firewall Id                                                      
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Firewall project. Provide URI of iam/project. Requires           
-                                                    permissions networking/firewall/create                           
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --firewall id-or-uri                              firewall Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Firewall project. Provide URI of iam/project. Requires permissions            
+                                                    networking/firewall/create                                                    
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -16388,9 +16447,12 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --firewall id-or-uri                              firewall Id                                     
-  --id string                                       Rule id                                         
   --name string                                     Rule name                                       
-  --value string                                    Rule value                                      
+  --action string                                   Rule action                                     
+  --priority string                                 Rule priority                                   
+  --filter string[]                                 Filter collection                               
+  --external string[]                               External collection                             
+  --internal string[]                               Internal collection                             
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -16471,9 +16533,12 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --firewall id-or-uri                              firewall Id                                     
-  --id string                                       Rule id                                         
   --name string                                     Rule name                                       
-  --value string                                    Rule value                                      
+  --action string                                   Rule action                                     
+  --priority string                                 Rule priority                                   
+  --filter string[]                                 Filter collection                               
+  --external string[]                               External collection                             
+  --internal string[]                               Internal collection                             
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -16637,7 +16702,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --firewall id-or-uri                              firewall Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -16832,17 +16896,17 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --network uri                                     Ip network. Provide URI of networking/network. Requires          
-                                                    permissions networking/network/use                               
-  --ptr-record string                               Ip ptrRecord                                                     
-  --address string                                  Ip address                                                       
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --network uri                                     Ip network. Provide URI of networking/network. Requires permissions           
+                                                    networking/network/use                                                        
+  --ptr-record string                               Ip ptrRecord                                                                  
+  --address string                                  Ip address                                                                    
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -16973,15 +17037,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --ip id-or-uri                                    ip Id                                                            
-  --x-idempotency-key string                                                                                         
-  --ip uri                                          Ip ip. Provide URI of networking/ip. Requires permissions        
-                                                    networking/ip/use                                                
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                  
+  --location id-or-uri                              location Id                                                                 
+  --ip id-or-uri                                    ip Id                                                                       
+  --x-idempotency-key string                                                                                                    
+  --ip uri                                          Ip ip. Provide URI of networking/ip. Requires permissions networking/ip/use 
+  --help                                            Show help message and exit.                                                 
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                            
+  --query string                                    JMESPath query string                                                       
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -17021,15 +17084,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --ip id-or-uri                                    ip Id                                                            
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Ip project. Provide URI of iam/project. Requires permissions     
-                                                    networking/ip/create                                             
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --ip id-or-uri                                    ip Id                                                                         
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Ip project. Provide URI of iam/project. Requires permissions                  
+                                                    networking/ip/create                                                          
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -17168,7 +17231,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --ip id-or-uri                                    ip Id                                           
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -17402,15 +17464,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --netadp id-or-uri                                netadp Id                                                        
-  --firewall uri                                    Netadp firewall. Provide URI of networking/firewall. Requires    
-                                                    permissions networking/firewall/use,                             
-                                                    networking/netadp.firewall/update                                
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --netadp id-or-uri                                netadp Id                                                                     
+  --firewall uri                                    Netadp firewall. Provide URI of networking/firewall. Requires permissions     
+                                                    networking/firewall/use, networking/netadp.firewall/update                    
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -17549,7 +17610,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --netadp id-or-uri                                netadp Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -17747,7 +17807,7 @@ Options
   --x-idempotency-key string                                                                        
   --name string                                     Netgw name                                      
   --public string                                   Netgw public                                    
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -18026,7 +18086,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --netgw id-or-uri                                 netgw Id                                        
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -18224,7 +18283,7 @@ Options
   --name string                                     Network name                                    
   --address string                                  Network address                                 
   --gateway string                                  Network gateway                                 
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -18289,19 +18348,16 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --network id-or-uri                               network Id                                                       
-  --name string                                     Network name. Requires permissions                               
-                                                    networking/network.name/update                                   
-  --gateway string                                  Network gateway. Requires permissions                            
-                                                    networking/network.gateway/update                                
-  --firewall uri                                    Network firewall. Provide URI of networking/firewall. Requires   
-                                                    permissions networking/firewall/use,                             
-                                                    networking/network.firewall/update                               
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --network id-or-uri                               network Id                                                                    
+  --name string                                     Network name. Requires permissions networking/network.name/update             
+  --gateway string                                  Network gateway. Requires permissions networking/network.gateway/update       
+  --firewall uri                                    Network firewall. Provide URI of networking/firewall. Requires permissions    
+                                                    networking/firewall/use, networking/network.firewall/update                   
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -18382,7 +18438,7 @@ Options
   --location id-or-uri                              location Id                                     
   --network id-or-uri                               network Id                                      
   --address string                                  Ip address                                      
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -18592,7 +18648,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --network id-or-uri                               network Id                                      
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -19030,7 +19085,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --replica id-or-uri                               replica Id                                      
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -19231,26 +19285,25 @@ Synopsis
 
 Options
 
-  --project id-or-uri                                                project Id                                      
-  --location id-or-uri                                               location Id                                     
-  --x-idempotency-key string                                                                                         
-  --name string                                                      Vm name                                         
-  --service uri                                                      Vm service. Provide URI of billing/service      
-  --image uri                                                        Vm image. Provide URI of storage/image.         
-                                                                     Requires permissions storage/image/use          
-  --iso uri                                                          Vm iso. Provide URI of storage/iso. Requires    
-                                                                     permissions storage/iso/use                     
-  --username string                                                  Vm username                                     
-  --password string                                                  Vm password                                     
-  --ssh-keys string[]                                                Vm sshKeys                                      
-  --user-metadata string                                             Vm userMetadata                                 
-  --disk id=id,size=size,service=service,name=name                   Vm disk                                         
-  --netadp service=service,network=network,ip=ip,firewall=firewall   Vm netadp                                       
-  --boot string                                                      Vm boot                                         
-  --tag name=name,value=value                                                                                        
-  --help                                                             Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml                    Specify output format of command                
-  --query string                                                     JMESPath query string                           
+  --project id-or-uri                                                project Id                                                                    
+  --location id-or-uri                                               location Id                                                                   
+  --x-idempotency-key string                                                                                                                       
+  --name string                                                      Vm name                                                                       
+  --service uri                                                      Vm service. Provide URI of billing/service                                    
+  --image uri                                                        Vm image. Provide URI of storage/image. Requires permissions                  
+                                                                     storage/image/use                                                             
+  --iso uri                                                          Vm iso. Provide URI of storage/iso. Requires permissions storage/iso/use      
+  --username string                                                  Vm username                                                                   
+  --password string                                                  Vm password                                                                   
+  --ssh-keys string[]                                                SshKeys collection                                                            
+  --user-metadata string                                             Vm userMetadata                                                               
+  --disk id=id,size=size,service=service,name=name                   Disk collection                                                               
+  --netadp service=service,network=network,ip=ip,firewall=firewall   Netadp collection                                                             
+  --boot string                                                      Vm boot                                                                       
+  --tag name=name,value=value                                        Tag collection                                                                
+  --help                                                             Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml                    Specify output format of command                                              
+  --query string                                                     JMESPath query string                                                         
   --passport-file path                                               Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -19312,15 +19365,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --vm id-or-uri                                    vm Id                                                            
-  --user-metadata string                            Vm userMetadata. Requires permissions                            
-                                                    compute/vm.userMetadata/update                                   
-  --name string                                     Vm name. Requires permissions compute/vm.name/update             
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                           
+  --location id-or-uri                              location Id                                                          
+  --vm id-or-uri                                    vm Id                                                                
+  --user-metadata string                            Vm userMetadata. Requires permissions compute/vm.userMetadata/update 
+  --name string                                     Vm name. Requires permissions compute/vm.name/update                 
+  --help                                            Show help message and exit.                                          
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                     
+  --query string                                    JMESPath query string                                                
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -19340,7 +19392,7 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --vm id-or-uri                                    vm Id                                           
-  --remove-disks string[]                           Vm removeDisks                                  
+  --remove-disks string[]                           RemoveDisks collection                          
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -19562,15 +19614,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --vm id-or-uri                                    vm Id                                                            
-  --disk uri                                        Hdd disk. Provide URI of storage/disk. Requires permissions      
-                                                    storage/disk/use                                                 
-  --controller-type string                          Hdd controllerType                                               
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                   
+  --location id-or-uri                              location Id                                                                  
+  --vm id-or-uri                                    vm Id                                                                        
+  --disk uri                                        Hdd disk. Provide URI of storage/disk. Requires permissions storage/disk/use 
+  --controller-type string                          Hdd controllerType                                                           
+  --help                                            Show help message and exit.                                                  
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                             
+  --query string                                    JMESPath query string                                                        
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -19646,20 +19697,20 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --vm id-or-uri                                    vm Id                                                            
-  --service uri                                     Netadp service. Provide URI of billing/service                   
-  --network uri                                     Netadp network. Provide URI of networking/network. Requires      
-                                                    permissions networking/network/use                               
-  --ip uri                                          Netadp ip. Provide URI of networking/ip. Requires permissions    
-                                                    networking/ip/use                                                
-  --tag name=name,value=value                                                                                        
-  --firewall uri                                    Netadp firewall. Provide URI of networking/firewall. Requires    
-                                                    permissions networking/firewall/use                              
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --vm id-or-uri                                    vm Id                                                                         
+  --service uri                                     Netadp service. Provide URI of billing/service                                
+  --network uri                                     Netadp network. Provide URI of networking/network. Requires permissions       
+                                                    networking/network/use                                                        
+  --ip uri                                          Netadp ip. Provide URI of networking/ip. Requires permissions                 
+                                                    networking/ip/use                                                             
+  --tag name=name,value=value                       Tag collection                                                                
+  --firewall uri                                    Netadp firewall. Provide URI of networking/firewall. Requires permissions     
+                                                    networking/firewall/use                                                       
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -19900,7 +19951,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --vm id-or-uri                                    vm Id                                           
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -20134,7 +20184,7 @@ Options
   --x-idempotency-key string                                                                            
   --name string                                     Reservation name                                    
   --service uri                                     Reservation service. Provide URI of billing/service 
-  --tag name=name,value=value                                                                           
+  --tag name=name,value=value                       Tag collection                                      
   --help                                            Show help message and exit.                         
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                    
   --query string                                    JMESPath query string                               
@@ -20199,14 +20249,13 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --reservation id-or-uri                           reservation Id                                                   
-  --name string                                     Reservation name. Requires permissions                           
-                                                    billing/reservation.name/update                                  
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                             
+  --location id-or-uri                              location Id                                                            
+  --reservation id-or-uri                           reservation Id                                                         
+  --name string                                     Reservation name. Requires permissions billing/reservation.name/update 
+  --help                                            Show help message and exit.                                            
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                       
+  --query string                                    JMESPath query string                                                  
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -20245,15 +20294,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --reservation id-or-uri                           reservation Id                                                   
-  --x-idempotency-key string                                                                                         
-  --resource uri                                    Reservation resource. Provide URI of compute/vm. Requires        
-                                                    permissions compute/vm/use                                       
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --reservation id-or-uri                           reservation Id                                                                
+  --x-idempotency-key string                                                                                                      
+  --resource uri                                    Reservation resource. Provide URI of compute/vm. Requires permissions         
+                                                    compute/vm/use                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -20415,7 +20464,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --reservation id-or-uri                           reservation Id                                  
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -20883,7 +20931,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --instance id-or-uri                              instance Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -21017,6 +21064,98 @@ Options
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+```
+
+## h1-cli config
+
+```
+h1-cli config
+
+Synopsis
+
+  $ h1-cli config <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  settings
+```
+
+### h1-cli config settings
+
+```
+h1-cli config settings
+
+Synopsis
+
+  $ h1-cli config settings <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  get    Get setting value        
+  dump   Dump all settings values 
+  set    Set setting value
+```
+
+#### h1-cli config settings get
+
+```
+h1-cli config settings get
+
+  Get setting value 
+
+Synopsis
+
+  $ h1-cli config settings get <options> 
+
+Options
+
+  --key string                                 
+  --value string                               
+  --help           Show help message and exit.
+```
+
+#### h1-cli config settings dump
+
+```
+h1-cli config settings dump
+
+  Dump all settings values 
+
+Synopsis
+
+  $ h1-cli config settings dump <options> 
+
+Options
+
+  --key string                                 
+  --value string                               
+  --help           Show help message and exit.
+```
+
+#### h1-cli config settings set
+
+```
+h1-cli config settings set
+
+  Set setting value 
+
+Synopsis
+
+  $ h1-cli config settings set <options> 
+
+Options
+
+  --key string                                 
+  --value string                               
+  --help           Show help message and exit.
 ```
 
 ## h1-cli iam
@@ -21429,13 +21568,12 @@ Synopsis
 
 Options
 
-  --user id-or-uri                                  user Id                                                          
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    iam/user.credential.name/update                                  
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --user id-or-uri                                  user Id                                                               
+  --credential id-or-uri                            credentialId                                                          
+  --name string                                     Credential name. Requires permissions iam/user.credential.name/update 
+  --help                                            Show help message and exit.                                           
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                      
+  --query string                                    JMESPath query string                                                 
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -21601,14 +21739,14 @@ Synopsis
 
 Options
 
-  --x-idempotency-key string                                                                                         
-  --name string                                     Project name                                                     
-  --organisation uri                                Project organisation. Provide URI of iam/organisation. Requires  
-                                                    permissions iam/project/create                                   
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Project name                                                                  
+  --organisation uri                                Project organisation. Provide URI of iam/organisation. Requires permissions   
+                                                    iam/project/create                                                            
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -22159,7 +22297,6 @@ Synopsis
 Options
 
   --project id-or-uri                               project Id                                      
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -22343,18 +22480,16 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --x-idempotency-key string                                                                                         
-  --name string                                     Policy name                                                      
-  --service uri                                     Policy service. Provide URI of billing/service                   
-  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions       
-                                                    iam/role/use                                                     
-  --resource string                                 Policy resource                                                  
-  --actor value=value                               Policy actor                                                     
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                              
+  --x-idempotency-key string                                                                                                
+  --name string                                     Policy name                                                             
+  --service uri                                     Policy service. Provide URI of billing/service                          
+  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string                                 Policy resource                                                         
+  --tag name=name,value=value                       Tag collection                                                          
+  --help                                            Show help message and exit.                                             
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
+  --query string                                    JMESPath query string                                                   
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -22701,7 +22836,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --policy id-or-uri                                policy Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -22894,8 +23028,8 @@ Options
   --name string                                     Role name                                       
   --service uri                                     Role service. Provide URI of billing/service    
   --description string                              Role description                                
-  --permission value=value                          Role permission                                 
-  --tag name=name,value=value                                                                       
+  --permission value=value                          Permission collection                           
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -23246,7 +23380,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --role id-or-uri                                  role Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -23438,7 +23571,7 @@ Options
   --x-idempotency-key string                                                                        
   --name string                                     Sa name                                         
   --service uri                                     Sa service. Provide URI of billing/service      
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -23651,14 +23784,13 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --sa id-or-uri                                    sa Id                                                            
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    iam/sa.credential.name/update                                    
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                          
+  --sa id-or-uri                                    sa Id                                                               
+  --credential id-or-uri                            credentialId                                                        
+  --name string                                     Credential name. Requires permissions iam/sa.credential.name/update 
+  --help                                            Show help message and exit.                                         
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                    
+  --query string                                    JMESPath query string                                               
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -23816,7 +23948,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --sa id-or-uri                                    sa Id                                           
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -24074,14 +24205,12 @@ Synopsis
 
 Options
 
-  --organisation id-or-uri                          organisation Id                                                  
-  --name string                                     Organisation name. Requires permissions                          
-                                                    iam/organisation.name/update                                     
-  --billing string                                  Organisation billing. Requires permissions                       
-                                                    iam/organisation.billing/update                                  
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --organisation id-or-uri                          organisation Id                                                            
+  --name string                                     Organisation name. Requires permissions iam/organisation.name/update       
+  --billing string                                  Organisation billing. Requires permissions iam/organisation.billing/update 
+  --help                                            Show help message and exit.                                                
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                           
+  --query string                                    JMESPath query string                                                      
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -24414,13 +24543,13 @@ Synopsis
 
 Options
 
-  --organisation id-or-uri                          organisation Id                                                  
-  --amount string                                   Proforma amount                                                  
-  --project uri                                     Proforma project. Provide URI of iam/project. Requires           
-                                                    permissions iam/project/get                                      
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --organisation id-or-uri                          organisation Id                                                               
+  --amount string                                   Proforma amount                                                               
+  --project uri                                     Proforma project. Provide URI of iam/project. Requires permissions            
+                                                    iam/project/get                                                               
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -24599,18 +24728,16 @@ Synopsis
 
 Options
 
-  --organisation id-or-uri                          organisation Id                                                  
-  --x-idempotency-key string                                                                                         
-  --name string                                     Policy name                                                      
-  --service uri                                     Policy service. Provide URI of billing/service                   
-  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions       
-                                                    iam/role/use                                                     
-  --resource string                                 Policy resource                                                  
-  --actor value=value                               Policy actor                                                     
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --organisation id-or-uri                          organisation Id                                                         
+  --x-idempotency-key string                                                                                                
+  --name string                                     Policy name                                                             
+  --service uri                                     Policy service. Provide URI of billing/service                          
+  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string                                 Policy resource                                                         
+  --tag name=name,value=value                       Tag collection                                                          
+  --help                                            Show help message and exit.                                             
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
+  --query string                                    JMESPath query string                                                   
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -24957,7 +25084,6 @@ Options
 
   --organisation id-or-uri                          organisation Id                                 
   --policy id-or-uri                                policy Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -25150,8 +25276,8 @@ Options
   --name string                                     Role name                                       
   --service uri                                     Role service. Provide URI of billing/service    
   --description string                              Role description                                
-  --permission value=value                          Role permission                                 
-  --tag name=name,value=value                                                                       
+  --permission value=value                          Permission collection                           
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -25502,7 +25628,6 @@ Options
 
   --organisation id-or-uri                          organisation Id                                 
   --role id-or-uri                                  role Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -25690,18 +25815,16 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --x-idempotency-key string                                                                                         
-  --name string                                     Policy name                                                      
-  --service uri                                     Policy service. Provide URI of billing/service                   
-  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions       
-                                                    iam/role/use                                                     
-  --resource string                                 Policy resource                                                  
-  --actor value=value                               Policy actor                                                     
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                              
+  --x-idempotency-key string                                                                                                
+  --name string                                     Policy name                                                             
+  --service uri                                     Policy service. Provide URI of billing/service                          
+  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string                                 Policy resource                                                         
+  --tag name=name,value=value                       Tag collection                                                          
+  --help                                            Show help message and exit.                                             
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
+  --query string                                    JMESPath query string                                                   
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -26048,7 +26171,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --policy id-or-uri                                policy Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -26241,8 +26363,8 @@ Options
   --name string                                     Role name                                       
   --service uri                                     Role service. Provide URI of billing/service    
   --description string                              Role description                                
-  --permission value=value                          Role permission                                 
-  --tag name=name,value=value                                                                       
+  --permission value=value                          Permission collection                           
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -26593,7 +26715,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --role id-or-uri                                  role Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -26785,7 +26906,7 @@ Options
   --x-idempotency-key string                                                                        
   --name string                                     Sa name                                         
   --service uri                                     Sa service. Provide URI of billing/service      
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -26998,14 +27119,13 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --sa id-or-uri                                    sa Id                                                            
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    iam/sa.credential.name/update                                    
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                          
+  --sa id-or-uri                                    sa Id                                                               
+  --credential id-or-uri                            credentialId                                                        
+  --name string                                     Credential name. Requires permissions iam/sa.credential.name/update 
+  --help                                            Show help message and exit.                                         
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                    
+  --query string                                    JMESPath query string                                               
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -27163,7 +27283,6 @@ Options
 
   --project id-or-uri                               project Id                                      
   --sa id-or-uri                                    sa Id                                           
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -27370,18 +27489,16 @@ Synopsis
 
 Options
 
-  --organisation id-or-uri                          organisation Id                                                  
-  --x-idempotency-key string                                                                                         
-  --name string                                     Policy name                                                      
-  --service uri                                     Policy service. Provide URI of billing/service                   
-  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions       
-                                                    iam/role/use                                                     
-  --resource string                                 Policy resource                                                  
-  --actor value=value                               Policy actor                                                     
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --organisation id-or-uri                          organisation Id                                                         
+  --x-idempotency-key string                                                                                                
+  --name string                                     Policy name                                                             
+  --service uri                                     Policy service. Provide URI of billing/service                          
+  --role uri                                        Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string                                 Policy resource                                                         
+  --tag name=name,value=value                       Tag collection                                                          
+  --help                                            Show help message and exit.                                             
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                        
+  --query string                                    JMESPath query string                                                   
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -27728,7 +27845,6 @@ Options
 
   --organisation id-or-uri                          organisation Id                                 
   --policy id-or-uri                                policy Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -27921,8 +28037,8 @@ Options
   --name string                                     Role name                                       
   --service uri                                     Role service. Provide URI of billing/service    
   --description string                              Role description                                
-  --permission value=value                          Role permission                                 
-  --tag name=name,value=value                                                                       
+  --permission value=value                          Permission collection                           
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -28273,7 +28389,6 @@ Options
 
   --organisation id-or-uri                          organisation Id                                 
   --role id-or-uri                                  role Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -28506,7 +28621,7 @@ Options
   --x-idempotency-key string                                                                        
   --name string                                     Agent name                                      
   --service uri                                     Agent service. Provide URI of billing/service   
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -28662,15 +28777,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --agent id-or-uri                                 agent Id                                                         
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Agent project. Provide URI of iam/project. Requires permissions  
-                                                    provider/agent/create                                            
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --agent id-or-uri                                 agent Id                                                                      
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Agent project. Provide URI of iam/project. Requires permissions               
+                                                    provider/agent/create                                                         
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -29056,15 +29171,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --agent id-or-uri                                 agent Id                                                         
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    provider/agent.credential.name/update                            
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                  
+  --location id-or-uri                              location Id                                                                 
+  --agent id-or-uri                                 agent Id                                                                    
+  --credential id-or-uri                            credentialId                                                                
+  --name string                                     Credential name. Requires permissions provider/agent.credential.name/update 
+  --help                                            Show help message and exit.                                                 
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                            
+  --query string                                    JMESPath query string                                                       
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -29226,7 +29340,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --agent id-or-uri                                 agent Id                                        
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -29465,10 +29578,10 @@ Options
   --service uri                                                    Instance service. Provide URI of billing/service 
   --image string                                                   Instance image                                   
   --registry string                                                Instance registry                                
-  --expose internal=internal,external=external,protocol=protocol   Instance expose                                  
-  --env string[]                                                   Instance env                                     
-  --volumes source=source,sourcePath=sourcePath,target=target      Instance volumes                                 
-  --tag name=name,value=value                                                                                       
+  --expose internal=internal,external=external,protocol=protocol   Expose collection                                
+  --env string[]                                                   Env collection                                   
+  --volumes source=source,sourcePath=sourcePath,target=target      Volumes collection                               
+  --tag name=name,value=value                                      Tag collection                                   
   --help                                                           Show help message and exit.                      
   -o, --output table,tsv,list,json,js,id,uri,yaml                  Specify output format of command                 
   --query string                                                   JMESPath query string                            
@@ -29826,7 +29939,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --instance id-or-uri                              instance Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -30027,7 +30139,7 @@ Options
   --x-idempotency-key string                                                                         
   --name string                                     Registry name                                    
   --service uri                                     Registry service. Provide URI of billing/service 
-  --tag name=name,value=value                                                                        
+  --tag name=name,value=value                       Tag collection                                   
   --help                                            Show help message and exit.                      
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                 
   --query string                                    JMESPath query string                            
@@ -30092,16 +30204,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --registry id-or-uri                              registry Id                                                      
-  --name string                                     Registry name. Requires permissions                              
-                                                    container/registry.name/update                                   
-  --domain string[]                                 Registry domain. Requires permissions                            
-                                                    container/registry.domain/update                                 
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                               
+  --location id-or-uri                              location Id                                                              
+  --registry id-or-uri                              registry Id                                                              
+  --name string                                     Registry name. Requires permissions container/registry.name/update       
+  --domain string[]                                 Domain collection. Requires permissions container/registry.domain/update 
+  --help                                            Show help message and exit.                                              
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                         
+  --query string                                    JMESPath query string                                                    
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -30186,15 +30296,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --registry id-or-uri                              registry Id                                                      
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Registry project. Provide URI of iam/project. Requires           
-                                                    permissions container/registry/create                            
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --registry id-or-uri                              registry Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Registry project. Provide URI of iam/project. Requires permissions            
+                                                    container/registry/create                                                     
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -30515,15 +30625,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --registry id-or-uri                              registry Id                                                      
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    container/registry.credential.name/update                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --registry id-or-uri                              registry Id                                                                   
+  --credential id-or-uri                            credentialId                                                                  
+  --name string                                     Credential name. Requires permissions                                         
+                                                    container/registry.credential.name/update                                     
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -30686,7 +30796,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --registry id-or-uri                              registry Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -30883,7 +30992,7 @@ Options
   --name string                                     Volume name                                     
   --service uri                                     Volume service. Provide URI of billing/service  
   --size string                                     Volume size                                     
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -31115,7 +31224,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --volume id-or-uri                                volume Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -31350,7 +31458,7 @@ Options
   --x-idempotency-key string                                                                         
   --name string                                     Instance name                                    
   --service uri                                     Instance service. Provide URI of billing/service 
-  --tag name=name,value=value                                                                        
+  --tag name=name,value=value                       Tag collection                                   
   --help                                            Show help message and exit.                      
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                 
   --query string                                    JMESPath query string                            
@@ -31506,15 +31614,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Instance project. Provide URI of iam/project. Requires           
-                                                    permissions database/database/create                             
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --instance id-or-uri                              instance Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Instance project. Provide URI of iam/project. Requires permissions            
+                                                    database/database/create                                                      
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -31643,15 +31751,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    database/instance.credential.name/update                         
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --instance id-or-uri                              instance Id                                                                   
+  --credential id-or-uri                            credentialId                                                                  
+  --name string                                     Credential name. Requires permissions                                         
+                                                    database/instance.credential.name/update                                      
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -31814,7 +31922,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --instance id-or-uri                              instance Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -32049,7 +32156,7 @@ Options
   --name string                                     Journal name                                    
   --service uri                                     Journal service. Provide URI of billing/service 
   --retention string                                Journal retention                               
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -32114,15 +32221,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --journal id-or-uri                               journal Id                                                       
-  --name string                                     Journal name. Requires permissions insight/journal.name/update   
-  --retention string                                Journal retention. Requires permissions                          
-                                                    insight/journal.retention/update                                 
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                               
+  --location id-or-uri                              location Id                                                              
+  --journal id-or-uri                               journal Id                                                               
+  --name string                                     Journal name. Requires permissions insight/journal.name/update           
+  --retention string                                Journal retention. Requires permissions insight/journal.retention/update 
+  --help                                            Show help message and exit.                                              
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                         
+  --query string                                    JMESPath query string                                                    
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -32161,15 +32267,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --journal id-or-uri                               journal Id                                                       
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Journal project. Provide URI of iam/project. Requires            
-                                                    permissions insight/journal/create                               
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --journal id-or-uri                               journal Id                                                                    
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Journal project. Provide URI of iam/project. Requires permissions             
+                                                    insight/journal/create                                                        
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -32358,15 +32464,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --journal id-or-uri                               journal Id                                                       
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    insight/journal.credential.name/update                           
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                   
+  --location id-or-uri                              location Id                                                                  
+  --journal id-or-uri                               journal Id                                                                   
+  --credential id-or-uri                            credentialId                                                                 
+  --name string                                     Credential name. Requires permissions insight/journal.credential.name/update 
+  --help                                            Show help message and exit.                                                  
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                             
+  --query string                                    JMESPath query string                                                        
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -32528,7 +32633,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --journal id-or-uri                               journal Id                                      
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -32680,7 +32784,8 @@ Options
 Command List
 
   spec       Print specification of context 
-  instance   Management of instance
+  instance   Management of instance         
+  auth
 ```
 
 ### h1-cli website spec
@@ -32763,19 +32868,19 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --name string                                     Instance name                                                    
-  --service uri                                     Instance service. Provide URI of billing/service                 
-  --image string                                    Instance image                                                   
-  --source uri                                      Instance source. Provide URI of website/instance.snapshot.       
-                                                    Requires permissions website/instance.snapshot/use               
-  --env name=name,value=value                       Instance env                                                     
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Instance name                                                                 
+  --service uri                                     Instance service. Provide URI of billing/service                              
+  --image string                                    Instance image                                                                
+  --source uri                                      Instance source. Provide URI of website/instance.snapshot. Requires           
+                                                    permissions website/instance.snapshot/use                                     
+  --env name=name,value=value                       Env collection                                                                
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -32837,17 +32942,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --name string                                     Instance name. Requires permissions website/instance.name/update 
-  --domain string[]                                 Instance domain. Requires permissions                            
-                                                    website/instance.domain/update                                   
-  --image string                                    Instance image. Requires permissions                             
-                                                    website/instance.image/update                                    
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                             
+  --location id-or-uri                              location Id                                                            
+  --instance id-or-uri                              instance Id                                                            
+  --name string                                     Instance name. Requires permissions website/instance.name/update       
+  --domain string[]                                 Domain collection. Requires permissions website/instance.domain/update 
+  --image string                                    Instance image. Requires permissions website/instance.image/update     
+  --help                                            Show help message and exit.                                            
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                       
+  --query string                                    JMESPath query string                                                  
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -32955,15 +33058,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Instance project. Provide URI of iam/project. Requires           
-                                                    permissions website/website/create                               
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --instance id-or-uri                              instance Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Instance project. Provide URI of iam/project. Requires permissions            
+                                                    website/website/create                                                        
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -33179,17 +33282,16 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --actor uri                                       Link actor. Provide URI of iam/sa. Requires permissions          
-                                                    iam/sa/use                                                       
-  --purpose string                                  Link purpose                                                     
-  --resource uri                                    Link resource. Provide URI of insight/journal. Requires          
-                                                    permissions insight/journal/use                                  
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --instance id-or-uri                              instance Id                                                                   
+  --actor uri                                       Link actor. Provide URI of iam/sa. Requires permissions iam/sa/use            
+  --purpose string                                  Link purpose                                                                  
+  --resource uri                                    Link resource. Provide URI of insight/journal. Requires permissions           
+                                                    insight/journal/use                                                           
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -33419,15 +33521,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --instance id-or-uri                              instance Id                                                      
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    website/instance.credential.name/update                          
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --instance id-or-uri                              instance Id                                                                   
+  --credential id-or-uri                            credentialId                                                                  
+  --name string                                     Credential name. Requires permissions website/instance.credential.name/update 
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -33589,7 +33690,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --instance id-or-uri                              instance Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -33725,6 +33825,22 @@ Options
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
+### h1-cli website auth
+
+```
+h1-cli website auth
+
+Synopsis
+
+  $ h1-cli website auth <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+```
+
 ## h1-cli dns
 
 ```
@@ -33823,7 +33939,7 @@ Options
   --service uri                                     Zone service. Provide URI of billing/service    
   --dns-name string                                 Zone dnsName                                    
   --source string                                   Zone source                                     
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -33979,7 +34095,7 @@ Options
   --name string                                     Recordset name                                  
   --type string                                     Recordset type                                  
   --ttl string                                      Recordset ttl                                   
-  --record name=name,value=value                                                                    
+  --record content=content,enabled=enabled          Record collection                               
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -34133,9 +34249,8 @@ Options
   --location id-or-uri                              location Id                                     
   --zone id-or-uri                                  zone Id                                         
   --recordset id-or-uri                             recordsetId                                     
-  --id string                                       Record id                                       
-  --name string                                     Record name                                     
-  --value string                                    Record value                                    
+  --content string                                  Record content                                  
+  --enabled string                                  Record enabled                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -34348,7 +34463,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --zone id-or-uri                                  zone Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -34581,18 +34695,18 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --name string                                     Disk name                                                        
-  --service uri                                     Disk service. Provide URI of billing/service                     
-  --size string                                     Disk size                                                        
-  --source uri                                      Disk source. Provide URI of storage/disk. Requires permissions   
-                                                    storage/disk/use                                                 
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Disk name                                                                     
+  --service uri                                     Disk service. Provide URI of billing/service                                  
+  --size string                                     Disk size                                                                     
+  --source uri                                      Disk source. Provide URI of storage/disk. Requires permissions                
+                                                    storage/disk/use                                                              
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -34723,15 +34837,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --disk id-or-uri                                  disk Id                                                          
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Disk project. Provide URI of iam/project. Requires permissions   
-                                                    storage/disk/create                                              
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --disk id-or-uri                                  disk Id                                                                       
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Disk project. Provide URI of iam/project. Requires permissions                
+                                                    storage/disk/create                                                           
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -34927,7 +35041,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --disk id-or-uri                                  disk Id                                         
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -35119,20 +35232,19 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --name string                                     Image name                                                       
-  --service uri                                     Image service. Provide URI of billing/service                    
-  --vm uri                                          Image vm. Provide URI of compute/vm. Requires permissions        
-                                                    compute/vm/use                                                   
-  --replica uri                                     Image replica. Provide URI of compute/replica. Requires          
-                                                    permissions compute/replica/use                                  
-  --description string                              Image description                                                
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Image name                                                                    
+  --service uri                                     Image service. Provide URI of billing/service                                 
+  --vm uri                                          Image vm. Provide URI of compute/vm. Requires permissions compute/vm/use      
+  --replica uri                                     Image replica. Provide URI of compute/replica. Requires permissions           
+                                                    compute/replica/use                                                           
+  --description string                              Image description                                                             
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -35194,15 +35306,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --image id-or-uri                                 image Id                                                         
-  --name string                                     Image name. Requires permissions storage/image.name/update       
-  --description string                              Image description. Requires permissions                          
-                                                    storage/image.description/update                                 
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                               
+  --location id-or-uri                              location Id                                                              
+  --image id-or-uri                                 image Id                                                                 
+  --name string                                     Image name. Requires permissions storage/image.name/update               
+  --description string                              Image description. Requires permissions storage/image.description/update 
+  --help                                            Show help message and exit.                                              
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                         
+  --query string                                    JMESPath query string                                                    
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -35241,15 +35352,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --image id-or-uri                                 image Id                                                         
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Image project. Provide URI of iam/project. Requires permissions  
-                                                    storage/image/create                                             
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --image id-or-uri                                 image Id                                                                      
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Image project. Provide URI of iam/project. Requires permissions               
+                                                    storage/image/create                                                          
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -35388,7 +35499,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --image id-or-uri                                 image Id                                        
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -35587,7 +35697,7 @@ Options
   --service uri                                     Iso service. Provide URI of billing/service     
   --size string                                     Iso size                                        
   --source string                                   Iso source                                      
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -35697,15 +35807,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --iso id-or-uri                                   iso Id                                                           
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Iso project. Provide URI of iam/project. Requires permissions    
-                                                    storage/iso/create                                               
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --iso id-or-uri                                   iso Id                                                                        
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Iso project. Provide URI of iam/project. Requires permissions                 
+                                                    storage/iso/create                                                            
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -35844,7 +35954,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --iso id-or-uri                                   iso Id                                          
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -36035,17 +36144,17 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --name string                                     Snapshot name                                                    
-  --service uri                                     Snapshot service. Provide URI of billing/service                 
-  --vault uri                                       Snapshot vault. Provide URI of storage/vault. Requires           
-                                                    permissions storage/vault.snapshot/create                        
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Snapshot name                                                                 
+  --service uri                                     Snapshot service. Provide URI of billing/service                              
+  --vault uri                                       Snapshot vault. Provide URI of storage/vault. Requires permissions            
+                                                    storage/vault.snapshot/create                                                 
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -36275,7 +36384,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --snapshot id-or-uri                              snapshot Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -36471,18 +36579,18 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --name string                                     Vault name                                                       
-  --service uri                                     Vault service. Provide URI of billing/service                    
-  --size string                                     Vault size                                                       
-  --snapshot uri                                    Vault snapshot. Provide URI of storage/snapshot. Requires        
-                                                    permissions storage/vault.snapshot/use                           
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --name string                                     Vault name                                                                    
+  --service uri                                     Vault service. Provide URI of billing/service                                 
+  --size string                                     Vault size                                                                    
+  --snapshot uri                                    Vault snapshot. Provide URI of storage/snapshot. Requires permissions         
+                                                    storage/vault.snapshot/use                                                    
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -36795,15 +36903,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --vault id-or-uri                                 vault Id                                                         
-  --credential id-or-uri                            credentialId                                                     
-  --name string                                     Credential name. Requires permissions                            
-                                                    storage/vault.credential.name/update                             
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                 
+  --location id-or-uri                              location Id                                                                
+  --vault id-or-uri                                 vault Id                                                                   
+  --credential id-or-uri                            credentialId                                                               
+  --name string                                     Credential name. Requires permissions storage/vault.credential.name/update 
+  --help                                            Show help message and exit.                                                
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                           
+  --query string                                    JMESPath query string                                                      
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -36965,7 +37072,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --vault id-or-uri                                 vault Id                                        
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -37198,18 +37304,18 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                       
-  --location id-or-uri                              location Id                                      
-  --x-idempotency-key string                                                                         
-  --name string                                     Firewall name                                    
-  --service uri                                     Firewall service. Provide URI of billing/service 
-  --ingress name=name,value=value                                                                    
-  --egress name=name,value=value                                                                     
-  --tag name=name,value=value                                                                        
-  --help                                            Show help message and exit.                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                 
-  --query string                                    JMESPath query string                            
-  --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
+  --project id-or-uri                                                                                     project Id                                       
+  --location id-or-uri                                                                                    location Id                                      
+  --x-idempotency-key string                                                                                                                               
+  --name string                                                                                           Firewall name                                    
+  --service uri                                                                                           Firewall service. Provide URI of billing/service 
+  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule collection                                  
+  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule collection                                  
+  --tag name=name,value=value                                                                             Tag collection                                   
+  --help                                                                                                  Show help message and exit.                      
+  -o, --output table,tsv,list,json,js,id,uri,yaml                                                         Specify output format of command                 
+  --query string                                                                                          JMESPath query string                            
+  --passport-file path                                                                                    Passport file. Defaults to ~/.h1/passport.json.
 ```
 
 #### h1-cli networking firewall list
@@ -37270,14 +37376,13 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --firewall id-or-uri                              firewall Id                                                      
-  --name string                                     Firewall name. Requires permissions                              
-                                                    networking/firewall.name/update                                  
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                          
+  --location id-or-uri                              location Id                                                         
+  --firewall id-or-uri                              firewall Id                                                         
+  --name string                                     Firewall name. Requires permissions networking/firewall.name/update 
+  --help                                            Show help message and exit.                                         
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                    
+  --query string                                    JMESPath query string                                               
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -37316,15 +37421,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --firewall id-or-uri                              firewall Id                                                      
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Firewall project. Provide URI of iam/project. Requires           
-                                                    permissions networking/firewall/create                           
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --firewall id-or-uri                              firewall Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Firewall project. Provide URI of iam/project. Requires permissions            
+                                                    networking/firewall/create                                                    
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -37380,9 +37485,12 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --firewall id-or-uri                              firewall Id                                     
-  --id string                                       Rule id                                         
   --name string                                     Rule name                                       
-  --value string                                    Rule value                                      
+  --action string                                   Rule action                                     
+  --priority string                                 Rule priority                                   
+  --filter string[]                                 Filter collection                               
+  --external string[]                               External collection                             
+  --internal string[]                               Internal collection                             
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -37463,9 +37571,12 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --firewall id-or-uri                              firewall Id                                     
-  --id string                                       Rule id                                         
   --name string                                     Rule name                                       
-  --value string                                    Rule value                                      
+  --action string                                   Rule action                                     
+  --priority string                                 Rule priority                                   
+  --filter string[]                                 Filter collection                               
+  --external string[]                               External collection                             
+  --internal string[]                               Internal collection                             
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -37629,7 +37740,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --firewall id-or-uri                              firewall Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -37824,17 +37934,17 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --x-idempotency-key string                                                                                         
-  --network uri                                     Ip network. Provide URI of networking/network. Requires          
-                                                    permissions networking/network/use                               
-  --ptr-record string                               Ip ptrRecord                                                     
-  --address string                                  Ip address                                                       
-  --tag name=name,value=value                                                                                        
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --x-idempotency-key string                                                                                                      
+  --network uri                                     Ip network. Provide URI of networking/network. Requires permissions           
+                                                    networking/network/use                                                        
+  --ptr-record string                               Ip ptrRecord                                                                  
+  --address string                                  Ip address                                                                    
+  --tag name=name,value=value                       Tag collection                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -37965,15 +38075,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --ip id-or-uri                                    ip Id                                                            
-  --x-idempotency-key string                                                                                         
-  --ip uri                                          Ip ip. Provide URI of networking/ip. Requires permissions        
-                                                    networking/ip/use                                                
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                  
+  --location id-or-uri                              location Id                                                                 
+  --ip id-or-uri                                    ip Id                                                                       
+  --x-idempotency-key string                                                                                                    
+  --ip uri                                          Ip ip. Provide URI of networking/ip. Requires permissions networking/ip/use 
+  --help                                            Show help message and exit.                                                 
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                            
+  --query string                                    JMESPath query string                                                       
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -38013,15 +38122,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --ip id-or-uri                                    ip Id                                                            
-  --x-idempotency-key string                                                                                         
-  --project uri                                     Ip project. Provide URI of iam/project. Requires permissions     
-                                                    networking/ip/create                                             
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --ip id-or-uri                                    ip Id                                                                         
+  --x-idempotency-key string                                                                                                      
+  --project uri                                     Ip project. Provide URI of iam/project. Requires permissions                  
+                                                    networking/ip/create                                                          
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -38160,7 +38269,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --ip id-or-uri                                    ip Id                                           
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -38394,15 +38502,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --netadp id-or-uri                                netadp Id                                                        
-  --firewall uri                                    Netadp firewall. Provide URI of networking/firewall. Requires    
-                                                    permissions networking/firewall/use,                             
-                                                    networking/netadp.firewall/update                                
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --netadp id-or-uri                                netadp Id                                                                     
+  --firewall uri                                    Netadp firewall. Provide URI of networking/firewall. Requires permissions     
+                                                    networking/firewall/use, networking/netadp.firewall/update                    
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -38541,7 +38648,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --netadp id-or-uri                                netadp Id                                       
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -38739,7 +38845,7 @@ Options
   --x-idempotency-key string                                                                        
   --name string                                     Netgw name                                      
   --public string                                   Netgw public                                    
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -39018,7 +39124,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --netgw id-or-uri                                 netgw Id                                        
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -39216,7 +39321,7 @@ Options
   --name string                                     Network name                                    
   --address string                                  Network address                                 
   --gateway string                                  Network gateway                                 
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -39281,19 +39386,16 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --network id-or-uri                               network Id                                                       
-  --name string                                     Network name. Requires permissions                               
-                                                    networking/network.name/update                                   
-  --gateway string                                  Network gateway. Requires permissions                            
-                                                    networking/network.gateway/update                                
-  --firewall uri                                    Network firewall. Provide URI of networking/firewall. Requires   
-                                                    permissions networking/firewall/use,                             
-                                                    networking/network.firewall/update                               
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --network id-or-uri                               network Id                                                                    
+  --name string                                     Network name. Requires permissions networking/network.name/update             
+  --gateway string                                  Network gateway. Requires permissions networking/network.gateway/update       
+  --firewall uri                                    Network firewall. Provide URI of networking/firewall. Requires permissions    
+                                                    networking/firewall/use, networking/network.firewall/update                   
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -39374,7 +39476,7 @@ Options
   --location id-or-uri                              location Id                                     
   --network id-or-uri                               network Id                                      
   --address string                                  Ip address                                      
-  --tag name=name,value=value                                                                       
+  --tag name=name,value=value                       Tag collection                                  
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -39584,7 +39686,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --network id-or-uri                               network Id                                      
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -40022,7 +40123,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --replica id-or-uri                               replica Id                                      
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -40223,26 +40323,25 @@ Synopsis
 
 Options
 
-  --project id-or-uri                                                project Id                                      
-  --location id-or-uri                                               location Id                                     
-  --x-idempotency-key string                                                                                         
-  --name string                                                      Vm name                                         
-  --service uri                                                      Vm service. Provide URI of billing/service      
-  --image uri                                                        Vm image. Provide URI of storage/image.         
-                                                                     Requires permissions storage/image/use          
-  --iso uri                                                          Vm iso. Provide URI of storage/iso. Requires    
-                                                                     permissions storage/iso/use                     
-  --username string                                                  Vm username                                     
-  --password string                                                  Vm password                                     
-  --ssh-keys string[]                                                Vm sshKeys                                      
-  --user-metadata string                                             Vm userMetadata                                 
-  --disk id=id,size=size,service=service,name=name                   Vm disk                                         
-  --netadp service=service,network=network,ip=ip,firewall=firewall   Vm netadp                                       
-  --boot string                                                      Vm boot                                         
-  --tag name=name,value=value                                                                                        
-  --help                                                             Show help message and exit.                     
-  -o, --output table,tsv,list,json,js,id,uri,yaml                    Specify output format of command                
-  --query string                                                     JMESPath query string                           
+  --project id-or-uri                                                project Id                                                                    
+  --location id-or-uri                                               location Id                                                                   
+  --x-idempotency-key string                                                                                                                       
+  --name string                                                      Vm name                                                                       
+  --service uri                                                      Vm service. Provide URI of billing/service                                    
+  --image uri                                                        Vm image. Provide URI of storage/image. Requires permissions                  
+                                                                     storage/image/use                                                             
+  --iso uri                                                          Vm iso. Provide URI of storage/iso. Requires permissions storage/iso/use      
+  --username string                                                  Vm username                                                                   
+  --password string                                                  Vm password                                                                   
+  --ssh-keys string[]                                                SshKeys collection                                                            
+  --user-metadata string                                             Vm userMetadata                                                               
+  --disk id=id,size=size,service=service,name=name                   Disk collection                                                               
+  --netadp service=service,network=network,ip=ip,firewall=firewall   Netadp collection                                                             
+  --boot string                                                      Vm boot                                                                       
+  --tag name=name,value=value                                        Tag collection                                                                
+  --help                                                             Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml                    Specify output format of command                                              
+  --query string                                                     JMESPath query string                                                         
   --passport-file path                                               Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -40304,15 +40403,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --vm id-or-uri                                    vm Id                                                            
-  --user-metadata string                            Vm userMetadata. Requires permissions                            
-                                                    compute/vm.userMetadata/update                                   
-  --name string                                     Vm name. Requires permissions compute/vm.name/update             
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                           
+  --location id-or-uri                              location Id                                                          
+  --vm id-or-uri                                    vm Id                                                                
+  --user-metadata string                            Vm userMetadata. Requires permissions compute/vm.userMetadata/update 
+  --name string                                     Vm name. Requires permissions compute/vm.name/update                 
+  --help                                            Show help message and exit.                                          
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                     
+  --query string                                    JMESPath query string                                                
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -40332,7 +40430,7 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --vm id-or-uri                                    vm Id                                           
-  --remove-disks string[]                           Vm removeDisks                                  
+  --remove-disks string[]                           RemoveDisks collection                          
   --help                                            Show help message and exit.                     
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                
   --query string                                    JMESPath query string                           
@@ -40554,15 +40652,14 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --vm id-or-uri                                    vm Id                                                            
-  --disk uri                                        Hdd disk. Provide URI of storage/disk. Requires permissions      
-                                                    storage/disk/use                                                 
-  --controller-type string                          Hdd controllerType                                               
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                   
+  --location id-or-uri                              location Id                                                                  
+  --vm id-or-uri                                    vm Id                                                                        
+  --disk uri                                        Hdd disk. Provide URI of storage/disk. Requires permissions storage/disk/use 
+  --controller-type string                          Hdd controllerType                                                           
+  --help                                            Show help message and exit.                                                  
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                             
+  --query string                                    JMESPath query string                                                        
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -40638,20 +40735,20 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --vm id-or-uri                                    vm Id                                                            
-  --service uri                                     Netadp service. Provide URI of billing/service                   
-  --network uri                                     Netadp network. Provide URI of networking/network. Requires      
-                                                    permissions networking/network/use                               
-  --ip uri                                          Netadp ip. Provide URI of networking/ip. Requires permissions    
-                                                    networking/ip/use                                                
-  --tag name=name,value=value                                                                                        
-  --firewall uri                                    Netadp firewall. Provide URI of networking/firewall. Requires    
-                                                    permissions networking/firewall/use                              
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --vm id-or-uri                                    vm Id                                                                         
+  --service uri                                     Netadp service. Provide URI of billing/service                                
+  --network uri                                     Netadp network. Provide URI of networking/network. Requires permissions       
+                                                    networking/network/use                                                        
+  --ip uri                                          Netadp ip. Provide URI of networking/ip. Requires permissions                 
+                                                    networking/ip/use                                                             
+  --tag name=name,value=value                       Tag collection                                                                
+  --firewall uri                                    Netadp firewall. Provide URI of networking/firewall. Requires permissions     
+                                                    networking/firewall/use                                                       
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -40892,7 +40989,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --vm id-or-uri                                    vm Id                                           
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -41126,7 +41222,7 @@ Options
   --x-idempotency-key string                                                                            
   --name string                                     Reservation name                                    
   --service uri                                     Reservation service. Provide URI of billing/service 
-  --tag name=name,value=value                                                                           
+  --tag name=name,value=value                       Tag collection                                      
   --help                                            Show help message and exit.                         
   -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                    
   --query string                                    JMESPath query string                               
@@ -41191,14 +41287,13 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --reservation id-or-uri                           reservation Id                                                   
-  --name string                                     Reservation name. Requires permissions                           
-                                                    billing/reservation.name/update                                  
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                             
+  --location id-or-uri                              location Id                                                            
+  --reservation id-or-uri                           reservation Id                                                         
+  --name string                                     Reservation name. Requires permissions billing/reservation.name/update 
+  --help                                            Show help message and exit.                                            
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                       
+  --query string                                    JMESPath query string                                                  
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -41237,15 +41332,15 @@ Synopsis
 
 Options
 
-  --project id-or-uri                               project Id                                                       
-  --location id-or-uri                              location Id                                                      
-  --reservation id-or-uri                           reservation Id                                                   
-  --x-idempotency-key string                                                                                         
-  --resource uri                                    Reservation resource. Provide URI of compute/vm. Requires        
-                                                    permissions compute/vm/use                                       
-  --help                                            Show help message and exit.                                      
-  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                 
-  --query string                                    JMESPath query string                                            
+  --project id-or-uri                               project Id                                                                    
+  --location id-or-uri                              location Id                                                                   
+  --reservation id-or-uri                           reservation Id                                                                
+  --x-idempotency-key string                                                                                                      
+  --resource uri                                    Reservation resource. Provide URI of compute/vm. Requires permissions         
+                                                    compute/vm/use                                                                
+  --help                                            Show help message and exit.                                                   
+  -o, --output table,tsv,list,json,js,id,uri,yaml   Specify output format of command                                              
+  --query string                                    JMESPath query string                                                         
   --passport-file path                              Passport file. Defaults to ~/.h1/passport.json.
 ```
 
@@ -41407,7 +41502,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --reservation id-or-uri                           reservation Id                                  
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     
@@ -41875,7 +41969,6 @@ Options
   --project id-or-uri                               project Id                                      
   --location id-or-uri                              location Id                                     
   --instance id-or-uri                              instance Id                                     
-  --id string                                       Tag id                                          
   --name string                                     Tag name                                        
   --value string                                    Tag value                                       
   --help                                            Show help message and exit.                     

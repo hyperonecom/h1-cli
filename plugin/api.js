@@ -8,7 +8,7 @@ const pathType = value => untildify(value);
 
 module.exports = {
     name: __filename.split('/').pop(),
-    options: [
+    beforeParseArgv: (cmd) => cmd.options.push(
         {
             name: 'passport-file',
             type: pathType,
@@ -16,8 +16,8 @@ module.exports = {
             description: 'Passport file. Defaults to ~/.h1/passport.json.',
             group: ['authentication'],
             defaultValue: pathType('~/.h1/passport.json'),
-        },
-    ],
+        }
+    ),
     beforeCommandStart: async (opts) => {
         opts.fetch = fetch;
         opts.api = api(opts._all['passport-file'], openapi.getUrl(''));

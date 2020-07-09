@@ -5,10 +5,11 @@ const shell_quote = require('shell-quote');
 
 jasmine.getEnv().defaultTimeoutInterval = 10 * 1000;
 
-const run = (cmd) => {
+const run = async (cmd) => {
     cmd = Array.isArray(cmd) ? cmd : shell_quote.parse(cmd);
     console.log(new Date(), shell_quote.quote(['./bin/h1', ...cmd]));
-    return buildProgram().exec(cmd);
+    const program = await buildProgram();
+    return program.exec(cmd);
 };
 
 const runAuth = (cmd) => run([

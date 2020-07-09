@@ -49,8 +49,8 @@ const outputFormat = {
 };
 
 module.exports = {
-    name: 'format',
-    options: [
+    name: __filename.split('/').pop(),
+    beforeParseArgv: (cmd) => cmd.options.push(...[
         {
             name: 'output',
             alias: 'o',
@@ -64,7 +64,7 @@ module.exports = {
             description: 'JMESPath query string',
             type: String,
         },
-    ],
+    ]),
     beforeCommandStart: async (opts) => {
         const formatter = outputFormat[opts._all.output];
         opts.format = (opts, output) => formatter(output, opts._all.query, opts.defaultQuery);
