@@ -58,15 +58,18 @@ module.exports = {
             type: String,
             typeLabel: `${Object.keys(outputFormat).join(',')}`,
             defaultValue: 'table',
+            group: ['global'],
         },
         {
             name: 'query',
             description: 'JMESPath query string',
             type: String,
+            group: ['global'],
         },
     ]),
     beforeCommandStart: async (opts) => {
-        const formatter = outputFormat[opts._all.output];
-        opts.format = (opts, output) => formatter(output, opts._all.query, opts.defaultQuery);
+        const optsAll = opts._all || opts;
+        const formatter = outputFormat[optsAll.output];
+        opts.format = (opts, output) => formatter(output, optsAll.query, opts.defaultQuery);
     },
 };

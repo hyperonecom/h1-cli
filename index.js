@@ -12,7 +12,7 @@ const startCli = async (argv, options = {}) => {
     const config = require('./lib/config')(device);
     const cli = await buildCli({
         ...options,
-        state: {config},
+        state: {config, device},
     });
     const result = await cli.exec(argv);
     return device.displayResult(result);

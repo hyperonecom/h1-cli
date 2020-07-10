@@ -1,5 +1,5 @@
 'use strict';
-const fetch = require('node-fetch');
+const http = require('../lib/http');
 const openapi = require('../lib/openapi');
 const { api } = require('../lib/api');
 const untildify = require('untildify');
@@ -14,12 +14,24 @@ module.exports = {
             type: pathType,
             typeLabel: 'path',
             description: 'Passport file. Defaults to ~/.h1/passport.json.',
-            group: ['authentication'],
+            group: ['global'],
             defaultValue: pathType('~/.h1/passport.json'),
+        },
+        {
+            name: 'as',
+            typeLabel: 'uri',
+            description: 'Act as another actor eg. service account',
+            group: ['global'],
         }
     ),
-    beforeCommandStart: async (opts) => {
-        opts.fetch = fetch;
-        opts.api = api(opts._all['passport-file'], openapi.getUrl(''));
+    beforeCommandStart: async (opts, cmd) => {
+        const optsAll = opts._all || opts;
+        opts.http = http(cmd.state.device, opts.logger);
+        opts.api = api(opts.http, opts.logger, {
+            passportFile: optsAll['passport-file'],
+            as: optsAll.as,
+            audience: openapi.getUrl(''),
+            config: cmd.state.config,
+        });
     },
 };

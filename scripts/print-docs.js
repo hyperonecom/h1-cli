@@ -29,7 +29,7 @@ const main = async () => new Command({
         const cli = await buildCli({
             openapiUrl: opts.url,
         });
-        const out = opts['output-file'] == '-' ? process.stdout : fs.createWriteStream(opts['output-file'], { encoding: 'utf-8' });
+        const out = opts._all['output-file'] == '-' ? process.stdout : fs.createWriteStream(opts['output-file'], { encoding: 'utf-8' });
         await documentCommand(out, cli);
         for (const cmd of cli.commands) {
             await documentCommand(out, cmd, 2);
