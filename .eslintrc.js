@@ -7,6 +7,9 @@ module.exports = {
     plugins: [
         'jasmine',
     ],
+    rules: {
+        'no-console': 'error',
+    },
     env: {
         jasmine: true,
     },

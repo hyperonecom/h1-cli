@@ -4,7 +4,7 @@ const { Category, Command } = require('../../lib/cli/entity');
 
 module.exports = {
     name: __dirname.split('/').pop(),
-    load: async (parent) => {
+    load: async (parent) => parent.loadHook.push(() => {
 
         const cmd = new Category({
             name: 'auth',
@@ -13,7 +13,7 @@ module.exports = {
 
         parent.addCommand(cmd);
 
-        cmd.addCommand(new Command({
+        cmd.addCommand(() => new Command({
             name: 'user',
             summary: 'Authenticate as user of Platform',
             options: [
@@ -21,16 +21,18 @@ module.exports = {
                 { name: 'password', required: true },
             ],
             handler: async (opts) => {
-                const openid_configuration = await opts.api.get(opts.openapi.getUrl('/.well-known/openid-configuration'));
-                const token = await opts.http.post(openid_configuration.token_endpoint, {
+                const openid_configuration = await opts.http.get(opts.openapi.getUrl('/.well-known/openid-configuration'));
+                const token_endpoint = openid_configuration.token_endpoint;
+                // const token_endpoint = openid_configuration.token_endpoint;
+                const token = await opts.http.post(token_endpoint, {
                     grant_type: 'password',
                     username: opts._all.username,
                     password: opts._all.password,
                     scope: 'offline_access',
                 });
-                opts.api.updateToken(token);
-                console.error('Token successfully updated.');
+                opts.auth.updateToken(token);
+                return 'Token successfully updated.';
             },
         }));
-    },
+    }),
 };

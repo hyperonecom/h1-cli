@@ -1,7 +1,6 @@
 'use strict';
-const { Category, Command } = require('./entity');
 const pluralize = require('pluralize');
-const openapi = require('../openapi');
+const {openapi, Category, Command} = require('./../../');
 const request = require('./request');
 
 const printCommand = (name, content) => () => new Command({
@@ -123,13 +122,6 @@ const buildNamespaceCommand = (name, spec, ctx) => async () => {
         name,
         summary: `Management of ${name}`,
         extensions: [`h1-cli-${name}`],
-        plugins: [
-            require('./../../plugin/verbose'),
-            require('./../../plugin/formatOutput'),
-            require('./../../plugin/api'),
-            require('./../../plugin/noWait'),
-            require('./../../plugin/setDefault'),
-        ],
     });
 
     cmd.addCommand(printCommand('spec', spec, ctx));
@@ -180,32 +172,19 @@ const buildNamespaceCommand = (name, spec, ctx) => async () => {
     return cmd;
 };
 
-const buildProgram = async (options = {}) => {
-    // TODO: Add scoping for h1-cli
-    const program = new Category({
-        name: 'h1-cli',
-        summary: `Management for cloud services of ${openapi.getTitle()}`,
-        state: options.state,
-        extensions: ['h1-cli-root'],
-    });
-
-    program.addCommand(new Category({
-        name: 'config',
-        summary: 'Management of CLI configuration',
-        extensions: ['h1-cli-config'],
-    }));
-
-    const namespaces = openapi.getNamespaces();
-    for (const [name, spec] of Object.entries(namespaces)) {
-        // if (name != 'website') continue;
-        await program.addCommand(buildNamespaceCommand(name, spec, {
-            ...options,
-            path: `/${name}`,
-        }));
-    }
-    return program;
-};
 
 module.exports = {
-    buildProgram,
+    name: __dirname.split('/').pop(),
+    load: async (parent) => {
+        const namespaces = openapi.getNamespaces();
+        for (const [name, spec] of Object.entries(namespaces)) {
+            await parent.addCommand(buildNamespaceCommand(name, spec, {
+                path: `/${name}`,
+            }));
+        }
+    },
 };
+
+
+
+

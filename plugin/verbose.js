@@ -12,7 +12,7 @@ module.exports = {
     beforeCommandStart: async (opts, cmd) => {
         const allOpts = opts._all || opts || {};
         opts.logger = {};
-        opts.logger.info = (...args) => cmd.state.device.log(...args);
-        opts.logger.debug = (...args) => allOpts.verbose && cmd.state.device.debug(...args);
+        opts.logger.info = (...args) => cmd.device.log(...args);
+        opts.logger.debug = (...args) => allOpts.verbose && cmd.device.debug(...args);
     },
 };

@@ -1,33 +1,48 @@
 'use strict';
 const openapi = require('./lib/openapi');
-const { buildProgram } = require('./lib/cli/dynamic');
+const { Category, Command } = require('./lib/cli/entity');
 
-const buildCli = async (options) => {
+const buildCli = async (options = {}) => {
+    const device = options.device;
+    const config = options.config || require('./lib/config')(device);
+
     await openapi.init(options.openapiUrl);
-    return buildProgram(options);
-};
 
-const startCli = async (argv, options = {}) => {
-    const device = require(`./lib/device/${options.device}`);
-    const config = require('./lib/config')(device);
-    const cli = await buildCli({
-        ...options,
-        state: {config, device},
+    const program = new Category({
+        name: 'h1-cli',
+        summary: 'Management for cloud services of HyperOne',
+        config,
+        device,
+        extensions: ['h1-cli-root'],
+        plugins: [
+            require('./plugin/verbose'),
+            require('./plugin/formatOutput'),
+            require('./plugin/openapi'),
+            require('./plugin/api'),
+            require('./plugin/noWait'),
+            require('./plugin/setDefault'),
+        ],
     });
-    const result = await cli.exec(argv);
-    return device.displayResult(result);
+
+    program.addCommand(new Category({
+        name: 'config',
+        summary: 'Management of CLI configuration',
+        extensions: ['h1-cli-config'],
+    }));
+
+    return {
+        program,
+        run: async argv => {
+            const result = await program.exec(argv);
+            return device.displayResult(result);
+        },
+    };
+
 };
-
-const main = async () => startCli(process.argv.slice(2), {
-    openapiUrl: 'https://api.hyperone.com/v2/openapi.json',
-    device: 'node',
-});
-
-if (require.main === module) {
-    main().catch(console.log);
-}
 
 module.exports = {
+    openapi,
     buildCli,
-    startCli,
+    Category,
+    Command,
 };

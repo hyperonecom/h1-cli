@@ -1,6 +1,6 @@
 'use strict';
 const jmespath = require('jmespath');
-const tabula = require('tabula');
+// const tabula = require('tabula');
 const yaml = require('js-yaml');
 
 const queryFilter = (query, result) => {
@@ -10,10 +10,10 @@ const queryFilter = (query, result) => {
 };
 
 const outputFormat = {
-    table: (result, query, defaultQuery) => {
-        result = queryFilter(query || defaultQuery, result);
-        return tabula.format(result);
-    },
+    // table: (result, query, defaultQuery) => {
+    //     result = queryFilter(query || defaultQuery, result);
+    //     return tabula.format(result);
+    // },
     tsv: (result, query, defaultQuery) => {
         result = queryFilter(query || defaultQuery, result);
         return result.map(item =>
@@ -57,7 +57,7 @@ module.exports = {
             description: 'Specify output format of command',
             type: String,
             typeLabel: `${Object.keys(outputFormat).join(',')}`,
-            defaultValue: 'table',
+            defaultValue: 'yaml',
             group: ['global'],
         },
         {

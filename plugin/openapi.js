@@ -1,5 +1,5 @@
 'use strict';
-const openapi = require('../lib/openapi');
+const {openapi} = require('../');
 
 module.exports = {
     name: __filename.split('/').pop(),
