@@ -1,6 +1,5 @@
 'use strict';
 const http = require('../lib/http');
-const openapi = require('../lib/openapi');
 const api = require('../lib/api');
 const auth = require('../lib/auth');
 

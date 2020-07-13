@@ -13,4 +13,13 @@ module.exports = {
     env: {
         jasmine: true,
     },
+    overrides: [
+        {
+            files: ['web/*.js'],
+            env: {
+                browser: true,
+                commonjs: true,
+            },
+        },
+    ],
 };

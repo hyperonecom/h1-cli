@@ -11,7 +11,6 @@ module.exports = new Command({
     handler: async (opts, cmd) => {
         const optsAll = opts._all || opts;
         const project = optsAll.project;
-        console.log({project});
         cmd.config.set('parameter.project.value', project);
         cmd.config.store();
         return 'Project successfully selected.';
