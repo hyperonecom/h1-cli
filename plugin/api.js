@@ -34,7 +34,7 @@ module.exports = {
             logger: opts.logger,
             passport,
             as: optsAll.as,
-            audience: opts.openapi.getUrl(''),
+            defaultAudience: opts.openapi.getUrl(''),
         });
         opts.api = api(opts.http, opts.auth);
     },

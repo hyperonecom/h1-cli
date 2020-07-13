@@ -1,7 +1,7 @@
 'use strict';
 const { buildCli } = require('../index');
 const fs = require('fs');
-const { Command } = require('./../lib/cli/entity');
+const { Command } = require('./../');
 
 const documentCommand = async (out, cmd, level) => {
     const headerPrefix = '#'.repeat(level);
@@ -24,14 +24,16 @@ const main = async () => new Command({
     options: [
         { name: 'url', description: 'URL of OpenAPI spec', defaultValue: 'https://api.hyperone.com/v2/openapi.json' },
         { name: 'output-file', description: 'Output file', defaultValue: '-' },
+        { name: 'scope', description: 'Output scope', defaultValue: 'h1' },
     ],
     handler: async (opts) => {
-        const cli = await buildCli({
+        const {program} = await buildCli({
             openapiUrl: opts.url,
+            device: require('./../lib/device/node')('h1'),
         });
         const out = opts._all['output-file'] == '-' ? process.stdout : fs.createWriteStream(opts['output-file'], { encoding: 'utf-8' });
-        await documentCommand(out, cli);
-        for (const cmd of cli.commands) {
+        await documentCommand(out, program);
+        for (const cmd of program.commands) {
             await documentCommand(out, cmd, 2);
         }
     },
