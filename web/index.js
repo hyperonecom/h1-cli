@@ -17,12 +17,22 @@ function docReady(fn) {
 
 const getDevice = (outputElement) => ({
     displayResult: (output) => {
+        outputElement.style.border = 'thick solid #00FF00';
         if (typeof output === 'object') {
             outputElement.innerText = JSON.stringify(output, null, 4);
             // console.dir(output, { depth: null });
         } else if (output) {
             outputElement.innerText = output;
         }
+    },
+    displayError: async (err) => {
+        console.log(err);
+        outputElement.style.border = 'thick solid #FF0000';
+        const msg = [String(err)];
+        if (err.resp) {
+            msg.push(JSON.stringify(await err.resp.json(), null, 4));
+        }
+        outputElement.innerText = msg.join('\n');
     },
     configLoad: () => {
         // eslint-disable-next-line no-undef
@@ -62,10 +72,8 @@ const getDevice = (outputElement) => ({
 docReady(async function () {
     process.stdout = { columns: undefined, rows: undefined };
     process.stderr = { columns: undefined, rows: undefined };
-
-    const device = getDevice(
-        document.getElementById('terminal-container')
-    );
+    const outputElement = document.getElementById('terminal-container');
+    const device = getDevice(outputElement);
 
     const program = await buildCli({
         openapiUrl: '/api/v2/openapi.json',
@@ -76,6 +84,7 @@ docReady(async function () {
         const cmd = document.getElementById('command').value.split(' ');
         if (cmd[0] == 'h1') {
             console.log('command: ', cmd);
+            outputElement.style.border = 'thick solid #0000FF';
             await program.run(cmd.slice(1));
         } else {
             document.getElementById('terminal-container').innerText = `command '${cmd}' unsupported`;

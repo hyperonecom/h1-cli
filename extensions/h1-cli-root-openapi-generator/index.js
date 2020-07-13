@@ -19,7 +19,8 @@ const makeOperationCommand = ({ name, operation, method, path }) => () => {
             const url = request.url(path, operation, opts);
             const body = request.body(options, operation, opts);
             opts.defaultQuery = request.query(path, operation, opts);
-            return opts.format(opts, await opts.api[method](url, body));
+            const resp = await opts.api[method](url, body);
+            return opts.format(opts, resp);
         },
     });
 };

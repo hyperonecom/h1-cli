@@ -17,8 +17,18 @@ module.exports = {
             name: 'user',
             summary: 'Authenticate as user of Platform',
             options: [
-                { name: 'username', required: true },
-                { name: 'password', required: true },
+                {
+                    name: 'username', required: true, use: {
+                        in: 'body',
+                        field: '/username',
+                    },
+                },
+                {
+                    name: 'password', required: true, use: {
+                        in: 'body',
+                        field: '/password',
+                    },
+                },
             ],
             handler: async (opts) => {
                 const openid_configuration = await opts.http.get(opts.openapi.getUrl('/.well-known/openid-configuration'));

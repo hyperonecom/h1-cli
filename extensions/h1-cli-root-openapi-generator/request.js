@@ -50,7 +50,6 @@ const input = (operation) => {
                 field: `/${pname}`,
             },
         };
-
         if (pvalue.title) {
             description.push(pvalue.title);
         }

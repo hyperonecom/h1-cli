@@ -32,10 +32,9 @@ const buildCli = async (options = {}) => {
 
     return {
         program,
-        run: async argv => {
-            const result = await program.exec(argv);
-            return device.displayResult(result);
-        },
+        run: async argv => program.exec(argv).
+            then(device.displayResult).
+            catch(device.displayError),
     };
 
 };
