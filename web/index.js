@@ -73,11 +73,22 @@ docReady(async function () {
     process.stdout = { columns: undefined, rows: undefined };
     process.stderr = { columns: undefined, rows: undefined };
     const outputElement = document.getElementById('terminal-container');
+    const commandElement = document.getElementById('command');
     const device = getDevice(outputElement);
 
     const program = await buildCli({
         openapiUrl: '/api/v2/openapi.json',
         device,
+    });
+
+    commandElement.addEventListener('keyup', function (event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            document.getElementById('submit').click();
+        }
     });
 
     document.getElementById('submit').addEventListener('click', async () => {
