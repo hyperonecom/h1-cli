@@ -1,8 +1,8 @@
 'use strict';
-const {openapi} = require('./../../');
-const { deCamelCase } = require('../../lib/transform');
+const openapi = require('h1-cli-core/lib/openapi');
+const { deCamelCase } = require('h1-cli-core/lib/transform');
 const jsonpatch = require('jsonpatch');
-const types = require('../../lib/cli/types');
+const types = require('h1-cli-core/types');
 
 const input = (operation) => {
     const parameters = [];

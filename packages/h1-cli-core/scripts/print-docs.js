@@ -1,7 +1,7 @@
 'use strict';
-const { buildCli } = require('../index');
+const { buildCli } = require('../../../index');
 const fs = require('fs');
-const { Command } = require('./../');
+const { Command } = require('../../..');
 
 const documentCommand = async (out, cmd, level) => {
     const headerPrefix = '#'.repeat(level);
@@ -29,7 +29,7 @@ const main = async () => new Command({
     handler: async (opts) => {
         const {program} = await buildCli({
             openapiUrl: opts.url,
-            device: require('./../lib/device/node')('h1'),
+            device: require('../../../lib/device/node')('h1'),
         });
         const out = opts._all['output-file'] == '-' ? process.stdout : fs.createWriteStream(opts['output-file'], { encoding: 'utf-8' });
         await documentCommand(out, program);

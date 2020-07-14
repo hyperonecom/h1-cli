@@ -1,6 +1,8 @@
 'use strict';
 const pluralize = require('pluralize');
-const {openapi, Category, Command} = require('./../../');
+const {Category, Command} = require('h1-cli-framework');
+const {openapi} = require('h1-cli-core');
+
 const request = require('./request');
 
 const printCommand = (name, content) => () => new Command({
@@ -28,7 +30,7 @@ const makeOperationCommand = ({ name, operation, method, path }) => () => {
 const makeResourceCommand = (resource, ctx) => () => {
     const cmd = new Category({
         name: resource.type,
-        summary: ctx.description || `Management of ${resource.type}`,
+        summary: ctx.description || `Management of ${resource.type} resource`,
     });
 
     cmd.addCommand(printCommand('spec', ctx, ctx));
@@ -121,8 +123,8 @@ const makeResourceCommand = (resource, ctx) => () => {
 const buildNamespaceCommand = (name, spec, ctx) => async () => {
     const cmd = new Category({
         name,
-        summary: `Management of ${name}`,
-        extensions: [`h1-cli-${name}`],
+        summary: `Management of ${name} namespace`,
+        extensions: [`h1-cli-ext-${name}`],
     });
 
     cmd.addCommand(printCommand('spec', spec, ctx));

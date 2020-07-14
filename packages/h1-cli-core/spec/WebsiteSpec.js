@@ -1,5 +1,5 @@
 'use strict';
-const openapi = require('../lib/openapi');
+const openapi = require('../../../lib/openapi');
 const { buildProgram } = require('../lib/cli/dynamic');
 const shell_quote = require('shell-quote');
 

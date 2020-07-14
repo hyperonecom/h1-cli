@@ -1,0 +1,17 @@
+{
+  "name": "h1-cli-ext-root-openapi-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "h1-cli-core": "file:../../packages/h1-cli-core",
+    "h1-cli-framework": "file:../../packages/h1-cli-framework",
+    "jsonpatch": "^3.0.1",
+    "pluralize": "^8.0.0"
+  }
+}

@@ -1,6 +1,6 @@
 'use strict';
 const openapi = require('./lib/openapi');
-const { Category, Command } = require('./lib/cli/entity');
+const { Category, Command } = require('h1-cli-framework');
 
 const buildCli = async (options = {}) => {
     const device = options.device;
@@ -13,7 +13,7 @@ const buildCli = async (options = {}) => {
         summary: 'Management for cloud services of HyperOne',
         config,
         device,
-        extensions: ['h1-cli-root'],
+        extensions: ['h1-cli-ext-root'],
         plugins: [
             require('./plugin/verbose'),
             require('./plugin/formatOutput'),
@@ -27,7 +27,7 @@ const buildCli = async (options = {}) => {
     program.addCommand(new Category({
         name: 'config',
         summary: 'Management of CLI configuration',
-        extensions: ['h1-cli-config'],
+        extensions: ['h1-cli-ext-config'],
     }));
 
     return {

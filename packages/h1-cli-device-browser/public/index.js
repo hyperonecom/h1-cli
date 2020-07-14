@@ -2,7 +2,7 @@
 
 'use strict';
 
-const { buildCli } = require('../index');
+const { buildCli } = require('h1-cli-core');
 
 function docReady(fn) {
     // see if DOM is already available
@@ -54,14 +54,14 @@ const getDevice = (outputElement) => ({
     readDefaultPassport: () => undefined,
     importExtension: pattern => {
         const extensions = [];
-        const r = require.context('../extensions', true, /\.js$/);
+        const r = require.context('../node_modules', true, /h1-cli-ext-[a-z-]*\/index\.js$/);
         r.keys().forEach(module => {
-            console.log(module);
+            console.log('Loading CLI extensions: ', module);
             if (module.match(`./${pattern}-.*/index.js`)) {
                 const extension = r(module);
                 extensions.push(extension);
             } else {
-                console.log('Ignored module', module);
+                console.log(`Ignored module '${module}' for pattern '${pattern}'.`);
             }
         });
         return extensions;

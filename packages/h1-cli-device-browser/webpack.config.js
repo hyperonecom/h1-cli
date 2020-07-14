@@ -3,7 +3,7 @@ const path = require('path');
 const process = require('process');
 
 module.exports = {
-    entry: './web/index.js',
+    entry: './public/index.js',
     output: {
         path: path.resolve(__dirname, 'web'),
         filename: 'bundle.js',
@@ -11,7 +11,7 @@ module.exports = {
     target: 'web',
     mode: process.env.NODE_ENV || 'development',
     devServer: {
-        contentBase: path.join(__dirname, 'web'),
+        contentBase: path.join(__dirname, 'public'),
         compress: true,
         port: 9000,
         proxy: {
@@ -31,12 +31,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.js$/,
-                exclude: [
-                    path.resolve(__dirname, './lib/device/node'),
-                ],
-            },
             {
                 test: /\.css$/i,
                 use: [

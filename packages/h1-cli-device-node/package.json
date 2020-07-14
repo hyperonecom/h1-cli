@@ -1,0 +1,17 @@
+{
+  "name": "h1-cli-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "h1": "./bin/h1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "h1-cli-core": "file:./../h1-cli-core",
+    "h1-cli-ext-iam-project-select": "file:../../extensions/h1-cli-ext-iam-project-select",
+    "h1-cli-ext-root-openapi-generator": "file:../../extensions/h1-cli-ext-root-openapi-generator",
+    "untildify": "^4.0.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "h1-cli-device-browser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "serve": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "array-back": "^3.1.0",
+    "h1-cli-core": "file:../h1-cli-core",
+    "h1-cli-ext-iam-project-select": "file:../../extensions/h1-cli-ext-iam-project-select",
+    "h1-cli-ext-root-openapi-generator": "file:../../extensions/h1-cli-ext-root-openapi-generator"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

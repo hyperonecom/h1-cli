@@ -1,6 +1,6 @@
 'use strict';
 
-const { Command } = require('../../lib/cli/entity');
+const { Command } = require('h1-cli-framework');
 
 module.exports = new Command({
     name: 'select',

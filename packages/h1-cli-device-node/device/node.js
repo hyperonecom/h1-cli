@@ -6,7 +6,7 @@ const path = require('path');
 const os = require('os');
 const untildify = require('untildify');
 
-const info = require('../../package.json');
+const info = require('../package.json');
 
 const displayResult = (output) => {
     if (typeof output === 'object') {
@@ -87,7 +87,7 @@ module.exports = (scope) => ({
     },
     importExtension: (pattern) => {
         const path = require('path');
-        const extDir = path.join(__dirname, '../../extensions');
+        const extDir = path.join(__dirname, '../node_modules/');
         const directories = require('fs').readdirSync(extDir).filter(x => x.match(pattern));
         const extensions = [];
         for (const extension_dir of directories) {

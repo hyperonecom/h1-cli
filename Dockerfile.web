@@ -3,9 +3,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY ./ .
+WORKDIR /app/packages/h1-cli-device-browser/
 RUN npm run build
 
 FROM nginx:alpine
 RUN mkdir /app
-COPY --from=build-stage /app/web/ /app
-COPY ./web/nginx.conf /etc/nginx/nginx.conf
+COPY --from=build-stage /app/packages/h1-cli-device-browser/public/ /app
+COPY ./packages/h1-cli-device-browser/nginx.conf /etc/nginx/nginx.conf
