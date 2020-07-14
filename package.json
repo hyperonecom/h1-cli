@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "release:rc": "lerna run build && lerna publish --canary",
-    "release": "NODE_ENV=production lerna run build && lerna publish"
+    "release": "NODE_ENV=production lerna run build && lerna publish",
+    "watch": "lerna run --parallel watch"
   },
   "devDependencies": {
     "lerna": "^3.22.1"
