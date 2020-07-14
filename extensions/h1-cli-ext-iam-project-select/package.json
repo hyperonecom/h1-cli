@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "h1-cli-framework": "file:../../packages/h1-cli-framework"
-  }
+    "h1-cli-framework": "^1.0.1-alpha.0"
+  },
+  "gitHead": "b386a27820be17a45fc4c936a805ce34224a6bf2"
 }

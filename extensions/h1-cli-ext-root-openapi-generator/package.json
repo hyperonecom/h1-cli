@@ -9,9 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "h1-cli-core": "file:../../packages/h1-cli-core",
-    "h1-cli-framework": "file:../../packages/h1-cli-framework",
+    "h1-cli-core": "^1.0.1-alpha.0",
+    "h1-cli-framework": "^1.0.1-alpha.0",
     "jsonpatch": "^3.0.1",
     "pluralize": "^8.0.0"
-  }
+  },
+  "gitHead": "b386a27820be17a45fc4c936a805ce34224a6bf2"
 }
