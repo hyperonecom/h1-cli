@@ -1,6 +1,10 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "release:rc": "lerna run build && lerna publish --canary",
+    "release": "NODE_ENV=production lerna run build && lerna publish"
+  },
   "devDependencies": {
     "lerna": "^3.22.1"
   }
