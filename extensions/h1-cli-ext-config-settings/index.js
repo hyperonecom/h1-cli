@@ -1,6 +1,6 @@
 'use strict';
 
-const { Category, Command } = require('../../lib/cli/entity');
+const { Category, Command } = require('h1-cli-framework');
 
 module.exports = {
     name: require('./package.json').name,
