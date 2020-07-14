@@ -2,17 +2,22 @@
   "name": "h1-cli-ext-root-openapi-generator",
   "version": "1.0.1-alpha.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "h1-cli-core": "^1.0.1-alpha.0",
-    "h1-cli-framework": "^1.0.1-alpha.0",
     "jsonpatch": "^3.0.1",
-    "pluralize": "^8.0.0"
+    "pluralize": "^8.0.0",
+    "h1-cli-core": "file:../../packages/h1-cli-core",
+    "h1-cli-framework": "file:../../packages/h1-cli-framework"
   },
   "gitHead": "b386a27820be17a45fc4c936a805ce34224a6bf2"
 }

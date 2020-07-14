@@ -16,7 +16,7 @@ const displayResult = (output) => {
     }
 };
 
-const parameterLabel = (parameter, options=[]) => {
+const parameterLabel = (parameter, options = []) => {
     const option = options.find(p => p.use && p.use.in == parameter.in && p.use.field == parameter.field);
     if (!option) {
         return parameter.field;
@@ -88,11 +88,19 @@ module.exports = (scope) => ({
     importExtension: (pattern) => {
         const path = require('path');
         const extDir = path.join(__dirname, '../node_modules/');
-        const directories = require('fs').readdirSync(extDir).filter(x => x.match(pattern));
+        const directories = require('fs').readdirSync(extDir);
         const extensions = [];
         for (const extension_dir of directories) {
-            const extension = require(path.join(extDir, extension_dir));
-            extensions.push(extension);
+            const module = path.join(extDir, extension_dir);
+            // console.log('Loading CLI extensions: ', module);
+            if (module.match(`${pattern}-.*`)) {
+                const extension = require(module);
+                // console.log('Loaded CLI extensions: ', module);
+                // console.log(extension);
+                extensions.push(extension);
+            } else {
+                // console.log(`Ignored module '${module}' for pattern '${pattern}'.`);
+            }
         }
         return extensions;
     },

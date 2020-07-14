@@ -3,7 +3,8 @@
 const { Category, Command } = require('../../lib/cli/entity');
 
 module.exports = {
-    name: __dirname.split('/').pop(),
+    name: require('./package.json').name,
+    version: require('./package.json').version,
     load: async (parent) => {
         const cmd = new Category({
             name: 'settings',

@@ -1,18 +1,19 @@
 'use strict';
 
-const { Category, Command } = require('../../lib/cli/entity');
+const { Category, Command } = require('h1-cli-framework');
 
-module.exports = {
-    name: __dirname.split('/').pop(),
+module.exports = ({
+    name: require('./package.json').name,
+    version: require('./package.json').version,
     load: async (parent) => parent.loadHook.push(() => {
 
         const cmd = new Category({
             name: 'auth',
             summary: 'Authenticate to use CLI',
         });
-
+    
         parent.addCommand(cmd);
-
+    
         cmd.addCommand(() => new Command({
             name: 'user',
             summary: 'Authenticate as user of Platform',
@@ -45,4 +46,4 @@ module.exports = {
             },
         }));
     }),
-};
+});

@@ -177,7 +177,8 @@ const buildNamespaceCommand = (name, spec, ctx) => async () => {
 
 
 module.exports = {
-    name: __dirname.split('/').pop(),
+    name: require('./package.json').name,
+    version: require('./package.json').version,
     load: async (parent) => {
         const namespaces = openapi.getNamespaces();
         for (const [name, spec] of Object.entries(namespaces)) {
