@@ -1,6 +1,6 @@
 {
   "name": "h1-cli-node",
-  "version": "1.0.1-alpha.0",
+  "version": "1.0.1-alpha.1+b8fe37b",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -10,11 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "h1-cli-core": "^1.0.1-alpha.0",
-    "h1-cli-ext-iam-project-select": "file:../../extensions/h1-cli-ext-iam-project-select",
-    "h1-cli-ext-root-auth": "file:../../extensions/h1-cli-ext-root-auth",
-    "h1-cli-ext-root-openapi-generator": "file:../../extensions/h1-cli-ext-root-openapi-generator",
-    "h1-cli-framework": "file:../h1-cli-framework",
+    "h1-cli-ext-iam-project-select": "^1.0.1-alpha.1+b8fe37b",
+    "h1-cli-ext-root-auth": "^1.0.1-alpha.1+b8fe37b",
+    "h1-cli-ext-root-openapi-generator": "^1.0.1-alpha.1+b8fe37b",
+    "h1-cli-framework": "^1.0.1-alpha.0",
     "untildify": "^4.0.0"
   },
-  "gitHead": "b386a27820be17a45fc4c936a805ce34224a6bf2"
+  "gitHead": "b8fe37b54adfad70eea3402cd22b817706091f72"
 }

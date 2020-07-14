@@ -1,6 +1,6 @@
 {
   "name": "h1-cli-device-browser",
-  "version": "1.0.1-alpha.0",
+  "version": "1.0.1-alpha.1+b8fe37b",
   "description": "",
   "main": "index.js",
   "author": "",
@@ -12,13 +12,13 @@
   "dependencies": {
     "array-back": "^3.1.0",
     "h1-cli-core": "^1.0.1-alpha.0",
-    "h1-cli-ext-iam-project-select": "^1.0.1-alpha.0",
-    "h1-cli-ext-root-openapi-generator": "^1.0.1-alpha.0"
+    "h1-cli-ext-iam-project-select": "^1.0.1-alpha.1+b8fe37b",
+    "h1-cli-ext-root-openapi-generator": "^1.0.1-alpha.1+b8fe37b"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
-  "gitHead": "b386a27820be17a45fc4c936a805ce34224a6bf2"
+  "gitHead": "b8fe37b54adfad70eea3402cd22b817706091f72"
 }
