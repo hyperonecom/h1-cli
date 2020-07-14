@@ -4,6 +4,7 @@ services:
   npm_registry:
     # Use following command to create user:
     # $ npm adduser --registry http://localhost:4873
-    image: verdaccio/verdaccio
+    build:
+      context: ./contrib/verdaccio
     ports:
      - 4873:4873
