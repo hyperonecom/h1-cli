@@ -6,5 +6,12 @@
   "version": "0.0.0",
   "ignoreChanges": [
     "**/*.md"
-  ]
+  ],
+  "command": {
+    "publish": {
+      "ignoreChanges": ["ignored-file", "*.md"],
+      "message": "chore(release): publish",
+      "registry": "http://localhost:4873"
+    }
+  }
 }
