@@ -1,6 +1,6 @@
 {
   "name": "h1-cli-core",
-  "version": "1.0.0",
+  "version": "1.0.1-alpha.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
@@ -11,6 +11,7 @@
     "command-line-args": "^5.1.1",
     "command-line-usage": "^6.1.0",
     "eslint-plugin-jasmine": "^4.1.1",
+    "h1-cli-framework": "file:./../h1-cli-framework",
     "https-browserify": "^1.0.0",
     "jmespath": "^0.15.0",
     "js-yaml": "^3.14.0",
@@ -25,8 +26,7 @@
     "shell-quote": "^1.7.2",
     "stream-http": "^3.1.1",
     "tabula": "^1.10.0",
-    "untildify": "^4.0.0",
-    "h1-cli-framework": "file:./../h1-cli-framework"
+    "untildify": "^4.0.0"
   },
   "devDependencies": {
     "@hyperone/eslint-config": "^2.0.1",
