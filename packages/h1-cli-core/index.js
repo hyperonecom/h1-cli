@@ -6,7 +6,7 @@ const buildCli = async (options = {}) => {
     const device = options.device;
     const config = options.config || require('./lib/config')(device);
 
-    await openapi.init(options.openapiUrl);
+    await openapi.init(options);
 
     const program = new Category({
         name: 'h1-cli',

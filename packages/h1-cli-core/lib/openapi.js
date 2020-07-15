@@ -5,11 +5,16 @@ const $RefParser = require('@apidevtools/json-schema-ref-parser');
 const spec = {};
 
 module.exports = {
-    init: async (url = 'https://api.hyperone.com/v2/openapi.json') => {
-        const resp = await fetch(url);
-        const json = await resp.json();
-        const schema = await $RefParser.dereference(json);
-        Object.assign(spec, schema);
+    init: async (options) => {
+        if (options.openapiSpec) {
+            Object.assign(spec, options.openapiSpec);
+        } else {
+            const url = options.openapiUrl || 'https://api.hyperone.com/v2/openapi.json';
+            const resp = await fetch(url);
+            const json = await resp.json();
+            const schema = await $RefParser.dereference(json);
+            Object.assign(spec, schema);
+        }
     },
     getNamespaces: () => {
         const namespaces = {};
@@ -56,7 +61,7 @@ module.exports = {
             path,
         })),
     getSchema: operation => operation.requestBody && operation.requestBody.content['application/json'].schema || {},
-    getResponse: (operation, status=200) => operation.responses && operation.responses[status] && operation.responses[status].content['application/json'].schema || {},
+    getResponse: (operation, status = 200) => operation.responses && operation.responses[status] && operation.responses[status].content['application/json'].schema || {},
     getTitle: () => spec.info.title,
     getActions: (prefix) => Object
         .entries(spec.paths)
