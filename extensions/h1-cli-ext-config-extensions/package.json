@@ -12,9 +12,13 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
+  "private": true,
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "h1-cli-framework": "^1.0.1-alpha.0"
+    "fs-extra": "^9.0.1",
+    "gunzip-maybe": "^1.4.2",
+    "h1-cli-framework": "^1.0.1-alpha.0",
+    "tar-fs": "^2.1.0"
   }
 }

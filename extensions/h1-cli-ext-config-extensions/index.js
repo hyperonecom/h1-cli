@@ -1,5 +1,6 @@
 'use strict';
-const { Category, Command } = require('h1-cli-framework');
+
+const { Category } = require('h1-cli-framework');
 
 module.exports = ({
     name: require('./package.json').name,
@@ -9,16 +10,9 @@ module.exports = ({
             name: 'extension',
             summary: 'Manage extensions of CLI',
         });
-    
         parent.addCommand(cmd);
-        cmd.addCommand(() => new Command({
-            name: 'list',
-            summary: 'List available and installed extensions',
-            handler: async (opts) => {
-                
-
-                return 'Extensions successfully installed.';
-            },
-        }));
+        cmd.addCommand(() => require('./commands/list'));
+        cmd.addCommand(() => require('./commands/install'));
+        cmd.addCommand(() => require('./commands/uninstall'));
     })
 })

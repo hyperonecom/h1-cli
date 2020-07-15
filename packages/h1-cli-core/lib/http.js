@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 module.exports = (device, logger) => {
     const result = {};
 
-    const request = async (method, uri, { json, headers, body, query } = {}) => {
+    const baseRequest = async (method, uri, {json, headers, body, query}={}) => {
         headers = { ...headers };
         if (json) {
             body = JSON.stringify(json);
@@ -42,7 +42,11 @@ module.exports = (device, logger) => {
             err.resp = resp;
             throw err;
         }
+        return resp;
+    }
 
+    const request = async (method, uri, options) => {
+        const resp = await baseRequest(method, uri, options)
         const type = resp.headers.get('content-type');
 
         if (type.startsWith('text/plain')) {
@@ -51,9 +55,13 @@ module.exports = (device, logger) => {
             return respText;
         }
 
-        const respJson = await resp.json();
-        logger.debug('response json', respJson);
-        return respJson;
+        if(type.startsWith('application/json')){
+            const respJson = await resp.json();
+            logger.debug('response json', respJson);
+            return respJson;
+        }
+
+        throw new Exception(`Unsupported content type: ${type}`);
     };
 
     result.delete = (uri, options = {}) => request('delete', uri, options);
@@ -62,6 +70,11 @@ module.exports = (device, logger) => {
     result.put = (uri, json, options = {}) => request('put', uri, { json, ...options });
     result.head = (uri, options = {}) => request('head', uri, options);
     result.get = (uri, options = {}) => request('get', uri, options);
+
+    result.download = async (uri, options = {}) => {
+        const resp = await baseRequest('get', uri, options);
+        return resp.body;
+    };
 
     return result;
 };

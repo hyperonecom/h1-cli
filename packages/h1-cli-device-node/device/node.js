@@ -6,6 +6,8 @@ const path = require('path');
 const os = require('os');
 const untildify = require('untildify');
 
+const process = require('process');
+
 const info = require('../package.json');
 
 const displayResult = (output) => {
@@ -37,17 +39,22 @@ module.exports = (scope) => ({
         const type = err.resp && err.resp.headers.get('content-type');
         if (err.resp && type && type.startsWith('application/json')) {
             const respJson = await err.resp.json();
-            // console.dir(respJson, { depth: null });
-            console.log(`${chalk.red(respJson.title)}: ${respJson.detail}`);
-            const nested = [
-                ...respJson.argument || [],
-                ...respJson.permission || [],
-                ...respJson.operation || [],
-            ];
-            for (const nestedErr of nested) {
-                formatError(nestedErr, err.options);
+            if (!respJson.title) {
+                console.error(err);
+            } else {
+                // console.dir(respJson, { depth: null });
+                console.log(`${chalk.red(respJson.title)}: ${respJson.detail}`);
+                const nested = [
+                    ...respJson.argument || [],
+                    ...respJson.permission || [],
+                    ...respJson.operation || [],
+                ];
+                for (const nestedErr of nested) {
+                    formatError(nestedErr, err.options);
+                }
             }
         } else {
+            delete err.options;
             console.error(err);
         }
         process.exit(err.exitCode || 1);
@@ -87,23 +94,37 @@ module.exports = (scope) => ({
     },
     importExtension: (pattern) => {
         const path = require('path');
-        const extDir = path.join(__dirname, '../node_modules/');
-        const directories = require('fs').readdirSync(extDir);
+        const dirs = [
+            path.join(os.homedir(), `.${scope}/extensions`),
+            path.join(__dirname, '../node_modules/'),
+        ]
         const extensions = [];
-        for (const extension_dir of directories) {
-            const module = path.join(extDir, extension_dir);
-            // console.log('Loading CLI extensions: ', module);
-            if (module.match(`${pattern}-.*`)) {
-                const extension = require(module);
-                // console.log('Loaded CLI extensions: ', module);
-                // console.log(extension);
-                extensions.push(extension);
-            } else {
-                // console.log(`Ignored module '${module}' for pattern '${pattern}'.`);
+        for(const extDir of dirs){
+            const directories = require('fs').readdirSync(extDir);
+            for (const extension_dir of directories) {
+                const module = path.join(extDir, extension_dir);
+                // console.log('Loading CLI extensions: ', module);
+                if (module.match(`${pattern}-.*`)) {
+                    const extension = require(module);
+                    extension.module = module;
+                    // console.log('Loaded CLI extensions: ', module);
+                    // console.log(extension);
+                    if(!extensions.some(x => x.name == extension.name)){
+                        extensions.push(extension);
+                    }
+                } else {
+                    // console.log(`Ignored module '${module}' for pattern '${pattern}'.`);
+                }
             }
+    
         }
         return extensions;
     },
     mapUrl: (url) => url,
+    extensionDir: () => {
+        const outDir = path.join(os.homedir(), `.${scope}/extensions`);
+        fs.mkdirSync(outDir, { recursive: true });
+        return outDir;
+    } 
 });
 
