@@ -97,9 +97,9 @@ module.exports = (scope) => ({
         const dirs = [
             path.join(os.homedir(), `.${scope}/extensions`),
             path.join(__dirname, '../node_modules/'),
-        ]
+        ];
         const extensions = [];
-        for(const extDir of dirs){
+        for (const extDir of dirs) {
             const directories = require('fs').readdirSync(extDir);
             for (const extension_dir of directories) {
                 const module = path.join(extDir, extension_dir);
@@ -109,14 +109,14 @@ module.exports = (scope) => ({
                     extension.module = module;
                     // console.log('Loaded CLI extensions: ', module);
                     // console.log(extension);
-                    if(!extensions.some(x => x.name == extension.name)){
+                    if (!extensions.some(x => x.name == extension.name)) {
                         extensions.push(extension);
                     }
                 } else {
                     // console.log(`Ignored module '${module}' for pattern '${pattern}'.`);
                 }
             }
-    
+
         }
         return extensions;
     },
@@ -125,6 +125,6 @@ module.exports = (scope) => ({
         const outDir = path.join(os.homedir(), `.${scope}/extensions`);
         fs.mkdirSync(outDir, { recursive: true });
         return outDir;
-    } 
+    },
 });
 

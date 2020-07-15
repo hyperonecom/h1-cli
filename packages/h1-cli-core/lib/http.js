@@ -43,10 +43,10 @@ module.exports = (device, logger) => {
             throw err;
         }
         return resp;
-    }
+    };
 
     const request = async (method, uri, options) => {
-        const resp = await baseRequest(method, uri, options)
+        const resp = await baseRequest(method, uri, options);
         const type = resp.headers.get('content-type');
 
         if (type.startsWith('text/plain')) {
@@ -55,13 +55,13 @@ module.exports = (device, logger) => {
             return respText;
         }
 
-        if(type.startsWith('application/json')){
+        if (type.startsWith('application/json')) {
             const respJson = await resp.json();
             logger.debug('response json', respJson);
             return respJson;
         }
 
-        throw new Exception(`Unsupported content type: ${type}`);
+        throw new Error(`Unsupported content type: ${type}`);
     };
 
     result.delete = (uri, options = {}) => request('delete', uri, options);

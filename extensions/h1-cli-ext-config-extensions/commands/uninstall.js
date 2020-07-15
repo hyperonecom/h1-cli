@@ -16,13 +16,13 @@ module.exports = new Command({
 
         const outDir = path.join(cmd.device.extensionDir(), optsAll.extension);
         try {
-            await fs.promises.stat(outDir)
+            await fs.promises.stat(outDir);
         } catch (err) {
             opts.logger.debug(`Not available ${outDir}`, err);
-            return `Operation not supported. Extension not installed locally.`;
+            return 'Operation not supported. Extension not installed locally.';
         }
-        opts.logger.debug(`Cleaning up old version of extension`);
+        opts.logger.debug('Cleaning up old version of extension');
         await remove(outDir);
-        return `Extension successfully removed`;
+        return 'Extension successfully removed';
     },
-})
+});

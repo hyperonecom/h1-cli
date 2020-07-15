@@ -19,7 +19,7 @@ module.exports = new Command({
             if (!pkg.package.name.startsWith('h1-cli-ext')) {
                 continue;
             }
-            const detail = await client.showPackage(pkg.package.name, "latest")
+            const detail = await client.showPackage(pkg.package.name, 'latest');
             const installed = installed_extensions.find(x => x.name == pkg.package.name);
 
             result.push({
@@ -30,7 +30,7 @@ module.exports = new Command({
             });
         }
 
-        opts.defaultQuery = '[].{name: name, remoteVersion: remoteVersion, localVersion: localVersion}'
+        opts.defaultQuery = '[].{name: name, remoteVersion: remoteVersion, localVersion: localVersion}';
         return opts.format(opts, result);
     },
 });

@@ -4,9 +4,15 @@
   "scripts": {
     "release:rc": "lerna run build && lerna publish --canary",
     "release": "NODE_ENV=production lerna run build && lerna publish",
-    "watch": "lerna run --parallel watch"
+    "watch": "lerna run --parallel watch",
+    "build": "lerna run build",
+    "lint": "eslint .",
+    "fmt": "eslint . --fix"
   },
   "devDependencies": {
+    "@hyperone/eslint-config": "^2.0.1",
+    "eslint": "^7.4.0",
+    "eslint-plugin-jasmine": "^4.1.1",
     "lerna": "^3.22.1"
   }
 }

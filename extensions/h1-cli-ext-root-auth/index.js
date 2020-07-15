@@ -2,7 +2,7 @@
 
 const { Category, Command } = require('h1-cli-framework');
 
-module.exports = ({
+module.exports = {
     name: require('./package.json').name,
     version: require('./package.json').version,
     load: async (parent) => parent.loadHook.push(() => {
@@ -11,9 +11,9 @@ module.exports = ({
             name: 'auth',
             summary: 'Authenticate to use CLI',
         });
-    
+
         parent.addCommand(cmd);
-    
+
         cmd.addCommand(() => new Command({
             name: 'user',
             summary: 'Authenticate as user of Platform',
@@ -46,4 +46,4 @@ module.exports = ({
             },
         }));
     }),
-});
+};

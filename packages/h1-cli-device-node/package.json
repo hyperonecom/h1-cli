@@ -6,8 +6,8 @@
   "bin": {
     "h1": "./bin/h1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Adam Dobrawy",
+  "license": "MIT",
   "dependencies": {
     "h1-cli-core": "^1.0.1-alpha.0",
     "h1-cli-ext-iam-project-select": "^1.0.1-alpha.1+b8fe37b",
@@ -17,6 +17,10 @@
     "h1-cli-ext-root-openapi-generator": "^1.0.1-alpha.1+b8fe37b",
     "h1-cli-framework": "^1.0.1-alpha.0",
     "untildify": "^4.0.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "fmt": "eslint . --fix"
   },
   "gitHead": "b8fe37b54adfad70eea3402cd22b817706091f72"
 }

@@ -1,7 +1,7 @@
 {
   "name": "h1-cli-ext-config-extensions",
   "version": "1.0.1-alpha.1+b8fe37b",
-  "description": "",
+  "description": "Extension to manage loaded extensions itself.",
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack",
@@ -12,9 +12,8 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
-  "private": true,
-  "author": "",
-  "license": "ISC",
+  "author": "Adam Dobrawy",
+  "license": "MIT",
   "dependencies": {
     "fs-extra": "^9.0.1",
     "gunzip-maybe": "^1.4.2",

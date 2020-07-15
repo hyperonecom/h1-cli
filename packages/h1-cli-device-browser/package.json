@@ -3,8 +3,8 @@
   "version": "1.0.1-alpha.1+b8fe37b",
   "description": "",
   "main": "index.js",
-  "author": "",
-  "license": "ISC",
+  "author": "Adam Dobrawy",
+  "license": "MIT",
   "scripts": {
     "serve": "webpack-dev-server",
     "build": "webpack"

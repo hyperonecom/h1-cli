@@ -15,7 +15,10 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['web/*.js'],
+            files: [
+                '**/web/*.js',
+                '**/public/*.js',
+            ],
             env: {
                 browser: true,
                 commonjs: true,

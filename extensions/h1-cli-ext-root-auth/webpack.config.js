@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
-        libraryTarget: "commonjs2",
+        libraryTarget: 'commonjs2',
     },
     target: 'node',
     mode: process.env.NODE_ENV || 'development',
@@ -16,7 +16,7 @@ module.exports = {
     },
     externals: function (context, request, callback) {
         if (/^(h1-cli-.*)$/i.test(request)) {
-            return callback(null, 'commonjs ' + request);
+            return callback(null, `commonjs ${  request}`);
         }
         callback();
     },

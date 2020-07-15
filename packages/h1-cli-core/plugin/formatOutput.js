@@ -29,7 +29,7 @@ const outputFormat = {
             }).join('\t')
         ).join('\n');
     },
-    list: (result, query) => {
+    list: (result, query, defaultQuery) => {
         result = queryFilter(query || defaultQuery, result);
         const maxKeyLength = result[0] ? Math.max(...Object.keys(result[0]).map(i => i.length)) : 0;
         return result

@@ -11,8 +11,8 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Adam Dobrawy",
+  "license": "MIT",
   "dependencies": {
     "h1-cli-framework": "^1.0.1-alpha.0"
   },

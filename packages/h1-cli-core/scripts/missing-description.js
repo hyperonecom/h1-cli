@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 const openapi = require('../lib/openapi');

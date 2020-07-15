@@ -2,7 +2,7 @@
 
 const { Category } = require('h1-cli-framework');
 
-module.exports = ({
+module.exports = {
     name: require('./package.json').name,
     version: require('./package.json').version,
     load: async (parent) => parent.loadHook.push(() => {
@@ -14,5 +14,5 @@ module.exports = ({
         cmd.addCommand(() => require('./commands/list'));
         cmd.addCommand(() => require('./commands/install'));
         cmd.addCommand(() => require('./commands/uninstall'));
-    })
-})
+    }),
+};

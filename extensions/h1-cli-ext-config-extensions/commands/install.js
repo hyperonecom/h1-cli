@@ -25,21 +25,21 @@ module.exports = new Command({
         opts.logger.info(`Installing '${detail.name}' in version '${detail.version}'`);
         const outDir = path.join(cmd.device.extensionDir(), detail.name);
 
-        opts.logger.debug(`Cleaning up old version of extension`);
+        opts.logger.debug('Cleaning up old version of extension');
         await remove(outDir);
 
         opts.logger.debug(`Creating director '${outDir}'`);
         await fs.promises.mkdir(outDir, { recursive: true });
 
-        opts.logger.debug(`Downloading extension`);
+        opts.logger.debug('Downloading extension');
 
         const inStream = await opts.http.download(detail.dist.tarball);
         const outStream = tar.extract(outDir, {
             map: (header) => {
                 header.name = header.name.replace(/^package\//, '');
                 opts.logger.debug('Extracted file/directory: ', header.name);
-                return header
-            }
+                return header;
+            },
         });
 
         await new Promise((resolve, reject) => inStream
@@ -50,15 +50,15 @@ module.exports = new Command({
             .on('error', reject)
         );
 
-        opts.logger.info(`Extension successfully downloaded`);
-        opts.logger.info(`Extension validation...`);
+        opts.logger.info('Extension successfully downloaded');
+        opts.logger.info('Extension validation...');
 
         let ext;
         try {
             ext = r(outDir);
             for (const prop of ['name', 'load', 'version']) {
                 if (!ext[prop]) {
-                    throw new exception(`Invalid extension. Missing '${prop}' property.`)
+                    throw new Error(`Invalid extension. Missing '${prop}' property.`);
                 }
             }
         } catch (err) {
@@ -66,9 +66,9 @@ module.exports = new Command({
             // opts.logger.info(`Extension invalid. Extension removing.`);
             // await remove(outDir);
             throw new Error('Installation of extension failed.');
-        };
+        }
 
-        opts.logger.info(`Extension validated successfully.`);
+        opts.logger.info('Extension validated successfully.');
 
         result.push({
             name: detail.name,
@@ -76,8 +76,8 @@ module.exports = new Command({
             localVersion: ext.version,
         });
 
-        opts.defaultQuery = '[].{name: name, version: version}'
+        opts.defaultQuery = '[].{name: name, version: version}';
 
         return opts.format(opts, result);
     },
-})
+});

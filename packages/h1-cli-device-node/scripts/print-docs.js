@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 'use strict';
-const { buildCli } = require('../../../index');
+const { buildCli } = require('h1-cli-core');
 const fs = require('fs');
-const { Command } = require('../../..');
+const { Command } = require('h1-cli-framework');
 
 const documentCommand = async (out, cmd, level) => {
     const headerPrefix = '#'.repeat(level);
@@ -29,7 +30,7 @@ const main = async () => new Command({
     handler: async (opts) => {
         const {program} = await buildCli({
             openapiUrl: opts.url,
-            device: require('../../../lib/device/node')('h1'),
+            device: require('../device/node')('h1'),
         });
         const out = opts._all['output-file'] == '-' ? process.stdout : fs.createWriteStream(opts['output-file'], { encoding: 'utf-8' });
         await documentCommand(out, program);

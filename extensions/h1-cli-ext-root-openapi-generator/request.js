@@ -158,7 +158,7 @@ const query = (path, operation) => {
 const url = (path, operation, input) => {
     // TODO: Use specification from parameters
     let url = openapi.getUrl(path);
-    for (const [pattern, _, key] of url.matchAll('\{((.+?)Id)\}')) {
+    for (const [pattern, , key] of url.matchAll('\{((.+?)Id)\}')) {
         url = url.replace(pattern, input._all[key]);
     }
     return url;
