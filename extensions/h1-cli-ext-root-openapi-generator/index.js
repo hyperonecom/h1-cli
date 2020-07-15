@@ -18,9 +18,10 @@ const makeOperationCommand = ({ name, operation, method, path }) => () => {
         summary: `${operation.summary} [${operation.operationId}]`,
         options: request.input(operation),
         handler: async (opts) => {
-            const url = request.url(path, operation, opts);
-            const body = request.body(options, operation, opts);
-            opts.defaultQuery = request.query(path, operation, opts);
+            const optsAll = opts._all || opts;
+            const url = openapi.getUrl(request.path(path, operation, optsAll));
+            const body = request.body(operation, optsAll, options);
+            opts.defaultQuery = request.query(path, operation, optsAll);
             const resp = await opts.api[method](url, body);
             return opts.format(opts, resp);
         },

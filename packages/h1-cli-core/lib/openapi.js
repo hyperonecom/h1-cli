@@ -38,6 +38,17 @@ module.exports = {
         return namespaces;
     },
     getPath: prefix => spec.paths[prefix],
+    getEndpointForKind: kind => {
+        const tags = spec.tags.filter(tag => tag['x-kind'] == kind);
+        const operations = tags.map(x => `${x.name}_get`);
+        const prefixes = [];
+        for (const [prefix, pathItem] of Object.entries(spec.paths)) {
+            if (!pathItem.get) continue;
+            if (!operations.includes(pathItem.get.operationId)) continue;
+            prefixes.push(prefix);
+        }
+        return prefixes;
+    },
     getUrl: path => `${spec.servers[0].url}${path}`,
     spec, // TODO: Remove me
     getOperations: (tag) => {

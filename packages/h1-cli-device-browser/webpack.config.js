@@ -5,7 +5,7 @@ const process = require('process');
 module.exports = {
     entry: './public/index.js',
     output: {
-        path: path.resolve(__dirname, 'web'),
+        path: path.resolve(__dirname, 'public'),
         filename: 'bundle.js',
     },
     target: 'web',

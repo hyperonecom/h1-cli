@@ -4,11 +4,13 @@ const { deCamelCase } = require('h1-cli-core/lib/transform');
 const jsonpatch = require('jsonpatch');
 const types = require('h1-cli-core/types');
 
+const idless = (name) => name.replace(/Id$/, '');
+
 const input = (operation) => {
     const parameters = [];
     if (operation.parameters) {
         for (const parameter of operation.parameters) {
-            const name = parameter.name.replace(/Id$/, '');
+            const name = idless(parameter.name);
             const description = [
                 parameter.description,
             ];
@@ -65,10 +67,21 @@ const input = (operation) => {
         }
 
         if (pvalue['x-resource']) {
-            description.push(`Provide URI of ${pvalue['x-resource'].kind}`);
             Object.assign(p, {
                 typeLabel: 'uri',
             });
+
+            const prefixes = openapi.getEndpointForKind(pvalue['x-resource'].kind);
+
+            if (prefixes.length == 1) {
+                Object.assign(p, {
+                    typeLabel: 'id-or-uri',
+                    prefix: prefixes[0],
+                });
+                description.push(`Provide ID or URI of ${pvalue['x-resource'].kind}`);
+            } else {
+                description.push(`Provide URI of ${pvalue['x-resource'].kind}`);
+            }
         }
         if (pvalue['x-permissions']) {
             description.push(`Requires permissions ${pvalue['x-permissions'].join(', ')}`);
@@ -99,15 +112,18 @@ const input = (operation) => {
             });
         }
 
-        parameters.push({
-            ...p,
+        Object.assign(p, {
             description: description.join('. '),
         });
+
+        parameters.push(p);
     }
+
+
     return parameters;
 };
 
-const body = (parameters, operation, input) => {
+const body = (operation, input, options) => {
     const patch = [];
     const schema = openapi.getSchema(operation) || {};
     for (const [pname, pvalue] of Object.entries(schema.properties || {})) {
@@ -117,15 +133,18 @@ const body = (parameters, operation, input) => {
             continue;
         }
         const name = deCamelCase(pname);
-        const value = input._all[pname];
-        const parameter = parameters.find(x => x.name == name);
-        if (!parameter) {
+        let value = input[pname];
+        const option = options.find(x => x.name == name);
+        if (!option) {
             throw new Error(`Unknown parameter transformation for ${name} -> ${pname}`);
         }
-        if (!parameter.use || parameter.use.in != 'body') {
+        if (!option.use || option.use.in != 'body') {
             continue;
         }
-        patch.push({ op: 'add', path: parameter.use.field, value: value });
+        if (option.prefix && value && !value.startsWith('/')) {
+            value = path(option.prefix, operation, input);
+        }
+        patch.push({ op: 'add', path: option.use.field, value: value });
     }
     return jsonpatch.apply_patch({}, patch);
 };
@@ -155,11 +174,10 @@ const query = (path, operation) => {
     return `[].{${col.join(',')}}`;
 };
 
-const url = (path, operation, input) => {
-    // TODO: Use specification from parameters
-    let url = openapi.getUrl(path);
+const path = (path, operation, input) => {
+    let url = path;
     for (const [pattern, , key] of url.matchAll('\{((.+?)Id)\}')) {
-        url = url.replace(pattern, input._all[key]);
+        url = url.replace(pattern, input[key]);
     }
     return url;
 };
@@ -167,6 +185,6 @@ const url = (path, operation, input) => {
 module.exports = {
     input,
     body,
-    url,
+    path,
     query,
 };

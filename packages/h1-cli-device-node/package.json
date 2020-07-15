@@ -20,7 +20,8 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "fmt": "eslint . --fix"
+    "fmt": "eslint . --fix",
+    "docs": "COLUMNS=200 nodejs scripts/print-docs.js > ../../docs.md"
   },
   "gitHead": "b8fe37b54adfad70eea3402cd22b817706091f72"
 }
