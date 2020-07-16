@@ -2,7 +2,7 @@
   "name": "h1-cli-device-browser",
   "version": "1.0.1-alpha.1+b8fe37b",
   "description": "",
-  "main": "public/lib.js",
+  "main": "public/dist.js",
   "author": "Adam Dobrawy",
   "license": "MIT",
   "scripts": {
@@ -14,7 +14,8 @@
     "h1-cli-core": "^1.0.1-alpha.0",
     "h1-cli-ext-iam-project-select": "^1.0.1-alpha.1+b8fe37b",
     "h1-cli-ext-root-openapi-generator": "^1.0.1-alpha.1+b8fe37b",
-    "h1-cli-framework": "file:../h1-cli-framework"
+    "h1-cli-framework": "file:../h1-cli-framework",
+    "shell-quote": "^1.7.2"
   },
   "devDependencies": {
     "webpack": "^4.43.0",

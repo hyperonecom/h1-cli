@@ -5,7 +5,7 @@ const process = require('process');
 module.exports = {
     entry: {
         demo: './public/index.js',
-        lib: './index.js',
+        dist: './index.js',
     },
     output: {
         path: path.resolve(__dirname, 'public'),
