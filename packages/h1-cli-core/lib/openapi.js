@@ -51,7 +51,7 @@ module.exports = {
     },
     getUrl: path => `${spec.servers[0].url}${path}`,
     spec, // TODO: Remove me
-    getOperations: (tag) => {
+    getOperations: (tag) => { // TODO: Remove me (unused?)
         const operations = [];
         for (const pathItem of Object.values(spec.paths)) {
             for (const operation of Object.values(pathItem)) {

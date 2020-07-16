@@ -16,12 +16,13 @@ const makeOperationCommand = ({ name, operation, method, path }) => () => {
     return new Command({
         name,
         summary: `${operation.summary} [${operation.operationId}]`,
-        options: request.input(operation),
+        options: request.renderOptions(operation),
+        tags: [operation.operationId],
         handler: async (opts) => {
             const optsAll = opts._all || opts;
-            const url = openapi.getUrl(request.path(path, operation, optsAll));
-            const body = request.body(operation, optsAll, options);
-            opts.defaultQuery = request.query(path, operation, optsAll);
+            const url = openapi.getUrl(request.renderPath(path, operation, optsAll));
+            const body = request.renderBody(operation, optsAll, options);
+            opts.defaultQuery = request.renderQuery(path, operation, optsAll);
             const resp = await opts.api[method](url, body);
             return opts.format(opts, resp);
         },

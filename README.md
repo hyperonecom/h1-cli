@@ -7,3 +7,10 @@ h1-cli is a console tool designed to manage the HyperOne cloud infrastructure. Y
 h1-cli v2 is revisited CLI for managed cloud. The basic goal is to solve the scalability problems of the previous version, both in development and execution. It also makes it possible to meet new requirements.
 
 Design docs: https://hackmd.io/wyFxJMe1RCyZ_kK1z4n4lQ
+
+## Install project
+
+```
+npm lerna bootstrap
+```
+

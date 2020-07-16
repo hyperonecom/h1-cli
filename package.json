@@ -7,7 +7,8 @@
     "watch": "lerna run --parallel watch",
     "build": "lerna run build",
     "lint": "eslint .",
-    "fmt": "eslint . --fix"
+    "fmt": "eslint . --fix",
+    "install": "lerna bootstrap"
   },
   "devDependencies": {
     "@hyperone/eslint-config": "^2.0.1",

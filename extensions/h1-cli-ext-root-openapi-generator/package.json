@@ -18,6 +18,7 @@
     "h1-cli-core": "^1.0.1-alpha.0",
     "h1-cli-framework": "^1.0.1-alpha.0",
     "jsonpatch": "^3.0.1",
+    "openapi-sampler": "^1.0.0-beta.16",
     "pluralize": "^8.0.0"
   },
   "gitHead": "b8fe37b54adfad70eea3402cd22b817706091f72"

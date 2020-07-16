@@ -17,13 +17,7 @@ module.exports = ({ http, logger, config, passport, as, defaultAudience }) => {
 
     const result = {};
 
-    const getRefreshToken = () => {
-        const token = config.get('auth.token.refresh_token');
-        if (token) {
-            return token;
-        }
-        throw new Error('Authentication required');
-    };
+    const getRefreshToken = () => config.get('auth.token.refresh_token');
 
     const refreshToken = async () => {
         const openid_configuration = await http.get(`${defaultAudience}/.well-known/openid-configuration`);

@@ -6,7 +6,7 @@ const types = require('h1-cli-core/types');
 
 const idless = (name) => name.replace(/Id$/, '');
 
-const input = (operation) => {
+const renderOptions = (operation) => {
     const parameters = [];
     if (operation.parameters) {
         for (const parameter of operation.parameters) {
@@ -123,7 +123,7 @@ const input = (operation) => {
     return parameters;
 };
 
-const body = (operation, input, options) => {
+const renderBody = (operation, input, options) => {
     const patch = [];
     const schema = openapi.getSchema(operation) || {};
     for (const [pname, pvalue] of Object.entries(schema.properties || {})) {
@@ -149,7 +149,7 @@ const body = (operation, input, options) => {
     return jsonpatch.apply_patch({}, patch);
 };
 
-const query = (path, operation) => {
+const renderQuery = (path, operation) => {
     const schema = openapi.getResponse(operation) || {};
     const col = [];
 
@@ -174,7 +174,7 @@ const query = (path, operation) => {
     return `[].{${col.join(',')}}`;
 };
 
-const path = (path, operation, input) => {
+const renderPath = (path, operation, input) => {
     let url = path;
     for (const [pattern, , key] of url.matchAll('\{((.+?)Id)\}')) {
         url = url.replace(pattern, input[key]);
@@ -183,8 +183,8 @@ const path = (path, operation, input) => {
 };
 
 module.exports = {
-    input,
-    body,
-    path,
-    query,
+    renderOptions,
+    renderBody,
+    renderPath,
+    renderQuery,
 };
