@@ -5,18 +5,16 @@ module.exports = (device, logger) => {
     const result = {};
 
     const baseRequest = async (method, uri, {json, headers, body, query}={}) => {
-        headers = { ...headers };
+        headers = {
+            ...headers,
+            ...await device.headers(),
+        };
+
         if (json) {
             body = JSON.stringify(json);
             headers['Content-Type'] = 'application/json';
         }
 
-        if (device.headers) {
-            headers = {
-                ...headers,
-                ...device.headers(),
-            };
-        }
         uri = device.mapUrl(uri);
         logger.debug('HTTP request');
         logger.debug(`request ${method} ${uri}`);
