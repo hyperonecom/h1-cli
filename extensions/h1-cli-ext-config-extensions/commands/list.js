@@ -13,7 +13,7 @@ module.exports = new Command({
         const result = [];
         const pkgs = await client.listPackages('h1-cli-ext');
 
-        const installed_extensions = cmd.device.importExtension('h1-cli-ext');
+        const installed_extensions = await cmd.device.importExtension('h1-cli-ext');
 
         for (const pkg of pkgs.objects) {
             if (!pkg.package.name.startsWith('h1-cli-ext')) {

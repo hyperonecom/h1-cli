@@ -3,6 +3,7 @@
 const { buildCli } = require('h1-cli-core');
 const fs = require('fs');
 const { Command } = require('h1-cli-framework');
+const Device = require('../device');
 
 const documentCommand = async (out, cmd, level) => {
     const headerPrefix = '#'.repeat(level);
@@ -30,7 +31,7 @@ const main = async () => new Command({
     handler: async (opts) => {
         const {program} = await buildCli({
             openapiUrl: opts.url,
-            device: require('../device/node')('h1'),
+            device: new Device('h1'),
         });
         const out = opts._all['output-file'] == '-' ? process.stdout : fs.createWriteStream(opts['output-file'], { encoding: 'utf-8' });
         await documentCommand(out, program);

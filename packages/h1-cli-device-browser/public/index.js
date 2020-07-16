@@ -3,6 +3,7 @@
 'use strict';
 
 const { buildCli } = require('h1-cli-core');
+const BrowserDevice = require('./../device');
 
 function docReady(fn) {
     // see if DOM is already available
@@ -14,85 +15,53 @@ function docReady(fn) {
     }
 }
 
-
-const getDevice = (outputElement) => ({
-    displayResult: (output) => {
-        outputElement.style.border = 'thick solid #00FF00';
+class DemoBrowserDevice extends BrowserDevice {
+    constructor(output) {
+        super();
+        this.output = output;
+    }
+    displayResult (output) {
+        this.output.style.border = 'thick solid #00FF00';
         if (typeof output === 'object') {
-            outputElement.innerText = JSON.stringify(output, null, 4);
+            this.output.innerText = JSON.stringify(output, null, 4);
             // console.dir(output, { depth: null });
         } else if (output) {
-            outputElement.innerText = output;
+            this.output.innerText = output;
         }
-    },
-    displayError: async (err) => {
-        console.log(err);
-        outputElement.style.border = 'thick solid #FF0000';
+    }
+    async displayError(err) {
+        this.output.style.border = 'thick solid #FF0000';
         const msg = [String(err)];
         if (err.resp) {
             msg.push(JSON.stringify(await err.resp.json(), null, 4));
         }
-        outputElement.innerText = msg.join('\n');
-    },
-    configLoad: () => {
-        // eslint-disable-next-line no-undef
-        const content = window.localStorage.getItem('cli-configuration');
-
-        if (content) {
-            return JSON.parse(content);
-        }
-    },
-    configSave: (content) => {
-        // eslint-disable-next-line no-undef
-        window.localStorage.setItem('cli-configuration', JSON.stringify(content));
-        console.log('Config updated', { content });
-    },
-    headers: () => ({}),
-    log: (...args) => console.log(...args),
-    debug: (...args) => console.debug(...args),
-    readPassportFile: () => undefined,
-    readDefaultPassport: () => undefined,
-    importExtension: pattern => {
-        const extensions = [];
-        const r = require.context('../node_modules', true, /h1-cli-ext-[a-z-]*\/index\.js$/);
-        r.keys().forEach(module => {
-            console.log('Loading CLI extensions: ', module);
-            if (module.match(`./${pattern}-.*/index.js`)) {
-                const extension = r(module);
-                extensions.push(extension);
-            } else {
-                console.log(`Ignored module '${module}' for pattern '${pattern}'.`);
-            }
-        });
-        return extensions;
-    },
-    mapUrl: (url) => url.replace('https://api.hyperone.com', '/api'),
-});
+        this.output.innerText = msg.join('\n');
+    }
+}
 
 docReady(async function () {
     process.stdout = { columns: undefined, rows: undefined };
     process.stderr = { columns: undefined, rows: undefined };
+
     const outputElement = document.getElementById('terminal-container');
     const commandElement = document.getElementById('command');
-    const device = getDevice(outputElement);
+    const submitElement = document.getElementById('submit');
 
     const program = await buildCli({
         openapiUrl: '/api/v2/openapi.json',
-        device,
+        device: new DemoBrowserDevice(outputElement),
     });
 
     commandElement.addEventListener('keyup', function (event) {
         // Number 13 is the "Enter" key on the keyboard
         if (event.keyCode === 13) {
-            // Cancel the default action, if needed
             event.preventDefault();
-            // Trigger the button element with a click
-            document.getElementById('submit').click();
+            submitElement.click();
         }
     });
 
-    document.getElementById('submit').addEventListener('click', async () => {
-        const cmd = document.getElementById('command').value.split(' ');
+    submitElement.addEventListener('click', async () => {
+        const cmd = commandElement.value.split(' ');
         if (cmd[0] == 'h1') {
             console.log('command: ', cmd);
             outputElement.style.border = 'thick solid #0000FF';

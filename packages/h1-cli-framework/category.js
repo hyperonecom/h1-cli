@@ -3,7 +3,7 @@
 const commandLineArgs = require('command-line-args');
 const commandLineUsage = require('command-line-usage');
 const meant = require('meant');
-const {Command} = require('./command');
+const Command = require('./command');
 
 class Category extends Command {
     constructor(options = {}) {
@@ -108,11 +108,10 @@ class Category extends Command {
         });
     }
     async loadExtensions(pattern) {
-        return Promise.all(
-            this.device
-                .importExtension(pattern)
-                .map(extension => extension.load(this))
-        );
+        const extensions = await this.device.importExtension(pattern);
+        for (const extension of extensions) {
+            await extension.load(this);
+        }
     }
     async findCommand(tag) {
         const commands = await this.loadCommands();

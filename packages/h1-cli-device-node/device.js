@@ -94,17 +94,17 @@ class NodeDevice extends Device {
         console.debug(...args);
     }
     readPassportFile(filepath) {
-        return filepath && JSON.parse(require('fs').readFileSync(filepath, { encoding: 'utf-8' }))
+        return filepath && JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
     }
     readDefaultPassport() {
         try {
-            return JSON.parse(require('fs').readFileSync(untildify(`~/.${scope}/passport.json`)));
+            return JSON.parse(fs.readFileSync(untildify(`~/.${scope}/passport.json`)));
         } catch (err) {
             if (err.code == 'ENOENT') return;
             throw err;
         }
     }
-    importExtension(pattern) {
+    async importExtension(pattern) {
         const path = require('path');
         const dirs = [
             path.join(os.homedir(), `.${this.scope}/extensions`),
@@ -112,7 +112,15 @@ class NodeDevice extends Device {
         ];
         const extensions = [];
         for (const extDir of dirs) {
-            const directories = require('fs').readdirSync(extDir);
+            let directories;
+            try {
+                directories = await fs.promises.readdir(extDir);
+            } catch (err) {
+                if (err.code == 'ENOENT') {
+                    continue;
+                }
+                throw err;
+            }
             for (const extension_dir of directories) {
                 const module = path.join(extDir, extension_dir);
                 // console.log('Loading CLI extensions: ', module);

@@ -1,6 +1,10 @@
  h1-cli
 
 ```
+Loading extension for: h1-cli-ext-root-auth
+Loaded extension for: h1-cli-ext-root-auth
+Loading extension for: h1-cli-ext-root-openapi-generator
+Loaded extension for: h1-cli-ext-root-openapi-generator
 h1-cli
 
 Synopsis
@@ -32,6 +36,10 @@ Command List
  h1-cli config
 
 ```
+Loading extension for: h1-cli-ext-config-extensions
+Loaded extension for: h1-cli-ext-config-extensions
+Loading extension for: h1-cli-ext-config-settings
+Loaded extension for: h1-cli-ext-config-settings
 h1-cli config
 
 Synopsis
@@ -230,6 +238,8 @@ Operation options
  h1-cli iam
 
 ```
+Loading extension for: h1-cli-ext-iam-project-select
+Loaded extension for: h1-cli-ext-iam-project-select
 h1-cli iam
 
 Synopsis
@@ -359,9 +369,10 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id 
-  --name string              Filter by name  
-  --tag string               Filter by tag
+  --organisation id-or-uri   Organisation Id     
+  --name string              Filter by name      
+  --tag.value string         Filter by tag.value 
+  --tag.key string           Filter by tag.key
 ```
 
  h1-cli iam organisation policy show
@@ -912,9 +923,10 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id 
-  --name string              Filter by name  
-  --tag string               Filter by tag
+  --organisation id-or-uri   Organisation Id     
+  --name string              Filter by name      
+  --tag.value string         Filter by tag.value 
+  --tag.key string           Filter by tag.key
 ```
 
  h1-cli iam organisation role show
@@ -2115,7 +2127,8 @@ Operation options
   --$limit string         Filter by $limit       
   --active string         Filter by active       
   --organisation string   Filter by organisation 
-  --tag string            Filter by tag
+  --tag.value string      Filter by tag.value    
+  --tag.key string        Filter by tag.key
 ```
 
  h1-cli iam project show
@@ -3042,9 +3055,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
  h1-cli iam project policy show
@@ -3721,9 +3735,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
  h1-cli iam project role show
@@ -4399,9 +4414,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
  h1-cli iam project sa show
@@ -5880,9 +5896,10 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id 
-  --name string              Filter by name  
-  --tag string               Filter by tag
+  --organisation id-or-uri   Organisation Id     
+  --name string              Filter by name      
+  --tag.value string         Filter by tag.value 
+  --tag.key string           Filter by tag.key
 ```
 
  h1-cli iam organisation policy show
@@ -6559,9 +6576,10 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id 
-  --name string              Filter by name  
-  --tag string               Filter by tag
+  --organisation id-or-uri   Organisation Id     
+  --name string              Filter by name      
+  --tag.value string         Filter by tag.value 
+  --tag.key string           Filter by tag.key
 ```
 
  h1-cli iam organisation role show
@@ -7239,9 +7257,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
  h1-cli iam policy show
@@ -7918,9 +7937,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
  h1-cli iam role show
@@ -8596,9 +8616,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
  h1-cli iam sa show
@@ -9355,10 +9376,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli provider agent show
@@ -10545,10 +10567,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli container instance show
@@ -11239,10 +11262,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli container registry show
@@ -12298,10 +12322,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli container volume show
@@ -12876,10 +12901,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli database instance show
@@ -13742,10 +13768,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli insight journal show
@@ -14632,10 +14659,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli website instance show
@@ -16126,10 +16154,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli dns zone show
@@ -17072,10 +17101,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli storage disk show
@@ -17741,10 +17771,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli storage image show
@@ -18307,10 +18338,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli storage iso show
@@ -18871,11 +18903,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id      
-  --location id-or-uri   Location Id     
-  --name string          Filter by name  
-  --vault string         Filter by vault 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --vault string         Filter by vault     
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli storage snapshot show
@@ -19411,10 +19444,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli storage vault show
@@ -20276,13 +20310,14 @@ Global options
 
 Operation options
 
-  --project id-or-uri                                                                                     Project Id                                             
-  --location id-or-uri                                                                                    Location Id                                            
-  --x-idempotency-key string                                                                              Idempotency key                                        
-  --name string                                                                                           Firewall name                                          
-  --service id-or-uri                                                                                     Firewall service. Provide ID or URI of billing/service 
-  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule collection                                        
-  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule collection                                        
+  --project id-or-uri                                                                                     Project Id                     
+  --location id-or-uri                                                                                    Location Id                    
+  --x-idempotency-key string                                                                              Idempotency key                
+  --name string                                                                                           Firewall name                  
+  --service id-or-uri                                                                                     Firewall service. Provide ID   
+                                                                                                          or URI of billing/service      
+  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule collection                
+  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule collection                
   --tag key=key,value=value                                                                               Tag collection
 ```
 
@@ -20309,10 +20344,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli networking firewall show
@@ -21089,11 +21125,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id        
-  --location id-or-uri   Location Id       
-  --network string       Filter by network 
-  --type string          Filter by type    
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --network string       Filter by network   
+  --type string          Filter by type      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli networking ip show
@@ -22214,10 +22251,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli networking netgw show
@@ -22806,10 +22844,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli networking network show
@@ -24024,22 +24063,22 @@ Global options
 
 Operation options
 
-  --project id-or-uri                                                Project Id                                                                    
-  --location id-or-uri                                               Location Id                                                                   
-  --x-idempotency-key string                                         Idempotency key                                                               
-  --name string                                                      Vm name                                                                       
-  --service id-or-uri                                                Vm service. Provide ID or URI of billing/service                              
-  --image id-or-uri                                                  Vm image. Provide ID or URI of storage/image. Requires permissions            
-                                                                     storage/image/use                                                             
-  --iso id-or-uri                                                    Vm iso. Provide ID or URI of storage/iso. Requires permissions                
-                                                                     storage/iso/use                                                               
-  --username string                                                  Vm username                                                                   
-  --password string                                                  Vm password                                                                   
-  --ssh-keys string[]                                                SshKeys collection                                                            
-  --user-metadata string                                             Vm userMetadata                                                               
-  --disk id=id,size=size,service=service,name=name                   Disk collection                                                               
-  --netadp service=service,network=network,ip=ip,firewall=firewall   Netadp collection                                                             
-  --boot string                                                      Vm boot                                                                       
+  --project id-or-uri                                                Project Id                                                          
+  --location id-or-uri                                               Location Id                                                         
+  --x-idempotency-key string                                         Idempotency key                                                     
+  --name string                                                      Vm name                                                             
+  --service id-or-uri                                                Vm service. Provide ID or URI of billing/service                    
+  --image id-or-uri                                                  Vm image. Provide ID or URI of storage/image. Requires permissions  
+                                                                     storage/image/use                                                   
+  --iso id-or-uri                                                    Vm iso. Provide ID or URI of storage/iso. Requires permissions      
+                                                                     storage/iso/use                                                     
+  --username string                                                  Vm username                                                         
+  --password string                                                  Vm password                                                         
+  --ssh-keys string[]                                                SshKeys collection                                                  
+  --user-metadata string                                             Vm userMetadata                                                     
+  --disk id=id,size=size,service=service,name=name                   Disk collection                                                     
+  --netadp service=service,network=network,ip=ip,firewall=firewall   Netadp collection                                                   
+  --boot string                                                      Vm boot                                                             
   --tag key=key,value=value                                          Tag collection
 ```
 
@@ -24066,10 +24105,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli compute vm show
@@ -25165,10 +25205,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
  h1-cli billing reservation show
@@ -26608,9 +26649,10 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id 
-  --name string              Filter by name  
-  --tag string               Filter by tag
+  --organisation id-or-uri   Organisation Id     
+  --name string              Filter by name      
+  --tag.value string         Filter by tag.value 
+  --tag.key string           Filter by tag.key
 ```
 
 ##### h1-cli iam organisation policy show
@@ -27161,9 +27203,10 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id 
-  --name string              Filter by name  
-  --tag string               Filter by tag
+  --organisation id-or-uri   Organisation Id     
+  --name string              Filter by name      
+  --tag.value string         Filter by tag.value 
+  --tag.key string           Filter by tag.key
 ```
 
 ##### h1-cli iam organisation role show
@@ -28364,7 +28407,8 @@ Operation options
   --$limit string         Filter by $limit       
   --active string         Filter by active       
   --organisation string   Filter by organisation 
-  --tag string            Filter by tag
+  --tag.value string      Filter by tag.value    
+  --tag.key string        Filter by tag.key
 ```
 
 #### h1-cli iam project show
@@ -29291,9 +29335,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
 ##### h1-cli iam project policy show
@@ -29970,9 +30015,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
 ##### h1-cli iam project role show
@@ -30648,9 +30694,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
 ##### h1-cli iam project sa show
@@ -32129,9 +32176,10 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id 
-  --name string              Filter by name  
-  --tag string               Filter by tag
+  --organisation id-or-uri   Organisation Id     
+  --name string              Filter by name      
+  --tag.value string         Filter by tag.value 
+  --tag.key string           Filter by tag.key
 ```
 
 ##### h1-cli iam organisation policy show
@@ -32808,9 +32856,10 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id 
-  --name string              Filter by name  
-  --tag string               Filter by tag
+  --organisation id-or-uri   Organisation Id     
+  --name string              Filter by name      
+  --tag.value string         Filter by tag.value 
+  --tag.key string           Filter by tag.key
 ```
 
 ##### h1-cli iam organisation role show
@@ -33488,9 +33537,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
 #### h1-cli iam policy show
@@ -34167,9 +34217,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
 #### h1-cli iam role show
@@ -34845,9 +34896,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --name string         Filter by name 
-  --tag string          Filter by tag
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
 #### h1-cli iam sa show
@@ -35604,10 +35656,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli provider agent show
@@ -36794,10 +36847,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli container instance show
@@ -37488,10 +37542,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli container registry show
@@ -38547,10 +38602,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli container volume show
@@ -39125,10 +39181,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli database instance show
@@ -39991,10 +40048,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli insight journal show
@@ -40881,10 +40939,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli website instance show
@@ -42375,10 +42434,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli dns zone show
@@ -43321,10 +43381,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli storage disk show
@@ -43990,10 +44051,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli storage image show
@@ -44556,10 +44618,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli storage iso show
@@ -45120,11 +45183,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id      
-  --location id-or-uri   Location Id     
-  --name string          Filter by name  
-  --vault string         Filter by vault 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --vault string         Filter by vault     
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli storage snapshot show
@@ -45660,10 +45724,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli storage vault show
@@ -46525,13 +46590,14 @@ Global options
 
 Operation options
 
-  --project id-or-uri                                                                                     Project Id                                             
-  --location id-or-uri                                                                                    Location Id                                            
-  --x-idempotency-key string                                                                              Idempotency key                                        
-  --name string                                                                                           Firewall name                                          
-  --service id-or-uri                                                                                     Firewall service. Provide ID or URI of billing/service 
-  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule collection                                        
-  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule collection                                        
+  --project id-or-uri                                                                                     Project Id                     
+  --location id-or-uri                                                                                    Location Id                    
+  --x-idempotency-key string                                                                              Idempotency key                
+  --name string                                                                                           Firewall name                  
+  --service id-or-uri                                                                                     Firewall service. Provide ID   
+                                                                                                          or URI of billing/service      
+  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule collection                
+  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule collection                
   --tag key=key,value=value                                                                               Tag collection
 ```
 
@@ -46558,10 +46624,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli networking firewall show
@@ -47338,11 +47405,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id        
-  --location id-or-uri   Location Id       
-  --network string       Filter by network 
-  --type string          Filter by type    
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --network string       Filter by network   
+  --type string          Filter by type      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli networking ip show
@@ -48463,10 +48531,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli networking netgw show
@@ -49055,10 +49124,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli networking network show
@@ -50273,22 +50343,22 @@ Global options
 
 Operation options
 
-  --project id-or-uri                                                Project Id                                                                    
-  --location id-or-uri                                               Location Id                                                                   
-  --x-idempotency-key string                                         Idempotency key                                                               
-  --name string                                                      Vm name                                                                       
-  --service id-or-uri                                                Vm service. Provide ID or URI of billing/service                              
-  --image id-or-uri                                                  Vm image. Provide ID or URI of storage/image. Requires permissions            
-                                                                     storage/image/use                                                             
-  --iso id-or-uri                                                    Vm iso. Provide ID or URI of storage/iso. Requires permissions                
-                                                                     storage/iso/use                                                               
-  --username string                                                  Vm username                                                                   
-  --password string                                                  Vm password                                                                   
-  --ssh-keys string[]                                                SshKeys collection                                                            
-  --user-metadata string                                             Vm userMetadata                                                               
-  --disk id=id,size=size,service=service,name=name                   Disk collection                                                               
-  --netadp service=service,network=network,ip=ip,firewall=firewall   Netadp collection                                                             
-  --boot string                                                      Vm boot                                                                       
+  --project id-or-uri                                                Project Id                                                          
+  --location id-or-uri                                               Location Id                                                         
+  --x-idempotency-key string                                         Idempotency key                                                     
+  --name string                                                      Vm name                                                             
+  --service id-or-uri                                                Vm service. Provide ID or URI of billing/service                    
+  --image id-or-uri                                                  Vm image. Provide ID or URI of storage/image. Requires permissions  
+                                                                     storage/image/use                                                   
+  --iso id-or-uri                                                    Vm iso. Provide ID or URI of storage/iso. Requires permissions      
+                                                                     storage/iso/use                                                     
+  --username string                                                  Vm username                                                         
+  --password string                                                  Vm password                                                         
+  --ssh-keys string[]                                                SshKeys collection                                                  
+  --user-metadata string                                             Vm userMetadata                                                     
+  --disk id=id,size=size,service=service,name=name                   Disk collection                                                     
+  --netadp service=service,network=network,ip=ip,firewall=firewall   Netadp collection                                                   
+  --boot string                                                      Vm boot                                                             
   --tag key=key,value=value                                          Tag collection
 ```
 
@@ -50315,10 +50385,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli compute vm show
@@ -51414,10 +51485,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name 
-  --tag string           Filter by tag
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key
 ```
 
 #### h1-cli billing reservation show

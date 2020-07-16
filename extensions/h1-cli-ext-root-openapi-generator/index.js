@@ -12,11 +12,11 @@ const printCommand = (name, content) => () => new Command({
 });
 
 const makeOperationCommand = ({ name, operation, method, path }) => () => {
-    const options = request.input(operation);
+    const options = request.renderOptions(operation);
     return new Command({
         name,
         summary: `${operation.summary} [${operation.operationId}]`,
-        options: request.renderOptions(operation),
+        options,
         tags: [operation.operationId],
         handler: async (opts) => {
             const optsAll = opts._all || opts;

@@ -3,10 +3,13 @@ const path = require('path');
 const process = require('process');
 
 module.exports = {
-    entry: './public/index.js',
+    entry: {
+        demo: './public/index.js',
+        lib: './index.js',
+    },
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: 'bundle.js',
+        filename: '[name].js',
     },
     target: 'web',
     mode: process.env.NODE_ENV || 'development',
@@ -28,18 +31,5 @@ module.exports = {
         alias: {
             'array-back': path.resolve(__dirname, 'node_modules/array-back'),
         },
-    },
-    module: {
-        rules: [
-            {
-                test: /\.css$/i,
-                use: [
-                    // Creates `style` nodes from JS strings
-                    'style-loader',
-                    // Translates CSS into CommonJS
-                    'css-loader',
-                ],
-            },
-        ],
     },
 };
