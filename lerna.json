@@ -10,11 +10,9 @@
   "command": {
     "publish": {
       "ignoreChanges": [
-        "ignored-file",
         "*.md"
       ],
-      "message": "chore(release): publish",
-      "registry": "http://localhost:4873"
+      "message": "chore(release): publish"
     }
   }
 }
