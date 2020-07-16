@@ -11,7 +11,7 @@ class Device {
     async configLoad() {
         return {};
     }
-    async configSave(content) {
+    async configSave(/*content*/) {
         return;
     }
     async headers() {
@@ -23,13 +23,13 @@ class Device {
     debug(...args) {
         console.debug(...args);
     }
-    async readPassportFile(filepath) {
+    async readPassportFile(/*filepath*/) {
         return;
     }
     async readDefaultPassport() {
         return;
     }
-    async importExtension(pattern) {
+    async importExtension(/*pattern*/) {
         return [];
     }
     mapUrl(url) {

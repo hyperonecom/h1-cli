@@ -1,2 +1,5 @@
 **/dist/*.js
 bundle.js
+**/public/dist.js
+**/public/demo.js
+

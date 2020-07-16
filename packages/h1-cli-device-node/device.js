@@ -94,11 +94,11 @@ class NodeDevice extends Device {
         console.debug(...args);
     }
     readPassportFile(filepath) {
-        return filepath && JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }))
+        return filepath && JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }));
     }
     readDefaultPassport() {
         try {
-            return JSON.parse(fs.readFileSync(untildify(`~/.${scope}/passport.json`)));
+            return JSON.parse(fs.readFileSync(untildify(`~/.${this.scope}/passport.json`)));
         } catch (err) {
             if (err.code == 'ENOENT') return;
             throw err;
