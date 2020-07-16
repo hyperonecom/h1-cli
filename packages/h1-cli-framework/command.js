@@ -122,7 +122,9 @@ class Command {
         }));
     }
     generateArgv({ requestBody = {}, parameters = {} }) {
-        const argv = [];
+        const argv = [
+            ...this.getFullName().split(' '),
+        ];
         for (const option of this.options) {
             if (option.use) {
                 const value = option.use.in == 'body' ? resolvePointer(requestBody, option.use.field) : parameters[option.use.field];

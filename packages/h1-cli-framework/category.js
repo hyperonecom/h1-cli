@@ -118,7 +118,7 @@ class Category extends Command {
         const child_cmd = commands.find(x => x.tags.includes(tag));
         if (child_cmd) return child_cmd;
         for (const child of commands.filter(x => x.loadCommands)) {
-            const child_cmd = child.findCommand(tag);
+            const child_cmd = await child.findCommand(tag);
             if (child_cmd) {
                 return child_cmd;
             }

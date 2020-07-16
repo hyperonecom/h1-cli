@@ -142,7 +142,7 @@ const renderBody = (operation, input, options) => {
             continue;
         }
         if (option.prefix && value && !value.startsWith('/')) {
-            value = path(option.prefix, operation, input);
+            value = renderPath(option.prefix, operation, input);
         }
         patch.push({ op: 'add', path: option.use.field, value: value });
     }
