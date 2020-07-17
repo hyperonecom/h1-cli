@@ -1,6 +1,6 @@
 {
   "name": "h1-cli-device-node",
-  "version": "1.0.1-alpha.1+b8fe37b",
+  "version": "1.0.1-alpha.1",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -9,13 +9,13 @@
   "author": "Adam Dobrawy",
   "license": "MIT",
   "dependencies": {
-    "h1-cli-core": "^1.0.1-alpha.0",
-    "h1-cli-ext-config-extensions": "^1.0.1-alpha.1+b8fe37b",
-    "h1-cli-ext-config-settings": "^1.0.1-alpha.1+b8fe37b",
-    "h1-cli-ext-iam-project-select": "^1.0.1-alpha.1+b8fe37b",
-    "h1-cli-ext-root-auth": "^1.0.1-alpha.1+b8fe37b",
-    "h1-cli-ext-root-openapi-generator": "^1.0.1-alpha.1+b8fe37b",
-    "h1-cli-framework": "^1.0.1-alpha.0",
+    "h1-cli-core": "^1.0.1-alpha.1",
+    "h1-cli-ext-config-extensions": "^1.0.1-alpha.1",
+    "h1-cli-ext-config-settings": "^1.0.1-alpha.1",
+    "h1-cli-ext-iam-project-select": "^1.0.1-alpha.1",
+    "h1-cli-ext-root-auth": "^1.0.1-alpha.1",
+    "h1-cli-ext-root-openapi-generator": "^1.0.1-alpha.1",
+    "h1-cli-framework": "^1.0.1-alpha.1",
     "untildify": "^4.0.0"
   },
   "scripts": {

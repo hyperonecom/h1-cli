@@ -1,6 +1,6 @@
 {
   "name": "h1-cli-ext-root-openapi-generator",
-  "version": "1.0.1-alpha.1+b8fe37b",
+  "version": "1.0.1-alpha.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -15,8 +15,8 @@
   "author": "Adam Dobrawy",
   "license": "MIT",
   "dependencies": {
-    "h1-cli-core": "^1.0.1-alpha.0",
-    "h1-cli-framework": "^1.0.1-alpha.0",
+    "h1-cli-core": "^1.0.1-alpha.1",
+    "h1-cli-framework": "^1.0.1-alpha.1",
     "jsonpatch": "^3.0.1",
     "openapi-sampler": "^1.0.0-beta.16",
     "pluralize": "^8.0.0"

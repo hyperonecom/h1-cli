@@ -1,6 +1,6 @@
 {
   "name": "h1-cli-device-browser",
-  "version": "1.0.1-alpha.1+b8fe37b",
+  "version": "1.0.1-alpha.1",
   "description": "",
   "main": "public/dist.js",
   "author": "Adam Dobrawy",
@@ -11,10 +11,10 @@
   },
   "dependencies": {
     "array-back": "^3.1.0",
-    "h1-cli-core": "^1.0.1-alpha.0",
-    "h1-cli-ext-iam-project-select": "^1.0.1-alpha.1+b8fe37b",
-    "h1-cli-ext-root-openapi-generator": "^1.0.1-alpha.1+b8fe37b",
-    "h1-cli-framework": "^1.0.1-alpha.0",
+    "h1-cli-core": "^1.0.1-alpha.1",
+    "h1-cli-ext-iam-project-select": "^1.0.1-alpha.1",
+    "h1-cli-ext-root-openapi-generator": "^1.0.1-alpha.1",
+    "h1-cli-framework": "^1.0.1-alpha.1",
     "shell-quote": "^1.7.2"
   },
   "devDependencies": {

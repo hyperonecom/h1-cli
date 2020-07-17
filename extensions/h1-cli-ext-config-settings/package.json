@@ -1,6 +1,6 @@
 {
   "name": "h1-cli-ext-config-settings",
-  "version": "1.0.1-alpha.1+b8fe37b",
+  "version": "1.0.1-alpha.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "author": "Adam Dobrawy",
   "license": "MIT",
   "dependencies": {
-    "h1-cli-framework": "^1.0.1-alpha.0"
+    "h1-cli-framework": "^1.0.1-alpha.1"
   },
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d"
 }

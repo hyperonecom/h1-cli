@@ -1,6 +1,6 @@
 {
   "name": "h1-cli-core",
-  "version": "1.0.1-alpha.0",
+  "version": "1.0.1-alpha.1",
   "description": "",
   "main": "index.js",
   "dependencies": {
@@ -9,7 +9,7 @@
     "camel-case": "^4.1.1",
     "command-line-args": "^5.1.1",
     "command-line-usage": "^6.1.0",
-    "h1-cli-framework": "^1.0.1-alpha.0",
+    "h1-cli-framework": "^1.0.1-alpha.1",
     "jmespath": "^0.15.0",
     "js-yaml": "^3.14.0",
     "jsonwebtoken": "^8.5.1",
