@@ -5,10 +5,16 @@ module.exports = (http, auth) => {
 
     const headers = {};
 
-    const getHeaders = async (audience) => ({
-        Authorization: `Bearer ${await auth.getToken(audience)}`,
-        ...headers,
-    });
+    const getHeaders = async (audience) => {
+        const token = await auth.getToken(audience);
+        if (token) {
+            const headers = {
+                Authorization: `Bearer ${token}`,
+                ...headers,
+            };
+        }
+        return headers;
+    };
 
     const update = async (method, uri, json) => http[method](uri, {
         json,

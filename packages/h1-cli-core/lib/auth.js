@@ -20,8 +20,12 @@ module.exports = ({ http, logger, config, passport, as, defaultAudience }) => {
     const getRefreshToken = () => config.get('auth.token.refresh_token');
 
     const refreshToken = async () => {
+        const refresh_token = await getRefreshToken();
+        if (!refresh_token) {
+            logger.debug('No refresh token available. Skip refreshing.');
+            return;
+        }
         const openid_configuration = await http.get(`${defaultAudience}/.well-known/openid-configuration`);
-        const refresh_token = getRefreshToken();
         const token = await http.post(openid_configuration.token_endpoint, {
             grant_type: 'refresh_token',
             refresh_token,
@@ -34,12 +38,12 @@ module.exports = ({ http, logger, config, passport, as, defaultAudience }) => {
 
     const getAccessToken = async () => {
         const ts = Math.round(new Date().getTime() / 1000);
-        const exp = config.get('auth.token.expires_in', 0);
+        const ext = await config.get('auth.token.expires_at', 0);
         if (config.get('auth.token.expires_at', 0) > ts) {
-            logger.debug(`Access token is fresh. Valid until ${new Date(exp * 1000).toISOString()}. Re-use.`);
+            logger.debug(`Access token is fresh. Valid until ${new Date(ext * 1000).toISOString()}. Re-use.`);
             return config.get('auth.token.access_token');
         }
-        logger.debug(`Access token is old. Expired at ${new Date(exp).toISOString()}. Refreshing.`);
+        logger.debug(`Access token is old. Expired at ${new Date(ext * 1000).toISOString()}. Attempt to refresh.`);
         return refreshToken();
     };
 

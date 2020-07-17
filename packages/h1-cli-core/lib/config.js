@@ -1,5 +1,5 @@
 'use strict';
-const {get, set, unset} = require('./transform');
+const { get, set, unset } = require('./transform');
 
 module.exports = (device) => {
     const config = device.configLoad() || {
@@ -11,10 +11,10 @@ module.exports = (device) => {
     };
 
     const api = {};
-    api.get = (key, defaultValue) => get(config, key, defaultValue);
-    api.set = (key, value) => set(config, key, value);
-    api.unset = key => unset(config, key);
-    api.store = () => device.configSave(config);
+    api.get = async (key, defaultValue) => get(await config, key, defaultValue);
+    api.set = async (key, value) => await set(config, key, value);
+    api.unset = async key => unset(await config, key);
+    api.store = async () => device.configSave(await config);
     api.all = () => config;
     return api;
 };
