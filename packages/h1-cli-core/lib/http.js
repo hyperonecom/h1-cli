@@ -48,7 +48,7 @@ module.exports = (device, logger) => {
         const type = resp.headers.get('content-type');
 
         if (type.startsWith('text/plain')) {
-            const respText = resp.text();
+            const respText = await resp.text();
             logger.debug('response text', respText);
             return respText;
         }
