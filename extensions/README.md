@@ -14,7 +14,7 @@
 
 ### installation
 
-- download pkg from npm (pick latest version if not provided) 
+- download pkg from npm (pick latest version if not provided)
 - extract package from npm to ~/.h1/extension/ (without npm)
 
 ### deinstallation

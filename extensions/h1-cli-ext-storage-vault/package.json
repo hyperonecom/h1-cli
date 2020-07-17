@@ -1,5 +1,5 @@
 {
-  "name": "h1-cli-ext-insight-journal",
+  "name": "h1-cli-ext-storage-vault",
   "version": "1.0.1-alpha.1+b8fe37b",
   "description": "",
   "main": "dist/index.js",
@@ -16,8 +16,7 @@
   "license": "MIT",
   "dependencies": {
     "h1-cli-core": "file:../../packages/h1-cli-core",
-    "h1-cli-framework": "^1.0.1-alpha.0",
-    "readline-transform": "^1.0.0"
+    "h1-cli-framework": "^1.0.1-alpha.0"
   },
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d"
 }

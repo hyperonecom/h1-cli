@@ -3,10 +3,10 @@ const path = require('path');
 const process = require('process');
 
 module.exports = {
-    entry: './index.js',
+    entry: './public/index.js',
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: 'dist.js',
+        filename: 'demo.js',
     },
     target: 'web',
     mode: process.env.NODE_ENV || 'development',
