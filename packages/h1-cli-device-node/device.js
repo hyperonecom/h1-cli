@@ -91,7 +91,7 @@ class NodeDevice extends Device {
     }
     // eslint-disable-next-line no-console
     debug(...args) {
-        console.debug(...args);
+        console.error(...args);
     }
     readPassportFile(filepath) {
         return filepath && JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }));
