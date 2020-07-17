@@ -8,7 +8,7 @@ module.exports = (http, auth) => {
     const getHeaders = async (audience) => {
         const token = await auth.getToken(audience);
         if (token) {
-            const headers = {
+            return {
                 Authorization: `Bearer ${token}`,
                 ...headers,
             };

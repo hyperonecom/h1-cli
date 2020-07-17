@@ -63,9 +63,9 @@ module.exports = (device, logger) => {
     };
 
     result.delete = (uri, options = {}) => request('delete', uri, options);
-    result.patch = (uri, json, options = {}) => request('patch', uri, { json, ...options });
-    result.post = (uri, json, options = {}) => request('post', uri, { json, ...options });
-    result.put = (uri, json, options = {}) => request('put', uri, { json, ...options });
+    result.patch = (uri, options = {}) => request('patch', uri, options);
+    result.post = (uri, options = {}) => request('post', uri, options);
+    result.put = (uri, options = {}) => request('put', uri, options);
     result.head = (uri, options = {}) => request('head', uri, options);
     result.get = (uri, options = {}) => request('get', uri, options);
 
