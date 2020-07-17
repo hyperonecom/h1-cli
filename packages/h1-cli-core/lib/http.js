@@ -33,7 +33,7 @@ module.exports = (device, logger) => {
         });
 
         logger.debug('response status', resp.status);
-        logger.debug('response headers', JSON.stringify(resp.headers, null, 2));
+        logger.debug('response headers', JSON.stringify(Object.fromEntries(resp.headers), null, 2));
 
         if (!resp.ok) {
             const err = new Error('Invalid response');
