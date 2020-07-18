@@ -43,7 +43,6 @@ const resource = {
     defaultQuery: '[].{id:id, name:name, role:role, resource:resource, tags:join(\',\',keys(tag || `{}`) ) }',
     url: (args) => `iam/project/${args.project}/policy`,
     plugins: genericDefaults.plugins,
-    earlyAdoptersOnly: true,
     extraCommands: ['create', 'update'],
     title: 'Policy',
     dirname: __dirname,

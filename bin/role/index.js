@@ -31,7 +31,6 @@ const resource = {
     defaultQuery: '[].{id:id, name:name, tags:join(\',\',keys(tag || `{}`) )}',
     url: (args) => `iam/project/${args.project}/role`,
     plugins: genericDefaults.plugins,
-    earlyAdoptersOnly: true,
     extraCommands: ['create', 'service', 'update', 'access/project'],
     title: 'Role',
     dirname: __dirname,

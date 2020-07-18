@@ -29,7 +29,6 @@ const resource = {
     defaultQuery: '[].{id:id, name:name, tags:join(\',\',keys(tag || `{}`) ) }',
     url: args => `iam/project/${args.project}/sa`,
     plugins: genericDefaults.plugins,
-    earlyAdoptersOnly: true,
     extraCommands: ['create', 'transfer'],
     title: 'Service account',
     dirname: __dirname,
