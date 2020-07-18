@@ -348,10 +348,6 @@ h1 container attach --agent my-container
 
 Manage your process in container
 
-### Note
-
-The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
-
 ## h1 container process list
 
 List process in container

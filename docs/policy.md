@@ -29,10 +29,6 @@
 
 Manage your Policy
 
-### Note
-
-The functionality is available as part of the *Early adopters* program. Operation and interface may be changed in a non-backward compatibility manner.
-
 ### Examples
 
 #### Create Service Account with SSH credential
