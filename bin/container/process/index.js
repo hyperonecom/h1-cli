@@ -10,7 +10,6 @@ module.exports = (parent) => genericResource({
     plugins: genericDefaults.plugins,
     commands: ['list'],
     options: parent.options,
-    earlyAdoptersOnly: true,
     title: 'process in container',
     context: {
         listParams: `--${parent.name} my-${parent.name}`,
