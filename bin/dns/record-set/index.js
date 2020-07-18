@@ -3,14 +3,13 @@
 const Cli = require('lib/cli');
 
 const defaults = require('bin/generic/defaults');
-const addTrailingDot = require('../lib').addTrailingDot;
 const recordTypes = require('../recordTypes');
 
 const resource = {
     name: 'record-set',
     // eslint-disable-next-line quotes
-    defaultQuery: "[].{id:id, name:name, type:type, ttl:ttl, record:join(',',record[].content)}",
-    url: args => `zone/${addTrailingDot(args.zone)}`,
+    defaultQuery: "[].{id:id, name:name, type:type, ttl:ttl}",
+    url: args => `dns/${args.location}/project/${args.project}/zone/${args.zone}`,
     options: {
         zone: {
             description: 'Zone name or ID',
@@ -38,7 +37,7 @@ const category = (resource) => {
     Object.keys(recordTypes).forEach(type => category.addChild(record(type, resource)));
 
     category.addChild(require('bin/generic/list')(Object.assign({}, resource, {
-        url: args => `zone/${args.zone}/recordset`,
+        url: args => `dns/${args.location}/project/${args.project}/zone/${args.zone}/recordset`,
     })));
 
     return category;
@@ -47,12 +46,12 @@ const category = (resource) => {
 const record = (type, parent) => {
     const category = Cli.createCategory(type, {
         description: `Manage record set type ${type.toUpperCase()}`,
-        defaultQuery: `[?type=='${type.toUpperCase()}'][].{id:id, name:name, type:type, ttl:ttl, record:join(',',record[].content)}`,
+        defaultQuery: `[?type=='${type.toUpperCase()}'][].{id:id, name:name, type:type, ttl:ttl}`,
     });
 
     const resource = Object.assign({}, parent, {
         title: `record ${type.toUpperCase()}`,
-        url: args => `zone/${args.zone}`,
+        url: args => `dns/${args.location}/project/${args.project}/zone/${args.zone}`,
         context: Object.assign({}, parent.context, {
             listParams: '--zone my-zone',
             dns_type: type,
@@ -61,7 +60,7 @@ const record = (type, parent) => {
     });
 
     category.addChild(require('bin/generic/list')(Object.assign({}, resource, {
-        url: args => `zone/${args.zone}/recordset`,
+        url: args => `dns/${args.location}/project/${args.project}/zone/${args.zone}/recordset`,
     })));
     category.addChild(require('./createRecordSet')(resource, type));
     category.addChild(require('./deleteRecordSet')(resource, type));

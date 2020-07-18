@@ -21,20 +21,21 @@ const supported_label = [...supported_types, 'soa']
     .map(x => x.toUpperCase())
     .join(', ');
 
-const handle = (args) => args.helpers.api.get(
-    `${args.$node.parent.config.url(args)}/${args.zone}`, {
-        name: args.zone,
-    }).then(result => {
+const handle = async (args) => {
+    const result = await args.helpers.api.get(`${args.$node.parent.config.url(args)}/${args.zone}`);
+    const recordset = await args.helpers.api.get(`${args.$node.parent.config.url(args)}/${args.zone}/recordset`);
 
     const zone = {
         $origin: result.name,
         $ttl: 3600,
     };
 
-    const soa_rrset = result.recordset.find(x => x.type === 'SOA');
+    const soa_rrset = recordset.find(x => x.type === 'SOA');
 
-    if (soa_rrset && soa_rrset.record.length) {
-        const parts = soa_rrset.record[0].content.split(' ');
+    if (soa_rrset) {
+        const soa_rrset_records = await args.helpers.api.get(`${args.$node.parent.config.url(args)}/${args.zone}/recordset/${soa_rrset.id}/record`);
+        console.log(soa_rrset_records);
+        const parts = soa_rrset_records[0].content.split(' ');
         zone.soa = {
             mname: parts[0],
             rname: parts[1],
@@ -46,23 +47,29 @@ const handle = (args) => args.helpers.api.get(
         };
     }
 
-    supported_types
-        .forEach(type => {
-            zone[type] = [];
-            result.recordset
-                .filter(x => x.type === type.toUpperCase())
-                .map(rrset => {
-                    zone[type].push(...rrset.record.map(record => Object.assign(
-                        {
-                            ttl: rrset.ttl,
-                            name: rrset.name !== result.name ? rrset.name : null,
-                        },
-                        recordTypes[type].to_bind(record.content)
-                    )));
-                });
-        });
+    console.log(recordset);
+    for (const type of supported_label) {
+        zone[type] = [];
+        // await Promise.all(recordset
+        //     .filter(x => x.type === type.toUpperCase())
+        //     .map(async rrset => {
+        for (const rrset of recordset.filter(x => x.type === type.toUpperCase())) {
+            const records = await args.helpers.api.get(`${args.$node.parent.config.url(args)}/${args.zone}/recordset/${rrset.id}`);
+            console.log(records);
+            zone[type].push(...records.map(record => Object.assign(
+                {
+                    ttl: rrset.ttl,
+                    name: rrset.name !== result.name ? rrset.name : null,
+                },
+                recordTypes[type].to_bind(record.content)
+            )));
+        }
+        //     })
+        // );
+    }
+
     return zonefile.generate(zone);
-});
+};
 
 module.exports = (resource) => Cli.createCommand('export', {
     description: `Export ${supported_label} records of ${resource.title} in BIND-compatible format`,

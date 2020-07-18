@@ -41,9 +41,9 @@ const schema = {
 
 const resource = {
     name: 'zone',
-    defaultQuery: '[].{id:id, name:name, type:flavour, dnsName:dnsName, state:state, tags:join(\',\',keys(tag || `{}`) ) }',
+    defaultQuery: '[].{id:id, name:name, type:flavour, dnsName:dnsName, state:state }',
     plugins: defaults.plugins,
-    url: () => 'zone',
+    url: args => `dns/${args.location}/project/${args.project}/zone`,
     title: 'DNS Zone',
     schema,
     dirname: __dirname,

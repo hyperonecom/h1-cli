@@ -29,6 +29,8 @@ module.exports = (resource, type) => Cli.createCommand('upsert', {
     handler: async args => {
         args.zone = addTrailingDot(args.zone);
         const zone = await args.helpers.api.get(resource.url(args));
+        const recordsets = await args.helpers.api.get(`${resource.url(args)}/recordset`);
+
         const rrset = {
             name: formatRecordName(args.name, zone.dnsName),
             ttl: args.ttl,
@@ -39,7 +41,7 @@ module.exports = (resource, type) => Cli.createCommand('upsert', {
             })),
         };
 
-        const remote_rrset = zone.recordset.find(x => x.type === rrset.type && x.name === rrset.name);
+        const remote_rrset = recordsets.find(x => x.type === rrset.type && x.name === rrset.name);
 
         if (remote_rrset) {
             const url = `${resource.url(args)}/recordset/${remote_rrset.id}`;
