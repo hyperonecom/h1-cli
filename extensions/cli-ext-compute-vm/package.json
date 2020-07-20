@@ -1,0 +1,21 @@
+{
+  "name": "@hyperone/cli-ext-compute-vm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hyperone/cli-core": "file:../../packages/cli-core",
+    "@hyperone/cli-framework": "file:../../packages/cli-framework"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@hyperone/cli-ext-iam-project-select",
+  "version": "1.0.1-alpha.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "author": "Adam Dobrawy",
+  "license": "MIT",
+  "dependencies": {
+    "@hyperone/cli-framework": "file:../../packages/cli-framework"
+  },
+  "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d"
+}

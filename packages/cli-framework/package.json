@@ -1,0 +1,17 @@
+{
+  "name": "@hyperone/cli-framework",
+  "version": "1.0.1-alpha.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "fmt": "eslint . --fix"
+  },
+  "author": "Adam Dobrawy",
+  "license": "MIT",
+  "dependencies": {
+    "command-line-args": "^5.1.1",
+    "command-line-usage": "^6.1.0",
+    "meant": "^1.0.1"
+  }
+}

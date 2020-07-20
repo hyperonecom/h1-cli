@@ -8,8 +8,9 @@
     "build": "lerna run build",
     "lint": "eslint .",
     "fmt": "eslint . --fix",
-    "install": "lerna bootstrap",
-    "install:ci": "lerna bootstrap --ci"
+    "install": "lerna bootstrap --force-local",
+    "install:ci": "lerna bootstrap --ci",
+    "clean": "lerna clean"
   },
   "devDependencies": {
     "@hyperone/eslint-config": "^2.0.1",

@@ -1,0 +1,26 @@
+{
+  "name": "@hyperone/cli-device-browser",
+  "version": "1.0.1-alpha.1",
+  "description": "",
+  "main": "public/dist.js",
+  "author": "Adam Dobrawy",
+  "license": "MIT",
+  "scripts": {
+    "serve": "webpack-dev-server",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "array-back": "^3.1.0",
+    "@hyperone/cli-core": "file:../../packages/cli-core",
+    "@hyperone/cli-ext-iam-project-select": "file:../../extensions/cli-ext-iam-project-select",
+    "@hyperone/cli-ext-root-openapi-generator": "file:../../extensions/cli-ext-root-openapi-generator",
+    "@hyperone/cli-framework": "file:../../packages/cli-framework",
+    "shell-quote": "^1.7.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "gitHead": "a667a9fae1ba7945f8ca4a9f5e115254feb94831"
+}

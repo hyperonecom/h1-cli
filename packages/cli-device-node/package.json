@@ -1,0 +1,30 @@
+{
+  "name": "@hyperone/cli-device-node",
+  "version": "1.0.1-alpha.1",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "h1": "./bin/h1"
+  },
+  "author": "Adam Dobrawy",
+  "license": "MIT",
+  "dependencies": {
+    "@hyperone/cli-core": "file:../../packages/cli-core",
+    "@hyperone/cli-framework": "file:../../packages/cli-framework",
+    "@hyperone/cli-ext-compute-vm": "file:../../extensions/cli-ext-compute-vm",
+    "@hyperone/cli-ext-config-extensions": "file:../../extensions/cli-ext-config-extensions",
+    "@hyperone/cli-ext-config-settings": "file:../../extensions/cli-ext-config-settings",
+    "@hyperone/cli-ext-iam-project-select": "file:../../extensions/cli-ext-iam-project-select",
+    "@hyperone/cli-ext-root-auth": "file:../../extensions/cli-ext-root-auth",
+    "@hyperone/cli-ext-root-openapi-generator": "file:../../extensions/cli-ext-root-openapi-generator",
+    "@hyperone/cli-ext-storage-vault": "file:../../extensions/cli-ext-storage-vault",
+    "@hyperone/cli-ext-website-instance": "file:../../extensions/cli-ext-website-instance",
+    "untildify": "^4.0.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "fmt": "eslint . --fix",
+    "docs": "COLUMNS=200 nodejs scripts/print-docs.js > ../../docs.md"
+  },
+  "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d"
+}
