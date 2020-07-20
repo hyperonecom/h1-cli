@@ -8,8 +8,8 @@
     "build": "lerna run build",
     "lint": "eslint .",
     "fmt": "eslint . --fix",
-    "bootstrap": "lerna exec -- npm install",
-    "bootstrap:ci": "lerna exec -- npm ci",
+    "install": "lerna exec --concurrency=1 -- yarn install",
+    "install:ci": "lerna exec --concurrency=1 -- yarn install",
     "clean": "lerna clean"
   },
   "devDependencies": {

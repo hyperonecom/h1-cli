@@ -3,6 +3,7 @@
     "packages/**",
     "extensions/**"
   ],
+  "npmClient": "yarn",
   "version": "1.0.2-alpha.0",
   "ignoreChanges": [
     "**/*.md"

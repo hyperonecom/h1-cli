@@ -14,13 +14,13 @@ jobs:
       with:
         node-version: '12.x'
     - name: Install lerna
-      run: npm install
-    - name: Install packages
-      run: npm run bootstrap:ci
+      run: yarn install
     - name: Lint code
-      run: npm run lint
+      run: yarn run lint
+    - name: Install packages
+      run: yarn run bootstrap:ci
     - name: Build packages
-      run: npm run build
+      run: yarn run build
     - name: Build NodeJS release files
       run: ./scripts/release-bin.sh
       working-directory: ./packages/cli-device-node
