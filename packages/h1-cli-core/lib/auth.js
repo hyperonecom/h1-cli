@@ -39,7 +39,8 @@ module.exports = ({ http, logger, config, passport, as, defaultAudience }) => {
     const getAccessToken = async () => {
         const ts = Math.round(new Date().getTime() / 1000);
         const ext = await config.get('auth.token.expires_at', 0);
-        if (config.get('auth.token.expires_at', 0) > ts) {
+        console.log({ ext });
+        if (ext > ts) {
             logger.debug(`Access token is fresh. Valid until ${new Date(ext * 1000).toISOString()}. Re-use.`);
             return config.get('auth.token.access_token');
         }
@@ -89,10 +90,25 @@ module.exports = ({ http, logger, config, passport, as, defaultAudience }) => {
         return access_token;
     };
 
-    result.updateToken = (token) => {
-        token.expires_at = +new Date() + token.expires_in;
-        config.set('auth.token', token);
-        config.store();
+    result.updateToken = async (token) => {
+        token.expires_at = Math.floor(Date.now() / 1000) + token.expires_in;
+        await config.set('auth.token', token);
+        await config.store();
+    };
+
+    result.federate = async (token, options) => {
+        const body = await exchange(defaultAudience, token, options);
+        return result.updateToken(body);
+    };
+
+    result.introspection = async () => {
+        const token = await getAccessToken();
+        const openid_configuration = await http.get(`${defaultAudience}/.well-known/openid-configuration`);
+        return http.post(openid_configuration.introspection_endpoint, {
+            json: {
+                token: token,
+            },
+        });
     };
 
     return result;

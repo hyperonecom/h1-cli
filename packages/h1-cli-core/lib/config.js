@@ -12,7 +12,7 @@ module.exports = (device) => {
 
     const api = {};
     api.get = async (key, defaultValue) => get(await config, key, defaultValue);
-    api.set = async (key, value) => await set(config, key, value);
+    api.set = async (key, value) => set(await config, key, value);
     api.unset = async key => unset(await config, key);
     api.store = async () => device.configSave(await config);
     api.all = () => config;

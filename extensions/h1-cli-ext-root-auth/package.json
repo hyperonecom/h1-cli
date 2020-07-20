@@ -16,6 +16,10 @@
   "license": "MIT",
   "gitHead": "a667a9fae1ba7945f8ca4a9f5e115254feb94831",
   "dependencies": {
+    "@aws-sdk/credential-provider-node": "0.1.0-preview.2",
+    "@azure/identity": "^1.0.3",
+    "aws4": "^1.10.0",
+    "google-auth-library": "^6.0.5",
     "h1-cli-framework": "^1.0.1-alpha.1"
   }
 }
