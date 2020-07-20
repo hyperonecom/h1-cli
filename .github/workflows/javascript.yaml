@@ -27,11 +27,11 @@ jobs:
     - uses: octokit/request-action@v2.x
       id: get_rc_release
       with:
-        route: GET /repos/:repository/h1-cli/releases/28758119
+        route: GET /repos/:repository/releases/28758119
+        repository: ${{ github.repository }}
         # Use following to identify new release id:
         # curl https://api.github.com/repos/hyperonecom/h1-cli/releases
         # -H "Authorization: token $GH_TOKEN"
-        repository: ${{ github.repository }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Upload Release Asset of h1-linux.tar.gz
