@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hyperone/cli-core": "1.0.2-alpha.0",
-    "@hyperone/cli-framework": "1.0.2-alpha.0"
+    "@hyperone/cli-core": "file:../../packages/cli-core",
+    "@hyperone/cli-framework": "file:../../packages/cli-framework"
   }
 }

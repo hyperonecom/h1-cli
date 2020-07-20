@@ -10,10 +10,10 @@
     "build": "webpack"
   },
   "dependencies": {
-    "@hyperone/cli-core": "1.0.2-alpha.0",
-    "@hyperone/cli-ext-iam-project-select": "1.0.2-alpha.0",
-    "@hyperone/cli-ext-root-openapi-generator": "1.0.2-alpha.0",
-    "@hyperone/cli-framework": "1.0.2-alpha.0",
+    "@hyperone/cli-core": "file:../../packages/cli-core",
+    "@hyperone/cli-ext-iam-project-select": "file:../../extensions/cli-ext-iam-project-select",
+    "@hyperone/cli-ext-root-openapi-generator": "file:../../extensions/cli-ext-root-openapi-generator",
+    "@hyperone/cli-framework": "file:../../packages/cli-framework",
     "array-back": "^3.1.0",
     "shell-quote": "^1.7.2"
   },

@@ -15,8 +15,8 @@
   "author": "Adam Dobrawy",
   "license": "MIT",
   "dependencies": {
-    "@hyperone/cli-core": "1.0.2-alpha.0",
-    "@hyperone/cli-framework": "1.0.2-alpha.0",
+    "@hyperone/cli-core": "file:../../packages/cli-core",
+    "@hyperone/cli-framework": "file:../../packages/cli-framework",
     "jsonpatch": "^3.0.1",
     "openapi-sampler": "^1.0.0-beta.16",
     "pluralize": "^8.0.0"
