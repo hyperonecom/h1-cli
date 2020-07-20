@@ -1,8 +1,6 @@
 'use strict';
 const { Command } = require('@hyperone/cli-framework');
 
-const generic_scope = 'https://management.azure.com';
-
 module.exports = new Command({
     name: 'google',
     summary: 'Authenticate using Google identity',

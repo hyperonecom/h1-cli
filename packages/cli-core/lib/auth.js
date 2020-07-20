@@ -39,7 +39,6 @@ module.exports = ({ http, logger, config, passport, as, defaultAudience }) => {
     const getAccessToken = async () => {
         const ts = Math.round(new Date().getTime() / 1000);
         const ext = await config.get('auth.token.expires_at', 0);
-        console.log({ ext });
         if (ext > ts) {
             logger.debug(`Access token is fresh. Valid until ${new Date(ext * 1000).toISOString()}. Re-use.`);
             return config.get('auth.token.access_token');
