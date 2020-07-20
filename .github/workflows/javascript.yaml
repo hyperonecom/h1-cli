@@ -24,13 +24,6 @@ jobs:
     - name: Build NodeJS release files
       run: ./scripts/release-bin.sh
       working-directory: ./packages/cli-device-node
-    - name: Update the Release
-      uses: johnwbyrd/update-release@master
-      if: github.ref == 'refs/heads/v2'
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        release: Cutting Edge
-        draft: false
     - uses: octokit/request-action@v2.x
       id: get_rc_release
       with:
