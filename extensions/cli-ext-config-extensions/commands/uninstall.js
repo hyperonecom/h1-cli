@@ -1,11 +1,11 @@
-'use strict';
 
-const fs = require('fs');
-const path = require('path');
-const { remove } = require('fs-extra');
-const { Command } = require('@hyperone/cli-framework');
 
-module.exports = new Command({
+import fs from 'fs';
+import path from 'path';
+import { remove } from 'fs-extra';
+import { Command } from '@hyperone/cli-framework';
+
+export default new Command({
     name: 'uninstall',
     summary: 'Uninstall extension',
     options: [

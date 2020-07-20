@@ -1,8 +1,13 @@
-'use strict';
 
-const { Category } = require('@hyperone/cli-framework');
 
-module.exports = {
+import { Category } from '@hyperone/cli-framework';
+
+import user from './commands/user';
+import aws from './commands/aws';
+import azure from './commands/azure';
+import google from './commands/google';
+
+export default {
     name: require('./package.json').name,
     version: require('./package.json').version,
     load: async (parent) => parent.loadHook.push(() => {
@@ -14,9 +19,9 @@ module.exports = {
 
         parent.addCommand(cmd);
 
-        cmd.addCommand(() => require('./commands/user'));
-        cmd.addCommand(() => require('./commands/aws'));
-        cmd.addCommand(() => require('./commands/azure'));
-        cmd.addCommand(() => require('./commands/google'));
+        cmd.addCommand(() => user);
+        cmd.addCommand(() => aws);
+        cmd.addCommand(() => azure);
+        cmd.addCommand(() => google);
     }),
 };

@@ -1,8 +1,8 @@
-'use strict';
-const path = require('path');
-const process = require('process');
 
-module.exports = {
+import path from 'path';
+import process from 'process';
+
+export default {
     entry: './index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),

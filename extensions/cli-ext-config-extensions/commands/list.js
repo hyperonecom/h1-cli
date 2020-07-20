@@ -1,10 +1,10 @@
-'use strict';
-
-const npm = require('../npm');
-const { Command } = require('@hyperone/cli-framework');
 
 
-module.exports = new Command({
+import npm from '../npm';
+import { Command } from '@hyperone/cli-framework';
+
+
+export default new Command({
     name: 'list',
     summary: 'List available and installed extensions',
     handler: async (opts, cmd) => {

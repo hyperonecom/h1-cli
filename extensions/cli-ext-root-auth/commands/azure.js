@@ -1,9 +1,9 @@
-'use strict';
-const { Command } = require('@hyperone/cli-framework');
 
+import { Command } from '@hyperone/cli-framework';
+import { DefaultAzureCredential } from '@azure/identity';
 const generic_scope = 'https://management.azure.com';
 
-module.exports = new Command({
+export default new Command({
     name: 'azure',
     summary: 'Authenticate using Azure identity',
     options: [
@@ -21,7 +21,6 @@ module.exports = new Command({
     handler: async (opts) => {
         const optsAll = opts._all || opts;
         if (optsAll.discovery) {
-            const { DefaultAzureCredential } = require('@azure/identity');
             const credential = new DefaultAzureCredential();
             const access_token = await credential.getToken(generic_scope);
             optsAll.token = access_token.token;

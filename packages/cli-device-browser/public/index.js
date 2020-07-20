@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
 
-'use strict';
 
-const { buildCli } = require('@hyperone/cli-core');
-const BrowserDevice = require('./../device');
+import { buildCli } from '@hyperone/cli-core';
+import BrowserDevice from './../device';
 const quote = require('shell-quote').quote;
 
 function docReady(fn) {

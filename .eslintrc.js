@@ -1,4 +1,4 @@
-'use strict';
+
 
 module.exports = {
     extends: [
@@ -13,7 +13,22 @@ module.exports = {
     env: {
         jasmine: true,
     },
+    parserOptions: {
+        sourceType: 'module',
+    },
+    globals: {
+        __non_webpack_require__: 'readonly',
+    },
     overrides: [
+        {
+            files: [
+                'packages/**.js',
+                'extensions/**.js',
+            ],
+            parserOptions: {
+                sourceType: 'module',
+            },
+        },
         {
             files: [
                 '**/web/*.js',

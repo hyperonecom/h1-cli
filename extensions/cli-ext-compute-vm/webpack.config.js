@@ -1,13 +1,12 @@
-'use strict';
-const path = require('path');
-const process = require('process');
 
-module.exports = {
+import path from 'path';
+import process from 'process';
+
+export default {
     entry: './index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'index.js',
-        libraryTarget: 'commonjs2',
     },
     target: 'node',
     mode: process.env.NODE_ENV || 'development',

@@ -1,7 +1,6 @@
-'use strict';
-const jmespath = require('jmespath');
-// const tabula = require('tabula');
-const yaml = require('js-yaml');
+import jmespath from 'jmespath';
+// import tabula from 'tabula'
+import yaml from 'js-yaml';
 
 const queryFilter = (query, result) => {
     result = Array.isArray(result) ? result : [result];
@@ -48,7 +47,7 @@ const outputFormat = {
     yaml: (result, query) => yaml.safeDump(query ? queryFilter(query, result) : result),
 };
 
-module.exports = {
+export default {
     name: __filename.split('/').pop(),
     beforeParseArgv: (cmd) => cmd.options.push(...[
         {

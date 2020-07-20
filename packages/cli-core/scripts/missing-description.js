@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
-'use strict';
 
-const openapi = require('../lib/openapi');
+import openapi from '../lib/openapi';
 const normalize = (value) => String(value).replace('\n', '\\n');
 
 const main = async () => {

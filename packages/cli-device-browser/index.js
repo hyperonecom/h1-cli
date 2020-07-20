@@ -1,9 +1,8 @@
-'use strict';
 
-const { buildCli } = require('@hyperone/cli-core');
-const BrowserDevice = require('./device');
+import { buildCli } from '@hyperone/cli-core';
+import BrowserDevice from './device';
 
-module.exports = {
+export default {
     buildCli,
     BrowserDevice,
 };

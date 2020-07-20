@@ -1,8 +1,7 @@
-'use strict';
 
-const commandLineArgs = require('command-line-args');
-const commandLineUsage = require('command-line-usage');
-const meant = require('meant');
+import commandLineArgs from 'command-line-args';
+import commandLineUsage from 'command-line-usage';
+import meant from 'meant';
 const { resolvePointer, serializeValue } = require('./utils');
 
 class Command {
@@ -148,4 +147,4 @@ class Command {
     }
 }
 
-module.exports = Command;
+export default Command;

@@ -1,8 +1,8 @@
-'use strict';
 
-const { Command } = require('@hyperone/cli-framework');
 
-module.exports = new Command({
+import { Command } from '@hyperone/cli-framework';
+
+export default new Command({
     name: 'select',
     summary: 'Select default project',
     options: [

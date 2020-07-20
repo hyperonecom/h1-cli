@@ -1,7 +1,6 @@
-'use strict';
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-module.exports = (device, logger) => {
+export default (device, logger) => {
     const result = {};
 
     const baseRequest = async (method, uri, {json, headers, body, query}={}) => {

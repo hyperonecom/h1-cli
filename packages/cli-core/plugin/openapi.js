@@ -1,7 +1,6 @@
-'use strict';
 const {openapi} = require('../');
 
-module.exports = {
+export default {
     name: __filename.split('/').pop(),
     beforeCommandStart: (opts) => {
         opts.openapi = openapi;

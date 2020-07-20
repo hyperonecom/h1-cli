@@ -1,7 +1,6 @@
-'use strict';
 
-module.exports = {
-    Category: require('./category'),
-    Command: require('./command'),
-    Device: require('./device'),
-};
+import Category from './category';
+import Command from './command';
+import Device from './device';
+
+export { Category, Command, Device };

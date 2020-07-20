@@ -1,6 +1,5 @@
-'use strict';
 
-module.exports = {
+export default {
     name: __filename.split('/').pop(),
     beforeParseArgv: (cmd) => cmd.options.push({
         name: 'verbose',

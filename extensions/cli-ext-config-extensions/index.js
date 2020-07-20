@@ -1,8 +1,12 @@
-'use strict';
 
-const { Category } = require('@hyperone/cli-framework');
 
-module.exports = {
+import { Category } from '@hyperone/cli-framework';
+
+import list from './commands/list';
+import install from './commands/install';
+import uninstall from './commands/uninstall';
+
+export default {
     name: require('./package.json').name,
     version: require('./package.json').version,
     load: async (parent) => parent.loadHook.push(() => {
@@ -11,8 +15,8 @@ module.exports = {
             summary: 'Manage extensions of CLI',
         });
         parent.addCommand(cmd);
-        cmd.addCommand(() => require('./commands/list'));
-        cmd.addCommand(() => require('./commands/install'));
-        cmd.addCommand(() => require('./commands/uninstall'));
+        cmd.addCommand(() => list);
+        cmd.addCommand(() => install);
+        cmd.addCommand(() => uninstall);
     }),
 };

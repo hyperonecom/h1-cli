@@ -1,8 +1,8 @@
-'use strict';
-const openapi = require('@hyperone/cli-core/lib/openapi');
-const { deCamelCase } = require('@hyperone/cli-core/lib/transform');
-const jsonpatch = require('jsonpatch');
-const types = require('@hyperone/cli-core/types');
+
+import openapi from '@hyperone/cli-core/lib/openapi';
+import { deCamelCase } from '@hyperone/cli-core/lib/transform';
+import jsonpatch from 'jsonpatch';
+import types from '@hyperone/cli-core/types';
 
 const idless = (name) => name.replace(/Id$/, '');
 
@@ -182,7 +182,7 @@ const renderPath = (path, operation, input) => {
     return url;
 };
 
-module.exports = {
+export default {
     renderOptions,
     renderBody,
     renderPath,

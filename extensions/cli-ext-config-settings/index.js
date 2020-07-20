@@ -1,8 +1,8 @@
-'use strict';
+
 
 const { Category, Command } = require('@hyperone/cli-framework');
 
-module.exports = {
+export default {
     name: require('./package.json').name,
     version: require('./package.json').version,
     load: async (parent) => {

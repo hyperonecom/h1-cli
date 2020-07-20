@@ -1,4 +1,3 @@
-'use strict';
 
 const resolvePointer = (data, path) => {
     let pos = data;
@@ -15,7 +14,7 @@ const serializeValue = (value) => {
     return value;
 };
 
-module.exports = {
+export default {
     resolvePointer,
     serializeValue,
 };

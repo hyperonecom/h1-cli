@@ -1,8 +1,8 @@
-'use strict';
+
 
 const {ssh, sftp} = require('@hyperone/cli-generic-commands');
 
-module.exports = {
+export default {
     name: require('./package.json').name,
     version: require('./package.json').version,
     load: async (parent) => parent.loadHook.push(() => {

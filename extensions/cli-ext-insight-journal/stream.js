@@ -1,10 +1,10 @@
-'use strict';
 
-const { Command } = require('@hyperone/cli-framework');
-const fs = require('fs');
-const { openapi } = require('@hyperone/cli-core');
 
-module.exports = new Command({
+import { Command } from '@hyperone/cli-framework';
+import fs from 'fs';
+import { openapi } from '@hyperone/cli-core';
+
+export default new Command({
     name: 'stream',
     summary: 'Stream messages from journal',
     options: [

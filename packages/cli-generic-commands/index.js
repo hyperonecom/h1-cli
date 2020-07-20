@@ -1,7 +1,6 @@
-'use strict';
 
-const { Command } = require('@hyperone/cli-framework');
-const { openapi } = require('@hyperone/cli-core');
+import { Command } from '@hyperone/cli-framework';
+import { openapi } from '@hyperone/cli-core';
 
 const ssh = ({ name, url }) => new Command({
     name: 'ssh',
@@ -68,7 +67,7 @@ const sftp = ({ name, url }) => new Command({
     },
 });
 
-module.exports = {
+export default {
     ssh,
     sftp,
 };

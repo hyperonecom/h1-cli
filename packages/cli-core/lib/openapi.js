@@ -1,10 +1,9 @@
-'use strict';
-const fetch = require('node-fetch');
-const $RefParser = require('@apidevtools/json-schema-ref-parser');
+import fetch from 'node-fetch';
+import $RefParser from '@apidevtools/json-schema-ref-parser';
 
 const spec = {};
 
-module.exports = {
+export default {
     init: async (options) => {
         if (options.openapiSpec) {
             Object.assign(spec, options.openapiSpec);

@@ -1,7 +1,8 @@
-'use strict';
-const { Command } = require('@hyperone/cli-framework');
 
-module.exports = new Command({
+import { Command } from '@hyperone/cli-framework';
+import { GoogleAuth } from 'google-auth-library';
+
+export default new Command({
     name: 'google',
     summary: 'Authenticate using Google identity',
     options: [
@@ -19,7 +20,6 @@ module.exports = new Command({
     handler: async (opts) => {
         const optsAll = opts._all || opts;
         if (optsAll.discovery) {
-            const { GoogleAuth } = require('google-auth-library');
             const auth = new GoogleAuth({
                 scopes: ['openid'],
             });

@@ -1,6 +1,5 @@
-'use strict';
 
-module.exports = (http, auth) => {
+export default (http, auth) => {
     const result = {};
 
     const headers = {};

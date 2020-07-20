@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-'use strict';
 
 class Device {
     async displayResult(result) {
@@ -40,5 +39,5 @@ class Device {
     }
 }
 
-module.exports = Device;
+export default Device;
 

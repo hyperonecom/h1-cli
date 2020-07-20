@@ -1,16 +1,13 @@
 /* eslint-disable no-console */
-'use strict';
-const chalk = require('chalk');
-const fs = require('fs');
-const path = require('path');
-const os = require('os');
-const untildify = require('untildify');
+import chalk from 'chalk';
+import fs from 'fs';
+import path from 'path';
+import os from 'os';
+import untildify from 'untildify';
 
-const { Device } = require('@hyperone/cli-framework');
-
-const process = require('process');
-
-const info = require('./package.json');
+import { Device } from '@hyperone/cli-framework';
+import process from 'process';
+import info from './package.json';
 
 const parameterLabel = (parameter, options = []) => {
     const option = options.find(p => p.use && p.use.in == parameter.in && p.use.field == parameter.field);
@@ -27,7 +24,7 @@ const formatError = (err, options) => {
     return console.log(`  ${chalk.red(err.title)} [${parameterLabel(err.parameter, options)}]: ${err.detail}`);
 };
 
-class NodeDevice extends Device {
+export class NodeDevice extends Device {
     constructor(scope) {
         super();
         this.scope = scope;
@@ -105,38 +102,46 @@ class NodeDevice extends Device {
         }
     }
     async importExtension(pattern) {
-        const path = require('path');
-        const dirs = [
-            path.join(os.homedir(), `.${this.scope}/extensions`),
-            path.join(__dirname, './node_modules/@hyperone'),
-        ];
+        let directories = [];
+        const extDir = path.join(os.homedir(), `.${this.scope}/extensions`);
         const extensions = [];
-        for (const extDir of dirs) {
-            let directories;
-            try {
-                directories = await fs.promises.readdir(extDir);
-            } catch (err) {
-                if (err.code == 'ENOENT') {
-                    continue;
-                }
+
+        try {
+            directories = await fs.promises.readdir(extDir);
+        } catch (err) {
+            if (err.code == 'ENOENT') {
+                directories = [];
+            } else {
                 throw err;
             }
-            for (const extension_dir of directories) {
-                const module = path.join(extDir, extension_dir);
-                // console.log('Loading CLI extensions: ', module);
-                if (module.match(`${pattern}-.*`)) {
-                    const extension = require(module);
-                    extension.module = module;
-                    // console.log('Loaded CLI extensions: ', module);
-                    // console.log(extension);
-                    if (!extensions.some(x => x.name == extension.name)) {
-                        extensions.push(extension);
-                    }
-                } else {
-                    // console.log(`Ignored module '${module}' for pattern '${pattern}'.`);
+        }
+        pattern = pattern.split('/').pop();
+
+        for (const extension_dir of directories) {
+            const module = path.join(extDir, extension_dir);
+            if (module.match(`${pattern}-.*`)) {
+                let extension = __non_webpack_require__(module);
+                if (extension.default) {
+                    extension = extension.default;
                 }
+                extension.module = module;
+                extensions.push(extension);
             }
         }
+        const r = require.context('./node_modules/@hyperone/', true, /cli-ext-[a-z-]*\/index\.js$/);
+        r.keys().forEach(module => {
+            if (module.match(`./${pattern}-.*/index.js`)) {
+                let extension = r(module);
+                if (extension.default) {
+                    extension = extension.default;
+                }
+                // Skip remote-loaded modules
+                // Allows overlap & upgrade
+                if (!extensions.some(x => x.name == extension.name)) {
+                    extensions.push(extension);
+                }
+            }
+        });
         return extensions;
     }
     mapUrl(url) {
@@ -148,6 +153,3 @@ class NodeDevice extends Device {
         return outDir;
     }
 }
-
-module.exports = NodeDevice;
-

@@ -1,9 +1,8 @@
-'use strict';
-const http = require('../lib/http');
-const api = require('../lib/api');
-const auth = require('../lib/auth');
+import http from '../lib/http';
+import api from '../lib/api';
+import auth from '../lib/auth';
 
-module.exports = {
+export default {
     name: __filename.split('/').pop(),
     beforeParseArgv: (cmd) => cmd.options.push(
         {

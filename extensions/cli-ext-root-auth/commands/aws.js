@@ -1,7 +1,7 @@
-'use strict';
-const { Command } = require('@hyperone/cli-framework');
 
-module.exports = new Command({
+import { Command } from '@hyperone/cli-framework';
+import awsCredentialProvider from '@aws-sdk/credential-provider-node';
+export default new Command({
     name: 'aws',
     summary: 'Authenticate using AWS identity',
     options: [
@@ -36,7 +36,6 @@ module.exports = new Command({
         };
 
         if (optsAll.discovery) {
-            const awsCredentialProvider = require('@aws-sdk/credential-provider-node');
             try {
                 credential = await awsCredentialProvider.defaultProvider()();
             } catch (err) {

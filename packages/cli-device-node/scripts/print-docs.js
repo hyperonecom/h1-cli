@@ -1,9 +1,8 @@
 /* eslint-disable no-console */
-'use strict';
-const { buildCli } = require('@hyperone/cli-core');
-const fs = require('fs');
-const { Command } = require('@hyperone/cli-framework');
-const Device = require('../device');
+import { buildCli } from '@hyperone/cli-core';
+import fs from 'fs';
+import { Command } from '@hyperone/cli-framework';
+import Device from '../device';
 
 const documentCommand = async (out, cmd, level) => {
     const headerPrefix = '#'.repeat(level);

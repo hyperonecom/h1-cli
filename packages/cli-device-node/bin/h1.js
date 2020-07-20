@@ -1,8 +1,7 @@
-#!/usr/bin/env node
-'use strict';
+/* eslint-disable no-console */
 
-const { buildCli } = require('@hyperone/cli-core');
-const NodeDevice = require('./../device');
+import { buildCli } from '@hyperone/cli-core';
+import { NodeDevice } from '../device';
 
 const main = async () => {
     const program = await buildCli({

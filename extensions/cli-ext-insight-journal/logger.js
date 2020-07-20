@@ -1,13 +1,13 @@
-'use strict';
 
-const { Command } = require('@hyperone/cli-framework');
-const readlineTransform = require('readline-transform');
-const { Transform } = require('stream');
-const fs = require('fs');
-const os = require('os');
+
+import { Command } from '@hyperone/cli-framework';
+import readlineTransform from 'readline-transform';
+import { Transform } from 'stream';
+import fs from 'fs';
+import os from 'os';
 const {openapi} = require('@hyperone/cli-core');
 
-module.exports = new Command({
+export default new Command({
     name: 'logger',
     summary: 'Log messages to journal',
     options: [

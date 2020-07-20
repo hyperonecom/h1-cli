@@ -1,4 +1,3 @@
-'use strict';
 
 const extractId = (value) => {
     if (value.startsWith('/')) return value.split('/').pop();
@@ -14,7 +13,7 @@ const nestedValue = value => {
     return result;
 };
 
-module.exports = {
+export default {
     extractId,
     nestedValue,
 };

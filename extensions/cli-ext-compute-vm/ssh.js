@@ -1,10 +1,10 @@
-'use strict';
-const { Command } = require('@hyperone/cli-framework');
-const os = require('os');
-const { openapi } = require('@hyperone/cli-core');
+
+import { Command } from '@hyperone/cli-framework';
+import os from 'os';
+import { openapi } from '@hyperone/cli-core';
 
 
-module.exports = new Command({
+export default new Command({
     name: 'ssh',
     summary: 'Connect to compute/vm using SSH',
     options: [

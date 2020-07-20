@@ -21,3 +21,17 @@ jobs:
       run: npm run lint
     - name: Build packages
       run: npm run build
+    - name: Build NodeJS release files
+      run: ./scripts/release-bin.sh
+      working-directory: ./packages/cli-device-node
+    - name: Update the Release
+      uses: johnwbyrd/update-release@master
+      if: github.ref == 'refs/heads/v2'
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        release: Cutting Edge
+        files: >
+          ./packages/cli-device-node/dist/h1-linux.tar.gz
+          ./packages/cli-device-node/dist/h1-alpine.tar.gz
+          ./packages/cli-device-node/dist/h1-macos.tar.gz
+        draft: false

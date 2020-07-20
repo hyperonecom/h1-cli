@@ -1,9 +1,8 @@
-'use strict';
 
-const commandLineArgs = require('command-line-args');
-const commandLineUsage = require('command-line-usage');
-const meant = require('meant');
-const Command = require('./command');
+import commandLineArgs from 'command-line-args';
+import commandLineUsage from 'command-line-usage';
+import meant from 'meant';
+import Command from './command';
 
 class Category extends Command {
     constructor(options = {}) {
@@ -126,4 +125,4 @@ class Category extends Command {
     }
 }
 
-module.exports = Category;
+export default Category;

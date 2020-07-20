@@ -1,10 +1,20 @@
-'use strict';
-const openapi = require('./lib/openapi');
-const { Category, Command } = require('@hyperone/cli-framework');
+import openapi from './lib/openapi';
+import { Category, Command } from '@hyperone/cli-framework';
 
-const buildCli = async (options = {}) => {
+export { openapi, Category, Command };
+
+import verbose from './plugin/verbose';
+import formatOutput from './plugin/formatOutput';
+import openapiPlugin from './plugin/openapi';
+import api from './plugin/api';
+import noWait from './plugin/noWait';
+import setDefault from './plugin/setDefault';
+
+import cfg from './lib/config';
+
+export async function buildCli (options = {}) {
     const device = options.device;
-    const config = options.config || require('./lib/config')(device);
+    const config = options.config || cfg(device);
 
     await openapi.init(options);
 
@@ -15,12 +25,12 @@ const buildCli = async (options = {}) => {
         device,
         extensions: ['@hyperone/cli-ext-root'],
         plugins: [
-            require('./plugin/verbose'),
-            require('./plugin/formatOutput'),
-            require('./plugin/openapi'),
-            require('./plugin/api'),
-            require('./plugin/noWait'),
-            require('./plugin/setDefault'),
+            verbose,
+            formatOutput,
+            openapiPlugin,
+            api,
+            noWait,
+            setDefault,
         ],
     });
 
@@ -36,12 +46,4 @@ const buildCli = async (options = {}) => {
             then(result => device.displayResult(result)).
             catch(err => device.displayError(err)),
     };
-
-};
-
-module.exports = {
-    openapi,
-    buildCli,
-    Category,
-    Command,
-};
+}

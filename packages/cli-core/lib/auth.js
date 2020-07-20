@@ -1,6 +1,5 @@
-'use strict';
 
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 const getPassportToken = async (passport, audience) => {
     return jwt.sign({}, passport.private_key, {
@@ -13,7 +12,7 @@ const getPassportToken = async (passport, audience) => {
     });
 };
 
-module.exports = ({ http, logger, config, passport, as, defaultAudience }) => {
+export default ({ http, logger, config, passport, as, defaultAudience }) => {
 
     const result = {};
 

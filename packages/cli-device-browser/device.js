@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
-'use strict';
 
-const { Device } = require('@hyperone/cli-framework');
+import { Device } from '@hyperone/cli-framework';
 
 class BrowserDevice extends Device {
     constructor() {
@@ -33,5 +32,5 @@ class BrowserDevice extends Device {
     }
 }
 
-module.exports = BrowserDevice;
+export default BrowserDevice;
 

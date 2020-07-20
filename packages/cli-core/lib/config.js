@@ -1,7 +1,6 @@
-'use strict';
 const { get, set, unset } = require('./transform');
 
-module.exports = (device) => {
+export default (device) => {
     const config = device.configLoad() || {
         parameter: {
             location: {

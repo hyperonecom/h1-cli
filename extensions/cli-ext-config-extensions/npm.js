@@ -1,6 +1,6 @@
-'use strict';
 
-module.exports = (http, baseUri) => {
+
+export default (http, baseUri) => {
     const api = {};
 
     api.get = (uri, params = {}) => http.get(`${baseUri}${uri}`, {query: params});

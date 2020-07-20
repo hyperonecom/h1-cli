@@ -1,9 +1,9 @@
-'use strict';
-const pluralize = require('pluralize');
+
+import pluralize from 'pluralize';
 const {Category, Command} = require('@hyperone/cli-framework');
 const {openapi} = require('@hyperone/cli-core');
 
-const request = require('./request');
+import request from './request';
 
 const printCommand = (name, content) => () => new Command({
     name,
@@ -178,7 +178,7 @@ const buildNamespaceCommand = (name, spec, ctx) => async () => {
 };
 
 
-module.exports = {
+export default {
     name: require('./package.json').name,
     version: require('./package.json').version,
     load: async (parent) => {

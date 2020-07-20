@@ -1,16 +1,16 @@
-'use strict';
 
-const tar = require('tar-fs');
-const gunzip = require('gunzip-maybe');
-const fs = require('fs');
-const path = require('path');
-const { remove } = require('fs-extra');
-const { Command } = require('@hyperone/cli-framework');
-const npm = require('../npm');
+
+import tar from 'tar-fs';
+import gunzip from 'gunzip-maybe';
+import fs from 'fs';
+import path from 'path';
+import { remove } from 'fs-extra';
+import { Command } from '@hyperone/cli-framework';
+import npm from '../npm';
 
 const r = eval('require');
 
-module.exports = new Command({
+export default new Command({
     name: 'install',
     summary: 'Install (or update) extension',
     options: [

@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
-'use strict';
 
-const packageInfo = require('./../package.json');
+import packageInfo from './../package.json';
 
 for (const pkg of Object.keys(packageInfo.dependencies).filter(x => x.startsWith('@hyperone/cli-ext'))) {
     try {
