@@ -30,8 +30,51 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         release: Cutting Edge
-        files: >
-          ./packages/cli-device-node/dist/h1-linux.tar.gz
-          ./packages/cli-device-node/dist/h1-alpine.tar.gz
-          ./packages/cli-device-node/dist/h1-macos.tar.gz
         draft: false
+    - uses: octokit/request-action@v2.x
+      id: get_rc_release
+      with:
+        route: GET /repos/hyperonecom/h1-cli/releases/28758119
+        # Use following to identify new release id:
+        # curl https://api.github.com/repos/hyperonecom/h1-cli/releases
+        # -H "Authorization: token $GH_TOKEN"
+        repository: ${{ github.repository }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - run: "echo latest release: ${{ steps.get_rc_release.outputs.data }}"
+    - name: Upload Release Asset of h1-linux.tar.gz
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.get_rc_release.outputs.upload_url }}
+        asset_path: ./packages/cli-device-node/dist/h1-linux.tar.gz
+        asset_name: h1-linux.tar.gz
+        asset_content_type: application/gzip
+    - name: Upload Release Asset of h1-alpine.tar.gz
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.get_rc_release.outputs.upload_url }}
+        asset_path: ./packages/cli-device-node/dist/h1-alpine.tar.gz
+        asset_name: h1-alpine.tar.gz
+        asset_content_type: application/gzip
+    - name: Upload Release Asset of h1-macos.tar.gz
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.get_rc_release.outputs.upload_url }}
+        asset_path: ./packages/cli-device-node/dist/h1-macos.tar.gz
+        asset_name: h1-macos.tar.gz
+        asset_content_type: application/gzip
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.get_rc_release.outputs.upload_url }}
+        asset_path: ./packages/cli-device-node/dist/h1-win.zip
+        asset_name: h1-win.zip
+        asset_content_type: application/zip
