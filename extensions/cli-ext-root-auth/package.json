@@ -18,7 +18,7 @@
   "dependencies": {
     "@aws-sdk/credential-provider-node": "0.1.0-preview.2",
     "@azure/identity": "^1.0.3",
-    "@hyperone/cli-framework": "file:../../packages/cli-framework",
+    "@hyperone/cli-framework": "1.0.2-alpha.0",
     "aws4": "^1.10.0",
     "google-auth-library": "^6.0.5"
   }
