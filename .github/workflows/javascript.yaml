@@ -38,6 +38,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Upload Release Asset of h1-linux.tar.gz
+      id: h1-linux-asset
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,6 +48,7 @@ jobs:
         asset_name: h1-linux.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
     - name: Upload Release Asset of h1-alpine.tar.gz
+      id: h1-alpine-asset
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -56,6 +58,7 @@ jobs:
         asset_name: h1-alpine.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
     - name: Upload Release Asset of h1-macos.tar.gz
+      id: h1-macos-asset
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -64,7 +67,8 @@ jobs:
         asset_path: ./packages/cli-device-node/dist/h1-macos.tar.gz
         asset_name: h1-macos.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
-    - name: Upload Release Asset
+    - name: Upload Release Asset of h1-win.zip
+      id: h1-win-asset
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -73,3 +77,12 @@ jobs:
         asset_path: ./packages/cli-device-node/dist/h1-win.zip
         asset_name: h1-win.${{ steps.slug.outputs.sha8 }}.zip
         asset_content_type: application/zip
+    - name: Create commit comment
+      uses: peter-evans/commit-comment@v1
+      with:
+        body: |
+          Use following link to download pre-compiled binary:
+          - [h1-linux.tar.gz][${{ steps.h1-linux-asset.outputs.browser_download_url }}]
+          - [h1-alpine.tar.gz][${{ steps.h1-alpine-asset.outputs.browser_download_url }}]
+          - [h1-macos.tar.gz][${{ steps.h1-macos-asset.outputs.browser_download_url }}]
+          - [h1-win.zip][${{ steps.h1-win-asset.outputs.browser_download_url }}]
