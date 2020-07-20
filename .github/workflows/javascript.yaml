@@ -18,7 +18,7 @@ jobs:
     - name: Lint code
       run: yarn run lint
     - name: Install packages
-      run: yarn run bootstrap:ci
+      run: yarn run install:ci
     - name: Build packages
       run: yarn run build
     - name: Build NodeJS release files
