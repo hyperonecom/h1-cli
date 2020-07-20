@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-ext-config-extensions",
-  "version": "1.0.1-alpha.1",
+  "version": "1.0.2-alpha.0",
   "description": "Extension to manage loaded extensions itself.",
   "main": "dist/index.js",
   "scripts": {
@@ -15,9 +15,9 @@
   "author": "Adam Dobrawy",
   "license": "MIT",
   "dependencies": {
+    "@hyperone/cli-framework": "file:../../packages/cli-framework",
     "fs-extra": "^9.0.1",
     "gunzip-maybe": "^1.4.2",
-    "@hyperone/cli-framework": "file:../../packages/cli-framework",
     "tar-fs": "^2.1.0"
   },
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d"
