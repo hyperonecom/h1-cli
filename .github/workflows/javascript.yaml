@@ -19,3 +19,5 @@ jobs:
       run: npm run install:ci
     - name: Lint code
       run: npm run lint
+    - name: Build packages
+      run: npm run build
