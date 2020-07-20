@@ -27,20 +27,19 @@ jobs:
     - uses: octokit/request-action@v2.x
       id: get_rc_release
       with:
-        route: GET /repos/hyperonecom/h1-cli/releases/28758119
+        route: GET /repos/:repository/h1-cli/releases/28758119
         # Use following to identify new release id:
         # curl https://api.github.com/repos/hyperonecom/h1-cli/releases
         # -H "Authorization: token $GH_TOKEN"
         repository: ${{ github.repository }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - run: "echo latest release: ${{ steps.get_rc_release.outputs.data }}"
     - name: Upload Release Asset of h1-linux.tar.gz
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.get_rc_release.outputs.upload_url }}
+        upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-linux.tar.gz
         asset_name: h1-linux.tar.gz
         asset_content_type: application/gzip
@@ -49,7 +48,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.get_rc_release.outputs.upload_url }}
+        upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-alpine.tar.gz
         asset_name: h1-alpine.tar.gz
         asset_content_type: application/gzip
@@ -58,7 +57,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.get_rc_release.outputs.upload_url }}
+        upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-macos.tar.gz
         asset_name: h1-macos.tar.gz
         asset_content_type: application/gzip
@@ -67,7 +66,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        upload_url: ${{ steps.get_rc_release.outputs.upload_url }}
+        upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-win.zip
         asset_name: h1-win.zip
         asset_content_type: application/zip
