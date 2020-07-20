@@ -1,8 +1,8 @@
 
-import path from 'path';
-import process from 'process';
+const path = require('path');
+const process = require('process');
 
-export default {
+module.exports = {
     entry: './index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
