@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "h1-cli-core": "^1.0.1-alpha.0",
+    "h1-cli-ext-compute-vm": "file:../../extensions/h1-cli-ext-compute-vm",
     "h1-cli-ext-config-extensions": "^1.0.1-alpha.1+b8fe37b",
     "h1-cli-ext-config-settings": "^1.0.1-alpha.1+b8fe37b",
     "h1-cli-ext-iam-project-select": "^1.0.1-alpha.1+b8fe37b",
