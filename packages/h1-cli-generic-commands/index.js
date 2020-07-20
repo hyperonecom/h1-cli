@@ -2,13 +2,13 @@
 
 const { Command } = require('h1-cli-framework');
 const os = require('os');
-const {openapi} = require('h1-cli-core');
+const { openapi } = require('h1-cli-core');
 
-module.exports = new Command({
+const ssh = ({ name, url }) => new Command({
     name: 'ssh',
-    summary: 'Connect to Vault using SSH',
+    summary: `Connect to ${name} using SSH`,
     options: [
-        { name: 'vault', required: true },
+        { name: name.toLowerCase(), required: true },
         { name: 'project', required: true, defaultSource: 'project' },
         {
             name: 'command',
@@ -18,26 +18,29 @@ module.exports = new Command({
     handler: async (opts) => {
         const optsAll = opts._all || opts;
         const resource = await opts.api.get(
-            openapi.getUrl(`/storage/pl-waw-1/project/${optsAll.project}/vault/${optsAll.vault}`)
+            openapi.getUrl(url(optsAll))
         );
 
         const sshArgs = [
             `${resource.id}@${resource.fqdn}`,
         ];
 
-        if (opts.command) {
-            sshArgs.push(opts.command);
+        if (optsAll.command) {
+            sshArgs.push(optsAll.command);
         }
-
-        opts.log(`ssh ${sshArgs.join(' ')}`);
+        opts.logger.info(`ssh ${sshArgs.join(' ')}`);
 
         const spawn = require('child_process').spawn;
 
         return new Promise((resolve, reject) => {
-            const ssh = spawn('ssh', sshArgs, {stdio: 'inherit'});
+            const ssh = spawn('ssh', sshArgs, { stdio: 'inherit' });
 
             ssh.on('close', resolve);
             ssh.on('error', reject);
         });
     },
 });
+
+module.exports = {
+    ssh,
+};

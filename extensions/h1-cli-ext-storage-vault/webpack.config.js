@@ -15,8 +15,8 @@ module.exports = {
         extensions: ['.js', '.json'],
     },
     externals: function (context, request, callback) {
-        if (/^(h1-cli-.*)$/i.test(request)) {
-            return callback(null, `commonjs ${  request}`);
+        if (['h1-cli-core', 'h1-cli-framework'].includes(request)) {
+            return callback(null, `commonjs ${request}`);
         }
         callback();
     },

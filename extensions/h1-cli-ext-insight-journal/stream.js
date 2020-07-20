@@ -1,10 +1,7 @@
 'use strict';
 
 const { Command } = require('h1-cli-framework');
-const readlineTransform = require('readline-transform');
-const { Transform } = require('stream');
 const fs = require('fs');
-const os = require('os');
 const { openapi } = require('h1-cli-core');
 
 module.exports = new Command({
@@ -22,7 +19,7 @@ module.exports = new Command({
         },
         // tags
     ],
-    handler: async (opts, cmd) => {
+    handler: async (opts) => {
         const optsAll = opts._all || opts;
         const log = await opts.api
             .get(openapi.getUrl(`/insight/pl-waw-1/project/${optsAll.project}/journal/${optsAll.journal}`));
