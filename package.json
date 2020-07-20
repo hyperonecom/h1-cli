@@ -8,7 +8,7 @@
     "build": "lerna run build",
     "lint": "eslint .",
     "fmt": "eslint . --fix",
-    "bootstrap": "lerna bootstrap && lerna exec npm i",
+    "bootstrap": "npx lerna --concurrency 0 exec npm i",
     "bootstrap:ci": "lerna bootstrap --ci",
     "clean": "lerna clean"
   },
