@@ -1,18 +1,17 @@
 'use strict';
 
 const { Command } = require('h1-cli-framework');
-const os = require('os');
 const { openapi } = require('h1-cli-core');
 
 const ssh = ({ name, url }) => new Command({
     name: 'ssh',
     summary: `Connect to ${name} using SSH`,
     options: [
-        { name: name.toLowerCase(), required: true },
+        { name: name.split('/').pop(), required: true },
         { name: 'project', required: true, defaultSource: 'project' },
         {
             name: 'command',
-            required: !os.hostname(),
+            required: false,
         },
     ],
     handler: async (opts) => {
@@ -41,6 +40,35 @@ const ssh = ({ name, url }) => new Command({
     },
 });
 
+const sftp = ({ name, url }) => new Command({
+    name: 'sftp',
+    summary: `Connect to ${name} using SFTP`,
+    options: [
+        { name: name.split('/').pop(), required: true },
+        { name: 'project', required: true, defaultSource: 'project' },
+    ],
+    handler: async (opts) => {
+        const optsAll = opts._all || opts;
+        const resource = await opts.api.get(
+            openapi.getUrl(url(optsAll))
+        );
+
+        const argv = [
+            `${resource.id}@${resource.fqdn}`,
+        ];
+        opts.logger.info(`sftp ${argv.join(' ')}`);
+
+        const spawn = require('child_process').spawn;
+
+        return new Promise((resolve, reject) => {
+            const ssh = spawn('sftp', argv, { stdio: 'inherit' });
+            ssh.on('close', resolve);
+            ssh.on('error', reject);
+        });
+    },
+});
+
 module.exports = {
     ssh,
+    sftp,
 };

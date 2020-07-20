@@ -17,6 +17,7 @@
     "h1-cli-ext-root-auth": "^1.0.1-alpha.1+b8fe37b",
     "h1-cli-ext-root-openapi-generator": "^1.0.1-alpha.1+b8fe37b",
     "h1-cli-ext-storage-vault": "file:../../extensions/h1-cli-ext-storage-vault",
+    "h1-cli-ext-website-instance": "file:../../extensions/h1-cli-ext-website-instance",
     "h1-cli-framework": "^1.0.1-alpha.0",
     "untildify": "^4.0.0"
   },
