@@ -24,6 +24,9 @@ jobs:
     - name: Build NodeJS release files
       run: ./scripts/release-bin.sh
       working-directory: ./packages/cli-device-node
+    - name: Get short SHA
+      id: slug
+      run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
     - uses: octokit/request-action@v2.x
       id: get_rc_release
       with:
@@ -41,7 +44,7 @@ jobs:
       with:
         upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-linux.tar.gz
-        asset_name: h1-linux.tar.gz
+        asset_name: h1-linux.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
     - name: Upload Release Asset of h1-alpine.tar.gz
       uses: actions/upload-release-asset@v1
@@ -50,7 +53,7 @@ jobs:
       with:
         upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-alpine.tar.gz
-        asset_name: h1-alpine.tar.gz
+        asset_name: h1-alpine.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
     - name: Upload Release Asset of h1-macos.tar.gz
       uses: actions/upload-release-asset@v1
@@ -59,7 +62,7 @@ jobs:
       with:
         upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-macos.tar.gz
-        asset_name: h1-macos.tar.gz
+        asset_name: h1-macos.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
     - name: Upload Release Asset
       uses: actions/upload-release-asset@v1
@@ -68,5 +71,5 @@ jobs:
       with:
         upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-win.zip
-        asset_name: h1-win.zip
+        asset_name: h1-win.${{ steps.slug.outputs.sha8 }}.zip
         asset_content_type: application/zip
