@@ -81,7 +81,7 @@ jobs:
       uses: peter-evans/commit-comment@v1
       with:
         body: |
-          Use following link to download pre-compiled binary:
+          Use following links to download pre-compiled binary:
           - [h1-linux.tar.gz](${{ steps.h1-linux-asset.outputs.browser_download_url }})
           - [h1-alpine.tar.gz](${{ steps.h1-alpine-asset.outputs.browser_download_url }})
           - [h1-macos.tar.gz](${{ steps.h1-macos-asset.outputs.browser_download_url }})
