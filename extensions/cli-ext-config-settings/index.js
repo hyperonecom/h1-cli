@@ -1,6 +1,6 @@
 
 
-const { Category, Command } = require('@hyperone/cli-framework');
+import { Category, Command } from '@hyperone/cli-framework';
 
 export default {
     name: require('./package.json').name,

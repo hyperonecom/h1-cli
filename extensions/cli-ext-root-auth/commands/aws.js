@@ -1,6 +1,8 @@
 
 import { Command } from '@hyperone/cli-framework';
 import awsCredentialProvider from '@aws-sdk/credential-provider-node';
+import aws4 from 'aws4';
+
 export default new Command({
     name: 'aws',
     summary: 'Authenticate using AWS identity',
@@ -28,7 +30,6 @@ export default new Command({
     ],
     handler: async (opts) => {
         const optsAll = opts._all || opts;
-        const aws4 = require('aws4');
         let credential = {
             accessKeyId: optsAll['access-key-id'],
             secretAccessKey: optsAll['secret-access-key'],

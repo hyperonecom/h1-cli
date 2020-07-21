@@ -3,7 +3,7 @@
 
 import { buildCli } from '@hyperone/cli-core';
 import BrowserDevice from './../device';
-const quote = require('shell-quote').quote;
+import { quote } from 'shell-quote';
 
 function docReady(fn) {
     // see if DOM is already available

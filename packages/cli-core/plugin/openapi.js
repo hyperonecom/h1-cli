@@ -1,4 +1,4 @@
-const {openapi} = require('../');
+import {openapi} from '../';
 
 export default {
     name: __filename.split('/').pop(),

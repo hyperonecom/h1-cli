@@ -5,7 +5,7 @@ import readlineTransform from 'readline-transform';
 import { Transform } from 'stream';
 import fs from 'fs';
 import os from 'os';
-const {openapi} = require('@hyperone/cli-core');
+import {openapi} from '@hyperone/cli-core';
 
 export default new Command({
     name: 'logger',

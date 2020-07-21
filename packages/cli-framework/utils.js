@@ -1,5 +1,5 @@
 
-const resolvePointer = (data, path) => {
+export const resolvePointer = (data, path) => {
     let pos = data;
     path.split('/').slice(1).forEach(x => {
         pos = pos[x];
@@ -7,14 +7,9 @@ const resolvePointer = (data, path) => {
     return pos;
 };
 
-const serializeValue = (value) => {
+export const serializeValue = (value) => {
     if (typeof value == 'object') {
         return Object.entries(value).map(([name, value]) => `${name}=${value}`).join(',');
     }
     return value;
-};
-
-export default {
-    resolvePointer,
-    serializeValue,
 };

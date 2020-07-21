@@ -2,6 +2,7 @@
 import { Command } from '@hyperone/cli-framework';
 import os from 'os';
 import { openapi } from '@hyperone/cli-core';
+import { spawn } from 'child_process';
 
 
 export default new Command({
@@ -35,7 +36,6 @@ export default new Command({
 
         opts.logger.info(`ssh ${sshArgs.join(' ')}`);
 
-        const spawn = require('child_process').spawn;
 
         return new Promise((resolve, reject) => {
             const ssh = spawn('ssh', sshArgs, { stdio: 'inherit' });

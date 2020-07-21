@@ -1,6 +1,7 @@
 
 import { Command } from '@hyperone/cli-framework';
 import { openapi } from '@hyperone/cli-core';
+import { spawn } from 'child_process';
 
 const ssh = ({ name, url }) => new Command({
     name: 'ssh',
@@ -28,8 +29,6 @@ const ssh = ({ name, url }) => new Command({
         }
         opts.logger.info(`ssh ${sshArgs.join(' ')}`);
 
-        const spawn = require('child_process').spawn;
-
         return new Promise((resolve, reject) => {
             const ssh = spawn('ssh', sshArgs, { stdio: 'inherit' });
 
@@ -56,8 +55,6 @@ const sftp = ({ name, url }) => new Command({
             `${resource.id}@${resource.fqdn}`,
         ];
         opts.logger.info(`sftp ${argv.join(' ')}`);
-
-        const spawn = require('child_process').spawn;
 
         return new Promise((resolve, reject) => {
             const ssh = spawn('sftp', argv, { stdio: 'inherit' });

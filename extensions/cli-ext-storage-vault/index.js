@@ -1,6 +1,6 @@
 
 
-const {ssh, sftp} = require('@hyperone/cli-generic-commands');
+import {ssh, sftp} from '@hyperone/cli-generic-commands';
 
 export default {
     name: require('./package.json').name,

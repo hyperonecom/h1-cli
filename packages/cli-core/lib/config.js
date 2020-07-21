@@ -1,4 +1,4 @@
-const { get, set, unset } = require('./transform');
+import { get, set, unset } from './transform';
 
 export default (device) => {
     const config = device.configLoad() || {

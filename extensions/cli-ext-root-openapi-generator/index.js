@@ -1,7 +1,7 @@
 
 import pluralize from 'pluralize';
-const {Category, Command} = require('@hyperone/cli-framework');
-const {openapi} = require('@hyperone/cli-core');
+import {Category, Command} from '@hyperone/cli-framework';
+import {openapi} from '@hyperone/cli-core';
 
 import request from './request';
 
@@ -182,6 +182,7 @@ export default {
     name: require('./package.json').name,
     version: require('./package.json').version,
     load: async (parent) => {
+        console.log('xxx', openapi);
         const namespaces = openapi.getNamespaces();
         for (const [name, spec] of Object.entries(namespaces)) {
             await parent.addCommand(buildNamespaceCommand(name, spec, {

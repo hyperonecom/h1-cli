@@ -2,7 +2,7 @@
 import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
 import meant from 'meant';
-const { resolvePointer, serializeValue } = require('./utils');
+import { resolvePointer, serializeValue } from './utils';
 
 class Command {
     constructor(options = {}) {

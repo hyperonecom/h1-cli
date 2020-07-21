@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import openapi from '../../../lib/openapi';
 import { buildProgram } from '../lib/cli/dynamic';
-const shell_quote = require('shell-quote');
+import shell_quote from 'shell-quote';
 
 jasmine.getEnv().defaultTimeoutInterval = 10 * 1000;
 
