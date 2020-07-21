@@ -23,6 +23,9 @@
     "nexe": "^3.3.7",
     "untildify": "^4.0.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "watch": "webpack --watch",
     "build": "webpack",

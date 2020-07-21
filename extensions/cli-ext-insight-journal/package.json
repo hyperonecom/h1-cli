@@ -19,5 +19,8 @@
     "@hyperone/cli-framework": "file:../../packages/cli-framework",
     "readline-transform": "^1.0.0"
   },
-  "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d"
+  "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",
+  "publishConfig": {
+    "access": "public"
+  }
 }

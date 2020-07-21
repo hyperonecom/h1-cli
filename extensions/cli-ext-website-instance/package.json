@@ -18,5 +18,8 @@
 		"@hyperone/cli-core": "file:../../packages/cli-core",
 		"@hyperone/cli-framework": "file:../../packages/cli-framework",
 		"@hyperone/cli-generic-commands": "file:../../packages/cli-generic-commands"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

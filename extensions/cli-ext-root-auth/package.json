@@ -22,5 +22,8 @@
     "@hyperone/cli-framework": "file:../../packages/cli-framework",
     "aws4": "^1.10.0",
     "google-auth-library": "^6.0.5"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

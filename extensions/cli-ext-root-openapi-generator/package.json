@@ -21,5 +21,8 @@
     "openapi-sampler": "^1.0.0-beta.16",
     "pluralize": "^8.0.0"
   },
-  "gitHead": "a667a9fae1ba7945f8ca4a9f5e115254feb94831"
+  "gitHead": "a667a9fae1ba7945f8ca4a9f5e115254feb94831",
+  "publishConfig": {
+    "access": "public"
+  }
 }

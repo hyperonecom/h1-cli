@@ -17,6 +17,9 @@
     "array-back": "^3.1.0",
     "shell-quote": "^1.7.2"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",

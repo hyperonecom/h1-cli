@@ -13,5 +13,8 @@
     "command-line-args": "^5.1.1",
     "command-line-usage": "^6.1.0",
     "meant": "^1.0.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

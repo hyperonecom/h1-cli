@@ -11,5 +11,8 @@
   "dependencies": {
     "@hyperone/cli-core": "file:../../packages/cli-core",
     "@hyperone/cli-framework": "file:../../packages/cli-framework"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

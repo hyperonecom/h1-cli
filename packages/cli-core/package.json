@@ -23,6 +23,9 @@
     "jasmine": "^3.5.0",
     "shell-quote": "^1.7.2"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint": "eslint .",
     "fmt": "eslint . --fix"
