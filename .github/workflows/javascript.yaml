@@ -82,7 +82,7 @@ jobs:
       with:
         body: |
           Use following link to download pre-compiled binary:
-          - [h1-linux.tar.gz][${{ steps.h1-linux-asset.outputs.browser_download_url }}]
-          - [h1-alpine.tar.gz][${{ steps.h1-alpine-asset.outputs.browser_download_url }}]
-          - [h1-macos.tar.gz][${{ steps.h1-macos-asset.outputs.browser_download_url }}]
-          - [h1-win.zip][${{ steps.h1-win-asset.outputs.browser_download_url }}]
+          - [h1-linux.tar.gz](${{ steps.h1-linux-asset.outputs.browser_download_url }})
+          - [h1-alpine.tar.gz](${{ steps.h1-alpine-asset.outputs.browser_download_url }})
+          - [h1-macos.tar.gz](${{ steps.h1-macos-asset.outputs.browser_download_url }})
+          - [h1-win.zip](${{ steps.h1-win-asset.outputs.browser_download_url }})
