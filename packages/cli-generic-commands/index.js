@@ -3,7 +3,7 @@ import { Command } from '@hyperone/cli-framework';
 import { openapi } from '@hyperone/cli-core';
 import { spawn } from 'child_process';
 
-const ssh = ({ name, url }) => new Command({
+export const ssh = ({ name, url }) => new Command({
     name: 'ssh',
     summary: `Connect to ${name} using SSH`,
     options: [
@@ -38,7 +38,7 @@ const ssh = ({ name, url }) => new Command({
     },
 });
 
-const sftp = ({ name, url }) => new Command({
+export const sftp = ({ name, url }) => new Command({
     name: 'sftp',
     summary: `Connect to ${name} using SFTP`,
     options: [
@@ -63,8 +63,3 @@ const sftp = ({ name, url }) => new Command({
         });
     },
 });
-
-export default {
-    ssh,
-    sftp,
-};

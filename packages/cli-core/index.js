@@ -22,7 +22,7 @@ export async function buildCli (options = {}) {
         summary: 'Management for cloud services of HyperOne',
         config,
         device,
-        // extensions: ['@hyperone/cli-ext-root'],
+        extensions: ['cli-ext-root'],
         plugins: [
             verbose,
             formatOutput,
@@ -33,11 +33,11 @@ export async function buildCli (options = {}) {
         ],
     });
 
-    // program.addCommand(new Category({
-    //     name: 'config',
-    //     summary: 'Management of CLI configuration',
-    //     extensions: ['@hyperone/cli-ext-config'],
-    // }));
+    program.addCommand(new Category({
+        name: 'config',
+        summary: 'Management of CLI configuration',
+        extensions: ['cli-ext-config'],
+    }));
 
     return {
         program,

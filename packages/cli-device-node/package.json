@@ -9,7 +9,7 @@
   "author": "Adam Dobrawy",
   "license": "MIT",
   "dependencies": {
-    "@hyperone/cli-core": "file:../../packages/cli-core",
+    "@hyperone/cli-core": "file:../cli-core",
     "@hyperone/cli-ext-compute-vm": "file:../../extensions/cli-ext-compute-vm",
     "@hyperone/cli-ext-config-extensions": "file:../../extensions/cli-ext-config-extensions",
     "@hyperone/cli-ext-config-settings": "file:../../extensions/cli-ext-config-settings",
@@ -18,9 +18,8 @@
     "@hyperone/cli-ext-root-openapi-generator": "file:../../extensions/cli-ext-root-openapi-generator",
     "@hyperone/cli-ext-storage-vault": "file:../../extensions/cli-ext-storage-vault",
     "@hyperone/cli-ext-website-instance": "file:../../extensions/cli-ext-website-instance",
-    "@hyperone/cli-framework": "file:../../packages/cli-framework",
+    "@hyperone/cli-framework": "file:../cli-framework",
     "array-back": "^3.1.0",
-    "nexe": "^3.3.7",
     "untildify": "^4.0.0"
   },
   "publishConfig": {

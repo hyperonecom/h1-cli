@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@hyperone/cli-core": "file:../../packages/cli-core",
-    "@hyperone/cli-framework": "file:../../packages/cli-framework"
+    "@hyperone/cli-core": "file:../cli-core",
+    "@hyperone/cli-framework": "file:../cli-framework"
   },
   "publishConfig": {
     "access": "public"
