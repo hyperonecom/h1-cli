@@ -3,8 +3,9 @@
 import { Device } from '@hyperone/cli-framework';
 
 class BrowserDevice extends Device {
-    constructor() {
+    constructor({extensions=[]}) {
         super();
+        this.extensions = extensions;
     }
     configLoad() {
         // eslint-disable-next-line no-undef
@@ -20,15 +21,7 @@ class BrowserDevice extends Device {
         console.log('Config updated', { content });
     }
     importExtension(pattern) {
-        const extensions = [];
-        const r = require.context('./node_modules/@hyperone/', true, /cli-ext-[a-z-]*\/index\.js$/);
-        r.keys().forEach(module => {
-            if (module.match(`./${pattern}-.*/index.js`)) {
-                const extension = r(module);
-                extensions.push(extension);
-            }
-        });
-        return extensions;
+        return this.extensions.filter(x => x.name.match(`${pattern}-.*`));
     }
 }
 
