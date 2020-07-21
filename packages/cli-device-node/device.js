@@ -121,14 +121,12 @@ export class NodeDevice extends Device {
             const module = path.join(extDir, extension_dir);
             if (module.match(`${pattern}-.*`)) {
                 let extension = __non_webpack_require__(module);
-                if (extension.default) {
-                    extension = extension.default;
-                }
+                extension = extension.default || extension;
                 extension.module = module;
                 extensions.push(extension);
             }
         }
-        const r = require.context('./node_modules/@hyperone/', true, /cli-ext-[a-z-]*\/index\.js$/);
+        const r = require.context('./../../node_modules/@hyperone/', true, /cli-ext-[a-z-]*\/index\.js$/);
         r.keys().forEach(module => {
             if (module.match(`./${pattern}-.*/index.js`)) {
                 let extension = r(module);

@@ -15,7 +15,7 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.json'],
         alias: {
-            'array-back': path.resolve(__dirname, 'node_modules/array-back'),
+            'array-back': require.resolve('array-back').replace('/dist/index.js', ''),
         },
     },
 };

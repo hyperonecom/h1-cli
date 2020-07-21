@@ -30,6 +30,7 @@
     "build": "webpack",
     "lint": "eslint .",
     "fmt": "eslint . --fix",
+    "dist": "./scripts/release-bin.sh",
     "docs": "COLUMNS=200 nodejs scripts/print-docs.js > ../../docs.md"
   },
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",

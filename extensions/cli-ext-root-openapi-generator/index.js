@@ -182,7 +182,6 @@ export default {
     name: require('./package.json').name,
     version: require('./package.json').version,
     load: async (parent) => {
-        console.log('xxx', openapi);
         const namespaces = openapi.getNamespaces();
         for (const [name, spec] of Object.entries(namespaces)) {
             await parent.addCommand(buildNamespaceCommand(name, spec, {

@@ -17,4 +17,5 @@ for scope in h1; do
 
 	docker run -v $(pwd):/src -w /src "node:${NODE_VERSION}-alpine" npx pkg -t "node${NODE_VERSION}-alpine" -o "./dist/${scope}" "./dist/${scope}.js";
 	tar czf ./dist/${scope}-alpine.tar.gz -C ./dist/ ${scope}
+	docker run -v $(pwd):/src -w /src "node:${NODE_VERSION}-alpine" npx rm ./dist/${scope}
 done;

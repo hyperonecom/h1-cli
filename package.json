@@ -8,10 +8,11 @@
     "build": "lerna run build",
     "lint": "eslint .",
     "fmt": "eslint . --fix",
-    "install": "lerna exec --concurrency=1 -- yarn install",
-    "install:ci": "lerna exec --concurrency=1 -- yarn install",
+    "install": "lerna bootstrap",
+    "install:ci": "lerna bootstrap",
     "clean": "lerna clean"
   },
+  "workspaces": ["extensions/*", "packages/*"],
   "devDependencies": {
     "@hyperone/eslint-config": "^2.0.1",
     "eslint": "^7.4.0",

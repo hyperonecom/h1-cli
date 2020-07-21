@@ -8,6 +8,7 @@
   "ignoreChanges": [
     "**/*.md"
   ],
+  "useWorkspaces": true,
   "command": {
     "publish": {
       "ignoreChanges": [
