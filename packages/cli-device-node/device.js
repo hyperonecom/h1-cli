@@ -133,9 +133,7 @@ export class NodeDevice extends Device {
         r.keys().forEach(module => {
             if (module.match(`./${pattern}-.*/index.js`)) {
                 let extension = r(module);
-                if (extension.default) {
-                    extension = extension.default;
-                }
+                extension = extension.default && extension.default;
                 // Skip remote-loaded modules
                 // Allows overlap & upgrade
                 if (!extensions.some(x => x.name == extension.name)) {
@@ -143,6 +141,7 @@ export class NodeDevice extends Device {
                 }
             }
         });
+        // console.log(`For ${pattern} imported ${extensions.map(x => x.name)}`);
         return extensions;
     }
     mapUrl(url) {

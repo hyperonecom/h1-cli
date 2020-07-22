@@ -4,6 +4,7 @@ const process = require('process');
 module.exports = {
     entry: {
         h1: './bin/h1.js',
+        h1_docs: './scripts/print-docs.js',
         // rbx: './bin/rbx.js',
     },
     output: {

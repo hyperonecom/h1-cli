@@ -20,6 +20,7 @@
     "@hyperone/cli-ext-website-instance": "link:../../extensions/cli-ext-website-instance",
     "@hyperone/cli-framework": "link:../cli-framework",
     "array-back": "^3.1.0",
+    "strip-ansi-stream": "^1.0.0",
     "untildify": "^4.0.0"
   },
   "publishConfig": {
@@ -31,7 +32,7 @@
     "lint": "eslint .",
     "fmt": "eslint . --fix",
     "dist": "./scripts/release-bin.sh",
-    "docs": "COLUMNS=200 nodejs scripts/print-docs.js > ../../docs.md",
+    "docs": "COLUMNS=200 nodejs ./dist/h1_docs.js --output ../../docs/",
     "clean": "rm -rf dist"
   },
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",

@@ -2,9 +2,11 @@
 import { buildCli } from '@hyperone/cli-core';
 import fs from 'fs';
 import { Command } from '@hyperone/cli-framework';
-import Device from '../device';
+import { NodeDevice } from '../device';
+import path from 'path';
+import stripAnsiStream from 'strip-ansi-stream';
 
-const documentCommand = async (out, cmd, level) => {
+const documentCommand = async (out, cmd, level = 1) => {
     const headerPrefix = '#'.repeat(level);
     out.write(`${headerPrefix} ${cmd.getFullName()}\n`);
     out.write('\n```\n');
@@ -24,18 +26,21 @@ const main = async () => new Command({
     summary: 'Print or write documentation of commands',
     options: [
         { name: 'url', description: 'URL of OpenAPI spec', defaultValue: 'https://api.hyperone.com/v2/openapi.json' },
-        { name: 'output-file', description: 'Output file', defaultValue: '-' },
+        { name: 'output', description: 'Output directory', required: true },
         { name: 'scope', description: 'Output scope', defaultValue: 'h1' },
     ],
     handler: async (opts) => {
-        const {program} = await buildCli({
-            openapiUrl: opts.url,
-            device: new Device('h1'),
+        const { program } = await buildCli({
+            openapiUrl: opts._all.url,
+            device: new NodeDevice('h1'),
         });
-        const out = opts._all['output-file'] == '-' ? process.stdout : fs.createWriteStream(opts['output-file'], { encoding: 'utf-8' });
-        await documentCommand(out, program);
+        await program.loadCommands();
         for (const cmd of program.commands) {
+            const outFile = path.join(opts._all.output, `${cmd.name}.md`);
+            const out = stripAnsiStream();
+            out.pipe(fs.createWriteStream(outFile, { encoding: 'utf-8' }));
             await documentCommand(out, cmd, 2);
+            out.end();
         }
     },
 }).exec(process.argv.slice(2));
