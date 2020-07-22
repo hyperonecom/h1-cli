@@ -1,5 +1,5 @@
 
-import openapi from '@hyperone/cli-core/lib/openapi';
+import { openapi } from '@hyperone/cli-core';
 import { deCamelCase } from '@hyperone/cli-core/lib/transform';
 import jsonpatch from 'jsonpatch';
 import types from '@hyperone/cli-core/types';
