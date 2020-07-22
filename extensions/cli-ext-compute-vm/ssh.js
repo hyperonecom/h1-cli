@@ -1,4 +1,3 @@
-
 import { Command } from '@hyperone/cli-framework';
 import os from 'os';
 import { openapi } from '@hyperone/cli-core';

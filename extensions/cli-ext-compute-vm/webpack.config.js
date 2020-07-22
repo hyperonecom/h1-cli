@@ -13,10 +13,8 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.json'],
     },
-    externals: function (context, request, callback) {
-        if (['@hyperone/cli-core', '@hyperone/cli-framework'].includes(request)) {
-            return callback(null, request);
-        }
-        callback();
+    optimization: {
+        minimize: false, // see https://github.com/terser/terser/issues/764
     },
+    externals: ['@hyperone/cli-core', '@hyperone/cli-framework'],
 };

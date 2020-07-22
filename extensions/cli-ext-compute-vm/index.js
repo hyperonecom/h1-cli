@@ -1,7 +1,4 @@
-
-
 import {name, version} from './package.json';
-
 import ssh from './ssh';
 
 export default {
