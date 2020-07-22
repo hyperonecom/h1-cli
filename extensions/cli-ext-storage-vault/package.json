@@ -17,9 +17,9 @@
   "author": "Adam Dobrawy",
   "license": "MIT",
   "dependencies": {
-    "@hyperone/cli-core": "file:../../packages/cli-core",
-    "@hyperone/cli-framework": "file:../../packages/cli-framework",
-    "@hyperone/cli-generic-commands": "file:../../packages/cli-generic-commands"
+    "@hyperone/cli-core": "link:../../packages/cli-core",
+    "@hyperone/cli-framework": "link:../../packages/cli-framework",
+    "@hyperone/cli-generic-commands": "link:../../packages/cli-generic-commands"
   },
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",
   "publishConfig": {

@@ -9,8 +9,8 @@
   "author": "Adam Dobrawy",
   "license": "ISC",
   "dependencies": {
-    "@hyperone/cli-core": "file:../cli-core",
-    "@hyperone/cli-framework": "file:../cli-framework"
+    "@hyperone/cli-core": "link:../cli-core",
+    "@hyperone/cli-framework": "link:../cli-framework"
   },
   "publishConfig": {
     "access": "public"

@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@apidevtools/json-schema-ref-parser": "^9.0.3",
-    "@hyperone/cli-framework": "file:../cli-framework",
+    "@hyperone/cli-framework": "link:../cli-framework",
     "array-back": "^3.1.0",
     "camel-case": "^4.1.1",
     "command-line-args": "^5.1.1",

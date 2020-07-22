@@ -266,11 +266,11 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@hyperone/cli-core@file:packages/cli-core":
+"@hyperone/cli-core@link:packages/cli-core":
   version "1.0.2-alpha.2"
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^9.0.3"
-    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-core-1.0.2-alpha.2-64102057-0c90-4a57-a1b2-72b645fbf392-1595436966838/node_modules/@hyperone/cli-framework"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
     array-back "^3.1.0"
     camel-case "^4.1.1"
     command-line-args "^5.1.1"
@@ -283,87 +283,87 @@
     tabula "^1.10.0"
     untildify "^4.0.0"
 
-"@hyperone/cli-device-browser@file:packages/cli-device-browser":
+"@hyperone/cli-device-browser@link:packages/cli-device-browser":
   version "1.0.2-alpha.2"
   dependencies:
-    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-device-browser-1.0.2-alpha.2-f2a2ea47-df88-4ed7-971f-8d8426b947dc-1595436966845/node_modules/packages/cli-core"
-    "@hyperone/cli-ext-root-openapi-generator" "file:../../.cache/yarn/v6/npm-@hyperone-cli-device-browser-1.0.2-alpha.2-f2a2ea47-df88-4ed7-971f-8d8426b947dc-1595436966845/node_modules/extensions/cli-ext-root-openapi-generator"
-    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-device-browser-1.0.2-alpha.2-f2a2ea47-df88-4ed7-971f-8d8426b947dc-1595436966845/node_modules/packages/cli-framework"
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-ext-root-openapi-generator" "link:extensions/cli-ext-root-openapi-generator"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
     array-back "^3.1.0"
     shell-quote "^1.7.2"
 
-"@hyperone/cli-ext-compute-vm@file:extensions/cli-ext-compute-vm":
+"@hyperone/cli-ext-compute-vm@link:extensions/cli-ext-compute-vm":
   version "1.0.2-alpha.2"
   dependencies:
-    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-compute-vm-1.0.2-alpha.2-f2b19c71-67d5-4592-bfe7-af9e9429ae3c-1595436966848/node_modules/packages/cli-core"
-    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-compute-vm-1.0.2-alpha.2-f2b19c71-67d5-4592-bfe7-af9e9429ae3c-1595436966848/node_modules/packages/cli-framework"
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
 
-"@hyperone/cli-ext-config-extensions@file:extensions/cli-ext-config-extensions":
+"@hyperone/cli-ext-config-extensions@link:extensions/cli-ext-config-extensions":
   version "1.0.2-alpha.2"
   dependencies:
-    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-config-extensions-1.0.2-alpha.2-de0beeb8-368e-4f5f-8f0b-507ba521bb1b-1595436966849/node_modules/packages/cli-core"
-    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-config-extensions-1.0.2-alpha.2-de0beeb8-368e-4f5f-8f0b-507ba521bb1b-1595436966849/node_modules/packages/cli-framework"
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
     fs-extra "^9.0.1"
     gunzip-maybe "^1.4.2"
     tar-fs "^2.1.0"
 
-"@hyperone/cli-ext-config-settings@file:extensions/cli-ext-config-settings":
+"@hyperone/cli-ext-config-settings@link:extensions/cli-ext-config-settings":
   version "1.0.2-alpha.2"
   dependencies:
-    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-config-settings-1.0.2-alpha.2-a7f4dfe3-d37b-45d8-aeef-b62c8af665bf-1595436966850/node_modules/packages/cli-core"
-    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-config-settings-1.0.2-alpha.2-a7f4dfe3-d37b-45d8-aeef-b62c8af665bf-1595436966850/node_modules/packages/cli-framework"
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
 
-"@hyperone/cli-ext-iam-project-select@file:extensions/cli-ext-iam-project-select":
+"@hyperone/cli-ext-iam-project-select@link:extensions/cli-ext-iam-project-select":
   version "1.0.2-alpha.2"
   dependencies:
-    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-iam-project-select-1.0.2-alpha.2-32ed6ef1-f4e7-4c1b-adb4-da7dd12dd937-1595436966851/node_modules/packages/cli-core"
-    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-iam-project-select-1.0.2-alpha.2-32ed6ef1-f4e7-4c1b-adb4-da7dd12dd937-1595436966851/node_modules/packages/cli-framework"
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
 
-"@hyperone/cli-ext-root-auth@file:extensions/cli-ext-root-auth":
+"@hyperone/cli-ext-root-auth@link:extensions/cli-ext-root-auth":
   version "1.0.2-alpha.2"
   dependencies:
     "@aws-sdk/credential-provider-node" "0.1.0-preview.2"
     "@azure/identity" "^1.0.3"
-    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-root-auth-1.0.2-alpha.2-3e0c38d0-7474-44ca-93c3-cbbc47b3eb36-1595436966851/node_modules/packages/cli-core"
-    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-root-auth-1.0.2-alpha.2-3e0c38d0-7474-44ca-93c3-cbbc47b3eb36-1595436966851/node_modules/packages/cli-framework"
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
     aws4 "^1.10.0"
     google-auth-library "^6.0.5"
 
-"@hyperone/cli-ext-root-openapi-generator@file:extensions/cli-ext-root-openapi-generator":
+"@hyperone/cli-ext-root-openapi-generator@link:extensions/cli-ext-root-openapi-generator":
   version "1.0.2-alpha.2"
   dependencies:
-    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-root-openapi-generator-1.0.2-alpha.2-2676a3eb-c0bf-425e-b17e-8d15f3262722-1595436966847/node_modules/packages/cli-core"
-    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-root-openapi-generator-1.0.2-alpha.2-2676a3eb-c0bf-425e-b17e-8d15f3262722-1595436966847/node_modules/packages/cli-framework"
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
     jsonpatch "^3.0.1"
     openapi-sampler "^1.0.0-beta.16"
     pluralize "^8.0.0"
 
-"@hyperone/cli-ext-storage-vault@file:extensions/cli-ext-storage-vault":
+"@hyperone/cli-ext-storage-vault@link:extensions/cli-ext-storage-vault":
   version "1.0.2-alpha.2"
   dependencies:
-    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-storage-vault-1.0.2-alpha.2-0ddd86f6-4e86-47de-9094-a23758067ec6-1595436966853/node_modules/packages/cli-core"
-    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-storage-vault-1.0.2-alpha.2-0ddd86f6-4e86-47de-9094-a23758067ec6-1595436966853/node_modules/packages/cli-framework"
-    "@hyperone/cli-generic-commands" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-storage-vault-1.0.2-alpha.2-0ddd86f6-4e86-47de-9094-a23758067ec6-1595436966853/node_modules/packages/cli-generic-commands"
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
+    "@hyperone/cli-generic-commands" "link:packages/cli-generic-commands"
 
-"@hyperone/cli-ext-website-instance@file:extensions/cli-ext-website-instance":
+"@hyperone/cli-ext-website-instance@link:extensions/cli-ext-website-instance":
   version "1.0.2-alpha.2"
   dependencies:
-    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-website-instance-1.0.2-alpha.2-6f2ba557-46f1-46a8-91b3-9e7848f0f512-1595436966853/node_modules/packages/cli-core"
-    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-website-instance-1.0.2-alpha.2-6f2ba557-46f1-46a8-91b3-9e7848f0f512-1595436966853/node_modules/packages/cli-framework"
-    "@hyperone/cli-generic-commands" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-website-instance-1.0.2-alpha.2-6f2ba557-46f1-46a8-91b3-9e7848f0f512-1595436966853/node_modules/packages/cli-generic-commands"
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
+    "@hyperone/cli-generic-commands" "link:packages/cli-generic-commands"
 
-"@hyperone/cli-framework@file:packages/cli-framework":
+"@hyperone/cli-framework@link:packages/cli-framework":
   version "1.0.2-alpha.2"
   dependencies:
     command-line-args "^5.1.1"
     command-line-usage "^6.1.0"
     meant "^1.0.1"
 
-"@hyperone/cli-generic-commands@file:packages/cli-generic-commands":
+"@hyperone/cli-generic-commands@link:packages/cli-generic-commands":
   version "1.0.2-alpha.2"
   dependencies:
-    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-generic-commands-1.0.2-alpha.2-fd8fcb9b-045a-421d-8427-7899a8cd2a96-1595436966845/node_modules/@hyperone/cli-core"
-    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-generic-commands-1.0.2-alpha.2-fd8fcb9b-045a-421d-8427-7899a8cd2a96-1595436966845/node_modules/@hyperone/cli-framework"
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
 
 "@hyperone/eslint-config@^2.0.1":
   version "2.0.1"

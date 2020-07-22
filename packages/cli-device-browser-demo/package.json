@@ -13,7 +13,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-		"@hyperone/cli-device-browser": "file:../../packages/cli-device-browser"
+		"@hyperone/cli-device-browser": "link:../../packages/cli-device-browser"
   },
   "private": true,
   "author": "Adam Dobrawy",
