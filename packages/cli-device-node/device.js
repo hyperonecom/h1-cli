@@ -29,6 +29,9 @@ export class NodeDevice extends Device {
         super();
         this.scope = scope;
     }
+    getName() {
+        return this.scope;
+    }
     displayResult(output) {
         if (typeof output === 'object') {
             console.dir(output, { depth: null });

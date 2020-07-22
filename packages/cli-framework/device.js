@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
 
 class Device {
+    getName() {
+        return 'cli';
+    }
     async displayResult(result) {
         console.log(result);
     }
