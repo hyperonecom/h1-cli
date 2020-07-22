@@ -16,7 +16,7 @@ module.exports = {
     },
     externals: function (context, request, callback) {
         if (['@hyperone/cli-core', '@hyperone/cli-framework'].includes(request)) {
-            return callback(null, `commonjs ${request}`);
+            return callback(null, request);
         }
         callback();
     },

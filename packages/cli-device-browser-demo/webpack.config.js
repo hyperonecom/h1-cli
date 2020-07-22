@@ -1,11 +1,11 @@
-import path from 'path';
-import process from 'process';
+const path = require('path');
+const process = require('process');
 
-export default {
-    entry: './public/index.js',
+module.exports = {
+    entry: './index.js',
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: 'demo.js',
+        filename: 'bundle.js',
     },
     target: 'web',
     mode: process.env.NODE_ENV || 'development',
@@ -25,7 +25,7 @@ export default {
     resolve: {
         extensions: ['.js', '.json'],
         alias: {
-            'array-back': path.resolve(__dirname, 'node_modules/array-back'),
+            'array-back': require.resolve('array-back').replace('/dist/index.js', ''),
         },
     },
 };

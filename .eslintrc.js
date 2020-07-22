@@ -31,8 +31,8 @@ module.exports = {
         },
         {
             files: [
-                '**/web/*.js',
-                '**/public/*.js',
+                'packages/cli-device-browser',
+                'packages/cli-device-browser-demo',
             ],
             env: {
                 browser: true,

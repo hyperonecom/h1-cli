@@ -2,7 +2,7 @@
   "name": "@hyperone/cli-device-browser",
   "version": "1.0.2-alpha.2",
   "description": "",
-  "main": "./index.js",
+  "main": "index.js",
   "author": "Adam Dobrawy",
   "license": "MIT",
   "scripts": {
@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@hyperone/cli-core": "file:../../packages/cli-core",
-    "@hyperone/cli-ext-iam-project-select": "file:../../extensions/cli-ext-iam-project-select",
     "@hyperone/cli-ext-root-openapi-generator": "file:../../extensions/cli-ext-root-openapi-generator",
     "@hyperone/cli-framework": "file:../../packages/cli-framework",
     "array-back": "^3.1.0",

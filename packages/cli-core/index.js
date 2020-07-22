@@ -18,7 +18,7 @@ export async function buildCli (options = {}) {
     await openapi.init(options);
 
     const program = new Category({
-        name: '@hyperone/cli',
+        name: options.device.getName(),
         summary: 'Management for cloud services of HyperOne',
         config,
         device,

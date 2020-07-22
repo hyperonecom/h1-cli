@@ -17,6 +17,7 @@ export default {
     },
     getNamespaces: () => {
         const namespaces = {};
+        console.log('specTags', spec.tags);
         spec.tags.forEach(t => {
             const { 'x-kind': xKind, 'x-location': xLocation, 'x-parent': xParent } = t;
             const [xNamespace, xType] = xKind.split('/');

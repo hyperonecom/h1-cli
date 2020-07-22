@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "release:rc": "lerna run build && lerna publish --canary",
+    "release:rc": "lerna publish --canary",
     "release": "NODE_ENV=production lerna run build && lerna publish",
     "watch": "lerna run --parallel watch",
     "build": "lerna run build",

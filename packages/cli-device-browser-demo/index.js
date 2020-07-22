@@ -1,9 +1,5 @@
 /* eslint-disable no-console */
-
-
-import { buildCli } from '@hyperone/cli-core';
-import BrowserDevice from './../device';
-import openapiExt from '@hyperone/cli-ext-root-openapi-generator';
+import { buildCli, BrowserDevice } from '@hyperone/cli-device-browser';
 import { quote } from 'shell-quote';
 
 function docReady(fn) {
@@ -17,8 +13,8 @@ function docReady(fn) {
 }
 
 class DemoBrowserDevice extends BrowserDevice {
-    constructor({extensions=[], output}) {
-        super({extensions});
+    constructor({output}) {
+        super();
         this.output = output;
     }
     displayResult(output) {
@@ -54,13 +50,12 @@ docReady(async function () {
     const operationElement = document.getElementById('operation');
     const parametersElement = document.getElementById('parameters');
     const requestBodyElement = document.getElementById('requestBody');
-
+    const device = new DemoBrowserDevice({
+        output: outputElement,
+    });
     const program = await buildCli({
         openapiUrl: '/api/v2/openapi.json',
-        device: new DemoBrowserDevice({
-            output: outputElement,
-            extensions: [openapiExt],
-        }),
+        device,
     });
 
     const getJson = (element) => {
@@ -97,7 +92,7 @@ docReady(async function () {
     });
     submitElement.addEventListener('click', async () => {
         const cmd = commandElement.value.split(' ');
-        if (cmd[0] == '@hyperone/cli') {
+        if (cmd[0] == device.getName()) {
             console.log('command: ', cmd);
             outputElement.style.border = 'thick solid #0000FF';
             await program.run(cmd.slice(1));

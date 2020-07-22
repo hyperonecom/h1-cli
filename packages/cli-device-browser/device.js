@@ -1,11 +1,14 @@
 /* eslint-disable no-console */
 
 import { Device } from '@hyperone/cli-framework';
+import openapiExt from '@hyperone/cli-ext-root-openapi-generator';
 
 class BrowserDevice extends Device {
-    constructor({extensions=[]}) {
+    constructor(options = {}) {
         super();
-        this.extensions = extensions;
+        this.extensions = options.extensions || [
+            openapiExt,
+        ];
     }
     configLoad() {
         // eslint-disable-next-line no-undef

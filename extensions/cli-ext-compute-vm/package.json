@@ -2,8 +2,10 @@
   "name": "@hyperone/cli-ext-compute-vm",
   "version": "1.0.2-alpha.2",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "browser": "index.js",
   "scripts": {
+    "prepack": "webpack",
     "build": "webpack",
     "watch": "webpack --watch"
   },
@@ -12,7 +14,7 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
-  "author": "",
+  "author": "Adam Dobrawy",
   "license": "ISC",
   "dependencies": {
     "@hyperone/cli-core": "file:../../packages/cli-core",

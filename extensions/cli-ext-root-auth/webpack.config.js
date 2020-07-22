@@ -14,10 +14,4 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.json'],
     },
-    externals: function (context, request, callback) {
-        if (/^(\@hyperone\/cli-.*)$/i.test(request)) {
-            return callback(null, `commonjs ${  request}`);
-        }
-        callback();
-    },
 };
