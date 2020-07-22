@@ -12,7 +12,10 @@
     "install:ci": "lerna bootstrap",
     "clean": "lerna clean"
   },
-  "workspaces": ["extensions/*", "packages/*"],
+  "workspaces": [
+    "extensions/*",
+    "packages/*"
+  ],
   "devDependencies": {
     "@hyperone/eslint-config": "^2.0.1",
     "eslint": "^7.4.0",

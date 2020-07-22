@@ -266,6 +266,96 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
+"@hyperone/cli-core@file:packages/cli-core":
+  version "1.0.2-alpha.1"
+  dependencies:
+    "@apidevtools/json-schema-ref-parser" "^9.0.3"
+    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-core-1.0.2-alpha.1-f80bf516-ef3d-4ae1-840c-dbdbdadde6f7-1595430617064/node_modules/@hyperone/cli-framework"
+    array-back "^3.1.0"
+    camel-case "^4.1.1"
+    command-line-args "^5.1.1"
+    command-line-usage "^6.1.0"
+    jmespath "^0.15.0"
+    js-yaml "^3.14.0"
+    jsonwebtoken "^8.5.1"
+    meant "^1.0.1"
+    node-fetch "^2.6.0"
+    tabula "^1.10.0"
+    untildify "^4.0.0"
+
+"@hyperone/cli-ext-compute-vm@file:extensions/cli-ext-compute-vm":
+  version "1.0.2-alpha.1"
+  dependencies:
+    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-compute-vm-1.0.2-alpha.1-f6ecb4d8-d082-4cfd-a796-1b658f99fed7-1595430617074/node_modules/packages/cli-core"
+    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-compute-vm-1.0.2-alpha.1-f6ecb4d8-d082-4cfd-a796-1b658f99fed7-1595430617074/node_modules/packages/cli-framework"
+
+"@hyperone/cli-ext-config-extensions@file:extensions/cli-ext-config-extensions":
+  version "1.0.2-alpha.1"
+  dependencies:
+    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-config-extensions-1.0.2-alpha.1-e5349c05-8c63-4aee-b9ba-f6d036a9200a-1595430617075/node_modules/packages/cli-core"
+    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-config-extensions-1.0.2-alpha.1-e5349c05-8c63-4aee-b9ba-f6d036a9200a-1595430617075/node_modules/packages/cli-framework"
+    fs-extra "^9.0.1"
+    gunzip-maybe "^1.4.2"
+    tar-fs "^2.1.0"
+
+"@hyperone/cli-ext-config-settings@file:extensions/cli-ext-config-settings":
+  version "1.0.2-alpha.1"
+  dependencies:
+    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-config-settings-1.0.2-alpha.1-17b42851-3a85-43f2-a9a0-f051e31de162-1595430617076/node_modules/packages/cli-core"
+    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-config-settings-1.0.2-alpha.1-17b42851-3a85-43f2-a9a0-f051e31de162-1595430617076/node_modules/packages/cli-framework"
+
+"@hyperone/cli-ext-iam-project-select@file:extensions/cli-ext-iam-project-select":
+  version "1.0.2-alpha.1"
+  dependencies:
+    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-iam-project-select-1.0.2-alpha.1-9c711c19-2335-496c-829b-105e508f2d5c-1595430617072/node_modules/packages/cli-core"
+    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-iam-project-select-1.0.2-alpha.1-9c711c19-2335-496c-829b-105e508f2d5c-1595430617072/node_modules/packages/cli-framework"
+
+"@hyperone/cli-ext-root-auth@file:extensions/cli-ext-root-auth":
+  version "1.0.2-alpha.1"
+  dependencies:
+    "@aws-sdk/credential-provider-node" "0.1.0-preview.2"
+    "@azure/identity" "^1.0.3"
+    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-root-auth-1.0.2-alpha.1-0d21a1f6-e6f7-4536-959b-867323e9da73-1595430617077/node_modules/packages/cli-core"
+    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-root-auth-1.0.2-alpha.1-0d21a1f6-e6f7-4536-959b-867323e9da73-1595430617077/node_modules/packages/cli-framework"
+    aws4 "^1.10.0"
+    google-auth-library "^6.0.5"
+
+"@hyperone/cli-ext-root-openapi-generator@file:extensions/cli-ext-root-openapi-generator":
+  version "1.0.2-alpha.1"
+  dependencies:
+    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-root-openapi-generator-1.0.2-alpha.1-cea54ca2-8ea0-497e-b646-1a97bc6e35c4-1595430617073/node_modules/packages/cli-core"
+    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-root-openapi-generator-1.0.2-alpha.1-cea54ca2-8ea0-497e-b646-1a97bc6e35c4-1595430617073/node_modules/packages/cli-framework"
+    jsonpatch "^3.0.1"
+    openapi-sampler "^1.0.0-beta.16"
+    pluralize "^8.0.0"
+
+"@hyperone/cli-ext-storage-vault@file:extensions/cli-ext-storage-vault":
+  version "1.0.2-alpha.1"
+  dependencies:
+    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-storage-vault-1.0.2-alpha.1-d7025a47-58b5-42d7-a84b-d750e583a2fe-1595430617080/node_modules/packages/cli-core"
+    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-storage-vault-1.0.2-alpha.1-d7025a47-58b5-42d7-a84b-d750e583a2fe-1595430617080/node_modules/packages/cli-framework"
+    "@hyperone/cli-generic-commands" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-storage-vault-1.0.2-alpha.1-d7025a47-58b5-42d7-a84b-d750e583a2fe-1595430617080/node_modules/packages/cli-generic-commands"
+
+"@hyperone/cli-ext-website-instance@file:extensions/cli-ext-website-instance":
+  version "1.0.2-alpha.1"
+  dependencies:
+    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-website-instance-1.0.2-alpha.1-3a5a2f94-d3fd-43ea-8c84-d30ab2faf924-1595430617081/node_modules/packages/cli-core"
+    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-website-instance-1.0.2-alpha.1-3a5a2f94-d3fd-43ea-8c84-d30ab2faf924-1595430617081/node_modules/packages/cli-framework"
+    "@hyperone/cli-generic-commands" "file:../../.cache/yarn/v6/npm-@hyperone-cli-ext-website-instance-1.0.2-alpha.1-3a5a2f94-d3fd-43ea-8c84-d30ab2faf924-1595430617081/node_modules/packages/cli-generic-commands"
+
+"@hyperone/cli-framework@file:packages/cli-framework":
+  version "1.0.2-alpha.1"
+  dependencies:
+    command-line-args "^5.1.1"
+    command-line-usage "^6.1.0"
+    meant "^1.0.1"
+
+"@hyperone/cli-generic-commands@file:packages/cli-generic-commands":
+  version "1.0.2-alpha.1"
+  dependencies:
+    "@hyperone/cli-core" "file:../../.cache/yarn/v6/npm-@hyperone-cli-generic-commands-1.0.2-alpha.1-94773d1a-fac5-455c-8cdd-c70d3b8d5224-1595430617071/node_modules/@hyperone/cli-core"
+    "@hyperone/cli-framework" "file:../../.cache/yarn/v6/npm-@hyperone-cli-generic-commands-1.0.2-alpha.1-94773d1a-fac5-455c-8cdd-c70d3b8d5224-1595430617071/node_modules/@hyperone/cli-framework"
+
 "@hyperone/eslint-config@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@hyperone/eslint-config/-/eslint-config-2.0.1.tgz#3532be0bb245aacd4d09fe937bcbbd5e729472c2"
@@ -1003,12 +1093,12 @@
     "@octokit/types" "^5.0.0"
 
 "@octokit/endpoint@^6.0.1":
-  version "6.0.4"
-  resolved "https://registry.yarnpkg.com/@octokit/endpoint/-/endpoint-6.0.4.tgz#da3eafdee1fabd6e5b6ca311efcba26f0dd99848"
-  integrity sha512-ZJHIsvsClEE+6LaZXskDvWIqD3Ao7+2gc66pRG5Ov4MQtMvCU9wGu1TItw9aGNmRuU9x3Fei1yb+uqGaQnm0nw==
+  version "6.0.5"
+  resolved "https://registry.yarnpkg.com/@octokit/endpoint/-/endpoint-6.0.5.tgz#43a6adee813c5ffd2f719e20cfd14a1fee7c193a"
+  integrity sha512-70K5u6zd45ItOny6aHQAsea8HHQjlQq85yqOMe+Aj8dkhN2qSJ9T+Q3YjUjEYfPRBcuUWNgMn62DQnP/4LAIiQ==
   dependencies:
     "@octokit/types" "^5.0.0"
-    is-plain-object "^3.0.0"
+    is-plain-object "^4.0.0"
     universal-user-agent "^6.0.0"
 
 "@octokit/plugin-enterprise-rest@^6.0.1":
@@ -1055,15 +1145,15 @@
     once "^1.4.0"
 
 "@octokit/request@^5.2.0":
-  version "5.4.6"
-  resolved "https://registry.yarnpkg.com/@octokit/request/-/request-5.4.6.tgz#e8cc8d4cfc654d30428ea92aaa62168fd5ead7eb"
-  integrity sha512-9r8Sn4CvqFI9LDLHl9P17EZHwj3ehwQnTpTE+LEneb0VBBqSiI/VS4rWIBfBhDrDs/aIGEGZRSB0QWAck8u+2g==
+  version "5.4.7"
+  resolved "https://registry.yarnpkg.com/@octokit/request/-/request-5.4.7.tgz#fd703ee092e0463ceba49ff7a3e61cb4cf8a0fde"
+  integrity sha512-FN22xUDP0i0uF38YMbOfx6TotpcENP5W8yJM1e/LieGXn6IoRxDMnBf7tx5RKSW4xuUZ/1P04NFZy5iY3Rax1A==
   dependencies:
     "@octokit/endpoint" "^6.0.1"
     "@octokit/request-error" "^2.0.0"
     "@octokit/types" "^5.0.0"
     deprecation "^2.0.0"
-    is-plain-object "^3.0.0"
+    is-plain-object "^4.0.0"
     node-fetch "^2.3.0"
     once "^1.4.0"
     universal-user-agent "^6.0.0"
@@ -1158,9 +1248,9 @@
     form-data "^3.0.0"
 
 "@types/node@*", "@types/node@>= 8":
-  version "14.0.23"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.23.tgz#676fa0883450ed9da0bb24156213636290892806"
-  integrity sha512-Z4U8yDAl5TFkmYsZdFPdjeMa57NOvnaf1tljHzhouaPEp7LCj2JKkejpI1ODviIAQuW4CcQmxkQ77rnLsOOoKw==
+  version "14.0.24"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.24.tgz#b0f86f58564fa02a28b68f8b55d4cdec42e3b9d6"
+  integrity sha512-btt/oNOiDWcSuI721MdL8VQGnjsKjlTMdrKyTcLCKeQp/n4AAMFJ961wMbp+09y8WuGPClDEv07RIItdXKIXAA==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -3019,9 +3109,9 @@ env-paths@^2.2.0:
   integrity sha512-6u0VYSCo/OW6IoD5WCLLy9JUGARbamfSavcNXry/eu8aHVFei6CD3Sw+VGX5alea1i9pgPHW0mbu6Xj0uBh7gA==
 
 envinfo@^7.3.1:
-  version "7.5.1"
-  resolved "https://registry.yarnpkg.com/envinfo/-/envinfo-7.5.1.tgz#93c26897225a00457c75e734d354ea9106a72236"
-  integrity sha512-hQBkDf2iO4Nv0CNHpCuSBeaSrveU6nThVxFGTrq/eDlV716UQk09zChaJae4mZRsos1x4YLY2TaH3LHUae3ZmQ==
+  version "7.7.0"
+  resolved "https://registry.yarnpkg.com/envinfo/-/envinfo-7.7.0.tgz#fbfa46d739dec0554ef40220cd91fb20f64c9698"
+  integrity sha512-XX0+kACx7HcIFhar/JjsDtDIVcC8hnzQO1Asehq+abs+v9MtzpUuujFb6eBTT4lF9j2Bh6d2XFngbFRryjUAeQ==
 
 err-code@^1.0.0:
   version "1.1.2"
@@ -3241,9 +3331,9 @@ eventemitter3@^4.0.0:
   integrity sha512-rlaVLnVxtxvoyLsQQFBx53YmXHDxRIzzTLbdfxqi4yocpSjAxXwkU0cScM5JgSKMqEhrZpnvQ2D9gjylR0AimQ==
 
 events@^3.0.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/events/-/events-3.1.0.tgz#84279af1b34cb75aa88bf5ff291f6d0bd9b31a59"
-  integrity sha512-Rv+u8MLHNOdMjTAFeT3nCjHn2aGlx435FP/sDHNaRhDEMwyI/aB22Kj2qIN8R0cw3z28psEQLYwxVKLsKrMgWg==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/events/-/events-3.2.0.tgz#93b87c18f8efcd4202a461aec4dfc0556b639379"
+  integrity sha512-/46HWwbfCX2xTawVfkKLGxMifJYQBWMwY1mjywRtb4c9x8l5NP3KoJtnIOiL1hfdRkIuYhETxQlo62IF8tcnlg==
 
 eventsource@^1.0.7:
   version "1.0.7"
@@ -4663,10 +4753,10 @@ is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   dependencies:
     isobject "^3.0.1"
 
-is-plain-object@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-3.0.1.tgz#662d92d24c0aa4302407b0d45d21f2251c85f85b"
-  integrity sha512-Xnpx182SBMrr/aBik8y+GuR4U1L9FqMSojwDQwPMmxyC6bvEqly9UBCxhauBF5vNh2gwWJNX6oDV7O+OM4z34g==
+is-plain-object@^4.0.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/is-plain-object/-/is-plain-object-4.1.0.tgz#00196ad308ebb7de9d1fb57ae92ef1c38d5a740e"
+  integrity sha512-1N1OpoS8S4Ua+FsH6Mhvgaj0di3uRXgulcv2dnFu2J/WcEsDNbBoiUX6mYmhQ2cAzZ+B/lTJtX1qUSL5RwsGug==
 
 is-regex@^1.0.4, is-regex@^1.1.0:
   version "1.1.0"
@@ -6808,9 +6898,9 @@ reduce-flatten@^2.0.0:
   integrity sha512-EJ4UNY/U1t2P/2k6oqotuX2Cc3T6nxJwsM0N0asT7dhrtH1ltUxDn4NalSYmPE2rCkVpcf/X6R0wDwcFpzhd4w==
 
 regenerator-runtime@^0.13.4:
-  version "0.13.5"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.5.tgz#d878a1d094b4306d10b9096484b33ebd55e26697"
-  integrity sha512-ZS5w8CpKFinUzOwW3c83oPeVXoNsrLsaCoLtJvAClH135j/R77RuymhiSErhm2lKcwSCIpmvIWSbDkIfAqKQlA==
+  version "0.13.6"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.6.tgz#d236043c46ffab2968c1ef651803d8acdea8ed65"
+  integrity sha512-GmwlGiazQEbOwQWDdbbaP10i15pGtScYWLbMZuu+RKRz0cZ+g8IUONazBnaZqe7j1670IV1HgE4/8iy7CQPf4Q==
 
 regex-not@^1.0.0, regex-not@^1.0.2:
   version "1.0.2"
