@@ -2,7 +2,7 @@
 import { buildCli } from '@hyperone/cli-core';
 import BrowserDevice from './device';
 
-export default {
+export {
     buildCli,
     BrowserDevice,
 };

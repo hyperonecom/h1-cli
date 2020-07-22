@@ -2,11 +2,11 @@
   "name": "@hyperone/cli-device-browser",
   "version": "1.0.2-alpha.2",
   "description": "",
-  "main": "public/dist.js",
+  "main": "./index.js",
   "author": "Adam Dobrawy",
   "license": "MIT",
   "scripts": {
-    "serve": "webpack-dev-server",
+    "serve": "webpack-dev-server --config webpack.config.demo.js",
     "build": "webpack"
   },
   "dependencies": {

@@ -3,6 +3,7 @@
 
 import { buildCli } from '@hyperone/cli-core';
 import BrowserDevice from './../device';
+import openapiExt from '@hyperone/cli-ext-root-openapi-generator';
 import { quote } from 'shell-quote';
 
 function docReady(fn) {
@@ -16,8 +17,8 @@ function docReady(fn) {
 }
 
 class DemoBrowserDevice extends BrowserDevice {
-    constructor(output) {
-        super();
+    constructor({extensions=[], output}) {
+        super({extensions});
         this.output = output;
     }
     displayResult(output) {
@@ -56,7 +57,10 @@ docReady(async function () {
 
     const program = await buildCli({
         openapiUrl: '/api/v2/openapi.json',
-        device: new DemoBrowserDevice(outputElement),
+        device: new DemoBrowserDevice({
+            output: outputElement,
+            extensions: [openapiExt],
+        }),
     });
 
     const getJson = (element) => {
