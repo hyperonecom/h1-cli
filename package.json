@@ -3,14 +3,14 @@
   "private": true,
   "scripts": {
     "release:rc": "lerna publish --canary",
-    "release": "NODE_ENV=production lerna run build && lerna publish",
+    "release": "lerna publish",
     "watch": "lerna run --parallel watch",
     "build": "lerna run build",
     "lint": "eslint .",
     "fmt": "eslint . --fix",
     "install": "lerna bootstrap",
     "install:ci": "lerna bootstrap",
-    "clean": "lerna clean"
+    "clean": "lerna clean && lerna run clean"
   },
   "workspaces": [
     "extensions/*",

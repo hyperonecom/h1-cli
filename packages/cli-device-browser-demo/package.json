@@ -1,11 +1,12 @@
 {
-  "name": "cli-device-browser-demo",
+  "name": "@hyperone/cli-device-browser-demo",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "serve": "webpack-dev-server",
     "watch": "webpack --watch",
-    "build": "webpack"
+    "build": "webpack",
+    "clean": "rm -f public/bundle.js"
   },
   "devDependencies": {
     "webpack": "^4.43.0",
