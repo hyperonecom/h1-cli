@@ -31,8 +31,8 @@ module.exports = {
         },
         {
             files: [
-                'packages/cli-device-browser',
-                'packages/cli-device-browser-demo',
+                'packages/cli-device-browser/**',
+                'packages/cli-device-browser-demo/**',
             ],
             env: {
                 browser: true,
