@@ -41,9 +41,6 @@ class DemoBrowserDevice extends BrowserDevice {
 }
 
 docReady(async function () {
-    process.stdout = { columns: undefined, rows: undefined };
-    process.stderr = { columns: undefined, rows: undefined };
-
     const outputElement = document.getElementById('terminal-container');
     const commandElement = document.getElementById('command');
     const submitElement = document.getElementById('submit');
