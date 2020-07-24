@@ -5,7 +5,7 @@ import {openapi} from '@hyperone/cli-core';
 
 import request from './request';
 
-const printCommand = (name, content) => () => new Command({
+const printCommand = (name, content) => new Command({
     name,
     summary: 'Print specification of context',
     handler: () => content,
@@ -35,7 +35,7 @@ const makeResourceCommand = (resource, ctx) => () => {
         summary: ctx.description || `Management of ${resource.type} resource`,
     });
 
-    cmd.addCommand(printCommand('spec', ctx, ctx));
+    cmd.addCommand(printCommand('spec', ctx));
 
     const collectionOperation = openapi.getPath(ctx.path) || {};
 
@@ -57,6 +57,16 @@ const makeResourceCommand = (resource, ctx) => () => {
                     name: 'list',
                     method: 'get',
                     operation: collectionOperation.get,
+                })
+            );
+        }
+        if (collectionOperation.patch) {
+            cmd.addCommand(
+                makeOperationCommand({
+                    ...ctx,
+                    name: 'update',
+                    method: 'patch',
+                    operation: collectionOperation.patch,
                 })
             );
         }

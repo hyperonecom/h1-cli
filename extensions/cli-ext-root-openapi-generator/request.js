@@ -135,6 +135,9 @@ const renderBody = (operation, input, options) => {
         const name = deCamelCase(pname);
         let value = input[pname];
         const option = options.find(x => x.name == name);
+        if (pvalue.readOnly == true) {
+            continue;
+        }
         if (!option) {
             throw new Error(`Unknown parameter transformation for ${name} -> ${pname}`);
         }
