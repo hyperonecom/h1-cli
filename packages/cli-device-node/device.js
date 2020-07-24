@@ -21,7 +21,7 @@ const formatError = (err, options) => {
     if (err.parameter) {
         return console.log(`  ${chalk.red(err.title)} [${parameterLabel(err.parameter, options)}]: ${err.detail}`);
     }
-    return console.log(`  ${chalk.red(err.title)} [${parameterLabel(err.parameter, options)}]: ${err.detail}`);
+    return console.log(`  ${chalk.red(err.title)}: ${err.detail}`);
 };
 
 export class NodeDevice extends Device {
