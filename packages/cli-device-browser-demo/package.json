@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-device-browser-demo",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "scripts": {
     "serve": "webpack-dev-server",
@@ -14,7 +14,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-		"@hyperone/cli-device-browser": "link:../../packages/cli-device-browser"
+    "@hyperone/cli-device-browser": "link:../../packages/cli-device-browser"
   },
   "private": true,
   "author": "Adam Dobrawy",
