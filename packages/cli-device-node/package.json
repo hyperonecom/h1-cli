@@ -11,6 +11,7 @@
   "dependencies": {
     "@hyperone/cli-core": "link:../cli-core",
     "@hyperone/cli-ext-compute-vm": "link:../../extensions/cli-ext-compute-vm",
+    "@hyperone/cli-ext-root-config": "link:../../extensions/cli-ext-root-config",
     "@hyperone/cli-ext-config-extensions": "link:../../extensions/cli-ext-config-extensions",
     "@hyperone/cli-ext-config-settings": "link:../../extensions/cli-ext-config-settings",
     "@hyperone/cli-ext-iam-project-select": "link:../../extensions/cli-ext-iam-project-select",

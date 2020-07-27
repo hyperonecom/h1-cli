@@ -267,7 +267,7 @@
     which "^1.3.1"
 
 "@hyperone/cli-core@link:packages/cli-core":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^9.0.3"
     "@hyperone/cli-framework" "link:packages/cli-framework"
@@ -283,7 +283,7 @@
     untildify "^4.0.0"
 
 "@hyperone/cli-device-browser@link:packages/cli-device-browser":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-ext-root-openapi-generator" "link:extensions/cli-ext-root-openapi-generator"
@@ -292,13 +292,13 @@
     shell-quote "^1.7.2"
 
 "@hyperone/cli-ext-compute-vm@link:extensions/cli-ext-compute-vm":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
 
 "@hyperone/cli-ext-config-extensions@link:extensions/cli-ext-config-extensions":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
@@ -307,19 +307,19 @@
     tar-fs "^2.1.0"
 
 "@hyperone/cli-ext-config-settings@link:extensions/cli-ext-config-settings":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
 
 "@hyperone/cli-ext-iam-project-select@link:extensions/cli-ext-iam-project-select":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
 
 "@hyperone/cli-ext-root-auth@link:extensions/cli-ext-root-auth":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     "@aws-sdk/credential-provider-node" "0.1.0-preview.2"
     "@azure/identity" "^1.0.3"
@@ -328,8 +328,14 @@
     aws4 "^1.10.0"
     google-auth-library "^6.0.5"
 
+"@hyperone/cli-ext-root-config@link:extensions/cli-ext-root-config":
+  version "1.0.2"
+  dependencies:
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
+
 "@hyperone/cli-ext-root-openapi-generator@link:extensions/cli-ext-root-openapi-generator":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
@@ -338,28 +344,28 @@
     pluralize "^8.0.0"
 
 "@hyperone/cli-ext-storage-vault@link:extensions/cli-ext-storage-vault":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
     "@hyperone/cli-generic-commands" "link:packages/cli-generic-commands"
 
 "@hyperone/cli-ext-website-instance@link:extensions/cli-ext-website-instance":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
     "@hyperone/cli-generic-commands" "link:packages/cli-generic-commands"
 
 "@hyperone/cli-framework@link:packages/cli-framework":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     command-line-args "^5.1.1"
     command-line-usage "^6.1.0"
     meant "^1.0.1"
 
 "@hyperone/cli-generic-commands@link:packages/cli-generic-commands":
-  version "1.0.2-alpha.2"
+  version "1.0.2"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
