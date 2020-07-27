@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-device-node",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -11,11 +11,11 @@
   "dependencies": {
     "@hyperone/cli-core": "link:../cli-core",
     "@hyperone/cli-ext-compute-vm": "link:../../extensions/cli-ext-compute-vm",
-    "@hyperone/cli-ext-root-config": "link:../../extensions/cli-ext-root-config",
     "@hyperone/cli-ext-config-extensions": "link:../../extensions/cli-ext-config-extensions",
     "@hyperone/cli-ext-config-settings": "link:../../extensions/cli-ext-config-settings",
     "@hyperone/cli-ext-iam-project-select": "link:../../extensions/cli-ext-iam-project-select",
     "@hyperone/cli-ext-root-auth": "link:../../extensions/cli-ext-root-auth",
+    "@hyperone/cli-ext-root-config": "link:../../extensions/cli-ext-root-config",
     "@hyperone/cli-ext-root-openapi-generator": "link:../../extensions/cli-ext-root-openapi-generator",
     "@hyperone/cli-ext-storage-vault": "link:../../extensions/cli-ext-storage-vault",
     "@hyperone/cli-ext-website-instance": "link:../../extensions/cli-ext-website-instance",
