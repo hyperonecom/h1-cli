@@ -19,8 +19,12 @@ export default new Command({
     ],
     handler: async (opts, cmd) => {
         const optsAll = opts._all || opts;
-        const client = npm(opts.http, 'http://localhost:4873/');
+        const client = npm(opts.http, 'https://registry.npmjs.org/');
         const result = [];
+        if (!opts.version) {
+            const versions = await client.listVersions(optsAll.extension);
+            opts.version = versions.latest;
+        }
         const detail = await client.showPackage(optsAll.extension, opts.version);
         opts.logger.info(`Installing '${detail.name}' in version '${detail.version}'`);
         const outDir = path.join(cmd.device.extensionDir(), detail.name);

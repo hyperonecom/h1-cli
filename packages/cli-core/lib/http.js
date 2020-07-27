@@ -3,7 +3,7 @@ import fetch from 'node-fetch';
 export default (device, logger) => {
     const result = {};
 
-    const baseRequest = async (method, uri, {json, headers, body, query}={}) => {
+    const baseRequest = async (method, uri, { json, headers, body, query } = {}) => {
         headers = {
             ...headers,
             ...await device.headers(),
@@ -12,6 +12,9 @@ export default (device, logger) => {
         if (json) {
             body = JSON.stringify(json);
             headers['Content-Type'] = 'application/json';
+        }
+        if (query) {
+            uri = `${uri}?${new URLSearchParams(query)}`;
         }
 
         uri = device.mapUrl(uri);

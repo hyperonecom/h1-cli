@@ -8,7 +8,7 @@ export default new Command({
     name: 'list',
     summary: 'List available and installed extensions',
     handler: async (opts, cmd) => {
-        const client = npm(opts.http, 'http://localhost:4873/');
+        const client = npm(opts.http, 'https://registry.npmjs.org/');
 
         const result = [];
         const pkgs = await client.listPackages('@hyperone/cli-ext');
@@ -19,14 +19,14 @@ export default new Command({
             if (!pkg.package.name.startsWith('@hyperone/cli-ext')) {
                 continue;
             }
-            const detail = await client.showPackage(pkg.package.name, 'latest');
+            const versions = await client.listVersions(pkg.package.name);
             const installed = installed_extensions.find(x => x.name == pkg.package.name);
 
             result.push({
-                name: detail.name,
-                remoteVersion: detail.version,
+                name: pkg.package.name,
+                remoteVersion: versions.latest,
                 localVersion: installed ? installed.version : 'not installed',
-                path: installed ? installed.module : 'not installed',
+                path: installed ? installed.module || '-' : 'not installed',
             });
         }
 
