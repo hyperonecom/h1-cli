@@ -8,6 +8,7 @@ import untildify from 'untildify';
 import { Device } from '@hyperone/cli-framework';
 import process from 'process';
 import info from './package.json';
+import { get, set, unset } from '@hyperone/cli-core/lib/transform';
 
 const parameterLabel = (parameter, options = []) => {
     const option = options.find(p => p.use && p.use.in == parameter.in && p.use.field == parameter.field);
@@ -28,6 +29,7 @@ export class NodeDevice extends Device {
     constructor(scope) {
         super();
         this.scope = scope;
+        this.config = undefined;
     }
     getName() {
         return this.scope;
@@ -64,21 +66,40 @@ export class NodeDevice extends Device {
         process.exit(err.exitCode || 1);
     }
     async configLoad() {
-        const outDir = path.join(os.homedir(), `.${this.scope}`);
-        try {
-            const content = fs.readFileSync(path.join(outDir, 'config.json'), { encoding: 'utf-8' });
-            return JSON.parse(content);
-        } catch (err) {
-            if (err.code === 'ENOENT') {
-                return;
+        if (typeof this.config == 'undefined') {
+            const outDir = path.join(os.homedir(), `.${this.scope}`);
+            try {
+                const content = fs.readFileSync(path.join(outDir, 'config.json'), { encoding: 'utf-8' });
+                this.config = JSON.parse(content);
+            } catch (err) {
+                if (err.code === 'ENOENT') {
+                    this.config = {
+                        parameter: {
+                            location: {
+                                value: 'pl-waw-1',
+                            },
+                        },
+                    };
+                }
+                throw err;
             }
-            throw err;
         }
+        return this.config;
     }
-    async configSave(content) {
+    async configStore() {
+        if (typeof this.config == 'undefined') return;
         const outDir = path.join(os.homedir(), `.${this.scope}`);
-        fs.mkdirSync(outDir, { recursive: true });
-        fs.writeFileSync(path.join(outDir, 'config.json'), JSON.stringify(content, null, 4), { encoding: 'utf-8' });
+        await fs.promises.mkdir(outDir, { recursive: true });
+        await fs.promises.writeFile(path.join(outDir, 'config.json'), JSON.stringify(this.config, null, 4), { encoding: 'utf-8' });
+    }
+    async configGet(key, defaultValue) {
+        return get(await this.configLoad(), key, defaultValue);
+    }
+    async configSet (key, value) {
+        return set(await this.configLoad(), key, value);
+    }
+    async configUnset(key) {
+        return unset(await this.configLoad(), key);
     }
     async headers() {
         return {

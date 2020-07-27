@@ -13,7 +13,16 @@ class Device {
     async configLoad() {
         return {};
     }
-    async configSave(/*content*/) {
+    async configStore() {
+        return;
+    }
+    async configGet(/* key, defaultValue */) {
+        return /* value */;
+    }
+    async configSet(/* key, value */) {
+        return;
+    }
+    async configUnset(/* key */) {
         return;
     }
     async headers() {

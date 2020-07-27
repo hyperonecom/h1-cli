@@ -17,17 +17,14 @@ export default {
             options: [
                 { name: 'key', required: true },
             ],
-            handler: (opts) => parent.state.config.get(opts.key),
+            handler: (opts) => parent.config.get(opts.key),
         }));
 
         cmd.addCommand(new Command({
             name: 'dump',
             summary: 'Dump all settings values',
-            options: [
-                { name: 'key', required: true },
-                { name: 'value', required: true },
-            ],
-            handler: () => parent.state.config.all(),
+            options: [],
+            handler: () => parent.config.all(),
         }));
 
         cmd.addCommand(new Command({
