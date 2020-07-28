@@ -50,19 +50,6 @@ export default {
     },
     getUrl: path => `${spec.servers[0].url}${path}`,
     spec, // TODO: Remove me
-    getOperations: (tag) => { // TODO: Remove me (unused?)
-        const operations = [];
-        for (const pathItem of Object.values(spec.paths)) {
-            for (const operation of Object.values(pathItem)) {
-                const name = operation.summary.toLowerCase();
-                if (operation.tags.includes(tag)) {
-                    operations[name] = operations[name] || [];
-                    operations[name].push(operation);
-                }
-            }
-        }
-        return operations;
-    },
     getChild: (prefix) => Object
         .entries(spec.paths)
         .filter(([path]) => path.match(new RegExp(`^${prefix}/[a-z]+?$`)))
