@@ -9,7 +9,11 @@ export const resolvePointer = (data, path) => {
 
 export const serializeValue = (value) => {
     if (typeof value == 'object') {
-        return Object.entries(value).map(([name, value]) => `${name}=${value}`).join(',');
+        return Object
+            .entries(value)
+            .filter(([, value]) => !!value)
+            .map(([name, value]) => `${name}=${value}`)
+            .join(',');
     }
     return value;
 };
