@@ -61,7 +61,7 @@ const renderOptions = (operation) => {
         }
 
         // TODO: Remove audiance support
-        const audience = pvalue['x-audiance'] || pvalue['x-audience'];
+        const audience = pvalue['x-audience'];
         if (audience && !['user', 'all'].includes(audience)) {
             continue;
         }
