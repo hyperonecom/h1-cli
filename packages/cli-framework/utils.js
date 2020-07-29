@@ -2,7 +2,7 @@
 export const resolvePointer = (data, path) => {
     let pos = data;
     path.split('/').slice(1).forEach(x => {
-        pos = pos[x];
+        pos = pos && x in pos ? pos[x] : undefined;
     });
     return pos;
 };
