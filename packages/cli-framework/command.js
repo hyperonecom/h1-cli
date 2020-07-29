@@ -125,7 +125,7 @@ class Command {
         for (const option of this.options) {
             if (option.use) {
                 const value = option.use.in == 'body' ? resolvePointer(requestBody, option.use.field) : parameters[option.use.field];
-                if (value) {
+                if (typeof value !== 'undefined' && value !== option.defaultValue) {
                     if (option.multiple) {
                         for (const v of value) {
                             argv.push(`--${option.name}`);

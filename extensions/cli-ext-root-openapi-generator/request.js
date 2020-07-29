@@ -1,55 +1,56 @@
 
 import { openapi } from '@hyperone/cli-core';
 import { deCamelCase } from '@hyperone/cli-core/lib/transform';
-import jsonpatch from 'jsonpatch';
 import types from '@hyperone/cli-core/types';
+import {set} from '@hyperone/cli-core/lib/transform';
 
 const idless = (name) => name.replace(/Id$/, '');
 
-const renderOptions = (operation) => {
+const parameterForParameter = (p = []) => {
     const parameters = [];
-    if (operation.parameters) {
-        for (const parameter of operation.parameters) {
-            const name = idless(parameter.name);
-            const description = [
-                parameter.description,
-            ];
+    for (const parameter of p) {
+        const name = idless(parameter.name);
+        const description = [
+            parameter.description,
+        ];
 
-            const p = {
-                name: deCamelCase(name),
-                use: {
-                    in: 'path',
-                    field: parameter.name,
-                },
-            };
+        const p = {
+            name: deCamelCase(name),
+            use: {
+                in: 'path',
+                field: parameter.name,
+            },
+        };
 
-            if (parameter.name.endsWith('Id')) {
-                Object.assign(p, {
-                    required: true,
-                    defaultSource: name,
-                    type: types.extractId,
-                    typeLabel: 'id-or-uri',
-                });
-            }
-
-            parameters.push({
-                ...p,
-                description: description.join('.'),
+        if (parameter.name.endsWith('Id')) {
+            Object.assign(p, {
+                required: true,
+                defaultSource: name,
+                type: types.extractId,
+                typeLabel: 'id-or-uri',
             });
         }
-    }
 
-    const schema = openapi.getSchema(operation);
+        parameters.push({
+            ...p,
+            description: description.join('.'),
+        });
+    }
+    return parameters;
+};
+
+const parameterForSchema = (schema, prefix = '', path = '') => {
+    const parameters = [];
 
     for (const [pname, pvalue] of Object.entries(schema.properties || {})) {
         const description = [];
         const required = schema.required || [];
         const p = {
-            name: deCamelCase(pname),
+            name: `${prefix}${deCamelCase(pname)}`,
             required: required.includes(pname),
             use: {
                 in: 'body',
-                field: `/${pname}`,
+                field: `${path}/${pname}`,
             },
         };
         if (pvalue.title) {
@@ -98,17 +99,44 @@ const renderOptions = (operation) => {
                 multiple: true,
             });
         }
+
+        if (pvalue.type == 'boolean') {
+            const choices = [true, false].map(String);
+            Object.assign(p, {
+                type: (value) => value == 'true',
+                typeLabel: choices.join(','),
+                choices,
+            });
+        }
+
+        if (pvalue.type == 'object') {
+            parameters.push(
+                ...parameterForSchema(
+                    pvalue,
+                    !!prefix ? `${prefix}-${pname}` : `${pname}-`,
+                    `${path}/${pname}`
+                )
+            );
+            continue;
+        }
+
         if (pvalue.type == 'array' && pvalue.items.type == 'object') {
             const label = Object.entries(pvalue.items.properties || {})
                 .filter(([, value]) => value.readOnly != true)
                 .map(([key]) => `${key}=${key}`)
                 .join(',');
-            // description.push(`Use as ${label}`);
 
             Object.assign(p, {
                 multiple: true,
                 typeLabel: label,
                 type: types.nestedValue,
+            });
+        }
+
+        if (pvalue.default) {
+            description.push(`Defaults is ${pvalue.default}`);
+            Object.assign(p, {
+                defaultValue: pvalue.default,
             });
         }
 
@@ -119,37 +147,33 @@ const renderOptions = (operation) => {
         parameters.push(p);
     }
 
+    return parameters;
+};
+
+const renderOptions = (operation) => {
+    const schema = openapi.getSchema(operation);
+
+    const parameters = [
+        ...parameterForParameter(operation.parameters),
+        ...parameterForSchema(schema),
+    ];
 
     return parameters;
 };
 
 const renderBody = (operation, input, options) => {
-    const patch = [];
-    const schema = openapi.getSchema(operation) || {};
-    for (const [pname, pvalue] of Object.entries(schema.properties || {})) {
-        // TODO: Remove audiance support
-        const audience = pvalue['x-audiance'] || pvalue['x-audience'];
-        if (audience && !['user', 'all'].includes(audience)) {
-            continue;
-        }
-        const name = deCamelCase(pname);
-        let value = input[pname];
-        const option = options.find(x => x.name == name);
-        if (pvalue.readOnly == true) {
-            continue;
-        }
-        if (!option) {
-            throw new Error(`Unknown parameter transformation for ${name} -> ${pname}`);
-        }
+    const result = {};
+    for (const option of options) {
         if (!option.use || option.use.in != 'body') {
             continue;
         }
+        let value = input[option.name];
         if (option.prefix && value && !value.startsWith('/')) {
             value = renderPath(option.prefix, operation, input);
         }
-        patch.push({ op: 'add', path: option.use.field, value: value });
+        set(result, option.use.field.replace(/\//g, '.'), value);
     }
-    return jsonpatch.apply_patch({}, patch);
+    return result;
 };
 
 const renderQuery = (path, operation) => {
