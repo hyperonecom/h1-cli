@@ -13,8 +13,8 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.json'],
     },
-    optimization: {
-        minimize: false, // see https://github.com/terser/terser/issues/764
+    externals: {
+        '@hyperone/cli-core':'commonjs2 @hyperone/cli-core',
+        '@hyperone/cli-framework':'commonjs2 @hyperone/cli-framework',
     },
-    externals: ['@hyperone/cli-core', '@hyperone/cli-framework'],
 };
