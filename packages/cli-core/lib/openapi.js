@@ -52,7 +52,7 @@ export default {
     spec, // TODO: Remove me
     getChild: (prefix) => Object
         .entries(spec.paths)
-        .filter(([path]) => path.match(new RegExp(`^${prefix}/[a-z]+?$`)))
+        .filter(([path]) => path.match(new RegExp(`^${prefix}/[a-zA-Z]+?$`)))
         .map(([path]) => ({
             type: path.split('/').pop(),
             path,
