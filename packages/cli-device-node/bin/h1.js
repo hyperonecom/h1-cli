@@ -5,7 +5,7 @@ import { NodeDevice } from '../device';
 
 const main = async () => {
     const program = await buildCli({
-        openapiUrl: 'https://api.hyperone.com/v2/openapi.json',
+        openapiUrl: process.env.HYPERONE_OPENAPI_URL || 'https://api.hyperone.com/v2/openapi.json',
         device: new NodeDevice('h1'),
     });
     return program.run(process.argv.slice(2));
