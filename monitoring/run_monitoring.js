@@ -176,7 +176,7 @@ const parseMetric = async (conn, line) => {
         return;
     }
     if (line.includes(' ✔ ')) {
-        const matches = line.trim().match(' *✔ (.+?) \\((.+?)\\)$');
+        const matches = line.trim().match('✔ (.+?) \\((.+?)\\)$');
         console.log({ line, matches });
         if (!matches) {
             console.log('RegExp failed');
@@ -192,7 +192,7 @@ const parseMetric = async (conn, line) => {
             run: startTime,
         });
     } else if (line.includes(' ✖ ')) {
-        const [, title, help] = line.trim().match(' *✖ (.+?)( Rejected promise returned by test)?$');
+        const [, title, help] = line.trim().match('✖ (.+?)( Rejected promise returned by test)?$');
         if ([' Timed out while running tests'].includes(help)) {
             return;
         }
@@ -203,7 +203,7 @@ const parseMetric = async (conn, line) => {
             run: startTime,
         });
     } else if (line.includes(' ◌ ')) {
-        const [, title] = line.match(' ◌ (.+?)$');
+        const title = line.replace('◌', '').trim();
         return sendInflux(conn, 'testcase', {
             title,
             result: 'timeout',
