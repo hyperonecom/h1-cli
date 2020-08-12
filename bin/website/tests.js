@@ -30,14 +30,6 @@ ava.serial('website life cycle', tests.resourceLifeCycle('website', {
     stateCreated: 'Running',
 }));
 
-const putFileWebsite = (website, auth, path, content) => {
-    console.log(new Date(), `Upload content to website ${website.id} at '${path}'`);
-    return ssh.putFile(path, content, Object.assign({
-        host: website.fqdn,
-        username: website.id,
-    }, auth));
-};
-
 const mkDirWebsite = (website, auth, path) => {
     console.log(new Date(), `Make directory in website ${website.id} at '${path}'`);
     return ssh.mkDir(path, Object.assign({
@@ -76,7 +68,7 @@ ava.serial('website put index via SFTP & password', async t => {
     await tests.delay(tests.DELAY.website_start);
     // Upload file
     const token = await tests.getToken();
-    await putFileWebsite(website, { password }, 'public/index.html', token);
+    await ssh.putResource(website, { password }, 'public/index.html', token);
     await fetchMultiproto(t, website.fqdn, resp => resp.text === token);
     await tests.remove('website', website);
 });
@@ -141,7 +133,7 @@ ava.serial('website reachable through custom domain', async t => {
         const files = await lsWebsite(website, { password }, '/data');
         t.true(files.some(f => f.filename === 'public'));
         await ssh.execResource(website, { password }, 'ls -lah /data/public');
-        await putFileWebsite(website, { password }, 'public/index.html', token);
+        await ssh.putResource(website, { password }, 'public/index.html', token);
         await tests.delay(tests.DELAY.website_start);
         // Test content
         await fetchMultiproto(t, rrset.name.slice(0, -1), resp => resp.text === token);
@@ -170,7 +162,7 @@ ava.serial('website reachable through apex record', async t => {
         const files = await lsWebsite(website, { password }, '/data');
         t.true(files.some(f => f.filename === 'public'));
         await ssh.execResource(website, { password }, 'ls -lah /data/public');
-        await putFileWebsite(website, { password }, 'public/index.html', token);
+        await ssh.putResource(website, { password }, 'public/index.html', token);
         await tests.delay(5 * 1000);
         // Test content
         await fetchMultiproto(t, rrset.name.slice(0, -1), resp => resp.text === token);
@@ -188,7 +180,7 @@ ava.serial('website reachable through apex record', async t => {
 
         // Upload file
         const token = await tests.getToken();
-        await putFileWebsite(website, { privateKey: sshKeyPair.privateKey }, 'public/index.html', token);
+        await ssh.putResource(website, { privateKey: sshKeyPair.privateKey }, 'public/index.html', token);
         // Test content
         await fetchMultiproto(t, website.fqdn, resp => resp.text === token);
         await tests.remove('website', website);
@@ -276,7 +268,7 @@ ava.serial('website runtime access rights match of sftp', async t => {
     // Put code on website
     const token = await tests.getToken();
     const content = images[image].code.replace('TOKEN', token);
-    await putFileWebsite(website, { password }, 'public/test.php', content);
+    await ssh.putResource(website, { password }, 'public/test.php', content);
     // Call script
     await fetchMultiproto(t, `${website.fqdn}/test.php`, resp => resp.text === '');
     await fetchMultiproto(t, `${website.fqdn}/test.txt`, resp => resp.text === token);
@@ -326,7 +318,7 @@ ava.serial('website wordpress installation', async t => {
             wp core download;
             wp config create --dbhost=${database.fqdn} --dbname=${database.id} --dbuser=${database.id} --dbpass=${password}
             wp core install --url='https://${website.fqdn}/' --title=${token} --admin_user=superuser --admin_email=admin@example.com`;
-            await putFileWebsite(website, { password }, './install.sh', content);
+            await ssh.putResource(website, { password }, './install.sh', content);
             await ssh.execResource(website, { password }, 'sh /data/install.sh');
             await fetchMultiproto(t, website.fqdn, resp => resp.text.includes(token));
             await fetchMultiproto(t, website.fqdn, resp => resp.text.includes('WordPress'));
@@ -398,7 +390,7 @@ ava.serial('website env exposed to runtime', async t => {
         await withOff('website', website,
             () => tests.run(`website env create --website ${website.name} --name ${name} --value ${token}`)
         );
-        await putFileWebsite(website, { password }, 'public/index.php', phpinfo);
+        await ssh.putResource(website, { password }, 'public/index.php', phpinfo);
         await fetchMultiproto(t, website.fqdn, resp => resp.text.includes(token));
         const shell = await ssh.execResource(website, { password }, 'bash -c "export"');
         t.true(shell.includes(token));
@@ -412,7 +404,7 @@ ava.serial('website image update', async t => {
     const new_image = 'h1cr.io/website/php-apache:7.3';
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     try {
-        await putFileWebsite(website, { password }, 'public/index.php', phpinfo);
+        await ssh.putResource(website, { password }, 'public/index.php', phpinfo);
         await fetchMultiproto(t, website.fqdn, resp => !resp.text.includes('PHP 7.3'));
         await withOff('website', website,
             () => tests.run(`website image --website ${website.name} --image ${new_image}`)
@@ -427,7 +419,7 @@ ava.serial('website snapshot restore', async t => {
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     const content = await tests.getToken();
-    await putFileWebsite(website, { password }, 'public/test.txt', content);
+    await ssh.putResource(website, { password }, 'public/test.txt', content);
     const snapshotName = tests.getName('snapshot', t.title);
     await tests.run(`website snapshot create --website ${website.name} --name ${snapshotName}`);
     const websiteRestored = await tests.run(`website create --name ${tests.getName('restored', t.title)} ${commonCreateParams} --password ${password} --source-website ${website.id} --source-snapshot ${snapshotName}`);
@@ -444,7 +436,7 @@ ava.serial('website log', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     try {
         await tests.delay(tests.DELAY.website_start);
-        await putFileWebsite(website, { password }, 'public/test.txt', await tests.getToken());
+        await ssh.putResource(website, { password }, 'public/test.txt', await tests.getToken());
         await tests.logStreamProcess(t, 'website', website,
             (id_request) => tests.get(`http://${website.fqdn}/test.txt?${id_request}`)
         );
@@ -458,11 +450,11 @@ ava.serial('website snapshot download', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
 
     const content = await tests.getToken();
-    await putFileWebsite(website, { password }, 'public/test.txt', content);
+    await ssh.putResource(website, { password }, 'public/test.txt', content);
     const snapshot = await tests.run(`website snapshot create --website ${website.id} --name ${tests.getName('snapshot', t.title)}`);
 
     const content_append = await tests.getToken();
-    await putFileWebsite(website, { password }, 'public/append.txt', content_append);
+    await ssh.putResource(website, { password }, 'public/append.txt', content_append);
     const second_snapshot = await tests.run(`website snapshot create --website ${website.id} --name ${tests.getName('diff', t.title)}`);
 
     const output_file = await tests.getRandomFile();
@@ -489,7 +481,7 @@ ava.serial('website snapshot receive to zfs', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
 
     const content = await tests.getToken();
-    await putFileWebsite(website, { password }, 'public/test.txt', content);
+    await ssh.putResource(website, { password }, 'public/test.txt', content);
     const snapshot = await tests.run(`website snapshot create --website ${website.id} --name ${tests.getName('snapshot', t.title)}`);
 
     const output_file = await tests.getRandomFile();
@@ -507,7 +499,7 @@ ava.serial('website restart nodejs app', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website --image '${image}' --password ${password}`);
     const content = images[image].code;
     await mkDirWebsite(website, { password }, 'app');
-    await putFileWebsite(website, { password }, 'app/index.js', content);
+    await ssh.putResource(website, { password }, 'app/index.js', content);
     await tests.run(`website restart --website ${website.id}`);
     await tests.delay(tests.DELAY.website_start);
     const response_before = await tests.get(`http://${website.fqdn}/`);
@@ -524,7 +516,7 @@ ava.serial('website serve python app', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} --type website --image '${image}' --password ${password}`);
     const content = images[image].code;
     await mkDirWebsite(website, { password }, 'app');
-    await putFileWebsite(website, { password }, 'app/passenger_wsgi.py', content);
+    await ssh.putResource(website, { password }, 'app/passenger_wsgi.py', content);
     await tests.run(`website restart --website ${website.id}`);
     await tests.delay(tests.DELAY.website_start);
     const response_before = await tests.get(`http://${website.fqdn}/`);

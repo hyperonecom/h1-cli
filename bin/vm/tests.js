@@ -114,11 +114,11 @@ ava.serial('vm usermetadata execute in cloud-init', async t => {
     const tmp_file = tests.getRandomFile(my_metadata);
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params.createParams} --userdata-file ${tmp_file}`);
-
     fs.unlinkSync(tmp_file);
-
-    const content = await ssh.execVm(vm, { password: common.password }, `cat ${remote_tmp_path}`);
-    t.true(content === token);
+    const test_script = `#!/bin/bash\nuntil cloud-init status | grep -q 'done'; do echo 'Waiting...'; sleep 3; done;\ncat ${remote_tmp_path};`;
+    await ssh.putVm(vm, { password: common.password }, '/tmp/cloudinit-test.sh', test_script);
+    const content = await ssh.execVm(vm, { password: common.password }, 'bash /tmp/cloudinit-test.sh');
+    t.true(content.includes(token));
     await common.cleanup();
 });
 
