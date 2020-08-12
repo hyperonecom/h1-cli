@@ -192,17 +192,17 @@ const parseMetric = async (conn, line) => {
             run: startTime,
         });
     } else if (line.includes(' ✖ ')) {
-        const [, title, help] = line.trim().match('✖ (.+?)( Rejected promise returned by test)?$');
-        if ([' Timed out while running tests'].includes(help)) {
+        if ([' Timed out while running tests'].includes(line)) {
             return;
         }
+        const [, title] = line.trim().match('✖ (.+?)( Rejected promise returned by test)?$');
         return sendInflux(conn, 'testcase', {
             title,
             result: 'fail',
         }, {
             run: startTime,
         });
-    } else if (line.includes(' ◌ ')) {
+    } else if (line.includes('◌')) {
         const title = line.replace('◌', '').trim();
         return sendInflux(conn, 'testcase', {
             title,
