@@ -72,7 +72,8 @@ ava.serial('disk resize', tests.resourceResizeCycle('disk', {
 
         const vm = await tests.run(`vm create --name ${tests.getName(t.title)} --os-disk ${osDisk},ssd,10 --type a1.nano --image debian --ssh-file ${sshFilename}`);
         const consistent_content = await tests.getToken();
-        await ssh.execVm(vm, {privateKey: sshKeyPair.privateKey}, `echo '${consistent_content}' > ${testFilePath}; sync;`);
+        await ssh.execVm(vm, { privateKey: sshKeyPair.privateKey }, 'cloud-init status --wait');
+        await ssh.execVm(vm, { privateKey: sshKeyPair.privateKey }, `echo '${consistent_content}' > ${testFilePath}; sync;`);
         if (mode === 'offline') {
             await tests.run(`vm stop  --vm ${vm.id}`);
         }
