@@ -11,7 +11,7 @@ const printCommand = (name, content) => new Command({
     handler: () => content,
 });
 
-export const makeOperationCommand = ({ name, endpoint, method, path}) => () => {
+export const makeOperationCommand = ({ name, endpoint, method, path }) => () => {
     const operation = endpoint[method];
     const parameters = [
         ...operation.parameters || [],
@@ -150,49 +150,24 @@ export const buildNamespaceCommand = (name, spec, ctx) => async () => {
 
     cmd.addCommand(printCommand('spec', spec, ctx));
 
-    const parent_cmds = {};
+    const children = [
+        ...openapi.getChild(ctx.path),
+    ];
 
-    for (const resource of spec) {
-        let path = ctx.path;
-
-        if (resource.location) {
-            path = `${path}/{locationId}`;
-        }
-
-        // Custom logic for resource in multiple namespaces
-        // Example for "iam/policy":
-        // iam policy - for policy of project
-        // iam policy organisation - for policy of project
-        // Example for "website/instance":
-        // website instance - for instance of project
-        // Future proof, adding new resources at any level
-        if (resource.parent) {
-            for (const parent of resource.parent) {
-                let parent_cmd;
-                if (parent == 'project') {
-                    parent_cmd = cmd;
-                } else {
-                    parent_cmds[parent] = parent_cmds[parent] || new Category({
-                        name: parent,
-                        summary: `Management of ${parent}`,
-                    });
-                    parent_cmd = parent_cmds[parent];
-                }
-
-                parent_cmd.addCommand(makeResourceCommand(resource, {
-                    ...ctx,
-                    path: `${path}/${parent}/{${parent}Id}/${resource.type}`,
-                }));
-            }
-        } else {
-            cmd.addCommand(makeResourceCommand(resource, {
-                ...ctx,
-                path: `${path}/${resource.type}`,
-            }));
-        }
+    if (name !== 'iam') {
+        children.push(
+            ...openapi.getChild(`${ctx.path}/project/{projectId}`),
+            ...openapi.getChild(`${ctx.path}/{locationId}/project/{projectId}`),
+        );
     }
-    cmd.addCommand(...Object.values(parent_cmds));
-    // fs.subdirectories(directory, false, options.matching)
+
+    for (const child of children) {
+        cmd.addCommand(makeResourceCommand(child, {
+            path: child.path,
+            description: `Management of ${child.type} resource`,
+        }));
+    }
+
     return cmd;
 };
 
