@@ -11,8 +11,14 @@ const printCommand = (name, content) => new Command({
     handler: () => content,
 });
 
-export const makeOperationCommand = ({ name, operation, method, path, parameters = [] }) => () => {
+export const makeOperationCommand = ({ name, endpoint, method, path}) => () => {
+    const operation = endpoint[method];
+    const parameters = [
+        ...operation.parameters || [],
+        ...endpoint.parameters || [],
+    ];
     const options = request.renderOptions(operation, parameters);
+
     return new Command({
         name,
         summary: `${operation.summary} [${operation.operationId}]`,
@@ -35,95 +41,94 @@ export const makeResourceCommand = (resource, ctx) => () => {
         summary: ctx.description || `Management of ${resource.type} resource`,
     });
 
-    cmd.addCommand(printCommand('spec', ctx));
-    const collectionOperation = openapi.getPath(ctx.path) || {};
+    cmd.addCommand(() => printCommand('spec', ctx));
 
-    if (collectionOperation) {
-        if (collectionOperation.post) {
+    const collectionEndpoint = openapi.getPath(ctx.path) || {};
+
+    if (collectionEndpoint) {
+        if (collectionEndpoint.post) {
             cmd.addCommand(
                 makeOperationCommand({
                     ...ctx,
                     name: 'create',
                     method: 'post',
-                    operation: collectionOperation.post,
-                    parameters: collectionOperation.parameters,
+                    endpoint: collectionEndpoint,
                 })
             );
         }
-        if (collectionOperation.get) {
+        if (collectionEndpoint.get) {
             cmd.addCommand(
                 makeOperationCommand({
                     ...ctx,
                     name: 'list',
                     method: 'get',
-                    operation: collectionOperation.get,
-                    parameters: collectionOperation.parameters,
+                    endpoint: collectionEndpoint,
                 })
             );
         }
-        if (collectionOperation.patch) {
+        if (collectionEndpoint.patch) {
             cmd.addCommand(
                 makeOperationCommand({
                     ...ctx,
                     name: 'update',
                     method: 'patch',
-                    operation: collectionOperation.patch,
-                    parameters: collectionOperation.parameters,
+                    endpoint: collectionEndpoint,
                 })
             );
         }
     }
+
     const instancePathPrefix = `${ctx.path}/{${resource.type}Id}`;
-    const instanceOperation = openapi.getPath(instancePathPrefix) || {};
-    if (instanceOperation) {
-        if (instanceOperation.get) {
+    const instanceEndpoint = openapi.getPath(instancePathPrefix) || {};
+
+    if (instanceEndpoint) {
+        if (instanceEndpoint.get) {
             cmd.addCommand(
                 makeOperationCommand({
                     ...ctx,
                     name: 'show',
                     method: 'get',
-                    operation: instanceOperation.get,
+                    endpoint: instanceEndpoint,
                     path: instancePathPrefix,
-                    parameters: instanceOperation.parameters,
                 })
             );
         }
-        if (instanceOperation.patch) {
+        if (instanceEndpoint.patch) {
             cmd.addCommand(
                 makeOperationCommand({
                     ...ctx,
                     name: 'update',
                     method: 'patch',
-                    operation: instanceOperation.patch,
+                    endpoint: instanceEndpoint,
                     path: instancePathPrefix,
-                    parameters: instanceOperation.parameters,
                 })
             );
         }
 
-        if (instanceOperation.delete) {
+        if (instanceEndpoint.delete) {
             cmd.addCommand(
                 makeOperationCommand({
                     ...ctx,
                     name: 'delete',
                     method: 'delete',
-                    operation: instanceOperation.delete,
+                    endpoint: instanceEndpoint,
                     path: instancePathPrefix,
-                    parameters: instanceOperation.parameters,
                 })
             );
         }
     }
 
     for (const { name, path, endpoint } of openapi.getActions(instancePathPrefix)) {
-        cmd.addCommand(makeOperationCommand({
-            ...ctx,
-            name,
-            method: 'post',
-            path,
-            operation: endpoint.post,
-            parameters: endpoint.parameters,
-        }));
+        for (const method of ['post', 'get']) {
+            if (!endpoint[method]) continue;
+            cmd.addCommand(makeOperationCommand({
+                ...ctx,
+                name,
+                method,
+                path,
+                endpoint,
+            }));
+        }
     }
 
     for (const child of openapi.getChild(instancePathPrefix)) {

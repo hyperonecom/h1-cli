@@ -168,7 +168,6 @@ const renderOptions = (operation, parameters=[]) => {
     const schema = openapi.getSchema(operation);
     return [
         ...parameterForParameter(parameters),
-        ...parameterForParameter(operation.parameters),
         ...parameterForSchema(flatSchema(schema)),
     ];
 };
