@@ -140,7 +140,7 @@ class Command {
         }
         return argv;
     }
-    start(opts) {
+    async start(opts) {
         return this.handler(opts, this);
     }
 }
