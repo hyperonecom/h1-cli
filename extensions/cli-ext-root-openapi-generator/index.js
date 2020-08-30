@@ -1,7 +1,7 @@
 
 import pluralize from 'pluralize';
-import {Category, Command} from '@hyperone/cli-framework';
-import {openapi} from '@hyperone/cli-core';
+import { Category, Command } from '@hyperone/cli-framework';
+import { openapi } from '@hyperone/cli-core';
 
 import request from './request';
 
@@ -11,8 +11,8 @@ const printCommand = (name, content) => new Command({
     handler: () => content,
 });
 
-const makeOperationCommand = ({ name, operation, method, path }) => () => {
-    const options = request.renderOptions(operation);
+export const makeOperationCommand = ({ name, operation, method, path, parameters = [] }) => () => {
+    const options = request.renderOptions(operation, parameters);
     return new Command({
         name,
         summary: `${operation.summary} [${operation.operationId}]`,
@@ -29,14 +29,13 @@ const makeOperationCommand = ({ name, operation, method, path }) => () => {
     });
 };
 
-const makeResourceCommand = (resource, ctx) => () => {
+export const makeResourceCommand = (resource, ctx) => () => {
     const cmd = new Category({
         name: resource.type,
         summary: ctx.description || `Management of ${resource.type} resource`,
     });
 
     cmd.addCommand(printCommand('spec', ctx));
-
     const collectionOperation = openapi.getPath(ctx.path) || {};
 
     if (collectionOperation) {
@@ -47,6 +46,7 @@ const makeResourceCommand = (resource, ctx) => () => {
                     name: 'create',
                     method: 'post',
                     operation: collectionOperation.post,
+                    parameters: collectionOperation.parameters,
                 })
             );
         }
@@ -57,6 +57,7 @@ const makeResourceCommand = (resource, ctx) => () => {
                     name: 'list',
                     method: 'get',
                     operation: collectionOperation.get,
+                    parameters: collectionOperation.parameters,
                 })
             );
         }
@@ -67,11 +68,11 @@ const makeResourceCommand = (resource, ctx) => () => {
                     name: 'update',
                     method: 'patch',
                     operation: collectionOperation.patch,
+                    parameters: collectionOperation.parameters,
                 })
             );
         }
     }
-
     const instancePathPrefix = `${ctx.path}/{${resource.type}Id}`;
     const instanceOperation = openapi.getPath(instancePathPrefix) || {};
     if (instanceOperation) {
@@ -83,6 +84,7 @@ const makeResourceCommand = (resource, ctx) => () => {
                     method: 'get',
                     operation: instanceOperation.get,
                     path: instancePathPrefix,
+                    parameters: instanceOperation.parameters,
                 })
             );
         }
@@ -94,7 +96,7 @@ const makeResourceCommand = (resource, ctx) => () => {
                     method: 'patch',
                     operation: instanceOperation.patch,
                     path: instancePathPrefix,
-
+                    parameters: instanceOperation.parameters,
                 })
             );
         }
@@ -107,18 +109,20 @@ const makeResourceCommand = (resource, ctx) => () => {
                     method: 'delete',
                     operation: instanceOperation.delete,
                     path: instancePathPrefix,
+                    parameters: instanceOperation.parameters,
                 })
             );
         }
     }
 
-    for (const { name, path } of openapi.getActions(instancePathPrefix)) {
+    for (const { name, path, endpoint } of openapi.getActions(instancePathPrefix)) {
         cmd.addCommand(makeOperationCommand({
             ...ctx,
             name,
             method: 'post',
-            operation: openapi.getPath(path).post,
             path,
+            operation: endpoint.post,
+            parameters: endpoint.parameters,
         }));
     }
 
@@ -132,7 +136,7 @@ const makeResourceCommand = (resource, ctx) => () => {
     return cmd;
 };
 
-const buildNamespaceCommand = (name, spec, ctx) => async () => {
+export const buildNamespaceCommand = (name, spec, ctx) => async () => {
     const cmd = new Category({
         name,
         summary: `Management of ${name} namespace`,

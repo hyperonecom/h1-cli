@@ -2,7 +2,7 @@
 import { openapi } from '@hyperone/cli-core';
 import { deCamelCase } from '@hyperone/cli-core/lib/transform';
 import types from '@hyperone/cli-core/types';
-import {set} from '@hyperone/cli-core/lib/transform';
+import { set } from '@hyperone/cli-core/lib/transform';
 
 const idless = (name) => name.replace(/Id$/, '');
 
@@ -150,15 +150,27 @@ const parameterForSchema = (schema, prefix = '', path = '') => {
     return parameters;
 };
 
-const renderOptions = (operation) => {
+const flatSchema = (schema) => {
+    if (schema.allOf) {
+        const properties = {};
+        for (const sch of schema.allOf) {
+            Object.assign(properties, sch.properties);
+        }
+        return {
+            type: 'object',
+            properties,
+        };
+    }
+    return schema;
+};
+
+const renderOptions = (operation, parameters=[]) => {
     const schema = openapi.getSchema(operation);
-
-    const parameters = [
+    return [
+        ...parameterForParameter(parameters),
         ...parameterForParameter(operation.parameters),
-        ...parameterForSchema(schema),
+        ...parameterForSchema(flatSchema(schema)),
     ];
-
-    return parameters;
 };
 
 const renderBody = (operation, input, options) => {
