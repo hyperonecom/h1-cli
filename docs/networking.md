@@ -301,7 +301,9 @@ Command List
 
   spec     Print specification of context                                                  
   create   Create networking/firewall.ingress [networking_project_firewall_ingress_create] 
-  list     List networking/firewall.ingress [networking_project_firewall_ingress_list]
+  list     List networking/firewall.ingress [networking_project_firewall_ingress_list]     
+  show     Get networking/firewall.ingress [networking_project_firewall_ingress_get]       
+  delete   Delete networking/firewall.ingress [networking_project_firewall_ingress_delete]
 ```
 
 ##### h1 networking firewall ingress spec
@@ -390,6 +392,64 @@ Operation options
   --firewall id-or-uri   Firewall Id
 ```
 
+##### h1 networking firewall ingress show
+
+```
+h1 networking firewall ingress show
+
+  Get networking/firewall.ingress [networking_project_firewall_ingress_get] 
+
+Synopsis
+
+  $ h1 networking firewall ingress show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --firewall id-or-uri   Firewall Id 
+  --rule id-or-uri       ruleId
+```
+
+##### h1 networking firewall ingress delete
+
+```
+h1 networking firewall ingress delete
+
+  Delete networking/firewall.ingress [networking_project_firewall_ingress_delete] 
+
+Synopsis
+
+  $ h1 networking firewall ingress delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --firewall id-or-uri   Firewall Id 
+  --rule id-or-uri       ruleId
+```
+
 #### h1 networking firewall egress
 
 ```
@@ -407,7 +467,9 @@ Command List
 
   spec     Print specification of context                                                
   create   Create networking/firewall.egress [networking_project_firewall_egress_create] 
-  list     List networking/firewall.egress [networking_project_firewall_egress_list]
+  list     List networking/firewall.egress [networking_project_firewall_egress_list]     
+  show     Get networking/firewall.egress [networking_project_firewall_egress_get]       
+  delete   Delete networking/firewall.egress [networking_project_firewall_egress_delete]
 ```
 
 ##### h1 networking firewall egress spec
@@ -494,6 +556,64 @@ Operation options
   --project id-or-uri    Project Id  
   --location id-or-uri   Location Id 
   --firewall id-or-uri   Firewall Id
+```
+
+##### h1 networking firewall egress show
+
+```
+h1 networking firewall egress show
+
+  Get networking/firewall.egress [networking_project_firewall_egress_get] 
+
+Synopsis
+
+  $ h1 networking firewall egress show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --firewall id-or-uri   Firewall Id 
+  --rule id-or-uri       ruleId
+```
+
+##### h1 networking firewall egress delete
+
+```
+h1 networking firewall egress delete
+
+  Delete networking/firewall.egress [networking_project_firewall_egress_delete] 
+
+Synopsis
+
+  $ h1 networking firewall egress delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --firewall id-or-uri   Firewall Id 
+  --rule id-or-uri       ruleId
 ```
 
 #### h1 networking firewall service

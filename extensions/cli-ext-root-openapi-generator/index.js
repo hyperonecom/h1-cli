@@ -78,64 +78,62 @@ export const makeResourceCommand = (resource, ctx) => () => {
         }
     }
 
-    const instancePathPrefix = `${ctx.path}/{${resource.type}Id}`;
-    const instanceEndpoint = openapi.getPath(instancePathPrefix) || {};
-
-    if (instanceEndpoint) {
-        if (instanceEndpoint.get) {
+    for (const { path, endpoint } of openapi.getDetail(ctx.path)) {
+        if (endpoint.get) {
             cmd.addCommand(
                 makeOperationCommand({
                     ...ctx,
                     name: 'show',
                     method: 'get',
-                    endpoint: instanceEndpoint,
-                    path: instancePathPrefix,
+                    endpoint,
+                    path,
                 })
             );
         }
-        if (instanceEndpoint.patch) {
+        if (endpoint.patch) {
             cmd.addCommand(
                 makeOperationCommand({
                     ...ctx,
                     name: 'update',
                     method: 'patch',
-                    endpoint: instanceEndpoint,
-                    path: instancePathPrefix,
+                    endpoint,
+                    path,
                 })
             );
         }
 
-        if (instanceEndpoint.delete) {
+        if (endpoint.delete) {
             cmd.addCommand(
                 makeOperationCommand({
                     ...ctx,
                     name: 'delete',
                     method: 'delete',
-                    endpoint: instanceEndpoint,
-                    path: instancePathPrefix,
+                    endpoint,
+                    path,
                 })
             );
         }
-    }
 
-    for (const { name, path, endpoint } of openapi.getActions(instancePathPrefix)) {
-        for (const method of ['post', 'get']) {
-            if (!endpoint[method]) continue;
-            cmd.addCommand(makeOperationCommand({
-                ...ctx,
-                name,
-                method,
-                path,
-                endpoint,
+        for (const { name, path: actionPath, endpoint } of openapi.getActions(path)) {
+            for (const method of ['post', 'get']) {
+                if (!endpoint[method]) continue;
+
+                cmd.addCommand(makeOperationCommand({
+                    ...ctx,
+                    name,
+                    method,
+                    path: actionPath,
+                    endpoint,
+                }));
+            }
+        }
+
+        for (const child of openapi.getChild(path)) {
+            cmd.addCommand(makeResourceCommand(child, {
+                path: child.path,
+                description: `Manage ${pluralize(child.type)} of the ${resource.type}`,
             }));
         }
-    }
-
-    for (const child of openapi.getChild(instancePathPrefix)) {
-        cmd.addCommand(makeResourceCommand(child, {
-            path: child.path,
-            description: `Manage ${pluralize(child.type)} of the ${resource.type}`,
-        }));
     }
 
     return cmd;

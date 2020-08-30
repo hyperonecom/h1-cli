@@ -535,7 +535,10 @@ Command List
 
   spec     Print specification of context                                      
   create   Create iam/project.credentialStore [project_credentialStore_create] 
-  list     List iam/project.credentialStore [project_credentialStore_list]
+  list     List iam/project.credentialStore [project_credentialStore_list]     
+  show     Get iam/project.credentialStore [project_credentialStore_get]       
+  update   Update iam/project.credentialStore [project_credentialStore_patch]  
+  delete   Delete iam/project.credentialStore [project_credentialStore_delete]
 ```
 
 ##### h1 iam project credentialStore spec
@@ -616,6 +619,89 @@ Global options
 Operation options
 
   --project id-or-uri   Project Id
+```
+
+##### h1 iam project credentialStore show
+
+```
+h1 iam project credentialStore show
+
+  Get iam/project.credentialStore [project_credentialStore_get] 
+
+Synopsis
+
+  $ h1 iam project credentialStore show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri      Project Id   
+  --credential id-or-uri   credentialId
+```
+
+##### h1 iam project credentialStore update
+
+```
+h1 iam project credentialStore update
+
+  Update iam/project.credentialStore [project_credentialStore_patch] 
+
+Synopsis
+
+  $ h1 iam project credentialStore update <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri      Project Id                                                                    
+  --credential id-or-uri   credentialId                                                                  
+  --name string            CredentialStore name. Requires permissions                                    
+                           iam/project.credentialStore.name/update
+```
+
+##### h1 iam project credentialStore delete
+
+```
+h1 iam project credentialStore delete
+
+  Delete iam/project.credentialStore [project_credentialStore_delete] 
+
+Synopsis
+
+  $ h1 iam project credentialStore delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri      Project Id   
+  --credential id-or-uri   credentialId
 ```
 
 #### h1 iam project quota
