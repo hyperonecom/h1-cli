@@ -63,8 +63,9 @@ export default {
     getActions: (prefix) => Object
         .entries(spec.paths)
         .filter(([path]) => path.match(new RegExp(`${prefix}/actions/(.+?)`)))
-        .map(([path]) => ({
+        .map(([path, endpoint]) => ({
             name: path.split('/').pop(),
+            endpoint,
             path,
         })),
 };
