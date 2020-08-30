@@ -30,13 +30,7 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --help    Show help message and exit. 
 
 Operation options
 ```
@@ -130,7 +124,7 @@ Operation options
   --x-idempotency-key string    Idempotency key                                                               
   --name string                 Instance name                                                                 
   --service id-or-uri           Instance service. Provide ID or URI of billing/service                        
-  --image string                Instance image                                                                
+  --image uri                   Instance image. Provide URI of website/image                                  
   --source uri                  Instance source. Provide URI of website/instance.snapshot. Requires           
                                 permissions website/instance.snapshot/use                                     
   --env name=name,value=value   Env collection                                                                
@@ -218,12 +212,13 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                             
-  --location id-or-uri   Location Id                                                            
-  --instance id-or-uri   Instance Id                                                            
-  --name string          Instance name. Requires permissions website/instance.name/update       
-  --domain string[]      Domain collection. Requires permissions website/instance.domain/update 
-  --image string         Instance image. Requires permissions website/instance.image/update
+  --project id-or-uri    Project Id                                                                    
+  --location id-or-uri   Location Id                                                                   
+  --instance id-or-uri   Instance Id                                                                   
+  --name string          Instance name. Requires permissions website/instance.name/update              
+  --domain string[]      Domain collection. Requires permissions website/instance.domain/update        
+  --image uri            Instance image. Provide URI of website/image. Requires permissions            
+                         website/instance.image/update
 ```
 
 #### h1 website instance delete
@@ -908,7 +903,9 @@ Command List
 
   spec     Print specification of context                                            
   create   Create website/instance.sideapp [website_project_instance_sideapp_create] 
-  list     List website/instance.sideapp [website_project_instance_sideapp_list]
+  list     List website/instance.sideapp [website_project_instance_sideapp_list]     
+  show     Get website/instance.sideapp [website_project_instance_sideapp_get]       
+  delete   Delete website/instance.sideapp [website_project_instance_sideapp_delete]
 ```
 
 ##### h1 website instance sideapp spec
@@ -990,6 +987,64 @@ Operation options
   --project id-or-uri    Project Id  
   --location id-or-uri   Location Id 
   --instance id-or-uri   Instance Id
+```
+
+##### h1 website instance sideapp show
+
+```
+h1 website instance sideapp show
+
+  Get website/instance.sideapp [website_project_instance_sideapp_get] 
+
+Synopsis
+
+  $ h1 website instance sideapp show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --sideapp id-or-uri    sideappId
+```
+
+##### h1 website instance sideapp delete
+
+```
+h1 website instance sideapp delete
+
+  Delete website/instance.sideapp [website_project_instance_sideapp_delete] 
+
+Synopsis
+
+  $ h1 website instance sideapp delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --sideapp id-or-uri    sideappId
 ```
 
 #### h1 website instance credential
@@ -1466,7 +1521,8 @@ Options
 Command List
 
   spec   Print specification of context                                    
-  list   List website/instance.event [website_project_instance_event_list]
+  list   List website/instance.event [website_project_instance_event_list] 
+  show   Get website/instance.event [website_project_instance_event_get]
 ```
 
 ##### h1 website instance event spec
@@ -1521,6 +1577,35 @@ Operation options
   --instance id-or-uri   Instance Id 
   --$limit string        $limit      
   --$skip string         $skip
+```
+
+##### h1 website instance event show
+
+```
+h1 website instance event show
+
+  Get website/instance.event [website_project_instance_event_get] 
+
+Synopsis
+
+  $ h1 website instance event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --event id-or-uri      eventId
 ```
 
 #### h1 website instance ssh

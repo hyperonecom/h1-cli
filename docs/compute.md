@@ -31,13 +31,7 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --help    Show help message and exit. 
 
 Operation options
 ```
@@ -484,7 +478,8 @@ Options
 Command List
 
   spec   Print specification of context                                  
-  list   List compute/replica.event [compute_project_replica_event_list]
+  list   List compute/replica.event [compute_project_replica_event_list] 
+  show   Get compute/replica.event [compute_project_replica_event_get]
 ```
 
 ##### h1 compute replica event spec
@@ -541,6 +536,35 @@ Operation options
   --$skip string         $skip
 ```
 
+##### h1 compute replica event show
+
+```
+h1 compute replica event show
+
+  Get compute/replica.event [compute_project_replica_event_get] 
+
+Synopsis
+
+  $ h1 compute replica event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --replica id-or-uri    Replica Id  
+  --event id-or-uri      eventId
+```
+
 ### h1 compute vm
 
 ```
@@ -566,12 +590,12 @@ Command List
   restart          Restart compute/vm [compute_project_vm_restart]               
   stop             Stop compute/vm [compute_project_vm_stop]                     
   turnoff          Turnoff compute/vm [compute_project_vm_turnoff]               
-  rename           Rename compute/vm [compute_project_vm_rename]                 
   password_reset   Password reset compute/vm [compute_project_vm_password_reset] 
   flavour          Flavour compute/vm [compute_project_vm_flavour]               
-  hdd              Manage hdds of the vm                                         
-  netadp           Manage netadps of the vm                                      
-  console          Manage consoles of the vm                                     
+  console          Console compute/vm [compute_project_vm_console]               
+  serialport       Serialport compute/vm [compute_project_vm_serialport]         
+  disk             Manage disks of the vm                                        
+  iso              Manage isos of the vm                                         
   service          Manage services of the vm                                     
   tag              Manage tags of the vm                                         
   event            Manage events of the vm                                       
@@ -625,24 +649,22 @@ Global options
 
 Operation options
 
-  --project id-or-uri                                                Project Id                                     
-  --location id-or-uri                                               Location Id                                    
-  --x-idempotency-key string                                         Idempotency key                                
-  --name string                                                      Vm name                                        
-  --service id-or-uri                                                Vm service. Provide ID or URI of               
-                                                                     billing/service                                
-  --image id-or-uri                                                  Vm image. Provide ID or URI of storage/image.  
-                                                                     Requires permissions storage/image/use         
-  --iso id-or-uri                                                    Vm iso. Provide ID or URI of storage/iso.      
-                                                                     Requires permissions storage/iso/use           
-  --username string                                                  Vm username                                    
-  --password string                                                  Vm password                                    
-  --ssh-keys string[]                                                SshKeys collection                             
-  --user-metadata string                                             Vm userMetadata                                
-  --disk id=id,size=size,service=service,name=name                   Disk collection                                
-  --netadp service=service,network=network,ip=ip,firewall=firewall   Netadp collection                              
-  --boot string                                                      Vm boot                                        
-  --tag key=key,value=value                                          Tag collection
+  --project id-or-uri                                Project Id                                                      
+  --location id-or-uri                               Location Id                                                     
+  --x-idempotency-key string                         Idempotency key                                                 
+  --name string                                      Vm name                                                         
+  --service id-or-uri                                Vm service. Provide ID or URI of billing/service                
+  --image id-or-uri                                  Vm image. Provide ID or URI of storage/image. Requires          
+                                                     permissions storage/image/use                                   
+  --iso id-or-uri                                    Vm iso. Provide ID or URI of storage/iso. Requires permissions  
+                                                     storage/iso/use                                                 
+  --username string                                  Vm username                                                     
+  --user-metadata string                             Vm userMetadata                                                 
+  --start true,false                                 Vm start. Defaults is true                                      
+  --credential type=type,value=value                 Credential collection                                           
+  --disk name=name,service=service,size=size         Disk collection                                                 
+  --netadp network=network,firewall=firewall,ip=ip   Netadp collection                                               
+  --tag key=key,value=value                          Tag collection
 ```
 
 #### h1 compute vm list
@@ -756,10 +778,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri       Project Id             
-  --location id-or-uri      Location Id            
-  --vm id-or-uri            Vm Id                  
-  --remove-disks string[]   RemoveDisks collection
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id
 ```
 
 #### h1 compute vm start
@@ -878,36 +899,6 @@ Operation options
   --x-idempotency-key string   Idempotency key
 ```
 
-#### h1 compute vm rename
-
-```
-h1 compute vm rename
-
-  Rename compute/vm [compute_project_vm_rename] 
-
-Synopsis
-
-  $ h1 compute vm rename <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri          Project Id      
-  --location id-or-uri         Location Id     
-  --vm id-or-uri               Vm Id           
-  --x-idempotency-key string   Idempotency key 
-  --newname string             Vm newname
-```
-
 #### h1 compute vm password_reset
 
 ```
@@ -970,14 +961,73 @@ Operation options
   --service id-or-uri          Vm service. Provide ID or URI of billing/service
 ```
 
-#### h1 compute vm hdd
+#### h1 compute vm console
 
 ```
-h1 compute vm hdd
+h1 compute vm console
+
+  Console compute/vm [compute_project_vm_console] 
 
 Synopsis
 
-  $ h1 compute vm hdd <group> <command> 
+  $ h1 compute vm console <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri          Project Id      
+  --location id-or-uri         Location Id     
+  --vm id-or-uri               Vm Id           
+  --x-idempotency-key string   Idempotency key
+```
+
+#### h1 compute vm serialport
+
+```
+h1 compute vm serialport
+
+  Serialport compute/vm [compute_project_vm_serialport] 
+
+Synopsis
+
+  $ h1 compute vm serialport <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri          Project Id               
+  --location id-or-uri         Location Id              
+  --vm id-or-uri               Vm Id                    
+  --x-idempotency-key string   Idempotency key          
+  --number string              Vm number. Defaults is 1
+```
+
+#### h1 compute vm disk
+
+```
+h1 compute vm disk
+
+Synopsis
+
+  $ h1 compute vm disk <group> <command> 
 
 Options
 
@@ -985,21 +1035,23 @@ Options
 
 Command List
 
-  spec     Print specification of context                        
-  create   Create compute/vm.hdd [compute_project_vm_hdd_create] 
-  list     List compute/vm.hdd [compute_project_vm_hdd_list]
+  spec     Print specification of context                                            
+  create   Create compute/vm.disk [compute_project_vm_disk_create]                   
+  list     List compute/vm.disk [compute_project_vm_disk_list]                       
+  show     Get compute/vm.disk [compute_project_vm_disk_get]                         
+  detach   Create compute/vm.actions [compute_project_vm_disk_actions_detach_create]
 ```
 
-##### h1 compute vm hdd spec
+##### h1 compute vm disk spec
 
 ```
-h1 compute vm hdd spec
+h1 compute vm disk spec
 
   Print specification of context 
 
 Synopsis
 
-  $ h1 compute vm hdd spec <options> 
+  $ h1 compute vm disk spec <options> 
 
 Global options
 
@@ -1014,16 +1066,16 @@ Global options
 Operation options
 ```
 
-##### h1 compute vm hdd create
+##### h1 compute vm disk create
 
 ```
-h1 compute vm hdd create
+h1 compute vm disk create
 
-  Create compute/vm.hdd [compute_project_vm_hdd_create] 
+  Create compute/vm.disk [compute_project_vm_disk_create] 
 
 Synopsis
 
-  $ h1 compute vm hdd create <options> 
+  $ h1 compute vm disk create <options> 
 
 Global options
 
@@ -1037,24 +1089,23 @@ Global options
 
 Operation options
 
-  --project id-or-uri        Project Id                                                                    
-  --location id-or-uri       Location Id                                                                   
-  --vm id-or-uri             Vm Id                                                                         
-  --disk id-or-uri           Hdd disk. Provide ID or URI of storage/disk. Requires permissions             
-                             storage/disk/use                                                              
-  --controller-type string   Hdd controllerType
+  --project id-or-uri    Project Id                                                                    
+  --location id-or-uri   Location Id                                                                   
+  --vm id-or-uri         Vm Id                                                                         
+  --disk id-or-uri       Disk disk. Provide ID or URI of storage/disk. Requires permissions            
+                         storage/disk/attach
 ```
 
-##### h1 compute vm hdd list
+##### h1 compute vm disk list
 
 ```
-h1 compute vm hdd list
+h1 compute vm disk list
 
-  List compute/vm.hdd [compute_project_vm_hdd_list] 
+  List compute/vm.disk [compute_project_vm_disk_list] 
 
 Synopsis
 
-  $ h1 compute vm hdd list <options> 
+  $ h1 compute vm disk list <options> 
 
 Global options
 
@@ -1073,125 +1124,16 @@ Operation options
   --vm id-or-uri         Vm Id
 ```
 
-#### h1 compute vm netadp
+##### h1 compute vm disk show
 
 ```
-h1 compute vm netadp
+h1 compute vm disk show
+
+  Get compute/vm.disk [compute_project_vm_disk_get] 
 
 Synopsis
 
-  $ h1 compute vm netadp <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec     Print specification of context                              
-  create   Create compute/vm.netadp [compute_project_vm_netadp_create] 
-  list     List compute/vm.netadp [compute_project_vm_netadp_list]     
-  delete   Delete compute/vm.netadp [compute_project_vm_netadp_delete]
-```
-
-##### h1 compute vm netadp spec
-
-```
-h1 compute vm netadp spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute vm netadp spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-```
-
-##### h1 compute vm netadp create
-
-```
-h1 compute vm netadp create
-
-  Create compute/vm.netadp [compute_project_vm_netadp_create] 
-
-Synopsis
-
-  $ h1 compute vm netadp create <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri         Project Id                                                                    
-  --location id-or-uri        Location Id                                                                   
-  --vm id-or-uri              Vm Id                                                                         
-  --service id-or-uri         Netadp service. Provide ID or URI of billing/service                          
-  --network id-or-uri         Netadp network. Provide ID or URI of networking/network. Requires permissions 
-                              networking/network/use                                                        
-  --ip id-or-uri              Netadp ip. Provide ID or URI of networking/ip. Requires permissions           
-                              networking/ip/use                                                             
-  --tag key=key,value=value   Tag collection                                                                
-  --firewall id-or-uri        Netadp firewall. Provide ID or URI of networking/firewall. Requires           
-                              permissions networking/firewall/use
-```
-
-##### h1 compute vm netadp list
-
-```
-h1 compute vm netadp list
-
-  List compute/vm.netadp [compute_project_vm_netadp_list] 
-
-Synopsis
-
-  $ h1 compute vm netadp list <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id
-```
-
-##### h1 compute vm netadp delete
-
-```
-h1 compute vm netadp delete
-
-  Delete compute/vm.netadp [compute_project_vm_netadp_delete] 
-
-Synopsis
-
-  $ h1 compute vm netadp delete <options> 
+  $ h1 compute vm disk show <options> 
 
 Global options
 
@@ -1208,17 +1150,46 @@ Operation options
   --project id-or-uri    Project Id  
   --location id-or-uri   Location Id 
   --vm id-or-uri         Vm Id       
-  --netadp id-or-uri     netadpId
+  --disk id-or-uri       diskId
 ```
 
-#### h1 compute vm console
+##### h1 compute vm disk detach
 
 ```
-h1 compute vm console
+h1 compute vm disk detach
+
+  Create compute/vm.actions [compute_project_vm_disk_actions_detach_create] 
 
 Synopsis
 
-  $ h1 compute vm console <group> <command> 
+  $ h1 compute vm disk detach <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --disk id-or-uri       diskId
+```
+
+#### h1 compute vm iso
+
+```
+h1 compute vm iso
+
+Synopsis
+
+  $ h1 compute vm iso <group> <command> 
 
 Options
 
@@ -1226,20 +1197,23 @@ Options
 
 Command List
 
-  spec   Print specification of context                          
-  list   Get compute/vm.console [compute_project_vm_console_get]
+  spec     Print specification of context                                           
+  create   Create compute/vm.iso [compute_project_vm_iso_create]                    
+  list     List compute/vm.iso [compute_project_vm_iso_list]                        
+  show     Get compute/vm.iso [compute_project_vm_iso_get]                          
+  detach   Create compute/vm.actions [compute_project_vm_iso_actions_detach_create]
 ```
 
-##### h1 compute vm console spec
+##### h1 compute vm iso spec
 
 ```
-h1 compute vm console spec
+h1 compute vm iso spec
 
   Print specification of context 
 
 Synopsis
 
-  $ h1 compute vm console spec <options> 
+  $ h1 compute vm iso spec <options> 
 
 Global options
 
@@ -1254,16 +1228,46 @@ Global options
 Operation options
 ```
 
-##### h1 compute vm console list
+##### h1 compute vm iso create
 
 ```
-h1 compute vm console list
+h1 compute vm iso create
 
-  Get compute/vm.console [compute_project_vm_console_get] 
+  Create compute/vm.iso [compute_project_vm_iso_create] 
 
 Synopsis
 
-  $ h1 compute vm console list <options> 
+  $ h1 compute vm iso create <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id                                                                    
+  --location id-or-uri   Location Id                                                                   
+  --vm id-or-uri         Vm Id                                                                         
+  --iso id-or-uri        Iso iso. Provide ID or URI of storage/iso. Requires permissions               
+                         storage/iso/attach
+```
+
+##### h1 compute vm iso list
+
+```
+h1 compute vm iso list
+
+  List compute/vm.iso [compute_project_vm_iso_list] 
+
+Synopsis
+
+  $ h1 compute vm iso list <options> 
 
 Global options
 
@@ -1280,6 +1284,66 @@ Operation options
   --project id-or-uri    Project Id  
   --location id-or-uri   Location Id 
   --vm id-or-uri         Vm Id
+```
+
+##### h1 compute vm iso show
+
+```
+h1 compute vm iso show
+
+  Get compute/vm.iso [compute_project_vm_iso_get] 
+
+Synopsis
+
+  $ h1 compute vm iso show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --iso id-or-uri        isoId
+```
+
+##### h1 compute vm iso detach
+
+```
+h1 compute vm iso detach
+
+  Create compute/vm.actions [compute_project_vm_iso_actions_detach_create] 
+
+Synopsis
+
+  $ h1 compute vm iso detach <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id                                                                    
+  --location id-or-uri   Location Id                                                                   
+  --vm id-or-uri         Vm Id                                                                         
+  --iso id-or-uri        isoId                                                                         
+  --vm id-or-uri         Detach vm. Provide ID or URI of compute/vm. Requires permissions              
+                         compute/vm/use
 ```
 
 #### h1 compute vm service
@@ -1561,7 +1625,8 @@ Options
 Command List
 
   spec   Print specification of context                        
-  list   List compute/vm.event [compute_project_vm_event_list]
+  list   List compute/vm.event [compute_project_vm_event_list] 
+  show   Get compute/vm.event [compute_project_vm_event_get]
 ```
 
 ##### h1 compute vm event spec
@@ -1616,6 +1681,35 @@ Operation options
   --vm id-or-uri         Vm Id       
   --$limit string        $limit      
   --$skip string         $skip
+```
+
+##### h1 compute vm event show
+
+```
+h1 compute vm event show
+
+  Get compute/vm.event [compute_project_vm_event_get] 
+
+Synopsis
+
+  $ h1 compute vm event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --event id-or-uri      eventId
 ```
 
 #### h1 compute vm ssh

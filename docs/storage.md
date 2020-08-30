@@ -13,12 +13,11 @@ Options
 
 Command List
 
-  spec       Print specification of context  
-  disk       Management of disk resource     
-  image      Management of image resource    
-  iso        Management of iso resource      
-  snapshot   Management of snapshot resource 
-  vault      Management of vault resource
+  spec    Print specification of context 
+  disk    Management of disk resource    
+  image   Management of image resource   
+  iso     Management of iso resource     
+  vault   Management of vault resource
 ```
 
 ### h1 storage spec
@@ -34,13 +33,7 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --help    Show help message and exit. 
 
 Operation options
 ```
@@ -67,6 +60,8 @@ Command List
   update     Update storage/disk [storage_project_disk_update]     
   delete     Delete storage/disk [storage_project_disk_delete]     
   resize     Resize storage/disk [storage_project_disk_resize]     
+  attach     Attach storage/disk [storage_project_disk_attach]     
+  detach     Detach storage/disk [storage_project_disk_detach]     
   download   Download storage/disk [storage_project_disk_download] 
   transfer   Transfer storage/disk [storage_project_disk_transfer] 
   service    Manage services of the disk                           
@@ -129,6 +124,7 @@ Operation options
   --size string                Disk size                                                                     
   --source id-or-uri           Disk source. Provide ID or URI of storage/disk. Requires permissions          
                                storage/disk/use                                                              
+  --vm id-or-uri               Disk vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use 
   --tag key=key,value=value    Tag collection
 ```
 
@@ -158,6 +154,7 @@ Operation options
   --project id-or-uri    Project Id          
   --location id-or-uri   Location Id         
   --name string          Filter by name      
+  --vm string            Filter by vm        
   --tag.value string     Filter by tag.value 
   --tag.key string       Filter by tag.key
 ```
@@ -275,6 +272,65 @@ Operation options
   --disk id-or-uri             Disk Id         
   --x-idempotency-key string   Idempotency key 
   --size string                Disk size
+```
+
+#### h1 storage disk attach
+
+```
+h1 storage disk attach
+
+  Attach storage/disk [storage_project_disk_attach] 
+
+Synopsis
+
+  $ h1 storage disk attach <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri          Project Id                                                                    
+  --location id-or-uri         Location Id                                                                   
+  --disk id-or-uri             Disk Id                                                                       
+  --x-idempotency-key string   Idempotency key                                                               
+  --vm id-or-uri               Disk vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use
+```
+
+#### h1 storage disk detach
+
+```
+h1 storage disk detach
+
+  Detach storage/disk [storage_project_disk_detach] 
+
+Synopsis
+
+  $ h1 storage disk detach <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri          Project Id      
+  --location id-or-uri         Location Id     
+  --disk id-or-uri             Disk Id         
+  --x-idempotency-key string   Idempotency key
 ```
 
 #### h1 storage disk download
@@ -616,7 +672,8 @@ Options
 Command List
 
   spec   Print specification of context                            
-  list   List storage/disk.event [storage_project_disk_event_list]
+  list   List storage/disk.event [storage_project_disk_event_list] 
+  show   Get storage/disk.event [storage_project_disk_event_get]
 ```
 
 ##### h1 storage disk event spec
@@ -673,6 +730,35 @@ Operation options
   --$skip string         $skip
 ```
 
+##### h1 storage disk event show
+
+```
+h1 storage disk event show
+
+  Get storage/disk.event [storage_project_disk_event_get] 
+
+Synopsis
+
+  $ h1 storage disk event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --disk id-or-uri       Disk Id     
+  --event id-or-uri      eventId
+```
+
 ### h1 storage image
 
 ```
@@ -695,6 +781,7 @@ Command List
   update     Update storage/image [storage_project_image_update]     
   delete     Delete storage/image [storage_project_image_delete]     
   transfer   Transfer storage/image [storage_project_image_transfer] 
+  disk       Manage disks of the image                               
   service    Manage services of the image                            
   tag        Manage tags of the image                                
   event      Manage events of the image
@@ -751,7 +838,8 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --x-idempotency-key string   Idempotency key                                                               
   --name string                Image name                                                                    
-  --service id-or-uri          Image service. Provide ID or URI of billing/service                           
+  --service id-or-uri          Image service. Provide ID or URI of billing/service. Defaults is              
+                               564639bc052c084e2f2e3266                                                      
   --vm id-or-uri               Image vm. Provide ID or URI of compute/vm. Requires permissions               
                                compute/vm/use                                                                
   --replica id-or-uri          Image replica. Provide ID or URI of compute/replica. Requires permissions     
@@ -905,6 +993,77 @@ Operation options
   --x-idempotency-key string   Idempotency key                                                               
   --project uri                Image project. Provide URI of iam/project. Requires permissions               
                                storage/image/create
+```
+
+#### h1 storage image disk
+
+```
+h1 storage image disk
+
+Synopsis
+
+  $ h1 storage image disk <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec   Print specification of context                            
+  list   List storage/image.disk [storage_project_image_disk_list]
+```
+
+##### h1 storage image disk spec
+
+```
+h1 storage image disk spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 storage image disk spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 storage image disk list
+
+```
+h1 storage image disk list
+
+  List storage/image.disk [storage_project_image_disk_list] 
+
+Synopsis
+
+  $ h1 storage image disk list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --image id-or-uri      Image Id
 ```
 
 #### h1 storage image service
@@ -1186,7 +1345,8 @@ Options
 Command List
 
   spec   Print specification of context                              
-  list   List storage/image.event [storage_project_image_event_list]
+  list   List storage/image.event [storage_project_image_event_list] 
+  show   Get storage/image.event [storage_project_image_event_get]
 ```
 
 ##### h1 storage image event spec
@@ -1243,6 +1403,35 @@ Operation options
   --$skip string         $skip
 ```
 
+##### h1 storage image event show
+
+```
+h1 storage image event show
+
+  Get storage/image.event [storage_project_image_event_get] 
+
+Synopsis
+
+  $ h1 storage image event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --image id-or-uri      Image Id    
+  --event id-or-uri      eventId
+```
+
 ### h1 storage iso
 
 ```
@@ -1264,6 +1453,7 @@ Command List
   show       Get storage/iso [storage_project_iso_get]           
   update     Update storage/iso [storage_project_iso_update]     
   delete     Delete storage/iso [storage_project_iso_delete]     
+  detach     Detach storage/iso [storage_project_iso_detach]     
   transfer   Transfer storage/iso [storage_project_iso_transfer] 
   service    Manage services of the iso                          
   tag        Manage tags of the iso                              
@@ -1317,13 +1507,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id                                        
-  --location id-or-uri         Location Id                                       
-  --x-idempotency-key string   Idempotency key                                   
-  --name string                Iso name                                          
-  --service id-or-uri          Iso service. Provide ID or URI of billing/service 
-  --size string                Iso size                                          
-  --source string              Iso source                                        
+  --project id-or-uri          Project Id      
+  --location id-or-uri         Location Id     
+  --x-idempotency-key string   Idempotency key 
+  --name string                Iso name        
+  --source string              Iso source      
   --tag key=key,value=value    Tag collection
 ```
 
@@ -1440,6 +1628,36 @@ Operation options
   --project id-or-uri    Project Id  
   --location id-or-uri   Location Id 
   --iso id-or-uri        Iso Id
+```
+
+#### h1 storage iso detach
+
+```
+h1 storage iso detach
+
+  Detach storage/iso [storage_project_iso_detach] 
+
+Synopsis
+
+  $ h1 storage iso detach <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri          Project Id                                                                   
+  --location id-or-uri         Location Id                                                                  
+  --iso id-or-uri              Iso Id                                                                       
+  --x-idempotency-key string   Idempotency key                                                              
+  --vm id-or-uri               Iso vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use
 ```
 
 #### h1 storage iso transfer
@@ -1752,7 +1970,8 @@ Options
 Command List
 
   spec   Print specification of context                          
-  list   List storage/iso.event [storage_project_iso_event_list]
+  list   List storage/iso.event [storage_project_iso_event_list] 
+  show   Get storage/iso.event [storage_project_iso_event_get]
 ```
 
 ##### h1 storage iso event spec
@@ -1809,130 +2028,16 @@ Operation options
   --$skip string         $skip
 ```
 
-### h1 storage snapshot
+##### h1 storage iso event show
 
 ```
-h1 storage snapshot
+h1 storage iso event show
+
+  Get storage/iso.event [storage_project_iso_event_get] 
 
 Synopsis
 
-  $ h1 storage snapshot <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec      Print specification of context                            
-  create    Create storage/snapshot [storage_project_snapshot_create] 
-  list      List storage/snapshot [storage_project_snapshot_list]     
-  show      Get storage/snapshot [storage_project_snapshot_get]       
-  update    Update storage/snapshot [storage_project_snapshot_update] 
-  delete    Delete storage/snapshot [storage_project_snapshot_delete] 
-  service   Manage services of the snapshot                           
-  tag       Manage tags of the snapshot                               
-  event     Manage events of the snapshot
-```
-
-#### h1 storage snapshot spec
-
-```
-h1 storage snapshot spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 storage snapshot spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-```
-
-#### h1 storage snapshot create
-
-```
-h1 storage snapshot create
-
-  Create storage/snapshot [storage_project_snapshot_create] 
-
-Synopsis
-
-  $ h1 storage snapshot create <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri          Project Id                                                                    
-  --location id-or-uri         Location Id                                                                   
-  --x-idempotency-key string   Idempotency key                                                               
-  --name string                Snapshot name                                                                 
-  --service id-or-uri          Snapshot service. Provide ID or URI of billing/service                        
-  --vault id-or-uri            Snapshot vault. Provide ID or URI of storage/vault. Requires permissions      
-                               storage/vault.snapshot/create                                                 
-  --tag key=key,value=value    Tag collection
-```
-
-#### h1 storage snapshot list
-
-```
-h1 storage snapshot list
-
-  List storage/snapshot [storage_project_snapshot_list] 
-
-Synopsis
-
-  $ h1 storage snapshot list <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --vault string         Filter by vault     
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
-```
-
-#### h1 storage snapshot show
-
-```
-h1 storage snapshot show
-
-  Get storage/snapshot [storage_project_snapshot_get] 
-
-Synopsis
-
-  $ h1 storage snapshot show <options> 
+  $ h1 storage iso event show <options> 
 
 Global options
 
@@ -1948,400 +2053,8 @@ Operation options
 
   --project id-or-uri    Project Id  
   --location id-or-uri   Location Id 
-  --snapshot id-or-uri   Snapshot Id
-```
-
-#### h1 storage snapshot update
-
-```
-h1 storage snapshot update
-
-  Update storage/snapshot [storage_project_snapshot_update] 
-
-Synopsis
-
-  $ h1 storage snapshot update <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id                                                       
-  --location id-or-uri   Location Id                                                      
-  --snapshot id-or-uri   Snapshot Id                                                      
-  --name string          Snapshot name. Requires permissions storage/snapshot.name/update
-```
-
-#### h1 storage snapshot delete
-
-```
-h1 storage snapshot delete
-
-  Delete storage/snapshot [storage_project_snapshot_delete] 
-
-Synopsis
-
-  $ h1 storage snapshot delete <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --snapshot id-or-uri   Snapshot Id
-```
-
-#### h1 storage snapshot service
-
-```
-h1 storage snapshot service
-
-Synopsis
-
-  $ h1 storage snapshot service <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                                        
-  list   List storage/snapshot.service [storage_project_snapshot_service_list] 
-  show   Get storage/snapshot.service [storage_project_snapshot_service_get]
-```
-
-##### h1 storage snapshot service spec
-
-```
-h1 storage snapshot service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 storage snapshot service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-```
-
-##### h1 storage snapshot service list
-
-```
-h1 storage snapshot service list
-
-  List storage/snapshot.service [storage_project_snapshot_service_list] 
-
-Synopsis
-
-  $ h1 storage snapshot service list <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --snapshot id-or-uri   Snapshot Id
-```
-
-##### h1 storage snapshot service show
-
-```
-h1 storage snapshot service show
-
-  Get storage/snapshot.service [storage_project_snapshot_service_get] 
-
-Synopsis
-
-  $ h1 storage snapshot service show <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --snapshot id-or-uri   Snapshot Id 
-  --service id-or-uri    serviceId
-```
-
-#### h1 storage snapshot tag
-
-```
-h1 storage snapshot tag
-
-Synopsis
-
-  $ h1 storage snapshot tag <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec     Print specification of context                                    
-  create   Create storage/snapshot.tag [storage_project_snapshot_tag_create] 
-  list     List storage/snapshot.tag [storage_project_snapshot_tag_list]     
-  show     Get storage/snapshot.tag [storage_project_snapshot_tag_get]       
-  delete   Delete storage/snapshot.tag [storage_project_snapshot_tag_delete]
-```
-
-##### h1 storage snapshot tag spec
-
-```
-h1 storage snapshot tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 storage snapshot tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-```
-
-##### h1 storage snapshot tag create
-
-```
-h1 storage snapshot tag create
-
-  Create storage/snapshot.tag [storage_project_snapshot_tag_create] 
-
-Synopsis
-
-  $ h1 storage snapshot tag create <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --snapshot id-or-uri   Snapshot Id 
-  --key string           Tag key     
-  --value string         Tag value
-```
-
-##### h1 storage snapshot tag list
-
-```
-h1 storage snapshot tag list
-
-  List storage/snapshot.tag [storage_project_snapshot_tag_list] 
-
-Synopsis
-
-  $ h1 storage snapshot tag list <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --snapshot id-or-uri   Snapshot Id
-```
-
-##### h1 storage snapshot tag show
-
-```
-h1 storage snapshot tag show
-
-  Get storage/snapshot.tag [storage_project_snapshot_tag_get] 
-
-Synopsis
-
-  $ h1 storage snapshot tag show <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --snapshot id-or-uri   Snapshot Id 
-  --tag id-or-uri        tagId
-```
-
-##### h1 storage snapshot tag delete
-
-```
-h1 storage snapshot tag delete
-
-  Delete storage/snapshot.tag [storage_project_snapshot_tag_delete] 
-
-Synopsis
-
-  $ h1 storage snapshot tag delete <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --snapshot id-or-uri   Snapshot Id 
-  --tag id-or-uri        tagId
-```
-
-#### h1 storage snapshot event
-
-```
-h1 storage snapshot event
-
-Synopsis
-
-  $ h1 storage snapshot event <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                                    
-  list   List storage/snapshot.event [storage_project_snapshot_event_list]
-```
-
-##### h1 storage snapshot event spec
-
-```
-h1 storage snapshot event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 storage snapshot event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-```
-
-##### h1 storage snapshot event list
-
-```
-h1 storage snapshot event list
-
-  List storage/snapshot.event [storage_project_snapshot_event_list] 
-
-Synopsis
-
-  $ h1 storage snapshot event list <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --snapshot id-or-uri   Snapshot Id 
-  --$limit string        $limit      
-  --$skip string         $skip
+  --iso id-or-uri        Iso Id      
+  --event id-or-uri      eventId
 ```
 
 ### h1 storage vault
@@ -2369,6 +2082,7 @@ Command List
   stop         Stop storage/vault [storage_project_vault_stop]         
   resize       Resize storage/vault [storage_project_vault_resize]     
   snapshot     Snapshot storage/vault [storage_project_vault_snapshot] 
+  snapshot     Manage snapshots of the vault                           
   credential   Manage credentials of the vault                         
   service      Manage services of the vault                            
   tag          Manage tags of the vault                                
@@ -2428,9 +2142,10 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --x-idempotency-key string   Idempotency key                                                               
   --name string                Vault name                                                                    
-  --service id-or-uri          Vault service. Provide ID or URI of billing/service                           
+  --service id-or-uri          Vault service. Provide ID or URI of billing/service. Defaults is              
+                               5a0332c4eb8f4ed95c206a12                                                      
   --size string                Vault size                                                                    
-  --snapshot id-or-uri         Vault snapshot. Provide ID or URI of storage/snapshot. Requires permissions   
+  --source uri                 Vault source. Provide URI of storage/vault.snapshot. Requires permissions     
                                storage/vault.snapshot/use                                                    
   --tag key=key,value=value    Tag collection
 ```
@@ -2545,10 +2260,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri            Project Id               
-  --location id-or-uri           Location Id              
-  --vault id-or-uri              Vault Id                 
-  --remove-allsnapshots string   Vault removeAllSnapshots
+  --project id-or-uri                Project Id               
+  --location id-or-uri               Location Id              
+  --vault id-or-uri                  Vault Id                 
+  --remove-allsnapshots true,false   Vault removeAllSnapshots
 ```
 
 #### h1 storage vault start
@@ -2662,12 +2377,174 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id                                          
-  --location id-or-uri         Location Id                                         
-  --vault id-or-uri            Vault Id                                            
-  --x-idempotency-key string   Idempotency key                                     
-  --name string                Vault name                                          
-  --service id-or-uri          Vault service. Provide ID or URI of billing/service
+  --project id-or-uri          Project Id                                                                    
+  --location id-or-uri         Location Id                                                                   
+  --vault id-or-uri            Vault Id                                                                      
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Vault name                                                                    
+  --service id-or-uri          Vault service. Provide ID or URI of billing/service. Defaults is              
+                               5badbeb585f66b3d085727eb
+```
+
+#### h1 storage vault snapshot
+
+```
+h1 storage vault snapshot
+
+Synopsis
+
+  $ h1 storage vault snapshot <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                        
+  create   Create storage/vault.snapshot [storage_project_vault_snapshot_create] 
+  list     List storage/vault.snapshot [storage_project_vault_snapshot_list]     
+  show     Get storage/vault.snapshot [storage_project_vault_snapshot_get]       
+  delete   Delete storage/vault.snapshot [storage_project_vault_snapshot_delete]
+```
+
+##### h1 storage vault snapshot spec
+
+```
+h1 storage vault snapshot spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 storage vault snapshot spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 storage vault snapshot create
+
+```
+h1 storage vault snapshot create
+
+  Create storage/vault.snapshot [storage_project_vault_snapshot_create] 
+
+Synopsis
+
+  $ h1 storage vault snapshot create <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id    
+  --location id-or-uri   Location Id   
+  --vault id-or-uri      Vault Id      
+  --name string          Snapshot name
+```
+
+##### h1 storage vault snapshot list
+
+```
+h1 storage vault snapshot list
+
+  List storage/vault.snapshot [storage_project_vault_snapshot_list] 
+
+Synopsis
+
+  $ h1 storage vault snapshot list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vault id-or-uri      Vault Id
+```
+
+##### h1 storage vault snapshot show
+
+```
+h1 storage vault snapshot show
+
+  Get storage/vault.snapshot [storage_project_vault_snapshot_get] 
+
+Synopsis
+
+  $ h1 storage vault snapshot show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vault id-or-uri      Vault Id    
+  --snapshot id-or-uri   snapshotId
+```
+
+##### h1 storage vault snapshot delete
+
+```
+h1 storage vault snapshot delete
+
+  Delete storage/vault.snapshot [storage_project_vault_snapshot_delete] 
+
+Synopsis
+
+  $ h1 storage vault snapshot delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vault id-or-uri      Vault Id    
+  --snapshot id-or-uri   snapshotId
 ```
 
 #### h1 storage vault credential
@@ -3144,7 +3021,8 @@ Options
 Command List
 
   spec   Print specification of context                              
-  list   List storage/vault.event [storage_project_vault_event_list]
+  list   List storage/vault.event [storage_project_vault_event_list] 
+  show   Get storage/vault.event [storage_project_vault_event_get]
 ```
 
 ##### h1 storage vault event spec
@@ -3199,6 +3077,35 @@ Operation options
   --vault id-or-uri      Vault Id    
   --$limit string        $limit      
   --$skip string         $skip
+```
+
+##### h1 storage vault event show
+
+```
+h1 storage vault event show
+
+  Get storage/vault.event [storage_project_vault_event_get] 
+
+Synopsis
+
+  $ h1 storage vault event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vault id-or-uri      Vault Id    
+  --event id-or-uri      eventId
 ```
 
 #### h1 storage vault ssh

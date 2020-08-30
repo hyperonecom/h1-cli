@@ -30,13 +30,7 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --help    Show help message and exit. 
 
 Operation options
 ```
@@ -115,14 +109,14 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id                                         
-  --location id-or-uri         Location Id                                        
-  --x-idempotency-key string   Idempotency key                                    
-  --name string                Zone name                                          
-  --service id-or-uri          Zone service. Provide ID or URI of billing/service 
-  --dns-name string            Zone dnsName                                       
-  --source string              Zone source                                        
-  --tag key=key,value=value    Tag collection
+  --project id-or-uri               Project Id                                         
+  --location id-or-uri              Location Id                                        
+  --x-idempotency-key string        Idempotency key                                    
+  --name string                     Zone name                                          
+  --service id-or-uri               Zone service. Provide ID or URI of billing/service 
+  --dns-name string                 Zone dnsName                                       
+  --source-dns-probing true,false   Source dnsProbing                                  
+  --tag key=key,value=value         Tag collection
 ```
 
 #### h1 dns zone list
@@ -311,12 +305,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri                        Project Id        
-  --location id-or-uri                       Location Id       
-  --zone id-or-uri                           Zone Id           
-  --name string                              Recordset name    
-  --type string                              Recordset type    
-  --ttl string                               Recordset ttl     
+  --project id-or-uri                        Project Id                      
+  --location id-or-uri                       Location Id                     
+  --zone id-or-uri                           Zone Id                         
+  --name string                              Recordset name                  
+  --type string                              Recordset type                  
+  --ttl string                               Recordset ttl. Defaults is 3600 
   --record content=content,enabled=enabled   Record collection
 ```
 
@@ -400,11 +394,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri     Project Id                                                        
-  --location id-or-uri    Location Id                                                       
-  --zone id-or-uri        Zone Id                                                           
-  --recordset id-or-uri   recordsetId                                                       
-  --ttl string            Recordset ttl. Requires permissions dns/zone.recordset.ttl/update
+  --project id-or-uri     Project Id                                                                    
+  --location id-or-uri    Location Id                                                                   
+  --zone id-or-uri        Zone Id                                                                       
+  --recordset id-or-uri   recordsetId                                                                   
+  --ttl string            Recordset ttl. Requires permissions dns/zone.recordset.ttl/update. Defaults   
+                          is 3600
 ```
 
 ##### h1 dns zone recordset delete
@@ -505,12 +500,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri     Project Id     
-  --location id-or-uri    Location Id    
-  --zone id-or-uri        Zone Id        
-  --recordset id-or-uri   recordsetId    
-  --content string        Record content 
-  --enabled string        Record enabled
+  --project id-or-uri     Project Id                       
+  --location id-or-uri    Location Id                      
+  --zone id-or-uri        Zone Id                          
+  --recordset id-or-uri   recordsetId                      
+  --content string        Record content                   
+  --enabled true,false    Record enabled. Defaults is true
 ```
 
 ###### h1 dns zone recordset record list
@@ -881,7 +876,8 @@ Options
 Command List
 
   spec   Print specification of context                    
-  list   List dns/zone.event [dns_project_zone_event_list]
+  list   List dns/zone.event [dns_project_zone_event_list] 
+  show   Get dns/zone.event [dns_project_zone_event_get]
 ```
 
 ##### h1 dns zone event spec
@@ -936,5 +932,34 @@ Operation options
   --zone id-or-uri       Zone Id     
   --$limit string        $limit      
   --$skip string         $skip
+```
+
+##### h1 dns zone event show
+
+```
+h1 dns zone event show
+
+  Get dns/zone.event [dns_project_zone_event_get] 
+
+Synopsis
+
+  $ h1 dns zone event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --event id-or-uri      eventId
 ```
 

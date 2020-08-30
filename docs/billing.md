@@ -31,13 +31,7 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --help    Show help message and exit. 
 
 Operation options
 ```
@@ -118,7 +112,6 @@ Global options
 Operation options
 
   --project id-or-uri          Project Id                                                
-  --location id-or-uri         Location Id                                               
   --x-idempotency-key string   Idempotency key                                           
   --name string                Reservation name                                          
   --service id-or-uri          Reservation service. Provide ID or URI of billing/service 
@@ -148,11 +141,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key
 ```
 
 #### h1 billing reservation show
@@ -179,7 +171,6 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --location id-or-uri      Location Id    
   --reservation id-or-uri   Reservation Id
 ```
 
@@ -207,7 +198,6 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id                                                             
-  --location id-or-uri      Location Id                                                            
   --reservation id-or-uri   Reservation Id                                                         
   --name string             Reservation name. Requires permissions billing/reservation.name/update
 ```
@@ -236,7 +226,6 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --location id-or-uri      Location Id    
   --reservation id-or-uri   Reservation Id
 ```
 
@@ -264,7 +253,6 @@ Global options
 Operation options
 
   --project id-or-uri          Project Id                                                                    
-  --location id-or-uri         Location Id                                                                   
   --reservation id-or-uri      Reservation Id                                                                
   --x-idempotency-key string   Idempotency key                                                               
   --resource id-or-uri         Reservation resource. Provide ID or URI of compute/vm. Requires permissions   
@@ -295,7 +283,6 @@ Global options
 Operation options
 
   --project id-or-uri          Project Id      
-  --location id-or-uri         Location Id     
   --reservation id-or-uri      Reservation Id  
   --x-idempotency-key string   Idempotency key
 ```
@@ -368,7 +355,6 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --location id-or-uri      Location Id    
   --reservation id-or-uri   Reservation Id
 ```
 
@@ -396,7 +382,6 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --location id-or-uri      Location Id    
   --reservation id-or-uri   Reservation Id 
   --service id-or-uri       serviceId
 ```
@@ -471,7 +456,6 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --location id-or-uri      Location Id    
   --reservation id-or-uri   Reservation Id 
   --key string              Tag key        
   --value string            Tag value
@@ -501,7 +485,6 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --location id-or-uri      Location Id    
   --reservation id-or-uri   Reservation Id
 ```
 
@@ -529,7 +512,6 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --location id-or-uri      Location Id    
   --reservation id-or-uri   Reservation Id 
   --tag id-or-uri           tagId
 ```
@@ -558,7 +540,6 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --location id-or-uri      Location Id    
   --reservation id-or-uri   Reservation Id 
   --tag id-or-uri           tagId
 ```
@@ -579,7 +560,8 @@ Options
 Command List
 
   spec   Print specification of context                                          
-  list   List billing/reservation.event [billing_project_reservation_event_list]
+  list   List billing/reservation.event [billing_project_reservation_event_list] 
+  show   Get billing/reservation.event [billing_project_reservation_event_get]
 ```
 
 ##### h1 billing reservation event spec
@@ -630,10 +612,37 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --location id-or-uri      Location Id    
   --reservation id-or-uri   Reservation Id 
   --$limit string           $limit         
   --$skip string            $skip
+```
+
+##### h1 billing reservation event show
+
+```
+h1 billing reservation event show
+
+  Get billing/reservation.event [billing_project_reservation_event_get] 
+
+Synopsis
+
+  $ h1 billing reservation event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri       Project Id     
+  --reservation id-or-uri   Reservation Id 
+  --event id-or-uri         eventId
 ```
 
 ### h1 billing service

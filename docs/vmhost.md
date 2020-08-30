@@ -30,13 +30,7 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --help    Show help message and exit. 
 
 Operation options
 ```
@@ -423,7 +417,8 @@ Options
 Command List
 
   spec   Print specification of context                                  
-  list   List vmhost/instance.event [vmhost_project_instance_event_list]
+  list   List vmhost/instance.event [vmhost_project_instance_event_list] 
+  show   Get vmhost/instance.event [vmhost_project_instance_event_get]
 ```
 
 ##### h1 vmhost instance event spec
@@ -478,5 +473,34 @@ Operation options
   --instance id-or-uri   Instance Id 
   --$limit string        $limit      
   --$skip string         $skip
+```
+
+##### h1 vmhost instance event show
+
+```
+h1 vmhost instance event show
+
+  Get vmhost/instance.event [vmhost_project_instance_event_get] 
+
+Synopsis
+
+  $ h1 vmhost instance event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --event id-or-uri      eventId
 ```
 

@@ -13,14 +13,32 @@ Options
 
 Command List
 
-  organisation   Management of organisation          
   spec           Print specification of context      
+  organisation   Management of organisation          
   user           Management of user resource         
   project        Management of project resource      
   organisation   Management of organisation resource 
   policy         Management of policy resource       
   role           Management of role resource         
   sa             Management of sa resource
+```
+
+### h1 iam spec
+
+```
+h1 iam spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 iam spec <options> 
+
+Global options
+
+  --help    Show help message and exit. 
+
+Operation options
 ```
 
 ### h1 iam organisation
@@ -104,12 +122,13 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri     Organisation Id                                                         
-  --x-idempotency-key string   Idempotency key                                                         
-  --name string                Policy name                                                             
-  --service id-or-uri          Policy service. Provide ID or URI of billing/service                    
-  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
-  --resource string            Policy resource                                                         
+  --organisation id-or-uri     Organisation Id                                                               
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Policy name                                                                   
+  --service id-or-uri          Policy service. Provide ID or URI of billing/service. Defaults is             
+                               5e690e4c0df5a920f9f6bbbf                                                      
+  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use       
+  --resource string            Policy resource                                                               
   --tag key=key,value=value    Tag collection
 ```
 
@@ -552,7 +571,8 @@ Options
 Command List
 
   spec   Print specification of context                             
-  list   List iam/policy.event [iam_organisation_policy_event_list]
+  list   List iam/policy.event [iam_organisation_policy_event_list] 
+  show   Get iam/policy.event [iam_organisation_policy_event_get]
 ```
 
 ###### h1 iam organisation policy event spec
@@ -594,6 +614,28 @@ Operation options
   --policy id-or-uri         Policy Id       
   --$limit string            $limit          
   --$skip string             $skip
+```
+
+###### h1 iam organisation policy event show
+
+```
+h1 iam organisation policy event show
+
+  Get iam/policy.event [iam_organisation_policy_event_get] 
+
+Synopsis
+
+  $ h1 iam organisation policy event show <options> 
+
+Global options
+
+  --help    Show help message and exit. 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --policy id-or-uri         Policy Id       
+  --event id-or-uri          eventId
 ```
 
 #### h1 iam organisation role
@@ -658,12 +700,13 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri     Organisation Id                                    
-  --x-idempotency-key string   Idempotency key                                    
-  --name string                Role name                                          
-  --service id-or-uri          Role service. Provide ID or URI of billing/service 
-  --description string         Role description                                   
-  --permission value=value     Permission collection                              
+  --organisation id-or-uri     Organisation Id                                                               
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Role name                                                                     
+  --service id-or-uri          Role service. Provide ID or URI of billing/service. Defaults is               
+                               5e679c282b39c4353cd86f34                                                      
+  --description string         Role description                                                              
+  --permission value=value     Permission collection                                                         
   --tag key=key,value=value    Tag collection
 ```
 
@@ -1107,7 +1150,8 @@ Options
 Command List
 
   spec   Print specification of context                         
-  list   List iam/role.event [iam_organisation_role_event_list]
+  list   List iam/role.event [iam_organisation_role_event_list] 
+  show   Get iam/role.event [iam_organisation_role_event_get]
 ```
 
 ###### h1 iam organisation role event spec
@@ -1151,28 +1195,26 @@ Operation options
   --$skip string             $skip
 ```
 
-### h1 iam spec
+###### h1 iam organisation role event show
 
 ```
-h1 iam spec
+h1 iam organisation role event show
 
-  Print specification of context 
+  Get iam/role.event [iam_organisation_role_event_get] 
 
 Synopsis
 
-  $ h1 iam spec <options> 
+  $ h1 iam organisation role event show <options> 
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --help    Show help message and exit. 
 
 Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --role id-or-uri           Role Id         
+  --event id-or-uri          eventId
 ```
 
 ### h1 iam user
@@ -1271,11 +1313,9 @@ Global options
 
 Operation options
 
-  --user id-or-uri       User Id                                                          
-  --name string          User name. Requires permissions iam/user.name/update             
-  --family-name string   User familyName. Requires permissions iam/user.familyName/update 
-  --phone string         User phone. Requires permissions iam/user.phone/update           
-  --lang string          User lang. Requires permissions iam/user.lang/update
+  --user id-or-uri   User Id                                                
+  --phone string     User phone. Requires permissions iam/user.phone/update 
+  --lang string      User lang. Requires permissions iam/user.lang/update
 ```
 
 #### h1 iam user invitation
@@ -1786,25 +1826,27 @@ Options
 
 Command List
 
-  spec       Print specification of context      
-  create     Create iam/project [project_create] 
-  list       List iam/project [project_list]     
-  show       Get iam/project [project_get]       
-  update     Update iam/project [project_update] 
-  delete     Delete iam/project [project_delete] 
-  stats      Manage stats of the project         
-  limit      Manage limits of the project        
-  billing    Manage billings of the project      
-  payment    Manage payments of the project      
-  invoice    Manage invoices of the project      
-  proforma   Manage proformas of the project     
-  service    Manage services of the project      
-  tag        Manage tags of the project          
-  event      Manage events of the project        
-  policy     Manage policies of the project      
-  role       Manage roles of the project         
-  sa         Manage sas of the project           
-  select     Select default project
+  spec              Print specification of context         
+  create            Create iam/project [project_create]    
+  list              List iam/project [project_list]        
+  show              Get iam/project [project_get]          
+  update            Update iam/project [project_update]    
+  delete            Delete iam/project [project_delete]    
+  billing           Manage billings of the project         
+  payment           Manage payments of the project         
+  invoice           Manage invoices of the project         
+  proforma          Manage proformas of the project        
+  credentialStore   Manage credentialStores of the project 
+  quota             Manage quotas of the project           
+  invitation        Manage invitations of the project      
+  ownership         Manage ownerships of the project       
+  service           Manage services of the project         
+  tag               Manage tags of the project             
+  event             Manage events of the project           
+  policy            Manage policies of the project         
+  role              Manage roles of the project            
+  sa                Manage sas of the project              
+  select            Select default project
 ```
 
 #### h1 iam project spec
@@ -1884,12 +1926,12 @@ Global options
 
 Operation options
 
-  --name string           Filter by name         
-  --$limit string         Filter by $limit       
-  --active string         Filter by active       
-  --organisation string   Filter by organisation 
-  --$lean string          Filter by $lean        
-  --tag.value string      Filter by tag.value    
+  --name string           Filter by name                               
+  --$limit string         Filter by $limit                             
+  --active string         Filter by active                             
+  --organisation string   Filter by organisation                       
+  --$lean string          return a lightweight version of the resource 
+  --tag.value string      Filter by tag.value                          
   --tag.key string        Filter by tag.key
 ```
 
@@ -1956,144 +1998,6 @@ h1 iam project delete
 Synopsis
 
   $ h1 iam project delete <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri   Project Id
-```
-
-#### h1 iam project stats
-
-```
-h1 iam project stats
-
-Synopsis
-
-  $ h1 iam project stats <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context              
-  list   List iam/project.stats [project_stats_list]
-```
-
-##### h1 iam project stats spec
-
-```
-h1 iam project stats spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project stats spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-```
-
-##### h1 iam project stats list
-
-```
-h1 iam project stats list
-
-  List iam/project.stats [project_stats_list] 
-
-Synopsis
-
-  $ h1 iam project stats list <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri   Project Id
-```
-
-#### h1 iam project limit
-
-```
-h1 iam project limit
-
-Synopsis
-
-  $ h1 iam project limit <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context            
-  list   Get iam/project.limit [project_limit_get]
-```
-
-##### h1 iam project limit spec
-
-```
-h1 iam project limit spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project limit spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-```
-
-##### h1 iam project limit list
-
-```
-h1 iam project limit list
-
-  Get iam/project.limit [project_limit_get] 
-
-Synopsis
-
-  $ h1 iam project limit list <options> 
 
 Global options
 
@@ -2389,6 +2293,583 @@ Operation options
   --project id-or-uri   Project Id
 ```
 
+#### h1 iam project credentialStore
+
+```
+h1 iam project credentialStore
+
+Synopsis
+
+  $ h1 iam project credentialStore <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                      
+  create   Create iam/project.credentialStore [project_credentialStore_create] 
+  list     List iam/project.credentialStore [project_credentialStore_list]
+```
+
+##### h1 iam project credentialStore spec
+
+```
+h1 iam project credentialStore spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 iam project credentialStore spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 iam project credentialStore create
+
+```
+h1 iam project credentialStore create
+
+  Create iam/project.credentialStore [project_credentialStore_create] 
+
+Synopsis
+
+  $ h1 iam project credentialStore create <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id       
+  --name string         Credential name  
+  --type string         Credential type  
+  --value string        Credential value 
+  --token string        Credential token
+```
+
+##### h1 iam project credentialStore list
+
+```
+h1 iam project credentialStore list
+
+  List iam/project.credentialStore [project_credentialStore_list] 
+
+Synopsis
+
+  $ h1 iam project credentialStore list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id
+```
+
+#### h1 iam project quota
+
+```
+h1 iam project quota
+
+Synopsis
+
+  $ h1 iam project quota <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec    Print specification of context              
+  list    List iam/project.quota [project_quota_list] 
+  show    Get iam/project.quota [project_quota_get]   
+  limit   Manage limits of the quota
+```
+
+##### h1 iam project quota spec
+
+```
+h1 iam project quota spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 iam project quota spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 iam project quota list
+
+```
+h1 iam project quota list
+
+  List iam/project.quota [project_quota_list] 
+
+Synopsis
+
+  $ h1 iam project quota list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id
+```
+
+##### h1 iam project quota show
+
+```
+h1 iam project quota show
+
+  Get iam/project.quota [project_quota_get] 
+
+Synopsis
+
+  $ h1 iam project quota show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id 
+  --quota id-or-uri     quotaId
+```
+
+##### h1 iam project quota limit
+
+```
+h1 iam project quota limit
+
+Synopsis
+
+  $ h1 iam project quota limit <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                       
+  update   Update iam/project.limit [project_quota_limit_patch]
+```
+
+###### h1 iam project quota limit spec
+
+```
+h1 iam project quota limit spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 iam project quota limit spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+###### h1 iam project quota limit update
+
+```
+h1 iam project quota limit update
+
+  Update iam/project.limit [project_quota_limit_patch] 
+
+Synopsis
+
+  $ h1 iam project quota limit update <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id                                                     
+  --quota id-or-uri     quotaId                                                        
+  --user string         Limit user. Requires permissions iam/project.quota.user/update
+```
+
+#### h1 iam project invitation
+
+```
+h1 iam project invitation
+
+Synopsis
+
+  $ h1 iam project invitation <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                        
+  list     List iam/project.invitation [project_invitation_list]                 
+  show     Get iam/project.invitation [project_invitation_get]                   
+  delete   Delete iam/project.invitation [project_invitation_delete]             
+  accept   Create iam/project.actions [project_invitation_actions_accept_create]
+```
+
+##### h1 iam project invitation spec
+
+```
+h1 iam project invitation spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 iam project invitation spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 iam project invitation list
+
+```
+h1 iam project invitation list
+
+  List iam/project.invitation [project_invitation_list] 
+
+Synopsis
+
+  $ h1 iam project invitation list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id 
+  --resource string     resource
+```
+
+##### h1 iam project invitation show
+
+```
+h1 iam project invitation show
+
+  Get iam/project.invitation [project_invitation_get] 
+
+Synopsis
+
+  $ h1 iam project invitation show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri      Project Id   
+  --invitation id-or-uri   invitationId
+```
+
+##### h1 iam project invitation delete
+
+```
+h1 iam project invitation delete
+
+  Delete iam/project.invitation [project_invitation_delete] 
+
+Synopsis
+
+  $ h1 iam project invitation delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri      Project Id   
+  --invitation id-or-uri   invitationId
+```
+
+##### h1 iam project invitation accept
+
+```
+h1 iam project invitation accept
+
+  Create iam/project.actions [project_invitation_actions_accept_create] 
+
+Synopsis
+
+  $ h1 iam project invitation accept <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri      Project Id   
+  --invitation id-or-uri   invitationId 
+  --token string           Accept token
+```
+
+#### h1 iam project ownership
+
+```
+h1 iam project ownership
+
+Synopsis
+
+  $ h1 iam project ownership <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                          
+  create   Create iam/project.ownership [project_ownership_create] 
+  list     List iam/project.ownership [project_ownership_list]     
+  show     Get iam/project.ownership [project_ownership_get]       
+  delete   Delete iam/project.ownership [project_ownership_delete]
+```
+
+##### h1 iam project ownership spec
+
+```
+h1 iam project ownership spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 iam project ownership spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 iam project ownership create
+
+```
+h1 iam project ownership create
+
+  Create iam/project.ownership [project_ownership_create] 
+
+Synopsis
+
+  $ h1 iam project ownership create <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id      
+  --email string        Ownership email
+```
+
+##### h1 iam project ownership list
+
+```
+h1 iam project ownership list
+
+  List iam/project.ownership [project_ownership_list] 
+
+Synopsis
+
+  $ h1 iam project ownership list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id
+```
+
+##### h1 iam project ownership show
+
+```
+h1 iam project ownership show
+
+  Get iam/project.ownership [project_ownership_get] 
+
+Synopsis
+
+  $ h1 iam project ownership show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri     Project Id  
+  --ownership id-or-uri   ownershipId
+```
+
+##### h1 iam project ownership delete
+
+```
+h1 iam project ownership delete
+
+  Delete iam/project.ownership [project_ownership_delete] 
+
+Synopsis
+
+  $ h1 iam project ownership delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri     Project Id  
+  --ownership id-or-uri   ownershipId
+```
+
 #### h1 iam project service
 
 ```
@@ -2656,7 +3137,8 @@ Options
 Command List
 
   spec   Print specification of context              
-  list   List iam/project.event [project_event_list]
+  list   List iam/project.event [project_event_list] 
+  show   Get iam/project.event [project_event_get]
 ```
 
 ##### h1 iam project event spec
@@ -2709,6 +3191,33 @@ Operation options
   --project id-or-uri   Project Id 
   --$limit string       $limit     
   --$skip string        $skip
+```
+
+##### h1 iam project event show
+
+```
+h1 iam project event show
+
+  Get iam/project.event [project_event_get] 
+
+Synopsis
+
+  $ h1 iam project event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id 
+  --event id-or-uri     eventId
 ```
 
 #### h1 iam project policy
@@ -2785,12 +3294,13 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id                                                              
-  --x-idempotency-key string   Idempotency key                                                         
-  --name string                Policy name                                                             
-  --service id-or-uri          Policy service. Provide ID or URI of billing/service                    
-  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
-  --resource string            Policy resource                                                         
+  --project id-or-uri          Project Id                                                                    
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Policy name                                                                   
+  --service id-or-uri          Policy service. Provide ID or URI of billing/service. Defaults is             
+                               5e690e4c0df5a920f9f6bbbf                                                      
+  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use       
+  --resource string            Policy resource                                                               
   --tag key=key,value=value    Tag collection
 ```
 
@@ -3335,7 +3845,8 @@ Options
 Command List
 
   spec   Print specification of context                        
-  list   List iam/policy.event [iam_project_policy_event_list]
+  list   List iam/policy.event [iam_project_policy_event_list] 
+  show   Get iam/policy.event [iam_project_policy_event_get]
 ```
 
 ###### h1 iam project policy event spec
@@ -3389,6 +3900,34 @@ Operation options
   --policy id-or-uri    Policy Id  
   --$limit string       $limit     
   --$skip string        $skip
+```
+
+###### h1 iam project policy event show
+
+```
+h1 iam project policy event show
+
+  Get iam/policy.event [iam_project_policy_event_get] 
+
+Synopsis
+
+  $ h1 iam project policy event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --event id-or-uri     eventId
 ```
 
 #### h1 iam project role
@@ -3465,12 +4004,13 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id                                         
-  --x-idempotency-key string   Idempotency key                                    
-  --name string                Role name                                          
-  --service id-or-uri          Role service. Provide ID or URI of billing/service 
-  --description string         Role description                                   
-  --permission value=value     Permission collection                              
+  --project id-or-uri          Project Id                                                                    
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Role name                                                                     
+  --service id-or-uri          Role service. Provide ID or URI of billing/service. Defaults is               
+                               5e679c282b39c4353cd86f34                                                      
+  --description string         Role description                                                              
+  --permission value=value     Permission collection                                                         
   --tag key=key,value=value    Tag collection
 ```
 
@@ -4016,7 +4556,8 @@ Options
 Command List
 
   spec   Print specification of context                    
-  list   List iam/role.event [iam_project_role_event_list]
+  list   List iam/role.event [iam_project_role_event_list] 
+  show   Get iam/role.event [iam_project_role_event_get]
 ```
 
 ###### h1 iam project role event spec
@@ -4070,6 +4611,34 @@ Operation options
   --role id-or-uri      Role Id    
   --$limit string       $limit     
   --$skip string        $skip
+```
+
+###### h1 iam project role event show
+
+```
+h1 iam project role event show
+
+  Get iam/role.event [iam_project_role_event_get] 
+
+Synopsis
+
+  $ h1 iam project role event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --event id-or-uri     eventId
 ```
 
 #### h1 iam project sa
@@ -4146,10 +4715,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id                                       
-  --x-idempotency-key string   Idempotency key                                  
-  --name string                Sa name                                          
-  --service id-or-uri          Sa service. Provide ID or URI of billing/service 
+  --project id-or-uri          Project Id                                                                    
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Sa name                                                                       
+  --service id-or-uri          Sa service. Provide ID or URI of billing/service. Defaults is                 
+                               5e5fc76ff1fb3efe1842336a                                                      
   --tag key=key,value=value    Tag collection
 ```
 
@@ -4727,7 +5297,8 @@ Options
 Command List
 
   spec   Print specification of context                
-  list   List iam/sa.event [iam_project_sa_event_list]
+  list   List iam/sa.event [iam_project_sa_event_list] 
+  show   Get iam/sa.event [iam_project_sa_event_get]
 ```
 
 ###### h1 iam project sa event spec
@@ -4783,6 +5354,34 @@ Operation options
   --$skip string        $skip
 ```
 
+###### h1 iam project sa event show
+
+```
+h1 iam project sa event show
+
+  Get iam/sa.event [iam_project_sa_event_get] 
+
+Synopsis
+
+  $ h1 iam project sa event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --event id-or-uri     eventId
+```
+
 #### h1 iam project select
 
 ```
@@ -4836,6 +5435,8 @@ Command List
   payment           Manage payments of the organisation                             
   invoice           Manage invoices of the organisation                             
   proforma          Manage proformas of the organisation                            
+  invitation        Manage invitations of the organisation                          
+  ownership         Manage ownerships of the organisation                           
   event             Manage events of the organisation                               
   policy            Manage policies of the organisation                             
   role              Manage roles of the organisation
@@ -4888,9 +5489,16 @@ Global options
 
 Operation options
 
-  --x-idempotency-key string   Idempotency key      
-  --name string                Organisation name    
-  --billing string             Organisation billing
+  --x-idempotency-key string         Idempotency key                   
+  --name string                      Organisation name                 
+  --billing-nip string               Billing nip                       
+  --billing-email string             Billing email                     
+  --billing-company string           Billing company                   
+  --billing-currency string          Billing currency. Defaults is PLN 
+  --billing--addresscountry string   Address country. Defaults is PL   
+  --billing--addresscity string      Address city                      
+  --billing--addresszipcode string   Address zipcode                   
+  --billing--addressstreet string    Address street
 ```
 
 #### h1 iam organisation list
@@ -4971,9 +5579,13 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id                                                            
-  --name string              Organisation name. Requires permissions iam/organisation.name/update       
-  --billing string           Organisation billing. Requires permissions iam/organisation.billing/update
+  --organisation id-or-uri           Organisation Id                                                      
+  --name string                      Organisation name. Requires permissions iam/organisation.name/update 
+  --billing-email string             Billing email                                                        
+  --billing-company string           Billing company                                                      
+  --billing--addresscity string      Address city                                                         
+  --billing--addresszipcode string   Address zipcode                                                      
+  --billing--addressstreet string    Address street
 ```
 
 #### h1 iam organisation delete
@@ -5481,6 +6093,314 @@ Operation options
   --proforma id-or-uri       proformaId
 ```
 
+#### h1 iam organisation invitation
+
+```
+h1 iam organisation invitation
+
+Synopsis
+
+  $ h1 iam organisation invitation <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                                  
+  list     List iam/organisation.invitation [organisation_invitation_list]                 
+  show     Get iam/organisation.invitation [organisation_invitation_get]                   
+  delete   Delete iam/organisation.invitation [organisation_invitation_delete]             
+  accept   Create iam/organisation.actions [organisation_invitation_actions_accept_create]
+```
+
+##### h1 iam organisation invitation spec
+
+```
+h1 iam organisation invitation spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 iam organisation invitation spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 iam organisation invitation list
+
+```
+h1 iam organisation invitation list
+
+  List iam/organisation.invitation [organisation_invitation_list] 
+
+Synopsis
+
+  $ h1 iam organisation invitation list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --resource string          resource
+```
+
+##### h1 iam organisation invitation show
+
+```
+h1 iam organisation invitation show
+
+  Get iam/organisation.invitation [organisation_invitation_get] 
+
+Synopsis
+
+  $ h1 iam organisation invitation show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --invitation id-or-uri     invitationId
+```
+
+##### h1 iam organisation invitation delete
+
+```
+h1 iam organisation invitation delete
+
+  Delete iam/organisation.invitation [organisation_invitation_delete] 
+
+Synopsis
+
+  $ h1 iam organisation invitation delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --invitation id-or-uri     invitationId
+```
+
+##### h1 iam organisation invitation accept
+
+```
+h1 iam organisation invitation accept
+
+  Create iam/organisation.actions [organisation_invitation_actions_accept_create] 
+
+Synopsis
+
+  $ h1 iam organisation invitation accept <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --invitation id-or-uri     invitationId    
+  --token string             Accept token
+```
+
+#### h1 iam organisation ownership
+
+```
+h1 iam organisation ownership
+
+Synopsis
+
+  $ h1 iam organisation ownership <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                    
+  create   Create iam/organisation.ownership [organisation_ownership_create] 
+  list     List iam/organisation.ownership [organisation_ownership_list]     
+  show     Get iam/organisation.ownership [organisation_ownership_get]       
+  delete   Delete iam/organisation.ownership [organisation_ownership_delete]
+```
+
+##### h1 iam organisation ownership spec
+
+```
+h1 iam organisation ownership spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 iam organisation ownership spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 iam organisation ownership create
+
+```
+h1 iam organisation ownership create
+
+  Create iam/organisation.ownership [organisation_ownership_create] 
+
+Synopsis
+
+  $ h1 iam organisation ownership create <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --email string             Ownership email
+```
+
+##### h1 iam organisation ownership list
+
+```
+h1 iam organisation ownership list
+
+  List iam/organisation.ownership [organisation_ownership_list] 
+
+Synopsis
+
+  $ h1 iam organisation ownership list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id
+```
+
+##### h1 iam organisation ownership show
+
+```
+h1 iam organisation ownership show
+
+  Get iam/organisation.ownership [organisation_ownership_get] 
+
+Synopsis
+
+  $ h1 iam organisation ownership show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --ownership id-or-uri      ownershipId
+```
+
+##### h1 iam organisation ownership delete
+
+```
+h1 iam organisation ownership delete
+
+  Delete iam/organisation.ownership [organisation_ownership_delete] 
+
+Synopsis
+
+  $ h1 iam organisation ownership delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --ownership id-or-uri      ownershipId
+```
+
 #### h1 iam organisation event
 
 ```
@@ -5497,7 +6417,8 @@ Options
 Command List
 
   spec   Print specification of context                        
-  list   List iam/organisation.event [organisation_event_list]
+  list   List iam/organisation.event [organisation_event_list] 
+  show   Get iam/organisation.event [organisation_event_get]
 ```
 
 ##### h1 iam organisation event spec
@@ -5550,6 +6471,33 @@ Operation options
   --organisation id-or-uri   Organisation Id 
   --$limit string            $limit          
   --$skip string             $skip
+```
+
+##### h1 iam organisation event show
+
+```
+h1 iam organisation event show
+
+  Get iam/organisation.event [organisation_event_get] 
+
+Synopsis
+
+  $ h1 iam organisation event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --event id-or-uri          eventId
 ```
 
 #### h1 iam organisation policy
@@ -5626,12 +6574,13 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri     Organisation Id                                                         
-  --x-idempotency-key string   Idempotency key                                                         
-  --name string                Policy name                                                             
-  --service id-or-uri          Policy service. Provide ID or URI of billing/service                    
-  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
-  --resource string            Policy resource                                                         
+  --organisation id-or-uri     Organisation Id                                                               
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Policy name                                                                   
+  --service id-or-uri          Policy service. Provide ID or URI of billing/service. Defaults is             
+                               5e690e4c0df5a920f9f6bbbf                                                      
+  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use       
+  --resource string            Policy resource                                                               
   --tag key=key,value=value    Tag collection
 ```
 
@@ -6176,7 +7125,8 @@ Options
 Command List
 
   spec   Print specification of context                             
-  list   List iam/policy.event [iam_organisation_policy_event_list]
+  list   List iam/policy.event [iam_organisation_policy_event_list] 
+  show   Get iam/policy.event [iam_organisation_policy_event_get]
 ```
 
 ###### h1 iam organisation policy event spec
@@ -6230,6 +7180,34 @@ Operation options
   --policy id-or-uri         Policy Id       
   --$limit string            $limit          
   --$skip string             $skip
+```
+
+###### h1 iam organisation policy event show
+
+```
+h1 iam organisation policy event show
+
+  Get iam/policy.event [iam_organisation_policy_event_get] 
+
+Synopsis
+
+  $ h1 iam organisation policy event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --policy id-or-uri         Policy Id       
+  --event id-or-uri          eventId
 ```
 
 #### h1 iam organisation role
@@ -6306,12 +7284,13 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri     Organisation Id                                    
-  --x-idempotency-key string   Idempotency key                                    
-  --name string                Role name                                          
-  --service id-or-uri          Role service. Provide ID or URI of billing/service 
-  --description string         Role description                                   
-  --permission value=value     Permission collection                              
+  --organisation id-or-uri     Organisation Id                                                               
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Role name                                                                     
+  --service id-or-uri          Role service. Provide ID or URI of billing/service. Defaults is               
+                               5e679c282b39c4353cd86f34                                                      
+  --description string         Role description                                                              
+  --permission value=value     Permission collection                                                         
   --tag key=key,value=value    Tag collection
 ```
 
@@ -6857,7 +7836,8 @@ Options
 Command List
 
   spec   Print specification of context                         
-  list   List iam/role.event [iam_organisation_role_event_list]
+  list   List iam/role.event [iam_organisation_role_event_list] 
+  show   Get iam/role.event [iam_organisation_role_event_get]
 ```
 
 ###### h1 iam organisation role event spec
@@ -6911,6 +7891,34 @@ Operation options
   --role id-or-uri           Role Id         
   --$limit string            $limit          
   --$skip string             $skip
+```
+
+###### h1 iam organisation role event show
+
+```
+h1 iam organisation role event show
+
+  Get iam/role.event [iam_organisation_role_event_get] 
+
+Synopsis
+
+  $ h1 iam organisation role event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --role id-or-uri           Role Id         
+  --event id-or-uri          eventId
 ```
 
 ### h1 iam policy
@@ -6987,12 +7995,13 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id                                                              
-  --x-idempotency-key string   Idempotency key                                                         
-  --name string                Policy name                                                             
-  --service id-or-uri          Policy service. Provide ID or URI of billing/service                    
-  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
-  --resource string            Policy resource                                                         
+  --project id-or-uri          Project Id                                                                    
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Policy name                                                                   
+  --service id-or-uri          Policy service. Provide ID or URI of billing/service. Defaults is             
+                               5e690e4c0df5a920f9f6bbbf                                                      
+  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use       
+  --resource string            Policy resource                                                               
   --tag key=key,value=value    Tag collection
 ```
 
@@ -7537,7 +8546,8 @@ Options
 Command List
 
   spec   Print specification of context                        
-  list   List iam/policy.event [iam_project_policy_event_list]
+  list   List iam/policy.event [iam_project_policy_event_list] 
+  show   Get iam/policy.event [iam_project_policy_event_get]
 ```
 
 ##### h1 iam policy event spec
@@ -7591,6 +8601,34 @@ Operation options
   --policy id-or-uri    Policy Id  
   --$limit string       $limit     
   --$skip string        $skip
+```
+
+##### h1 iam policy event show
+
+```
+h1 iam policy event show
+
+  Get iam/policy.event [iam_project_policy_event_get] 
+
+Synopsis
+
+  $ h1 iam policy event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --event id-or-uri     eventId
 ```
 
 ### h1 iam role
@@ -7667,12 +8705,13 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id                                         
-  --x-idempotency-key string   Idempotency key                                    
-  --name string                Role name                                          
-  --service id-or-uri          Role service. Provide ID or URI of billing/service 
-  --description string         Role description                                   
-  --permission value=value     Permission collection                              
+  --project id-or-uri          Project Id                                                                    
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Role name                                                                     
+  --service id-or-uri          Role service. Provide ID or URI of billing/service. Defaults is               
+                               5e679c282b39c4353cd86f34                                                      
+  --description string         Role description                                                              
+  --permission value=value     Permission collection                                                         
   --tag key=key,value=value    Tag collection
 ```
 
@@ -8218,7 +9257,8 @@ Options
 Command List
 
   spec   Print specification of context                    
-  list   List iam/role.event [iam_project_role_event_list]
+  list   List iam/role.event [iam_project_role_event_list] 
+  show   Get iam/role.event [iam_project_role_event_get]
 ```
 
 ##### h1 iam role event spec
@@ -8272,6 +9312,34 @@ Operation options
   --role id-or-uri      Role Id    
   --$limit string       $limit     
   --$skip string        $skip
+```
+
+##### h1 iam role event show
+
+```
+h1 iam role event show
+
+  Get iam/role.event [iam_project_role_event_get] 
+
+Synopsis
+
+  $ h1 iam role event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --event id-or-uri     eventId
 ```
 
 ### h1 iam sa
@@ -8348,10 +9416,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id                                       
-  --x-idempotency-key string   Idempotency key                                  
-  --name string                Sa name                                          
-  --service id-or-uri          Sa service. Provide ID or URI of billing/service 
+  --project id-or-uri          Project Id                                                                    
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Sa name                                                                       
+  --service id-or-uri          Sa service. Provide ID or URI of billing/service. Defaults is                 
+                               5e5fc76ff1fb3efe1842336a                                                      
   --tag key=key,value=value    Tag collection
 ```
 
@@ -8929,7 +9998,8 @@ Options
 Command List
 
   spec   Print specification of context                
-  list   List iam/sa.event [iam_project_sa_event_list]
+  list   List iam/sa.event [iam_project_sa_event_list] 
+  show   Get iam/sa.event [iam_project_sa_event_get]
 ```
 
 ##### h1 iam sa event spec
@@ -8983,5 +10053,33 @@ Operation options
   --sa id-or-uri        Sa Id      
   --$limit string       $limit     
   --$skip string        $skip
+```
+
+##### h1 iam sa event show
+
+```
+h1 iam sa event show
+
+  Get iam/sa.event [iam_project_sa_event_get] 
+
+Synopsis
+
+  $ h1 iam sa event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --event id-or-uri     eventId
 ```
 

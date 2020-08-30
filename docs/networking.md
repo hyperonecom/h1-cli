@@ -34,13 +34,7 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --help    Show help message and exit. 
 
 Operation options
 ```
@@ -121,25 +115,26 @@ Global options
 
 Operation options
 
-  --project id-or-uri                                                                                     Project   
-                                                                                                          Id        
-  --location id-or-uri                                                                                    Location  
-                                                                                                          Id        
+  --project id-or-uri                                                                                     Project Id 
+  --location id-or-uri                                                                                    Location   
+                                                                                                          Id         
   --x-idempotency-key string                                                                              Idempotency 
-                                                                                                          key       
-  --name string                                                                                           Firewall  
-                                                                                                          name      
-  --service id-or-uri                                                                                     Firewall  
-                                                                                                          service.  
-                                                                                                          Provide   
-                                                                                                          ID or URI 
-                                                                                                          of        
-                                                                                                          billing/service 
-  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule      
+                                                                                                          key        
+  --name string                                                                                           Firewall   
+                                                                                                          name       
+  --service id-or-uri                                                                                     Firewall   
+                                                                                                          service.   
+                                                                                                          Provide ID 
+                                                                                                          or URI of  
+                                                                                                          billing/service. 
+                                                                                                          Defaults   
+                                                                                                          is         
+                                                                                                          5bacaf7202deee0c100eda3b 
+  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule       
                                                                                                           collection 
-  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule      
+  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule       
                                                                                                           collection 
-  --tag key=key,value=value                                                                               Tag       
+  --tag key=key,value=value                                                                               Tag        
                                                                                                           collection
 ```
 
@@ -780,7 +775,8 @@ Options
 Command List
 
   spec   Print specification of context                                          
-  list   List networking/firewall.event [networking_project_firewall_event_list]
+  list   List networking/firewall.event [networking_project_firewall_event_list] 
+  show   Get networking/firewall.event [networking_project_firewall_event_get]
 ```
 
 ##### h1 networking firewall event spec
@@ -835,6 +831,35 @@ Operation options
   --firewall id-or-uri   Firewall Id 
   --$limit string        $limit      
   --$skip string         $skip
+```
+
+##### h1 networking firewall event show
+
+```
+h1 networking firewall event show
+
+  Get networking/firewall.event [networking_project_firewall_event_get] 
+
+Synopsis
+
+  $ h1 networking firewall event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --firewall id-or-uri   Firewall Id 
+  --event id-or-uri      eventId
 ```
 
 ### h1 networking ip
@@ -947,12 +972,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --network string       Filter by network   
-  --type string          Filter by type      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri          Project Id                  
+  --location id-or-uri         Location Id                 
+  --network string             Filter by network           
+  --associated.netadp string   Filter by associated.netadp 
+  --tag.value string           Filter by tag.value         
+  --tag.key string             Filter by tag.key
 ```
 
 #### h1 networking ip show
@@ -1439,7 +1464,8 @@ Options
 Command List
 
   spec   Print specification of context                              
-  list   List networking/ip.event [networking_project_ip_event_list]
+  list   List networking/ip.event [networking_project_ip_event_list] 
+  show   Get networking/ip.event [networking_project_ip_event_get]
 ```
 
 ##### h1 networking ip event spec
@@ -1496,6 +1522,35 @@ Operation options
   --$skip string         $skip
 ```
 
+##### h1 networking ip event show
+
+```
+h1 networking ip event show
+
+  Get networking/ip.event [networking_project_ip_event_get] 
+
+Synopsis
+
+  $ h1 networking ip event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --ip id-or-uri         Ip Id       
+  --event id-or-uri      eventId
+```
+
 ### h1 networking netadp
 
 ```
@@ -1512,9 +1567,11 @@ Options
 Command List
 
   spec      Print specification of context                              
+  create    Create networking/netadp [networking_project_netadp_create] 
   list      List networking/netadp [networking_project_netadp_list]     
   show      Get networking/netadp [networking_project_netadp_get]       
   update    Update networking/netadp [networking_project_netadp_update] 
+  delete    Delete networking/netadp [networking_project_netadp_delete] 
   service   Manage services of the netadp                               
   tag       Manage tags of the netadp                                   
   event     Manage events of the netadp
@@ -1544,6 +1601,42 @@ Global options
 Operation options
 ```
 
+#### h1 networking netadp create
+
+```
+h1 networking netadp create
+
+  Create networking/netadp [networking_project_netadp_create] 
+
+Synopsis
+
+  $ h1 networking netadp create <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri          Project Id                                                                    
+  --location id-or-uri         Location Id                                                                   
+  --x-idempotency-key string   Idempotency key                                                               
+  --vm id-or-uri               Netadp vm. Provide ID or URI of compute/vm. Requires permissions              
+                               compute/vm/use                                                                
+  --network id-or-uri          Netadp network. Provide ID or URI of networking/network. Requires permissions 
+                               networking/network/use                                                        
+  --firewall id-or-uri         Netadp firewall. Provide ID or URI of networking/firewall. Requires           
+                               permissions networking/firewall/use                                           
+  --ip string[]                Ip collection                                                                 
+  --tag key=key,value=value    Tag collection
+```
+
 #### h1 networking netadp list
 
 ```
@@ -1570,7 +1663,9 @@ Operation options
   --project id-or-uri          Project Id                  
   --location id-or-uri         Location Id                 
   --assigned.resource string   Filter by assigned.resource 
-  --assigned.id string         Filter by assigned.id
+  --assigned.id string         Filter by assigned.id       
+  --tag.value string           Filter by tag.value         
+  --tag.key string             Filter by tag.key
 ```
 
 #### h1 networking netadp show
@@ -1629,6 +1724,34 @@ Operation options
   --netadp id-or-uri     Netadp Id                                                                     
   --firewall id-or-uri   Netadp firewall. Provide ID or URI of networking/firewall. Requires           
                          permissions networking/firewall/use, networking/netadp.firewall/update
+```
+
+#### h1 networking netadp delete
+
+```
+h1 networking netadp delete
+
+  Delete networking/netadp [networking_project_netadp_delete] 
+
+Synopsis
+
+  $ h1 networking netadp delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --netadp id-or-uri     Netadp Id
 ```
 
 #### h1 networking netadp service
@@ -1910,7 +2033,8 @@ Options
 Command List
 
   spec   Print specification of context                                      
-  list   List networking/netadp.event [networking_project_netadp_event_list]
+  list   List networking/netadp.event [networking_project_netadp_event_list] 
+  show   Get networking/netadp.event [networking_project_netadp_event_get]
 ```
 
 ##### h1 networking netadp event spec
@@ -1965,6 +2089,35 @@ Operation options
   --netadp id-or-uri     Netadp Id   
   --$limit string        $limit      
   --$skip string         $skip
+```
+
+##### h1 networking netadp event show
+
+```
+h1 networking netadp event show
+
+  Get networking/netadp.event [networking_project_netadp_event_get] 
+
+Synopsis
+
+  $ h1 networking netadp event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --netadp id-or-uri     Netadp Id   
+  --event id-or-uri      eventId
 ```
 
 ### h1 networking netgw
@@ -2042,11 +2195,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id      
-  --location id-or-uri         Location Id     
-  --x-idempotency-key string   Idempotency key 
-  --name string                Netgw name      
-  --public string              Netgw public    
+  --project id-or-uri          Project Id                                                                    
+  --location id-or-uri         Location Id                                                                   
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Netgw name                                                                    
+  --public-ip id-or-uri        Public ip. Provide ID or URI of networking/ip. Requires permissions           
+                               networking/ip/use                                                             
   --tag key=key,value=value    Tag collection
 ```
 
@@ -2188,11 +2342,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id      
-  --location id-or-uri         Location Id     
-  --netgw id-or-uri            Netgw Id        
-  --x-idempotency-key string   Idempotency key 
-  --private string             Netgw private
+  --project id-or-uri           Project Id                                                                    
+  --location id-or-uri          Location Id                                                                   
+  --netgw id-or-uri             Netgw Id                                                                      
+  --x-idempotency-key string    Idempotency key                                                               
+  --private-network id-or-uri   Private network. Provide ID or URI of networking/network. Requires            
+                                permissions networking/network/use
 ```
 
 #### h1 networking netgw detach
@@ -2503,7 +2658,8 @@ Options
 Command List
 
   spec   Print specification of context                                    
-  list   List networking/netgw.event [networking_project_netgw_event_list]
+  list   List networking/netgw.event [networking_project_netgw_event_list] 
+  show   Get networking/netgw.event [networking_project_netgw_event_get]
 ```
 
 ##### h1 networking netgw event spec
@@ -2558,6 +2714,35 @@ Operation options
   --netgw id-or-uri      Netgw Id    
   --$limit string        $limit      
   --$skip string         $skip
+```
+
+##### h1 networking netgw event show
+
+```
+h1 networking netgw event show
+
+  Get networking/netgw.event [networking_project_netgw_event_get] 
+
+Synopsis
+
+  $ h1 networking netgw event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --netgw id-or-uri      Netgw Id    
+  --event id-or-uri      eventId
 ```
 
 ### h1 networking network
@@ -3202,7 +3387,8 @@ Options
 Command List
 
   spec   Print specification of context                                        
-  list   List networking/network.event [networking_project_network_event_list]
+  list   List networking/network.event [networking_project_network_event_list] 
+  show   Get networking/network.event [networking_project_network_event_get]
 ```
 
 ##### h1 networking network event spec
@@ -3257,5 +3443,34 @@ Operation options
   --network id-or-uri    Network Id  
   --$limit string        $limit      
   --$skip string         $skip
+```
+
+##### h1 networking network event show
+
+```
+h1 networking network event show
+
+  Get networking/network.event [networking_project_network_event_get] 
+
+Synopsis
+
+  $ h1 networking network event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --network id-or-uri    Network Id  
+  --event id-or-uri      eventId
 ```
 

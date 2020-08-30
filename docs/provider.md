@@ -30,13 +30,7 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --help    Show help message and exit. 
 
 Operation options
 ```
@@ -56,21 +50,22 @@ Options
 
 Command List
 
-  spec         Print specification of context                            
-  create       Create provider/agent [provider_project_agent_create]     
-  list         List provider/agent [provider_project_agent_list]         
-  show         Get provider/agent [provider_project_agent_get]           
-  update       Update provider/agent [provider_project_agent_update]     
-  delete       Delete provider/agent [provider_project_agent_delete]     
-  start        Start provider/agent [provider_project_agent_start]       
-  suspend      Suspend provider/agent [provider_project_agent_suspend]   
-  transfer     Transfer provider/agent [provider_project_agent_transfer] 
-  inspect      Manage inspects of the agent                              
-  resource     Manage resources of the agent                             
-  credential   Manage credentials of the agent                           
-  service      Manage services of the agent                              
-  tag          Manage tags of the agent                                  
-  event        Manage events of the agent
+  spec             Print specification of context                            
+  create           Create provider/agent [provider_project_agent_create]     
+  list             List provider/agent [provider_project_agent_list]         
+  show             Get provider/agent [provider_project_agent_get]           
+  update           Update provider/agent [provider_project_agent_update]     
+  delete           Delete provider/agent [provider_project_agent_delete]     
+  start            Start provider/agent [provider_project_agent_start]       
+  suspend          Suspend provider/agent [provider_project_agent_suspend]   
+  inspect          Inspect provider/agent [provider_project_agent_inspect]   
+  transfer         Transfer provider/agent [provider_project_agent_transfer] 
+  resource         Manage resources of the agent                             
+  credential       Manage credentials of the agent                           
+  enabledService   Manage enabledServices of the agent                       
+  service          Manage services of the agent                              
+  tag              Manage tags of the agent                                  
+  event            Manage events of the agent
 ```
 
 #### h1 provider agent spec
@@ -301,6 +296,35 @@ Operation options
   --x-idempotency-key string   Idempotency key
 ```
 
+#### h1 provider agent inspect
+
+```
+h1 provider agent inspect
+
+  Inspect provider/agent [provider_project_agent_inspect] 
+
+Synopsis
+
+  $ h1 provider agent inspect <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri          Project Id      
+  --location id-or-uri         Location Id     
+  --agent id-or-uri            Agent Id        
+  --x-idempotency-key string   Idempotency key
+```
+
 #### h1 provider agent transfer
 
 ```
@@ -332,77 +356,6 @@ Operation options
                                provider/agent/create
 ```
 
-#### h1 provider agent inspect
-
-```
-h1 provider agent inspect
-
-Synopsis
-
-  $ h1 provider agent inspect <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                                  
-  list   Get provider/agent.inspect [provider_project_agent_inspect_get]
-```
-
-##### h1 provider agent inspect spec
-
-```
-h1 provider agent inspect spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 provider agent inspect spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-```
-
-##### h1 provider agent inspect list
-
-```
-h1 provider agent inspect list
-
-  Get provider/agent.inspect [provider_project_agent_inspect_get] 
-
-Synopsis
-
-  $ h1 provider agent inspect list <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id
-```
-
 #### h1 provider agent resource
 
 ```
@@ -421,7 +374,7 @@ Command List
   spec       Print specification of context                                                          
   list       List provider/agent.resource [provider_project_agent_resource_list]                     
   recreate   Create provider/agent.actions [provider_project_agent_resource_actions_recreate_create] 
-  inspect    Manage inspects of the resource                                                         
+  inspect    Get provider/agent.actions [provider_project_agent_resource_actions_inspect_get]        
   event      Manage events of the resource
 ```
 
@@ -512,54 +465,12 @@ Operation options
 ```
 h1 provider agent resource inspect
 
-Synopsis
-
-  $ h1 provider agent resource inspect <group> <command> 
-
-Options
-
-  --help    Show help message and exit. 
-
-Command List
-
-  spec   Print specification of context                                           
-  list   Get provider/agent.inspect [provider_project_agent_resource_inspect_get]
-```
-
-###### h1 provider agent resource inspect spec
-
-```
-h1 provider agent resource inspect spec
-
-  Print specification of context 
+  Get provider/agent.actions                                                    
+  [provider_project_agent_resource_actions_inspect_get]                         
 
 Synopsis
 
-  $ h1 provider agent resource inspect spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-```
-
-###### h1 provider agent resource inspect list
-
-```
-h1 provider agent resource inspect list
-
-  Get provider/agent.inspect [provider_project_agent_resource_inspect_get] 
-
-Synopsis
-
-  $ h1 provider agent resource inspect list <options> 
+  $ h1 provider agent resource inspect <options> 
 
 Global options
 
@@ -848,6 +759,169 @@ Operation options
   --credential id-or-uri   credentialId
 ```
 
+#### h1 provider agent enabledService
+
+```
+h1 provider agent enabledService
+
+Synopsis
+
+  $ h1 provider agent enabledService <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                                      
+  create   Create provider/agent.enabledService [provider_project_agent_enabledService_create] 
+  list     List provider/agent.enabledService [provider_project_agent_enabledService_list]     
+  show     Get provider/agent.enabledService [provider_project_agent_enabledService_get]       
+  delete   Delete provider/agent.enabledService [provider_project_agent_enabledService_delete]
+```
+
+##### h1 provider agent enabledService spec
+
+```
+h1 provider agent enabledService spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 provider agent enabledService spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 provider agent enabledService create
+
+```
+h1 provider agent enabledService create
+
+  Create provider/agent.enabledService                                          
+  [provider_project_agent_enabledService_create]                                
+
+Synopsis
+
+  $ h1 provider agent enabledService create <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id                                                   
+  --location id-or-uri   Location Id                                                  
+  --agent id-or-uri      Agent Id                                                     
+  --service id-or-uri    EnabledService service. Provide ID or URI of billing/service
+```
+
+##### h1 provider agent enabledService list
+
+```
+h1 provider agent enabledService list
+
+  List provider/agent.enabledService [provider_project_agent_enabledService_list] 
+
+Synopsis
+
+  $ h1 provider agent enabledService list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --agent id-or-uri      Agent Id
+```
+
+##### h1 provider agent enabledService show
+
+```
+h1 provider agent enabledService show
+
+  Get provider/agent.enabledService [provider_project_agent_enabledService_get] 
+
+Synopsis
+
+  $ h1 provider agent enabledService show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri           Project Id       
+  --location id-or-uri          Location Id      
+  --agent id-or-uri             Agent Id         
+  --enabled-service id-or-uri   enabledServiceId
+```
+
+##### h1 provider agent enabledService delete
+
+```
+h1 provider agent enabledService delete
+
+  Delete provider/agent.enabledService                                          
+  [provider_project_agent_enabledService_delete]                                
+
+Synopsis
+
+  $ h1 provider agent enabledService delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri           Project Id       
+  --location id-or-uri          Location Id      
+  --agent id-or-uri             Agent Id         
+  --enabled-service id-or-uri   enabledServiceId
+```
+
 #### h1 provider agent service
 
 ```
@@ -1127,7 +1201,8 @@ Options
 Command List
 
   spec   Print specification of context                                
-  list   List provider/agent.event [provider_project_agent_event_list]
+  list   List provider/agent.event [provider_project_agent_event_list] 
+  show   Get provider/agent.event [provider_project_agent_event_get]
 ```
 
 ##### h1 provider agent event spec
@@ -1182,5 +1257,34 @@ Operation options
   --agent id-or-uri      Agent Id    
   --$limit string        $limit      
   --$skip string         $skip
+```
+
+##### h1 provider agent event show
+
+```
+h1 provider agent event show
+
+  Get provider/agent.event [provider_project_agent_event_get] 
+
+Synopsis
+
+  $ h1 provider agent event show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --agent id-or-uri      Agent Id    
+  --event id-or-uri      eventId
 ```
 

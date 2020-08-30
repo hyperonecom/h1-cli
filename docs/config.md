@@ -73,9 +73,6 @@ Global options
   --help    Show help message and exit. 
 
 Operation options
-
-  --key string      
-  --value string
 ```
 
 #### h1 config settings set
