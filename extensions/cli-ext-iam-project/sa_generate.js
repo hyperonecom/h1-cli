@@ -34,11 +34,11 @@ export default new Command({
             type: 'ssh',
             value: publicKeyToOpenSSH(publicKey),
         });
-        const subject = `iam/project/${optsAll.project}/sa/${optsAll.sa}`;
+        const subject_id = `/iam/project/${optsAll.project}/sa/${optsAll.sa}`;
         const jwk = {
-            subject_id: `/${subject}`,
+            subject_id,
             certificate_id: result.id,
-            issuer: openapi.getUrl(''),
+            issuer: openapi.getUrl(subject_id),
             private_key: pki.privateKeyToPem(privateKey),
             public_key: pki.publicKeyToPem(publicKey),
         };
