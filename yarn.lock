@@ -298,7 +298,7 @@
     "@hyperone/cli-ext-compute-vm" "link:extensions/cli-ext-compute-vm"
     "@hyperone/cli-ext-config-extensions" "link:extensions/cli-ext-config-extensions"
     "@hyperone/cli-ext-config-settings" "link:extensions/cli-ext-config-settings"
-    "@hyperone/cli-ext-iam-project-select" "link:extensions/cli-ext-iam-project-select"
+    "@hyperone/cli-ext-iam-project" "link:extensions/cli-ext-iam-project"
     "@hyperone/cli-ext-root-auth" "link:extensions/cli-ext-root-auth"
     "@hyperone/cli-ext-root-config" "link:extensions/cli-ext-root-config"
     "@hyperone/cli-ext-root-openapi-generator" "link:extensions/cli-ext-root-openapi-generator"
@@ -330,7 +330,7 @@
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
 
-"@hyperone/cli-ext-iam-project-select@link:extensions/cli-ext-iam-project-select":
+"@hyperone/cli-ext-iam-project@link:extensions/cli-ext-iam-project":
   version "1.0.7"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
@@ -5805,7 +5805,7 @@ node-forge@0.9.0:
   resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.9.0.tgz#d624050edbb44874adca12bb9a52ec63cb782579"
   integrity sha512-7ASaDa3pD+lJ3WvXFsxekJQelBKRpne+GOVbLbtHYdd7pFspyeuJHnWfLplGf3SwKGbfs/aYl5V/JCIaHVUKKQ==
 
-node-forge@^0.9.0:
+node-forge@^0.9.0, node-forge@^0.9.1:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/node-forge/-/node-forge-0.9.1.tgz#775368e6846558ab6676858a4d8c6e8d16c677b5"
   integrity sha512-G6RlQt5Sb4GMBzXvhfkeFmbqR6MzhtnT7VTHuLadjkii3rdYHNdw0m8zA4BTxVIh68FicCQ2NSUANpsqkr9jvQ==

@@ -1,5 +1,5 @@
 {
-  "name": "@hyperone/cli-ext-iam-project-select",
+  "name": "@hyperone/cli-ext-iam-project",
   "version": "1.0.7",
   "description": "",
   "main": "dist/index.js",
@@ -19,7 +19,8 @@
   "license": "MIT",
   "dependencies": {
     "@hyperone/cli-core": "link:../../packages/cli-core",
-    "@hyperone/cli-framework": "link:../../packages/cli-framework"
+    "@hyperone/cli-framework": "link:../../packages/cli-framework",
+    "node-forge": "^0.9.1"
   },
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",
   "publishConfig": {

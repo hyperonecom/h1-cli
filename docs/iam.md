@@ -3160,12 +3160,13 @@ Options
 
 Command List
 
-  spec     Print specification of context                              
-  create   Create iam/sa.credential [iam_project_sa_credential_create] 
-  list     List iam/sa.credential [iam_project_sa_credential_list]     
-  show     Get iam/sa.credential [iam_project_sa_credential_get]       
-  update   Update iam/sa.credential [iam_project_sa_credential_patch]  
-  delete   Delete iam/sa.credential [iam_project_sa_credential_delete]
+  spec       Print specification of context                              
+  create     Create iam/sa.credential [iam_project_sa_credential_create] 
+  list       List iam/sa.credential [iam_project_sa_credential_list]     
+  show       Get iam/sa.credential [iam_project_sa_credential_get]       
+  update     Update iam/sa.credential [iam_project_sa_credential_patch]  
+  delete     Delete iam/sa.credential [iam_project_sa_credential_delete] 
+  generate   Generate passport file for sa
 ```
 
 ###### h1 iam project sa credential spec
@@ -3333,6 +3334,35 @@ Operation options
   --project id-or-uri      Project Id   
   --sa id-or-uri           Sa Id        
   --credential id-or-uri   credentialId
+```
+
+###### h1 iam project sa credential generate
+
+```
+h1 iam project sa credential generate
+
+  Generate passport file for sa 
+
+Synopsis
+
+  $ h1 iam project sa credential generate <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --sa string                      
+  --name string                    
+  --project string                 
+  --passport-output-file string
 ```
 
 ##### h1 iam project sa service

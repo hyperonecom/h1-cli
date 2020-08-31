@@ -5,4 +5,4 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## 1.0.1-alpha.0 (2020-07-14)
 
-**Note:** Version bump only for package h1-cli-ext-iam-project-select
+**Note:** Version bump only for package h1-cli-ext-iam-project

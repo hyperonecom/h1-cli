@@ -60,6 +60,13 @@ export default {
     getSchema: operation => operation.requestBody && operation.requestBody.content['application/json'].schema || {},
     getResponse: (operation, status = 200) => operation.responses && operation.responses[status] && operation.responses[status].content['application/json'].schema || {},
     getTitle: () => spec.info.title,
+    getDetail: prefix => Object
+        .entries(spec.paths)
+        .filter(([path]) => path.match(new RegExp(`${prefix}/\{[A-Za-z_]+\}$`)))
+        .map(([path, endpoint]) => ({
+            endpoint,
+            path,
+        })),
     getActions: (prefix) => Object
         .entries(spec.paths)
         .filter(([path]) => path.match(new RegExp(`${prefix}/actions/(.+?)`)))
