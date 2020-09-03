@@ -237,26 +237,26 @@ ava.serial('project notification credits integration test', async t => {
     }
 });
 
-ava.serial('project access grant invite', async t => {
-    const email = process.env.IMAP_DYNAMIC_MAIL_TEMPLATE.replace('$', Math.random());
-    const month = new Date().toLocaleString('en-us', { month: 'long' });
-    const day = new Date().getDate();
-    const year = new Date().getFullYear();
-    const query = ['ALL',
-        ['TO', email],
-        ['SINCE', `${month} ${day}, ${year}`],
-        ['SUBJECT', 'Zaproszenie do projektu'],
-    ];
-    await tests.run(`project access grant --project ${active_project} --email ${email} --role owner`);
-    try {
-        const options = getImapOptions(process.env.IMAP_URL);
-        await checkEmailReceived(query, options);
-        const members = await tests.run(`project access list --project ${active_project}`);
-        t.true(members.some(member => member.id === email && member.state === 'Invited'));
-    } finally {
-        await tests.run(`project access revoke --project ${active_project} --email ${email}`);
-    }
-});
+// ava.serial('project access grant invite', async t => {
+//     const email = process.env.IMAP_DYNAMIC_MAIL_TEMPLATE.replace('$', Math.random());
+//     const month = new Date().toLocaleString('en-us', { month: 'long' });
+//     const day = new Date().getDate();
+//     const year = new Date().getFullYear();
+//     const query = ['ALL',
+//         ['TO', email],
+//         ['SINCE', `${month} ${day}, ${year}`],
+//         ['SUBJECT', 'Zaproszenie do projektu'],
+//     ];
+//     await tests.run(`project access grant --project ${active_project} --email ${email} --role owner`);
+//     try {
+//         const options = getImapOptions(process.env.IMAP_URL);
+//         await checkEmailReceived(query, options);
+//         const members = await tests.run(`project access list --project ${active_project}`);
+//         t.true(members.some(member => member.id === email && member.state === 'Invited'));
+//     } finally {
+//         await tests.run(`project access revoke --project ${active_project} --email ${email}`);
+//     }
+// });
 
 ava.serial('project token access life cycle', async t => {
     const token = await tests.run(`project token add --project ${active_project} --name ${tests.getName(t.title)}`);

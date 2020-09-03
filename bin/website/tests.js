@@ -45,13 +45,13 @@ const rmFileWebsite = (website, auth, path) => {
     }, auth));
 };
 
-const lsWebsite = (website, auth, path) => {
-    console.log(new Date(), `List files of website ${website.id} at '${path}'`);
-    return ssh.lsFile(path, Object.assign({
-        host: website.fqdn,
-        username: website.id,
-    }, auth));
-};
+// const lsWebsite = (website, auth, path) => {
+//     console.log(new Date(), `List files of website ${website.id} at '${path}'`);
+//     return ssh.lsFile(path, Object.assign({
+//         host: website.fqdn,
+//         username: website.id,
+//     }, auth));
+// };
 
 ava.serial('website empty page results', async t => {
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
@@ -73,103 +73,103 @@ ava.serial('website put index via SFTP & password', async t => {
     await tests.remove('website', website);
 });
 
-ava.serial('website management domain', async t => {
-    const rset_cname = 'website-cname';
-    const rset_txt = 'website-txt';
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
-    await tests.run(`website stop --website ${website.id}`);
-    const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}`);
-    try {
-        const rrset_txt = await tests.run(`dns record-set txt upsert --name ${rset_txt} --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
-        const rrset_cname = await tests.run(`dns record-set cname upsert --name ${rset_cname} --zone ${zone.id} --value '${website.fqdn}' --ttl 1`);
-        await tests.delay(tests.DELAY.dns_propagate);
+// ava.serial('website management domain', async t => {
+//     const rset_cname = 'website-cname';
+//     const rset_txt = 'website-txt';
+//     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
+//     await tests.run(`website stop --website ${website.id}`);
+//     const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}`);
+//     try {
+//         const rrset_txt = await tests.run(`dns record-set txt upsert --name ${rset_txt} --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
+//         const rrset_cname = await tests.run(`dns record-set cname upsert --name ${rset_cname} --zone ${zone.id} --value '${website.fqdn}' --ttl 1`);
+//         await tests.delay(tests.DELAY.dns_propagate);
 
-        const txt_response = (await tests.dnsResolve(rrset_txt.name, 'TXT')).flat(2);
-        t.true(txt_response.includes(website.fqdn));
+//         const txt_response = (await tests.dnsResolve(rrset_txt.name, 'TXT')).flat(2);
+//         t.true(txt_response.includes(website.fqdn));
 
-        const cname_response = await tests.dnsResolve(rrset_cname.name, 'CNAME');
-        t.true(cname_response.includes(website.fqdn));
+//         const cname_response = await tests.dnsResolve(rrset_cname.name, 'CNAME');
+//         t.true(cname_response.includes(website.fqdn));
 
-        await tests.run(`website domain add --website ${website.id} --domain ${rrset_txt.name}`);
-        let domains = await tests.run(`website domain list --website ${website.id}`);
-        t.true(domains.includes(`${rrset_txt.name}`));
-        t.true(!domains.includes(`${rrset_cname.name}`));
-        t.true(domains.length === 1);
+//         await tests.run(`website domain add --website ${website.id} --domain ${rrset_txt.name}`);
+//         let domains = await tests.run(`website domain list --website ${website.id}`);
+//         t.true(domains.includes(`${rrset_txt.name}`));
+//         t.true(!domains.includes(`${rrset_cname.name}`));
+//         t.true(domains.length === 1);
 
-        await tests.run(`website domain add --website ${website.id} --domain ${rrset_cname.name}`);
-        domains = await tests.run(`website domain list --website ${website.id}`);
-        t.true(domains.includes(`${rrset_txt.name}`));
-        t.true(domains.includes(`${rrset_cname.name}`));
-        t.true(domains.length === 2);
+//         await tests.run(`website domain add --website ${website.id} --domain ${rrset_cname.name}`);
+//         domains = await tests.run(`website domain list --website ${website.id}`);
+//         t.true(domains.includes(`${rrset_txt.name}`));
+//         t.true(domains.includes(`${rrset_cname.name}`));
+//         t.true(domains.length === 2);
 
-        await tests.run(`website domain delete --website ${website.id} --domain ${rset_txt}.${zone.dnsName}`);
-        domains = await tests.run(`website domain list --website ${website.id}`);
-        t.true(!domains.includes(`${rrset_txt.name}`));
-        t.true(domains.includes(`${rrset_cname.name}`));
-        t.true(domains.length === 1);
-    } finally {
-        await tests.remove('website', website);
-    }
-});
+//         await tests.run(`website domain delete --website ${website.id} --domain ${rset_txt}.${zone.dnsName}`);
+//         domains = await tests.run(`website domain list --website ${website.id}`);
+//         t.true(!domains.includes(`${rrset_txt.name}`));
+//         t.true(domains.includes(`${rrset_cname.name}`));
+//         t.true(domains.length === 1);
+//     } finally {
+//         await tests.remove('website', website);
+//     }
+// });
 
-ava.serial('website reachable through custom domain', async t => {
-    const rset = 'website-reachable';
-    const password = await tests.getToken();
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
-    const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);
-    try {
-        const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
-        await tests.delay(tests.DELAY.dns_propagate);
-        const host = rrset.name.slice(0, -1);
-        const dns_response = await tests.dnsResolve(rrset.name, 'CNAME');
-        t.true(dns_response.includes(website.fqdn));
-        await withOff('website', website,
-            () => tests.run(`website domain add --website ${website.id} --domain ${host}`)
-        );
+// ava.serial('website reachable through custom domain', async t => {
+//     const rset = 'website-reachable';
+//     const password = await tests.getToken();
+//     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+//     const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);
+//     try {
+//         const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
+//         await tests.delay(tests.DELAY.dns_propagate);
+//         const host = rrset.name.slice(0, -1);
+//         const dns_response = await tests.dnsResolve(rrset.name, 'CNAME');
+//         t.true(dns_response.includes(website.fqdn));
+//         await withOff('website', website,
+//             () => tests.run(`website domain add --website ${website.id} --domain ${host}`)
+//         );
 
-        await tests.delay(tests.DELAY.website_start);
-        // Upload file
-        const token = await tests.getToken();
-        const files = await lsWebsite(website, { password }, '/data');
-        t.true(files.some(f => f.filename === 'public'));
-        await ssh.execResource(website, { password }, 'ls -lah /data/public');
-        await ssh.putResource(website, { password }, 'public/index.html', token);
-        await tests.delay(tests.DELAY.website_start);
-        // Test content
-        await fetchMultiproto(t, rrset.name.slice(0, -1), resp => resp.text === token);
-    } finally {
-        await tests.remove('website', website);
-    }
-});
+//         await tests.delay(tests.DELAY.website_start);
+//         // Upload file
+//         const token = await tests.getToken();
+//         const files = await lsWebsite(website, { password }, '/data');
+//         t.true(files.some(f => f.filename === 'public'));
+//         await ssh.execResource(website, { password }, 'ls -lah /data/public');
+//         await ssh.putResource(website, { password }, 'public/index.html', token);
+//         await tests.delay(tests.DELAY.website_start);
+//         // Test content
+//         await fetchMultiproto(t, rrset.name.slice(0, -1), resp => resp.text === token);
+//     } finally {
+//         await tests.remove('website', website);
+//     }
+// });
 
-ava.serial('website reachable through apex record', async t => {
-    const password = await tests.getToken();
-    const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
-    const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);
-    try {
-        const rrset = await tests.run(`dns record-set cname upsert --name '@' --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
-        await tests.run(`dns record-set txt upsert --name '@' --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
-        await tests.delay(tests.DELAY.dns_propagate);
-        const host = rrset.name.slice(0, -1);
-        const dns_response = await tests.dnsResolve(rrset.name, 'TXT');
-        t.true(dns_response.includes(website.fqdn));
+// ava.serial('website reachable through apex record', async t => {
+//     const password = await tests.getToken();
+//     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+//     const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);
+//     try {
+//         const rrset = await tests.run(`dns record-set cname upsert --name '@' --zone ${zone.id} --value ${website.fqdn}. --ttl 1`);
+//         await tests.run(`dns record-set txt upsert --name '@' --zone ${zone.id} --value ${website.fqdn} --ttl 1`);
+//         await tests.delay(tests.DELAY.dns_propagate);
+//         const host = rrset.name.slice(0, -1);
+//         const dns_response = await tests.dnsResolve(rrset.name, 'TXT');
+//         t.true(dns_response.includes(website.fqdn));
 
-        await withOff('website', website,
-            () => tests.run(`website domain add --website ${website.id} --domain ${host}`)
-        );
-        // Upload file
-        const token = await tests.getToken();
-        const files = await lsWebsite(website, { password }, '/data');
-        t.true(files.some(f => f.filename === 'public'));
-        await ssh.execResource(website, { password }, 'ls -lah /data/public');
-        await ssh.putResource(website, { password }, 'public/index.html', token);
-        await tests.delay(5 * 1000);
-        // Test content
-        await fetchMultiproto(t, rrset.name.slice(0, -1), resp => resp.text === token);
-    } finally {
-        await tests.remove('website', website);
-    }
-});
+//         await withOff('website', website,
+//             () => tests.run(`website domain add --website ${website.id} --domain ${host}`)
+//         );
+//         // Upload file
+//         const token = await tests.getToken();
+//         const files = await lsWebsite(website, { password }, '/data');
+//         t.true(files.some(f => f.filename === 'public'));
+//         await ssh.execResource(website, { password }, 'ls -lah /data/public');
+//         await ssh.putResource(website, { password }, 'public/index.html', token);
+//         await tests.delay(5 * 1000);
+//         // Test content
+//         await fetchMultiproto(t, rrset.name.slice(0, -1), resp => resp.text === token);
+//     } finally {
+//         await tests.remove('website', website);
+//     }
+// });
 
 
 ['h1cr.io/website/nginx-static:latest', 'h1cr.io/website/php-apache:7.2', 'h1cr.io/website/php-apache:5.6'].forEach(image => {

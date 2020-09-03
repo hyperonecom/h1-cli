@@ -69,30 +69,30 @@ ava.serial('registry manage repositories & tags', async t => {
     }
 });
 
-ava.serial('registry reachable through custom domain', async t => {
-    const rset = 'registry'; // static name to avoid SSL issue
-    const password = await tests.getToken();
-    const registry = await tests.run(`registry create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
-    await tests.run(`registry stop --registry ${registry.id}`);
-    const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);
-    try {
-        const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${registry.fqdn}. --ttl 1`);
-        const host = rrset.name.slice(0, -1);
-        await tests.delay(10 * 1000);
-        const cname_response = await tests.dnsResolve(rrset.name, 'CNAME');
-        t.true(cname_response.includes(registry.fqdn));
+// ava.serial('registry reachable through custom domain', async t => {
+//     const rset = 'registry'; // static name to avoid SSL issue
+//     const password = await tests.getToken();
+//     const registry = await tests.run(`registry create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
+//     await tests.run(`registry stop --registry ${registry.id}`);
+//     const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);
+//     try {
+//         const rrset = await tests.run(`dns record-set cname upsert --name ${rset} --zone ${zone.id} --value ${registry.fqdn}. --ttl 1`);
+//         const host = rrset.name.slice(0, -1);
+//         await tests.delay(10 * 1000);
+//         const cname_response = await tests.dnsResolve(rrset.name, 'CNAME');
+//         t.true(cname_response.includes(registry.fqdn));
 
-        await tests.run(`registry domain add --registry ${registry.id} --domain ${host}`);
-        await tests.run(`registry start --registry ${registry.id}`);
-        await tests.delay(15 * 1000);
-        await tests.runProcess(`docker login --username anything --password ${password} ${host}`);
-        await copyImage(host, hubImage, tagName);
-        const repositories = await tests.run(`registry repository list --registry ${registry.name}`);
-        t.true(repositories.some(x => x.name === hubImage));
-    } finally {
-        await tests.remove('registry', registry);
-    }
-});
+//         await tests.run(`registry domain add --registry ${registry.id} --domain ${host}`);
+//         await tests.run(`registry start --registry ${registry.id}`);
+//         await tests.delay(15 * 1000);
+//         await tests.runProcess(`docker login --username anything --password ${password} ${host}`);
+//         await copyImage(host, hubImage, tagName);
+//         const repositories = await tests.run(`registry repository list --registry ${registry.name}`);
+//         t.true(repositories.some(x => x.name === hubImage));
+//     } finally {
+//         await tests.remove('registry', registry);
+//     }
+// });
 
 ava.serial('registry docker reachable', async t => {
     const output = await tests.runProcess('docker system info');
