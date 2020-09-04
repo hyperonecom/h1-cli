@@ -73,7 +73,7 @@ ava.serial('website put index via SFTP & password', async t => {
     await tests.remove('website', website);
 });
 
-ava.serial('website management domain', async t => {
+ava.skip('website management domain', async t => {
     const rset_cname = 'website-cname';
     const rset_txt = 'website-txt';
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams}`);
@@ -112,7 +112,7 @@ ava.serial('website management domain', async t => {
     }
 });
 
-ava.serial('website reachable through custom domain', async t => {
+ava.skip('website reachable through custom domain', async t => {
     const rset = 'website-reachable';
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
@@ -142,7 +142,7 @@ ava.serial('website reachable through custom domain', async t => {
     }
 });
 
-ava.serial('website reachable through apex record', async t => {
+ava.skip('website reachable through apex record', async t => {
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     const zone = await tests.run(`dns zone show --zone delegated.${tests.test_zone}.`);

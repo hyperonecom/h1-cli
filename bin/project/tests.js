@@ -237,7 +237,7 @@ ava.serial('project notification credits integration test', async t => {
     }
 });
 
-ava.serial('project access grant invite', async t => {
+ava.skip('project access grant invite', async t => {
     const email = process.env.IMAP_DYNAMIC_MAIL_TEMPLATE.replace('$', Math.random());
     const month = new Date().toLocaleString('en-us', { month: 'long' });
     const day = new Date().getDate();
