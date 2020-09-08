@@ -17,7 +17,7 @@ const parameterForParameter = (p = []) => {
         const p = {
             name: deCamelCase(name),
             use: {
-                in: 'path',
+                in: parameter.in,
                 field: parameter.name,
             },
         };
@@ -212,12 +212,19 @@ const renderQuery = (path, operation) => {
     return `[].{${col.join(',')}}`;
 };
 
-const renderPath = (path, operation, input) => {
+const renderPath = (path, input, options) => {
     let url = path;
-    for (const [pattern, , key] of url.matchAll('\{((.+?)Id)\}')) {
-        url = url.replace(pattern, input[key]);
+    const query = {};
+    for (const option of options.filter(x => x.use)) {
+        if (!input[option.name]) continue;
+        if (option.use.in == 'path') {
+            const p = `{${option.use.field}}`;
+            url = url.replace(p, input[option.name]);
+        } else if (option.use.in == 'query') {
+            query[option.use.field] = input[option.name];
+        }
     }
-    return url;
+    return `${url}?${new URLSearchParams(query)}`;
 };
 
 export default {
