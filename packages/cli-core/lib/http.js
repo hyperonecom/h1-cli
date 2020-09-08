@@ -25,7 +25,7 @@ export default (device, logger) => {
         if (json) {
             logger.debug('request json', JSON.stringify(json, null, 2));
         }
-
+        const start = new Date();
         if (body) {
             logger.debug('request body', body);
         }
@@ -36,6 +36,8 @@ export default (device, logger) => {
 
         logger.debug('response status', resp.status);
         logger.debug('response headers', JSON.stringify(Object.fromEntries(resp.headers), null, 2));
+        const duration = new Date() - start;
+        logger.debug('response time', `${duration} ms`);
 
         if (!resp.ok) {
             const err = new Error('Invalid response');
