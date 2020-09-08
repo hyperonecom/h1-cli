@@ -42,11 +42,13 @@ export class NodeDevice extends Device {
         }
     }
     async displayError(err) {
+        const options = err.options;
+        delete err.options;
         const type = err.resp && err.resp.headers.get('content-type');
         if (err.resp && type && type.startsWith('application/json')) {
             const respJson = await err.resp.json();
             if (!respJson.title) {
-                console.error(err);
+                console.error(respJson);
             } else {
                 // console.dir(respJson, { depth: null });
                 console.log(`${chalk.red(respJson.title)}: ${respJson.detail}`);
@@ -56,11 +58,10 @@ export class NodeDevice extends Device {
                     ...respJson.operation || [],
                 ];
                 for (const nestedErr of nested) {
-                    formatError(nestedErr, err.options);
+                    formatError(nestedErr, options);
                 }
             }
         } else {
-            delete err.options;
             console.error(err);
         }
         process.exit(err.exitCode || 1);
