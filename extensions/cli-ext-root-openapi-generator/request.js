@@ -164,7 +164,7 @@ const flatSchema = (schema) => {
     return schema;
 };
 
-const renderOptions = (operation, parameters=[]) => {
+const renderOptions = (operation, parameters = []) => {
     const schema = openapi.getSchema(operation);
     return [
         ...parameterForParameter(parameters),
@@ -180,7 +180,7 @@ const renderBody = (operation, input, options) => {
         }
         let value = input[option.name];
         if (option.prefix && value && !value.startsWith('/')) {
-            value = renderPath(option.prefix, operation, input);
+            value = renderPath(option.prefix, input, options).replace(`\{${option.name}Id\}`, value);
         }
         set(result, option.use.field.replace(/\//g, '.'), value);
     }
@@ -224,7 +224,10 @@ const renderPath = (path, input, options) => {
             query[option.use.field] = input[option.name];
         }
     }
-    return `${url}?${new URLSearchParams(query)}`;
+    if (Object.entries(query).length > 0) {
+        url = `${url}?${new URLSearchParams(query)}`;
+    }
+    return url;
 };
 
 export default {
