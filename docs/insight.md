@@ -120,7 +120,8 @@ Operation options
   --service id-or-uri          Journal service. Provide ID or URI of billing/service. Defaults is            
                                5c9cc2d0255c16c3e899a4ea                                                      
   --retention string           Journal retention                                                             
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                                                
+  --skeleton true,false
 ```
 
 #### h1 insight journal list
@@ -146,11 +147,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 insight journal show
@@ -176,9 +178,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --skeleton true,false
 ```
 
 #### h1 insight journal update
@@ -204,11 +207,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                               
-  --location id-or-uri   Location Id                                                              
-  --journal id-or-uri    Journal Id                                                               
-  --name string          Journal name. Requires permissions insight/journal.name/update           
-  --retention string     Journal retention. Requires permissions insight/journal.retention/update
+  --project id-or-uri     Project Id                                                               
+  --location id-or-uri    Location Id                                                              
+  --journal id-or-uri     Journal Id                                                               
+  --name string           Journal name. Requires permissions insight/journal.name/update           
+  --retention string      Journal retention. Requires permissions insight/journal.retention/update 
+  --skeleton true,false
 ```
 
 #### h1 insight journal delete
@@ -234,9 +238,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --skeleton true,false
 ```
 
 #### h1 insight journal transfer
@@ -267,7 +272,8 @@ Operation options
   --journal id-or-uri          Journal Id                                                                    
   --x-idempotency-key string   Idempotency key                                                               
   --project uri                Journal project. Provide URI of iam/project. Requires permissions             
-                               insight/journal/create
+                               insight/journal/create                                                        
+  --skeleton true,false
 ```
 
 #### h1 insight journal log
@@ -336,14 +342,15 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --since string         since       
-  --until string         until       
-  --follow string        follow      
-  --tail string          tail        
-  --tag string           tag
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --since string          since       
+  --until string          until       
+  --follow string         follow      
+  --tail string           tail        
+  --tag string            tag         
+  --skeleton true,false
 ```
 
 #### h1 insight journal credential
@@ -416,13 +423,14 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id       
-  --location id-or-uri   Location Id      
-  --journal id-or-uri    Journal Id       
-  --name string          Credential name  
-  --type string          Credential type  
-  --value string         Credential value 
-  --token string         Credential token
+  --project id-or-uri     Project Id       
+  --location id-or-uri    Location Id      
+  --journal id-or-uri     Journal Id       
+  --name string           Credential name  
+  --type string           Credential type  
+  --value string          Credential value 
+  --token string          Credential token 
+  --skeleton true,false
 ```
 
 ##### h1 insight journal credential list
@@ -448,9 +456,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --skeleton true,false
 ```
 
 ##### h1 insight journal credential show
@@ -479,7 +488,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --journal id-or-uri      Journal Id   
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 ##### h1 insight journal credential update
@@ -509,7 +519,8 @@ Operation options
   --location id-or-uri     Location Id                                                                  
   --journal id-or-uri      Journal Id                                                                   
   --credential id-or-uri   credentialId                                                                 
-  --name string            Credential name. Requires permissions insight/journal.credential.name/update
+  --name string            Credential name. Requires permissions insight/journal.credential.name/update 
+  --skeleton true,false
 ```
 
 ##### h1 insight journal credential delete
@@ -538,7 +549,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --journal id-or-uri      Journal Id   
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 #### h1 insight journal service
@@ -608,9 +620,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --skeleton true,false
 ```
 
 ##### h1 insight journal service show
@@ -636,10 +649,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 insight journal tag
@@ -711,11 +725,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 insight journal tag list
@@ -741,9 +756,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --skeleton true,false
 ```
 
 ##### h1 insight journal tag show
@@ -769,10 +785,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 insight journal tag delete
@@ -798,10 +815,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 insight journal event
@@ -871,11 +889,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 insight journal event show
@@ -901,10 +920,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --journal id-or-uri     Journal Id  
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 #### h1 insight journal logger

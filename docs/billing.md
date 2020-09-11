@@ -115,7 +115,8 @@ Operation options
   --x-idempotency-key string   Idempotency key                                           
   --name string                Reservation name                                          
   --service id-or-uri          Reservation service. Provide ID or URI of billing/service 
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                            
+  --skeleton true,false
 ```
 
 #### h1 billing reservation list
@@ -141,10 +142,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id          
-  --name string         Filter by name      
-  --tag.value string    Filter by tag.value 
-  --tag.key string      Filter by tag.key
+  --project id-or-uri     Project Id          
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 billing reservation show
@@ -171,7 +173,8 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --reservation id-or-uri   Reservation Id
+  --reservation id-or-uri   Reservation Id 
+  --skeleton true,false
 ```
 
 #### h1 billing reservation update
@@ -199,7 +202,8 @@ Operation options
 
   --project id-or-uri       Project Id                                                             
   --reservation id-or-uri   Reservation Id                                                         
-  --name string             Reservation name. Requires permissions billing/reservation.name/update
+  --name string             Reservation name. Requires permissions billing/reservation.name/update 
+  --skeleton true,false
 ```
 
 #### h1 billing reservation delete
@@ -226,7 +230,8 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --reservation id-or-uri   Reservation Id
+  --reservation id-or-uri   Reservation Id 
+  --skeleton true,false
 ```
 
 #### h1 billing reservation assign
@@ -256,7 +261,8 @@ Operation options
   --reservation id-or-uri      Reservation Id                                                                
   --x-idempotency-key string   Idempotency key                                                               
   --resource id-or-uri         Reservation resource. Provide ID or URI of compute/vm. Requires permissions   
-                               compute/vm/use
+                               compute/vm/use                                                                
+  --skeleton true,false
 ```
 
 #### h1 billing reservation extend
@@ -284,7 +290,8 @@ Operation options
 
   --project id-or-uri          Project Id      
   --reservation id-or-uri      Reservation Id  
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 billing reservation service
@@ -355,7 +362,8 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --reservation id-or-uri   Reservation Id
+  --reservation id-or-uri   Reservation Id 
+  --skeleton true,false
 ```
 
 ##### h1 billing reservation service show
@@ -383,7 +391,8 @@ Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
-  --service id-or-uri       serviceId
+  --service id-or-uri       serviceId      
+  --skeleton true,false
 ```
 
 #### h1 billing reservation tag
@@ -458,7 +467,8 @@ Operation options
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
   --key string              Tag key        
-  --value string            Tag value
+  --value string            Tag value      
+  --skeleton true,false
 ```
 
 ##### h1 billing reservation tag list
@@ -485,7 +495,8 @@ Global options
 Operation options
 
   --project id-or-uri       Project Id     
-  --reservation id-or-uri   Reservation Id
+  --reservation id-or-uri   Reservation Id 
+  --skeleton true,false
 ```
 
 ##### h1 billing reservation tag show
@@ -513,7 +524,8 @@ Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
-  --tag id-or-uri           tagId
+  --tag id-or-uri           tagId          
+  --skeleton true,false
 ```
 
 ##### h1 billing reservation tag delete
@@ -541,7 +553,8 @@ Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
-  --tag id-or-uri           tagId
+  --tag id-or-uri           tagId          
+  --skeleton true,false
 ```
 
 #### h1 billing reservation event
@@ -614,7 +627,8 @@ Operation options
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
   --$limit string           $limit         
-  --$skip string            $skip
+  --$skip string            $skip          
+  --skeleton true,false
 ```
 
 ##### h1 billing reservation event show
@@ -642,7 +656,8 @@ Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
-  --event id-or-uri         eventId
+  --event id-or-uri         eventId        
+  --skeleton true,false
 ```
 
 ### h1 billing service
@@ -712,9 +727,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id     
-  --kind string         Filter by kind 
-  --name string         Filter by name
+  --project id-or-uri     Project Id     
+  --kind string           Filter by kind 
+  --name string           Filter by name 
+  --type string           Filter by type 
+  --skeleton true,false
 ```
 
 #### h1 billing service show
@@ -740,7 +757,8 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --service id-or-uri   Service Id
+  --project id-or-uri     Project Id 
+  --service id-or-uri     Service Id 
+  --skeleton true,false
 ```
 

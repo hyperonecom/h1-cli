@@ -135,7 +135,8 @@ Operation options
   --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule       
                                                                                                           collection 
   --tag key=key,value=value                                                                               Tag        
-                                                                                                          collection
+                                                                                                          collection 
+  --skeleton true,false
 ```
 
 #### h1 networking firewall list
@@ -161,11 +162,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 networking firewall show
@@ -191,9 +193,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --skeleton true,false
 ```
 
 #### h1 networking firewall update
@@ -219,10 +222,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                          
-  --location id-or-uri   Location Id                                                         
-  --firewall id-or-uri   Firewall Id                                                         
-  --name string          Firewall name. Requires permissions networking/firewall.name/update
+  --project id-or-uri     Project Id                                                          
+  --location id-or-uri    Location Id                                                         
+  --firewall id-or-uri    Firewall Id                                                         
+  --name string           Firewall name. Requires permissions networking/firewall.name/update 
+  --skeleton true,false
 ```
 
 #### h1 networking firewall delete
@@ -248,9 +252,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --skeleton true,false
 ```
 
 #### h1 networking firewall transfer
@@ -281,7 +286,8 @@ Operation options
   --firewall id-or-uri         Firewall Id                                                                   
   --x-idempotency-key string   Idempotency key                                                               
   --project uri                Firewall project. Provide URI of iam/project. Requires permissions            
-                               networking/firewall/create
+                               networking/firewall/create                                                    
+  --skeleton true,false
 ```
 
 #### h1 networking firewall ingress
@@ -353,15 +359,16 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --firewall id-or-uri   Firewall Id         
-  --name string          Rule name           
-  --action string        Rule action         
-  --priority string      Rule priority       
-  --filter string[]      Filter collection   
-  --external string[]    External collection 
-  --internal string[]    Internal collection
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --firewall id-or-uri    Firewall Id         
+  --name string           Rule name           
+  --action string         Rule action         
+  --priority string       Rule priority       
+  --filter string[]       Filter collection   
+  --external string[]     External collection 
+  --internal string[]     Internal collection 
+  --skeleton true,false
 ```
 
 ##### h1 networking firewall ingress list
@@ -387,9 +394,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --skeleton true,false
 ```
 
 ##### h1 networking firewall ingress show
@@ -415,10 +423,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id 
-  --rule id-or-uri       ruleId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --ingress id-or-uri     ingressId   
+  --skeleton true,false
 ```
 
 ##### h1 networking firewall ingress delete
@@ -444,10 +453,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id 
-  --rule id-or-uri       ruleId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --ingress id-or-uri     ingressId   
+  --skeleton true,false
 ```
 
 #### h1 networking firewall egress
@@ -519,15 +529,16 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --firewall id-or-uri   Firewall Id         
-  --name string          Rule name           
-  --action string        Rule action         
-  --priority string      Rule priority       
-  --filter string[]      Filter collection   
-  --external string[]    External collection 
-  --internal string[]    Internal collection
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --firewall id-or-uri    Firewall Id         
+  --name string           Rule name           
+  --action string         Rule action         
+  --priority string       Rule priority       
+  --filter string[]       Filter collection   
+  --external string[]     External collection 
+  --internal string[]     Internal collection 
+  --skeleton true,false
 ```
 
 ##### h1 networking firewall egress list
@@ -553,9 +564,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --skeleton true,false
 ```
 
 ##### h1 networking firewall egress show
@@ -581,10 +593,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id 
-  --rule id-or-uri       ruleId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --egress id-or-uri      egressId    
+  --skeleton true,false
 ```
 
 ##### h1 networking firewall egress delete
@@ -610,10 +623,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id 
-  --rule id-or-uri       ruleId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --egress id-or-uri      egressId    
+  --skeleton true,false
 ```
 
 #### h1 networking firewall service
@@ -683,9 +697,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --skeleton true,false
 ```
 
 ##### h1 networking firewall service show
@@ -711,10 +726,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id 
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 networking firewall tag
@@ -786,11 +802,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id 
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 networking firewall tag list
@@ -816,9 +833,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --skeleton true,false
 ```
 
 ##### h1 networking firewall tag show
@@ -844,10 +862,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id 
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 networking firewall tag delete
@@ -873,10 +892,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id 
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 networking firewall event
@@ -946,11 +966,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id 
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 networking firewall event show
@@ -976,10 +997,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --firewall id-or-uri   Firewall Id 
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --firewall id-or-uri    Firewall Id 
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 ### h1 networking ip
@@ -1003,7 +1025,7 @@ Command List
   show           Get networking/ip [networking_project_ip_get]                   
   update         Update networking/ip [networking_project_ip_update]             
   delete         Delete networking/ip [networking_project_ip_delete]             
-  allocate       Allocate networking/ip [networking_project_ip_allocate]         
+  persist        Persist networking/ip [networking_project_ip_persist]           
   associate      Associate networking/ip [networking_project_ip_associate]       
   disassociate   Disassociate networking/ip [networking_project_ip_disassociate] 
   transfer       Transfer networking/ip [networking_project_ip_transfer]         
@@ -1066,7 +1088,8 @@ Operation options
                                networking/network/use                                                        
   --ptr-record string          Ip ptrRecord                                                                  
   --address string             Ip address                                                                    
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                                                
+  --skeleton true,false
 ```
 
 #### h1 networking ip list
@@ -1097,7 +1120,8 @@ Operation options
   --network string             Filter by network           
   --associated.netadp string   Filter by associated.netadp 
   --tag.value string           Filter by tag.value         
-  --tag.key string             Filter by tag.key
+  --tag.key string             Filter by tag.key           
+  --skeleton true,false
 ```
 
 #### h1 networking ip show
@@ -1123,9 +1147,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --ip id-or-uri         Ip Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --ip id-or-uri          Ip Id       
+  --skeleton true,false
 ```
 
 #### h1 networking ip update
@@ -1151,10 +1176,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                        
-  --location id-or-uri   Location Id                                                       
-  --ip id-or-uri         Ip Id                                                             
-  --ptr-record string    Ip ptrRecord. Requires permissions networking/ip.ptrRecord/update
+  --project id-or-uri     Project Id                                                        
+  --location id-or-uri    Location Id                                                       
+  --ip id-or-uri          Ip Id                                                             
+  --ptr-record string     Ip ptrRecord. Requires permissions networking/ip.ptrRecord/update 
+  --skeleton true,false
 ```
 
 #### h1 networking ip delete
@@ -1180,21 +1206,22 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --ip id-or-uri         Ip Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --ip id-or-uri          Ip Id       
+  --skeleton true,false
 ```
 
-#### h1 networking ip allocate
+#### h1 networking ip persist
 
 ```
-h1 networking ip allocate
+h1 networking ip persist
 
-  Allocate networking/ip [networking_project_ip_allocate] 
+  Persist networking/ip [networking_project_ip_persist] 
 
 Synopsis
 
-  $ h1 networking ip allocate <options> 
+  $ h1 networking ip persist <options> 
 
 Global options
 
@@ -1211,7 +1238,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --ip id-or-uri               Ip Id           
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 networking ip associate
@@ -1242,7 +1270,8 @@ Operation options
   --ip id-or-uri               Ip Id                                                                         
   --x-idempotency-key string   Idempotency key                                                               
   --ip id-or-uri               Ip ip. Provide ID or URI of networking/ip. Requires permissions               
-                               networking/ip/use
+                               networking/ip/use                                                             
+  --skeleton true,false
 ```
 
 #### h1 networking ip disassociate
@@ -1271,7 +1300,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --ip id-or-uri               Ip Id           
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 networking ip transfer
@@ -1302,7 +1332,8 @@ Operation options
   --ip id-or-uri               Ip Id                                                                         
   --x-idempotency-key string   Idempotency key                                                               
   --project uri                Ip project. Provide URI of iam/project. Requires permissions                  
-                               networking/ip/create
+                               networking/ip/create                                                          
+  --skeleton true,false
 ```
 
 #### h1 networking ip service
@@ -1372,9 +1403,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --ip id-or-uri         Ip Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --ip id-or-uri          Ip Id       
+  --skeleton true,false
 ```
 
 ##### h1 networking ip service show
@@ -1400,10 +1432,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --ip id-or-uri         Ip Id       
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --ip id-or-uri          Ip Id       
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 networking ip tag
@@ -1475,11 +1508,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --ip id-or-uri         Ip Id       
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --ip id-or-uri          Ip Id       
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 networking ip tag list
@@ -1505,9 +1539,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --ip id-or-uri         Ip Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --ip id-or-uri          Ip Id       
+  --skeleton true,false
 ```
 
 ##### h1 networking ip tag show
@@ -1533,10 +1568,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --ip id-or-uri         Ip Id       
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --ip id-or-uri          Ip Id       
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 networking ip tag delete
@@ -1562,10 +1598,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --ip id-or-uri         Ip Id       
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --ip id-or-uri          Ip Id       
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 networking ip event
@@ -1635,11 +1672,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --ip id-or-uri         Ip Id       
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --ip id-or-uri          Ip Id       
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 networking ip event show
@@ -1665,10 +1703,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --ip id-or-uri         Ip Id       
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --ip id-or-uri          Ip Id       
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 ### h1 networking netadp
@@ -1754,7 +1793,8 @@ Operation options
   --firewall id-or-uri         Netadp firewall. Provide ID or URI of networking/firewall. Requires           
                                permissions networking/firewall/use                                           
   --ip string[]                Ip collection                                                                 
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                                                
+  --skeleton true,false
 ```
 
 #### h1 networking netadp list
@@ -1784,8 +1824,10 @@ Operation options
   --location id-or-uri         Location Id                 
   --assigned.resource string   Filter by assigned.resource 
   --assigned.id string         Filter by assigned.id       
+  --network string             Filter by network           
   --tag.value string           Filter by tag.value         
-  --tag.key string             Filter by tag.key
+  --tag.key string             Filter by tag.key           
+  --skeleton true,false
 ```
 
 #### h1 networking netadp show
@@ -1811,9 +1853,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netadp id-or-uri     Netadp Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netadp id-or-uri      Netadp Id   
+  --skeleton true,false
 ```
 
 #### h1 networking netadp update
@@ -1839,11 +1882,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                                    
-  --location id-or-uri   Location Id                                                                   
-  --netadp id-or-uri     Netadp Id                                                                     
-  --firewall id-or-uri   Netadp firewall. Provide ID or URI of networking/firewall. Requires           
-                         permissions networking/firewall/use, networking/netadp.firewall/update
+  --project id-or-uri     Project Id                                                                    
+  --location id-or-uri    Location Id                                                                   
+  --netadp id-or-uri      Netadp Id                                                                     
+  --firewall id-or-uri    Netadp firewall. Provide ID or URI of networking/firewall. Requires           
+                          permissions networking/firewall/use, networking/netadp.firewall/update        
+  --skeleton true,false
 ```
 
 #### h1 networking netadp delete
@@ -1869,9 +1913,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netadp id-or-uri     Netadp Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netadp id-or-uri      Netadp Id   
+  --skeleton true,false
 ```
 
 #### h1 networking netadp service
@@ -1941,9 +1986,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netadp id-or-uri     Netadp Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netadp id-or-uri      Netadp Id   
+  --skeleton true,false
 ```
 
 ##### h1 networking netadp service show
@@ -1969,10 +2015,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netadp id-or-uri     Netadp Id   
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netadp id-or-uri      Netadp Id   
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 networking netadp tag
@@ -2044,11 +2091,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netadp id-or-uri     Netadp Id   
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netadp id-or-uri      Netadp Id   
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 networking netadp tag list
@@ -2074,9 +2122,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netadp id-or-uri     Netadp Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netadp id-or-uri      Netadp Id   
+  --skeleton true,false
 ```
 
 ##### h1 networking netadp tag show
@@ -2102,10 +2151,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netadp id-or-uri     Netadp Id   
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netadp id-or-uri      Netadp Id   
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 networking netadp tag delete
@@ -2131,10 +2181,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netadp id-or-uri     Netadp Id   
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netadp id-or-uri      Netadp Id   
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 networking netadp event
@@ -2204,11 +2255,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netadp id-or-uri     Netadp Id   
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netadp id-or-uri      Netadp Id   
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 networking netadp event show
@@ -2234,10 +2286,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netadp id-or-uri     Netadp Id   
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netadp id-or-uri      Netadp Id   
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 ### h1 networking netgw
@@ -2321,7 +2374,8 @@ Operation options
   --name string                Netgw name                                                                    
   --public-ip id-or-uri        Public ip. Provide ID or URI of networking/ip. Requires permissions           
                                networking/ip/use                                                             
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                                                
+  --skeleton true,false
 ```
 
 #### h1 networking netgw list
@@ -2347,11 +2401,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 networking netgw show
@@ -2377,9 +2432,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netgw id-or-uri      Netgw Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netgw id-or-uri       Netgw Id    
+  --skeleton true,false
 ```
 
 #### h1 networking netgw update
@@ -2405,10 +2461,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                    
-  --location id-or-uri   Location Id                                                   
-  --netgw id-or-uri      Netgw Id                                                      
-  --name string          Netgw name. Requires permissions networking/netgw.name/update
+  --project id-or-uri     Project Id                                                    
+  --location id-or-uri    Location Id                                                   
+  --netgw id-or-uri       Netgw Id                                                      
+  --name string           Netgw name. Requires permissions networking/netgw.name/update 
+  --skeleton true,false
 ```
 
 #### h1 networking netgw delete
@@ -2434,9 +2491,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netgw id-or-uri      Netgw Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netgw id-or-uri       Netgw Id    
+  --skeleton true,false
 ```
 
 #### h1 networking netgw attach
@@ -2467,7 +2525,8 @@ Operation options
   --netgw id-or-uri             Netgw Id                                                                      
   --x-idempotency-key string    Idempotency key                                                               
   --private-network id-or-uri   Private network. Provide ID or URI of networking/network. Requires            
-                                permissions networking/network/use
+                                permissions networking/network/use                                            
+  --skeleton true,false
 ```
 
 #### h1 networking netgw detach
@@ -2496,7 +2555,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --netgw id-or-uri            Netgw Id        
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 networking netgw service
@@ -2566,9 +2626,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netgw id-or-uri      Netgw Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netgw id-or-uri       Netgw Id    
+  --skeleton true,false
 ```
 
 ##### h1 networking netgw service show
@@ -2594,10 +2655,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netgw id-or-uri      Netgw Id    
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netgw id-or-uri       Netgw Id    
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 networking netgw tag
@@ -2669,11 +2731,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netgw id-or-uri      Netgw Id    
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netgw id-or-uri       Netgw Id    
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 networking netgw tag list
@@ -2699,9 +2762,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netgw id-or-uri      Netgw Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netgw id-or-uri       Netgw Id    
+  --skeleton true,false
 ```
 
 ##### h1 networking netgw tag show
@@ -2727,10 +2791,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netgw id-or-uri      Netgw Id    
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netgw id-or-uri       Netgw Id    
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 networking netgw tag delete
@@ -2756,10 +2821,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netgw id-or-uri      Netgw Id    
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netgw id-or-uri       Netgw Id    
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 networking netgw event
@@ -2829,11 +2895,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netgw id-or-uri      Netgw Id    
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netgw id-or-uri       Netgw Id    
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 networking netgw event show
@@ -2859,10 +2926,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --netgw id-or-uri      Netgw Id    
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --netgw id-or-uri       Netgw Id    
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 ### h1 networking network
@@ -2945,7 +3013,8 @@ Operation options
   --name string                Network name    
   --address string             Network address 
   --gateway string             Network gateway 
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection  
+  --skeleton true,false
 ```
 
 #### h1 networking network list
@@ -2971,11 +3040,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 networking network show
@@ -3001,9 +3071,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --skeleton true,false
 ```
 
 #### h1 networking network update
@@ -3029,13 +3100,14 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                                    
-  --location id-or-uri   Location Id                                                                   
-  --network id-or-uri    Network Id                                                                    
-  --name string          Network name. Requires permissions networking/network.name/update             
-  --gateway string       Network gateway. Requires permissions networking/network.gateway/update       
-  --firewall id-or-uri   Network firewall. Provide ID or URI of networking/firewall. Requires          
-                         permissions networking/firewall/use, networking/network.firewall/update
+  --project id-or-uri     Project Id                                                                    
+  --location id-or-uri    Location Id                                                                   
+  --network id-or-uri     Network Id                                                                    
+  --name string           Network name. Requires permissions networking/network.name/update             
+  --gateway string        Network gateway. Requires permissions networking/network.gateway/update       
+  --firewall id-or-uri    Network firewall. Provide ID or URI of networking/firewall. Requires          
+                          permissions networking/firewall/use, networking/network.firewall/update       
+  --skeleton true,false
 ```
 
 #### h1 networking network delete
@@ -3061,9 +3133,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --skeleton true,false
 ```
 
 #### h1 networking network ip
@@ -3139,7 +3212,8 @@ Operation options
   --location id-or-uri        Location Id    
   --network id-or-uri         Network Id     
   --address string            Ip address     
-  --tag key=key,value=value   Tag collection
+  --tag key=key,value=value   Tag collection 
+  --skeleton true,false
 ```
 
 ##### h1 networking network ip list
@@ -3165,9 +3239,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --skeleton true,false
 ```
 
 ##### h1 networking network ip show
@@ -3193,10 +3268,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id  
-  --ip id-or-uri         ipId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --ip id-or-uri          ipId        
+  --skeleton true,false
 ```
 
 ##### h1 networking network ip delete
@@ -3222,10 +3298,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id  
-  --ip id-or-uri         ipId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --ip id-or-uri          ipId        
+  --skeleton true,false
 ```
 
 #### h1 networking network service
@@ -3295,9 +3372,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --skeleton true,false
 ```
 
 ##### h1 networking network service show
@@ -3323,10 +3401,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id  
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 networking network tag
@@ -3398,11 +3477,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id  
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 networking network tag list
@@ -3428,9 +3508,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --skeleton true,false
 ```
 
 ##### h1 networking network tag show
@@ -3456,10 +3537,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id  
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 networking network tag delete
@@ -3485,10 +3567,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id  
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 networking network event
@@ -3558,11 +3641,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id  
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 networking network event show
@@ -3588,9 +3672,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --network id-or-uri    Network Id  
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --network id-or-uri     Network Id  
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 

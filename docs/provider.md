@@ -120,7 +120,8 @@ Operation options
   --x-idempotency-key string   Idempotency key                                     
   --name string                Agent name                                          
   --service id-or-uri          Agent service. Provide ID or URI of billing/service 
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                      
+  --skeleton true,false
 ```
 
 #### h1 provider agent list
@@ -146,11 +147,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 provider agent show
@@ -176,9 +178,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --skeleton true,false
 ```
 
 #### h1 provider agent update
@@ -204,10 +207,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                  
-  --location id-or-uri   Location Id                                                 
-  --agent id-or-uri      Agent Id                                                    
-  --name string          Agent name. Requires permissions provider/agent.name/update
+  --project id-or-uri     Project Id                                                  
+  --location id-or-uri    Location Id                                                 
+  --agent id-or-uri       Agent Id                                                    
+  --name string           Agent name. Requires permissions provider/agent.name/update 
+  --skeleton true,false
 ```
 
 #### h1 provider agent delete
@@ -233,9 +237,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --skeleton true,false
 ```
 
 #### h1 provider agent start
@@ -264,7 +269,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --agent id-or-uri            Agent Id        
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 provider agent suspend
@@ -293,7 +299,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --agent id-or-uri            Agent Id        
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 provider agent inspect
@@ -322,7 +329,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --agent id-or-uri            Agent Id        
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 provider agent transfer
@@ -353,7 +361,8 @@ Operation options
   --agent id-or-uri            Agent Id                                                                      
   --x-idempotency-key string   Idempotency key                                                               
   --project uri                Agent project. Provide URI of iam/project. Requires permissions               
-                               provider/agent/create
+                               provider/agent/create                                                         
+  --skeleton true,false
 ```
 
 #### h1 provider agent resource
@@ -422,9 +431,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --skeleton true,false
 ```
 
 #### h1 provider agent credential
@@ -497,13 +507,14 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id       
-  --location id-or-uri   Location Id      
-  --agent id-or-uri      Agent Id         
-  --name string          Credential name  
-  --type string          Credential type  
-  --value string         Credential value 
-  --token string         Credential token
+  --project id-or-uri     Project Id       
+  --location id-or-uri    Location Id      
+  --agent id-or-uri       Agent Id         
+  --name string           Credential name  
+  --type string           Credential type  
+  --value string          Credential value 
+  --token string          Credential token 
+  --skeleton true,false
 ```
 
 ##### h1 provider agent credential list
@@ -529,9 +540,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --skeleton true,false
 ```
 
 ##### h1 provider agent credential show
@@ -560,7 +572,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --agent id-or-uri        Agent Id     
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 ##### h1 provider agent credential update
@@ -590,7 +603,8 @@ Operation options
   --location id-or-uri     Location Id                                                                 
   --agent id-or-uri        Agent Id                                                                    
   --credential id-or-uri   credentialId                                                                
-  --name string            Credential name. Requires permissions provider/agent.credential.name/update
+  --name string            Credential name. Requires permissions provider/agent.credential.name/update 
+  --skeleton true,false
 ```
 
 ##### h1 provider agent credential delete
@@ -619,7 +633,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --agent id-or-uri        Agent Id     
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 #### h1 provider agent enabledService
@@ -692,10 +707,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                   
-  --location id-or-uri   Location Id                                                  
-  --agent id-or-uri      Agent Id                                                     
-  --service id-or-uri    EnabledService service. Provide ID or URI of billing/service
+  --project id-or-uri     Project Id                                                   
+  --location id-or-uri    Location Id                                                  
+  --agent id-or-uri       Agent Id                                                     
+  --service id-or-uri     EnabledService service. Provide ID or URI of billing/service 
+  --skeleton true,false
 ```
 
 ##### h1 provider agent enabledService list
@@ -721,9 +737,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --skeleton true,false
 ```
 
 ##### h1 provider agent enabledService show
@@ -752,7 +769,8 @@ Operation options
   --project id-or-uri           Project Id       
   --location id-or-uri          Location Id      
   --agent id-or-uri             Agent Id         
-  --enabled-service id-or-uri   enabledServiceId
+  --enabled-service id-or-uri   enabledServiceId 
+  --skeleton true,false
 ```
 
 ##### h1 provider agent enabledService delete
@@ -782,7 +800,8 @@ Operation options
   --project id-or-uri           Project Id       
   --location id-or-uri          Location Id      
   --agent id-or-uri             Agent Id         
-  --enabled-service id-or-uri   enabledServiceId
+  --enabled-service id-or-uri   enabledServiceId 
+  --skeleton true,false
 ```
 
 #### h1 provider agent service
@@ -852,9 +871,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --skeleton true,false
 ```
 
 ##### h1 provider agent service show
@@ -880,10 +900,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id    
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 provider agent tag
@@ -955,11 +976,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id    
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 provider agent tag list
@@ -985,9 +1007,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --skeleton true,false
 ```
 
 ##### h1 provider agent tag show
@@ -1013,10 +1036,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id    
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 provider agent tag delete
@@ -1042,10 +1066,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id    
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 provider agent event
@@ -1115,11 +1140,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id    
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 provider agent event show
@@ -1145,9 +1171,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --agent id-or-uri      Agent Id    
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --agent id-or-uri       Agent Id    
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 

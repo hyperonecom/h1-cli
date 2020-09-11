@@ -125,7 +125,8 @@ Operation options
   --source id-or-uri           Disk source. Provide ID or URI of storage/disk. Requires permissions          
                                storage/disk/use                                                              
   --vm id-or-uri               Disk vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use 
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                                                
+  --skeleton true,false
 ```
 
 #### h1 storage disk list
@@ -151,12 +152,13 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --vm string            Filter by vm        
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --vm string             Filter by vm        
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 storage disk show
@@ -182,9 +184,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --disk id-or-uri       Disk Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --disk id-or-uri        Disk Id     
+  --skeleton true,false
 ```
 
 #### h1 storage disk update
@@ -210,10 +213,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                               
-  --location id-or-uri   Location Id                                              
-  --disk id-or-uri       Disk Id                                                  
-  --name string          Disk name. Requires permissions storage/disk.name/update
+  --project id-or-uri     Project Id                                               
+  --location id-or-uri    Location Id                                              
+  --disk id-or-uri        Disk Id                                                  
+  --name string           Disk name. Requires permissions storage/disk.name/update 
+  --skeleton true,false
 ```
 
 #### h1 storage disk delete
@@ -239,9 +243,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --disk id-or-uri       Disk Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --disk id-or-uri        Disk Id     
+  --skeleton true,false
 ```
 
 #### h1 storage disk resize
@@ -271,7 +276,8 @@ Operation options
   --location id-or-uri         Location Id     
   --disk id-or-uri             Disk Id         
   --x-idempotency-key string   Idempotency key 
-  --size string                Disk size
+  --size string                Disk size       
+  --skeleton true,false
 ```
 
 #### h1 storage disk attach
@@ -301,7 +307,8 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --disk id-or-uri             Disk Id                                                                       
   --x-idempotency-key string   Idempotency key                                                               
-  --vm id-or-uri               Disk vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use
+  --vm id-or-uri               Disk vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use 
+  --skeleton true,false
 ```
 
 #### h1 storage disk detach
@@ -330,7 +337,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --disk id-or-uri             Disk Id         
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 storage disk download
@@ -359,7 +367,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --disk id-or-uri             Disk Id         
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 storage disk transfer
@@ -390,7 +399,8 @@ Operation options
   --disk id-or-uri             Disk Id                                                                       
   --x-idempotency-key string   Idempotency key                                                               
   --project uri                Disk project. Provide URI of iam/project. Requires permissions                
-                               storage/disk/create
+                               storage/disk/create                                                           
+  --skeleton true,false
 ```
 
 #### h1 storage disk service
@@ -460,9 +470,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --disk id-or-uri       Disk Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --disk id-or-uri        Disk Id     
+  --skeleton true,false
 ```
 
 ##### h1 storage disk service show
@@ -488,10 +499,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --disk id-or-uri       Disk Id     
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --disk id-or-uri        Disk Id     
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 storage disk tag
@@ -563,11 +575,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --disk id-or-uri       Disk Id     
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --disk id-or-uri        Disk Id     
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 storage disk tag list
@@ -593,9 +606,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --disk id-or-uri       Disk Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --disk id-or-uri        Disk Id     
+  --skeleton true,false
 ```
 
 ##### h1 storage disk tag show
@@ -621,10 +635,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --disk id-or-uri       Disk Id     
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --disk id-or-uri        Disk Id     
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 storage disk tag delete
@@ -650,10 +665,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --disk id-or-uri       Disk Id     
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --disk id-or-uri        Disk Id     
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 storage disk event
@@ -723,11 +739,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --disk id-or-uri       Disk Id     
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --disk id-or-uri        Disk Id     
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 storage disk event show
@@ -753,10 +770,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --disk id-or-uri       Disk Id     
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --disk id-or-uri        Disk Id     
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 ### h1 storage image
@@ -845,7 +863,8 @@ Operation options
   --replica id-or-uri          Image replica. Provide ID or URI of compute/replica. Requires permissions     
                                compute/replica/use                                                           
   --description string         Image description                                                             
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                                                
+  --skeleton true,false
 ```
 
 #### h1 storage image list
@@ -871,11 +890,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 storage image show
@@ -901,9 +921,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --image id-or-uri      Image Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --image id-or-uri       Image Id    
+  --skeleton true,false
 ```
 
 #### h1 storage image update
@@ -929,11 +950,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                               
-  --location id-or-uri   Location Id                                                              
-  --image id-or-uri      Image Id                                                                 
-  --name string          Image name. Requires permissions storage/image.name/update               
-  --description string   Image description. Requires permissions storage/image.description/update
+  --project id-or-uri     Project Id                                                               
+  --location id-or-uri    Location Id                                                              
+  --image id-or-uri       Image Id                                                                 
+  --name string           Image name. Requires permissions storage/image.name/update               
+  --description string    Image description. Requires permissions storage/image.description/update 
+  --skeleton true,false
 ```
 
 #### h1 storage image delete
@@ -959,9 +981,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --image id-or-uri      Image Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --image id-or-uri       Image Id    
+  --skeleton true,false
 ```
 
 #### h1 storage image transfer
@@ -992,7 +1015,8 @@ Operation options
   --image id-or-uri            Image Id                                                                      
   --x-idempotency-key string   Idempotency key                                                               
   --project uri                Image project. Provide URI of iam/project. Requires permissions               
-                               storage/image/create
+                               storage/image/create                                                          
+  --skeleton true,false
 ```
 
 #### h1 storage image disk
@@ -1061,9 +1085,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --image id-or-uri      Image Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --image id-or-uri       Image Id    
+  --skeleton true,false
 ```
 
 #### h1 storage image service
@@ -1133,9 +1158,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --image id-or-uri      Image Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --image id-or-uri       Image Id    
+  --skeleton true,false
 ```
 
 ##### h1 storage image service show
@@ -1161,10 +1187,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --image id-or-uri      Image Id    
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --image id-or-uri       Image Id    
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 storage image tag
@@ -1236,11 +1263,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --image id-or-uri      Image Id    
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --image id-or-uri       Image Id    
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 storage image tag list
@@ -1266,9 +1294,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --image id-or-uri      Image Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --image id-or-uri       Image Id    
+  --skeleton true,false
 ```
 
 ##### h1 storage image tag show
@@ -1294,10 +1323,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --image id-or-uri      Image Id    
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --image id-or-uri       Image Id    
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 storage image tag delete
@@ -1323,10 +1353,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --image id-or-uri      Image Id    
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --image id-or-uri       Image Id    
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 storage image event
@@ -1396,11 +1427,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --image id-or-uri      Image Id    
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --image id-or-uri       Image Id    
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 storage image event show
@@ -1426,10 +1458,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --image id-or-uri      Image Id    
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --image id-or-uri       Image Id    
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 ### h1 storage iso
@@ -1512,7 +1545,8 @@ Operation options
   --x-idempotency-key string   Idempotency key 
   --name string                Iso name        
   --source string              Iso source      
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection  
+  --skeleton true,false
 ```
 
 #### h1 storage iso list
@@ -1538,11 +1572,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 storage iso show
@@ -1568,9 +1603,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --iso id-or-uri        Iso Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --iso id-or-uri         Iso Id      
+  --skeleton true,false
 ```
 
 #### h1 storage iso update
@@ -1596,10 +1632,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                             
-  --location id-or-uri   Location Id                                            
-  --iso id-or-uri        Iso Id                                                 
-  --name string          Iso name. Requires permissions storage/iso.name/update
+  --project id-or-uri     Project Id                                             
+  --location id-or-uri    Location Id                                            
+  --iso id-or-uri         Iso Id                                                 
+  --name string           Iso name. Requires permissions storage/iso.name/update 
+  --skeleton true,false
 ```
 
 #### h1 storage iso delete
@@ -1625,9 +1662,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --iso id-or-uri        Iso Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --iso id-or-uri         Iso Id      
+  --skeleton true,false
 ```
 
 #### h1 storage iso detach
@@ -1657,7 +1695,8 @@ Operation options
   --location id-or-uri         Location Id                                                                  
   --iso id-or-uri              Iso Id                                                                       
   --x-idempotency-key string   Idempotency key                                                              
-  --vm id-or-uri               Iso vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use
+  --vm id-or-uri               Iso vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use 
+  --skeleton true,false
 ```
 
 #### h1 storage iso transfer
@@ -1688,7 +1727,8 @@ Operation options
   --iso id-or-uri              Iso Id                                                                        
   --x-idempotency-key string   Idempotency key                                                               
   --project uri                Iso project. Provide URI of iam/project. Requires permissions                 
-                               storage/iso/create
+                               storage/iso/create                                                            
+  --skeleton true,false
 ```
 
 #### h1 storage iso service
@@ -1758,9 +1798,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --iso id-or-uri        Iso Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --iso id-or-uri         Iso Id      
+  --skeleton true,false
 ```
 
 ##### h1 storage iso service show
@@ -1786,10 +1827,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --iso id-or-uri        Iso Id      
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --iso id-or-uri         Iso Id      
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 storage iso tag
@@ -1861,11 +1903,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --iso id-or-uri        Iso Id      
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --iso id-or-uri         Iso Id      
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 storage iso tag list
@@ -1891,9 +1934,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --iso id-or-uri        Iso Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --iso id-or-uri         Iso Id      
+  --skeleton true,false
 ```
 
 ##### h1 storage iso tag show
@@ -1919,10 +1963,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --iso id-or-uri        Iso Id      
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --iso id-or-uri         Iso Id      
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 storage iso tag delete
@@ -1948,10 +1993,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --iso id-or-uri        Iso Id      
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --iso id-or-uri         Iso Id      
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 storage iso event
@@ -2021,11 +2067,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --iso id-or-uri        Iso Id      
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --iso id-or-uri         Iso Id      
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 storage iso event show
@@ -2051,10 +2098,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --iso id-or-uri        Iso Id      
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --iso id-or-uri         Iso Id      
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 ### h1 storage vault
@@ -2147,7 +2195,8 @@ Operation options
   --size string                Vault size                                                                    
   --source uri                 Vault source. Provide URI of storage/vault.snapshot. Requires permissions     
                                storage/vault.snapshot/use                                                    
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                                                
+  --skeleton true,false
 ```
 
 #### h1 storage vault list
@@ -2173,11 +2222,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 storage vault show
@@ -2203,9 +2253,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --skeleton true,false
 ```
 
 #### h1 storage vault update
@@ -2231,10 +2282,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                 
-  --location id-or-uri   Location Id                                                
-  --vault id-or-uri      Vault Id                                                   
-  --name string          Vault name. Requires permissions storage/vault.name/update
+  --project id-or-uri     Project Id                                                 
+  --location id-or-uri    Location Id                                                
+  --vault id-or-uri       Vault Id                                                   
+  --name string           Vault name. Requires permissions storage/vault.name/update 
+  --skeleton true,false
 ```
 
 #### h1 storage vault delete
@@ -2263,7 +2315,8 @@ Operation options
   --project id-or-uri                Project Id               
   --location id-or-uri               Location Id              
   --vault id-or-uri                  Vault Id                 
-  --remove-allsnapshots true,false   Vault removeAllSnapshots
+  --remove-allsnapshots true,false   Vault removeAllSnapshots 
+  --skeleton true,false
 ```
 
 #### h1 storage vault start
@@ -2292,7 +2345,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --vault id-or-uri            Vault Id        
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 storage vault stop
@@ -2321,7 +2375,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --vault id-or-uri            Vault Id        
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 storage vault resize
@@ -2351,7 +2406,8 @@ Operation options
   --location id-or-uri         Location Id     
   --vault id-or-uri            Vault Id        
   --x-idempotency-key string   Idempotency key 
-  --size string                Vault size
+  --size string                Vault size      
+  --skeleton true,false
 ```
 
 #### h1 storage vault snapshot
@@ -2383,7 +2439,8 @@ Operation options
   --x-idempotency-key string   Idempotency key                                                               
   --name string                Vault name                                                                    
   --service id-or-uri          Vault service. Provide ID or URI of billing/service. Defaults is              
-                               5badbeb585f66b3d085727eb
+                               5badbeb585f66b3d085727eb                                                      
+  --skeleton true,false
 ```
 
 #### h1 storage vault snapshot
@@ -2455,10 +2512,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id    
-  --location id-or-uri   Location Id   
-  --vault id-or-uri      Vault Id      
-  --name string          Snapshot name
+  --project id-or-uri     Project Id    
+  --location id-or-uri    Location Id   
+  --vault id-or-uri       Vault Id      
+  --name string           Snapshot name 
+  --skeleton true,false
 ```
 
 ##### h1 storage vault snapshot list
@@ -2484,9 +2542,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --skeleton true,false
 ```
 
 ##### h1 storage vault snapshot show
@@ -2512,10 +2571,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id    
-  --snapshot id-or-uri   snapshotId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --snapshot id-or-uri    snapshotId  
+  --skeleton true,false
 ```
 
 ##### h1 storage vault snapshot delete
@@ -2541,10 +2601,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id    
-  --snapshot id-or-uri   snapshotId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --snapshot id-or-uri    snapshotId  
+  --skeleton true,false
 ```
 
 #### h1 storage vault credential
@@ -2617,13 +2678,14 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id       
-  --location id-or-uri   Location Id      
-  --vault id-or-uri      Vault Id         
-  --name string          Credential name  
-  --type string          Credential type  
-  --value string         Credential value 
-  --token string         Credential token
+  --project id-or-uri     Project Id       
+  --location id-or-uri    Location Id      
+  --vault id-or-uri       Vault Id         
+  --name string           Credential name  
+  --type string           Credential type  
+  --value string          Credential value 
+  --token string          Credential token 
+  --skeleton true,false
 ```
 
 ##### h1 storage vault credential list
@@ -2649,9 +2711,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --skeleton true,false
 ```
 
 ##### h1 storage vault credential show
@@ -2680,7 +2743,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --vault id-or-uri        Vault Id     
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 ##### h1 storage vault credential update
@@ -2710,7 +2774,8 @@ Operation options
   --location id-or-uri     Location Id                                                                
   --vault id-or-uri        Vault Id                                                                   
   --credential id-or-uri   credentialId                                                               
-  --name string            Credential name. Requires permissions storage/vault.credential.name/update
+  --name string            Credential name. Requires permissions storage/vault.credential.name/update 
+  --skeleton true,false
 ```
 
 ##### h1 storage vault credential delete
@@ -2739,7 +2804,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --vault id-or-uri        Vault Id     
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 #### h1 storage vault service
@@ -2809,9 +2875,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --skeleton true,false
 ```
 
 ##### h1 storage vault service show
@@ -2837,10 +2904,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id    
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 storage vault tag
@@ -2912,11 +2980,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id    
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 storage vault tag list
@@ -2942,9 +3011,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --skeleton true,false
 ```
 
 ##### h1 storage vault tag show
@@ -2970,10 +3040,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id    
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 storage vault tag delete
@@ -2999,10 +3070,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id    
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 storage vault event
@@ -3072,11 +3144,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id    
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 storage vault event show
@@ -3102,10 +3175,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vault id-or-uri      Vault Id    
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vault id-or-uri       Vault Id    
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 #### h1 storage vault ssh

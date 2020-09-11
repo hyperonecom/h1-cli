@@ -112,7 +112,8 @@ Operation options
   --location id-or-uri         Location Id      
   --x-idempotency-key string   Idempotency key  
   --hostname string            Replica hostname 
-  --secret string              Replica secret
+  --secret string              Replica secret   
+  --skeleton true,false
 ```
 
 #### h1 compute replica list
@@ -138,9 +139,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id     
-  --location id-or-uri   Location Id    
-  --name string          Filter by name
+  --project id-or-uri     Project Id     
+  --location id-or-uri    Location Id    
+  --name string           Filter by name 
+  --skeleton true,false
 ```
 
 #### h1 compute replica show
@@ -166,9 +168,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --replica id-or-uri    Replica Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --replica id-or-uri     Replica Id  
+  --skeleton true,false
 ```
 
 #### h1 compute replica delete
@@ -194,9 +197,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --replica id-or-uri    Replica Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --replica id-or-uri     Replica Id  
+  --skeleton true,false
 ```
 
 #### h1 compute replica service
@@ -266,9 +270,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --replica id-or-uri    Replica Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --replica id-or-uri     Replica Id  
+  --skeleton true,false
 ```
 
 ##### h1 compute replica service show
@@ -294,10 +299,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --replica id-or-uri    Replica Id  
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --replica id-or-uri     Replica Id  
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 compute replica tag
@@ -369,11 +375,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --replica id-or-uri    Replica Id  
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --replica id-or-uri     Replica Id  
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 compute replica tag list
@@ -399,9 +406,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --replica id-or-uri    Replica Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --replica id-or-uri     Replica Id  
+  --skeleton true,false
 ```
 
 ##### h1 compute replica tag show
@@ -427,10 +435,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --replica id-or-uri    Replica Id  
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --replica id-or-uri     Replica Id  
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 compute replica tag delete
@@ -456,10 +465,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --replica id-or-uri    Replica Id  
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --replica id-or-uri     Replica Id  
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 compute replica event
@@ -529,11 +539,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --replica id-or-uri    Replica Id  
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --replica id-or-uri     Replica Id  
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 compute replica event show
@@ -559,10 +570,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --replica id-or-uri    Replica Id  
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --replica id-or-uri     Replica Id  
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 ### h1 compute vm
@@ -664,7 +676,8 @@ Operation options
   --credential type=type,value=value                 Credential collection                                           
   --disk name=name,service=service,size=size         Disk collection                                                 
   --netadp network=network,firewall=firewall,ip=ip   Netadp collection                                               
-  --tag key=key,value=value                          Tag collection
+  --tag key=key,value=value                          Tag collection                                                  
+  --skeleton true,false
 ```
 
 #### h1 compute vm list
@@ -690,11 +703,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 compute vm show
@@ -720,9 +734,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --skeleton true,false
 ```
 
 #### h1 compute vm update
@@ -752,7 +767,8 @@ Operation options
   --location id-or-uri     Location Id                                                          
   --vm id-or-uri           Vm Id                                                                
   --user-metadata string   Vm userMetadata. Requires permissions compute/vm.userMetadata/update 
-  --name string            Vm name. Requires permissions compute/vm.name/update
+  --name string            Vm name. Requires permissions compute/vm.name/update                 
+  --skeleton true,false
 ```
 
 #### h1 compute vm delete
@@ -778,9 +794,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --skeleton true,false
 ```
 
 #### h1 compute vm start
@@ -809,7 +826,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --vm id-or-uri               Vm Id           
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 compute vm restart
@@ -838,7 +856,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --vm id-or-uri               Vm Id           
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 compute vm stop
@@ -867,7 +886,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --vm id-or-uri               Vm Id           
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 compute vm turnoff
@@ -896,7 +916,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --vm id-or-uri               Vm Id           
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 compute vm password_reset
@@ -928,7 +949,8 @@ Operation options
   --x-idempotency-key string   Idempotency key 
   --user-name string           Vm userName     
   --modulus string             Vm modulus      
-  --exponent string            Vm exponent
+  --exponent string            Vm exponent     
+  --skeleton true,false
 ```
 
 #### h1 compute vm flavour
@@ -958,7 +980,8 @@ Operation options
   --location id-or-uri         Location Id                                      
   --vm id-or-uri               Vm Id                                            
   --x-idempotency-key string   Idempotency key                                  
-  --service id-or-uri          Vm service. Provide ID or URI of billing/service
+  --service id-or-uri          Vm service. Provide ID or URI of billing/service 
+  --skeleton true,false
 ```
 
 #### h1 compute vm console
@@ -987,7 +1010,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --vm id-or-uri               Vm Id           
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 compute vm serialport
@@ -1017,7 +1041,8 @@ Operation options
   --location id-or-uri         Location Id              
   --vm id-or-uri               Vm Id                    
   --x-idempotency-key string   Idempotency key          
-  --number string              Vm number. Defaults is 1
+  --number string              Vm number. Defaults is 1 
+  --skeleton true,false
 ```
 
 #### h1 compute vm disk
@@ -1035,11 +1060,9 @@ Options
 
 Command List
 
-  spec     Print specification of context                                            
-  create   Create compute/vm.disk [compute_project_vm_disk_create]                   
-  list     List compute/vm.disk [compute_project_vm_disk_list]                       
-  show     Get compute/vm.disk [compute_project_vm_disk_get]                         
-  detach   Create compute/vm.actions [compute_project_vm_disk_actions_detach_create]
+  spec     Print specification of context                          
+  create   Create compute/vm.disk [compute_project_vm_disk_create] 
+  list     List compute/vm.disk [compute_project_vm_disk_list]
 ```
 
 ##### h1 compute vm disk spec
@@ -1089,11 +1112,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                                    
-  --location id-or-uri   Location Id                                                                   
-  --vm id-or-uri         Vm Id                                                                         
-  --disk id-or-uri       Disk disk. Provide ID or URI of storage/disk. Requires permissions            
-                         storage/disk/attach
+  --project id-or-uri     Project Id                                                                    
+  --location id-or-uri    Location Id                                                                   
+  --vm id-or-uri          Vm Id                                                                         
+  --disk id-or-uri        Disk disk. Provide ID or URI of storage/disk. Requires permissions            
+                          storage/disk/attach                                                           
+  --skeleton true,false
 ```
 
 ##### h1 compute vm disk list
@@ -1119,67 +1143,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id
-```
-
-##### h1 compute vm disk show
-
-```
-h1 compute vm disk show
-
-  Get compute/vm.disk [compute_project_vm_disk_get] 
-
-Synopsis
-
-  $ h1 compute vm disk show <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id       
-  --disk id-or-uri       diskId
-```
-
-##### h1 compute vm disk detach
-
-```
-h1 compute vm disk detach
-
-  Create compute/vm.actions [compute_project_vm_disk_actions_detach_create] 
-
-Synopsis
-
-  $ h1 compute vm disk detach <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id       
-  --disk id-or-uri       diskId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --skeleton true,false
 ```
 
 #### h1 compute vm iso
@@ -1197,11 +1164,9 @@ Options
 
 Command List
 
-  spec     Print specification of context                                           
-  create   Create compute/vm.iso [compute_project_vm_iso_create]                    
-  list     List compute/vm.iso [compute_project_vm_iso_list]                        
-  show     Get compute/vm.iso [compute_project_vm_iso_get]                          
-  detach   Create compute/vm.actions [compute_project_vm_iso_actions_detach_create]
+  spec     Print specification of context                        
+  create   Create compute/vm.iso [compute_project_vm_iso_create] 
+  list     List compute/vm.iso [compute_project_vm_iso_list]
 ```
 
 ##### h1 compute vm iso spec
@@ -1251,11 +1216,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                                    
-  --location id-or-uri   Location Id                                                                   
-  --vm id-or-uri         Vm Id                                                                         
-  --iso id-or-uri        Iso iso. Provide ID or URI of storage/iso. Requires permissions               
-                         storage/iso/attach
+  --project id-or-uri     Project Id                                                                    
+  --location id-or-uri    Location Id                                                                   
+  --vm id-or-uri          Vm Id                                                                         
+  --iso id-or-uri         Iso iso. Provide ID or URI of storage/iso. Requires permissions               
+                          storage/iso/attach                                                            
+  --skeleton true,false
 ```
 
 ##### h1 compute vm iso list
@@ -1281,69 +1247,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id
-```
-
-##### h1 compute vm iso show
-
-```
-h1 compute vm iso show
-
-  Get compute/vm.iso [compute_project_vm_iso_get] 
-
-Synopsis
-
-  $ h1 compute vm iso show <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id       
-  --iso id-or-uri        isoId
-```
-
-##### h1 compute vm iso detach
-
-```
-h1 compute vm iso detach
-
-  Create compute/vm.actions [compute_project_vm_iso_actions_detach_create] 
-
-Synopsis
-
-  $ h1 compute vm iso detach <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri    Project Id                                                                    
-  --location id-or-uri   Location Id                                                                   
-  --vm id-or-uri         Vm Id                                                                         
-  --iso id-or-uri        isoId                                                                         
-  --vm id-or-uri         Detach vm. Provide ID or URI of compute/vm. Requires permissions              
-                         compute/vm/use
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --skeleton true,false
 ```
 
 #### h1 compute vm service
@@ -1413,9 +1320,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --skeleton true,false
 ```
 
 ##### h1 compute vm service show
@@ -1441,10 +1349,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id       
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 compute vm tag
@@ -1516,11 +1425,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id       
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 compute vm tag list
@@ -1546,9 +1456,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --skeleton true,false
 ```
 
 ##### h1 compute vm tag show
@@ -1574,10 +1485,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id       
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 compute vm tag delete
@@ -1603,10 +1515,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id       
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 compute vm event
@@ -1676,11 +1589,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id       
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 compute vm event show
@@ -1706,10 +1620,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --vm id-or-uri         Vm Id       
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 #### h1 compute vm ssh

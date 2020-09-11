@@ -107,7 +107,8 @@ Operation options
 
   --project id-or-uri         Project Id                
   --location id-or-uri        Location Id               
-  --enabled-services string   Filter by enabledServices
+  --enabled-services string   Filter by enabledServices 
+  --skeleton true,false
 ```
 
 #### h1 vmhost instance show
@@ -133,9 +134,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 #### h1 vmhost instance service
@@ -205,9 +207,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 vmhost instance service show
@@ -233,10 +236,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 vmhost instance tag
@@ -308,11 +312,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 vmhost instance tag list
@@ -338,9 +343,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 vmhost instance tag show
@@ -366,10 +372,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 vmhost instance tag delete
@@ -395,10 +402,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 vmhost instance event
@@ -468,11 +476,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 vmhost instance event show
@@ -498,9 +507,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 

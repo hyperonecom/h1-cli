@@ -125,7 +125,8 @@ Operation options
   --name string                Project name                                                                  
   --organisation uri           Project organisation. Provide URI of iam/organisation. Requires permissions   
                                iam/project/create                                                            
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                                                
+  --skeleton true,false
 ```
 
 #### h1 iam project list
@@ -157,7 +158,8 @@ Operation options
   --organisation string   Filter by organisation                       
   --$lean string          return a lightweight version of the resource 
   --tag.value string      Filter by tag.value                          
-  --tag.key string        Filter by tag.key
+  --tag.key string        Filter by tag.key                            
+  --skeleton true,false
 ```
 
 #### h1 iam project show
@@ -183,7 +185,8 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id
+  --project id-or-uri     Project Id 
+  --skeleton true,false
 ```
 
 #### h1 iam project update
@@ -209,8 +212,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id                                                 
-  --name string         Project name. Requires permissions iam/project.name/update
+  --project id-or-uri     Project Id                                                 
+  --name string           Project name. Requires permissions iam/project.name/update 
+  --skeleton true,false
 ```
 
 #### h1 iam project delete
@@ -236,7 +240,8 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id
+  --project id-or-uri     Project Id 
+  --skeleton true,false
 ```
 
 #### h1 iam project billing
@@ -308,7 +313,8 @@ Operation options
   --project id-or-uri      Project Id    
   --start string           start         
   --end string             end           
-  --resource.type string   resource.type
+  --resource.type string   resource.type 
+  --skeleton true,false
 ```
 
 #### h1 iam project payment
@@ -377,7 +383,8 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id
+  --project id-or-uri     Project Id 
+  --skeleton true,false
 ```
 
 #### h1 iam project invoice
@@ -446,7 +453,8 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id
+  --project id-or-uri     Project Id 
+  --skeleton true,false
 ```
 
 #### h1 iam project proforma
@@ -515,7 +523,8 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id
+  --project id-or-uri     Project Id 
+  --skeleton true,false
 ```
 
 #### h1 iam project credentialStore
@@ -588,11 +597,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id       
-  --name string         Credential name  
-  --type string         Credential type  
-  --value string        Credential value 
-  --token string        Credential token
+  --project id-or-uri     Project Id       
+  --name string           Credential name  
+  --type string           Credential type  
+  --value string          Credential value 
+  --token string          Credential token 
+  --skeleton true,false
 ```
 
 ##### h1 iam project credentialStore list
@@ -618,7 +628,8 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id
+  --project id-or-uri     Project Id 
+  --skeleton true,false
 ```
 
 ##### h1 iam project credentialStore show
@@ -645,7 +656,8 @@ Global options
 Operation options
 
   --project id-or-uri      Project Id   
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 ##### h1 iam project credentialStore update
@@ -674,7 +686,8 @@ Operation options
   --project id-or-uri      Project Id                                                                    
   --credential id-or-uri   credentialId                                                                  
   --name string            CredentialStore name. Requires permissions                                    
-                           iam/project.credentialStore.name/update
+                           iam/project.credentialStore.name/update                                       
+  --skeleton true,false
 ```
 
 ##### h1 iam project credentialStore delete
@@ -701,7 +714,8 @@ Global options
 Operation options
 
   --project id-or-uri      Project Id   
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 #### h1 iam project quota
@@ -772,7 +786,8 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id
+  --project id-or-uri     Project Id 
+  --skeleton true,false
 ```
 
 ##### h1 iam project quota show
@@ -798,8 +813,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --quota id-or-uri     quotaId
+  --project id-or-uri     Project Id 
+  --quota id-or-uri       quotaId    
+  --skeleton true,false
 ```
 
 ##### h1 iam project quota limit
@@ -868,9 +884,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id                                                     
-  --quota id-or-uri     quotaId                                                        
-  --user string         Limit user. Requires permissions iam/project.quota.user/update
+  --project id-or-uri     Project Id                                                     
+  --quota id-or-uri       quotaId                                                        
+  --user string           Limit user. Requires permissions iam/project.quota.user/update 
+  --skeleton true,false
 ```
 
 #### h1 iam project invitation
@@ -942,8 +959,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --resource string     resource
+  --project id-or-uri     Project Id 
+  --resource string       resource   
+  --skeleton true,false
 ```
 
 ##### h1 iam project invitation show
@@ -970,7 +988,8 @@ Global options
 Operation options
 
   --project id-or-uri      Project Id   
-  --invitation id-or-uri   invitationId
+  --invitation id-or-uri   invitationId 
+  --skeleton true,false
 ```
 
 ##### h1 iam project invitation delete
@@ -997,7 +1016,8 @@ Global options
 Operation options
 
   --project id-or-uri      Project Id   
-  --invitation id-or-uri   invitationId
+  --invitation id-or-uri   invitationId 
+  --skeleton true,false
 ```
 
 ##### h1 iam project invitation accept
@@ -1025,7 +1045,8 @@ Operation options
 
   --project id-or-uri      Project Id   
   --invitation id-or-uri   invitationId 
-  --token string           Accept token
+  --token string           Accept token 
+  --skeleton true,false
 ```
 
 #### h1 iam project ownership
@@ -1097,8 +1118,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id      
-  --email string        Ownership email
+  --project id-or-uri     Project Id      
+  --email string          Ownership email 
+  --skeleton true,false
 ```
 
 ##### h1 iam project ownership list
@@ -1124,7 +1146,8 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id
+  --project id-or-uri     Project Id 
+  --skeleton true,false
 ```
 
 ##### h1 iam project ownership show
@@ -1151,7 +1174,8 @@ Global options
 Operation options
 
   --project id-or-uri     Project Id  
-  --ownership id-or-uri   ownershipId
+  --ownership id-or-uri   ownershipId 
+  --skeleton true,false
 ```
 
 ##### h1 iam project ownership delete
@@ -1178,7 +1202,8 @@ Global options
 Operation options
 
   --project id-or-uri     Project Id  
-  --ownership id-or-uri   ownershipId
+  --ownership id-or-uri   ownershipId 
+  --skeleton true,false
 ```
 
 #### h1 iam project service
@@ -1248,7 +1273,8 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id
+  --project id-or-uri     Project Id 
+  --skeleton true,false
 ```
 
 ##### h1 iam project service show
@@ -1274,8 +1300,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --service id-or-uri   serviceId
+  --project id-or-uri     Project Id 
+  --service id-or-uri     serviceId  
+  --skeleton true,false
 ```
 
 #### h1 iam project tag
@@ -1347,9 +1374,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --key string          Tag key    
-  --value string        Tag value
+  --project id-or-uri     Project Id 
+  --key string            Tag key    
+  --value string          Tag value  
+  --skeleton true,false
 ```
 
 ##### h1 iam project tag list
@@ -1375,7 +1403,8 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id
+  --project id-or-uri     Project Id 
+  --skeleton true,false
 ```
 
 ##### h1 iam project tag show
@@ -1401,8 +1430,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --tag id-or-uri       tagId
+  --project id-or-uri     Project Id 
+  --tag id-or-uri         tagId      
+  --skeleton true,false
 ```
 
 ##### h1 iam project tag delete
@@ -1428,8 +1458,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --tag id-or-uri       tagId
+  --project id-or-uri     Project Id 
+  --tag id-or-uri         tagId      
+  --skeleton true,false
 ```
 
 #### h1 iam project event
@@ -1499,9 +1530,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --$limit string       $limit     
-  --$skip string        $skip
+  --project id-or-uri     Project Id 
+  --$limit string         $limit     
+  --$skip string          $skip      
+  --skeleton true,false
 ```
 
 ##### h1 iam project event show
@@ -1527,8 +1559,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --event id-or-uri     eventId
+  --project id-or-uri     Project Id 
+  --event id-or-uri       eventId    
+  --skeleton true,false
 ```
 
 #### h1 iam project policy
@@ -1605,14 +1638,13 @@ Global options
 
 Operation options
 
-  --project id-or-uri          Project Id                                                                    
-  --x-idempotency-key string   Idempotency key                                                               
-  --name string                Policy name                                                                   
-  --service id-or-uri          Policy service. Provide ID or URI of billing/service. Defaults is             
-                               5e690e4c0df5a920f9f6bbbf                                                      
-  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use       
-  --resource string            Policy resource                                                               
-  --tag key=key,value=value    Tag collection
+  --project id-or-uri          Project Id                                                              
+  --x-idempotency-key string   Idempotency key                                                         
+  --name string                Policy name                                                             
+  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string            Policy resource                                                         
+  --tag key=key,value=value    Tag collection                                                          
+  --skeleton true,false
 ```
 
 ##### h1 iam project policy list
@@ -1638,10 +1670,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id          
-  --name string         Filter by name      
-  --tag.value string    Filter by tag.value 
-  --tag.key string      Filter by tag.key
+  --project id-or-uri     Project Id          
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 ##### h1 iam project policy show
@@ -1667,8 +1700,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --skeleton true,false
 ```
 
 ##### h1 iam project policy update
@@ -1694,9 +1728,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id                                               
-  --policy id-or-uri    Policy Id                                                
-  --name string         Policy name. Requires permissions iam/policy.name/update
+  --project id-or-uri     Project Id                                               
+  --policy id-or-uri      Policy Id                                                
+  --name string           Policy name. Requires permissions iam/policy.name/update 
+  --skeleton true,false
 ```
 
 ##### h1 iam project policy delete
@@ -1722,8 +1757,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --skeleton true,false
 ```
 
 ##### h1 iam project policy actor
@@ -1795,9 +1831,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id  
-  --policy id-or-uri    Policy Id   
-  --value string        Actor value
+  --project id-or-uri     Project Id  
+  --policy id-or-uri      Policy Id   
+  --value string          Actor value 
+  --skeleton true,false
 ```
 
 ###### h1 iam project policy actor list
@@ -1823,8 +1860,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --skeleton true,false
 ```
 
 ###### h1 iam project policy actor show
@@ -1850,9 +1888,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id  
-  --actor id-or-uri     actorId
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --actor id-or-uri       actorId    
+  --skeleton true,false
 ```
 
 ###### h1 iam project policy actor delete
@@ -1878,9 +1917,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id  
-  --actor id-or-uri     actorId
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --actor id-or-uri       actorId    
+  --skeleton true,false
 ```
 
 ##### h1 iam project policy service
@@ -1950,8 +1990,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --skeleton true,false
 ```
 
 ###### h1 iam project policy service show
@@ -1977,9 +2018,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id  
-  --service id-or-uri   serviceId
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --service id-or-uri     serviceId  
+  --skeleton true,false
 ```
 
 ##### h1 iam project policy tag
@@ -2051,10 +2093,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id  
-  --key string          Tag key    
-  --value string        Tag value
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --key string            Tag key    
+  --value string          Tag value  
+  --skeleton true,false
 ```
 
 ###### h1 iam project policy tag list
@@ -2080,8 +2123,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --skeleton true,false
 ```
 
 ###### h1 iam project policy tag show
@@ -2107,9 +2151,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id  
-  --tag id-or-uri       tagId
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --tag id-or-uri         tagId      
+  --skeleton true,false
 ```
 
 ###### h1 iam project policy tag delete
@@ -2135,9 +2180,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id  
-  --tag id-or-uri       tagId
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --tag id-or-uri         tagId      
+  --skeleton true,false
 ```
 
 ##### h1 iam project policy event
@@ -2207,10 +2253,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id  
-  --$limit string       $limit     
-  --$skip string        $skip
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --$limit string         $limit     
+  --$skip string          $skip      
+  --skeleton true,false
 ```
 
 ###### h1 iam project policy event show
@@ -2236,9 +2283,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --policy id-or-uri    Policy Id  
-  --event id-or-uri     eventId
+  --project id-or-uri     Project Id 
+  --policy id-or-uri      Policy Id  
+  --event id-or-uri       eventId    
+  --skeleton true,false
 ```
 
 #### h1 iam project role
@@ -2322,7 +2370,8 @@ Operation options
                                5e679c282b39c4353cd86f34                                                      
   --description string         Role description                                                              
   --permission value=value     Permission collection                                                         
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                                                
+  --skeleton true,false
 ```
 
 ##### h1 iam project role list
@@ -2348,10 +2397,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id          
-  --name string         Filter by name      
-  --tag.value string    Filter by tag.value 
-  --tag.key string      Filter by tag.key
+  --project id-or-uri     Project Id          
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 ##### h1 iam project role show
@@ -2377,8 +2427,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --role id-or-uri      Role Id
+  --project id-or-uri     Project Id 
+  --role id-or-uri        Role Id    
+  --skeleton true,false
 ```
 
 ##### h1 iam project role update
@@ -2404,10 +2455,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                         
-  --role id-or-uri       Role Id                                                            
-  --name string          Role name. Requires permissions iam/role.name/update               
-  --description string   Role description. Requires permissions iam/role.description/update
+  --project id-or-uri     Project Id                                                         
+  --role id-or-uri        Role Id                                                            
+  --name string           Role name. Requires permissions iam/role.name/update               
+  --description string    Role description. Requires permissions iam/role.description/update 
+  --skeleton true,false
 ```
 
 ##### h1 iam project role delete
@@ -2433,8 +2485,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --role id-or-uri      Role Id
+  --project id-or-uri     Project Id 
+  --role id-or-uri        Role Id    
+  --skeleton true,false
 ```
 
 ##### h1 iam project role permission
@@ -2506,9 +2559,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id       
-  --role id-or-uri      Role Id          
-  --value string        Permission value
+  --project id-or-uri     Project Id       
+  --role id-or-uri        Role Id          
+  --value string          Permission value 
+  --skeleton true,false
 ```
 
 ###### h1 iam project role permission list
@@ -2534,8 +2588,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --role id-or-uri      Role Id
+  --project id-or-uri     Project Id 
+  --role id-or-uri        Role Id    
+  --skeleton true,false
 ```
 
 ###### h1 iam project role permission show
@@ -2563,7 +2618,8 @@ Operation options
 
   --project id-or-uri      Project Id   
   --role id-or-uri         Role Id      
-  --permission id-or-uri   permissionId
+  --permission id-or-uri   permissionId 
+  --skeleton true,false
 ```
 
 ###### h1 iam project role permission delete
@@ -2591,7 +2647,8 @@ Operation options
 
   --project id-or-uri      Project Id   
   --role id-or-uri         Role Id      
-  --permission id-or-uri   permissionId
+  --permission id-or-uri   permissionId 
+  --skeleton true,false
 ```
 
 ##### h1 iam project role service
@@ -2661,8 +2718,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --role id-or-uri      Role Id
+  --project id-or-uri     Project Id 
+  --role id-or-uri        Role Id    
+  --skeleton true,false
 ```
 
 ###### h1 iam project role service show
@@ -2688,9 +2746,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --role id-or-uri      Role Id    
-  --service id-or-uri   serviceId
+  --project id-or-uri     Project Id 
+  --role id-or-uri        Role Id    
+  --service id-or-uri     serviceId  
+  --skeleton true,false
 ```
 
 ##### h1 iam project role tag
@@ -2762,10 +2821,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --role id-or-uri      Role Id    
-  --key string          Tag key    
-  --value string        Tag value
+  --project id-or-uri     Project Id 
+  --role id-or-uri        Role Id    
+  --key string            Tag key    
+  --value string          Tag value  
+  --skeleton true,false
 ```
 
 ###### h1 iam project role tag list
@@ -2791,8 +2851,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --role id-or-uri      Role Id
+  --project id-or-uri     Project Id 
+  --role id-or-uri        Role Id    
+  --skeleton true,false
 ```
 
 ###### h1 iam project role tag show
@@ -2818,9 +2879,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --role id-or-uri      Role Id    
-  --tag id-or-uri       tagId
+  --project id-or-uri     Project Id 
+  --role id-or-uri        Role Id    
+  --tag id-or-uri         tagId      
+  --skeleton true,false
 ```
 
 ###### h1 iam project role tag delete
@@ -2846,9 +2908,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --role id-or-uri      Role Id    
-  --tag id-or-uri       tagId
+  --project id-or-uri     Project Id 
+  --role id-or-uri        Role Id    
+  --tag id-or-uri         tagId      
+  --skeleton true,false
 ```
 
 ##### h1 iam project role event
@@ -2918,10 +2981,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --role id-or-uri      Role Id    
-  --$limit string       $limit     
-  --$skip string        $skip
+  --project id-or-uri     Project Id 
+  --role id-or-uri        Role Id    
+  --$limit string         $limit     
+  --$skip string          $skip      
+  --skeleton true,false
 ```
 
 ###### h1 iam project role event show
@@ -2947,9 +3011,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --role id-or-uri      Role Id    
-  --event id-or-uri     eventId
+  --project id-or-uri     Project Id 
+  --role id-or-uri        Role Id    
+  --event id-or-uri       eventId    
+  --skeleton true,false
 ```
 
 #### h1 iam project sa
@@ -3031,7 +3096,8 @@ Operation options
   --name string                Sa name                                                                       
   --service id-or-uri          Sa service. Provide ID or URI of billing/service. Defaults is                 
                                5e5fc76ff1fb3efe1842336a                                                      
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                                                
+  --skeleton true,false
 ```
 
 ##### h1 iam project sa list
@@ -3057,10 +3123,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id          
-  --name string         Filter by name      
-  --tag.value string    Filter by tag.value 
-  --tag.key string      Filter by tag.key
+  --project id-or-uri     Project Id          
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 ##### h1 iam project sa show
@@ -3086,8 +3153,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --sa id-or-uri        Sa Id
+  --project id-or-uri     Project Id 
+  --sa id-or-uri          Sa Id      
+  --skeleton true,false
 ```
 
 ##### h1 iam project sa update
@@ -3113,9 +3181,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id                                       
-  --sa id-or-uri        Sa Id                                            
-  --name string         Sa name. Requires permissions iam/sa.name/update
+  --project id-or-uri     Project Id                                       
+  --sa id-or-uri          Sa Id                                            
+  --name string           Sa name. Requires permissions iam/sa.name/update 
+  --skeleton true,false
 ```
 
 ##### h1 iam project sa delete
@@ -3141,8 +3210,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --sa id-or-uri        Sa Id
+  --project id-or-uri     Project Id 
+  --sa id-or-uri          Sa Id      
+  --skeleton true,false
 ```
 
 ##### h1 iam project sa credential
@@ -3216,12 +3286,13 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id       
-  --sa id-or-uri        Sa Id            
-  --name string         Credential name  
-  --type string         Credential type  
-  --value string        Credential value 
-  --token string        Credential token
+  --project id-or-uri     Project Id       
+  --sa id-or-uri          Sa Id            
+  --name string           Credential name  
+  --type string           Credential type  
+  --value string          Credential value 
+  --token string          Credential token 
+  --skeleton true,false
 ```
 
 ###### h1 iam project sa credential list
@@ -3247,8 +3318,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --sa id-or-uri        Sa Id
+  --project id-or-uri     Project Id 
+  --sa id-or-uri          Sa Id      
+  --skeleton true,false
 ```
 
 ###### h1 iam project sa credential show
@@ -3276,7 +3348,8 @@ Operation options
 
   --project id-or-uri      Project Id   
   --sa id-or-uri           Sa Id        
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 ###### h1 iam project sa credential update
@@ -3305,7 +3378,8 @@ Operation options
   --project id-or-uri      Project Id                                                          
   --sa id-or-uri           Sa Id                                                               
   --credential id-or-uri   credentialId                                                        
-  --name string            Credential name. Requires permissions iam/sa.credential.name/update
+  --name string            Credential name. Requires permissions iam/sa.credential.name/update 
+  --skeleton true,false
 ```
 
 ###### h1 iam project sa credential delete
@@ -3333,7 +3407,8 @@ Operation options
 
   --project id-or-uri      Project Id   
   --sa id-or-uri           Sa Id        
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 ###### h1 iam project sa credential generate
@@ -3432,8 +3507,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --sa id-or-uri        Sa Id
+  --project id-or-uri     Project Id 
+  --sa id-or-uri          Sa Id      
+  --skeleton true,false
 ```
 
 ###### h1 iam project sa service show
@@ -3459,9 +3535,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --sa id-or-uri        Sa Id      
-  --service id-or-uri   serviceId
+  --project id-or-uri     Project Id 
+  --sa id-or-uri          Sa Id      
+  --service id-or-uri     serviceId  
+  --skeleton true,false
 ```
 
 ##### h1 iam project sa tag
@@ -3533,10 +3610,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --sa id-or-uri        Sa Id      
-  --key string          Tag key    
-  --value string        Tag value
+  --project id-or-uri     Project Id 
+  --sa id-or-uri          Sa Id      
+  --key string            Tag key    
+  --value string          Tag value  
+  --skeleton true,false
 ```
 
 ###### h1 iam project sa tag list
@@ -3562,8 +3640,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --sa id-or-uri        Sa Id
+  --project id-or-uri     Project Id 
+  --sa id-or-uri          Sa Id      
+  --skeleton true,false
 ```
 
 ###### h1 iam project sa tag show
@@ -3589,9 +3668,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --sa id-or-uri        Sa Id      
-  --tag id-or-uri       tagId
+  --project id-or-uri     Project Id 
+  --sa id-or-uri          Sa Id      
+  --tag id-or-uri         tagId      
+  --skeleton true,false
 ```
 
 ###### h1 iam project sa tag delete
@@ -3617,9 +3697,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --sa id-or-uri        Sa Id      
-  --tag id-or-uri       tagId
+  --project id-or-uri     Project Id 
+  --sa id-or-uri          Sa Id      
+  --tag id-or-uri         tagId      
+  --skeleton true,false
 ```
 
 ##### h1 iam project sa event
@@ -3689,10 +3770,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --sa id-or-uri        Sa Id      
-  --$limit string       $limit     
-  --$skip string        $skip
+  --project id-or-uri     Project Id 
+  --sa id-or-uri          Sa Id      
+  --$limit string         $limit     
+  --$skip string          $skip      
+  --skeleton true,false
 ```
 
 ###### h1 iam project sa event show
@@ -3718,9 +3800,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --sa id-or-uri        Sa Id      
-  --event id-or-uri     eventId
+  --project id-or-uri     Project Id 
+  --sa id-or-uri          Sa Id      
+  --event id-or-uri       eventId    
+  --skeleton true,false
 ```
 
 #### h1 iam project select
@@ -3771,7 +3854,6 @@ Command List
   update            Update iam/organisation [organisation_update]                   
   delete            Delete iam/organisation [organisation_delete]                   
   transfer_accept   Transfer accept iam/organisation [organisation_transfer_accept] 
-  payment_assign    Payment assign iam/organisation [organisation_payment_assign]   
   billing           Manage billings of the organisation                             
   payment           Manage payments of the organisation                             
   invoice           Manage invoices of the organisation                             
@@ -3839,7 +3921,8 @@ Operation options
   --billing--addresscountry string   Address country. Defaults is PL   
   --billing--addresscity string      Address city                      
   --billing--addresszipcode string   Address zipcode                   
-  --billing--addressstreet string    Address street
+  --billing--addressstreet string    Address street                    
+  --skeleton true,false
 ```
 
 #### h1 iam organisation list
@@ -3868,7 +3951,8 @@ Operation options
   --name string              Filter by name            
   --billing.company string   Filter by billing.company 
   --$limit string            Filter by $limit          
-  --active string            Filter by active
+  --active string            Filter by active          
+  --skeleton true,false
 ```
 
 #### h1 iam organisation show
@@ -3894,7 +3978,8 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id
+  --organisation id-or-uri   Organisation Id 
+  --skeleton true,false
 ```
 
 #### h1 iam organisation update
@@ -3926,7 +4011,8 @@ Operation options
   --billing-company string           Billing company                                                      
   --billing--addresscity string      Address city                                                         
   --billing--addresszipcode string   Address zipcode                                                      
-  --billing--addressstreet string    Address street
+  --billing--addressstreet string    Address street                                                       
+  --skeleton true,false
 ```
 
 #### h1 iam organisation delete
@@ -3952,7 +4038,8 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id
+  --organisation id-or-uri   Organisation Id 
+  --skeleton true,false
 ```
 
 #### h1 iam organisation transfer_accept
@@ -3981,36 +4068,8 @@ Operation options
   --organisation id-or-uri     Organisation Id      
   --x-idempotency-key string   Idempotency key      
   --payment string             Organisation payment 
-  --project string             Organisation project
-```
-
-#### h1 iam organisation payment_assign
-
-```
-h1 iam organisation payment_assign
-
-  Payment assign iam/organisation [organisation_payment_assign] 
-
-Synopsis
-
-  $ h1 iam organisation payment_assign <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --organisation id-or-uri     Organisation Id      
-  --x-idempotency-key string   Idempotency key      
-  --payment string             Organisation payment 
-  --project string             Organisation project
+  --project string             Organisation project 
+  --skeleton true,false
 ```
 
 #### h1 iam organisation billing
@@ -4082,7 +4141,8 @@ Operation options
   --organisation id-or-uri   Organisation Id 
   --start string             start           
   --end string               end             
-  --resource.type string     resource.type
+  --resource.type string     resource.type   
+  --skeleton true,false
 ```
 
 #### h1 iam organisation payment
@@ -4100,8 +4160,10 @@ Options
 
 Command List
 
-  spec   Print specification of context                            
-  list   List iam/organisation.payment [organisation_payment_list]
+  spec       Print specification of context                                                 
+  list       List iam/organisation.payment [organisation_payment_list]                      
+  show       Get iam/organisation.payment [organisation_payment_get]                        
+  allocate   Create iam/organisation.actions [organisation_payment_actions_allocate_create]
 ```
 
 ##### h1 iam organisation payment spec
@@ -4151,7 +4213,66 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id
+  --organisation id-or-uri   Organisation Id 
+  --skeleton true,false
+```
+
+##### h1 iam organisation payment show
+
+```
+h1 iam organisation payment show
+
+  Get iam/organisation.payment [organisation_payment_get] 
+
+Synopsis
+
+  $ h1 iam organisation payment show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id 
+  --payment id-or-uri        paymentId       
+  --skeleton true,false
+```
+
+##### h1 iam organisation payment allocate
+
+```
+h1 iam organisation payment allocate
+
+  Create iam/organisation.actions [organisation_payment_actions_allocate_create] 
+
+Synopsis
+
+  $ h1 iam organisation payment allocate <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --organisation id-or-uri   Organisation Id                                                               
+  --payment id-or-uri        paymentId                                                                     
+  --project uri              Allocate project. Provide URI of iam/project. Requires permissions            
+                             iam/project/get                                                               
+  --skeleton true,false
 ```
 
 #### h1 iam organisation invoice
@@ -4222,7 +4343,8 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id
+  --organisation id-or-uri   Organisation Id 
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation invoice show
@@ -4249,7 +4371,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --invoice id-or-uri        invoiceId
+  --invoice id-or-uri        invoiceId       
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation invoice download
@@ -4276,7 +4399,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --invoice id-or-uri        invoiceId
+  --invoice id-or-uri        invoiceId       
+  --skeleton true,false
 ```
 
 #### h1 iam organisation proforma
@@ -4351,7 +4475,8 @@ Operation options
   --organisation id-or-uri   Organisation Id                                                               
   --amount string            Proforma amount                                                               
   --project uri              Proforma project. Provide URI of iam/project. Requires permissions            
-                             iam/project/get
+                             iam/project/get                                                               
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation proforma list
@@ -4377,7 +4502,8 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id
+  --organisation id-or-uri   Organisation Id 
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation proforma show
@@ -4404,7 +4530,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --proforma id-or-uri       proformaId
+  --proforma id-or-uri       proformaId      
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation proforma download
@@ -4431,7 +4558,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --proforma id-or-uri       proformaId
+  --proforma id-or-uri       proformaId      
+  --skeleton true,false
 ```
 
 #### h1 iam organisation invitation
@@ -4504,7 +4632,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --resource string          resource
+  --resource string          resource        
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation invitation show
@@ -4531,7 +4660,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --invitation id-or-uri     invitationId
+  --invitation id-or-uri     invitationId    
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation invitation delete
@@ -4558,7 +4688,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --invitation id-or-uri     invitationId
+  --invitation id-or-uri     invitationId    
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation invitation accept
@@ -4586,7 +4717,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --invitation id-or-uri     invitationId    
-  --token string             Accept token
+  --token string             Accept token    
+  --skeleton true,false
 ```
 
 #### h1 iam organisation ownership
@@ -4659,7 +4791,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --email string             Ownership email
+  --email string             Ownership email 
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation ownership list
@@ -4685,7 +4818,8 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id
+  --organisation id-or-uri   Organisation Id 
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation ownership show
@@ -4712,7 +4846,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --ownership id-or-uri      ownershipId
+  --ownership id-or-uri      ownershipId     
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation ownership delete
@@ -4739,7 +4874,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --ownership id-or-uri      ownershipId
+  --ownership id-or-uri      ownershipId     
+  --skeleton true,false
 ```
 
 #### h1 iam organisation event
@@ -4811,7 +4947,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --$limit string            $limit          
-  --$skip string             $skip
+  --$skip string             $skip           
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation event show
@@ -4838,7 +4975,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --event id-or-uri          eventId
+  --event id-or-uri          eventId         
+  --skeleton true,false
 ```
 
 #### h1 iam organisation policy
@@ -4915,14 +5053,13 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri     Organisation Id                                                               
-  --x-idempotency-key string   Idempotency key                                                               
-  --name string                Policy name                                                                   
-  --service id-or-uri          Policy service. Provide ID or URI of billing/service. Defaults is             
-                               5e690e4c0df5a920f9f6bbbf                                                      
-  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use       
-  --resource string            Policy resource                                                               
-  --tag key=key,value=value    Tag collection
+  --organisation id-or-uri     Organisation Id                                                         
+  --x-idempotency-key string   Idempotency key                                                         
+  --name string                Policy name                                                             
+  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
+  --resource string            Policy resource                                                         
+  --tag key=key,value=value    Tag collection                                                          
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation policy list
@@ -4951,7 +5088,8 @@ Operation options
   --organisation id-or-uri   Organisation Id     
   --name string              Filter by name      
   --tag.value string         Filter by tag.value 
-  --tag.key string           Filter by tag.key
+  --tag.key string           Filter by tag.key   
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation policy show
@@ -4978,7 +5116,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --policy id-or-uri         Policy Id
+  --policy id-or-uri         Policy Id       
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation policy update
@@ -5006,7 +5145,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id                                          
   --policy id-or-uri         Policy Id                                                
-  --name string              Policy name. Requires permissions iam/policy.name/update
+  --name string              Policy name. Requires permissions iam/policy.name/update 
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation policy delete
@@ -5033,7 +5173,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --policy id-or-uri         Policy Id
+  --policy id-or-uri         Policy Id       
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation policy actor
@@ -5107,7 +5248,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --value string             Actor value
+  --value string             Actor value     
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation policy actor list
@@ -5134,7 +5276,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --policy id-or-uri         Policy Id
+  --policy id-or-uri         Policy Id       
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation policy actor show
@@ -5162,7 +5305,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --actor id-or-uri          actorId
+  --actor id-or-uri          actorId         
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation policy actor delete
@@ -5190,7 +5334,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --actor id-or-uri          actorId
+  --actor id-or-uri          actorId         
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation policy service
@@ -5261,7 +5406,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --policy id-or-uri         Policy Id
+  --policy id-or-uri         Policy Id       
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation policy service show
@@ -5289,7 +5435,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --service id-or-uri        serviceId
+  --service id-or-uri        serviceId       
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation policy tag
@@ -5364,7 +5511,8 @@ Operation options
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
   --key string               Tag key         
-  --value string             Tag value
+  --value string             Tag value       
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation policy tag list
@@ -5391,7 +5539,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --policy id-or-uri         Policy Id
+  --policy id-or-uri         Policy Id       
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation policy tag show
@@ -5419,7 +5568,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --tag id-or-uri            tagId
+  --tag id-or-uri            tagId           
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation policy tag delete
@@ -5447,7 +5597,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --tag id-or-uri            tagId
+  --tag id-or-uri            tagId           
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation policy event
@@ -5520,7 +5671,8 @@ Operation options
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
   --$limit string            $limit          
-  --$skip string             $skip
+  --$skip string             $skip           
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation policy event show
@@ -5548,7 +5700,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --event id-or-uri          eventId
+  --event id-or-uri          eventId         
+  --skeleton true,false
 ```
 
 #### h1 iam organisation role
@@ -5632,7 +5785,8 @@ Operation options
                                5e679c282b39c4353cd86f34                                                      
   --description string         Role description                                                              
   --permission value=value     Permission collection                                                         
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                                                
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation role list
@@ -5661,7 +5815,8 @@ Operation options
   --organisation id-or-uri   Organisation Id     
   --name string              Filter by name      
   --tag.value string         Filter by tag.value 
-  --tag.key string           Filter by tag.key
+  --tag.key string           Filter by tag.key   
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation role show
@@ -5688,7 +5843,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --role id-or-uri           Role Id
+  --role id-or-uri           Role Id         
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation role update
@@ -5717,7 +5873,8 @@ Operation options
   --organisation id-or-uri   Organisation Id                                                    
   --role id-or-uri           Role Id                                                            
   --name string              Role name. Requires permissions iam/role.name/update               
-  --description string       Role description. Requires permissions iam/role.description/update
+  --description string       Role description. Requires permissions iam/role.description/update 
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation role delete
@@ -5744,7 +5901,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --role id-or-uri           Role Id
+  --role id-or-uri           Role Id         
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation role permission
@@ -5818,7 +5976,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id  
   --role id-or-uri           Role Id          
-  --value string             Permission value
+  --value string             Permission value 
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation role permission list
@@ -5845,7 +6004,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --role id-or-uri           Role Id
+  --role id-or-uri           Role Id         
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation role permission show
@@ -5873,7 +6033,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
-  --permission id-or-uri     permissionId
+  --permission id-or-uri     permissionId    
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation role permission delete
@@ -5901,7 +6062,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
-  --permission id-or-uri     permissionId
+  --permission id-or-uri     permissionId    
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation role service
@@ -5972,7 +6134,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --role id-or-uri           Role Id
+  --role id-or-uri           Role Id         
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation role service show
@@ -6000,7 +6163,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
-  --service id-or-uri        serviceId
+  --service id-or-uri        serviceId       
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation role tag
@@ -6075,7 +6239,8 @@ Operation options
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
   --key string               Tag key         
-  --value string             Tag value
+  --value string             Tag value       
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation role tag list
@@ -6102,7 +6267,8 @@ Global options
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --role id-or-uri           Role Id
+  --role id-or-uri           Role Id         
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation role tag show
@@ -6130,7 +6296,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
-  --tag id-or-uri            tagId
+  --tag id-or-uri            tagId           
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation role tag delete
@@ -6158,7 +6325,8 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
-  --tag id-or-uri            tagId
+  --tag id-or-uri            tagId           
+  --skeleton true,false
 ```
 
 ##### h1 iam organisation role event
@@ -6231,7 +6399,8 @@ Operation options
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
   --$limit string            $limit          
-  --$skip string             $skip
+  --$skip string             $skip           
+  --skeleton true,false
 ```
 
 ###### h1 iam organisation role event show
@@ -6259,6 +6428,7 @@ Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
-  --event id-or-uri          eventId
+  --event id-or-uri          eventId         
+  --skeleton true,false
 ```
 

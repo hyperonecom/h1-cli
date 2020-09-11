@@ -116,7 +116,8 @@ Operation options
   --service id-or-uri               Zone service. Provide ID or URI of billing/service 
   --dns-name string                 Zone dnsName                                       
   --source-dns-probing true,false   Source dnsProbing                                  
-  --tag key=key,value=value         Tag collection
+  --tag key=key,value=value         Tag collection                                     
+  --skeleton true,false
 ```
 
 #### h1 dns zone list
@@ -142,11 +143,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 dns zone show
@@ -172,9 +174,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --zone id-or-uri       Zone Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --zone id-or-uri        Zone Id     
+  --skeleton true,false
 ```
 
 #### h1 dns zone update
@@ -200,10 +203,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                           
-  --location id-or-uri   Location Id                                          
-  --zone id-or-uri       Zone Id                                              
-  --name string          Zone name. Requires permissions dns/zone.name/update
+  --project id-or-uri     Project Id                                           
+  --location id-or-uri    Location Id                                          
+  --zone id-or-uri        Zone Id                                              
+  --name string           Zone name. Requires permissions dns/zone.name/update 
+  --skeleton true,false
 ```
 
 #### h1 dns zone delete
@@ -229,9 +233,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --zone id-or-uri       Zone Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --zone id-or-uri        Zone Id     
+  --skeleton true,false
 ```
 
 #### h1 dns zone recordset
@@ -311,7 +316,8 @@ Operation options
   --name string                              Recordset name                  
   --type string                              Recordset type                  
   --ttl string                               Recordset ttl. Defaults is 3600 
-  --record content=content,enabled=enabled   Record collection
+  --record content=content,enabled=enabled   Record collection               
+  --skeleton true,false
 ```
 
 ##### h1 dns zone recordset list
@@ -337,9 +343,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --zone id-or-uri       Zone Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --zone id-or-uri        Zone Id     
+  --skeleton true,false
 ```
 
 ##### h1 dns zone recordset show
@@ -368,7 +375,8 @@ Operation options
   --project id-or-uri     Project Id  
   --location id-or-uri    Location Id 
   --zone id-or-uri        Zone Id     
-  --recordset id-or-uri   recordsetId
+  --recordset id-or-uri   recordsetId 
+  --skeleton true,false
 ```
 
 ##### h1 dns zone recordset update
@@ -399,7 +407,8 @@ Operation options
   --zone id-or-uri        Zone Id                                                                       
   --recordset id-or-uri   recordsetId                                                                   
   --ttl string            Recordset ttl. Requires permissions dns/zone.recordset.ttl/update. Defaults   
-                          is 3600
+                          is 3600                                                                       
+  --skeleton true,false
 ```
 
 ##### h1 dns zone recordset delete
@@ -428,7 +437,8 @@ Operation options
   --project id-or-uri     Project Id  
   --location id-or-uri    Location Id 
   --zone id-or-uri        Zone Id     
-  --recordset id-or-uri   recordsetId
+  --recordset id-or-uri   recordsetId 
+  --skeleton true,false
 ```
 
 ##### h1 dns zone recordset record
@@ -505,7 +515,8 @@ Operation options
   --zone id-or-uri        Zone Id                          
   --recordset id-or-uri   recordsetId                      
   --content string        Record content                   
-  --enabled true,false    Record enabled. Defaults is true
+  --enabled true,false    Record enabled. Defaults is true 
+  --skeleton true,false
 ```
 
 ###### h1 dns zone recordset record list
@@ -534,7 +545,8 @@ Operation options
   --project id-or-uri     Project Id  
   --location id-or-uri    Location Id 
   --zone id-or-uri        Zone Id     
-  --recordset id-or-uri   recordsetId
+  --recordset id-or-uri   recordsetId 
+  --skeleton true,false
 ```
 
 ###### h1 dns zone recordset record show
@@ -564,7 +576,8 @@ Operation options
   --location id-or-uri    Location Id 
   --zone id-or-uri        Zone Id     
   --recordset id-or-uri   recordsetId 
-  --record id-or-uri      recordId
+  --record id-or-uri      recordId    
+  --skeleton true,false
 ```
 
 ###### h1 dns zone recordset record delete
@@ -594,7 +607,8 @@ Operation options
   --location id-or-uri    Location Id 
   --zone id-or-uri        Zone Id     
   --recordset id-or-uri   recordsetId 
-  --record id-or-uri      recordId
+  --record id-or-uri      recordId    
+  --skeleton true,false
 ```
 
 #### h1 dns zone service
@@ -664,9 +678,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --zone id-or-uri       Zone Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --zone id-or-uri        Zone Id     
+  --skeleton true,false
 ```
 
 ##### h1 dns zone service show
@@ -692,10 +707,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --zone id-or-uri       Zone Id     
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --zone id-or-uri        Zone Id     
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 dns zone tag
@@ -767,11 +783,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --zone id-or-uri       Zone Id     
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --zone id-or-uri        Zone Id     
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 dns zone tag list
@@ -797,9 +814,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --zone id-or-uri       Zone Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --zone id-or-uri        Zone Id     
+  --skeleton true,false
 ```
 
 ##### h1 dns zone tag show
@@ -825,10 +843,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --zone id-or-uri       Zone Id     
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --zone id-or-uri        Zone Id     
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 dns zone tag delete
@@ -854,10 +873,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --zone id-or-uri       Zone Id     
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --zone id-or-uri        Zone Id     
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 dns zone event
@@ -927,11 +947,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --zone id-or-uri       Zone Id     
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --zone id-or-uri        Zone Id     
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 dns zone event show
@@ -957,9 +978,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --zone id-or-uri       Zone Id     
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --zone id-or-uri        Zone Id     
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 

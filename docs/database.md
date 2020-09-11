@@ -117,7 +117,8 @@ Operation options
   --x-idempotency-key string   Idempotency key                                        
   --name string                Instance name                                          
   --service id-or-uri          Instance service. Provide ID or URI of billing/service 
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                         
+  --skeleton true,false
 ```
 
 #### h1 database instance list
@@ -143,11 +144,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 database instance show
@@ -173,9 +175,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 #### h1 database instance update
@@ -201,10 +204,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                        
-  --location id-or-uri   Location Id                                                       
-  --instance id-or-uri   Instance Id                                                       
-  --name string          Instance name. Requires permissions database/instance.name/update
+  --project id-or-uri     Project Id                                                        
+  --location id-or-uri    Location Id                                                       
+  --instance id-or-uri    Instance Id                                                       
+  --name string           Instance name. Requires permissions database/instance.name/update 
+  --skeleton true,false
 ```
 
 #### h1 database instance delete
@@ -230,9 +234,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 #### h1 database instance start
@@ -261,7 +266,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --instance id-or-uri         Instance Id     
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 database instance stop
@@ -290,7 +296,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --instance id-or-uri         Instance Id     
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 database instance transfer
@@ -321,7 +328,8 @@ Operation options
   --instance id-or-uri         Instance Id                                                                   
   --x-idempotency-key string   Idempotency key                                                               
   --project uri                Instance project. Provide URI of iam/project. Requires permissions            
-                               database/database/create
+                               database/instance/create                                                      
+  --skeleton true,false
 ```
 
 #### h1 database instance credential
@@ -395,13 +403,14 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id       
-  --location id-or-uri   Location Id      
-  --instance id-or-uri   Instance Id      
-  --name string          Credential name  
-  --type string          Credential type  
-  --value string         Credential value 
-  --token string         Credential token
+  --project id-or-uri     Project Id       
+  --location id-or-uri    Location Id      
+  --instance id-or-uri    Instance Id      
+  --name string           Credential name  
+  --type string           Credential type  
+  --value string          Credential value 
+  --token string          Credential token 
+  --skeleton true,false
 ```
 
 ##### h1 database instance credential list
@@ -427,9 +436,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 database instance credential show
@@ -458,7 +468,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --instance id-or-uri     Instance Id  
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 ##### h1 database instance credential update
@@ -490,7 +501,8 @@ Operation options
   --instance id-or-uri     Instance Id                                                                   
   --credential id-or-uri   credentialId                                                                  
   --name string            Credential name. Requires permissions                                         
-                           database/instance.credential.name/update
+                           database/instance.credential.name/update                                      
+  --skeleton true,false
 ```
 
 ##### h1 database instance credential delete
@@ -520,7 +532,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --instance id-or-uri     Instance Id  
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 #### h1 database instance service
@@ -590,9 +603,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 database instance service show
@@ -618,10 +632,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 database instance tag
@@ -693,11 +708,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 database instance tag list
@@ -723,9 +739,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 database instance tag show
@@ -751,10 +768,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 database instance tag delete
@@ -780,10 +798,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 database instance event
@@ -853,11 +872,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 database instance event show
@@ -883,9 +903,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 

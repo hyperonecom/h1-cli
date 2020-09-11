@@ -61,6 +61,7 @@ Command List
   transfer     Transfer container/registry [container_project_registry_transfer] 
   repository   Manage repositories of the registry                               
   credential   Manage credentials of the registry                                
+  domain       Manage domains of the registry                                    
   service      Manage services of the registry                                   
   tag          Manage tags of the registry                                       
   event        Manage events of the registry
@@ -118,7 +119,8 @@ Operation options
   --x-idempotency-key string   Idempotency key                                        
   --name string                Registry name                                          
   --service id-or-uri          Registry service. Provide ID or URI of billing/service 
-  --tag key=key,value=value    Tag collection
+  --tag key=key,value=value    Tag collection                                         
+  --skeleton true,false
 ```
 
 #### h1 container registry list
@@ -144,11 +146,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 container registry show
@@ -174,9 +177,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --skeleton true,false
 ```
 
 #### h1 container registry update
@@ -202,11 +206,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                               
-  --location id-or-uri   Location Id                                                              
-  --registry id-or-uri   Registry Id                                                              
-  --name string          Registry name. Requires permissions container/registry.name/update       
-  --domain string[]      Domain collection. Requires permissions container/registry.domain/update
+  --project id-or-uri     Project Id                                                         
+  --location id-or-uri    Location Id                                                        
+  --registry id-or-uri    Registry Id                                                        
+  --name string           Registry name. Requires permissions container/registry.name/update 
+  --skeleton true,false
 ```
 
 #### h1 container registry delete
@@ -232,9 +236,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --skeleton true,false
 ```
 
 #### h1 container registry start
@@ -263,7 +268,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --registry id-or-uri         Registry Id     
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 container registry stop
@@ -292,7 +298,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --registry id-or-uri         Registry Id     
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 container registry transfer
@@ -323,7 +330,8 @@ Operation options
   --registry id-or-uri         Registry Id                                                                   
   --x-idempotency-key string   Idempotency key                                                               
   --project uri                Registry project. Provide URI of iam/project. Requires permissions            
-                               container/registry/create
+                               container/registry/create                                                     
+  --skeleton true,false
 ```
 
 #### h1 container registry repository
@@ -394,9 +402,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --skeleton true,false
 ```
 
 ##### h1 container registry repository show
@@ -425,7 +434,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --registry id-or-uri     Registry Id  
-  --repository id-or-uri   repositoryId
+  --repository id-or-uri   repositoryId 
+  --skeleton true,false
 ```
 
 ##### h1 container registry repository image
@@ -500,7 +510,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --registry id-or-uri     Registry Id  
-  --repository id-or-uri   repositoryId
+  --repository id-or-uri   repositoryId 
+  --skeleton true,false
 ```
 
 ###### h1 container registry repository image show
@@ -530,7 +541,8 @@ Operation options
   --location id-or-uri     Location Id  
   --registry id-or-uri     Registry Id  
   --repository id-or-uri   repositoryId 
-  --image id-or-uri        imageId
+  --image id-or-uri        imageId      
+  --skeleton true,false
 ```
 
 ###### h1 container registry repository image delete
@@ -561,7 +573,8 @@ Operation options
   --location id-or-uri     Location Id  
   --registry id-or-uri     Registry Id  
   --repository id-or-uri   repositoryId 
-  --image id-or-uri        imageId
+  --image id-or-uri        imageId      
+  --skeleton true,false
 ```
 
 #### h1 container registry credential
@@ -635,13 +648,14 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id       
-  --location id-or-uri   Location Id      
-  --registry id-or-uri   Registry Id      
-  --name string          Credential name  
-  --type string          Credential type  
-  --value string         Credential value 
-  --token string         Credential token
+  --project id-or-uri     Project Id       
+  --location id-or-uri    Location Id      
+  --registry id-or-uri    Registry Id      
+  --name string           Credential name  
+  --type string           Credential type  
+  --value string          Credential value 
+  --token string          Credential token 
+  --skeleton true,false
 ```
 
 ##### h1 container registry credential list
@@ -667,9 +681,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --skeleton true,false
 ```
 
 ##### h1 container registry credential show
@@ -698,7 +713,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --registry id-or-uri     Registry Id  
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 ##### h1 container registry credential update
@@ -730,7 +746,8 @@ Operation options
   --registry id-or-uri     Registry Id                                                                   
   --credential id-or-uri   credentialId                                                                  
   --name string            Credential name. Requires permissions                                         
-                           container/registry.credential.name/update
+                           container/registry.credential.name/update                                     
+  --skeleton true,false
 ```
 
 ##### h1 container registry credential delete
@@ -760,7 +777,173 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --registry id-or-uri     Registry Id  
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
+```
+
+#### h1 container registry domain
+
+```
+h1 container registry domain
+
+Synopsis
+
+  $ h1 container registry domain <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                              
+  create   Create container/registry.domain [container_project_registry_domain_create] 
+  list     List container/registry.domain [container_project_registry_domain_list]     
+  show     Get container/registry.domain [container_project_registry_domain_get]       
+  delete   Delete container/registry.domain [container_project_registry_domain_delete]
+```
+
+##### h1 container registry domain spec
+
+```
+h1 container registry domain spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 container registry domain spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 container registry domain create
+
+```
+h1 container registry domain create
+
+  Create container/registry.domain [container_project_registry_domain_create] 
+
+Synopsis
+
+  $ h1 container registry domain create <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri     Project Id   
+  --location id-or-uri    Location Id  
+  --registry id-or-uri    Registry Id  
+  --value string          Domain value 
+  --skeleton true,false
+```
+
+##### h1 container registry domain list
+
+```
+h1 container registry domain list
+
+  List container/registry.domain [container_project_registry_domain_list] 
+
+Synopsis
+
+  $ h1 container registry domain list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --skeleton true,false
+```
+
+##### h1 container registry domain show
+
+```
+h1 container registry domain show
+
+  Get container/registry.domain [container_project_registry_domain_get] 
+
+Synopsis
+
+  $ h1 container registry domain show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --domain id-or-uri      domainId    
+  --skeleton true,false
+```
+
+##### h1 container registry domain delete
+
+```
+h1 container registry domain delete
+
+  Delete container/registry.domain [container_project_registry_domain_delete] 
+
+Synopsis
+
+  $ h1 container registry domain delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --domain id-or-uri      domainId    
+  --skeleton true,false
 ```
 
 #### h1 container registry service
@@ -830,9 +1013,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --skeleton true,false
 ```
 
 ##### h1 container registry service show
@@ -858,10 +1042,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id 
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 container registry tag
@@ -933,11 +1118,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id 
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 container registry tag list
@@ -963,9 +1149,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --skeleton true,false
 ```
 
 ##### h1 container registry tag show
@@ -991,10 +1178,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id 
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 container registry tag delete
@@ -1020,10 +1208,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id 
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 container registry event
@@ -1093,11 +1282,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id 
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 container registry event show
@@ -1123,9 +1313,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --registry id-or-uri   Registry Id 
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --registry id-or-uri    Registry Id 
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 

@@ -65,6 +65,7 @@ Command List
   link         Manage links of the instance                                  
   sideapp      Manage sideapps of the instance                               
   credential   Manage credentials of the instance                            
+  domain       Manage domains of the instance                                
   service      Manage services of the instance                               
   tag          Manage tags of the instance                                   
   event        Manage events of the instance                                 
@@ -128,7 +129,8 @@ Operation options
   --source uri                  Instance source. Provide URI of website/instance.snapshot. Requires           
                                 permissions website/instance.snapshot/use                                     
   --env name=name,value=value   Env collection                                                                
-  --tag key=key,value=value     Tag collection
+  --tag key=key,value=value     Tag collection                                                                
+  --skeleton true,false
 ```
 
 #### h1 website instance list
@@ -154,11 +156,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key
+  --project id-or-uri     Project Id          
+  --location id-or-uri    Location Id         
+  --name string           Filter by name      
+  --tag.value string      Filter by tag.value 
+  --tag.key string        Filter by tag.key   
+  --skeleton true,false
 ```
 
 #### h1 website instance show
@@ -184,9 +187,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 #### h1 website instance update
@@ -212,13 +216,13 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                                    
-  --location id-or-uri   Location Id                                                                   
-  --instance id-or-uri   Instance Id                                                                   
-  --name string          Instance name. Requires permissions website/instance.name/update              
-  --domain string[]      Domain collection. Requires permissions website/instance.domain/update        
-  --image uri            Instance image. Provide URI of website/image. Requires permissions            
-                         website/instance.image/update
+  --project id-or-uri     Project Id                                                                    
+  --location id-or-uri    Location Id                                                                   
+  --instance id-or-uri    Instance Id                                                                   
+  --name string           Instance name. Requires permissions website/instance.name/update              
+  --image uri             Instance image. Provide URI of website/image. Requires permissions            
+                          website/instance.image/update                                                 
+  --skeleton true,false
 ```
 
 #### h1 website instance delete
@@ -244,9 +248,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 #### h1 website instance start
@@ -275,7 +280,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --instance id-or-uri         Instance Id     
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 website instance stop
@@ -304,7 +310,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --instance id-or-uri         Instance Id     
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 website instance restart
@@ -333,7 +340,8 @@ Operation options
   --project id-or-uri          Project Id      
   --location id-or-uri         Location Id     
   --instance id-or-uri         Instance Id     
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 website instance transfer
@@ -364,7 +372,8 @@ Operation options
   --instance id-or-uri         Instance Id                                                                   
   --x-idempotency-key string   Idempotency key                                                               
   --project uri                Instance project. Provide URI of iam/project. Requires permissions            
-                               website/website/create
+                               website/instance/create                                                       
+  --skeleton true,false
 ```
 
 #### h1 website instance snapshot
@@ -437,10 +446,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id    
-  --location id-or-uri   Location Id   
-  --instance id-or-uri   Instance Id   
-  --name string          Snapshot name
+  --project id-or-uri     Project Id    
+  --location id-or-uri    Location Id   
+  --instance id-or-uri    Instance Id   
+  --name string           Snapshot name 
+  --skeleton true,false
 ```
 
 ##### h1 website instance snapshot list
@@ -466,9 +476,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 website instance snapshot show
@@ -494,10 +505,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --snapshot id-or-uri   snapshotId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --snapshot id-or-uri    snapshotId  
+  --skeleton true,false
 ```
 
 ##### h1 website instance snapshot delete
@@ -523,10 +535,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --snapshot id-or-uri   snapshotId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --snapshot id-or-uri    snapshotId  
+  --skeleton true,false
 ```
 
 ##### h1 website instance snapshot download
@@ -553,11 +566,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id           
-  --location id-or-uri   Location Id          
-  --instance id-or-uri   Instance Id          
-  --snapshot id-or-uri   snapshotId           
-  --incremental string   Download incremental
+  --project id-or-uri     Project Id           
+  --location id-or-uri    Location Id          
+  --instance id-or-uri    Instance Id          
+  --snapshot id-or-uri    snapshotId           
+  --incremental string    Download incremental 
+  --skeleton true,false
 ```
 
 #### h1 website instance env
@@ -629,11 +643,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --name string          Env name    
-  --value string         Env value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --name string           Env name    
+  --value string          Env value   
+  --skeleton true,false
 ```
 
 ##### h1 website instance env list
@@ -659,9 +674,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 website instance env show
@@ -687,10 +703,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --env id-or-uri        envId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --env id-or-uri         envId       
+  --skeleton true,false
 ```
 
 ##### h1 website instance env delete
@@ -716,10 +733,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --env id-or-uri        envId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --env id-or-uri         envId       
+  --skeleton true,false
 ```
 
 #### h1 website instance link
@@ -791,13 +809,14 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id                                                                    
-  --location id-or-uri   Location Id                                                                   
-  --instance id-or-uri   Instance Id                                                                   
-  --actor id-or-uri      Link actor. Provide ID or URI of iam/sa. Requires permissions iam/sa/use      
-  --purpose string       Link purpose                                                                  
-  --resource id-or-uri   Link resource. Provide ID or URI of insight/journal. Requires permissions     
-                         insight/journal/use
+  --project id-or-uri     Project Id                                                                    
+  --location id-or-uri    Location Id                                                                   
+  --instance id-or-uri    Instance Id                                                                   
+  --actor id-or-uri       Link actor. Provide ID or URI of iam/sa. Requires permissions iam/sa/use      
+  --purpose string        Link purpose                                                                  
+  --resource id-or-uri    Link resource. Provide ID or URI of insight/journal. Requires permissions     
+                          insight/journal/use                                                           
+  --skeleton true,false
 ```
 
 ##### h1 website instance link list
@@ -823,9 +842,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 website instance link show
@@ -851,10 +871,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --link id-or-uri       linkId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --link id-or-uri        linkId      
+  --skeleton true,false
 ```
 
 ##### h1 website instance link delete
@@ -880,10 +901,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --link id-or-uri       linkId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --link id-or-uri        linkId      
+  --skeleton true,false
 ```
 
 #### h1 website instance sideapp
@@ -955,10 +977,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id      
-  --location id-or-uri   Location Id     
-  --instance id-or-uri   Instance Id     
-  --flavour string       Sideapp flavour
+  --project id-or-uri     Project Id      
+  --location id-or-uri    Location Id     
+  --instance id-or-uri    Instance Id     
+  --flavour string        Sideapp flavour 
+  --skeleton true,false
 ```
 
 ##### h1 website instance sideapp list
@@ -984,9 +1007,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 website instance sideapp show
@@ -1012,10 +1036,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --sideapp id-or-uri    sideappId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --sideapp id-or-uri     sideappId   
+  --skeleton true,false
 ```
 
 ##### h1 website instance sideapp delete
@@ -1041,10 +1066,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --sideapp id-or-uri    sideappId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --sideapp id-or-uri     sideappId   
+  --skeleton true,false
 ```
 
 #### h1 website instance credential
@@ -1117,13 +1143,14 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id       
-  --location id-or-uri   Location Id      
-  --instance id-or-uri   Instance Id      
-  --name string          Credential name  
-  --type string          Credential type  
-  --value string         Credential value 
-  --token string         Credential token
+  --project id-or-uri     Project Id       
+  --location id-or-uri    Location Id      
+  --instance id-or-uri    Instance Id      
+  --name string           Credential name  
+  --type string           Credential type  
+  --value string          Credential value 
+  --token string          Credential token 
+  --skeleton true,false
 ```
 
 ##### h1 website instance credential list
@@ -1149,9 +1176,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 website instance credential show
@@ -1180,7 +1208,8 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --instance id-or-uri     Instance Id  
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
 ```
 
 ##### h1 website instance credential update
@@ -1210,7 +1239,8 @@ Operation options
   --location id-or-uri     Location Id                                                                   
   --instance id-or-uri     Instance Id                                                                   
   --credential id-or-uri   credentialId                                                                  
-  --name string            Credential name. Requires permissions website/instance.credential.name/update
+  --name string            Credential name. Requires permissions website/instance.credential.name/update 
+  --skeleton true,false
 ```
 
 ##### h1 website instance credential delete
@@ -1239,7 +1269,173 @@ Operation options
   --project id-or-uri      Project Id   
   --location id-or-uri     Location Id  
   --instance id-or-uri     Instance Id  
-  --credential id-or-uri   credentialId
+  --credential id-or-uri   credentialId 
+  --skeleton true,false
+```
+
+#### h1 website instance domain
+
+```
+h1 website instance domain
+
+Synopsis
+
+  $ h1 website instance domain <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec     Print specification of context                                          
+  create   Create website/instance.domain [website_project_instance_domain_create] 
+  list     List website/instance.domain [website_project_instance_domain_list]     
+  show     Get website/instance.domain [website_project_instance_domain_get]       
+  delete   Delete website/instance.domain [website_project_instance_domain_delete]
+```
+
+##### h1 website instance domain spec
+
+```
+h1 website instance domain spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 website instance domain spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 website instance domain create
+
+```
+h1 website instance domain create
+
+  Create website/instance.domain [website_project_instance_domain_create] 
+
+Synopsis
+
+  $ h1 website instance domain create <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri     Project Id   
+  --location id-or-uri    Location Id  
+  --instance id-or-uri    Instance Id  
+  --value string          Domain value 
+  --skeleton true,false
+```
+
+##### h1 website instance domain list
+
+```
+h1 website instance domain list
+
+  List website/instance.domain [website_project_instance_domain_list] 
+
+Synopsis
+
+  $ h1 website instance domain list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
+```
+
+##### h1 website instance domain show
+
+```
+h1 website instance domain show
+
+  Get website/instance.domain [website_project_instance_domain_get] 
+
+Synopsis
+
+  $ h1 website instance domain show <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --domain id-or-uri      domainId    
+  --skeleton true,false
+```
+
+##### h1 website instance domain delete
+
+```
+h1 website instance domain delete
+
+  Delete website/instance.domain [website_project_instance_domain_delete] 
+
+Synopsis
+
+  $ h1 website instance domain delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait                                   In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --domain id-or-uri      domainId    
+  --skeleton true,false
 ```
 
 #### h1 website instance service
@@ -1309,9 +1505,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 website instance service show
@@ -1337,10 +1534,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --service id-or-uri    serviceId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --service id-or-uri     serviceId   
+  --skeleton true,false
 ```
 
 #### h1 website instance tag
@@ -1412,11 +1610,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --key string           Tag key     
-  --value string         Tag value
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --key string            Tag key     
+  --value string          Tag value   
+  --skeleton true,false
 ```
 
 ##### h1 website instance tag list
@@ -1442,9 +1641,10 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --skeleton true,false
 ```
 
 ##### h1 website instance tag show
@@ -1470,10 +1670,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 ##### h1 website instance tag delete
@@ -1499,10 +1700,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --tag id-or-uri        tagId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --tag id-or-uri         tagId       
+  --skeleton true,false
 ```
 
 #### h1 website instance event
@@ -1572,11 +1774,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --$limit string        $limit      
-  --$skip string         $skip
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --$limit string         $limit      
+  --$skip string          $skip       
+  --skeleton true,false
 ```
 
 ##### h1 website instance event show
@@ -1602,10 +1805,11 @@ Global options
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --instance id-or-uri   Instance Id 
-  --event id-or-uri      eventId
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --instance id-or-uri    Instance Id 
+  --event id-or-uri       eventId     
+  --skeleton true,false
 ```
 
 #### h1 website instance ssh

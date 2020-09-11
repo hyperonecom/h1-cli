@@ -109,7 +109,8 @@ Operation options
   --x-idempotency-key string   Idempotency key 
   --type string                Ticket type     
   --subject string             Ticket subject  
-  --message string             Ticket message
+  --message string             Ticket message  
+  --skeleton true,false
 ```
 
 #### h1 support ticket list
@@ -135,8 +136,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id      
-  --state string        Filter by state
+  --project id-or-uri     Project Id      
+  --state string          Filter by state 
+  --skeleton true,false
 ```
 
 #### h1 support ticket show
@@ -162,8 +164,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --ticket id-or-uri    Ticket Id
+  --project id-or-uri     Project Id 
+  --ticket id-or-uri      Ticket Id  
+  --skeleton true,false
 ```
 
 #### h1 support ticket close
@@ -191,7 +194,8 @@ Operation options
 
   --project id-or-uri          Project Id      
   --ticket id-or-uri           Ticket Id       
-  --x-idempotency-key string   Idempotency key
+  --x-idempotency-key string   Idempotency key 
+  --skeleton true,false
 ```
 
 #### h1 support ticket message
@@ -262,11 +266,12 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id   
-  --ticket id-or-uri    Ticket Id    
-  --type string         Message type 
-  --data-mime string    Data mime    
-  --data-body string    Data body
+  --project id-or-uri     Project Id   
+  --ticket id-or-uri      Ticket Id    
+  --type string           Message type 
+  --data-mime string      Data mime    
+  --data-body string      Data body    
+  --skeleton true,false
 ```
 
 ##### h1 support ticket message list
@@ -292,8 +297,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --ticket id-or-uri    Ticket Id
+  --project id-or-uri     Project Id 
+  --ticket id-or-uri      Ticket Id  
+  --skeleton true,false
 ```
 
 ##### h1 support ticket message show
@@ -319,8 +325,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri   Project Id 
-  --ticket id-or-uri    Ticket Id  
-  --message id-or-uri   messageId
+  --project id-or-uri     Project Id 
+  --ticket id-or-uri      Ticket Id  
+  --message id-or-uri     messageId  
+  --skeleton true,false
 ```
 
