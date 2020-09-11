@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-ext-root-openapi-generator",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "dist/index.js",
   "browser": "index.js",
