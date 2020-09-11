@@ -70,7 +70,7 @@ export class NodeDevice extends Device {
         if (typeof this.config == 'undefined') {
             const outDir = path.join(os.homedir(), `.${this.scope}`);
             try {
-                const content = fs.readFileSync(path.join(outDir, 'config.json'), { encoding: 'utf-8' });
+                const content = await fs.promises.readFile(path.join(outDir, 'config.json'), { encoding: 'utf-8' });
                 this.config = JSON.parse(content);
             } catch (err) {
                 if (err.code === 'ENOENT') {
@@ -81,8 +81,9 @@ export class NodeDevice extends Device {
                             },
                         },
                     };
+                } else {
+                    throw err;
                 }
-                throw err;
             }
         }
         return this.config;
@@ -96,7 +97,7 @@ export class NodeDevice extends Device {
     async configGet(key, defaultValue) {
         return get(await this.configLoad(), key, defaultValue);
     }
-    async configSet (key, value) {
+    async configSet(key, value) {
         return set(await this.configLoad(), key, value);
     }
     async configUnset(key) {
