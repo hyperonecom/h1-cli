@@ -179,6 +179,7 @@ const renderBody = (operation, input, options) => {
             continue;
         }
         let value = input[option.name];
+        if (value === undefined) continue;
         if (option.prefix && value && !value.startsWith('/')) {
             value = renderPath(option.prefix, input, options).replace(`\{${option.name}Id\}`, value);
         }
@@ -230,9 +231,21 @@ const renderPath = (path, input, options) => {
     return url;
 };
 
+const renderParameter = (input, options) => {
+    const parameter = {};
+    for (const option of options.filter(x => x.use)) {
+        if (!input[option.name]) continue;
+        if (['path', 'query'].includes(option.use.in)) {
+            parameter[option.use.field] = input[option.name];
+        }
+    }
+    return parameter;
+};
+
 export default {
     renderOptions,
     renderBody,
     renderPath,
     renderQuery,
+    renderParameter,
 };
