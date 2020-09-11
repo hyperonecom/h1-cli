@@ -22,14 +22,28 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => () => 
     return new Command({
         name,
         summary: `${operation.summary} [${operation.operationId}]`,
-        options,
+        options: [
+            ...options,
+            {
+                name: 'skeleton',
+                type: (value) => value == 'true',
+                typeLabel: 'true,false',
+                choices: ['true', 'false'],
+            },
+        ],
         tags: [operation.operationId],
         handler: async (opts) => {
             const optsAll = opts._all || opts;
             const url = openapi.getUrl(request.renderPath(path, optsAll, options));
-            const body = request.renderBody(operation, optsAll, options);
+            const requestBody = request.renderBody(operation, optsAll, options);
             opts.defaultQuery = request.renderQuery(path, operation, optsAll);
-            const resp = await opts.api[method](url, body);
+            if (optsAll.skeleton) {
+                return {
+                    parameters: request.renderParameter(optsAll, options),
+                    requestBody,
+                };
+            }
+            const resp = await opts.api[method](url, requestBody);
             return opts.format(opts, resp);
         },
     });
