@@ -51,6 +51,10 @@ export default (device, logger) => {
         const resp = await baseRequest(method, uri, options);
         const type = resp.headers.get('content-type');
 
+        if (resp.status == 204) {
+            return;
+        }
+
         if (type.startsWith('text/plain')) {
             const respText = await resp.text();
             logger.debug('response text', respText);
