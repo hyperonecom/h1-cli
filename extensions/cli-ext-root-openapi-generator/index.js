@@ -2,6 +2,7 @@
 import pluralize from 'pluralize';
 import { Category, Command } from '@hyperone/cli-framework';
 import { openapi } from '@hyperone/cli-core';
+import { deCamelCase } from '@hyperone/cli-core/lib/transform';
 
 import request from './request';
 
@@ -51,7 +52,7 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => () => 
 
 export const makeResourceCommand = (resource, ctx) => () => {
     const cmd = new Category({
-        name: resource.type,
+        name: deCamelCase(resource.type),
         summary: ctx.description || `Management of ${resource.type} resource`,
     });
 
