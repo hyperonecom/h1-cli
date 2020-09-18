@@ -180,6 +180,7 @@ const renderBody = (operation, input, options) => {
         }
         let value = input[option.name];
         if (value === undefined) continue;
+        if (value == option.defaultValue) continue;
         if (option.prefix && value && !value.startsWith('/')) {
             value = renderPath(option.prefix, input, options).replace(`\{${option.name}Id\}`, value);
         }
