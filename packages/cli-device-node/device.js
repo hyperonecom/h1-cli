@@ -9,6 +9,7 @@ import { Device } from '@hyperone/cli-framework';
 import process from 'process';
 import info from './package.json';
 import { get, set, unset } from '@hyperone/cli-core/lib/transform';
+import { CliError } from '@hyperone/cli-framework/error';
 
 const parameterLabel = (parameter, options = []) => {
     const option = options.find(p => p.use && p.use.in == parameter.in && p.use.field == parameter.field);
@@ -42,27 +43,37 @@ export class NodeDevice extends Device {
         }
     }
     async displayError(err) {
-        const options = err.options;
-        delete err.options;
-        const type = err.resp && err.resp.headers.get('content-type');
-        if (err.resp && type && type.startsWith('application/json')) {
-            const respJson = await err.resp.json();
-            if (!respJson.title) {
-                console.error(respJson);
-            } else {
-                // console.dir(respJson, { depth: null });
-                console.log(`${chalk.red(respJson.title)}: ${respJson.detail}`);
-                const nested = [
-                    ...respJson.argument || [],
-                    ...respJson.permission || [],
-                    ...respJson.operation || [],
-                ];
-                for (const nestedErr of nested) {
-                    formatError(nestedErr, options);
+        if (err instanceof CliError) {
+            console.log(`Error: ${err.message}`);
+            if (err.suggestion && err.suggestion > 0) {
+                console.error('Did you mean this?');
+                for (const suggestion of err.suggestion) {
+                    console.error(`\t${suggestion}`);
                 }
             }
         } else {
-            console.error(err);
+            const options = err.options;
+            delete err.options;
+            const type = err.resp && err.resp.headers.get('content-type');
+            if (err.resp && type && type.startsWith('application/json')) {
+                const respJson = await err.resp.json();
+                if (!respJson.title) {
+                    console.error(respJson);
+                } else {
+                    // console.dir(respJson, { depth: null });
+                    console.log(`${chalk.red(respJson.title)}: ${respJson.detail}`);
+                    const nested = [
+                        ...respJson.argument || [],
+                        ...respJson.permission || [],
+                        ...respJson.operation || [],
+                    ];
+                    for (const nestedErr of nested) {
+                        formatError(nestedErr, options);
+                    }
+                }
+            } else {
+                console.error(err);
+            }
         }
         process.exit(err.exitCode || 1);
     }

@@ -3,6 +3,7 @@ import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
 import meant from 'meant';
 import Command from './command';
+import { NotFoundCommandError, AlreadyLoadedError } from '@hyperone/cli-framework/error';
 
 class Category extends Command {
     constructor(options = {}) {
@@ -55,7 +56,7 @@ class Category extends Command {
         for (const cmd of cmds) {
             if (typeof cmd == 'function') {
                 if (this.loaded) {
-                    throw new Error('No late to add new lazy command');
+                    throw new AlreadyLoadedError('No late to add new lazy command');
                 }
                 this.lazyCommands.push(cmd);
             } else {
@@ -89,15 +90,11 @@ class Category extends Command {
             if (!allOpts.command) {
                 return this.getUsage();
             }
-            const result = meant(allOpts.command, this.commands.map(x => x.name));
-            const msg = [
-                `Error: unknown command "${allOpts.command}" for "${this.name}".`,
-            ];
-            if (result.length > 0) {
-                msg.push('Did you mean this?');
-                msg.push(...result.map(x => `\t${x}`));
-            }
-            return msg.join('\n');
+            const suggestion = meant(allOpts.command, this.commands.map(x => x.name));
+            throw new NotFoundCommandError(
+                `Unknown command "${allOpts.command}" for "${this.getFullName()}".`,
+                suggestion
+            );
         }
 
         return cmd.exec(opts._unknown, {

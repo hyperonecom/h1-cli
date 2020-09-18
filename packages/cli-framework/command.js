@@ -3,6 +3,7 @@ import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
 import meant from 'meant';
 import { resolvePointer, serializeValue } from './utils';
+import { UnknownOptionError} from './error';
 
 class Command {
     constructor(options = {}) {
@@ -93,20 +94,12 @@ class Command {
         }
         if (opts._unknown && opts._unknown.length > 0 && opts._unknown[0].startsWith('-')) {
             const option = opts._unknown[0];
-            const subname = options.map(x => `--${x.name}`);
-            const result = meant(option, subname);
-            const msg = [
-                `Error: unknown option "${option}" for "${this.name}".`,
-            ];
-            if (result.length > 0) {
-                msg.push('Did you mean this?');
-                msg.push(...result.map(x => `\t${x}`));
-            }
-            return msg.join('\n');
+            const suggestion = meant(option, options.map(x => `--${x.name}`));
+            throw new UnknownOptionError(`Unknown parameter "${option}" for "${this.getFullName()}"`, suggestion);
         }
         const missing = options.filter(x => x.required && typeof allOpts[x.name] == 'undefined').map(x => `--${x.name}`);
         if (missing.length > 0) {
-            return `Argument missing: ${missing.join(', ')}`;
+            throw new UnknownOptionError(`Parameter missing: ${missing.join(', ')}`, missing);
         }
         let p = Promise.resolve();
         if (this.plugins) {

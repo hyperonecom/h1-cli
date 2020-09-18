@@ -170,7 +170,7 @@ export const buildNamespaceCommand = (name, spec, ctx) => async () => {
     if (name !== 'iam') {
         children.push(
             ...openapi.getChild(`${ctx.path}/project/{projectId}`),
-            ...openapi.getChild(`${ctx.path}/{locationId}/project/{projectId}`),
+            ...openapi.getChild(`${ctx.path}/{locationId}/project/{projectId}`)
         );
     }
 
