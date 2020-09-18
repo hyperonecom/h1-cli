@@ -88,7 +88,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -112,7 +112,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -148,7 +148,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -180,7 +180,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -209,7 +209,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -239,7 +239,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -268,7 +268,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -299,7 +299,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -330,7 +330,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -360,7 +360,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -390,7 +390,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -442,7 +442,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -466,7 +466,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -495,7 +495,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -547,7 +547,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -571,7 +571,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -602,7 +602,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -631,7 +631,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -661,7 +661,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -711,7 +711,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -735,7 +735,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -766,7 +766,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -824,7 +824,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -848,7 +848,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -886,7 +886,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -917,7 +917,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -946,7 +946,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -977,7 +977,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1006,7 +1006,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1057,7 +1057,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -1081,7 +1081,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1130,7 +1130,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -1154,7 +1154,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1183,7 +1183,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1235,7 +1235,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -1259,7 +1259,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1290,7 +1290,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1319,7 +1319,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1349,7 +1349,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1399,7 +1399,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -1423,7 +1423,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1454,7 +1454,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1512,7 +1512,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -1536,7 +1536,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1568,7 +1568,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1599,7 +1599,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1628,7 +1628,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1658,7 +1658,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1687,7 +1687,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1718,7 +1718,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1770,7 +1770,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -1794,7 +1794,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1823,7 +1823,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1875,7 +1875,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -1899,7 +1899,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1930,7 +1930,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1959,7 +1959,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -1989,7 +1989,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2039,7 +2039,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -2063,7 +2063,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2094,7 +2094,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2120,22 +2120,21 @@ Options
 
 Command List
 
-  spec         Print specification of context                          
-  create       Create storage/vault [storage_project_vault_create]     
-  list         List storage/vault [storage_project_vault_list]         
-  show         Get storage/vault [storage_project_vault_get]           
-  update       Update storage/vault [storage_project_vault_update]     
-  delete       Delete storage/vault [storage_project_vault_delete]     
-  start        Start storage/vault [storage_project_vault_start]       
-  stop         Stop storage/vault [storage_project_vault_stop]         
-  resize       Resize storage/vault [storage_project_vault_resize]     
-  snapshot     Snapshot storage/vault [storage_project_vault_snapshot] 
-  snapshot     Manage snapshots of the vault                           
-  credential   Manage credentials of the vault                         
-  service      Manage services of the vault                            
-  tag          Manage tags of the vault                                
-  event        Manage events of the vault                              
-  ssh          Connect to storage/vault using SSH                      
+  spec         Print specification of context                      
+  create       Create storage/vault [storage_project_vault_create] 
+  list         List storage/vault [storage_project_vault_list]     
+  show         Get storage/vault [storage_project_vault_get]       
+  update       Update storage/vault [storage_project_vault_update] 
+  delete       Delete storage/vault [storage_project_vault_delete] 
+  start        Start storage/vault [storage_project_vault_start]   
+  stop         Stop storage/vault [storage_project_vault_stop]     
+  resize       Resize storage/vault [storage_project_vault_resize] 
+  snapshot     Manage snapshots of the vault                       
+  credential   Manage credentials of the vault                     
+  service      Manage services of the vault                        
+  tag          Manage tags of the vault                            
+  event        Manage events of the vault                          
+  ssh          Connect to storage/vault using SSH                  
   sftp         Connect to storage/vault using SFTP
 ```
 
@@ -2158,7 +2157,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -2182,7 +2181,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2218,7 +2217,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2249,7 +2248,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2278,7 +2277,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2308,7 +2307,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2338,7 +2337,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2368,7 +2367,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2398,7 +2397,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2407,39 +2406,6 @@ Operation options
   --vault id-or-uri            Vault Id        
   --x-idempotency-key string   Idempotency key 
   --size string                Vault size      
-  --skeleton true,false
-```
-
-#### h1 storage vault snapshot
-
-```
-h1 storage vault snapshot
-
-  Snapshot storage/vault [storage_project_vault_snapshot] 
-
-Synopsis
-
-  $ h1 storage vault snapshot <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
-
-Operation options
-
-  --project id-or-uri          Project Id                                                                    
-  --location id-or-uri         Location Id                                                                   
-  --vault id-or-uri            Vault Id                                                                      
-  --x-idempotency-key string   Idempotency key                                                               
-  --name string                Vault name                                                                    
-  --service id-or-uri          Vault service. Provide ID or URI of billing/service. Defaults is              
-                               5badbeb585f66b3d085727eb                                                      
   --skeleton true,false
 ```
 
@@ -2484,7 +2450,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -2508,7 +2474,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2538,7 +2504,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2567,7 +2533,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2597,7 +2563,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2650,7 +2616,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -2674,7 +2640,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2707,7 +2673,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2736,7 +2702,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2766,7 +2732,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2797,7 +2763,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2847,7 +2813,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -2871,7 +2837,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2900,7 +2866,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -2952,7 +2918,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -2976,7 +2942,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -3007,7 +2973,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -3036,7 +3002,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -3066,7 +3032,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -3116,7 +3082,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 ```
@@ -3140,7 +3106,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -3171,7 +3137,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -3201,7 +3167,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
@@ -3228,7 +3194,7 @@ Global options
   --query string                              JMESPath query string                              
   --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
   --as uri                                    Act as another actor eg. service account           
-  --no-wait                                   In case of queued event do not wait for completion 
+  --no-wait true,false                        In case of queued event do not wait for completion 
 
 Operation options
 
