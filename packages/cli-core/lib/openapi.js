@@ -10,15 +10,15 @@ const renderPath = (path, parameters) => path.replace(new RegExp(/{(.+?)}/g), (s
 
 export default {
     init: async (options) => {
+        let schema;
         if (options.openapiSpec) {
-            Object.assign(spec, options.openapiSpec);
+            schema = options.openapiSpec;
         } else {
             const url = options.openapiUrl || 'https://api.hyperone.com/v2/openapi.json';
             const resp = await fetch(url);
-            const json = await resp.json();
-            const schema = await $RefParser.dereference(json);
-            Object.assign(spec, schema);
+            schema = await resp.json();
         }
+        Object.assign(spec, await $RefParser.dereference(schema));
     },
     getNamespaces: () => {
         const namespaces = {};
