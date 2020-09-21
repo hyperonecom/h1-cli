@@ -29,12 +29,16 @@ export default new Command({
     handler: async (opts) => {
         const optsAll = opts._all || opts;
         const { publicKey, privateKey } = await generateKeyPair();
-        const result = await opts.api.post(openapi.getUrl(`/iam/project/${optsAll.project}/sa/${optsAll.sa}/credential`), {
+        const parameters = {
+            projectId: optsAll.project,
+            saId: optsAll.sa,
+        };
+        const result = await opts.api.post(openapi.getUrl('/iam/project/{projectId}/sa/{saId}/credential', parameters), {
             name: optsAll.name,
             type: 'ssh',
             value: publicKeyToOpenSSH(publicKey),
         });
-        const subject_id = `/iam/project/${optsAll.project}/sa/${optsAll.sa}`;
+        const subject_id = openapi.renderPath('/iam/project/{projectId}/sa/{saId}', parameters);
         const jwk = {
             subject_id,
             certificate_id: result.id,

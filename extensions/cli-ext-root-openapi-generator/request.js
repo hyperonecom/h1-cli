@@ -174,6 +174,8 @@ const renderOptions = (operation, parameters = []) => {
 
 const renderBody = (operation, input, options) => {
     const result = {};
+    const parameters = renderParameter(input, options);
+
     for (const option of options) {
         if (!option.use || option.use.in != 'body') {
             continue;
@@ -182,14 +184,14 @@ const renderBody = (operation, input, options) => {
         if (value === undefined) continue;
         if (value == option.defaultValue) continue;
         if (option.prefix && value && !value.startsWith('/')) {
-            value = renderPath(option.prefix, input, options).replace(`\{${option.name}Id\}`, value);
+            value = openapi.renderPath(option.prefix, {...parameters, [`${option.name}Id`]: value});
         }
         set(result, option.use.field.replace(/\//g, '.'), value);
     }
     return result;
 };
 
-const renderQuery = (path, operation) => {
+const generateQuery = (path, operation) => {
     const schema = openapi.getResponse(operation) || {};
     const col = [];
 
@@ -214,23 +216,11 @@ const renderQuery = (path, operation) => {
     return `[].{${col.join(',')}}`;
 };
 
-const renderPath = (path, input, options) => {
-    let url = path;
-    const query = {};
-    for (const option of options.filter(x => x.use)) {
-        if (!input[option.name]) continue;
-        if (option.use.in == 'path') {
-            const p = `{${option.use.field}}`;
-            url = url.replace(p, input[option.name]);
-        } else if (option.use.in == 'query') {
-            query[option.use.field] = input[option.name];
-        }
-    }
-    if (Object.entries(query).length > 0) {
-        url = `${url}?${new URLSearchParams(query)}`;
-    }
-    return url;
-};
+const renderQuery = (input, options) => Object
+    .fromEntries(options
+        .filter(option => option.use && option.use.in == 'query' && input[option.name])
+        .map(option => [option.use.field, input[option.name]])
+    );
 
 const renderParameter = (input, options) => {
     const parameter = {};
@@ -246,7 +236,7 @@ const renderParameter = (input, options) => {
 export default {
     renderOptions,
     renderBody,
-    renderPath,
     renderQuery,
+    generateQuery,
     renderParameter,
 };

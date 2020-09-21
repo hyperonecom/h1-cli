@@ -35,16 +35,26 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => () => 
         tags: [operation.operationId],
         handler: async (opts) => {
             const optsAll = opts._all || opts;
-            const url = openapi.getUrl(request.renderPath(path, optsAll, options));
-            const requestBody = request.renderBody(operation, optsAll, options);
-            opts.defaultQuery = request.renderQuery(path, operation, optsAll);
+            const parameters = request.renderParameter(optsAll, options);
+            const url = openapi.getUrl(path, parameters);
+            const query = request.renderQuery(optsAll, options);
+            opts.defaultQuery = request.generateQuery(path, operation, optsAll);
+
+            let requestBody;
+            if (['post', 'patch', 'put'].includes(method)) {
+                requestBody = request.renderBody(operation, optsAll, options);
+            }
+
             if (optsAll.skeleton) {
                 return {
-                    parameters: request.renderParameter(optsAll, options),
-                    requestBody,
+                    parameters,
+                    requestBody: requestBody || {},
                 };
             }
-            const resp = await opts.api[method](url, requestBody);
+            const resp = await opts.api[method](url, {
+                json: requestBody,
+                query,
+            });
             return opts.format(opts, resp);
         },
     });

@@ -3,6 +3,11 @@ import $RefParser from '@apidevtools/json-schema-ref-parser';
 
 const spec = {};
 
+const renderPath = (path, parameters) => path.replace(new RegExp(/{(.+?)}/g), (source, name) => {
+    if (name in parameters) return encodeURIComponent(parameters[name]);
+    return source;
+});
+
 export default {
     init: async (options) => {
         if (options.openapiSpec) {
@@ -48,7 +53,8 @@ export default {
         }
         return prefixes;
     },
-    getUrl: path => `${spec.servers[0].url}${path}`,
+    renderPath,
+    getUrl: (path, parameters = {}) => `${spec.servers[0].url}${renderPath(path, parameters)}`,
     spec, // TODO: Remove me
     getChild: (prefix) => Object
         .entries(spec.paths)
