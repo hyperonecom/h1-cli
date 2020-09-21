@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-ext-root-config",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Extension to manage configuration.",
   "main": "dist/index.js",
   "browser": "index.js",
