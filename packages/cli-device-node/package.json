@@ -36,6 +36,13 @@
     "docs": "COLUMNS=200 nodejs ./dist/h1_docs.js --output ../../docs/",
     "clean": "rm -rf dist"
   },
+  "files": [
+    "device.js",
+    "index.js",
+    "dist/main.js",
+    "dist/h1.js",
+    "dist/h1_docs.js"
+  ],
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",
   "devDependencies": {
     "pkg": "^4.4.9",
