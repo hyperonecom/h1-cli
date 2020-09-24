@@ -103,6 +103,15 @@ Synopsis
 
   $ h1 provider agent create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent create --project 5f64e2468c71177993874510 --name simple-  
+  agent --service                                                               
+  /billing/project/5f64e2468c71177993874510/service/5cb9e2c1467ad031486f9d87    
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -194,6 +203,14 @@ h1 provider agent update
 Synopsis
 
   $ h1 provider agent update <options> 
+
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 provider agent update --project 5f64e2468c71177993874510 --agent         
+  5f577a24494c5cfdec7830e5 --name agent-renamed                                 
 
 Global options
 
@@ -495,6 +512,16 @@ Synopsis
 
   $ h1 provider agent credential create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent credential create --project 5f64e2468c71177993874510      
+  --agent 5f577a24494c5cfdec7830e5 --name agent-credential --type ssh --value   
+  ssh-rsa                                                                       
+  AAAAB3NzaC1yc2EAAAADAQABAAABAQC7Ssk/TZy/PS5mtGqNwmgfukrA/QrpW3oyrMM3KViHO9wtIwu1BapTdmUxIWi7TX1Nl51i8040CvTstfi11O4jMk2E5lGYp0TIduo8B8Qo/0wO6s2BrXHtLI1FlctkQacrKTnSINrSEcBbIO6G//S4fiRI5ioK8OAPt/qJK1k74AOnrupsXxTUYggmmIJfto8r1c3ZAhfwnJ4D0SDCoWjL4PLh/UGQv7sN20Z/afWVDCa78TnQ6lGlJe6VRSqoT09kJpt2CW0Pa3Ij1QaSJp6ENHpWAWGLyiwW8rLxCqFriz333yf0zzw2QmiyyNHe1ITG2goJU05pHEYyzYq6xo5X 
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -694,6 +721,15 @@ h1 provider agent enabled-service create
 Synopsis
 
   $ h1 provider agent enabled-service create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent enabled-service create --project 5f64e2468c71177993874510 
+  --agent 5f577a24494c5cfdec7830e5 --service                                    
+  /billing/project/platform/service/5cb9e2c8467ad031486f9d88                    
 
 Global options
 
@@ -963,6 +999,14 @@ h1 provider agent tag create
 Synopsis
 
   $ h1 provider agent tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent tag create --project 5f64e2468c71177993874510 --agent     
+  5f577a24494c5cfdec7830e5 --key x --value x                                    
 
 Global options
 

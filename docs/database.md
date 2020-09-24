@@ -100,6 +100,15 @@ Synopsis
 
   $ h1 database instance create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance create --project 5f64e2468c71177993874510 --name       
+  simple-instance --service                                                     
+  /billing/project/platform/service/5cd2e2fc3bd40c1a6359bb26                    
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -191,6 +200,14 @@ h1 database instance update
 Synopsis
 
   $ h1 database instance update <options> 
+
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 database instance update --project 5f64e2468c71177993874510 --instance   
+  5f577a24494c5cfdec7830e5 --name instance-renamed                              
 
 Global options
 
@@ -390,6 +407,15 @@ h1 database instance credential create
 Synopsis
 
   $ h1 database instance credential create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance credential create --project 5f64e2468c71177993874510   
+  --instance 5f577a24494c5cfdec7830e5 --name instance-credential --type plain   
+  --value xxxxxx                                                                
 
 Global options
 
@@ -695,6 +721,14 @@ h1 database instance tag create
 Synopsis
 
   $ h1 database instance tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance tag create --project 5f64e2468c71177993874510          
+  --instance 5f577a24494c5cfdec7830e5 --key x --value x                         
 
 Global options
 

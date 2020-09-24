@@ -3,7 +3,7 @@ import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
 import meant from 'meant';
 import { resolvePointer, serializeValue } from './utils';
-import { UnknownOptionError} from './error';
+import { UnknownOptionError } from './error';
 
 class Command {
     constructor(options = {}) {
@@ -42,6 +42,12 @@ class Command {
         }
         return this.options;
     }
+    async getExamples() {
+        if (typeof this.examples == 'function') {
+            this.examples = await this.examples();
+        }
+        return this.examples;
+    }
     async getUsage() {
         const options = await this.getOptions();
         const fullName = this.getFullName();
@@ -55,12 +61,12 @@ class Command {
                 content: `$ ${fullName} <options>`,
             },
         ];
-
-        if (this.examples.length > 0) {
+        const examples = await this.getExamples();
+        if (examples && examples.length > 0) {
             content.push({
-                header: this.examples.length > 1 ? 'Examples' : 'Example',
-                content: this.examples.map(({ title, command }) => `
-                    {bold ${title}}:
+                header: examples.length > 1 ? 'Examples' : 'Example',
+                content: examples.map(({ title, command }) => `
+                    {bold ${title}}
                 
                    $ ${command.replace('{name}', fullName)}`).join('\n\n'),
             });

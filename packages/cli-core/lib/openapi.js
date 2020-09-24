@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import $RefParser from '@apidevtools/json-schema-ref-parser';
 import {lazy_resolver} from './json_schema';
 
@@ -11,15 +10,8 @@ const renderPath = (path, parameters) => path.replace(new RegExp(/{(.+?)}/g), (s
 
 export default {
     init: async (options) => {
-        let schema;
         const openapiUrl = options.openapiUrl || 'https://api.hyperone.com/v2/openapi.json';
-
-        if (options.openapiSpec) {
-            schema = options.openapiSpec;
-        } else {
-            const resp = await fetch(openapiUrl);
-            schema = await resp.json();
-        }
+        const schema = await $RefParser.parse(options.openapiSpec || openapiUrl);
         Object.assign(spec, await $RefParser.dereference(schema, {
             resolve: {
                 lazy: lazy_resolver(openapiUrl),

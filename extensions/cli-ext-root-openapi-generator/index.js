@@ -19,8 +19,7 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => () => 
         ...endpoint.parameters || [],
     ];
     const options = request.renderOptions(operation, parameters);
-
-    return new Command({
+    const cmd = new Command({
         name,
         summary: `${operation.summary} [${operation.operationId}]`,
         options: [
@@ -33,6 +32,20 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => () => 
             },
         ],
         tags: [operation.operationId],
+        examples: async () => {
+            if (!operation['x-examples']) {
+                return [];
+            }
+            const openApiexamples = await operation['x-examples']();
+            const cliExamples = [];
+            for (const [title, example] of Object.entries(openApiexamples)) {
+                cliExamples.push({
+                    title,
+                    command: await cmd.generateArgv(example).join(' '),
+                });
+            }
+            return cliExamples;
+        },
         handler: async (opts) => {
             const optsAll = opts._all || opts;
             const parameters = request.renderParameter(optsAll, options);
@@ -58,6 +71,7 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => () => 
             return opts.format(opts, resp);
         },
     });
+    return cmd;
 };
 
 export const makeResourceCommand = (resource, ctx) => () => {

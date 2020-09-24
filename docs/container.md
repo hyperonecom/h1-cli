@@ -102,6 +102,15 @@ Synopsis
 
   $ h1 container registry create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry create --project 5f64e2468c71177993874510 --name      
+  simple-registry --service                                                     
+  /billing/project/platform/service/5d08b8c36f76391808dffc3d                    
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -193,6 +202,14 @@ h1 container registry update
 Synopsis
 
   $ h1 container registry update <options> 
+
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 container registry update --project 5f64e2468c71177993874510 --registry  
+  5f577a24494c5cfdec7830e5 --name registry-renamed                              
 
 Global options
 
@@ -635,6 +652,15 @@ h1 container registry credential create
 Synopsis
 
   $ h1 container registry credential create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry credential create --project 5f64e2468c71177993874510  
+  --registry 5f577a24494c5cfdec7830e5 --name registry-credential --type plain   
+  --value xxxxxx                                                                
 
 Global options
 
@@ -1105,6 +1131,14 @@ h1 container registry tag create
 Synopsis
 
   $ h1 container registry tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry tag create --project 5f64e2468c71177993874510         
+  --registry 5f577a24494c5cfdec7830e5 --key x --value x                         
 
 Global options
 

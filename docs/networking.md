@@ -103,6 +103,14 @@ Synopsis
 
   $ h1 networking firewall create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall create --project 5f64e2468c71177993874510 --name     
+  simple-firewall                                                               
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -115,27 +123,15 @@ Global options
 
 Operation options
 
-  --project id-or-uri                                                                                     Project Id 
-  --location id-or-uri                                                                                    Location   
-                                                                                                          Id         
-  --x-idempotency-key string                                                                              Idempotency 
-                                                                                                          key        
-  --name string                                                                                           Firewall   
-                                                                                                          name       
-  --service id-or-uri                                                                                     Firewall   
-                                                                                                          service.   
-                                                                                                          Provide ID 
-                                                                                                          or URI of  
-                                                                                                          billing/service. 
-                                                                                                          Defaults   
-                                                                                                          is         
-                                                                                                          5bacaf7202deee0c100eda3b 
-  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule       
-                                                                                                          collection 
-  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule       
-                                                                                                          collection 
-  --tag key=key,value=value                                                                               Tag        
-                                                                                                          collection 
+  --project id-or-uri                                                                                     Project Id                                                                    
+  --location id-or-uri                                                                                    Location Id                                                                   
+  --x-idempotency-key string                                                                              Idempotency key                                                               
+  --name string                                                                                           Firewall name                                                                 
+  --service id-or-uri                                                                                     Firewall service. Provide ID or URI of billing/service. Defaults is           
+                                                                                                          5bacaf7202deee0c100eda3b                                                      
+  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule collection                                                               
+  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule collection                                                               
+  --tag key=key,value=value                                                                               Tag collection                                                                
   --skeleton true,false
 ```
 
@@ -209,6 +205,14 @@ h1 networking firewall update
 Synopsis
 
   $ h1 networking firewall update <options> 
+
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 networking firewall update --project 5f64e2468c71177993874510 --firewall 
+  5f577a24494c5cfdec7830e5 --name firewall-renamed                              
 
 Global options
 
@@ -346,6 +350,15 @@ h1 networking firewall ingress create
 Synopsis
 
   $ h1 networking firewall ingress create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall ingress create --project 5f64e2468c71177993874510    
+  --firewall 5f577a24494c5cfdec7830e5 --name simple-ingress --action allow      
+  --priority 900 --filter tcp:80 --external 0.0.0.0/0 --internal 0.0.0.0/0      
 
 Global options
 
@@ -516,6 +529,15 @@ h1 networking firewall egress create
 Synopsis
 
   $ h1 networking firewall egress create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall egress create --project 5f64e2468c71177993874510     
+  --firewall 5f577a24494c5cfdec7830e5 --name simple-egress --action allow       
+  --priority 900 --filter tcp:80 --external 0.0.0.0/0 --internal 0.0.0.0/0      
 
 Global options
 
@@ -789,6 +811,14 @@ h1 networking firewall tag create
 Synopsis
 
   $ h1 networking firewall tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall tag create --project 5f64e2468c71177993874510        
+  --firewall 5f577a24494c5cfdec7830e5 --key x --value x                         
 
 Global options
 
@@ -1069,6 +1099,13 @@ Synopsis
 
   $ h1 networking ip create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip create --project 5f64e2468c71177993874510                  
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1163,6 +1200,14 @@ h1 networking ip update
 Synopsis
 
   $ h1 networking ip update <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip update --project 5f64e2468c71177993874510 --ip             
+  5f577a24494c5cfdec7830e5 --ptr-record ip-updated                              
 
 Global options
 
@@ -1495,6 +1540,14 @@ h1 networking ip tag create
 Synopsis
 
   $ h1 networking ip tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip tag create --project 5f64e2468c71177993874510 --ip         
+  5f577a24494c5cfdec7830e5 --key x --value x                                    
 
 Global options
 
@@ -2356,6 +2409,15 @@ Synopsis
 
   $ h1 networking netgw create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw create --project 5f64e2468c71177993874510 --name        
+  simple-netgw --public-ip /networking/pl-waw-                                  
+  1/project/5f64e2468c71177993874510/ip/5f50e6fe8139642f0c8fcca1                
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2448,6 +2510,14 @@ h1 networking netgw update
 Synopsis
 
   $ h1 networking netgw update <options> 
+
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 networking netgw update --project 5f64e2468c71177993874510 --netgw       
+  5f577a24494c5cfdec7830e5 --name netgw-renamed                                 
 
 Global options
 
@@ -2718,6 +2788,14 @@ h1 networking netgw tag create
 Synopsis
 
   $ h1 networking netgw tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw tag create --project 5f64e2468c71177993874510 --netgw   
+  5f577a24494c5cfdec7830e5 --key x --value x                                    
 
 Global options
 
@@ -2994,6 +3072,14 @@ Synopsis
 
   $ h1 networking network create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network create --project 5f64e2468c71177993874510 --name      
+  simple-network                                                                
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -3086,6 +3172,14 @@ h1 networking network update
 Synopsis
 
   $ h1 networking network update <options> 
+
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 networking network update --project 5f64e2468c71177993874510 --network   
+  5f577a24494c5cfdec7830e5 --name network-renamed                               
 
 Global options
 
@@ -3297,6 +3391,14 @@ h1 networking network tag create
 Synopsis
 
   $ h1 networking network tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network tag create --project 5f64e2468c71177993874510         
+  --network 5f577a24494c5cfdec7830e5 --key x --value x                          
 
 Global options
 

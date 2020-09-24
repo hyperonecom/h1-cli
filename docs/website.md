@@ -108,6 +108,16 @@ Synopsis
 
   $ h1 website instance create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance create --project 5f64e2468c71177993874510 --name        
+  simple-website --service                                                      
+  /billing/project/platform/service/5cb9e2c8467ad031486f9d88 --image            
+  h1cr.io/website/node:latest                                                   
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -203,6 +213,14 @@ h1 website instance update
 Synopsis
 
   $ h1 website instance update <options> 
+
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 website instance update --project 5f64e2468c71177993874510 --instance    
+  5f577a24494c5cfdec7830e5 --name instance-renamed                              
 
 Global options
 
@@ -391,12 +409,12 @@ Options
 
 Command List
 
-  spec       Print specification of context                                               
-  create     Create website/instance.snapshot [website_project_instance_snapshot_create]  
-  list       List website/instance.snapshot [website_project_instance_snapshot_list]      
-  show       Get website/instance.snapshot [website_project_instance_snapshot_get]        
-  delete     Delete website/instance.snapshot [website_project_instance_snapshot_delete]  
-  download   Create website/instance.actions [website_project_instance_snapshot_download]
+  spec       Print specification of context                                                  
+  create     Create website/instance.snapshot [website_project_instance_snapshot_create]     
+  list       List website/instance.snapshot [website_project_instance_snapshot_list]         
+  show       Get website/instance.snapshot [website_project_instance_snapshot_get]           
+  delete     Delete website/instance.snapshot [website_project_instance_snapshot_delete]     
+  download   Download website/instance.snapshot [website_project_instance_snapshot_download]
 ```
 
 ##### h1 website instance snapshot spec
@@ -433,6 +451,14 @@ h1 website instance snapshot create
 Synopsis
 
   $ h1 website instance snapshot create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance snapshot create --project 5f64e2468c71177993874510      
+  --instance 5f577a24494c5cfdec7830e5 --name simple-website-snapshot            
 
 Global options
 
@@ -547,7 +573,7 @@ Operation options
 ```
 h1 website instance snapshot download
 
-  Create website/instance.actions [website_project_instance_snapshot_download] 
+  Download website/instance.snapshot [website_project_instance_snapshot_download] 
 
 Synopsis
 
@@ -569,7 +595,7 @@ Operation options
   --location id-or-uri    Location Id          
   --instance id-or-uri    Instance Id          
   --snapshot id-or-uri    snapshotId           
-  --incremental string    Download incremental 
+  --incremental string    Snapshot incremental 
   --skeleton true,false
 ```
 
@@ -629,6 +655,14 @@ h1 website instance env create
 Synopsis
 
   $ h1 website instance env create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance env create --project 5f64e2468c71177993874510           
+  --instance 5f577a24494c5cfdec7830e5 --name DATABASE_URL --value x             
 
 Global options
 
@@ -964,6 +998,14 @@ Synopsis
 
   $ h1 website instance sideapp create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance sideapp create --project 5f64e2468c71177993874510       
+  --instance 5f577a24494c5cfdec7830e5 --flavour console                         
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1129,6 +1171,15 @@ h1 website instance credential create
 Synopsis
 
   $ h1 website instance credential create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance credential create --project 5f64e2468c71177993874510    
+  --instance 5f577a24494c5cfdec7830e5 --name instance-credential --type plain   
+  --value xxxxxx                                                                
 
 Global options
 
@@ -1596,6 +1647,14 @@ h1 website instance tag create
 Synopsis
 
   $ h1 website instance tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance tag create --project 5f64e2468c71177993874510           
+  --instance 5f577a24494c5cfdec7830e5 --key x --value x                         
 
 Global options
 

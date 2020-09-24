@@ -649,6 +649,15 @@ Synopsis
 
   $ h1 compute vm create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm create --project 5f64e2468c71177993874510 --name simple-vm    
+  --service /billing/project/platform/service/58ac418566e7477bd7bc4e0c          
+  --credential type=plain,value=xxx                                             
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -661,22 +670,22 @@ Global options
 
 Operation options
 
-  --project id-or-uri                                Project Id                                                      
-  --location id-or-uri                               Location Id                                                     
-  --x-idempotency-key string                         Idempotency key                                                 
-  --name string                                      Vm name                                                         
-  --service id-or-uri                                Vm service. Provide ID or URI of billing/service                
-  --image id-or-uri                                  Vm image. Provide ID or URI of storage/image. Requires          
-                                                     permissions storage/image/use                                   
-  --iso id-or-uri                                    Vm iso. Provide ID or URI of storage/iso. Requires permissions  
-                                                     storage/iso/use                                                 
-  --username string                                  Vm username                                                     
-  --user-metadata string                             Vm userMetadata                                                 
-  --start true,false                                 Vm start. Defaults is true                                      
-  --credential type=type,value=value                 Credential collection                                           
-  --disk name=name,service=service,size=size         Disk collection                                                 
-  --netadp network=network,firewall=firewall,ip=ip   Netadp collection                                               
-  --tag key=key,value=value                          Tag collection                                                  
+  --project id-or-uri                                Project Id                                                                    
+  --location id-or-uri                               Location Id                                                                   
+  --x-idempotency-key string                         Idempotency key                                                               
+  --name string                                      Vm name                                                                       
+  --service id-or-uri                                Vm service. Provide ID or URI of billing/service                              
+  --image id-or-uri                                  Vm image. Provide ID or URI of storage/image. Requires permissions            
+                                                     storage/image/use                                                             
+  --iso id-or-uri                                    Vm iso. Provide ID or URI of storage/iso. Requires permissions                
+                                                     storage/iso/use                                                               
+  --username string                                  Vm username                                                                   
+  --user-metadata string                             Vm userMetadata                                                               
+  --start true,false                                 Vm start. Defaults is true                                                    
+  --credential type=type,value=value                 Credential collection                                                         
+  --disk name=name,service=service,size=size         Disk collection                                                               
+  --netadp network=network,firewall=firewall,ip=ip   Netadp collection                                                             
+  --tag key=key,value=value                          Tag collection                                                                
   --skeleton true,false
 ```
 
@@ -750,6 +759,14 @@ h1 compute vm update
 Synopsis
 
   $ h1 compute vm update <options> 
+
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 compute vm update --project 5f64e2468c71177993874510 --vm                
+  5f577a24494c5cfdec7830e5 --name vm-renamed                                    
 
 Global options
 
@@ -1412,6 +1429,14 @@ h1 compute vm tag create
 Synopsis
 
   $ h1 compute vm tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm tag create --project 5f64e2468c71177993874510 --vm            
+  5f577a24494c5cfdec7830e5 --key x --value x                                    
 
 Global options
 

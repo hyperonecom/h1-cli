@@ -97,6 +97,15 @@ Synopsis
 
   $ h1 dns zone create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone create --project 5f64e2468c71177993874510 --name simple-zone    
+  --service /billing/project/platform/service/5d31a9310642a263e1c0b23d          
+  --dns-name example-zone.com                                                   
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -190,6 +199,14 @@ h1 dns zone update
 Synopsis
 
   $ h1 dns zone update <options> 
+
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 dns zone update --project 5f64e2468c71177993874510 --zone                
+  5f577a24494c5cfdec7830e5 --name zone-renamed                                  
 
 Global options
 
@@ -297,6 +314,15 @@ h1 dns zone recordset create
 Synopsis
 
   $ h1 dns zone recordset create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone recordset create --project 5f64e2468c71177993874510 --zone      
+  5f577a24494c5cfdec7830e5 --name zone-recordset --type A --record              
+  content=1.1.1.1                                                               
 
 Global options
 
@@ -770,6 +796,14 @@ h1 dns zone tag create
 Synopsis
 
   $ h1 dns zone tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone tag create --project 5f64e2468c71177993874510 --zone            
+  5f577a24494c5cfdec7830e5 --key x --value x                                    
 
 Global options
 

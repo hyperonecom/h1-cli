@@ -104,6 +104,23 @@ Synopsis
 
   $ h1 storage disk create <options> 
 
+Examples
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk create --project 5f64e2468c71177993874510 --name simple-    
+  disk --service /billing/project/platform/service/562fb685a3e575771b599091     
+  --size 5                                                                      
+                                                                                
+                                                                                
+  Clone disk                                                                    
+                                                                                
+  $ h1 storage disk create --project 5f64e2468c71177993874510 --name simple-    
+  disk --service /billing/project/platform/service/562fb685a3e575771b599091     
+  --size 5 --source /storage/pl-waw-                                            
+  1/project/5f64e2468c71177993874510/disk/5f577a24494c5cfdec7830e5              
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -201,6 +218,14 @@ Synopsis
 
   $ h1 storage disk update <options> 
 
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 storage disk update --project 5f64e2468c71177993874510 --disk            
+  5f577a24494c5cfdec7830e5 --name disk-renamed                                  
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -259,6 +284,14 @@ h1 storage disk resize
 Synopsis
 
   $ h1 storage disk resize <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk resize --project 5f64e2468c71177993874510 --disk            
+  5f577a24494c5cfdec7830e5 --size 10                                            
 
 Global options
 
@@ -562,6 +595,14 @@ h1 storage disk tag create
 Synopsis
 
   $ h1 storage disk tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk tag create --project 5f64e2468c71177993874510 --disk        
+  5f577a24494c5cfdec7830e5 --key x --value x                                    
 
 Global options
 
@@ -1528,6 +1569,15 @@ Synopsis
 
   $ h1 storage iso create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso create --project 5f64e2468c71177993874510 --name simple-     
+  network --source http://www.tinycorelinux.net/9.x/x86/release/Core-           
+  current.iso                                                                   
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1619,6 +1669,14 @@ h1 storage iso update
 Synopsis
 
   $ h1 storage iso update <options> 
+
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 storage iso update --project 5f64e2468c71177993874510 --iso              
+  5f577a24494c5cfdec7830e5 --name iso-renamed                                   
 
 Global options
 
@@ -1890,6 +1948,14 @@ h1 storage iso tag create
 Synopsis
 
   $ h1 storage iso tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso tag create --project 5f64e2468c71177993874510 --iso          
+  5f577a24494c5cfdec7830e5 --key x --value x                                    
 
 Global options
 
@@ -2173,6 +2239,14 @@ Synopsis
 
   $ h1 storage vault create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault create --project 5f64e2468c71177993874510 --name simple-   
+  vault --size 10                                                               
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2269,6 +2343,14 @@ Synopsis
 
   $ h1 storage vault update <options> 
 
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 storage vault update --project 5f64e2468c71177993874510 --vault          
+  5f577a24494c5cfdec7830e5 --name vault-renamed                                 
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2298,6 +2380,14 @@ h1 storage vault delete
 Synopsis
 
   $ h1 storage vault delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault delete --project 5f64e2468c71177993874510 --vault          
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -2389,6 +2479,14 @@ Synopsis
 
   $ h1 storage vault resize <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault resize --project 5f64e2468c71177993874510 --vault          
+  5f577a24494c5cfdec7830e5 --size 25                                            
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2465,6 +2563,14 @@ h1 storage vault snapshot create
 Synopsis
 
   $ h1 storage vault snapshot create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault snapshot create --project 5f64e2468c71177993874510 --vault 
+  5f577a24494c5cfdec7830e5 --name vault-snapshot                                
 
 Global options
 
@@ -2631,6 +2737,15 @@ h1 storage vault credential create
 Synopsis
 
   $ h1 storage vault credential create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault credential create --project 5f64e2468c71177993874510       
+  --vault 5f577a24494c5cfdec7830e5 --name vault-credential --type plain --value 
+  xxxxxx                                                                        
 
 Global options
 
@@ -2933,6 +3048,14 @@ h1 storage vault tag create
 Synopsis
 
   $ h1 storage vault tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault tag create --project 5f64e2468c71177993874510 --vault      
+  5f577a24494c5cfdec7830e5 --key x --value x                                    
 
 Global options
 

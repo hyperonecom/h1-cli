@@ -101,6 +101,15 @@ Synopsis
 
   $ h1 insight journal create <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal create --project 5f64e2468c71177993874510 --name simple- 
+  journal --service /billing/project/platform/service/5c9cc2d0255c16c3e899a4ea  
+  --retention 30                                                                
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -194,6 +203,14 @@ h1 insight journal update
 Synopsis
 
   $ h1 insight journal update <options> 
+
+Example
+
+                                                                                
+  Rename                                                                        
+                                                                                
+  $ h1 insight journal update --project 5f64e2468c71177993874510 --journal      
+  5f577a24494c5cfdec7830e5 --name journal-renamed                               
 
 Global options
 
@@ -410,6 +427,15 @@ h1 insight journal credential create
 Synopsis
 
   $ h1 insight journal credential create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal credential create --project 5f64e2468c71177993874510     
+  --journal 5f577a24494c5cfdec7830e5 --name journal-credential --type plain     
+  --value xxxxxx                                                                
 
 Global options
 
@@ -712,6 +738,14 @@ h1 insight journal tag create
 Synopsis
 
   $ h1 insight journal tag create <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal tag create --project 5f64e2468c71177993874510 --journal  
+  5f577a24494c5cfdec7830e5 --key x --value x                                    
 
 Global options
 

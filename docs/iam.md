@@ -909,7 +909,7 @@ Command List
   list     List iam/project.invitation [project_invitation_list]     
   show     Get iam/project.invitation [project_invitation_get]       
   delete   Delete iam/project.invitation [project_invitation_delete] 
-  accept   Create iam/project.actions [project_invitation_accept]
+  accept   Accept iam/project.invitation [project_invitation_accept]
 ```
 
 ##### h1 iam project invitation spec
@@ -1025,7 +1025,7 @@ Operation options
 ```
 h1 iam project invitation accept
 
-  Create iam/project.actions [project_invitation_accept] 
+  Accept iam/project.invitation [project_invitation_accept] 
 
 Synopsis
 
@@ -1043,9 +1043,9 @@ Global options
 
 Operation options
 
-  --project id-or-uri      Project Id   
-  --invitation id-or-uri   invitationId 
-  --token string           Accept token 
+  --project id-or-uri      Project Id       
+  --invitation id-or-uri   invitationId     
+  --token string           Invitation token 
   --skeleton true,false
 ```
 
@@ -4160,10 +4160,10 @@ Options
 
 Command List
 
-  spec       Print specification of context                                  
-  list       List iam/organisation.payment [organisation_payment_list]       
-  show       Get iam/organisation.payment [organisation_payment_get]         
-  allocate   Create iam/organisation.actions [organisation_payment_allocate]
+  spec       Print specification of context                                    
+  list       List iam/organisation.payment [organisation_payment_list]         
+  show       Get iam/organisation.payment [organisation_payment_get]           
+  allocate   Allocate iam/organisation.payment [organisation_payment_allocate]
 ```
 
 ##### h1 iam organisation payment spec
@@ -4250,7 +4250,7 @@ Operation options
 ```
 h1 iam organisation payment allocate
 
-  Create iam/organisation.actions [organisation_payment_allocate] 
+  Allocate iam/organisation.payment [organisation_payment_allocate] 
 
 Synopsis
 
@@ -4270,7 +4270,7 @@ Operation options
 
   --organisation id-or-uri   Organisation Id                                                               
   --payment id-or-uri        paymentId                                                                     
-  --project uri              Allocate project. Provide URI of iam/project. Requires permissions            
+  --project uri              Payment project. Provide URI of iam/project. Requires permissions             
                              iam/project/get                                                               
   --skeleton true,false
 ```
@@ -4290,10 +4290,10 @@ Options
 
 Command List
 
-  spec       Print specification of context                                  
-  list       List iam/organisation.invoice [organisation_invoice_list]       
-  show       Get iam/organisation.invoice [organisation_invoice_get]         
-  download   Create iam/organisation.actions [organisation_invoice_download]
+  spec       Print specification of context                                    
+  list       List iam/organisation.invoice [organisation_invoice_list]         
+  show       Get iam/organisation.invoice [organisation_invoice_get]           
+  download   Download iam/organisation.invoice [organisation_invoice_download]
 ```
 
 ##### h1 iam organisation invoice spec
@@ -4380,7 +4380,7 @@ Operation options
 ```
 h1 iam organisation invoice download
 
-  Create iam/organisation.actions [organisation_invoice_download] 
+  Download iam/organisation.invoice [organisation_invoice_download] 
 
 Synopsis
 
@@ -4418,11 +4418,11 @@ Options
 
 Command List
 
-  spec       Print specification of context                                   
-  create     Create iam/organisation.proforma [organisation_proforma_create]  
-  list       List iam/organisation.proforma [organisation_proforma_list]      
-  show       Get iam/organisation.proforma [organisation_proforma_get]        
-  download   Create iam/organisation.actions [organisation_proforma_download]
+  spec       Print specification of context                                      
+  create     Create iam/organisation.proforma [organisation_proforma_create]     
+  list       List iam/organisation.proforma [organisation_proforma_list]         
+  show       Get iam/organisation.proforma [organisation_proforma_get]           
+  download   Download iam/organisation.proforma [organisation_proforma_download]
 ```
 
 ##### h1 iam organisation proforma spec
@@ -4539,7 +4539,7 @@ Operation options
 ```
 h1 iam organisation proforma download
 
-  Create iam/organisation.actions [organisation_proforma_download] 
+  Download iam/organisation.proforma [organisation_proforma_download] 
 
 Synopsis
 
@@ -4581,7 +4581,7 @@ Command List
   list     List iam/organisation.invitation [organisation_invitation_list]     
   show     Get iam/organisation.invitation [organisation_invitation_get]       
   delete   Delete iam/organisation.invitation [organisation_invitation_delete] 
-  accept   Create iam/organisation.actions [organisation_invitation_accept]
+  accept   Accept iam/organisation.invitation [organisation_invitation_accept]
 ```
 
 ##### h1 iam organisation invitation spec
@@ -4697,7 +4697,7 @@ Operation options
 ```
 h1 iam organisation invitation accept
 
-  Create iam/organisation.actions [organisation_invitation_accept] 
+  Accept iam/organisation.invitation [organisation_invitation_accept] 
 
 Synopsis
 
@@ -4715,9 +4715,9 @@ Global options
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id 
-  --invitation id-or-uri     invitationId    
-  --token string             Accept token    
+  --organisation id-or-uri   Organisation Id  
+  --invitation id-or-uri     invitationId     
+  --token string             Invitation token 
   --skeleton true,false
 ```
 
