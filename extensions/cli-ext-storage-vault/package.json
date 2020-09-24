@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-ext-storage-vault",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "",
   "main": "dist/index.js",
   "browser": "index.js",
