@@ -3,16 +3,21 @@ const ava = require('ava');
 
 require('../../scope/h1');
 const tests = require('../../lib/tests');
+const ssh = require('../../lib/ssh');
+const fs = require('fs');
 
 const getCommon = async (t, options = {}) => {
     const image = options.image || 'debian';
     const vm_name = tests.getName('vm', t.title);
     const disk_name = tests.getName('disk', t.title);
     const password = await tests.getToken();
-    const vm = await tests.run(`vm create --name ${vm_name} --password ${password} --os-disk ${disk_name},ssd,10 --type a1.nano --image ${image}`);
+    const sshKeyPair = await ssh.generateKey();
+    const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
+    const vm = await tests.run(`vm create --name ${vm_name} --password ${password} --ssh-file ${sshFilename} --os-disk ${disk_name},ssd,10 --type a1.nano --image ${image}`);
     return {
         vm, disk_name, vm_name,
         cleanup: async () => {
+            fs.unlinkSync(sshFilename);
             await tests.remove('vm', vm.id);
             await tests.remove('disk', disk_name);
         },

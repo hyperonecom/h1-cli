@@ -15,8 +15,10 @@ const getCommon = async (test_name, options = {}) => {
     const vm_name = tests.getName(`vm-test-${test_name}-${now}`);
     const token = await tests.getToken();
     const disk_name = `disk-${vm_name}`;
+    const sshKeyPair = await ssh.generateKey();
+    const sshFilename = tests.getRandomFile(sshKeyPair.publicKey);
     const params = {
-        createParams: `--type ${type} --password ${token} --name ${vm_name} --image debian --os-disk ${disk_name},ssd,10`,
+        createParams: `--type ${type} --password ${token} --name ${vm_name} --ssh-file ${sshFilename} --image debian --os-disk ${disk_name},ssd,10`,
         stateCreated: 'Running',
         skipTransfer: true,
     };
@@ -27,6 +29,7 @@ const getCommon = async (test_name, options = {}) => {
         disk_name: disk_name,
         name: vm_name,
         cleanup: async () => {
+            fs.unlinkSync(sshFilename);
             await tests.remove('vm', vm_name);
             await tests.remove('disk', disk_name);
         },
@@ -115,8 +118,12 @@ ava.serial('vm usermetadata execute in cloud-init', async t => {
     const common = await getCommon(t.title);
     const vm = await tests.run(`vm create ${common.params.createParams} --userdata-file ${tmp_file}`);
     fs.unlinkSync(tmp_file);
-    await ssh.execVm(vm, { password: common.password }, 'cloud-init status --wait');
-    const content = await ssh.execVm(vm, { password: common.password }, `cat ${remote_tmp_path}`);
+    // Wait to setup user & ssh
+    const auth = { password: common.password };
+    await tests.retry(() => ssh.execVm(vm, auth, 'id'));
+    // Wait to setup cloud-init
+    await ssh.execVm(vm, auth, 'cloud-init status --wait');
+    const content = await ssh.execVm(vm, auth, `cat ${remote_tmp_path}`);
     t.true(content.includes(token));
     await common.cleanup();
 });
