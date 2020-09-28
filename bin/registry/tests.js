@@ -69,7 +69,7 @@ ava.serial('registry manage repositories & tags', async t => {
     }
 });
 
-ava.serial('registry reachable through custom domain', async t => {
+ava.skip('registry reachable through custom domain', async t => {
     const rset = 'registry'; // static name to avoid SSL issue
     const password = await tests.getToken();
     const registry = await tests.run(`registry create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
