@@ -87,6 +87,7 @@ export default ({ http, logger, config, passport, as, defaultAudience }) => {
             });
             return body.access_token;
         }
+
         return access_token;
     };
 
