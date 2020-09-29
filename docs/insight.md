@@ -144,6 +144,13 @@ Synopsis
 
   $ h1 insight journal list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal list --project 5f64e2468c71177993874510                  
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -174,6 +181,14 @@ h1 insight journal show
 Synopsis
 
   $ h1 insight journal show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal show --project 5f64e2468c71177993874510 --journal        
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -243,6 +258,14 @@ Synopsis
 
   $ h1 insight journal delete <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal delete --project 5f64e2468c71177993874510 --journal      
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -288,7 +311,7 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --journal id-or-uri          Journal Id                                                                    
   --x-idempotency-key string   Idempotency key                                                               
-  --project uri                Journal project. Provide URI of iam/project. Requires permissions             
+  --project id-or-uri          Journal project. Provide ID or URI of iam/project. Requires permissions       
                                insight/journal/create                                                        
   --skeleton true,false
 ```
@@ -470,6 +493,14 @@ Synopsis
 
   $ h1 insight journal credential list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal credential list --project 5f64e2468c71177993874510       
+  --journal 5f577a24494c5cfdec7830e5                                            
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -498,6 +529,14 @@ h1 insight journal credential show
 Synopsis
 
   $ h1 insight journal credential show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal credential show --project 5f64e2468c71177993874510       
+  --journal 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b      
 
 Global options
 
@@ -559,6 +598,14 @@ h1 insight journal credential delete
 Synopsis
 
   $ h1 insight journal credential delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal credential delete --project 5f64e2468c71177993874510     
+  --journal 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b      
 
 Global options
 
@@ -634,6 +681,14 @@ Synopsis
 
   $ h1 insight journal service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal service list --project 5f64e2468c71177993874510          
+  --journal 5f577a24494c5cfdec7830e5                                            
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -662,6 +717,14 @@ h1 insight journal service show
 Synopsis
 
   $ h1 insight journal service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal service show --project 5f64e2468c71177993874510          
+  --journal 5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b         
 
 Global options
 
@@ -778,6 +841,14 @@ Synopsis
 
   $ h1 insight journal tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal tag list --project 5f64e2468c71177993874510 --journal    
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -806,6 +877,14 @@ h1 insight journal tag show
 Synopsis
 
   $ h1 insight journal tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal tag show --project 5f64e2468c71177993874510 --journal    
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -836,6 +915,14 @@ h1 insight journal tag delete
 Synopsis
 
   $ h1 insight journal tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal tag delete --project 5f64e2468c71177993874510 --journal  
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -911,6 +998,14 @@ Synopsis
 
   $ h1 insight journal event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal event list --project 5f64e2468c71177993874510 --journal  
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -941,6 +1036,14 @@ h1 insight journal event show
 Synopsis
 
   $ h1 insight journal event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal event show --project 5f64e2468c71177993874510 --journal  
+  5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b                     
 
 Global options
 

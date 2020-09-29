@@ -606,6 +606,7 @@ Command List
   flavour          Flavour compute/vm [compute_project_vm_flavour]               
   console          Console compute/vm [compute_project_vm_console]               
   serialport       Serialport compute/vm [compute_project_vm_serialport]         
+  metric           Manage metrics of the vm                                      
   disk             Manage disks of the vm                                        
   iso              Manage isos of the vm                                         
   service          Manage services of the vm                                     
@@ -670,22 +671,22 @@ Global options
 
 Operation options
 
-  --project id-or-uri                                Project Id                                                                    
-  --location id-or-uri                               Location Id                                                                   
-  --x-idempotency-key string                         Idempotency key                                                               
-  --name string                                      Vm name                                                                       
-  --service id-or-uri                                Vm service. Provide ID or URI of billing/service                              
-  --image id-or-uri                                  Vm image. Provide ID or URI of storage/image. Requires permissions            
-                                                     storage/image/use                                                             
-  --iso id-or-uri                                    Vm iso. Provide ID or URI of storage/iso. Requires permissions                
-                                                     storage/iso/use                                                               
-  --username string                                  Vm username                                                                   
-  --user-metadata string                             Vm userMetadata                                                               
-  --start true,false                                 Vm start. Defaults is true                                                    
-  --credential type=type,value=value                 Credential collection                                                         
-  --disk name=name,service=service,size=size         Disk collection                                                               
-  --netadp network=network,firewall=firewall,ip=ip   Netadp collection                                                             
-  --tag key=key,value=value                          Tag collection                                                                
+  --project id-or-uri                                Project Id                                                      
+  --location id-or-uri                               Location Id                                                     
+  --x-idempotency-key string                         Idempotency key                                                 
+  --name string                                      Vm name                                                         
+  --service id-or-uri                                Vm service. Provide ID or URI of billing/service                
+  --image id-or-uri                                  Vm image. Provide ID or URI of storage/image. Requires          
+                                                     permissions storage/image/use                                   
+  --iso id-or-uri                                    Vm iso. Provide ID or URI of storage/iso. Requires permissions  
+                                                     storage/iso/use                                                 
+  --username string                                  Vm username                                                     
+  --user-metadata string                             Vm userMetadata                                                 
+  --start true,false                                 Vm start. Defaults is true                                      
+  --credential type=type,value=value                 Credential collection                                           
+  --disk name=name,service=service,size=size         Disk collection                                                 
+  --netadp network=network,firewall=firewall,ip=ip   Netadp collection                                               
+  --tag key=key,value=value                          Tag collection                                                  
   --skeleton true,false
 ```
 
@@ -699,6 +700,13 @@ h1 compute vm list
 Synopsis
 
   $ h1 compute vm list <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm list --project 5f64e2468c71177993874510                       
 
 Global options
 
@@ -730,6 +738,14 @@ h1 compute vm show
 Synopsis
 
   $ h1 compute vm show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm show --project 5f64e2468c71177993874510 --vm                  
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -798,6 +814,14 @@ h1 compute vm delete
 Synopsis
 
   $ h1 compute vm delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm delete --project 5f64e2468c71177993874510 --vm                
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -1059,6 +1083,79 @@ Operation options
   --vm id-or-uri               Vm Id                    
   --x-idempotency-key string   Idempotency key          
   --number string              Vm number. Defaults is 1 
+  --skeleton true,false
+```
+
+#### h1 compute vm metric
+
+```
+h1 compute vm metric
+
+Synopsis
+
+  $ h1 compute vm metric <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  spec   Print specification of context                          
+  list   List compute/vm.metric [compute_project_vm_metric_list]
+```
+
+##### h1 compute vm metric spec
+
+```
+h1 compute vm metric spec
+
+  Print specification of context 
+
+Synopsis
+
+  $ h1 compute vm metric spec <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait true,false                        In case of queued event do not wait for completion 
+
+Operation options
+```
+
+##### h1 compute vm metric list
+
+```
+h1 compute vm metric list
+
+  List compute/vm.metric [compute_project_vm_metric_list] 
+
+Synopsis
+
+  $ h1 compute vm metric list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                        
+  --verbose                                   Make the operation more talkative.                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
+  --query string                              JMESPath query string                              
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
+  --as uri                                    Act as another actor eg. service account           
+  --no-wait true,false                        In case of queued event do not wait for completion 
+
+Operation options
+
+  --project id-or-uri     Project Id  
+  --location id-or-uri    Location Id 
+  --vm id-or-uri          Vm Id       
+  --period string         period      
   --skeleton true,false
 ```
 
@@ -1325,6 +1422,14 @@ Synopsis
 
   $ h1 compute vm service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm service list --project 5f64e2468c71177993874510 --vm          
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1353,6 +1458,14 @@ h1 compute vm service show
 Synopsis
 
   $ h1 compute vm service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm service show --project 5f64e2468c71177993874510 --vm          
+  5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b                   
 
 Global options
 
@@ -1469,6 +1582,14 @@ Synopsis
 
   $ h1 compute vm tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm tag list --project 5f64e2468c71177993874510 --vm              
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1497,6 +1618,14 @@ h1 compute vm tag show
 Synopsis
 
   $ h1 compute vm tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm tag show --project 5f64e2468c71177993874510 --vm              
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -1527,6 +1656,14 @@ h1 compute vm tag delete
 Synopsis
 
   $ h1 compute vm tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm tag delete --project 5f64e2468c71177993874510 --vm            
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -1602,6 +1739,14 @@ Synopsis
 
   $ h1 compute vm event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm event list --project 5f64e2468c71177993874510 --vm            
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1632,6 +1777,14 @@ h1 compute vm event show
 Synopsis
 
   $ h1 compute vm event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 compute vm event show --project 5f64e2468c71177993874510 --vm            
+  5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b                     
 
 Global options
 

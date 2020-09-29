@@ -157,6 +157,13 @@ Synopsis
 
   $ h1 storage disk list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk list --project 5f64e2468c71177993874510                     
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -188,6 +195,14 @@ h1 storage disk show
 Synopsis
 
   $ h1 storage disk show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk show --project 5f64e2468c71177993874510 --disk              
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -255,6 +270,14 @@ h1 storage disk delete
 Synopsis
 
   $ h1 storage disk delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk delete --project 5f64e2468c71177993874510 --disk            
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -431,7 +454,7 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --disk id-or-uri             Disk Id                                                                       
   --x-idempotency-key string   Idempotency key                                                               
-  --project uri                Disk project. Provide URI of iam/project. Requires permissions                
+  --project id-or-uri          Disk project. Provide ID or URI of iam/project. Requires permissions          
                                storage/disk/create                                                           
   --skeleton true,false
 ```
@@ -491,6 +514,14 @@ Synopsis
 
   $ h1 storage disk service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk service list --project 5f64e2468c71177993874510 --disk      
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -519,6 +550,14 @@ h1 storage disk service show
 Synopsis
 
   $ h1 storage disk service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk service show --project 5f64e2468c71177993874510 --disk      
+  5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b                   
 
 Global options
 
@@ -635,6 +674,14 @@ Synopsis
 
   $ h1 storage disk tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk tag list --project 5f64e2468c71177993874510 --disk          
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -663,6 +710,14 @@ h1 storage disk tag show
 Synopsis
 
   $ h1 storage disk tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk tag show --project 5f64e2468c71177993874510 --disk          
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -693,6 +748,14 @@ h1 storage disk tag delete
 Synopsis
 
   $ h1 storage disk tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk tag delete --project 5f64e2468c71177993874510 --disk        
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -768,6 +831,14 @@ Synopsis
 
   $ h1 storage disk event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk event list --project 5f64e2468c71177993874510 --disk        
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -798,6 +869,14 @@ h1 storage disk event show
 Synopsis
 
   $ h1 storage disk event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage disk event show --project 5f64e2468c71177993874510 --disk        
+  5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b                     
 
 Global options
 
@@ -1055,7 +1134,7 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --image id-or-uri            Image Id                                                                      
   --x-idempotency-key string   Idempotency key                                                               
-  --project uri                Image project. Provide URI of iam/project. Requires permissions               
+  --project id-or-uri          Image project. Provide ID or URI of iam/project. Requires permissions         
                                storage/image/create                                                          
   --skeleton true,false
 ```
@@ -1610,6 +1689,13 @@ Synopsis
 
   $ h1 storage iso list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso list --project 5f64e2468c71177993874510                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1640,6 +1726,14 @@ h1 storage iso show
 Synopsis
 
   $ h1 storage iso show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso show --project 5f64e2468c71177993874510 --iso                
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -1707,6 +1801,14 @@ h1 storage iso delete
 Synopsis
 
   $ h1 storage iso delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso delete --project 5f64e2468c71177993874510 --iso              
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -1784,7 +1886,7 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --iso id-or-uri              Iso Id                                                                        
   --x-idempotency-key string   Idempotency key                                                               
-  --project uri                Iso project. Provide URI of iam/project. Requires permissions                 
+  --project id-or-uri          Iso project. Provide ID or URI of iam/project. Requires permissions           
                                storage/iso/create                                                            
   --skeleton true,false
 ```
@@ -1844,6 +1946,14 @@ Synopsis
 
   $ h1 storage iso service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso service list --project 5f64e2468c71177993874510 --iso        
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1872,6 +1982,14 @@ h1 storage iso service show
 Synopsis
 
   $ h1 storage iso service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso service show --project 5f64e2468c71177993874510 --iso        
+  5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b                   
 
 Global options
 
@@ -1988,6 +2106,14 @@ Synopsis
 
   $ h1 storage iso tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso tag list --project 5f64e2468c71177993874510 --iso            
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2016,6 +2142,14 @@ h1 storage iso tag show
 Synopsis
 
   $ h1 storage iso tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso tag show --project 5f64e2468c71177993874510 --iso            
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -2046,6 +2180,14 @@ h1 storage iso tag delete
 Synopsis
 
   $ h1 storage iso tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso tag delete --project 5f64e2468c71177993874510 --iso          
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -2121,6 +2263,14 @@ Synopsis
 
   $ h1 storage iso event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso event list --project 5f64e2468c71177993874510 --iso          
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2151,6 +2301,14 @@ h1 storage iso event show
 Synopsis
 
   $ h1 storage iso event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage iso event show --project 5f64e2468c71177993874510 --iso          
+  5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b                     
 
 Global options
 
@@ -2283,6 +2441,13 @@ Synopsis
 
   $ h1 storage vault list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault list --project 5f64e2468c71177993874510                    
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2313,6 +2478,14 @@ h1 storage vault show
 Synopsis
 
   $ h1 storage vault show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault show --project 5f64e2468c71177993874510 --vault            
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -2448,6 +2621,14 @@ h1 storage vault stop
 Synopsis
 
   $ h1 storage vault stop <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault stop --project 5f64e2468c71177993874510 --vault            
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -2602,6 +2783,14 @@ Synopsis
 
   $ h1 storage vault snapshot list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault snapshot list --project 5f64e2468c71177993874510 --vault   
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2630,6 +2819,14 @@ h1 storage vault snapshot show
 Synopsis
 
   $ h1 storage vault snapshot show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault snapshot show --project 5f64e2468c71177993874510 --vault   
+  5f577a24494c5cfdec7830e5 --snapshot 5f60cbbe494c5cfdec81cc6b                  
 
 Global options
 
@@ -2660,6 +2857,14 @@ h1 storage vault snapshot delete
 Synopsis
 
   $ h1 storage vault snapshot delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault snapshot delete --project 5f64e2468c71177993874510 --vault 
+  5f577a24494c5cfdec7830e5 --snapshot 5f60cbbe494c5cfdec81cc6b                  
 
 Global options
 
@@ -2780,6 +2985,14 @@ Synopsis
 
   $ h1 storage vault credential list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault credential list --project 5f64e2468c71177993874510 --vault 
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2808,6 +3021,14 @@ h1 storage vault credential show
 Synopsis
 
   $ h1 storage vault credential show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault credential show --project 5f64e2468c71177993874510 --vault 
+  5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b                
 
 Global options
 
@@ -2869,6 +3090,14 @@ h1 storage vault credential delete
 Synopsis
 
   $ h1 storage vault credential delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault credential delete --project 5f64e2468c71177993874510       
+  --vault 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b        
 
 Global options
 
@@ -2944,6 +3173,14 @@ Synopsis
 
   $ h1 storage vault service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault service list --project 5f64e2468c71177993874510 --vault    
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2972,6 +3209,14 @@ h1 storage vault service show
 Synopsis
 
   $ h1 storage vault service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault service show --project 5f64e2468c71177993874510 --vault    
+  5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b                   
 
 Global options
 
@@ -3088,6 +3333,14 @@ Synopsis
 
   $ h1 storage vault tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault tag list --project 5f64e2468c71177993874510 --vault        
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -3116,6 +3369,14 @@ h1 storage vault tag show
 Synopsis
 
   $ h1 storage vault tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault tag show --project 5f64e2468c71177993874510 --vault        
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -3146,6 +3407,14 @@ h1 storage vault tag delete
 Synopsis
 
   $ h1 storage vault tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault tag delete --project 5f64e2468c71177993874510 --vault      
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -3221,6 +3490,14 @@ Synopsis
 
   $ h1 storage vault event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault event list --project 5f64e2468c71177993874510 --vault      
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -3251,6 +3528,14 @@ h1 storage vault event show
 Synopsis
 
   $ h1 storage vault event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 storage vault event show --project 5f64e2468c71177993874510 --vault      
+  5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b                     
 
 Global options
 

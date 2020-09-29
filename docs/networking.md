@@ -123,15 +123,27 @@ Global options
 
 Operation options
 
-  --project id-or-uri                                                                                     Project Id                                                                    
-  --location id-or-uri                                                                                    Location Id                                                                   
-  --x-idempotency-key string                                                                              Idempotency key                                                               
-  --name string                                                                                           Firewall name                                                                 
-  --service id-or-uri                                                                                     Firewall service. Provide ID or URI of billing/service. Defaults is           
-                                                                                                          5bacaf7202deee0c100eda3b                                                      
-  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule collection                                                               
-  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule collection                                                               
-  --tag key=key,value=value                                                                               Tag collection                                                                
+  --project id-or-uri                                                                                     Project Id 
+  --location id-or-uri                                                                                    Location   
+                                                                                                          Id         
+  --x-idempotency-key string                                                                              Idempotency 
+                                                                                                          key        
+  --name string                                                                                           Firewall   
+                                                                                                          name       
+  --service id-or-uri                                                                                     Firewall   
+                                                                                                          service.   
+                                                                                                          Provide ID 
+                                                                                                          or URI of  
+                                                                                                          billing/service. 
+                                                                                                          Defaults   
+                                                                                                          is         
+                                                                                                          5bacaf7202deee0c100eda3b 
+  --ingress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal   Rule       
+                                                                                                          collection 
+  --egress name=name,action=action,priority=priority,filter=filter,external=external,internal=internal    Rule       
+                                                                                                          collection 
+  --tag key=key,value=value                                                                               Tag        
+                                                                                                          collection 
   --skeleton true,false
 ```
 
@@ -145,6 +157,13 @@ h1 networking firewall list
 Synopsis
 
   $ h1 networking firewall list <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall list --project 5f64e2468c71177993874510              
 
 Global options
 
@@ -176,6 +195,14 @@ h1 networking firewall show
 Synopsis
 
   $ h1 networking firewall show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall show --project 5f64e2468c71177993874510 --firewall   
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -244,6 +271,14 @@ Synopsis
 
   $ h1 networking firewall delete <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall delete --project 5f64e2468c71177993874510 --firewall 
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -289,7 +324,7 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --firewall id-or-uri         Firewall Id                                                                   
   --x-idempotency-key string   Idempotency key                                                               
-  --project uri                Firewall project. Provide URI of iam/project. Requires permissions            
+  --project id-or-uri          Firewall project. Provide ID or URI of iam/project. Requires permissions      
                                networking/firewall/create                                                    
   --skeleton true,false
 ```
@@ -395,6 +430,14 @@ Synopsis
 
   $ h1 networking firewall ingress list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall ingress list --project 5f64e2468c71177993874510      
+  --firewall 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -423,6 +466,14 @@ h1 networking firewall ingress show
 Synopsis
 
   $ h1 networking firewall ingress show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall ingress show --project 5f64e2468c71177993874510      
+  --firewall 5f577a24494c5cfdec7830e5 --ingress 5f60cbbe494c5cfdec81cc6b        
 
 Global options
 
@@ -453,6 +504,14 @@ h1 networking firewall ingress delete
 Synopsis
 
   $ h1 networking firewall ingress delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall ingress delete --project 5f64e2468c71177993874510    
+  --firewall 5f577a24494c5cfdec7830e5 --ingress 5f60cbbe494c5cfdec81cc6b        
 
 Global options
 
@@ -574,6 +633,14 @@ Synopsis
 
   $ h1 networking firewall egress list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall egress list --project 5f64e2468c71177993874510       
+  --firewall 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -602,6 +669,14 @@ h1 networking firewall egress show
 Synopsis
 
   $ h1 networking firewall egress show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall egress show --project 5f64e2468c71177993874510       
+  --firewall 5f577a24494c5cfdec7830e5 --egress 5f60cbbe494c5cfdec81cc6b         
 
 Global options
 
@@ -632,6 +707,14 @@ h1 networking firewall egress delete
 Synopsis
 
   $ h1 networking firewall egress delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall egress delete --project 5f64e2468c71177993874510     
+  --firewall 5f577a24494c5cfdec7830e5 --egress 5f60cbbe494c5cfdec81cc6b         
 
 Global options
 
@@ -707,6 +790,14 @@ Synopsis
 
   $ h1 networking firewall service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall service list --project 5f64e2468c71177993874510      
+  --firewall 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -735,6 +826,14 @@ h1 networking firewall service show
 Synopsis
 
   $ h1 networking firewall service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall service show --project 5f64e2468c71177993874510      
+  --firewall 5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b        
 
 Global options
 
@@ -851,6 +950,14 @@ Synopsis
 
   $ h1 networking firewall tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall tag list --project 5f64e2468c71177993874510          
+  --firewall 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -879,6 +986,14 @@ h1 networking firewall tag show
 Synopsis
 
   $ h1 networking firewall tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall tag show --project 5f64e2468c71177993874510          
+  --firewall 5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b            
 
 Global options
 
@@ -909,6 +1024,14 @@ h1 networking firewall tag delete
 Synopsis
 
   $ h1 networking firewall tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall tag delete --project 5f64e2468c71177993874510        
+  --firewall 5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b            
 
 Global options
 
@@ -984,6 +1107,14 @@ Synopsis
 
   $ h1 networking firewall event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall event list --project 5f64e2468c71177993874510        
+  --firewall 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1014,6 +1145,14 @@ h1 networking firewall event show
 Synopsis
 
   $ h1 networking firewall event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking firewall event show --project 5f64e2468c71177993874510        
+  --firewall 5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b          
 
 Global options
 
@@ -1140,6 +1279,13 @@ Synopsis
 
   $ h1 networking ip list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip list --project 5f64e2468c71177993874510                    
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1171,6 +1317,14 @@ h1 networking ip show
 Synopsis
 
   $ h1 networking ip show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip show --project 5f64e2468c71177993874510 --ip               
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -1238,6 +1392,14 @@ h1 networking ip delete
 Synopsis
 
   $ h1 networking ip delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip delete --project 5f64e2468c71177993874510 --ip             
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -1376,7 +1538,7 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --ip id-or-uri               Ip Id                                                                         
   --x-idempotency-key string   Idempotency key                                                               
-  --project uri                Ip project. Provide URI of iam/project. Requires permissions                  
+  --project id-or-uri          Ip project. Provide ID or URI of iam/project. Requires permissions            
                                networking/ip/create                                                          
   --skeleton true,false
 ```
@@ -1436,6 +1598,14 @@ Synopsis
 
   $ h1 networking ip service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip service list --project 5f64e2468c71177993874510 --ip       
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1464,6 +1634,14 @@ h1 networking ip service show
 Synopsis
 
   $ h1 networking ip service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip service show --project 5f64e2468c71177993874510 --ip       
+  5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b                   
 
 Global options
 
@@ -1580,6 +1758,14 @@ Synopsis
 
   $ h1 networking ip tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip tag list --project 5f64e2468c71177993874510 --ip           
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1608,6 +1794,14 @@ h1 networking ip tag show
 Synopsis
 
   $ h1 networking ip tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip tag show --project 5f64e2468c71177993874510 --ip           
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -1638,6 +1832,14 @@ h1 networking ip tag delete
 Synopsis
 
   $ h1 networking ip tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip tag delete --project 5f64e2468c71177993874510 --ip         
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -1713,6 +1915,14 @@ Synopsis
 
   $ h1 networking ip event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip event list --project 5f64e2468c71177993874510 --ip         
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1743,6 +1953,14 @@ h1 networking ip event show
 Synopsis
 
   $ h1 networking ip event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking ip event show --project 5f64e2468c71177993874510 --ip         
+  5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b                     
 
 Global options
 
@@ -2451,6 +2669,13 @@ Synopsis
 
   $ h1 networking netgw list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw list --project 5f64e2468c71177993874510                 
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2481,6 +2706,14 @@ h1 networking netgw show
 Synopsis
 
   $ h1 networking netgw show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw show --project 5f64e2468c71177993874510 --netgw         
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -2548,6 +2781,14 @@ h1 networking netgw delete
 Synopsis
 
   $ h1 networking netgw delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw delete --project 5f64e2468c71177993874510 --netgw       
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -2684,6 +2925,14 @@ Synopsis
 
   $ h1 networking netgw service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw service list --project 5f64e2468c71177993874510 --netgw 
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2712,6 +2961,14 @@ h1 networking netgw service show
 Synopsis
 
   $ h1 networking netgw service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw service show --project 5f64e2468c71177993874510 --netgw 
+  5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b                   
 
 Global options
 
@@ -2828,6 +3085,14 @@ Synopsis
 
   $ h1 networking netgw tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw tag list --project 5f64e2468c71177993874510 --netgw     
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2856,6 +3121,14 @@ h1 networking netgw tag show
 Synopsis
 
   $ h1 networking netgw tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw tag show --project 5f64e2468c71177993874510 --netgw     
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -2886,6 +3159,14 @@ h1 networking netgw tag delete
 Synopsis
 
   $ h1 networking netgw tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw tag delete --project 5f64e2468c71177993874510 --netgw   
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -2961,6 +3242,14 @@ Synopsis
 
   $ h1 networking netgw event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw event list --project 5f64e2468c71177993874510 --netgw   
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -2991,6 +3280,14 @@ h1 networking netgw event show
 Synopsis
 
   $ h1 networking netgw event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking netgw event show --project 5f64e2468c71177993874510 --netgw   
+  5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b                     
 
 Global options
 
@@ -3113,6 +3410,13 @@ Synopsis
 
   $ h1 networking network list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network list --project 5f64e2468c71177993874510               
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -3143,6 +3447,14 @@ h1 networking network show
 Synopsis
 
   $ h1 networking network show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network show --project 5f64e2468c71177993874510 --network     
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -3213,6 +3525,14 @@ h1 networking network delete
 Synopsis
 
   $ h1 networking network delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network delete --project 5f64e2468c71177993874510 --network   
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -3287,6 +3607,14 @@ Synopsis
 
   $ h1 networking network service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network service list --project 5f64e2468c71177993874510       
+  --network 5f577a24494c5cfdec7830e5                                            
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -3315,6 +3643,14 @@ h1 networking network service show
 Synopsis
 
   $ h1 networking network service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network service show --project 5f64e2468c71177993874510       
+  --network 5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b         
 
 Global options
 
@@ -3431,6 +3767,14 @@ Synopsis
 
   $ h1 networking network tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network tag list --project 5f64e2468c71177993874510 --network 
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -3459,6 +3803,14 @@ h1 networking network tag show
 Synopsis
 
   $ h1 networking network tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network tag show --project 5f64e2468c71177993874510 --network 
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -3489,6 +3841,14 @@ h1 networking network tag delete
 Synopsis
 
   $ h1 networking network tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network tag delete --project 5f64e2468c71177993874510         
+  --network 5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b             
 
 Global options
 
@@ -3564,6 +3924,14 @@ Synopsis
 
   $ h1 networking network event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network event list --project 5f64e2468c71177993874510         
+  --network 5f577a24494c5cfdec7830e5                                            
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -3594,6 +3962,14 @@ h1 networking network event show
 Synopsis
 
   $ h1 networking network event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 networking network event show --project 5f64e2468c71177993874510         
+  --network 5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b           
 
 Global options
 

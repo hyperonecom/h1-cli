@@ -141,6 +141,13 @@ Synopsis
 
   $ h1 database instance list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance list --project 5f64e2468c71177993874510                
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -171,6 +178,14 @@ h1 database instance show
 Synopsis
 
   $ h1 database instance show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance show --project 5f64e2468c71177993874510 --instance     
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -239,6 +254,14 @@ Synopsis
 
   $ h1 database instance delete <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance delete --project 5f64e2468c71177993874510 --instance   
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -267,6 +290,14 @@ h1 database instance start
 Synopsis
 
   $ h1 database instance start <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance start --project 5f64e2468c71177993874510 --instance    
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -297,6 +328,14 @@ h1 database instance stop
 Synopsis
 
   $ h1 database instance stop <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance stop --project 5f64e2468c71177993874510 --instance     
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -344,7 +383,7 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --instance id-or-uri         Instance Id                                                                   
   --x-idempotency-key string   Idempotency key                                                               
-  --project uri                Instance project. Provide URI of iam/project. Requires permissions            
+  --project id-or-uri          Instance project. Provide ID or URI of iam/project. Requires permissions      
                                database/instance/create                                                      
   --skeleton true,false
 ```
@@ -450,6 +489,14 @@ Synopsis
 
   $ h1 database instance credential list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance credential list --project 5f64e2468c71177993874510     
+  --instance 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -478,6 +525,14 @@ h1 database instance credential show
 Synopsis
 
   $ h1 database instance credential show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance credential show --project 5f64e2468c71177993874510     
+  --instance 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b     
 
 Global options
 
@@ -542,6 +597,14 @@ h1 database instance credential delete
 Synopsis
 
   $ h1 database instance credential delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance credential delete --project 5f64e2468c71177993874510   
+  --instance 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b     
 
 Global options
 
@@ -617,6 +680,14 @@ Synopsis
 
   $ h1 database instance service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance service list --project 5f64e2468c71177993874510        
+  --instance 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -645,6 +716,14 @@ h1 database instance service show
 Synopsis
 
   $ h1 database instance service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance service show --project 5f64e2468c71177993874510        
+  --instance 5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b        
 
 Global options
 
@@ -761,6 +840,14 @@ Synopsis
 
   $ h1 database instance tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance tag list --project 5f64e2468c71177993874510 --instance 
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -789,6 +876,14 @@ h1 database instance tag show
 Synopsis
 
   $ h1 database instance tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance tag show --project 5f64e2468c71177993874510 --instance 
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -819,6 +914,14 @@ h1 database instance tag delete
 Synopsis
 
   $ h1 database instance tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance tag delete --project 5f64e2468c71177993874510          
+  --instance 5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b            
 
 Global options
 
@@ -894,6 +997,14 @@ Synopsis
 
   $ h1 database instance event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance event list --project 5f64e2468c71177993874510          
+  --instance 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -924,6 +1035,14 @@ h1 database instance event show
 Synopsis
 
   $ h1 database instance event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 database instance event show --project 5f64e2468c71177993874510          
+  --instance 5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b          
 
 Global options
 

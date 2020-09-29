@@ -144,6 +144,13 @@ Synopsis
 
   $ h1 provider agent list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent list --project 5f64e2468c71177993874510                   
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -174,6 +181,14 @@ h1 provider agent show
 Synopsis
 
   $ h1 provider agent show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent show --project 5f64e2468c71177993874510 --agent           
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -241,6 +256,14 @@ h1 provider agent delete
 Synopsis
 
   $ h1 provider agent delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent delete --project 5f64e2468c71177993874510 --agent         
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -377,7 +400,7 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --agent id-or-uri            Agent Id                                                                      
   --x-idempotency-key string   Idempotency key                                                               
-  --project uri                Agent project. Provide URI of iam/project. Requires permissions               
+  --project id-or-uri          Agent project. Provide ID or URI of iam/project. Requires permissions         
                                provider/agent/create                                                         
   --skeleton true,false
 ```
@@ -555,6 +578,14 @@ Synopsis
 
   $ h1 provider agent credential list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent credential list --project 5f64e2468c71177993874510        
+  --agent 5f577a24494c5cfdec7830e5                                              
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -583,6 +614,14 @@ h1 provider agent credential show
 Synopsis
 
   $ h1 provider agent credential show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent credential show --project 5f64e2468c71177993874510        
+  --agent 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b        
 
 Global options
 
@@ -644,6 +683,14 @@ h1 provider agent credential delete
 Synopsis
 
   $ h1 provider agent credential delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent credential delete --project 5f64e2468c71177993874510      
+  --agent 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b        
 
 Global options
 
@@ -761,6 +808,14 @@ Synopsis
 
   $ h1 provider agent enabled-service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent enabled-service list --project 5f64e2468c71177993874510   
+  --agent 5f577a24494c5cfdec7830e5                                              
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -789,6 +844,14 @@ h1 provider agent enabled-service show
 Synopsis
 
   $ h1 provider agent enabled-service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent enabled-service show --project 5f64e2468c71177993874510   
+  --agent 5f577a24494c5cfdec7830e5 --enabled-service 5c9cc2d0255c16c3e899a4ea   
 
 Global options
 
@@ -820,6 +883,14 @@ h1 provider agent enabled-service delete
 Synopsis
 
   $ h1 provider agent enabled-service delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent enabled-service delete --project 5f64e2468c71177993874510 
+  --agent 5f577a24494c5cfdec7830e5 --enabled-service 5c9cc2d0255c16c3e899a4ea   
 
 Global options
 
@@ -895,6 +966,14 @@ Synopsis
 
   $ h1 provider agent service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent service list --project 5f64e2468c71177993874510 --agent   
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -923,6 +1002,14 @@ h1 provider agent service show
 Synopsis
 
   $ h1 provider agent service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent service show --project 5f64e2468c71177993874510 --agent   
+  5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b                   
 
 Global options
 
@@ -1039,6 +1126,14 @@ Synopsis
 
   $ h1 provider agent tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent tag list --project 5f64e2468c71177993874510 --agent       
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1067,6 +1162,14 @@ h1 provider agent tag show
 Synopsis
 
   $ h1 provider agent tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent tag show --project 5f64e2468c71177993874510 --agent       
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -1097,6 +1200,14 @@ h1 provider agent tag delete
 Synopsis
 
   $ h1 provider agent tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent tag delete --project 5f64e2468c71177993874510 --agent     
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -1172,6 +1283,14 @@ Synopsis
 
   $ h1 provider agent event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent event list --project 5f64e2468c71177993874510 --agent     
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1202,6 +1321,14 @@ h1 provider agent event show
 Synopsis
 
   $ h1 provider agent event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 provider agent event show --project 5f64e2468c71177993874510 --agent     
+  5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b                     
 
 Global options
 

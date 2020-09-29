@@ -154,6 +154,13 @@ Synopsis
 
   $ h1 website instance list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance list --project 5f64e2468c71177993874510                 
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -184,6 +191,14 @@ h1 website instance show
 Synopsis
 
   $ h1 website instance show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance show --project 5f64e2468c71177993874510 --instance      
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -253,6 +268,14 @@ h1 website instance delete
 Synopsis
 
   $ h1 website instance delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance delete --project 5f64e2468c71177993874510 --instance    
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -389,7 +412,7 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --instance id-or-uri         Instance Id                                                                   
   --x-idempotency-key string   Idempotency key                                                               
-  --project uri                Instance project. Provide URI of iam/project. Requires permissions            
+  --project id-or-uri          Instance project. Provide ID or URI of iam/project. Requires permissions      
                                website/instance/create                                                       
   --skeleton true,false
 ```
@@ -490,6 +513,14 @@ Synopsis
 
   $ h1 website instance snapshot list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance snapshot list --project 5f64e2468c71177993874510        
+  --instance 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -518,6 +549,14 @@ h1 website instance snapshot show
 Synopsis
 
   $ h1 website instance snapshot show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance snapshot show --project 5f64e2468c71177993874510        
+  --instance 5f577a24494c5cfdec7830e5 --snapshot 5f60cbbe494c5cfdec81cc6b       
 
 Global options
 
@@ -548,6 +587,14 @@ h1 website instance snapshot delete
 Synopsis
 
   $ h1 website instance snapshot delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance snapshot delete --project 5f64e2468c71177993874510      
+  --instance 5f577a24494c5cfdec7830e5 --snapshot 5f60cbbe494c5cfdec81cc6b       
 
 Global options
 
@@ -695,6 +742,14 @@ Synopsis
 
   $ h1 website instance env list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance env list --project 5f64e2468c71177993874510 --instance  
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -723,6 +778,14 @@ h1 website instance env show
 Synopsis
 
   $ h1 website instance env show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance env show --project 5f64e2468c71177993874510 --instance  
+  5f577a24494c5cfdec7830e5 --env 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -753,6 +816,14 @@ h1 website instance env delete
 Synopsis
 
   $ h1 website instance env delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance env delete --project 5f64e2468c71177993874510           
+  --instance 5f577a24494c5cfdec7830e5 --env 5f60cbbe494c5cfdec81cc6b            
 
 Global options
 
@@ -1036,6 +1107,14 @@ Synopsis
 
   $ h1 website instance sideapp list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance sideapp list --project 5f64e2468c71177993874510         
+  --instance 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1064,6 +1143,14 @@ h1 website instance sideapp show
 Synopsis
 
   $ h1 website instance sideapp show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance sideapp show --project 5f64e2468c71177993874510         
+  --instance 5f577a24494c5cfdec7830e5 --sideapp 5f60cbbe494c5cfdec81cc6b        
 
 Global options
 
@@ -1094,6 +1181,14 @@ h1 website instance sideapp delete
 Synopsis
 
   $ h1 website instance sideapp delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance sideapp delete --project 5f64e2468c71177993874510       
+  --instance 5f577a24494c5cfdec7830e5 --sideapp 5f60cbbe494c5cfdec81cc6b        
 
 Global options
 
@@ -1214,6 +1309,14 @@ Synopsis
 
   $ h1 website instance credential list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance credential list --project 5f64e2468c71177993874510      
+  --instance 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1242,6 +1345,14 @@ h1 website instance credential show
 Synopsis
 
   $ h1 website instance credential show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance credential show --project 5f64e2468c71177993874510      
+  --instance 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b     
 
 Global options
 
@@ -1303,6 +1414,14 @@ h1 website instance credential delete
 Synopsis
 
   $ h1 website instance credential delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance credential delete --project 5f64e2468c71177993874510    
+  --instance 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b     
 
 Global options
 
@@ -1543,6 +1662,14 @@ Synopsis
 
   $ h1 website instance service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance service list --project 5f64e2468c71177993874510         
+  --instance 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1571,6 +1698,14 @@ h1 website instance service show
 Synopsis
 
   $ h1 website instance service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance service show --project 5f64e2468c71177993874510         
+  --instance 5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b        
 
 Global options
 
@@ -1687,6 +1822,14 @@ Synopsis
 
   $ h1 website instance tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance tag list --project 5f64e2468c71177993874510 --instance  
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1715,6 +1858,14 @@ h1 website instance tag show
 Synopsis
 
   $ h1 website instance tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance tag show --project 5f64e2468c71177993874510 --instance  
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -1745,6 +1896,14 @@ h1 website instance tag delete
 Synopsis
 
   $ h1 website instance tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance tag delete --project 5f64e2468c71177993874510           
+  --instance 5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b            
 
 Global options
 
@@ -1820,6 +1979,14 @@ Synopsis
 
   $ h1 website instance event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance event list --project 5f64e2468c71177993874510           
+  --instance 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1850,6 +2017,14 @@ h1 website instance event show
 Synopsis
 
   $ h1 website instance event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 website instance event show --project 5f64e2468c71177993874510           
+  --instance 5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b          
 
 Global options
 

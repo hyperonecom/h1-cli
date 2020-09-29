@@ -140,6 +140,13 @@ Synopsis
 
   $ h1 dns zone list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone list --project 5f64e2468c71177993874510                         
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -170,6 +177,14 @@ h1 dns zone show
 Synopsis
 
   $ h1 dns zone show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone show --project 5f64e2468c71177993874510 --zone                  
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -237,6 +252,14 @@ h1 dns zone delete
 Synopsis
 
   $ h1 dns zone delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone delete --project 5f64e2468c71177993874510 --zone                
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -357,6 +380,14 @@ Synopsis
 
   $ h1 dns zone recordset list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone recordset list --project 5f64e2468c71177993874510 --zone        
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -385,6 +416,14 @@ h1 dns zone recordset show
 Synopsis
 
   $ h1 dns zone recordset show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone recordset show --project 5f64e2468c71177993874510 --zone        
+  5f577a24494c5cfdec7830e5 --recordset 5f60cbbe494c5cfdec81cc6b                 
 
 Global options
 
@@ -447,6 +486,14 @@ h1 dns zone recordset delete
 Synopsis
 
   $ h1 dns zone recordset delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone recordset delete --project 5f64e2468c71177993874510 --zone      
+  5f577a24494c5cfdec7830e5 --recordset 5f60cbbe494c5cfdec81cc6b                 
 
 Global options
 
@@ -692,6 +739,14 @@ Synopsis
 
   $ h1 dns zone service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone service list --project 5f64e2468c71177993874510 --zone          
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -720,6 +775,14 @@ h1 dns zone service show
 Synopsis
 
   $ h1 dns zone service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone service show --project 5f64e2468c71177993874510 --zone          
+  5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b                   
 
 Global options
 
@@ -836,6 +899,14 @@ Synopsis
 
   $ h1 dns zone tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone tag list --project 5f64e2468c71177993874510 --zone              
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -864,6 +935,14 @@ h1 dns zone tag show
 Synopsis
 
   $ h1 dns zone tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone tag show --project 5f64e2468c71177993874510 --zone              
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -894,6 +973,14 @@ h1 dns zone tag delete
 Synopsis
 
   $ h1 dns zone tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone tag delete --project 5f64e2468c71177993874510 --zone            
+  5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b                       
 
 Global options
 
@@ -969,6 +1056,14 @@ Synopsis
 
   $ h1 dns zone event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone event list --project 5f64e2468c71177993874510 --zone            
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -999,6 +1094,14 @@ h1 dns zone event show
 Synopsis
 
   $ h1 dns zone event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 dns zone event show --project 5f64e2468c71177993874510 --zone            
+  5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b                     
 
 Global options
 

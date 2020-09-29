@@ -143,6 +143,13 @@ Synopsis
 
   $ h1 container registry list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry list --project 5f64e2468c71177993874510               
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -173,6 +180,14 @@ h1 container registry show
 Synopsis
 
   $ h1 container registry show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry show --project 5f64e2468c71177993874510 --registry    
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
@@ -241,6 +256,14 @@ Synopsis
 
   $ h1 container registry delete <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry delete --project 5f64e2468c71177993874510 --registry  
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -300,6 +323,14 @@ Synopsis
 
   $ h1 container registry stop <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry stop --project 5f64e2468c71177993874510 --registry    
+  5f577a24494c5cfdec7830e5                                                      
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -346,7 +377,7 @@ Operation options
   --location id-or-uri         Location Id                                                                   
   --registry id-or-uri         Registry Id                                                                   
   --x-idempotency-key string   Idempotency key                                                               
-  --project uri                Registry project. Provide URI of iam/project. Requires permissions            
+  --project id-or-uri          Registry project. Provide ID or URI of iam/project. Requires permissions      
                                container/registry/create                                                     
   --skeleton true,false
 ```
@@ -695,6 +726,14 @@ Synopsis
 
   $ h1 container registry credential list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry credential list --project 5f64e2468c71177993874510    
+  --registry 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -723,6 +762,14 @@ h1 container registry credential show
 Synopsis
 
   $ h1 container registry credential show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry credential show --project 5f64e2468c71177993874510    
+  --registry 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b     
 
 Global options
 
@@ -787,6 +834,14 @@ h1 container registry credential delete
 Synopsis
 
   $ h1 container registry credential delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry credential delete --project 5f64e2468c71177993874510  
+  --registry 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b     
 
 Global options
 
@@ -1027,6 +1082,14 @@ Synopsis
 
   $ h1 container registry service list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry service list --project 5f64e2468c71177993874510       
+  --registry 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1055,6 +1118,14 @@ h1 container registry service show
 Synopsis
 
   $ h1 container registry service show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry service show --project 5f64e2468c71177993874510       
+  --registry 5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b        
 
 Global options
 
@@ -1171,6 +1242,14 @@ Synopsis
 
   $ h1 container registry tag list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry tag list --project 5f64e2468c71177993874510           
+  --registry 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1199,6 +1278,14 @@ h1 container registry tag show
 Synopsis
 
   $ h1 container registry tag show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry tag show --project 5f64e2468c71177993874510           
+  --registry 5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b            
 
 Global options
 
@@ -1229,6 +1316,14 @@ h1 container registry tag delete
 Synopsis
 
   $ h1 container registry tag delete <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry tag delete --project 5f64e2468c71177993874510         
+  --registry 5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b            
 
 Global options
 
@@ -1304,6 +1399,14 @@ Synopsis
 
   $ h1 container registry event list <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry event list --project 5f64e2468c71177993874510         
+  --registry 5f577a24494c5cfdec7830e5                                           
+
 Global options
 
   --help                                      Show help message and exit.                        
@@ -1334,6 +1437,14 @@ h1 container registry event show
 Synopsis
 
   $ h1 container registry event show <options> 
+
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 container registry event show --project 5f64e2468c71177993874510         
+  --registry 5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b          
 
 Global options
 

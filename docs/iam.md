@@ -51,26 +51,26 @@ Options
 
 Command List
 
-  spec               Print specification of context         
-  create             Create iam/project [project_create]    
-  list               List iam/project [project_list]        
-  show               Get iam/project [project_get]          
-  update             Update iam/project [project_update]    
-  delete             Delete iam/project [project_delete]    
-  billing            Manage billings of the project         
-  payment            Manage payments of the project         
-  invoice            Manage invoices of the project         
-  proforma           Manage proformas of the project        
-  credential-store   Manage credentialStores of the project 
-  quota              Manage quotas of the project           
-  invitation         Manage invitations of the project      
-  ownership          Manage ownerships of the project       
-  service            Manage services of the project         
-  tag                Manage tags of the project             
-  event              Manage events of the project           
-  policy             Manage policies of the project         
-  role               Manage roles of the project            
-  sa                 Manage sas of the project              
+  spec               Print specification of context          
+  create             Create iam/project [iam_project_create] 
+  list               List iam/project [iam_project_list]     
+  show               Get iam/project [iam_project_get]       
+  update             Update iam/project [iam_project_update] 
+  delete             Delete iam/project [iam_project_delete] 
+  billing            Manage billings of the project          
+  payment            Manage payments of the project          
+  invoice            Manage invoices of the project          
+  proforma           Manage proformas of the project         
+  credential-store   Manage credentialStores of the project  
+  quota              Manage quotas of the project            
+  invitation         Manage invitations of the project       
+  ownership          Manage ownerships of the project        
+  service            Manage services of the project          
+  tag                Manage tags of the project              
+  event              Manage events of the project            
+  policy             Manage policies of the project          
+  role               Manage roles of the project             
+  sa                 Manage sas of the project               
   select             Select default project
 ```
 
@@ -103,7 +103,7 @@ Operation options
 ```
 h1 iam project create
 
-  Create iam/project [project_create] 
+  Create iam/project [iam_project_create] 
 
 Synopsis
 
@@ -123,8 +123,8 @@ Operation options
 
   --x-idempotency-key string   Idempotency key                                                               
   --name string                Project name                                                                  
-  --organisation uri           Project organisation. Provide URI of iam/organisation. Requires permissions   
-                               iam/project/create                                                            
+  --organisation id-or-uri     Project organisation. Provide ID or URI of iam/organisation. Requires         
+                               permissions iam/project/create                                                
   --tag key=key,value=value    Tag collection                                                                
   --skeleton true,false
 ```
@@ -134,7 +134,7 @@ Operation options
 ```
 h1 iam project list
 
-  List iam/project [project_list] 
+  List iam/project [iam_project_list] 
 
 Synopsis
 
@@ -167,7 +167,7 @@ Operation options
 ```
 h1 iam project show
 
-  Get iam/project [project_get] 
+  Get iam/project [iam_project_get] 
 
 Synopsis
 
@@ -194,7 +194,7 @@ Operation options
 ```
 h1 iam project update
 
-  Update iam/project [project_update] 
+  Update iam/project [iam_project_update] 
 
 Synopsis
 
@@ -222,7 +222,7 @@ Operation options
 ```
 h1 iam project delete
 
-  Delete iam/project [project_delete] 
+  Delete iam/project [iam_project_delete] 
 
 Synopsis
 
@@ -259,8 +259,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                  
-  list   List iam/project.billing [project_billing_list]
+  spec   Print specification of context                      
+  list   List iam/project.billing [iam_project_billing_list]
 ```
 
 ##### h1 iam project billing spec
@@ -292,7 +292,7 @@ Operation options
 ```
 h1 iam project billing list
 
-  List iam/project.billing [project_billing_list] 
+  List iam/project.billing [iam_project_billing_list] 
 
 Synopsis
 
@@ -332,8 +332,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                  
-  list   List iam/project.payment [project_payment_list]
+  spec   Print specification of context                      
+  list   List iam/project.payment [iam_project_payment_list]
 ```
 
 ##### h1 iam project payment spec
@@ -365,7 +365,7 @@ Operation options
 ```
 h1 iam project payment list
 
-  List iam/project.payment [project_payment_list] 
+  List iam/project.payment [iam_project_payment_list] 
 
 Synopsis
 
@@ -402,8 +402,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                  
-  list   List iam/project.invoice [project_invoice_list]
+  spec   Print specification of context                      
+  list   List iam/project.invoice [iam_project_invoice_list]
 ```
 
 ##### h1 iam project invoice spec
@@ -435,7 +435,7 @@ Operation options
 ```
 h1 iam project invoice list
 
-  List iam/project.invoice [project_invoice_list] 
+  List iam/project.invoice [iam_project_invoice_list] 
 
 Synopsis
 
@@ -472,8 +472,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                    
-  list   List iam/project.proforma [project_proforma_list]
+  spec   Print specification of context                        
+  list   List iam/project.proforma [iam_project_proforma_list]
 ```
 
 ##### h1 iam project proforma spec
@@ -505,7 +505,7 @@ Operation options
 ```
 h1 iam project proforma list
 
-  List iam/project.proforma [project_proforma_list] 
+  List iam/project.proforma [iam_project_proforma_list] 
 
 Synopsis
 
@@ -542,12 +542,12 @@ Options
 
 Command List
 
-  spec     Print specification of context                                      
-  create   Create iam/project.credentialStore [project_credentialStore_create] 
-  list     List iam/project.credentialStore [project_credentialStore_list]     
-  show     Get iam/project.credentialStore [project_credentialStore_get]       
-  update   Update iam/project.credentialStore [project_credentialStore_patch]  
-  delete   Delete iam/project.credentialStore [project_credentialStore_delete]
+  spec     Print specification of context                                          
+  create   Create iam/project.credentialStore [iam_project_credentialStore_create] 
+  list     List iam/project.credentialStore [iam_project_credentialStore_list]     
+  show     Get iam/project.credentialStore [iam_project_credentialStore_get]       
+  update   Update iam/project.credentialStore [iam_project_credentialStore_patch]  
+  delete   Delete iam/project.credentialStore [iam_project_credentialStore_delete]
 ```
 
 ##### h1 iam project credential-store spec
@@ -579,7 +579,7 @@ Operation options
 ```
 h1 iam project credential-store create
 
-  Create iam/project.credentialStore [project_credentialStore_create] 
+  Create iam/project.credentialStore [iam_project_credentialStore_create] 
 
 Synopsis
 
@@ -610,7 +610,7 @@ Operation options
 ```
 h1 iam project credential-store list
 
-  List iam/project.credentialStore [project_credentialStore_list] 
+  List iam/project.credentialStore [iam_project_credentialStore_list] 
 
 Synopsis
 
@@ -637,7 +637,7 @@ Operation options
 ```
 h1 iam project credential-store show
 
-  Get iam/project.credentialStore [project_credentialStore_get] 
+  Get iam/project.credentialStore [iam_project_credentialStore_get] 
 
 Synopsis
 
@@ -665,7 +665,7 @@ Operation options
 ```
 h1 iam project credential-store update
 
-  Update iam/project.credentialStore [project_credentialStore_patch] 
+  Update iam/project.credentialStore [iam_project_credentialStore_patch] 
 
 Synopsis
 
@@ -695,7 +695,7 @@ Operation options
 ```
 h1 iam project credential-store delete
 
-  Delete iam/project.credentialStore [project_credentialStore_delete] 
+  Delete iam/project.credentialStore [iam_project_credentialStore_delete] 
 
 Synopsis
 
@@ -733,9 +733,9 @@ Options
 
 Command List
 
-  spec    Print specification of context              
-  list    List iam/project.quota [project_quota_list] 
-  show    Get iam/project.quota [project_quota_get]   
+  spec    Print specification of context                  
+  list    List iam/project.quota [iam_project_quota_list] 
+  show    Get iam/project.quota [iam_project_quota_get]   
   limit   Manage limits of the quota
 ```
 
@@ -768,7 +768,7 @@ Operation options
 ```
 h1 iam project quota list
 
-  List iam/project.quota [project_quota_list] 
+  List iam/project.quota [iam_project_quota_list] 
 
 Synopsis
 
@@ -795,7 +795,7 @@ Operation options
 ```
 h1 iam project quota show
 
-  Get iam/project.quota [project_quota_get] 
+  Get iam/project.quota [iam_project_quota_get] 
 
 Synopsis
 
@@ -833,8 +833,8 @@ Options
 
 Command List
 
-  spec     Print specification of context                       
-  update   Update iam/project.limit [project_quota_limit_patch]
+  spec     Print specification of context                           
+  update   Update iam/project.limit [iam_project_quota_limit_patch]
 ```
 
 ###### h1 iam project quota limit spec
@@ -866,7 +866,7 @@ Operation options
 ```
 h1 iam project quota limit update
 
-  Update iam/project.limit [project_quota_limit_patch] 
+  Update iam/project.limit [iam_project_quota_limit_patch] 
 
 Synopsis
 
@@ -905,11 +905,11 @@ Options
 
 Command List
 
-  spec     Print specification of context                            
-  list     List iam/project.invitation [project_invitation_list]     
-  show     Get iam/project.invitation [project_invitation_get]       
-  delete   Delete iam/project.invitation [project_invitation_delete] 
-  accept   Accept iam/project.invitation [project_invitation_accept]
+  spec     Print specification of context                                
+  list     List iam/project.invitation [iam_project_invitation_list]     
+  show     Get iam/project.invitation [iam_project_invitation_get]       
+  delete   Delete iam/project.invitation [iam_project_invitation_delete] 
+  accept   Accept iam/project.invitation [iam_project_invitation_accept]
 ```
 
 ##### h1 iam project invitation spec
@@ -941,7 +941,7 @@ Operation options
 ```
 h1 iam project invitation list
 
-  List iam/project.invitation [project_invitation_list] 
+  List iam/project.invitation [iam_project_invitation_list] 
 
 Synopsis
 
@@ -969,7 +969,7 @@ Operation options
 ```
 h1 iam project invitation show
 
-  Get iam/project.invitation [project_invitation_get] 
+  Get iam/project.invitation [iam_project_invitation_get] 
 
 Synopsis
 
@@ -997,7 +997,7 @@ Operation options
 ```
 h1 iam project invitation delete
 
-  Delete iam/project.invitation [project_invitation_delete] 
+  Delete iam/project.invitation [iam_project_invitation_delete] 
 
 Synopsis
 
@@ -1025,7 +1025,7 @@ Operation options
 ```
 h1 iam project invitation accept
 
-  Accept iam/project.invitation [project_invitation_accept] 
+  Accept iam/project.invitation [iam_project_invitation_accept] 
 
 Synopsis
 
@@ -1064,11 +1064,11 @@ Options
 
 Command List
 
-  spec     Print specification of context                          
-  create   Create iam/project.ownership [project_ownership_create] 
-  list     List iam/project.ownership [project_ownership_list]     
-  show     Get iam/project.ownership [project_ownership_get]       
-  delete   Delete iam/project.ownership [project_ownership_delete]
+  spec     Print specification of context                              
+  create   Create iam/project.ownership [iam_project_ownership_create] 
+  list     List iam/project.ownership [iam_project_ownership_list]     
+  show     Get iam/project.ownership [iam_project_ownership_get]       
+  delete   Delete iam/project.ownership [iam_project_ownership_delete]
 ```
 
 ##### h1 iam project ownership spec
@@ -1100,7 +1100,7 @@ Operation options
 ```
 h1 iam project ownership create
 
-  Create iam/project.ownership [project_ownership_create] 
+  Create iam/project.ownership [iam_project_ownership_create] 
 
 Synopsis
 
@@ -1128,7 +1128,7 @@ Operation options
 ```
 h1 iam project ownership list
 
-  List iam/project.ownership [project_ownership_list] 
+  List iam/project.ownership [iam_project_ownership_list] 
 
 Synopsis
 
@@ -1155,7 +1155,7 @@ Operation options
 ```
 h1 iam project ownership show
 
-  Get iam/project.ownership [project_ownership_get] 
+  Get iam/project.ownership [iam_project_ownership_get] 
 
 Synopsis
 
@@ -1183,7 +1183,7 @@ Operation options
 ```
 h1 iam project ownership delete
 
-  Delete iam/project.ownership [project_ownership_delete] 
+  Delete iam/project.ownership [iam_project_ownership_delete] 
 
 Synopsis
 
@@ -1221,9 +1221,9 @@ Options
 
 Command List
 
-  spec   Print specification of context                  
-  list   List iam/project.service [project_service_list] 
-  show   Get iam/project.service [project_service_get]
+  spec   Print specification of context                      
+  list   List iam/project.service [iam_project_service_list] 
+  show   Get iam/project.service [iam_project_service_get]
 ```
 
 ##### h1 iam project service spec
@@ -1255,7 +1255,7 @@ Operation options
 ```
 h1 iam project service list
 
-  List iam/project.service [project_service_list] 
+  List iam/project.service [iam_project_service_list] 
 
 Synopsis
 
@@ -1282,7 +1282,7 @@ Operation options
 ```
 h1 iam project service show
 
-  Get iam/project.service [project_service_get] 
+  Get iam/project.service [iam_project_service_get] 
 
 Synopsis
 
@@ -1320,11 +1320,11 @@ Options
 
 Command List
 
-  spec     Print specification of context              
-  create   Create iam/project.tag [project_tag_create] 
-  list     List iam/project.tag [project_tag_list]     
-  show     Get iam/project.tag [project_tag_get]       
-  delete   Delete iam/project.tag [project_tag_delete]
+  spec     Print specification of context                  
+  create   Create iam/project.tag [iam_project_tag_create] 
+  list     List iam/project.tag [iam_project_tag_list]     
+  show     Get iam/project.tag [iam_project_tag_get]       
+  delete   Delete iam/project.tag [iam_project_tag_delete]
 ```
 
 ##### h1 iam project tag spec
@@ -1356,7 +1356,7 @@ Operation options
 ```
 h1 iam project tag create
 
-  Create iam/project.tag [project_tag_create] 
+  Create iam/project.tag [iam_project_tag_create] 
 
 Synopsis
 
@@ -1385,7 +1385,7 @@ Operation options
 ```
 h1 iam project tag list
 
-  List iam/project.tag [project_tag_list] 
+  List iam/project.tag [iam_project_tag_list] 
 
 Synopsis
 
@@ -1412,7 +1412,7 @@ Operation options
 ```
 h1 iam project tag show
 
-  Get iam/project.tag [project_tag_get] 
+  Get iam/project.tag [iam_project_tag_get] 
 
 Synopsis
 
@@ -1440,7 +1440,7 @@ Operation options
 ```
 h1 iam project tag delete
 
-  Delete iam/project.tag [project_tag_delete] 
+  Delete iam/project.tag [iam_project_tag_delete] 
 
 Synopsis
 
@@ -1478,9 +1478,9 @@ Options
 
 Command List
 
-  spec   Print specification of context              
-  list   List iam/project.event [project_event_list] 
-  show   Get iam/project.event [project_event_get]
+  spec   Print specification of context                  
+  list   List iam/project.event [iam_project_event_list] 
+  show   Get iam/project.event [iam_project_event_get]
 ```
 
 ##### h1 iam project event spec
@@ -1512,7 +1512,7 @@ Operation options
 ```
 h1 iam project event list
 
-  List iam/project.event [project_event_list] 
+  List iam/project.event [iam_project_event_list] 
 
 Synopsis
 
@@ -1541,7 +1541,7 @@ Operation options
 ```
 h1 iam project event show
 
-  Get iam/project.event [project_event_get] 
+  Get iam/project.event [iam_project_event_get] 
 
 Synopsis
 
@@ -3847,21 +3847,21 @@ Options
 
 Command List
 
-  spec              Print specification of context                                  
-  create            Create iam/organisation [organisation_create]                   
-  list              List iam/organisation [organisation_list]                       
-  show              Get iam/organisation [organisation_get]                         
-  update            Update iam/organisation [organisation_update]                   
-  delete            Delete iam/organisation [organisation_delete]                   
-  transfer_accept   Transfer accept iam/organisation [organisation_transfer_accept] 
-  billing           Manage billings of the organisation                             
-  payment           Manage payments of the organisation                             
-  invoice           Manage invoices of the organisation                             
-  proforma          Manage proformas of the organisation                            
-  invitation        Manage invitations of the organisation                          
-  ownership         Manage ownerships of the organisation                           
-  event             Manage events of the organisation                               
-  policy            Manage policies of the organisation                             
+  spec              Print specification of context                                      
+  create            Create iam/organisation [iam_organisation_create]                   
+  list              List iam/organisation [iam_organisation_list]                       
+  show              Get iam/organisation [iam_organisation_get]                         
+  update            Update iam/organisation [iam_organisation_update]                   
+  delete            Delete iam/organisation [iam_organisation_delete]                   
+  transfer_accept   Transfer accept iam/organisation [iam_organisation_transfer_accept] 
+  billing           Manage billings of the organisation                                 
+  payment           Manage payments of the organisation                                 
+  invoice           Manage invoices of the organisation                                 
+  proforma          Manage proformas of the organisation                                
+  invitation        Manage invitations of the organisation                              
+  ownership         Manage ownerships of the organisation                               
+  event             Manage events of the organisation                                   
+  policy            Manage policies of the organisation                                 
   role              Manage roles of the organisation
 ```
 
@@ -3894,7 +3894,7 @@ Operation options
 ```
 h1 iam organisation create
 
-  Create iam/organisation [organisation_create] 
+  Create iam/organisation [iam_organisation_create] 
 
 Synopsis
 
@@ -3930,7 +3930,7 @@ Operation options
 ```
 h1 iam organisation list
 
-  List iam/organisation [organisation_list] 
+  List iam/organisation [iam_organisation_list] 
 
 Synopsis
 
@@ -3960,7 +3960,7 @@ Operation options
 ```
 h1 iam organisation show
 
-  Get iam/organisation [organisation_get] 
+  Get iam/organisation [iam_organisation_get] 
 
 Synopsis
 
@@ -3987,7 +3987,7 @@ Operation options
 ```
 h1 iam organisation update
 
-  Update iam/organisation [organisation_update] 
+  Update iam/organisation [iam_organisation_update] 
 
 Synopsis
 
@@ -4020,7 +4020,7 @@ Operation options
 ```
 h1 iam organisation delete
 
-  Delete iam/organisation [organisation_delete] 
+  Delete iam/organisation [iam_organisation_delete] 
 
 Synopsis
 
@@ -4047,7 +4047,7 @@ Operation options
 ```
 h1 iam organisation transfer_accept
 
-  Transfer accept iam/organisation [organisation_transfer_accept] 
+  Transfer accept iam/organisation [iam_organisation_transfer_accept] 
 
 Synopsis
 
@@ -4087,8 +4087,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                            
-  list   List iam/organisation.billing [organisation_billing_list]
+  spec   Print specification of context                                
+  list   List iam/organisation.billing [iam_organisation_billing_list]
 ```
 
 ##### h1 iam organisation billing spec
@@ -4120,7 +4120,7 @@ Operation options
 ```
 h1 iam organisation billing list
 
-  List iam/organisation.billing [organisation_billing_list] 
+  List iam/organisation.billing [iam_organisation_billing_list] 
 
 Synopsis
 
@@ -4160,10 +4160,10 @@ Options
 
 Command List
 
-  spec       Print specification of context                                    
-  list       List iam/organisation.payment [organisation_payment_list]         
-  show       Get iam/organisation.payment [organisation_payment_get]           
-  allocate   Allocate iam/organisation.payment [organisation_payment_allocate]
+  spec       Print specification of context                                        
+  list       List iam/organisation.payment [iam_organisation_payment_list]         
+  show       Get iam/organisation.payment [iam_organisation_payment_get]           
+  allocate   Allocate iam/organisation.payment [iam_organisation_payment_allocate]
 ```
 
 ##### h1 iam organisation payment spec
@@ -4195,7 +4195,7 @@ Operation options
 ```
 h1 iam organisation payment list
 
-  List iam/organisation.payment [organisation_payment_list] 
+  List iam/organisation.payment [iam_organisation_payment_list] 
 
 Synopsis
 
@@ -4222,7 +4222,7 @@ Operation options
 ```
 h1 iam organisation payment show
 
-  Get iam/organisation.payment [organisation_payment_get] 
+  Get iam/organisation.payment [iam_organisation_payment_get] 
 
 Synopsis
 
@@ -4250,7 +4250,7 @@ Operation options
 ```
 h1 iam organisation payment allocate
 
-  Allocate iam/organisation.payment [organisation_payment_allocate] 
+  Allocate iam/organisation.payment [iam_organisation_payment_allocate] 
 
 Synopsis
 
@@ -4270,7 +4270,7 @@ Operation options
 
   --organisation id-or-uri   Organisation Id                                                               
   --payment id-or-uri        paymentId                                                                     
-  --project uri              Payment project. Provide URI of iam/project. Requires permissions             
+  --project id-or-uri        Payment project. Provide ID or URI of iam/project. Requires permissions       
                              iam/project/get                                                               
   --skeleton true,false
 ```
@@ -4290,10 +4290,10 @@ Options
 
 Command List
 
-  spec       Print specification of context                                    
-  list       List iam/organisation.invoice [organisation_invoice_list]         
-  show       Get iam/organisation.invoice [organisation_invoice_get]           
-  download   Download iam/organisation.invoice [organisation_invoice_download]
+  spec       Print specification of context                                        
+  list       List iam/organisation.invoice [iam_organisation_invoice_list]         
+  show       Get iam/organisation.invoice [iam_organisation_invoice_get]           
+  download   Download iam/organisation.invoice [iam_organisation_invoice_download]
 ```
 
 ##### h1 iam organisation invoice spec
@@ -4325,7 +4325,7 @@ Operation options
 ```
 h1 iam organisation invoice list
 
-  List iam/organisation.invoice [organisation_invoice_list] 
+  List iam/organisation.invoice [iam_organisation_invoice_list] 
 
 Synopsis
 
@@ -4352,7 +4352,7 @@ Operation options
 ```
 h1 iam organisation invoice show
 
-  Get iam/organisation.invoice [organisation_invoice_get] 
+  Get iam/organisation.invoice [iam_organisation_invoice_get] 
 
 Synopsis
 
@@ -4380,7 +4380,7 @@ Operation options
 ```
 h1 iam organisation invoice download
 
-  Download iam/organisation.invoice [organisation_invoice_download] 
+  Download iam/organisation.invoice [iam_organisation_invoice_download] 
 
 Synopsis
 
@@ -4418,11 +4418,11 @@ Options
 
 Command List
 
-  spec       Print specification of context                                      
-  create     Create iam/organisation.proforma [organisation_proforma_create]     
-  list       List iam/organisation.proforma [organisation_proforma_list]         
-  show       Get iam/organisation.proforma [organisation_proforma_get]           
-  download   Download iam/organisation.proforma [organisation_proforma_download]
+  spec       Print specification of context                                          
+  create     Create iam/organisation.proforma [iam_organisation_proforma_create]     
+  list       List iam/organisation.proforma [iam_organisation_proforma_list]         
+  show       Get iam/organisation.proforma [iam_organisation_proforma_get]           
+  download   Download iam/organisation.proforma [iam_organisation_proforma_download]
 ```
 
 ##### h1 iam organisation proforma spec
@@ -4454,7 +4454,7 @@ Operation options
 ```
 h1 iam organisation proforma create
 
-  Create iam/organisation.proforma [organisation_proforma_create] 
+  Create iam/organisation.proforma [iam_organisation_proforma_create] 
 
 Synopsis
 
@@ -4474,7 +4474,7 @@ Operation options
 
   --organisation id-or-uri   Organisation Id                                                               
   --amount string            Proforma amount                                                               
-  --project uri              Proforma project. Provide URI of iam/project. Requires permissions            
+  --project id-or-uri        Proforma project. Provide ID or URI of iam/project. Requires permissions      
                              iam/project/get                                                               
   --skeleton true,false
 ```
@@ -4484,7 +4484,7 @@ Operation options
 ```
 h1 iam organisation proforma list
 
-  List iam/organisation.proforma [organisation_proforma_list] 
+  List iam/organisation.proforma [iam_organisation_proforma_list] 
 
 Synopsis
 
@@ -4511,7 +4511,7 @@ Operation options
 ```
 h1 iam organisation proforma show
 
-  Get iam/organisation.proforma [organisation_proforma_get] 
+  Get iam/organisation.proforma [iam_organisation_proforma_get] 
 
 Synopsis
 
@@ -4539,7 +4539,7 @@ Operation options
 ```
 h1 iam organisation proforma download
 
-  Download iam/organisation.proforma [organisation_proforma_download] 
+  Download iam/organisation.proforma [iam_organisation_proforma_download] 
 
 Synopsis
 
@@ -4577,11 +4577,11 @@ Options
 
 Command List
 
-  spec     Print specification of context                                      
-  list     List iam/organisation.invitation [organisation_invitation_list]     
-  show     Get iam/organisation.invitation [organisation_invitation_get]       
-  delete   Delete iam/organisation.invitation [organisation_invitation_delete] 
-  accept   Accept iam/organisation.invitation [organisation_invitation_accept]
+  spec     Print specification of context                                          
+  list     List iam/organisation.invitation [iam_organisation_invitation_list]     
+  show     Get iam/organisation.invitation [iam_organisation_invitation_get]       
+  delete   Delete iam/organisation.invitation [iam_organisation_invitation_delete] 
+  accept   Accept iam/organisation.invitation [iam_organisation_invitation_accept]
 ```
 
 ##### h1 iam organisation invitation spec
@@ -4613,7 +4613,7 @@ Operation options
 ```
 h1 iam organisation invitation list
 
-  List iam/organisation.invitation [organisation_invitation_list] 
+  List iam/organisation.invitation [iam_organisation_invitation_list] 
 
 Synopsis
 
@@ -4641,7 +4641,7 @@ Operation options
 ```
 h1 iam organisation invitation show
 
-  Get iam/organisation.invitation [organisation_invitation_get] 
+  Get iam/organisation.invitation [iam_organisation_invitation_get] 
 
 Synopsis
 
@@ -4669,7 +4669,7 @@ Operation options
 ```
 h1 iam organisation invitation delete
 
-  Delete iam/organisation.invitation [organisation_invitation_delete] 
+  Delete iam/organisation.invitation [iam_organisation_invitation_delete] 
 
 Synopsis
 
@@ -4697,7 +4697,7 @@ Operation options
 ```
 h1 iam organisation invitation accept
 
-  Accept iam/organisation.invitation [organisation_invitation_accept] 
+  Accept iam/organisation.invitation [iam_organisation_invitation_accept] 
 
 Synopsis
 
@@ -4736,11 +4736,11 @@ Options
 
 Command List
 
-  spec     Print specification of context                                    
-  create   Create iam/organisation.ownership [organisation_ownership_create] 
-  list     List iam/organisation.ownership [organisation_ownership_list]     
-  show     Get iam/organisation.ownership [organisation_ownership_get]       
-  delete   Delete iam/organisation.ownership [organisation_ownership_delete]
+  spec     Print specification of context                                        
+  create   Create iam/organisation.ownership [iam_organisation_ownership_create] 
+  list     List iam/organisation.ownership [iam_organisation_ownership_list]     
+  show     Get iam/organisation.ownership [iam_organisation_ownership_get]       
+  delete   Delete iam/organisation.ownership [iam_organisation_ownership_delete]
 ```
 
 ##### h1 iam organisation ownership spec
@@ -4772,7 +4772,7 @@ Operation options
 ```
 h1 iam organisation ownership create
 
-  Create iam/organisation.ownership [organisation_ownership_create] 
+  Create iam/organisation.ownership [iam_organisation_ownership_create] 
 
 Synopsis
 
@@ -4800,7 +4800,7 @@ Operation options
 ```
 h1 iam organisation ownership list
 
-  List iam/organisation.ownership [organisation_ownership_list] 
+  List iam/organisation.ownership [iam_organisation_ownership_list] 
 
 Synopsis
 
@@ -4827,7 +4827,7 @@ Operation options
 ```
 h1 iam organisation ownership show
 
-  Get iam/organisation.ownership [organisation_ownership_get] 
+  Get iam/organisation.ownership [iam_organisation_ownership_get] 
 
 Synopsis
 
@@ -4855,7 +4855,7 @@ Operation options
 ```
 h1 iam organisation ownership delete
 
-  Delete iam/organisation.ownership [organisation_ownership_delete] 
+  Delete iam/organisation.ownership [iam_organisation_ownership_delete] 
 
 Synopsis
 
@@ -4893,9 +4893,9 @@ Options
 
 Command List
 
-  spec   Print specification of context                        
-  list   List iam/organisation.event [organisation_event_list] 
-  show   Get iam/organisation.event [organisation_event_get]
+  spec   Print specification of context                            
+  list   List iam/organisation.event [iam_organisation_event_list] 
+  show   Get iam/organisation.event [iam_organisation_event_get]
 ```
 
 ##### h1 iam organisation event spec
@@ -4927,7 +4927,7 @@ Operation options
 ```
 h1 iam organisation event list
 
-  List iam/organisation.event [organisation_event_list] 
+  List iam/organisation.event [iam_organisation_event_list] 
 
 Synopsis
 
@@ -4956,7 +4956,7 @@ Operation options
 ```
 h1 iam organisation event show
 
-  Get iam/organisation.event [organisation_event_get] 
+  Get iam/organisation.event [iam_organisation_event_get] 
 
 Synopsis
 
