@@ -37,8 +37,7 @@ const outputFormat = {
                 .map(([i, value]) => `${i}${' '.repeat(maxKeyLength - i.length)} : ${value}`)
                 .concat('')
                 .join('\n')
-            ).join('\n')
-        ;
+            ).join('\n');
     },
     json: (result) => JSON.stringify(result, null, 4),
     js: (result, query) => query ? queryFilter(query, result) : result,
@@ -69,6 +68,9 @@ export default {
     beforeCommandStart: async (opts) => {
         const optsAll = opts._all || opts;
         const formatter = outputFormat[optsAll.output];
-        opts.format = (opts, output) => formatter(output, optsAll.query, opts.defaultQuery);
+        opts.format = (opts, output) => {
+            if (typeof output == 'string') return output;
+            return formatter(output, optsAll.query, opts.defaultQuery);
+        };
     },
 };

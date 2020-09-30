@@ -184,7 +184,7 @@ const renderBody = (operation, input, options) => {
         if (value === undefined) continue;
         if (value == option.defaultValue) continue;
         if (option.prefix && value && !value.startsWith('/')) {
-            value = openapi.renderPath(option.prefix, {...parameters, [`${option.name}Id`]: value});
+            value = openapi.renderPath(option.prefix, { ...parameters, [`${option.name}Id`]: value });
         }
         set(result, option.use.field.replace(/\//g, '.'), value);
     }
@@ -192,7 +192,8 @@ const renderBody = (operation, input, options) => {
 };
 
 const generateQuery = (path, operation) => {
-    const schema = openapi.getResponse(operation) || {};
+    const schema = openapi.getResponse(operation);
+    if (!schema) return;
     const col = [];
 
     let props;

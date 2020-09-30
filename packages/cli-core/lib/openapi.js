@@ -64,7 +64,10 @@ export default {
             path,
         })),
     getSchema: operation => operation.requestBody && operation.requestBody.content['application/json'].schema || {},
-    getResponse: (operation, status = 200) => operation.responses && operation.responses[status] && operation.responses[status].content['application/json'].schema || {},
+    getResponse: (operation, status = 200, type = 'application/json') => operation.responses &&
+        operation.responses[status] &&
+        operation.responses[status].content[type] &&
+        operation.responses[status].content[type].schema,
     getTitle: () => spec.info.title,
     getDetail: prefix => Object
         .entries(spec.paths)
