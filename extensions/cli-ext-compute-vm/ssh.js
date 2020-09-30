@@ -22,7 +22,10 @@ export default new Command({
     handler: async (opts) => {
         const optsAll = opts._all || opts;
         const resource = await opts.api.get(
-            openapi.getUrl(`/compute/pl-waw-1/project/${optsAll.project}/vm/${optsAll.vm}`)
+            openapi.getUrl('/compute/pl-waw-1/project/{projectId}/vm/{vmId}', {
+                projectId: optsAll.project,
+                vmId: optsAll.vm,
+            })
         );
 
         const sshArgs = [
