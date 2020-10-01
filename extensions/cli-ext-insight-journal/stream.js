@@ -3,6 +3,8 @@
 import { Command } from '@hyperone/cli-framework';
 import fs from 'fs';
 import { openapi } from '@hyperone/cli-core';
+import readlineTransform from 'readline-transform';
+import { Transform } from 'stream';
 
 export default new Command({
     name: 'stream',
@@ -13,9 +15,15 @@ export default new Command({
         {
             name: 'log-file',
             description: 'Path of the input json log file (default: stdin)',
-            type: path => fs.createReadStream(path),
+            type: path => fs.createWriteStream(path),
             required: false,
             defaultValue: process.stdout,
+        },
+        {
+            name: 'head',
+            description: 'Maximum number of lines to show. All if skipped.',
+            required: false,
+            type: Number,
         },
         // tags
     ],
@@ -28,7 +36,21 @@ export default new Command({
         const stream = await opts.http.get(`http://${log.fqdn}/log`, {
             headers: { authorization: `Bearer ${token}` },
         });
-        return new Promise((resolve, reject) => stream
+        let lines = 0;
+
+        return new Promise((resolve, reject) => stream.body
+            .pipe(new readlineTransform())
+            .pipe(new Transform({
+                transform(line, encoding, callback) {
+                    lines += 1;
+                    if (optsAll.head && optsAll.head < lines) {
+                        stream.controller.abort();
+                        // Discard extra lines
+                        return callback(null);
+                    }
+                    return callback(null, `${line}\n`);
+                },
+            }))
             .pipe(optsAll['log-file'])
             .on('finish', resolve)
             .on('error', reject)

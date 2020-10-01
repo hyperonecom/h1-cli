@@ -1,7 +1,9 @@
 import fetch from 'node-fetch';
+import AbortController from 'abort-controller';
 
 export default (device, logger) => {
     const result = {};
+    const controller = new AbortController();
 
     const baseRequest = async (method, uri, { json, headers, body, query } = {}) => {
         headers = {
@@ -31,13 +33,14 @@ export default (device, logger) => {
         }
 
         const resp = await fetch(uri, {
-            method, body, headers, query,
+            method, body, headers, query, signal: controller.signal,
         });
 
         logger.debug('response status', resp.status);
         logger.debug('response headers', JSON.stringify(Object.fromEntries(resp.headers), null, 2));
         const duration = new Date() - start;
         logger.debug('response time', `${duration} ms`);
+        resp.controller = controller;
 
         if (!resp.ok) {
             const err = new Error('Invalid response');
@@ -54,8 +57,12 @@ export default (device, logger) => {
         if (resp.status == 204) {
             return;
         }
+        const encoding = resp.headers.get("transfer-encoding");
 
         if (type.startsWith('text/plain')) {
+            if (encoding == 'chunked') {
+                return resp;
+            }
             const respText = await resp.text();
             logger.debug('response text', respText);
             return respText;
