@@ -80,14 +80,10 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
                 };
             }
             const resp = await applyMiddleware(middlewares, 'afterResponse',
-                // opts.api[method](url, {
-                //     json: requestBody,
-                //     query,
-                // }),
-                {
-                    id: '5f74b54d494c5cfdec9e604b',
-                    uri: '/storage/pl-waw-1/project/5f64e2468c71177993874510/iso/5f74b54d494c5cfdec9e604b',
-                },
+                opts.api[method](url, {
+                    json: requestBody,
+                    query,
+                }),
                 opts, requestBody
             );
             return opts.format(opts, resp);

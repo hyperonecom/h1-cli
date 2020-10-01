@@ -39,11 +39,18 @@ export default new Command({
         let lines = 0;
 
         return new Promise((resolve, reject) => stream.body
+            .on('error', err => {
+                optsAll['log-file'].close();
+                if (err.name !== 'AbortError') {
+                    return reject(err);
+                }
+                return resolve();
+            })
             .pipe(new readlineTransform())
             .pipe(new Transform({
                 transform(line, encoding, callback) {
                     lines += 1;
-                    if (optsAll.head && optsAll.head < lines) {
+                    if (optsAll.head && lines > optsAll.head) {
                         stream.controller.abort();
                         // Discard extra lines
                         return callback(null);
@@ -53,7 +60,7 @@ export default new Command({
             }))
             .pipe(optsAll['log-file'])
             .on('finish', resolve)
-            .on('error', reject)
+            .on('end', resolve)
         );
     },
 });
