@@ -12,13 +12,24 @@ const printCommand = (name, content) => new Command({
     handler: () => content,
 });
 
-export const makeOperationCommand = ({ name, endpoint, method, path }) => () => {
+const applyMiddleware = async (middlewares, name, value, ...args) => {
+    for (const middleware of middlewares.filter(x => x[name])) {
+        value = middleware[name](await value, ...args);
+    }
+    return value;
+};
+
+export const makeOperationCommand = ({ name, endpoint, method, path }) => async () => {
     const operation = endpoint[method];
     const parameters = [
         ...operation.parameters || [],
         ...endpoint.parameters || [],
     ];
-    const options = request.renderOptions(operation, parameters);
+    const middlewares = request.middlewareForSchema(operation);
+    const options = await applyMiddleware(middlewares, 'afterRenderOptions',
+        request.renderOptions(operation, parameters)
+    );
+
     const cmd = new Command({
         name,
         summary: `${operation.summary} [${operation.operationId}]`,
@@ -47,6 +58,7 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => () => 
             return cliExamples;
         },
         handler: async (opts) => {
+            opts.config = cmd.config;
             const optsAll = opts._all || opts;
             const parameters = request.renderParameter(optsAll, options);
             const url = openapi.getUrl(path, parameters);
@@ -55,7 +67,10 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => () => 
 
             let requestBody;
             if (['post', 'patch', 'put'].includes(method)) {
-                requestBody = request.renderBody(operation, optsAll, options);
+                requestBody = await applyMiddleware(middlewares, 'afterRenderBody',
+                    request.renderBody(operation, optsAll, options),
+                    opts
+                );
             }
 
             if (optsAll.skeleton) {
@@ -64,10 +79,17 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => () => 
                     requestBody: requestBody || {},
                 };
             }
-            const resp = await opts.api[method](url, {
-                json: requestBody,
-                query,
-            });
+            const resp = await applyMiddleware(middlewares, 'afterResponse',
+                // opts.api[method](url, {
+                //     json: requestBody,
+                //     query,
+                // }),
+                {
+                    id: '5f74b54d494c5cfdec9e604b',
+                    uri: '/storage/pl-waw-1/project/5f64e2468c71177993874510/iso/5f74b54d494c5cfdec9e604b',
+                },
+                opts, requestBody
+            );
             return opts.format(opts, resp);
         },
     });

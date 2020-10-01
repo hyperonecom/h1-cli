@@ -28,6 +28,7 @@
     "access": "public"
   },
   "scripts": {
+    "prepack": "NODE_ENV=production webpack",
     "watch": "webpack --watch",
     "build": "webpack",
     "lint": "eslint .",

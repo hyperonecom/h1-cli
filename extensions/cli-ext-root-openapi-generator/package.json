@@ -22,7 +22,9 @@
     "@hyperone/cli-framework": "link:../../packages/cli-framework",
     "jsonpatch": "^3.0.1",
     "openapi-sampler": "^1.0.0-beta.16",
-    "pluralize": "^8.0.0"
+    "pluralize": "^8.0.0",
+    "sha512crypt-node": "^0.1.0",
+    "ws-streamify": "^0.1.4"
   },
   "gitHead": "a667a9fae1ba7945f8ca4a9f5e115254feb94831",
   "publishConfig": {

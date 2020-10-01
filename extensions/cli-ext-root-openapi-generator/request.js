@@ -3,6 +3,7 @@ import { openapi } from '@hyperone/cli-core';
 import { deCamelCase } from '@hyperone/cli-core/lib/transform';
 import types from '@hyperone/cli-core/types';
 import { set } from '@hyperone/cli-core/lib/transform';
+import formatter from './formatter/index';
 
 const idless = (name) => name.replace(/Id$/, '');
 
@@ -39,11 +40,33 @@ const parameterForParameter = (p = []) => {
     return parameters;
 };
 
+const middlewareForSchema = (operation) => {
+    const schema = openapi.getSchema(operation);
+    const hooks = [];
+
+    if (schema.format && formatter[schema.format] && formatter[schema.format]) {
+        hooks.push(formatter[schema.format]);
+    }
+    for (const [pname, pvalue] of Object.entries(schema.properties || {})) {
+        if (pname == 'metadata') pvalue.format = 'upload';
+
+        if (pvalue.format && formatter[pvalue.format] && formatter[pvalue.format]) {
+            hooks.push(formatter[pvalue.format]);
+        }
+        if (pvalue.type == 'object') {
+            hooks.push(...middlewareForSchema(pvalue));
+        }
+    }
+    return hooks;
+};
+
+
 const parameterForSchema = (schema, prefix = '', path = '') => {
     const parameters = [];
 
     for (const [pname, pvalue] of Object.entries(schema.properties || {})) {
         const description = [];
+
         const required = schema.required || [];
         const p = {
             name: `${prefix}${deCamelCase(pname)}`,
@@ -61,7 +84,6 @@ const parameterForSchema = (schema, prefix = '', path = '') => {
             continue;
         }
 
-        // TODO: Remove audiance support
         const audience = pvalue['x-audience'];
         if (audience && !['user', 'all'].includes(audience)) {
             continue;
@@ -92,6 +114,12 @@ const parameterForSchema = (schema, prefix = '', path = '') => {
             Object.assign(p, {
                 placeholder: pname,
             });
+            if (pvalue.enum) {
+                Object.assign(p, {
+                    typeLabel: pvalue.enum.join(','),
+                    choices: pvalue.enum,
+                });
+            }
         }
 
         if (pvalue.type == 'array' && pvalue.items.type == 'string') {
@@ -240,4 +268,5 @@ export default {
     renderQuery,
     generateQuery,
     renderParameter,
+    middlewareForSchema,
 };
