@@ -131,6 +131,12 @@ export class NodeDevice extends Device {
     readPassportFile(filepath) {
         return filepath && JSON.parse(fs.readFileSync(filepath, { encoding: 'utf-8' }));
     }
+    statFile(filepath) {
+        return fs.promises.stat(filepath);
+    }
+    createReadStream(filepath) {
+        return fs.promises.createReadStream(filepath);
+    }
     readDefaultPassport() {
         try {
             return JSON.parse(fs.readFileSync(untildify(`~/.${this.scope}/passport.json`)));

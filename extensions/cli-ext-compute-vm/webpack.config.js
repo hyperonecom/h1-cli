@@ -13,6 +13,9 @@ module.exports = {
     resolve: {
         extensions: ['.js', '.json'],
     },
+    optimization: {
+        minimize: false,
+    },
     externals: {
         '@hyperone/cli-core':'commonjs2 @hyperone/cli-core',
         '@hyperone/cli-framework':'commonjs2 @hyperone/cli-framework',

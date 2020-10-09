@@ -71,7 +71,7 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
             }
 
             requestBody = await applyMiddleware(middlewares, 'beforeRequest',
-                requestBody, url, opts, options
+                requestBody, url, opts, options, cmd
             );
             const resp = await opts.api[method](url, {
                 json: requestBody,

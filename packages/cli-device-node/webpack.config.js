@@ -15,6 +15,9 @@ module.exports = {
     },
     target: 'node',
     mode: process.env.NODE_ENV || 'development',
+    optimization: {
+        minimize: false,
+    },
     resolve: {
         extensions: ['.js', '.json'],
         alias: {

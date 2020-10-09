@@ -21,7 +21,7 @@ export default {
         }
         return options;
     },
-    beforeRequest: async (requestBody, requestUrl, opts, options) => {
+    beforeRequest: async (requestBody, requestUrl, opts, options, device) => {
         const optsAll = opts._all || opts;
         const noProgress = optsAll['no-progress'];
         const applyOptions = findOptionsForFormat(options, 'uri-upload');
@@ -29,19 +29,18 @@ export default {
             const value = optsAll[option.name];
             if (!value) continue;
             if (!value.startsWith('file://')) continue;
-            const fs = require('fs');
             const path = require('path');
             const filepath = new URL(value).pathname;
             const filename = path.basename(filepath);
-            const filestream = fs.createReadStream(filepath);
-            const filestat = await fs.promises.stat(filepath);
+            const filestream = device.createReadStream(filepath);
+            const filestat = await device.statFile(filepath);
             const filesize = filestat.size;
 
             const uploadRequestUrl = requestUrl
                 .replace('/iso', '/bucket/temp/actions/upload')
                 .replace('/disk', '/bucket/temp/actions/upload');
 
-            const uploadParams = await opts.api.post(uploadRequestUrl, { json: { name: filename } })
+            const uploadParams = await opts.api.post(uploadRequestUrl, { json: { name: filename } });
 
             const s3Client = new S3({
                 endpoint: uploadParams.endpoint,
