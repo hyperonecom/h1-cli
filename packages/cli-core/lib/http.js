@@ -32,6 +32,7 @@ export default (device, logger) => {
             logger.debug('request body', body);
         }
 
+
         const resp = await fetch(uri, {
             method, body, headers, query, signal: controller.signal,
         });
