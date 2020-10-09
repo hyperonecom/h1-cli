@@ -13,27 +13,8 @@ Options
 
 Command List
 
-  spec           Print specification of context      
   project        Management of project resource      
   organisation   Management of organisation resource
-```
-
-### h1 iam spec
-
-```
-h1 iam spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam spec <options> 
-
-Global options
-
-  --help    Show help message and exit. 
-
-Operation options
 ```
 
 ### h1 iam project
@@ -51,51 +32,27 @@ Options
 
 Command List
 
-  spec               Print specification of context          
-  create             Create iam/project [iam_project_create] 
-  list               List iam/project [iam_project_list]     
-  show               Get iam/project [iam_project_get]       
-  update             Update iam/project [iam_project_update] 
-  delete             Delete iam/project [iam_project_delete] 
-  billing            Manage billings of the project          
-  payment            Manage payments of the project          
-  invoice            Manage invoices of the project          
-  proforma           Manage proformas of the project         
-  credential-store   Manage credentialStores of the project  
-  quota              Manage quotas of the project            
-  invitation         Manage invitations of the project       
-  ownership          Manage ownerships of the project        
-  service            Manage services of the project          
-  tag                Manage tags of the project              
-  event              Manage events of the project            
-  policy             Manage policies of the project          
-  role               Manage roles of the project             
-  sa                 Manage sas of the project               
+  create             Create iam/project [Operation ID: iam_project_create] 
+  list               List iam/project [Operation ID: iam_project_list]     
+  show               Get iam/project [Operation ID: iam_project_get]       
+  update             Update iam/project [Operation ID: iam_project_update] 
+  delete             Delete iam/project [Operation ID: iam_project_delete] 
+  billing            Manage billings of the project                        
+  payment            Manage payments of the project                        
+  invoice            Manage invoices of the project                        
+  proforma           Manage proformas of the project                       
+  threshold          Manage thresholds of the project                      
+  credential-store   Manage credentialStores of the project                
+  quota              Manage quotas of the project                          
+  invitation         Manage invitations of the project                     
+  ownership          Manage ownerships of the project                      
+  service            Manage services of the project                        
+  tag                Manage tags of the project                            
+  event              Manage events of the project                          
+  policy             Manage policies of the project                        
+  role               Manage roles of the project                           
+  sa                 Manage sas of the project                             
   select             Select default project
-```
-
-#### h1 iam project spec
-
-```
-h1 iam project spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 #### h1 iam project create
@@ -103,7 +60,7 @@ Operation options
 ```
 h1 iam project create
 
-  Create iam/project [iam_project_create] 
+  Create iam/project [Operation ID: iam_project_create] 
 
 Synopsis
 
@@ -111,22 +68,23 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --x-idempotency-key string   Idempotency key                                                               
-  --name string                Project name                                                                  
-  --organisation id-or-uri     Project organisation. Provide ID or URI of iam/organisation. Requires         
-                               permissions iam/project/create                                                
-  --tag key=key,value=value    Tag collection                                                                
-  --skeleton true,false
+  --x-idempotency-key string   Idempotency key                                                
+  --name string                Project name                                                   
+  --organisation id-or-uri     Project organisation. Provide ID or URI of iam/organisation.   
+                               Requires permissions iam/project/create                        
+  --tag key=key,value=value    Tag collection                                                 
+  --skeleton
 ```
 
 #### h1 iam project list
@@ -134,7 +92,7 @@ Operation options
 ```
 h1 iam project list
 
-  List iam/project [iam_project_list] 
+  List iam/project [Operation ID: iam_project_list] 
 
 Synopsis
 
@@ -142,13 +100,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -159,7 +118,7 @@ Operation options
   --$lean string          return a lightweight version of the resource 
   --tag.value string      Filter by tag.value                          
   --tag.key string        Filter by tag.key                            
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam project show
@@ -167,7 +126,7 @@ Operation options
 ```
 h1 iam project show
 
-  Get iam/project [iam_project_get] 
+  Get iam/project [Operation ID: iam_project_get] 
 
 Synopsis
 
@@ -175,18 +134,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --skeleton
 ```
 
 #### h1 iam project update
@@ -194,7 +154,7 @@ Operation options
 ```
 h1 iam project update
 
-  Update iam/project [iam_project_update] 
+  Update iam/project [Operation ID: iam_project_update] 
 
 Synopsis
 
@@ -202,19 +162,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                                 
-  --name string           Project name. Requires permissions iam/project.name/update 
-  --skeleton true,false
+  --project id-or-uri   Project Id                                                 
+  --name string         Project name. Requires permissions iam/project.name/update 
+  --skeleton
 ```
 
 #### h1 iam project delete
@@ -222,7 +183,7 @@ Operation options
 ```
 h1 iam project delete
 
-  Delete iam/project [iam_project_delete] 
+  Delete iam/project [Operation ID: iam_project_delete] 
 
 Synopsis
 
@@ -230,18 +191,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --skeleton
 ```
 
 #### h1 iam project billing
@@ -259,32 +221,7 @@ Options
 
 Command List
 
-  spec   Print specification of context                      
-  list   List iam/project.billing [iam_project_billing_list]
-```
-
-##### h1 iam project billing spec
-
-```
-h1 iam project billing spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project billing spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/project.billing [Operation ID: iam_project_billing_list]
 ```
 
 ##### h1 iam project billing list
@@ -292,7 +229,7 @@ Operation options
 ```
 h1 iam project billing list
 
-  List iam/project.billing [iam_project_billing_list] 
+  List iam/project.billing [Operation ID: iam_project_billing_list] 
 
 Synopsis
 
@@ -300,13 +237,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -314,7 +252,7 @@ Operation options
   --start string           start         
   --end string             end           
   --resource.type string   resource.type 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam project payment
@@ -332,32 +270,7 @@ Options
 
 Command List
 
-  spec   Print specification of context                      
-  list   List iam/project.payment [iam_project_payment_list]
-```
-
-##### h1 iam project payment spec
-
-```
-h1 iam project payment spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project payment spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/project.payment [Operation ID: iam_project_payment_list]
 ```
 
 ##### h1 iam project payment list
@@ -365,7 +278,7 @@ Operation options
 ```
 h1 iam project payment list
 
-  List iam/project.payment [iam_project_payment_list] 
+  List iam/project.payment [Operation ID: iam_project_payment_list] 
 
 Synopsis
 
@@ -373,18 +286,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --skeleton
 ```
 
 #### h1 iam project invoice
@@ -402,32 +316,7 @@ Options
 
 Command List
 
-  spec   Print specification of context                      
-  list   List iam/project.invoice [iam_project_invoice_list]
-```
-
-##### h1 iam project invoice spec
-
-```
-h1 iam project invoice spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project invoice spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/project.invoice [Operation ID: iam_project_invoice_list]
 ```
 
 ##### h1 iam project invoice list
@@ -435,7 +324,7 @@ Operation options
 ```
 h1 iam project invoice list
 
-  List iam/project.invoice [iam_project_invoice_list] 
+  List iam/project.invoice [Operation ID: iam_project_invoice_list] 
 
 Synopsis
 
@@ -443,18 +332,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --skeleton
 ```
 
 #### h1 iam project proforma
@@ -472,32 +362,7 @@ Options
 
 Command List
 
-  spec   Print specification of context                        
-  list   List iam/project.proforma [iam_project_proforma_list]
-```
-
-##### h1 iam project proforma spec
-
-```
-h1 iam project proforma spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project proforma spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/project.proforma [Operation ID: iam_project_proforma_list]
 ```
 
 ##### h1 iam project proforma list
@@ -505,7 +370,7 @@ Operation options
 ```
 h1 iam project proforma list
 
-  List iam/project.proforma [iam_project_proforma_list] 
+  List iam/project.proforma [Operation ID: iam_project_proforma_list] 
 
 Synopsis
 
@@ -513,18 +378,125 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --skeleton
+```
+
+#### h1 iam project threshold
+
+```
+h1 iam project threshold
+
+Synopsis
+
+  $ h1 iam project threshold <group> <command> 
+
+Options
+
+  --help    Show help message and exit. 
+
+Command List
+
+  create   Create iam/project.threshold [Operation ID: iam_project_threshold_create] 
+  list     List iam/project.threshold [Operation ID: iam_project_threshold_list]     
+  delete   Delete iam/project.threshold [Operation ID: iam_project_threshold_delete]
+```
+
+##### h1 iam project threshold create
+
+```
+h1 iam project threshold create
+
+  Create iam/project.threshold [Operation ID: iam_project_threshold_create] 
+
+Synopsis
+
+  $ h1 iam project threshold create <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
+
+Operation options
+
+  --project id-or-uri   Project Id      
+  --value string        Threshold value 
+  --skeleton
+```
+
+##### h1 iam project threshold list
+
+```
+h1 iam project threshold list
+
+  List iam/project.threshold [Operation ID: iam_project_threshold_list] 
+
+Synopsis
+
+  $ h1 iam project threshold list <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
+
+Operation options
+
+  --project id-or-uri   Project Id 
+  --skeleton
+```
+
+##### h1 iam project threshold delete
+
+```
+h1 iam project threshold delete
+
+  Delete iam/project.threshold [Operation ID: iam_project_threshold_delete] 
+
+Synopsis
+
+  $ h1 iam project threshold delete <options> 
+
+Global options
+
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
+
+Operation options
+
+  --project id-or-uri     Project Id  
+  --threshold id-or-uri   thresholdId 
+  --skeleton
 ```
 
 #### h1 iam project credential-store
@@ -542,36 +514,14 @@ Options
 
 Command List
 
-  spec     Print specification of context                                          
-  create   Create iam/project.credentialStore [iam_project_credentialStore_create] 
-  list     List iam/project.credentialStore [iam_project_credentialStore_list]     
-  show     Get iam/project.credentialStore [iam_project_credentialStore_get]       
-  update   Update iam/project.credentialStore [iam_project_credentialStore_patch]  
-  delete   Delete iam/project.credentialStore [iam_project_credentialStore_delete]
-```
-
-##### h1 iam project credential-store spec
-
-```
-h1 iam project credential-store spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project credential-store spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/project.credentialStore [Operation ID:                                  
+           iam_project_credentialStore_create]                                                
+  list     List iam/project.credentialStore [Operation ID: iam_project_credentialStore_list]  
+  show     Get iam/project.credentialStore [Operation ID: iam_project_credentialStore_get]    
+  update   Update iam/project.credentialStore [Operation ID:                                  
+           iam_project_credentialStore_patch]                                                 
+  delete   Delete iam/project.credentialStore [Operation ID:                                  
+           iam_project_credentialStore_delete]
 ```
 
 ##### h1 iam project credential-store create
@@ -579,7 +529,8 @@ Operation options
 ```
 h1 iam project credential-store create
 
-  Create iam/project.credentialStore [iam_project_credentialStore_create] 
+  Create iam/project.credentialStore [Operation ID:                             
+  iam_project_credentialStore_create]                                           
 
 Synopsis
 
@@ -587,22 +538,23 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id       
-  --name string           Credential name  
-  --type string           Credential type  
-  --value string          Credential value 
-  --token string          Credential token 
-  --skeleton true,false
+  --project id-or-uri   Project Id       
+  --name string         Credential name  
+  --type ssh            Credential type  
+  --value string        Credential value 
+  --token string        Credential token 
+  --skeleton
 ```
 
 ##### h1 iam project credential-store list
@@ -610,7 +562,8 @@ Operation options
 ```
 h1 iam project credential-store list
 
-  List iam/project.credentialStore [iam_project_credentialStore_list] 
+  List iam/project.credentialStore [Operation ID:                               
+  iam_project_credentialStore_list]                                             
 
 Synopsis
 
@@ -618,18 +571,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --skeleton
 ```
 
 ##### h1 iam project credential-store show
@@ -637,7 +591,7 @@ Operation options
 ```
 h1 iam project credential-store show
 
-  Get iam/project.credentialStore [iam_project_credentialStore_get] 
+  Get iam/project.credentialStore [Operation ID: iam_project_credentialStore_get] 
 
 Synopsis
 
@@ -645,19 +599,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri      Project Id   
-  --credential id-or-uri   credentialId 
-  --skeleton true,false
+  --project id-or-uri            Project Id        
+  --credential-store id-or-uri   credentialStoreId 
+  --skeleton
 ```
 
 ##### h1 iam project credential-store update
@@ -665,7 +620,8 @@ Operation options
 ```
 h1 iam project credential-store update
 
-  Update iam/project.credentialStore [iam_project_credentialStore_patch] 
+  Update iam/project.credentialStore [Operation ID:                             
+  iam_project_credentialStore_patch]                                            
 
 Synopsis
 
@@ -673,21 +629,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri      Project Id                                                                    
-  --credential id-or-uri   credentialId                                                                  
-  --name string            CredentialStore name. Requires permissions                                    
-                           iam/project.credentialStore.name/update                                       
-  --skeleton true,false
+  --project id-or-uri            Project Id                                                   
+  --credential-store id-or-uri   credentialStoreId                                            
+  --name string                  CredentialStore name. Requires permissions                   
+                                 iam/project.credentialStore.name/update                      
+  --skeleton
 ```
 
 ##### h1 iam project credential-store delete
@@ -695,7 +652,8 @@ Operation options
 ```
 h1 iam project credential-store delete
 
-  Delete iam/project.credentialStore [iam_project_credentialStore_delete] 
+  Delete iam/project.credentialStore [Operation ID:                             
+  iam_project_credentialStore_delete]                                           
 
 Synopsis
 
@@ -703,19 +661,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri      Project Id   
-  --credential id-or-uri   credentialId 
-  --skeleton true,false
+  --project id-or-uri            Project Id        
+  --credential-store id-or-uri   credentialStoreId 
+  --skeleton
 ```
 
 #### h1 iam project quota
@@ -733,34 +692,9 @@ Options
 
 Command List
 
-  spec    Print specification of context                  
-  list    List iam/project.quota [iam_project_quota_list] 
-  show    Get iam/project.quota [iam_project_quota_get]   
+  list    List iam/project.quota [Operation ID: iam_project_quota_list] 
+  show    Get iam/project.quota [Operation ID: iam_project_quota_get]   
   limit   Manage limits of the quota
-```
-
-##### h1 iam project quota spec
-
-```
-h1 iam project quota spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project quota spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 ##### h1 iam project quota list
@@ -768,7 +702,7 @@ Operation options
 ```
 h1 iam project quota list
 
-  List iam/project.quota [iam_project_quota_list] 
+  List iam/project.quota [Operation ID: iam_project_quota_list] 
 
 Synopsis
 
@@ -776,18 +710,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --skeleton
 ```
 
 ##### h1 iam project quota show
@@ -795,7 +730,7 @@ Operation options
 ```
 h1 iam project quota show
 
-  Get iam/project.quota [iam_project_quota_get] 
+  Get iam/project.quota [Operation ID: iam_project_quota_get] 
 
 Synopsis
 
@@ -803,19 +738,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --quota id-or-uri       quotaId    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --quota id-or-uri     quotaId    
+  --skeleton
 ```
 
 ##### h1 iam project quota limit
@@ -833,32 +769,7 @@ Options
 
 Command List
 
-  spec     Print specification of context                           
-  update   Update iam/project.limit [iam_project_quota_limit_patch]
-```
-
-###### h1 iam project quota limit spec
-
-```
-h1 iam project quota limit spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project quota limit spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  update   Update iam/project.limit [Operation ID: iam_project_quota_limit_patch]
 ```
 
 ###### h1 iam project quota limit update
@@ -866,7 +777,7 @@ Operation options
 ```
 h1 iam project quota limit update
 
-  Update iam/project.limit [iam_project_quota_limit_patch] 
+  Update iam/project.limit [Operation ID: iam_project_quota_limit_patch] 
 
 Synopsis
 
@@ -874,20 +785,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                                     
-  --quota id-or-uri       quotaId                                                        
-  --user string           Limit user. Requires permissions iam/project.quota.user/update 
-  --skeleton true,false
+  --project id-or-uri   Project Id                                                     
+  --quota id-or-uri     quotaId                                                        
+  --user string         Limit user. Requires permissions iam/project.quota.user/update 
+  --skeleton
 ```
 
 #### h1 iam project invitation
@@ -905,35 +817,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                                
-  list     List iam/project.invitation [iam_project_invitation_list]     
-  show     Get iam/project.invitation [iam_project_invitation_get]       
-  delete   Delete iam/project.invitation [iam_project_invitation_delete] 
-  accept   Accept iam/project.invitation [iam_project_invitation_accept]
-```
-
-##### h1 iam project invitation spec
-
-```
-h1 iam project invitation spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project invitation spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list     List iam/project.invitation [Operation ID: iam_project_invitation_list]     
+  show     Get iam/project.invitation [Operation ID: iam_project_invitation_get]       
+  delete   Delete iam/project.invitation [Operation ID: iam_project_invitation_delete] 
+  accept   Accept iam/project.invitation [Operation ID: iam_project_invitation_accept]
 ```
 
 ##### h1 iam project invitation list
@@ -941,7 +828,7 @@ Operation options
 ```
 h1 iam project invitation list
 
-  List iam/project.invitation [iam_project_invitation_list] 
+  List iam/project.invitation [Operation ID: iam_project_invitation_list] 
 
 Synopsis
 
@@ -949,19 +836,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --resource string       resource   
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --resource string     resource   
+  --skeleton
 ```
 
 ##### h1 iam project invitation show
@@ -969,7 +857,7 @@ Operation options
 ```
 h1 iam project invitation show
 
-  Get iam/project.invitation [iam_project_invitation_get] 
+  Get iam/project.invitation [Operation ID: iam_project_invitation_get] 
 
 Synopsis
 
@@ -977,19 +865,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri      Project Id   
   --invitation id-or-uri   invitationId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam project invitation delete
@@ -997,7 +886,7 @@ Operation options
 ```
 h1 iam project invitation delete
 
-  Delete iam/project.invitation [iam_project_invitation_delete] 
+  Delete iam/project.invitation [Operation ID: iam_project_invitation_delete] 
 
 Synopsis
 
@@ -1005,19 +894,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri      Project Id   
   --invitation id-or-uri   invitationId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam project invitation accept
@@ -1025,7 +915,7 @@ Operation options
 ```
 h1 iam project invitation accept
 
-  Accept iam/project.invitation [iam_project_invitation_accept] 
+  Accept iam/project.invitation [Operation ID: iam_project_invitation_accept] 
 
 Synopsis
 
@@ -1033,20 +923,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri      Project Id       
   --invitation id-or-uri   invitationId     
   --token string           Invitation token 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam project ownership
@@ -1064,35 +955,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                              
-  create   Create iam/project.ownership [iam_project_ownership_create] 
-  list     List iam/project.ownership [iam_project_ownership_list]     
-  show     Get iam/project.ownership [iam_project_ownership_get]       
-  delete   Delete iam/project.ownership [iam_project_ownership_delete]
-```
-
-##### h1 iam project ownership spec
-
-```
-h1 iam project ownership spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project ownership spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/project.ownership [Operation ID: iam_project_ownership_create] 
+  list     List iam/project.ownership [Operation ID: iam_project_ownership_list]     
+  show     Get iam/project.ownership [Operation ID: iam_project_ownership_get]       
+  delete   Delete iam/project.ownership [Operation ID: iam_project_ownership_delete]
 ```
 
 ##### h1 iam project ownership create
@@ -1100,7 +966,7 @@ Operation options
 ```
 h1 iam project ownership create
 
-  Create iam/project.ownership [iam_project_ownership_create] 
+  Create iam/project.ownership [Operation ID: iam_project_ownership_create] 
 
 Synopsis
 
@@ -1108,19 +974,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id      
-  --email string          Ownership email 
-  --skeleton true,false
+  --project id-or-uri   Project Id      
+  --email string        Ownership email 
+  --skeleton
 ```
 
 ##### h1 iam project ownership list
@@ -1128,7 +995,7 @@ Operation options
 ```
 h1 iam project ownership list
 
-  List iam/project.ownership [iam_project_ownership_list] 
+  List iam/project.ownership [Operation ID: iam_project_ownership_list] 
 
 Synopsis
 
@@ -1136,18 +1003,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --skeleton
 ```
 
 ##### h1 iam project ownership show
@@ -1155,7 +1023,7 @@ Operation options
 ```
 h1 iam project ownership show
 
-  Get iam/project.ownership [iam_project_ownership_get] 
+  Get iam/project.ownership [Operation ID: iam_project_ownership_get] 
 
 Synopsis
 
@@ -1163,19 +1031,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri     Project Id  
   --ownership id-or-uri   ownershipId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam project ownership delete
@@ -1183,7 +1052,7 @@ Operation options
 ```
 h1 iam project ownership delete
 
-  Delete iam/project.ownership [iam_project_ownership_delete] 
+  Delete iam/project.ownership [Operation ID: iam_project_ownership_delete] 
 
 Synopsis
 
@@ -1191,19 +1060,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri     Project Id  
   --ownership id-or-uri   ownershipId 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam project service
@@ -1221,33 +1091,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                      
-  list   List iam/project.service [iam_project_service_list] 
-  show   Get iam/project.service [iam_project_service_get]
-```
-
-##### h1 iam project service spec
-
-```
-h1 iam project service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/project.service [Operation ID: iam_project_service_list] 
+  show   Get iam/project.service [Operation ID: iam_project_service_get]
 ```
 
 ##### h1 iam project service list
@@ -1255,7 +1100,7 @@ Operation options
 ```
 h1 iam project service list
 
-  List iam/project.service [iam_project_service_list] 
+  List iam/project.service [Operation ID: iam_project_service_list] 
 
 Synopsis
 
@@ -1263,18 +1108,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --skeleton
 ```
 
 ##### h1 iam project service show
@@ -1282,7 +1128,7 @@ Operation options
 ```
 h1 iam project service show
 
-  Get iam/project.service [iam_project_service_get] 
+  Get iam/project.service [Operation ID: iam_project_service_get] 
 
 Synopsis
 
@@ -1290,19 +1136,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --service id-or-uri     serviceId  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --service id-or-uri   serviceId  
+  --skeleton
 ```
 
 #### h1 iam project tag
@@ -1320,35 +1167,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                  
-  create   Create iam/project.tag [iam_project_tag_create] 
-  list     List iam/project.tag [iam_project_tag_list]     
-  show     Get iam/project.tag [iam_project_tag_get]       
-  delete   Delete iam/project.tag [iam_project_tag_delete]
-```
-
-##### h1 iam project tag spec
-
-```
-h1 iam project tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/project.tag [Operation ID: iam_project_tag_create] 
+  list     List iam/project.tag [Operation ID: iam_project_tag_list]     
+  show     Get iam/project.tag [Operation ID: iam_project_tag_get]       
+  delete   Delete iam/project.tag [Operation ID: iam_project_tag_delete]
 ```
 
 ##### h1 iam project tag create
@@ -1356,7 +1178,7 @@ Operation options
 ```
 h1 iam project tag create
 
-  Create iam/project.tag [iam_project_tag_create] 
+  Create iam/project.tag [Operation ID: iam_project_tag_create] 
 
 Synopsis
 
@@ -1364,20 +1186,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --key string            Tag key    
-  --value string          Tag value  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --key string          Tag key    
+  --value string        Tag value  
+  --skeleton
 ```
 
 ##### h1 iam project tag list
@@ -1385,7 +1208,7 @@ Operation options
 ```
 h1 iam project tag list
 
-  List iam/project.tag [iam_project_tag_list] 
+  List iam/project.tag [Operation ID: iam_project_tag_list] 
 
 Synopsis
 
@@ -1393,18 +1216,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --skeleton
 ```
 
 ##### h1 iam project tag show
@@ -1412,7 +1236,7 @@ Operation options
 ```
 h1 iam project tag show
 
-  Get iam/project.tag [iam_project_tag_get] 
+  Get iam/project.tag [Operation ID: iam_project_tag_get] 
 
 Synopsis
 
@@ -1420,19 +1244,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --tag id-or-uri         tagId      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --tag id-or-uri       tagId      
+  --skeleton
 ```
 
 ##### h1 iam project tag delete
@@ -1440,7 +1265,7 @@ Operation options
 ```
 h1 iam project tag delete
 
-  Delete iam/project.tag [iam_project_tag_delete] 
+  Delete iam/project.tag [Operation ID: iam_project_tag_delete] 
 
 Synopsis
 
@@ -1448,19 +1273,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --tag id-or-uri         tagId      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --tag id-or-uri       tagId      
+  --skeleton
 ```
 
 #### h1 iam project event
@@ -1478,33 +1304,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                  
-  list   List iam/project.event [iam_project_event_list] 
-  show   Get iam/project.event [iam_project_event_get]
-```
-
-##### h1 iam project event spec
-
-```
-h1 iam project event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/project.event [Operation ID: iam_project_event_list] 
+  show   Get iam/project.event [Operation ID: iam_project_event_get]
 ```
 
 ##### h1 iam project event list
@@ -1512,7 +1313,7 @@ Operation options
 ```
 h1 iam project event list
 
-  List iam/project.event [iam_project_event_list] 
+  List iam/project.event [Operation ID: iam_project_event_list] 
 
 Synopsis
 
@@ -1520,20 +1321,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --$limit string         $limit     
-  --$skip string          $skip      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --$limit string       $limit     
+  --$skip string        $skip      
+  --skeleton
 ```
 
 ##### h1 iam project event show
@@ -1541,7 +1343,7 @@ Operation options
 ```
 h1 iam project event show
 
-  Get iam/project.event [iam_project_event_get] 
+  Get iam/project.event [Operation ID: iam_project_event_get] 
 
 Synopsis
 
@@ -1549,19 +1351,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --event id-or-uri       eventId    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --event id-or-uri     eventId    
+  --skeleton
 ```
 
 #### h1 iam project policy
@@ -1579,40 +1382,15 @@ Options
 
 Command List
 
-  spec      Print specification of context                
-  create    Create iam/policy [iam_project_policy_create] 
-  list      List iam/policy [iam_project_policy_list]     
-  show      Get iam/policy [iam_project_policy_get]       
-  update    Update iam/policy [iam_project_policy_update] 
-  delete    Delete iam/policy [iam_project_policy_delete] 
-  actor     Manage actors of the policy                   
-  service   Manage services of the policy                 
-  tag       Manage tags of the policy                     
+  create    Create iam/policy [Operation ID: iam_project_policy_create] 
+  list      List iam/policy [Operation ID: iam_project_policy_list]     
+  show      Get iam/policy [Operation ID: iam_project_policy_get]       
+  update    Update iam/policy [Operation ID: iam_project_policy_update] 
+  delete    Delete iam/policy [Operation ID: iam_project_policy_delete] 
+  actor     Manage actors of the policy                                 
+  service   Manage services of the policy                               
+  tag       Manage tags of the policy                                   
   event     Manage events of the policy
-```
-
-##### h1 iam project policy spec
-
-```
-h1 iam project policy spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project policy spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 ##### h1 iam project policy create
@@ -1620,7 +1398,7 @@ Operation options
 ```
 h1 iam project policy create
 
-  Create iam/policy [iam_project_policy_create] 
+  Create iam/policy [Operation ID: iam_project_policy_create] 
 
 Synopsis
 
@@ -1628,23 +1406,25 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri          Project Id                                                              
-  --x-idempotency-key string   Idempotency key                                                         
-  --name string                Policy name                                                             
-  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
-  --resource string            Policy resource                                                         
-  --tag key=key,value=value    Tag collection                                                          
-  --skeleton true,false
+  --project id-or-uri          Project Id                                                     
+  --x-idempotency-key string   Idempotency key                                                
+  --name string                Policy name                                                    
+  --role uri                   Policy role. Provide URI of iam/role. Requires permissions     
+                               iam/role/use                                                   
+  --resource string            Policy resource                                                
+  --tag key=key,value=value    Tag collection                                                 
+  --skeleton
 ```
 
 ##### h1 iam project policy list
@@ -1652,7 +1432,7 @@ Operation options
 ```
 h1 iam project policy list
 
-  List iam/policy [iam_project_policy_list] 
+  List iam/policy [Operation ID: iam_project_policy_list] 
 
 Synopsis
 
@@ -1660,21 +1440,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id          
-  --name string           Filter by name      
-  --tag.value string      Filter by tag.value 
-  --tag.key string        Filter by tag.key   
-  --skeleton true,false
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key   
+  --skeleton
 ```
 
 ##### h1 iam project policy show
@@ -1682,7 +1463,7 @@ Operation options
 ```
 h1 iam project policy show
 
-  Get iam/policy [iam_project_policy_get] 
+  Get iam/policy [Operation ID: iam_project_policy_get] 
 
 Synopsis
 
@@ -1690,19 +1471,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --skeleton
 ```
 
 ##### h1 iam project policy update
@@ -1710,7 +1492,7 @@ Operation options
 ```
 h1 iam project policy update
 
-  Update iam/policy [iam_project_policy_update] 
+  Update iam/policy [Operation ID: iam_project_policy_update] 
 
 Synopsis
 
@@ -1718,20 +1500,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                               
-  --policy id-or-uri      Policy Id                                                
-  --name string           Policy name. Requires permissions iam/policy.name/update 
-  --skeleton true,false
+  --project id-or-uri   Project Id                                               
+  --policy id-or-uri    Policy Id                                                
+  --name string         Policy name. Requires permissions iam/policy.name/update 
+  --skeleton
 ```
 
 ##### h1 iam project policy delete
@@ -1739,7 +1522,7 @@ Operation options
 ```
 h1 iam project policy delete
 
-  Delete iam/policy [iam_project_policy_delete] 
+  Delete iam/policy [Operation ID: iam_project_policy_delete] 
 
 Synopsis
 
@@ -1747,19 +1530,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --skeleton
 ```
 
 ##### h1 iam project policy actor
@@ -1777,35 +1561,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                            
-  create   Create iam/policy.actor [iam_project_policy_actor_create] 
-  list     List iam/policy.actor [iam_project_policy_actor_list]     
-  show     Get iam/policy.actor [iam_project_policy_actor_get]       
-  delete   Delete iam/policy.actor [iam_project_policy_actor_delete]
-```
-
-###### h1 iam project policy actor spec
-
-```
-h1 iam project policy actor spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project policy actor spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/policy.actor [Operation ID: iam_project_policy_actor_create] 
+  list     List iam/policy.actor [Operation ID: iam_project_policy_actor_list]     
+  show     Get iam/policy.actor [Operation ID: iam_project_policy_actor_get]       
+  delete   Delete iam/policy.actor [Operation ID: iam_project_policy_actor_delete]
 ```
 
 ###### h1 iam project policy actor create
@@ -1813,7 +1572,7 @@ Operation options
 ```
 h1 iam project policy actor create
 
-  Create iam/policy.actor [iam_project_policy_actor_create] 
+  Create iam/policy.actor [Operation ID: iam_project_policy_actor_create] 
 
 Synopsis
 
@@ -1821,20 +1580,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --policy id-or-uri      Policy Id   
-  --value string          Actor value 
-  --skeleton true,false
+  --project id-or-uri   Project Id  
+  --policy id-or-uri    Policy Id   
+  --value string        Actor value 
+  --skeleton
 ```
 
 ###### h1 iam project policy actor list
@@ -1842,7 +1602,7 @@ Operation options
 ```
 h1 iam project policy actor list
 
-  List iam/policy.actor [iam_project_policy_actor_list] 
+  List iam/policy.actor [Operation ID: iam_project_policy_actor_list] 
 
 Synopsis
 
@@ -1850,19 +1610,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --skeleton
 ```
 
 ###### h1 iam project policy actor show
@@ -1870,7 +1631,7 @@ Operation options
 ```
 h1 iam project policy actor show
 
-  Get iam/policy.actor [iam_project_policy_actor_get] 
+  Get iam/policy.actor [Operation ID: iam_project_policy_actor_get] 
 
 Synopsis
 
@@ -1878,20 +1639,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --actor id-or-uri       actorId    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --actor id-or-uri     actorId    
+  --skeleton
 ```
 
 ###### h1 iam project policy actor delete
@@ -1899,7 +1661,7 @@ Operation options
 ```
 h1 iam project policy actor delete
 
-  Delete iam/policy.actor [iam_project_policy_actor_delete] 
+  Delete iam/policy.actor [Operation ID: iam_project_policy_actor_delete] 
 
 Synopsis
 
@@ -1907,20 +1669,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --actor id-or-uri       actorId    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --actor id-or-uri     actorId    
+  --skeleton
 ```
 
 ##### h1 iam project policy service
@@ -1938,33 +1701,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                            
-  list   List iam/policy.service [iam_project_policy_service_list] 
-  show   Get iam/policy.service [iam_project_policy_service_get]
-```
-
-###### h1 iam project policy service spec
-
-```
-h1 iam project policy service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project policy service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/policy.service [Operation ID: iam_project_policy_service_list] 
+  show   Get iam/policy.service [Operation ID: iam_project_policy_service_get]
 ```
 
 ###### h1 iam project policy service list
@@ -1972,7 +1710,7 @@ Operation options
 ```
 h1 iam project policy service list
 
-  List iam/policy.service [iam_project_policy_service_list] 
+  List iam/policy.service [Operation ID: iam_project_policy_service_list] 
 
 Synopsis
 
@@ -1980,19 +1718,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --skeleton
 ```
 
 ###### h1 iam project policy service show
@@ -2000,7 +1739,7 @@ Operation options
 ```
 h1 iam project policy service show
 
-  Get iam/policy.service [iam_project_policy_service_get] 
+  Get iam/policy.service [Operation ID: iam_project_policy_service_get] 
 
 Synopsis
 
@@ -2008,20 +1747,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --service id-or-uri     serviceId  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --service id-or-uri   serviceId  
+  --skeleton
 ```
 
 ##### h1 iam project policy tag
@@ -2039,35 +1779,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                        
-  create   Create iam/policy.tag [iam_project_policy_tag_create] 
-  list     List iam/policy.tag [iam_project_policy_tag_list]     
-  show     Get iam/policy.tag [iam_project_policy_tag_get]       
-  delete   Delete iam/policy.tag [iam_project_policy_tag_delete]
-```
-
-###### h1 iam project policy tag spec
-
-```
-h1 iam project policy tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project policy tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/policy.tag [Operation ID: iam_project_policy_tag_create] 
+  list     List iam/policy.tag [Operation ID: iam_project_policy_tag_list]     
+  show     Get iam/policy.tag [Operation ID: iam_project_policy_tag_get]       
+  delete   Delete iam/policy.tag [Operation ID: iam_project_policy_tag_delete]
 ```
 
 ###### h1 iam project policy tag create
@@ -2075,7 +1790,7 @@ Operation options
 ```
 h1 iam project policy tag create
 
-  Create iam/policy.tag [iam_project_policy_tag_create] 
+  Create iam/policy.tag [Operation ID: iam_project_policy_tag_create] 
 
 Synopsis
 
@@ -2083,21 +1798,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --key string            Tag key    
-  --value string          Tag value  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --key string          Tag key    
+  --value string        Tag value  
+  --skeleton
 ```
 
 ###### h1 iam project policy tag list
@@ -2105,7 +1821,7 @@ Operation options
 ```
 h1 iam project policy tag list
 
-  List iam/policy.tag [iam_project_policy_tag_list] 
+  List iam/policy.tag [Operation ID: iam_project_policy_tag_list] 
 
 Synopsis
 
@@ -2113,19 +1829,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --skeleton
 ```
 
 ###### h1 iam project policy tag show
@@ -2133,7 +1850,7 @@ Operation options
 ```
 h1 iam project policy tag show
 
-  Get iam/policy.tag [iam_project_policy_tag_get] 
+  Get iam/policy.tag [Operation ID: iam_project_policy_tag_get] 
 
 Synopsis
 
@@ -2141,20 +1858,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --tag id-or-uri         tagId      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --tag id-or-uri       tagId      
+  --skeleton
 ```
 
 ###### h1 iam project policy tag delete
@@ -2162,7 +1880,7 @@ Operation options
 ```
 h1 iam project policy tag delete
 
-  Delete iam/policy.tag [iam_project_policy_tag_delete] 
+  Delete iam/policy.tag [Operation ID: iam_project_policy_tag_delete] 
 
 Synopsis
 
@@ -2170,20 +1888,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --tag id-or-uri         tagId      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --tag id-or-uri       tagId      
+  --skeleton
 ```
 
 ##### h1 iam project policy event
@@ -2201,33 +1920,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                        
-  list   List iam/policy.event [iam_project_policy_event_list] 
-  show   Get iam/policy.event [iam_project_policy_event_get]
-```
-
-###### h1 iam project policy event spec
-
-```
-h1 iam project policy event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project policy event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/policy.event [Operation ID: iam_project_policy_event_list] 
+  show   Get iam/policy.event [Operation ID: iam_project_policy_event_get]
 ```
 
 ###### h1 iam project policy event list
@@ -2235,7 +1929,7 @@ Operation options
 ```
 h1 iam project policy event list
 
-  List iam/policy.event [iam_project_policy_event_list] 
+  List iam/policy.event [Operation ID: iam_project_policy_event_list] 
 
 Synopsis
 
@@ -2243,21 +1937,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --$limit string         $limit     
-  --$skip string          $skip      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --$limit string       $limit     
+  --$skip string        $skip      
+  --skeleton
 ```
 
 ###### h1 iam project policy event show
@@ -2265,7 +1960,7 @@ Operation options
 ```
 h1 iam project policy event show
 
-  Get iam/policy.event [iam_project_policy_event_get] 
+  Get iam/policy.event [Operation ID: iam_project_policy_event_get] 
 
 Synopsis
 
@@ -2273,20 +1968,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --policy id-or-uri      Policy Id  
-  --event id-or-uri       eventId    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --policy id-or-uri    Policy Id  
+  --event id-or-uri     eventId    
+  --skeleton
 ```
 
 #### h1 iam project role
@@ -2304,40 +2000,15 @@ Options
 
 Command List
 
-  spec         Print specification of context            
-  create       Create iam/role [iam_project_role_create] 
-  list         List iam/role [iam_project_role_list]     
-  show         Get iam/role [iam_project_role_get]       
-  update       Update iam/role [iam_project_role_update] 
-  delete       Delete iam/role [iam_project_role_delete] 
-  permission   Manage permissions of the role            
-  service      Manage services of the role               
-  tag          Manage tags of the role                   
+  create       Create iam/role [Operation ID: iam_project_role_create] 
+  list         List iam/role [Operation ID: iam_project_role_list]     
+  show         Get iam/role [Operation ID: iam_project_role_get]       
+  update       Update iam/role [Operation ID: iam_project_role_update] 
+  delete       Delete iam/role [Operation ID: iam_project_role_delete] 
+  permission   Manage permissions of the role                          
+  service      Manage services of the role                             
+  tag          Manage tags of the role                                 
   event        Manage events of the role
-```
-
-##### h1 iam project role spec
-
-```
-h1 iam project role spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project role spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 ##### h1 iam project role create
@@ -2345,7 +2016,7 @@ Operation options
 ```
 h1 iam project role create
 
-  Create iam/role [iam_project_role_create] 
+  Create iam/role [Operation ID: iam_project_role_create] 
 
 Synopsis
 
@@ -2353,25 +2024,26 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri          Project Id                                                                    
-  --x-idempotency-key string   Idempotency key                                                               
-  --name string                Role name                                                                     
-  --service id-or-uri          Role service. Provide ID or URI of billing/service. Defaults is               
-                               5e679c282b39c4353cd86f34                                                      
-  --description string         Role description                                                              
-  --permission value=value     Permission collection                                                         
-  --tag key=key,value=value    Tag collection                                                                
-  --skeleton true,false
+  --project id-or-uri          Project Id                                                     
+  --x-idempotency-key string   Idempotency key                                                
+  --name string                Role name                                                      
+  --service id-or-uri          Role service. Provide ID or URI of billing/service. Defaults   
+                               is 5e679c282b39c4353cd86f34                                    
+  --description string         Role description                                               
+  --permission value=value     Permission collection                                          
+  --tag key=key,value=value    Tag collection                                                 
+  --skeleton
 ```
 
 ##### h1 iam project role list
@@ -2379,7 +2051,7 @@ Operation options
 ```
 h1 iam project role list
 
-  List iam/role [iam_project_role_list] 
+  List iam/role [Operation ID: iam_project_role_list] 
 
 Synopsis
 
@@ -2387,21 +2059,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id          
-  --name string           Filter by name      
-  --tag.value string      Filter by tag.value 
-  --tag.key string        Filter by tag.key   
-  --skeleton true,false
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key   
+  --skeleton
 ```
 
 ##### h1 iam project role show
@@ -2409,7 +2082,7 @@ Operation options
 ```
 h1 iam project role show
 
-  Get iam/role [iam_project_role_get] 
+  Get iam/role [Operation ID: iam_project_role_get] 
 
 Synopsis
 
@@ -2417,19 +2090,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --role id-or-uri        Role Id    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --skeleton
 ```
 
 ##### h1 iam project role update
@@ -2437,7 +2111,7 @@ Operation options
 ```
 h1 iam project role update
 
-  Update iam/role [iam_project_role_update] 
+  Update iam/role [Operation ID: iam_project_role_update] 
 
 Synopsis
 
@@ -2445,21 +2119,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                                         
-  --role id-or-uri        Role Id                                                            
-  --name string           Role name. Requires permissions iam/role.name/update               
-  --description string    Role description. Requires permissions iam/role.description/update 
-  --skeleton true,false
+  --project id-or-uri    Project Id                                                         
+  --role id-or-uri       Role Id                                                            
+  --name string          Role name. Requires permissions iam/role.name/update               
+  --description string   Role description. Requires permissions iam/role.description/update 
+  --skeleton
 ```
 
 ##### h1 iam project role delete
@@ -2467,7 +2142,7 @@ Operation options
 ```
 h1 iam project role delete
 
-  Delete iam/role [iam_project_role_delete] 
+  Delete iam/role [Operation ID: iam_project_role_delete] 
 
 Synopsis
 
@@ -2475,19 +2150,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --role id-or-uri        Role Id    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --skeleton
 ```
 
 ##### h1 iam project role permission
@@ -2505,35 +2181,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                                  
-  create   Create iam/role.permission [iam_project_role_permission_create] 
-  list     List iam/role.permission [iam_project_role_permission_list]     
-  show     Get iam/role.permission [iam_project_role_permission_get]       
-  delete   Delete iam/role.permission [iam_project_role_permission_delete]
-```
-
-###### h1 iam project role permission spec
-
-```
-h1 iam project role permission spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project role permission spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/role.permission [Operation ID: iam_project_role_permission_create] 
+  list     List iam/role.permission [Operation ID: iam_project_role_permission_list]     
+  show     Get iam/role.permission [Operation ID: iam_project_role_permission_get]       
+  delete   Delete iam/role.permission [Operation ID: iam_project_role_permission_delete]
 ```
 
 ###### h1 iam project role permission create
@@ -2541,7 +2192,7 @@ Operation options
 ```
 h1 iam project role permission create
 
-  Create iam/role.permission [iam_project_role_permission_create] 
+  Create iam/role.permission [Operation ID: iam_project_role_permission_create] 
 
 Synopsis
 
@@ -2549,20 +2200,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id       
-  --role id-or-uri        Role Id          
-  --value string          Permission value 
-  --skeleton true,false
+  --project id-or-uri   Project Id       
+  --role id-or-uri      Role Id          
+  --value string        Permission value 
+  --skeleton
 ```
 
 ###### h1 iam project role permission list
@@ -2570,7 +2222,7 @@ Operation options
 ```
 h1 iam project role permission list
 
-  List iam/role.permission [iam_project_role_permission_list] 
+  List iam/role.permission [Operation ID: iam_project_role_permission_list] 
 
 Synopsis
 
@@ -2578,19 +2230,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --role id-or-uri        Role Id    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --skeleton
 ```
 
 ###### h1 iam project role permission show
@@ -2598,7 +2251,7 @@ Operation options
 ```
 h1 iam project role permission show
 
-  Get iam/role.permission [iam_project_role_permission_get] 
+  Get iam/role.permission [Operation ID: iam_project_role_permission_get] 
 
 Synopsis
 
@@ -2606,20 +2259,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri      Project Id   
   --role id-or-uri         Role Id      
   --permission id-or-uri   permissionId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam project role permission delete
@@ -2627,7 +2281,7 @@ Operation options
 ```
 h1 iam project role permission delete
 
-  Delete iam/role.permission [iam_project_role_permission_delete] 
+  Delete iam/role.permission [Operation ID: iam_project_role_permission_delete] 
 
 Synopsis
 
@@ -2635,20 +2289,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri      Project Id   
   --role id-or-uri         Role Id      
   --permission id-or-uri   permissionId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam project role service
@@ -2666,33 +2321,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                        
-  list   List iam/role.service [iam_project_role_service_list] 
-  show   Get iam/role.service [iam_project_role_service_get]
-```
-
-###### h1 iam project role service spec
-
-```
-h1 iam project role service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project role service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/role.service [Operation ID: iam_project_role_service_list] 
+  show   Get iam/role.service [Operation ID: iam_project_role_service_get]
 ```
 
 ###### h1 iam project role service list
@@ -2700,7 +2330,7 @@ Operation options
 ```
 h1 iam project role service list
 
-  List iam/role.service [iam_project_role_service_list] 
+  List iam/role.service [Operation ID: iam_project_role_service_list] 
 
 Synopsis
 
@@ -2708,19 +2338,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --role id-or-uri        Role Id    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --skeleton
 ```
 
 ###### h1 iam project role service show
@@ -2728,7 +2359,7 @@ Operation options
 ```
 h1 iam project role service show
 
-  Get iam/role.service [iam_project_role_service_get] 
+  Get iam/role.service [Operation ID: iam_project_role_service_get] 
 
 Synopsis
 
@@ -2736,20 +2367,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --role id-or-uri        Role Id    
-  --service id-or-uri     serviceId  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --service id-or-uri   serviceId  
+  --skeleton
 ```
 
 ##### h1 iam project role tag
@@ -2767,35 +2399,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                    
-  create   Create iam/role.tag [iam_project_role_tag_create] 
-  list     List iam/role.tag [iam_project_role_tag_list]     
-  show     Get iam/role.tag [iam_project_role_tag_get]       
-  delete   Delete iam/role.tag [iam_project_role_tag_delete]
-```
-
-###### h1 iam project role tag spec
-
-```
-h1 iam project role tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project role tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/role.tag [Operation ID: iam_project_role_tag_create] 
+  list     List iam/role.tag [Operation ID: iam_project_role_tag_list]     
+  show     Get iam/role.tag [Operation ID: iam_project_role_tag_get]       
+  delete   Delete iam/role.tag [Operation ID: iam_project_role_tag_delete]
 ```
 
 ###### h1 iam project role tag create
@@ -2803,7 +2410,7 @@ Operation options
 ```
 h1 iam project role tag create
 
-  Create iam/role.tag [iam_project_role_tag_create] 
+  Create iam/role.tag [Operation ID: iam_project_role_tag_create] 
 
 Synopsis
 
@@ -2811,21 +2418,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --role id-or-uri        Role Id    
-  --key string            Tag key    
-  --value string          Tag value  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --key string          Tag key    
+  --value string        Tag value  
+  --skeleton
 ```
 
 ###### h1 iam project role tag list
@@ -2833,7 +2441,7 @@ Operation options
 ```
 h1 iam project role tag list
 
-  List iam/role.tag [iam_project_role_tag_list] 
+  List iam/role.tag [Operation ID: iam_project_role_tag_list] 
 
 Synopsis
 
@@ -2841,19 +2449,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --role id-or-uri        Role Id    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --skeleton
 ```
 
 ###### h1 iam project role tag show
@@ -2861,7 +2470,7 @@ Operation options
 ```
 h1 iam project role tag show
 
-  Get iam/role.tag [iam_project_role_tag_get] 
+  Get iam/role.tag [Operation ID: iam_project_role_tag_get] 
 
 Synopsis
 
@@ -2869,20 +2478,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --role id-or-uri        Role Id    
-  --tag id-or-uri         tagId      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --tag id-or-uri       tagId      
+  --skeleton
 ```
 
 ###### h1 iam project role tag delete
@@ -2890,7 +2500,7 @@ Operation options
 ```
 h1 iam project role tag delete
 
-  Delete iam/role.tag [iam_project_role_tag_delete] 
+  Delete iam/role.tag [Operation ID: iam_project_role_tag_delete] 
 
 Synopsis
 
@@ -2898,20 +2508,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --role id-or-uri        Role Id    
-  --tag id-or-uri         tagId      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --tag id-or-uri       tagId      
+  --skeleton
 ```
 
 ##### h1 iam project role event
@@ -2929,33 +2540,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                    
-  list   List iam/role.event [iam_project_role_event_list] 
-  show   Get iam/role.event [iam_project_role_event_get]
-```
-
-###### h1 iam project role event spec
-
-```
-h1 iam project role event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project role event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/role.event [Operation ID: iam_project_role_event_list] 
+  show   Get iam/role.event [Operation ID: iam_project_role_event_get]
 ```
 
 ###### h1 iam project role event list
@@ -2963,7 +2549,7 @@ Operation options
 ```
 h1 iam project role event list
 
-  List iam/role.event [iam_project_role_event_list] 
+  List iam/role.event [Operation ID: iam_project_role_event_list] 
 
 Synopsis
 
@@ -2971,21 +2557,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --role id-or-uri        Role Id    
-  --$limit string         $limit     
-  --$skip string          $skip      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --$limit string       $limit     
+  --$skip string        $skip      
+  --skeleton
 ```
 
 ###### h1 iam project role event show
@@ -2993,7 +2580,7 @@ Operation options
 ```
 h1 iam project role event show
 
-  Get iam/role.event [iam_project_role_event_get] 
+  Get iam/role.event [Operation ID: iam_project_role_event_get] 
 
 Synopsis
 
@@ -3001,20 +2588,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --role id-or-uri        Role Id    
-  --event id-or-uri       eventId    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --role id-or-uri      Role Id    
+  --event id-or-uri     eventId    
+  --skeleton
 ```
 
 #### h1 iam project sa
@@ -3032,40 +2620,15 @@ Options
 
 Command List
 
-  spec         Print specification of context        
-  create       Create iam/sa [iam_project_sa_create] 
-  list         List iam/sa [iam_project_sa_list]     
-  show         Get iam/sa [iam_project_sa_get]       
-  update       Update iam/sa [iam_project_sa_update] 
-  delete       Delete iam/sa [iam_project_sa_delete] 
-  credential   Manage credentials of the sa          
-  service      Manage services of the sa             
-  tag          Manage tags of the sa                 
+  create       Create iam/sa [Operation ID: iam_project_sa_create] 
+  list         List iam/sa [Operation ID: iam_project_sa_list]     
+  show         Get iam/sa [Operation ID: iam_project_sa_get]       
+  update       Update iam/sa [Operation ID: iam_project_sa_update] 
+  delete       Delete iam/sa [Operation ID: iam_project_sa_delete] 
+  credential   Manage credentials of the sa                        
+  service      Manage services of the sa                           
+  tag          Manage tags of the sa                               
   event        Manage events of the sa
-```
-
-##### h1 iam project sa spec
-
-```
-h1 iam project sa spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project sa spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 ##### h1 iam project sa create
@@ -3073,7 +2636,7 @@ Operation options
 ```
 h1 iam project sa create
 
-  Create iam/sa [iam_project_sa_create] 
+  Create iam/sa [Operation ID: iam_project_sa_create] 
 
 Synopsis
 
@@ -3081,23 +2644,24 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri          Project Id                                                                    
-  --x-idempotency-key string   Idempotency key                                                               
-  --name string                Sa name                                                                       
-  --service id-or-uri          Sa service. Provide ID or URI of billing/service. Defaults is                 
-                               5e5fc76ff1fb3efe1842336a                                                      
-  --tag key=key,value=value    Tag collection                                                                
-  --skeleton true,false
+  --project id-or-uri          Project Id                                                     
+  --x-idempotency-key string   Idempotency key                                                
+  --name string                Sa name                                                        
+  --service id-or-uri          Sa service. Provide ID or URI of billing/service. Defaults is  
+                               5e5fc76ff1fb3efe1842336a                                       
+  --tag key=key,value=value    Tag collection                                                 
+  --skeleton
 ```
 
 ##### h1 iam project sa list
@@ -3105,7 +2669,7 @@ Operation options
 ```
 h1 iam project sa list
 
-  List iam/sa [iam_project_sa_list] 
+  List iam/sa [Operation ID: iam_project_sa_list] 
 
 Synopsis
 
@@ -3113,21 +2677,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id          
-  --name string           Filter by name      
-  --tag.value string      Filter by tag.value 
-  --tag.key string        Filter by tag.key   
-  --skeleton true,false
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key   
+  --skeleton
 ```
 
 ##### h1 iam project sa show
@@ -3135,7 +2700,7 @@ Operation options
 ```
 h1 iam project sa show
 
-  Get iam/sa [iam_project_sa_get] 
+  Get iam/sa [Operation ID: iam_project_sa_get] 
 
 Synopsis
 
@@ -3143,19 +2708,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --sa id-or-uri          Sa Id      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --skeleton
 ```
 
 ##### h1 iam project sa update
@@ -3163,7 +2729,7 @@ Operation options
 ```
 h1 iam project sa update
 
-  Update iam/sa [iam_project_sa_update] 
+  Update iam/sa [Operation ID: iam_project_sa_update] 
 
 Synopsis
 
@@ -3171,20 +2737,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                       
-  --sa id-or-uri          Sa Id                                            
-  --name string           Sa name. Requires permissions iam/sa.name/update 
-  --skeleton true,false
+  --project id-or-uri   Project Id                                       
+  --sa id-or-uri        Sa Id                                            
+  --name string         Sa name. Requires permissions iam/sa.name/update 
+  --skeleton
 ```
 
 ##### h1 iam project sa delete
@@ -3192,7 +2759,7 @@ Operation options
 ```
 h1 iam project sa delete
 
-  Delete iam/sa [iam_project_sa_delete] 
+  Delete iam/sa [Operation ID: iam_project_sa_delete] 
 
 Synopsis
 
@@ -3200,19 +2767,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --sa id-or-uri          Sa Id      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --skeleton
 ```
 
 ##### h1 iam project sa credential
@@ -3230,37 +2798,12 @@ Options
 
 Command List
 
-  spec       Print specification of context                              
-  create     Create iam/sa.credential [iam_project_sa_credential_create] 
-  list       List iam/sa.credential [iam_project_sa_credential_list]     
-  show       Get iam/sa.credential [iam_project_sa_credential_get]       
-  update     Update iam/sa.credential [iam_project_sa_credential_patch]  
-  delete     Delete iam/sa.credential [iam_project_sa_credential_delete] 
+  create     Create iam/sa.credential [Operation ID: iam_project_sa_credential_create] 
+  list       List iam/sa.credential [Operation ID: iam_project_sa_credential_list]     
+  show       Get iam/sa.credential [Operation ID: iam_project_sa_credential_get]       
+  update     Update iam/sa.credential [Operation ID: iam_project_sa_credential_patch]  
+  delete     Delete iam/sa.credential [Operation ID: iam_project_sa_credential_delete] 
   generate   Generate passport file for sa
-```
-
-###### h1 iam project sa credential spec
-
-```
-h1 iam project sa credential spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project sa credential spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 ###### h1 iam project sa credential create
@@ -3268,7 +2811,7 @@ Operation options
 ```
 h1 iam project sa credential create
 
-  Create iam/sa.credential [iam_project_sa_credential_create] 
+  Create iam/sa.credential [Operation ID: iam_project_sa_credential_create] 
 
 Synopsis
 
@@ -3276,23 +2819,24 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id       
-  --sa id-or-uri          Sa Id            
-  --name string           Credential name  
-  --type string           Credential type  
-  --value string          Credential value 
-  --token string          Credential token 
-  --skeleton true,false
+  --project id-or-uri   Project Id       
+  --sa id-or-uri        Sa Id            
+  --name string         Credential name  
+  --type ssh            Credential type  
+  --value string        Credential value 
+  --token string        Credential token 
+  --skeleton
 ```
 
 ###### h1 iam project sa credential list
@@ -3300,7 +2844,7 @@ Operation options
 ```
 h1 iam project sa credential list
 
-  List iam/sa.credential [iam_project_sa_credential_list] 
+  List iam/sa.credential [Operation ID: iam_project_sa_credential_list] 
 
 Synopsis
 
@@ -3308,19 +2852,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --sa id-or-uri          Sa Id      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --skeleton
 ```
 
 ###### h1 iam project sa credential show
@@ -3328,7 +2873,7 @@ Operation options
 ```
 h1 iam project sa credential show
 
-  Get iam/sa.credential [iam_project_sa_credential_get] 
+  Get iam/sa.credential [Operation ID: iam_project_sa_credential_get] 
 
 Synopsis
 
@@ -3336,20 +2881,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri      Project Id   
   --sa id-or-uri           Sa Id        
   --credential id-or-uri   credentialId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam project sa credential update
@@ -3357,7 +2903,7 @@ Operation options
 ```
 h1 iam project sa credential update
 
-  Update iam/sa.credential [iam_project_sa_credential_patch] 
+  Update iam/sa.credential [Operation ID: iam_project_sa_credential_patch] 
 
 Synopsis
 
@@ -3365,13 +2911,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -3379,7 +2926,7 @@ Operation options
   --sa id-or-uri           Sa Id                                                               
   --credential id-or-uri   credentialId                                                        
   --name string            Credential name. Requires permissions iam/sa.credential.name/update 
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam project sa credential delete
@@ -3387,7 +2934,7 @@ Operation options
 ```
 h1 iam project sa credential delete
 
-  Delete iam/sa.credential [iam_project_sa_credential_delete] 
+  Delete iam/sa.credential [Operation ID: iam_project_sa_credential_delete] 
 
 Synopsis
 
@@ -3395,20 +2942,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri      Project Id   
   --sa id-or-uri           Sa Id        
   --credential id-or-uri   credentialId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam project sa credential generate
@@ -3424,13 +2972,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -3455,33 +3004,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                    
-  list   List iam/sa.service [iam_project_sa_service_list] 
-  show   Get iam/sa.service [iam_project_sa_service_get]
-```
-
-###### h1 iam project sa service spec
-
-```
-h1 iam project sa service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project sa service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/sa.service [Operation ID: iam_project_sa_service_list] 
+  show   Get iam/sa.service [Operation ID: iam_project_sa_service_get]
 ```
 
 ###### h1 iam project sa service list
@@ -3489,7 +3013,7 @@ Operation options
 ```
 h1 iam project sa service list
 
-  List iam/sa.service [iam_project_sa_service_list] 
+  List iam/sa.service [Operation ID: iam_project_sa_service_list] 
 
 Synopsis
 
@@ -3497,19 +3021,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --sa id-or-uri          Sa Id      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --skeleton
 ```
 
 ###### h1 iam project sa service show
@@ -3517,7 +3042,7 @@ Operation options
 ```
 h1 iam project sa service show
 
-  Get iam/sa.service [iam_project_sa_service_get] 
+  Get iam/sa.service [Operation ID: iam_project_sa_service_get] 
 
 Synopsis
 
@@ -3525,20 +3050,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --sa id-or-uri          Sa Id      
-  --service id-or-uri     serviceId  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --service id-or-uri   serviceId  
+  --skeleton
 ```
 
 ##### h1 iam project sa tag
@@ -3556,35 +3082,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                
-  create   Create iam/sa.tag [iam_project_sa_tag_create] 
-  list     List iam/sa.tag [iam_project_sa_tag_list]     
-  show     Get iam/sa.tag [iam_project_sa_tag_get]       
-  delete   Delete iam/sa.tag [iam_project_sa_tag_delete]
-```
-
-###### h1 iam project sa tag spec
-
-```
-h1 iam project sa tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project sa tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/sa.tag [Operation ID: iam_project_sa_tag_create] 
+  list     List iam/sa.tag [Operation ID: iam_project_sa_tag_list]     
+  show     Get iam/sa.tag [Operation ID: iam_project_sa_tag_get]       
+  delete   Delete iam/sa.tag [Operation ID: iam_project_sa_tag_delete]
 ```
 
 ###### h1 iam project sa tag create
@@ -3592,7 +3093,7 @@ Operation options
 ```
 h1 iam project sa tag create
 
-  Create iam/sa.tag [iam_project_sa_tag_create] 
+  Create iam/sa.tag [Operation ID: iam_project_sa_tag_create] 
 
 Synopsis
 
@@ -3600,21 +3101,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --sa id-or-uri          Sa Id      
-  --key string            Tag key    
-  --value string          Tag value  
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --key string          Tag key    
+  --value string        Tag value  
+  --skeleton
 ```
 
 ###### h1 iam project sa tag list
@@ -3622,7 +3124,7 @@ Operation options
 ```
 h1 iam project sa tag list
 
-  List iam/sa.tag [iam_project_sa_tag_list] 
+  List iam/sa.tag [Operation ID: iam_project_sa_tag_list] 
 
 Synopsis
 
@@ -3630,19 +3132,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --sa id-or-uri          Sa Id      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --skeleton
 ```
 
 ###### h1 iam project sa tag show
@@ -3650,7 +3153,7 @@ Operation options
 ```
 h1 iam project sa tag show
 
-  Get iam/sa.tag [iam_project_sa_tag_get] 
+  Get iam/sa.tag [Operation ID: iam_project_sa_tag_get] 
 
 Synopsis
 
@@ -3658,20 +3161,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --sa id-or-uri          Sa Id      
-  --tag id-or-uri         tagId      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --tag id-or-uri       tagId      
+  --skeleton
 ```
 
 ###### h1 iam project sa tag delete
@@ -3679,7 +3183,7 @@ Operation options
 ```
 h1 iam project sa tag delete
 
-  Delete iam/sa.tag [iam_project_sa_tag_delete] 
+  Delete iam/sa.tag [Operation ID: iam_project_sa_tag_delete] 
 
 Synopsis
 
@@ -3687,20 +3191,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --sa id-or-uri          Sa Id      
-  --tag id-or-uri         tagId      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --tag id-or-uri       tagId      
+  --skeleton
 ```
 
 ##### h1 iam project sa event
@@ -3718,33 +3223,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                
-  list   List iam/sa.event [iam_project_sa_event_list] 
-  show   Get iam/sa.event [iam_project_sa_event_get]
-```
-
-###### h1 iam project sa event spec
-
-```
-h1 iam project sa event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam project sa event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/sa.event [Operation ID: iam_project_sa_event_list] 
+  show   Get iam/sa.event [Operation ID: iam_project_sa_event_get]
 ```
 
 ###### h1 iam project sa event list
@@ -3752,7 +3232,7 @@ Operation options
 ```
 h1 iam project sa event list
 
-  List iam/sa.event [iam_project_sa_event_list] 
+  List iam/sa.event [Operation ID: iam_project_sa_event_list] 
 
 Synopsis
 
@@ -3760,21 +3240,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --sa id-or-uri          Sa Id      
-  --$limit string         $limit     
-  --$skip string          $skip      
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --$limit string       $limit     
+  --$skip string        $skip      
+  --skeleton
 ```
 
 ###### h1 iam project sa event show
@@ -3782,7 +3263,7 @@ Operation options
 ```
 h1 iam project sa event show
 
-  Get iam/sa.event [iam_project_sa_event_get] 
+  Get iam/sa.event [Operation ID: iam_project_sa_event_get] 
 
 Synopsis
 
@@ -3790,20 +3271,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --sa id-or-uri          Sa Id      
-  --event id-or-uri       eventId    
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --sa id-or-uri        Sa Id      
+  --event id-or-uri     eventId    
+  --skeleton
 ```
 
 #### h1 iam project select
@@ -3819,13 +3301,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -3847,46 +3330,22 @@ Options
 
 Command List
 
-  spec              Print specification of context                                      
-  create            Create iam/organisation [iam_organisation_create]                   
-  list              List iam/organisation [iam_organisation_list]                       
-  show              Get iam/organisation [iam_organisation_get]                         
-  update            Update iam/organisation [iam_organisation_update]                   
-  delete            Delete iam/organisation [iam_organisation_delete]                   
-  transfer_accept   Transfer accept iam/organisation [iam_organisation_transfer_accept] 
-  billing           Manage billings of the organisation                                 
-  payment           Manage payments of the organisation                                 
-  invoice           Manage invoices of the organisation                                 
-  proforma          Manage proformas of the organisation                                
-  invitation        Manage invitations of the organisation                              
-  ownership         Manage ownerships of the organisation                               
-  event             Manage events of the organisation                                   
-  policy            Manage policies of the organisation                                 
+  create            Create iam/organisation [Operation ID: iam_organisation_create]           
+  list              List iam/organisation [Operation ID: iam_organisation_list]               
+  show              Get iam/organisation [Operation ID: iam_organisation_get]                 
+  update            Update iam/organisation [Operation ID: iam_organisation_update]           
+  delete            Delete iam/organisation [Operation ID: iam_organisation_delete]           
+  transfer_accept   Transfer accept iam/organisation [Operation ID:                           
+                    iam_organisation_transfer_accept]                                         
+  billing           Manage billings of the organisation                                       
+  payment           Manage payments of the organisation                                       
+  invoice           Manage invoices of the organisation                                       
+  proforma          Manage proformas of the organisation                                      
+  invitation        Manage invitations of the organisation                                    
+  ownership         Manage ownerships of the organisation                                     
+  event             Manage events of the organisation                                         
+  policy            Manage policies of the organisation                                       
   role              Manage roles of the organisation
-```
-
-#### h1 iam organisation spec
-
-```
-h1 iam organisation spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 #### h1 iam organisation create
@@ -3894,7 +3353,7 @@ Operation options
 ```
 h1 iam organisation create
 
-  Create iam/organisation [iam_organisation_create] 
+  Create iam/organisation [Operation ID: iam_organisation_create] 
 
 Synopsis
 
@@ -3902,27 +3361,44 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --x-idempotency-key string         Idempotency key                   
-  --name string                      Organisation name                 
-  --billing-nip string               Billing nip                       
-  --billing-email string             Billing email                     
-  --billing-company string           Billing company                   
-  --billing-currency string          Billing currency. Defaults is PLN 
-  --billing--addresscountry string   Address country. Defaults is PL   
-  --billing--addresscity string      Address city                      
-  --billing--addresszipcode string   Address zipcode                   
-  --billing--addressstreet string    Address street                    
-  --skeleton true,false
+  --x-idempotency-key string                                                                                Idempotency 
+                                                                                                            key 
+  --name string                                                                                             Organisation 
+                                                                                                            name 
+  --billing-nip string                                                                                      Billing 
+                                                                                                            nip 
+  --billing-email string                                                                                    Billing 
+                                                                                                            email 
+  --billing-company string                                                                                  Billing 
+                                                                                                            company 
+  --billing-currency PLN                                                                                    Billing 
+                                                                                                            currency. 
+                                                                                                            Defaults 
+                                                                                                            is 
+                                                                                                            PLN 
+  --billing-address-country AD,BE,HR,CY,CZ,DK,EE,FI,FR,DE,GR,HU,IE,IT,LV,LT,LU,MT,NL,PL,PT,RO,SK,SI,ES,GB   Address 
+                                                                                                            country. 
+                                                                                                            Defaults 
+                                                                                                            is 
+                                                                                                            PL 
+  --billing-address-city string                                                                             Address 
+                                                                                                            city 
+  --billing-address-zipcode string                                                                          Address 
+                                                                                                            zipcode 
+  --billing-address-street string                                                                           Address 
+                                                                                                            street 
+  --skeleton
 ```
 
 #### h1 iam organisation list
@@ -3930,7 +3406,7 @@ Operation options
 ```
 h1 iam organisation list
 
-  List iam/organisation [iam_organisation_list] 
+  List iam/organisation [Operation ID: iam_organisation_list] 
 
 Synopsis
 
@@ -3938,13 +3414,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -3952,7 +3429,7 @@ Operation options
   --billing.company string   Filter by billing.company 
   --$limit string            Filter by $limit          
   --active string            Filter by active          
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam organisation show
@@ -3960,7 +3437,7 @@ Operation options
 ```
 h1 iam organisation show
 
-  Get iam/organisation [iam_organisation_get] 
+  Get iam/organisation [Operation ID: iam_organisation_get] 
 
 Synopsis
 
@@ -3968,18 +3445,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam organisation update
@@ -3987,7 +3465,7 @@ Operation options
 ```
 h1 iam organisation update
 
-  Update iam/organisation [iam_organisation_update] 
+  Update iam/organisation [Operation ID: iam_organisation_update] 
 
 Synopsis
 
@@ -3995,24 +3473,26 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --organisation id-or-uri           Organisation Id                                                      
-  --name string                      Organisation name. Requires permissions iam/organisation.name/update 
-  --billing-email string             Billing email                                                        
-  --billing-company string           Billing company                                                      
-  --billing--addresscity string      Address city                                                         
-  --billing--addresszipcode string   Address zipcode                                                      
-  --billing--addressstreet string    Address street                                                       
-  --skeleton true,false
+  --organisation id-or-uri           Organisation Id                                          
+  --name string                      Organisation name. Requires permissions                  
+                                     iam/organisation.name/update                             
+  --billing-email string             Billing email                                            
+  --billing-company string           Billing company                                          
+  --billing-address-city string      Address city                                             
+  --billing-address-zipcode string   Address zipcode                                          
+  --billing-address-street string    Address street                                           
+  --skeleton
 ```
 
 #### h1 iam organisation delete
@@ -4020,7 +3500,7 @@ Operation options
 ```
 h1 iam organisation delete
 
-  Delete iam/organisation [iam_organisation_delete] 
+  Delete iam/organisation [Operation ID: iam_organisation_delete] 
 
 Synopsis
 
@@ -4028,18 +3508,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam organisation transfer_accept
@@ -4047,7 +3528,8 @@ Operation options
 ```
 h1 iam organisation transfer_accept
 
-  Transfer accept iam/organisation [iam_organisation_transfer_accept] 
+  Transfer accept iam/organisation [Operation ID:                               
+  iam_organisation_transfer_accept]                                             
 
 Synopsis
 
@@ -4055,13 +3537,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -4069,7 +3552,7 @@ Operation options
   --x-idempotency-key string   Idempotency key      
   --payment string             Organisation payment 
   --project string             Organisation project 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam organisation billing
@@ -4087,32 +3570,7 @@ Options
 
 Command List
 
-  spec   Print specification of context                                
-  list   List iam/organisation.billing [iam_organisation_billing_list]
-```
-
-##### h1 iam organisation billing spec
-
-```
-h1 iam organisation billing spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation billing spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/organisation.billing [Operation ID: iam_organisation_billing_list]
 ```
 
 ##### h1 iam organisation billing list
@@ -4120,7 +3578,7 @@ Operation options
 ```
 h1 iam organisation billing list
 
-  List iam/organisation.billing [iam_organisation_billing_list] 
+  List iam/organisation.billing [Operation ID: iam_organisation_billing_list] 
 
 Synopsis
 
@@ -4128,13 +3586,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -4142,7 +3601,7 @@ Operation options
   --start string             start           
   --end string               end             
   --resource.type string     resource.type   
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam organisation payment
@@ -4160,34 +3619,10 @@ Options
 
 Command List
 
-  spec       Print specification of context                                        
-  list       List iam/organisation.payment [iam_organisation_payment_list]         
-  show       Get iam/organisation.payment [iam_organisation_payment_get]           
-  allocate   Allocate iam/organisation.payment [iam_organisation_payment_allocate]
-```
-
-##### h1 iam organisation payment spec
-
-```
-h1 iam organisation payment spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation payment spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list       List iam/organisation.payment [Operation ID: iam_organisation_payment_list]      
+  show       Get iam/organisation.payment [Operation ID: iam_organisation_payment_get]        
+  allocate   Allocate iam/organisation.payment [Operation ID:                                 
+             iam_organisation_payment_allocate]
 ```
 
 ##### h1 iam organisation payment list
@@ -4195,7 +3630,7 @@ Operation options
 ```
 h1 iam organisation payment list
 
-  List iam/organisation.payment [iam_organisation_payment_list] 
+  List iam/organisation.payment [Operation ID: iam_organisation_payment_list] 
 
 Synopsis
 
@@ -4203,18 +3638,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation payment show
@@ -4222,7 +3658,7 @@ Operation options
 ```
 h1 iam organisation payment show
 
-  Get iam/organisation.payment [iam_organisation_payment_get] 
+  Get iam/organisation.payment [Operation ID: iam_organisation_payment_get] 
 
 Synopsis
 
@@ -4230,19 +3666,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --payment id-or-uri        paymentId       
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation payment allocate
@@ -4250,7 +3687,8 @@ Operation options
 ```
 h1 iam organisation payment allocate
 
-  Allocate iam/organisation.payment [iam_organisation_payment_allocate] 
+  Allocate iam/organisation.payment [Operation ID:                              
+  iam_organisation_payment_allocate]                                            
 
 Synopsis
 
@@ -4258,21 +3696,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id                                                               
-  --payment id-or-uri        paymentId                                                                     
-  --project id-or-uri        Payment project. Provide ID or URI of iam/project. Requires permissions       
-                             iam/project/get                                                               
-  --skeleton true,false
+  --organisation id-or-uri   Organisation Id                                                  
+  --payment id-or-uri        paymentId                                                        
+  --project id-or-uri        Payment project. Provide ID or URI of iam/project. Requires      
+                             permissions iam/project/get                                      
+  --skeleton
 ```
 
 #### h1 iam organisation invoice
@@ -4290,34 +3729,10 @@ Options
 
 Command List
 
-  spec       Print specification of context                                        
-  list       List iam/organisation.invoice [iam_organisation_invoice_list]         
-  show       Get iam/organisation.invoice [iam_organisation_invoice_get]           
-  download   Download iam/organisation.invoice [iam_organisation_invoice_download]
-```
-
-##### h1 iam organisation invoice spec
-
-```
-h1 iam organisation invoice spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation invoice spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list       List iam/organisation.invoice [Operation ID: iam_organisation_invoice_list]      
+  show       Get iam/organisation.invoice [Operation ID: iam_organisation_invoice_get]        
+  download   Download iam/organisation.invoice [Operation ID:                                 
+             iam_organisation_invoice_download]
 ```
 
 ##### h1 iam organisation invoice list
@@ -4325,7 +3740,7 @@ Operation options
 ```
 h1 iam organisation invoice list
 
-  List iam/organisation.invoice [iam_organisation_invoice_list] 
+  List iam/organisation.invoice [Operation ID: iam_organisation_invoice_list] 
 
 Synopsis
 
@@ -4333,18 +3748,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation invoice show
@@ -4352,7 +3768,7 @@ Operation options
 ```
 h1 iam organisation invoice show
 
-  Get iam/organisation.invoice [iam_organisation_invoice_get] 
+  Get iam/organisation.invoice [Operation ID: iam_organisation_invoice_get] 
 
 Synopsis
 
@@ -4360,19 +3776,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --invoice id-or-uri        invoiceId       
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation invoice download
@@ -4380,7 +3797,8 @@ Operation options
 ```
 h1 iam organisation invoice download
 
-  Download iam/organisation.invoice [iam_organisation_invoice_download] 
+  Download iam/organisation.invoice [Operation ID:                              
+  iam_organisation_invoice_download]                                            
 
 Synopsis
 
@@ -4388,19 +3806,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --invoice id-or-uri        invoiceId       
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam organisation proforma
@@ -4418,35 +3837,12 @@ Options
 
 Command List
 
-  spec       Print specification of context                                          
-  create     Create iam/organisation.proforma [iam_organisation_proforma_create]     
-  list       List iam/organisation.proforma [iam_organisation_proforma_list]         
-  show       Get iam/organisation.proforma [iam_organisation_proforma_get]           
-  download   Download iam/organisation.proforma [iam_organisation_proforma_download]
-```
-
-##### h1 iam organisation proforma spec
-
-```
-h1 iam organisation proforma spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation proforma spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create     Create iam/organisation.proforma [Operation ID:                                  
+             iam_organisation_proforma_create]                                                
+  list       List iam/organisation.proforma [Operation ID: iam_organisation_proforma_list]    
+  show       Get iam/organisation.proforma [Operation ID: iam_organisation_proforma_get]      
+  download   Download iam/organisation.proforma [Operation ID:                                
+             iam_organisation_proforma_download]
 ```
 
 ##### h1 iam organisation proforma create
@@ -4454,7 +3850,8 @@ Operation options
 ```
 h1 iam organisation proforma create
 
-  Create iam/organisation.proforma [iam_organisation_proforma_create] 
+  Create iam/organisation.proforma [Operation ID:                               
+  iam_organisation_proforma_create]                                             
 
 Synopsis
 
@@ -4462,21 +3859,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --organisation id-or-uri   Organisation Id                                                               
-  --amount string            Proforma amount                                                               
-  --project id-or-uri        Proforma project. Provide ID or URI of iam/project. Requires permissions      
-                             iam/project/get                                                               
-  --skeleton true,false
+  --organisation id-or-uri   Organisation Id                                                  
+  --amount string            Proforma amount                                                  
+  --project id-or-uri        Proforma project. Provide ID or URI of iam/project. Requires     
+                             permissions iam/project/get                                      
+  --skeleton
 ```
 
 ##### h1 iam organisation proforma list
@@ -4484,7 +3882,7 @@ Operation options
 ```
 h1 iam organisation proforma list
 
-  List iam/organisation.proforma [iam_organisation_proforma_list] 
+  List iam/organisation.proforma [Operation ID: iam_organisation_proforma_list] 
 
 Synopsis
 
@@ -4492,18 +3890,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation proforma show
@@ -4511,7 +3910,7 @@ Operation options
 ```
 h1 iam organisation proforma show
 
-  Get iam/organisation.proforma [iam_organisation_proforma_get] 
+  Get iam/organisation.proforma [Operation ID: iam_organisation_proforma_get] 
 
 Synopsis
 
@@ -4519,19 +3918,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --proforma id-or-uri       proformaId      
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation proforma download
@@ -4539,7 +3939,8 @@ Operation options
 ```
 h1 iam organisation proforma download
 
-  Download iam/organisation.proforma [iam_organisation_proforma_download] 
+  Download iam/organisation.proforma [Operation ID:                             
+  iam_organisation_proforma_download]                                           
 
 Synopsis
 
@@ -4547,19 +3948,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --proforma id-or-uri       proformaId      
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam organisation invitation
@@ -4577,35 +3979,12 @@ Options
 
 Command List
 
-  spec     Print specification of context                                          
-  list     List iam/organisation.invitation [iam_organisation_invitation_list]     
-  show     Get iam/organisation.invitation [iam_organisation_invitation_get]       
-  delete   Delete iam/organisation.invitation [iam_organisation_invitation_delete] 
-  accept   Accept iam/organisation.invitation [iam_organisation_invitation_accept]
-```
-
-##### h1 iam organisation invitation spec
-
-```
-h1 iam organisation invitation spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation invitation spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list     List iam/organisation.invitation [Operation ID: iam_organisation_invitation_list]  
+  show     Get iam/organisation.invitation [Operation ID: iam_organisation_invitation_get]    
+  delete   Delete iam/organisation.invitation [Operation ID:                                  
+           iam_organisation_invitation_delete]                                                
+  accept   Accept iam/organisation.invitation [Operation ID:                                  
+           iam_organisation_invitation_accept]
 ```
 
 ##### h1 iam organisation invitation list
@@ -4613,7 +3992,8 @@ Operation options
 ```
 h1 iam organisation invitation list
 
-  List iam/organisation.invitation [iam_organisation_invitation_list] 
+  List iam/organisation.invitation [Operation ID:                               
+  iam_organisation_invitation_list]                                             
 
 Synopsis
 
@@ -4621,19 +4001,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --resource string          resource        
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation invitation show
@@ -4641,7 +4022,7 @@ Operation options
 ```
 h1 iam organisation invitation show
 
-  Get iam/organisation.invitation [iam_organisation_invitation_get] 
+  Get iam/organisation.invitation [Operation ID: iam_organisation_invitation_get] 
 
 Synopsis
 
@@ -4649,19 +4030,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --invitation id-or-uri     invitationId    
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation invitation delete
@@ -4669,7 +4051,8 @@ Operation options
 ```
 h1 iam organisation invitation delete
 
-  Delete iam/organisation.invitation [iam_organisation_invitation_delete] 
+  Delete iam/organisation.invitation [Operation ID:                             
+  iam_organisation_invitation_delete]                                           
 
 Synopsis
 
@@ -4677,19 +4060,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --invitation id-or-uri     invitationId    
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation invitation accept
@@ -4697,7 +4081,8 @@ Operation options
 ```
 h1 iam organisation invitation accept
 
-  Accept iam/organisation.invitation [iam_organisation_invitation_accept] 
+  Accept iam/organisation.invitation [Operation ID:                             
+  iam_organisation_invitation_accept]                                           
 
 Synopsis
 
@@ -4705,20 +4090,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id  
   --invitation id-or-uri     invitationId     
   --token string             Invitation token 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam organisation ownership
@@ -4736,35 +4122,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                                        
-  create   Create iam/organisation.ownership [iam_organisation_ownership_create] 
-  list     List iam/organisation.ownership [iam_organisation_ownership_list]     
-  show     Get iam/organisation.ownership [iam_organisation_ownership_get]       
-  delete   Delete iam/organisation.ownership [iam_organisation_ownership_delete]
-```
-
-##### h1 iam organisation ownership spec
-
-```
-h1 iam organisation ownership spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation ownership spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/organisation.ownership [Operation ID: iam_organisation_ownership_create] 
+  list     List iam/organisation.ownership [Operation ID: iam_organisation_ownership_list]     
+  show     Get iam/organisation.ownership [Operation ID: iam_organisation_ownership_get]       
+  delete   Delete iam/organisation.ownership [Operation ID: iam_organisation_ownership_delete]
 ```
 
 ##### h1 iam organisation ownership create
@@ -4772,7 +4133,8 @@ Operation options
 ```
 h1 iam organisation ownership create
 
-  Create iam/organisation.ownership [iam_organisation_ownership_create] 
+  Create iam/organisation.ownership [Operation ID:                              
+  iam_organisation_ownership_create]                                            
 
 Synopsis
 
@@ -4780,19 +4142,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --email string             Ownership email 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation ownership list
@@ -4800,7 +4163,7 @@ Operation options
 ```
 h1 iam organisation ownership list
 
-  List iam/organisation.ownership [iam_organisation_ownership_list] 
+  List iam/organisation.ownership [Operation ID: iam_organisation_ownership_list] 
 
 Synopsis
 
@@ -4808,18 +4171,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation ownership show
@@ -4827,7 +4191,7 @@ Operation options
 ```
 h1 iam organisation ownership show
 
-  Get iam/organisation.ownership [iam_organisation_ownership_get] 
+  Get iam/organisation.ownership [Operation ID: iam_organisation_ownership_get] 
 
 Synopsis
 
@@ -4835,19 +4199,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --ownership id-or-uri      ownershipId     
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation ownership delete
@@ -4855,7 +4220,8 @@ Operation options
 ```
 h1 iam organisation ownership delete
 
-  Delete iam/organisation.ownership [iam_organisation_ownership_delete] 
+  Delete iam/organisation.ownership [Operation ID:                              
+  iam_organisation_ownership_delete]                                            
 
 Synopsis
 
@@ -4863,19 +4229,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --ownership id-or-uri      ownershipId     
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam organisation event
@@ -4893,33 +4260,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                            
-  list   List iam/organisation.event [iam_organisation_event_list] 
-  show   Get iam/organisation.event [iam_organisation_event_get]
-```
-
-##### h1 iam organisation event spec
-
-```
-h1 iam organisation event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/organisation.event [Operation ID: iam_organisation_event_list] 
+  show   Get iam/organisation.event [Operation ID: iam_organisation_event_get]
 ```
 
 ##### h1 iam organisation event list
@@ -4927,7 +4269,7 @@ Operation options
 ```
 h1 iam organisation event list
 
-  List iam/organisation.event [iam_organisation_event_list] 
+  List iam/organisation.event [Operation ID: iam_organisation_event_list] 
 
 Synopsis
 
@@ -4935,20 +4277,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --$limit string            $limit          
   --$skip string             $skip           
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation event show
@@ -4956,7 +4299,7 @@ Operation options
 ```
 h1 iam organisation event show
 
-  Get iam/organisation.event [iam_organisation_event_get] 
+  Get iam/organisation.event [Operation ID: iam_organisation_event_get] 
 
 Synopsis
 
@@ -4964,19 +4307,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --event id-or-uri          eventId         
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam organisation policy
@@ -4994,40 +4338,15 @@ Options
 
 Command List
 
-  spec      Print specification of context                     
-  create    Create iam/policy [iam_organisation_policy_create] 
-  list      List iam/policy [iam_organisation_policy_list]     
-  show      Get iam/policy [iam_organisation_policy_get]       
-  update    Update iam/policy [iam_organisation_policy_update] 
-  delete    Delete iam/policy [iam_organisation_policy_delete] 
-  actor     Manage actors of the policy                        
-  service   Manage services of the policy                      
-  tag       Manage tags of the policy                          
+  create    Create iam/policy [Operation ID: iam_organisation_policy_create] 
+  list      List iam/policy [Operation ID: iam_organisation_policy_list]     
+  show      Get iam/policy [Operation ID: iam_organisation_policy_get]       
+  update    Update iam/policy [Operation ID: iam_organisation_policy_update] 
+  delete    Delete iam/policy [Operation ID: iam_organisation_policy_delete] 
+  actor     Manage actors of the policy                                      
+  service   Manage services of the policy                                    
+  tag       Manage tags of the policy                                        
   event     Manage events of the policy
-```
-
-##### h1 iam organisation policy spec
-
-```
-h1 iam organisation policy spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation policy spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 ##### h1 iam organisation policy create
@@ -5035,7 +4354,7 @@ Operation options
 ```
 h1 iam organisation policy create
 
-  Create iam/policy [iam_organisation_policy_create] 
+  Create iam/policy [Operation ID: iam_organisation_policy_create] 
 
 Synopsis
 
@@ -5043,23 +4362,25 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --organisation id-or-uri     Organisation Id                                                         
-  --x-idempotency-key string   Idempotency key                                                         
-  --name string                Policy name                                                             
-  --role uri                   Policy role. Provide URI of iam/role. Requires permissions iam/role/use 
-  --resource string            Policy resource                                                         
-  --tag key=key,value=value    Tag collection                                                          
-  --skeleton true,false
+  --organisation id-or-uri     Organisation Id                                                
+  --x-idempotency-key string   Idempotency key                                                
+  --name string                Policy name                                                    
+  --role uri                   Policy role. Provide URI of iam/role. Requires permissions     
+                               iam/role/use                                                   
+  --resource string            Policy resource                                                
+  --tag key=key,value=value    Tag collection                                                 
+  --skeleton
 ```
 
 ##### h1 iam organisation policy list
@@ -5067,7 +4388,7 @@ Operation options
 ```
 h1 iam organisation policy list
 
-  List iam/policy [iam_organisation_policy_list] 
+  List iam/policy [Operation ID: iam_organisation_policy_list] 
 
 Synopsis
 
@@ -5075,13 +4396,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -5089,7 +4411,7 @@ Operation options
   --name string              Filter by name      
   --tag.value string         Filter by tag.value 
   --tag.key string           Filter by tag.key   
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation policy show
@@ -5097,7 +4419,7 @@ Operation options
 ```
 h1 iam organisation policy show
 
-  Get iam/policy [iam_organisation_policy_get] 
+  Get iam/policy [Operation ID: iam_organisation_policy_get] 
 
 Synopsis
 
@@ -5105,19 +4427,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation policy update
@@ -5125,7 +4448,7 @@ Operation options
 ```
 h1 iam organisation policy update
 
-  Update iam/policy [iam_organisation_policy_update] 
+  Update iam/policy [Operation ID: iam_organisation_policy_update] 
 
 Synopsis
 
@@ -5133,20 +4456,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id                                          
   --policy id-or-uri         Policy Id                                                
   --name string              Policy name. Requires permissions iam/policy.name/update 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation policy delete
@@ -5154,7 +4478,7 @@ Operation options
 ```
 h1 iam organisation policy delete
 
-  Delete iam/policy [iam_organisation_policy_delete] 
+  Delete iam/policy [Operation ID: iam_organisation_policy_delete] 
 
 Synopsis
 
@@ -5162,19 +4486,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation policy actor
@@ -5192,35 +4517,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                                 
-  create   Create iam/policy.actor [iam_organisation_policy_actor_create] 
-  list     List iam/policy.actor [iam_organisation_policy_actor_list]     
-  show     Get iam/policy.actor [iam_organisation_policy_actor_get]       
-  delete   Delete iam/policy.actor [iam_organisation_policy_actor_delete]
-```
-
-###### h1 iam organisation policy actor spec
-
-```
-h1 iam organisation policy actor spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation policy actor spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/policy.actor [Operation ID: iam_organisation_policy_actor_create] 
+  list     List iam/policy.actor [Operation ID: iam_organisation_policy_actor_list]     
+  show     Get iam/policy.actor [Operation ID: iam_organisation_policy_actor_get]       
+  delete   Delete iam/policy.actor [Operation ID: iam_organisation_policy_actor_delete]
 ```
 
 ###### h1 iam organisation policy actor create
@@ -5228,7 +4528,7 @@ Operation options
 ```
 h1 iam organisation policy actor create
 
-  Create iam/policy.actor [iam_organisation_policy_actor_create] 
+  Create iam/policy.actor [Operation ID: iam_organisation_policy_actor_create] 
 
 Synopsis
 
@@ -5236,20 +4536,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
   --value string             Actor value     
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation policy actor list
@@ -5257,7 +4558,7 @@ Operation options
 ```
 h1 iam organisation policy actor list
 
-  List iam/policy.actor [iam_organisation_policy_actor_list] 
+  List iam/policy.actor [Operation ID: iam_organisation_policy_actor_list] 
 
 Synopsis
 
@@ -5265,19 +4566,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation policy actor show
@@ -5285,7 +4587,7 @@ Operation options
 ```
 h1 iam organisation policy actor show
 
-  Get iam/policy.actor [iam_organisation_policy_actor_get] 
+  Get iam/policy.actor [Operation ID: iam_organisation_policy_actor_get] 
 
 Synopsis
 
@@ -5293,20 +4595,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
   --actor id-or-uri          actorId         
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation policy actor delete
@@ -5314,7 +4617,7 @@ Operation options
 ```
 h1 iam organisation policy actor delete
 
-  Delete iam/policy.actor [iam_organisation_policy_actor_delete] 
+  Delete iam/policy.actor [Operation ID: iam_organisation_policy_actor_delete] 
 
 Synopsis
 
@@ -5322,20 +4625,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
   --actor id-or-uri          actorId         
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation policy service
@@ -5353,33 +4657,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                                 
-  list   List iam/policy.service [iam_organisation_policy_service_list] 
-  show   Get iam/policy.service [iam_organisation_policy_service_get]
-```
-
-###### h1 iam organisation policy service spec
-
-```
-h1 iam organisation policy service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation policy service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/policy.service [Operation ID: iam_organisation_policy_service_list] 
+  show   Get iam/policy.service [Operation ID: iam_organisation_policy_service_get]
 ```
 
 ###### h1 iam organisation policy service list
@@ -5387,7 +4666,7 @@ Operation options
 ```
 h1 iam organisation policy service list
 
-  List iam/policy.service [iam_organisation_policy_service_list] 
+  List iam/policy.service [Operation ID: iam_organisation_policy_service_list] 
 
 Synopsis
 
@@ -5395,19 +4674,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation policy service show
@@ -5415,7 +4695,7 @@ Operation options
 ```
 h1 iam organisation policy service show
 
-  Get iam/policy.service [iam_organisation_policy_service_get] 
+  Get iam/policy.service [Operation ID: iam_organisation_policy_service_get] 
 
 Synopsis
 
@@ -5423,20 +4703,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
   --service id-or-uri        serviceId       
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation policy tag
@@ -5454,35 +4735,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                             
-  create   Create iam/policy.tag [iam_organisation_policy_tag_create] 
-  list     List iam/policy.tag [iam_organisation_policy_tag_list]     
-  show     Get iam/policy.tag [iam_organisation_policy_tag_get]       
-  delete   Delete iam/policy.tag [iam_organisation_policy_tag_delete]
-```
-
-###### h1 iam organisation policy tag spec
-
-```
-h1 iam organisation policy tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation policy tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/policy.tag [Operation ID: iam_organisation_policy_tag_create] 
+  list     List iam/policy.tag [Operation ID: iam_organisation_policy_tag_list]     
+  show     Get iam/policy.tag [Operation ID: iam_organisation_policy_tag_get]       
+  delete   Delete iam/policy.tag [Operation ID: iam_organisation_policy_tag_delete]
 ```
 
 ###### h1 iam organisation policy tag create
@@ -5490,7 +4746,7 @@ Operation options
 ```
 h1 iam organisation policy tag create
 
-  Create iam/policy.tag [iam_organisation_policy_tag_create] 
+  Create iam/policy.tag [Operation ID: iam_organisation_policy_tag_create] 
 
 Synopsis
 
@@ -5498,13 +4754,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -5512,7 +4769,7 @@ Operation options
   --policy id-or-uri         Policy Id       
   --key string               Tag key         
   --value string             Tag value       
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation policy tag list
@@ -5520,7 +4777,7 @@ Operation options
 ```
 h1 iam organisation policy tag list
 
-  List iam/policy.tag [iam_organisation_policy_tag_list] 
+  List iam/policy.tag [Operation ID: iam_organisation_policy_tag_list] 
 
 Synopsis
 
@@ -5528,19 +4785,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation policy tag show
@@ -5548,7 +4806,7 @@ Operation options
 ```
 h1 iam organisation policy tag show
 
-  Get iam/policy.tag [iam_organisation_policy_tag_get] 
+  Get iam/policy.tag [Operation ID: iam_organisation_policy_tag_get] 
 
 Synopsis
 
@@ -5556,20 +4814,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
   --tag id-or-uri            tagId           
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation policy tag delete
@@ -5577,7 +4836,7 @@ Operation options
 ```
 h1 iam organisation policy tag delete
 
-  Delete iam/policy.tag [iam_organisation_policy_tag_delete] 
+  Delete iam/policy.tag [Operation ID: iam_organisation_policy_tag_delete] 
 
 Synopsis
 
@@ -5585,20 +4844,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
   --tag id-or-uri            tagId           
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation policy event
@@ -5616,33 +4876,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                             
-  list   List iam/policy.event [iam_organisation_policy_event_list] 
-  show   Get iam/policy.event [iam_organisation_policy_event_get]
-```
-
-###### h1 iam organisation policy event spec
-
-```
-h1 iam organisation policy event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation policy event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/policy.event [Operation ID: iam_organisation_policy_event_list] 
+  show   Get iam/policy.event [Operation ID: iam_organisation_policy_event_get]
 ```
 
 ###### h1 iam organisation policy event list
@@ -5650,7 +4885,7 @@ Operation options
 ```
 h1 iam organisation policy event list
 
-  List iam/policy.event [iam_organisation_policy_event_list] 
+  List iam/policy.event [Operation ID: iam_organisation_policy_event_list] 
 
 Synopsis
 
@@ -5658,13 +4893,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -5672,7 +4908,7 @@ Operation options
   --policy id-or-uri         Policy Id       
   --$limit string            $limit          
   --$skip string             $skip           
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation policy event show
@@ -5680,7 +4916,7 @@ Operation options
 ```
 h1 iam organisation policy event show
 
-  Get iam/policy.event [iam_organisation_policy_event_get] 
+  Get iam/policy.event [Operation ID: iam_organisation_policy_event_get] 
 
 Synopsis
 
@@ -5688,20 +4924,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --policy id-or-uri         Policy Id       
   --event id-or-uri          eventId         
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 iam organisation role
@@ -5719,40 +4956,15 @@ Options
 
 Command List
 
-  spec         Print specification of context                 
-  create       Create iam/role [iam_organisation_role_create] 
-  list         List iam/role [iam_organisation_role_list]     
-  show         Get iam/role [iam_organisation_role_get]       
-  update       Update iam/role [iam_organisation_role_update] 
-  delete       Delete iam/role [iam_organisation_role_delete] 
-  permission   Manage permissions of the role                 
-  service      Manage services of the role                    
-  tag          Manage tags of the role                        
+  create       Create iam/role [Operation ID: iam_organisation_role_create] 
+  list         List iam/role [Operation ID: iam_organisation_role_list]     
+  show         Get iam/role [Operation ID: iam_organisation_role_get]       
+  update       Update iam/role [Operation ID: iam_organisation_role_update] 
+  delete       Delete iam/role [Operation ID: iam_organisation_role_delete] 
+  permission   Manage permissions of the role                               
+  service      Manage services of the role                                  
+  tag          Manage tags of the role                                      
   event        Manage events of the role
-```
-
-##### h1 iam organisation role spec
-
-```
-h1 iam organisation role spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation role spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 ##### h1 iam organisation role create
@@ -5760,7 +4972,7 @@ Operation options
 ```
 h1 iam organisation role create
 
-  Create iam/role [iam_organisation_role_create] 
+  Create iam/role [Operation ID: iam_organisation_role_create] 
 
 Synopsis
 
@@ -5768,25 +4980,26 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --organisation id-or-uri     Organisation Id                                                               
-  --x-idempotency-key string   Idempotency key                                                               
-  --name string                Role name                                                                     
-  --service id-or-uri          Role service. Provide ID or URI of billing/service. Defaults is               
-                               5e679c282b39c4353cd86f34                                                      
-  --description string         Role description                                                              
-  --permission value=value     Permission collection                                                         
-  --tag key=key,value=value    Tag collection                                                                
-  --skeleton true,false
+  --organisation id-or-uri     Organisation Id                                                
+  --x-idempotency-key string   Idempotency key                                                
+  --name string                Role name                                                      
+  --service id-or-uri          Role service. Provide ID or URI of billing/service. Defaults   
+                               is 5e679c282b39c4353cd86f34                                    
+  --description string         Role description                                               
+  --permission value=value     Permission collection                                          
+  --tag key=key,value=value    Tag collection                                                 
+  --skeleton
 ```
 
 ##### h1 iam organisation role list
@@ -5794,7 +5007,7 @@ Operation options
 ```
 h1 iam organisation role list
 
-  List iam/role [iam_organisation_role_list] 
+  List iam/role [Operation ID: iam_organisation_role_list] 
 
 Synopsis
 
@@ -5802,13 +5015,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -5816,7 +5030,7 @@ Operation options
   --name string              Filter by name      
   --tag.value string         Filter by tag.value 
   --tag.key string           Filter by tag.key   
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation role show
@@ -5824,7 +5038,7 @@ Operation options
 ```
 h1 iam organisation role show
 
-  Get iam/role [iam_organisation_role_get] 
+  Get iam/role [Operation ID: iam_organisation_role_get] 
 
 Synopsis
 
@@ -5832,19 +5046,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation role update
@@ -5852,7 +5067,7 @@ Operation options
 ```
 h1 iam organisation role update
 
-  Update iam/role [iam_organisation_role_update] 
+  Update iam/role [Operation ID: iam_organisation_role_update] 
 
 Synopsis
 
@@ -5860,13 +5075,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -5874,7 +5090,7 @@ Operation options
   --role id-or-uri           Role Id                                                            
   --name string              Role name. Requires permissions iam/role.name/update               
   --description string       Role description. Requires permissions iam/role.description/update 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation role delete
@@ -5882,7 +5098,7 @@ Operation options
 ```
 h1 iam organisation role delete
 
-  Delete iam/role [iam_organisation_role_delete] 
+  Delete iam/role [Operation ID: iam_organisation_role_delete] 
 
 Synopsis
 
@@ -5890,19 +5106,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation role permission
@@ -5920,35 +5137,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                                       
-  create   Create iam/role.permission [iam_organisation_role_permission_create] 
-  list     List iam/role.permission [iam_organisation_role_permission_list]     
-  show     Get iam/role.permission [iam_organisation_role_permission_get]       
-  delete   Delete iam/role.permission [iam_organisation_role_permission_delete]
-```
-
-###### h1 iam organisation role permission spec
-
-```
-h1 iam organisation role permission spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation role permission spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/role.permission [Operation ID: iam_organisation_role_permission_create] 
+  list     List iam/role.permission [Operation ID: iam_organisation_role_permission_list]     
+  show     Get iam/role.permission [Operation ID: iam_organisation_role_permission_get]       
+  delete   Delete iam/role.permission [Operation ID: iam_organisation_role_permission_delete]
 ```
 
 ###### h1 iam organisation role permission create
@@ -5956,7 +5148,8 @@ Operation options
 ```
 h1 iam organisation role permission create
 
-  Create iam/role.permission [iam_organisation_role_permission_create] 
+  Create iam/role.permission [Operation ID:                                     
+  iam_organisation_role_permission_create]                                      
 
 Synopsis
 
@@ -5964,20 +5157,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id  
   --role id-or-uri           Role Id          
   --value string             Permission value 
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation role permission list
@@ -5985,7 +5179,7 @@ Operation options
 ```
 h1 iam organisation role permission list
 
-  List iam/role.permission [iam_organisation_role_permission_list] 
+  List iam/role.permission [Operation ID: iam_organisation_role_permission_list] 
 
 Synopsis
 
@@ -5993,19 +5187,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation role permission show
@@ -6013,7 +5208,7 @@ Operation options
 ```
 h1 iam organisation role permission show
 
-  Get iam/role.permission [iam_organisation_role_permission_get] 
+  Get iam/role.permission [Operation ID: iam_organisation_role_permission_get] 
 
 Synopsis
 
@@ -6021,20 +5216,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
   --permission id-or-uri     permissionId    
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation role permission delete
@@ -6042,7 +5238,8 @@ Operation options
 ```
 h1 iam organisation role permission delete
 
-  Delete iam/role.permission [iam_organisation_role_permission_delete] 
+  Delete iam/role.permission [Operation ID:                                     
+  iam_organisation_role_permission_delete]                                      
 
 Synopsis
 
@@ -6050,20 +5247,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
   --permission id-or-uri     permissionId    
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation role service
@@ -6081,33 +5279,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                             
-  list   List iam/role.service [iam_organisation_role_service_list] 
-  show   Get iam/role.service [iam_organisation_role_service_get]
-```
-
-###### h1 iam organisation role service spec
-
-```
-h1 iam organisation role service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation role service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/role.service [Operation ID: iam_organisation_role_service_list] 
+  show   Get iam/role.service [Operation ID: iam_organisation_role_service_get]
 ```
 
 ###### h1 iam organisation role service list
@@ -6115,7 +5288,7 @@ Operation options
 ```
 h1 iam organisation role service list
 
-  List iam/role.service [iam_organisation_role_service_list] 
+  List iam/role.service [Operation ID: iam_organisation_role_service_list] 
 
 Synopsis
 
@@ -6123,19 +5296,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation role service show
@@ -6143,7 +5317,7 @@ Operation options
 ```
 h1 iam organisation role service show
 
-  Get iam/role.service [iam_organisation_role_service_get] 
+  Get iam/role.service [Operation ID: iam_organisation_role_service_get] 
 
 Synopsis
 
@@ -6151,20 +5325,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
   --service id-or-uri        serviceId       
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation role tag
@@ -6182,35 +5357,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                         
-  create   Create iam/role.tag [iam_organisation_role_tag_create] 
-  list     List iam/role.tag [iam_organisation_role_tag_list]     
-  show     Get iam/role.tag [iam_organisation_role_tag_get]       
-  delete   Delete iam/role.tag [iam_organisation_role_tag_delete]
-```
-
-###### h1 iam organisation role tag spec
-
-```
-h1 iam organisation role tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation role tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create iam/role.tag [Operation ID: iam_organisation_role_tag_create] 
+  list     List iam/role.tag [Operation ID: iam_organisation_role_tag_list]     
+  show     Get iam/role.tag [Operation ID: iam_organisation_role_tag_get]       
+  delete   Delete iam/role.tag [Operation ID: iam_organisation_role_tag_delete]
 ```
 
 ###### h1 iam organisation role tag create
@@ -6218,7 +5368,7 @@ Operation options
 ```
 h1 iam organisation role tag create
 
-  Create iam/role.tag [iam_organisation_role_tag_create] 
+  Create iam/role.tag [Operation ID: iam_organisation_role_tag_create] 
 
 Synopsis
 
@@ -6226,13 +5376,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -6240,7 +5391,7 @@ Operation options
   --role id-or-uri           Role Id         
   --key string               Tag key         
   --value string             Tag value       
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation role tag list
@@ -6248,7 +5399,7 @@ Operation options
 ```
 h1 iam organisation role tag list
 
-  List iam/role.tag [iam_organisation_role_tag_list] 
+  List iam/role.tag [Operation ID: iam_organisation_role_tag_list] 
 
 Synopsis
 
@@ -6256,19 +5407,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation role tag show
@@ -6276,7 +5428,7 @@ Operation options
 ```
 h1 iam organisation role tag show
 
-  Get iam/role.tag [iam_organisation_role_tag_get] 
+  Get iam/role.tag [Operation ID: iam_organisation_role_tag_get] 
 
 Synopsis
 
@@ -6284,20 +5436,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
   --tag id-or-uri            tagId           
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation role tag delete
@@ -6305,7 +5458,7 @@ Operation options
 ```
 h1 iam organisation role tag delete
 
-  Delete iam/role.tag [iam_organisation_role_tag_delete] 
+  Delete iam/role.tag [Operation ID: iam_organisation_role_tag_delete] 
 
 Synopsis
 
@@ -6313,20 +5466,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
   --tag id-or-uri            tagId           
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 iam organisation role event
@@ -6344,33 +5498,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                         
-  list   List iam/role.event [iam_organisation_role_event_list] 
-  show   Get iam/role.event [iam_organisation_role_event_get]
-```
-
-###### h1 iam organisation role event spec
-
-```
-h1 iam organisation role event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 iam organisation role event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List iam/role.event [Operation ID: iam_organisation_role_event_list] 
+  show   Get iam/role.event [Operation ID: iam_organisation_role_event_get]
 ```
 
 ###### h1 iam organisation role event list
@@ -6378,7 +5507,7 @@ Operation options
 ```
 h1 iam organisation role event list
 
-  List iam/role.event [iam_organisation_role_event_list] 
+  List iam/role.event [Operation ID: iam_organisation_role_event_list] 
 
 Synopsis
 
@@ -6386,13 +5515,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -6400,7 +5530,7 @@ Operation options
   --role id-or-uri           Role Id         
   --$limit string            $limit          
   --$skip string             $skip           
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 iam organisation role event show
@@ -6408,7 +5538,7 @@ Operation options
 ```
 h1 iam organisation role event show
 
-  Get iam/role.event [iam_organisation_role_event_get] 
+  Get iam/role.event [Operation ID: iam_organisation_role_event_get] 
 
 Synopsis
 
@@ -6416,19 +5546,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --organisation id-or-uri   Organisation Id 
   --role id-or-uri           Role Id         
   --event id-or-uri          eventId         
-  --skeleton true,false
+  --skeleton
 ```
 

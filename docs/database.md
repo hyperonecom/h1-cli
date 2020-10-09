@@ -13,26 +13,7 @@ Options
 
 Command List
 
-  spec       Print specification of context  
   instance   Management of instance resource
-```
-
-### h1 database spec
-
-```
-h1 database spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 database spec <options> 
-
-Global options
-
-  --help    Show help message and exit. 
-
-Operation options
 ```
 
 ### h1 database instance
@@ -50,43 +31,18 @@ Options
 
 Command List
 
-  spec         Print specification of context                                  
-  create       Create database/instance [database_project_instance_create]     
-  list         List database/instance [database_project_instance_list]         
-  show         Get database/instance [database_project_instance_get]           
-  update       Update database/instance [database_project_instance_update]     
-  delete       Delete database/instance [database_project_instance_delete]     
-  start        Start database/instance [database_project_instance_start]       
-  stop         Stop database/instance [database_project_instance_stop]         
-  transfer     Transfer database/instance [database_project_instance_transfer] 
-  credential   Manage credentials of the instance                              
-  service      Manage services of the instance                                 
-  tag          Manage tags of the instance                                     
+  create       Create database/instance [Operation ID: database_project_instance_create]     
+  list         List database/instance [Operation ID: database_project_instance_list]         
+  show         Get database/instance [Operation ID: database_project_instance_get]           
+  update       Update database/instance [Operation ID: database_project_instance_update]     
+  delete       Delete database/instance [Operation ID: database_project_instance_delete]     
+  start        Start database/instance [Operation ID: database_project_instance_start]       
+  stop         Stop database/instance [Operation ID: database_project_instance_stop]         
+  transfer     Transfer database/instance [Operation ID: database_project_instance_transfer] 
+  credential   Manage credentials of the instance                                            
+  service      Manage services of the instance                                               
+  tag          Manage tags of the instance                                                   
   event        Manage events of the instance
-```
-
-#### h1 database instance spec
-
-```
-h1 database instance spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 database instance spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 #### h1 database instance create
@@ -94,7 +50,7 @@ Operation options
 ```
 h1 database instance create
 
-  Create database/instance [database_project_instance_create] 
+  Create database/instance [Operation ID: database_project_instance_create] 
 
 Synopsis
 
@@ -111,13 +67,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -127,7 +84,7 @@ Operation options
   --name string                Instance name                                          
   --service id-or-uri          Instance service. Provide ID or URI of billing/service 
   --tag key=key,value=value    Tag collection                                         
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 database instance list
@@ -135,7 +92,7 @@ Operation options
 ```
 h1 database instance list
 
-  List database/instance [database_project_instance_list] 
+  List database/instance [Operation ID: database_project_instance_list] 
 
 Synopsis
 
@@ -150,22 +107,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id          
-  --location id-or-uri    Location Id         
-  --name string           Filter by name      
-  --tag.value string      Filter by tag.value 
-  --tag.key string        Filter by tag.key   
-  --skeleton true,false
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key   
+  --skeleton
 ```
 
 #### h1 database instance show
@@ -173,7 +131,7 @@ Operation options
 ```
 h1 database instance show
 
-  Get database/instance [database_project_instance_get] 
+  Get database/instance [Operation ID: database_project_instance_get] 
 
 Synopsis
 
@@ -189,20 +147,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --instance id-or-uri    Instance Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --skeleton
 ```
 
 #### h1 database instance update
@@ -210,7 +169,7 @@ Operation options
 ```
 h1 database instance update
 
-  Update database/instance [database_project_instance_update] 
+  Update database/instance [Operation ID: database_project_instance_update] 
 
 Synopsis
 
@@ -226,21 +185,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                                        
-  --location id-or-uri    Location Id                                                       
-  --instance id-or-uri    Instance Id                                                       
-  --name string           Instance name. Requires permissions database/instance.name/update 
-  --skeleton true,false
+  --project id-or-uri    Project Id                                                        
+  --location id-or-uri   Location Id                                                       
+  --instance id-or-uri   Instance Id                                                       
+  --name string          Instance name. Requires permissions database/instance.name/update 
+  --skeleton
 ```
 
 #### h1 database instance delete
@@ -248,7 +208,7 @@ Operation options
 ```
 h1 database instance delete
 
-  Delete database/instance [database_project_instance_delete] 
+  Delete database/instance [Operation ID: database_project_instance_delete] 
 
 Synopsis
 
@@ -264,20 +224,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --instance id-or-uri    Instance Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --skeleton
 ```
 
 #### h1 database instance start
@@ -285,7 +246,7 @@ Operation options
 ```
 h1 database instance start
 
-  Start database/instance [database_project_instance_start] 
+  Start database/instance [Operation ID: database_project_instance_start] 
 
 Synopsis
 
@@ -301,13 +262,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -315,7 +277,7 @@ Operation options
   --location id-or-uri         Location Id     
   --instance id-or-uri         Instance Id     
   --x-idempotency-key string   Idempotency key 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 database instance stop
@@ -323,7 +285,7 @@ Operation options
 ```
 h1 database instance stop
 
-  Stop database/instance [database_project_instance_stop] 
+  Stop database/instance [Operation ID: database_project_instance_stop] 
 
 Synopsis
 
@@ -339,13 +301,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -353,7 +316,7 @@ Operation options
   --location id-or-uri         Location Id     
   --instance id-or-uri         Instance Id     
   --x-idempotency-key string   Idempotency key 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 database instance transfer
@@ -361,7 +324,7 @@ Operation options
 ```
 h1 database instance transfer
 
-  Transfer database/instance [database_project_instance_transfer] 
+  Transfer database/instance [Operation ID: database_project_instance_transfer] 
 
 Synopsis
 
@@ -369,23 +332,24 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri          Project Id                                                                    
-  --location id-or-uri         Location Id                                                                   
-  --instance id-or-uri         Instance Id                                                                   
-  --x-idempotency-key string   Idempotency key                                                               
-  --project id-or-uri          Instance project. Provide ID or URI of iam/project. Requires permissions      
-                               database/instance/create                                                      
-  --skeleton true,false
+  --project id-or-uri          Project Id                                                     
+  --location id-or-uri         Location Id                                                    
+  --instance id-or-uri         Instance Id                                                    
+  --x-idempotency-key string   Idempotency key                                                
+  --project id-or-uri          Instance project. Provide ID or URI of iam/project. Requires   
+                               permissions database/instance/create                           
+  --skeleton
 ```
 
 #### h1 database instance credential
@@ -403,36 +367,16 @@ Options
 
 Command List
 
-  spec     Print specification of context                                                    
-  create   Create database/instance.credential [database_project_instance_credential_create] 
-  list     List database/instance.credential [database_project_instance_credential_list]     
-  show     Get database/instance.credential [database_project_instance_credential_get]       
-  update   Update database/instance.credential [database_project_instance_credential_patch]  
-  delete   Delete database/instance.credential [database_project_instance_credential_delete]
-```
-
-##### h1 database instance credential spec
-
-```
-h1 database instance credential spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 database instance credential spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create database/instance.credential [Operation ID:                                 
+           database_project_instance_credential_create]                                       
+  list     List database/instance.credential [Operation ID:                                   
+           database_project_instance_credential_list]                                         
+  show     Get database/instance.credential [Operation ID:                                    
+           database_project_instance_credential_get]                                          
+  update   Update database/instance.credential [Operation ID:                                 
+           database_project_instance_credential_patch]                                        
+  delete   Delete database/instance.credential [Operation ID:                                 
+           database_project_instance_credential_delete]
 ```
 
 ##### h1 database instance credential create
@@ -440,8 +384,8 @@ Operation options
 ```
 h1 database instance credential create
 
-  Create database/instance.credential                                           
-  [database_project_instance_credential_create]                                 
+  Create database/instance.credential [Operation ID:                            
+  database_project_instance_credential_create]                                  
 
 Synopsis
 
@@ -458,24 +402,25 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id       
-  --location id-or-uri    Location Id      
-  --instance id-or-uri    Instance Id      
-  --name string           Credential name  
-  --type string           Credential type  
-  --value string          Credential value 
-  --token string          Credential token 
-  --skeleton true,false
+  --project id-or-uri           Project Id       
+  --location id-or-uri          Location Id      
+  --instance id-or-uri          Instance Id      
+  --name string                 Credential name  
+  --type mysql,plain,postgres   Credential type  
+  --value string                Credential value 
+  --token string                Credential token 
+  --skeleton
 ```
 
 ##### h1 database instance credential list
@@ -483,7 +428,8 @@ Operation options
 ```
 h1 database instance credential list
 
-  List database/instance.credential [database_project_instance_credential_list] 
+  List database/instance.credential [Operation ID:                              
+  database_project_instance_credential_list]                                    
 
 Synopsis
 
@@ -499,20 +445,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --instance id-or-uri    Instance Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --skeleton
 ```
 
 ##### h1 database instance credential show
@@ -520,7 +467,8 @@ Operation options
 ```
 h1 database instance credential show
 
-  Get database/instance.credential [database_project_instance_credential_get] 
+  Get database/instance.credential [Operation ID:                               
+  database_project_instance_credential_get]                                     
 
 Synopsis
 
@@ -536,13 +484,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -550,7 +499,7 @@ Operation options
   --location id-or-uri     Location Id  
   --instance id-or-uri     Instance Id  
   --credential id-or-uri   credentialId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 database instance credential update
@@ -558,8 +507,8 @@ Operation options
 ```
 h1 database instance credential update
 
-  Update database/instance.credential                                           
-  [database_project_instance_credential_patch]                                  
+  Update database/instance.credential [Operation ID:                            
+  database_project_instance_credential_patch]                                   
 
 Synopsis
 
@@ -567,23 +516,24 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri      Project Id                                                                    
-  --location id-or-uri     Location Id                                                                   
-  --instance id-or-uri     Instance Id                                                                   
-  --credential id-or-uri   credentialId                                                                  
-  --name string            Credential name. Requires permissions                                         
-                           database/instance.credential.name/update                                      
-  --skeleton true,false
+  --project id-or-uri      Project Id                                                         
+  --location id-or-uri     Location Id                                                        
+  --instance id-or-uri     Instance Id                                                        
+  --credential id-or-uri   credentialId                                                       
+  --name string            Credential name. Requires permissions                              
+                           database/instance.credential.name/update                           
+  --skeleton
 ```
 
 ##### h1 database instance credential delete
@@ -591,8 +541,8 @@ Operation options
 ```
 h1 database instance credential delete
 
-  Delete database/instance.credential                                           
-  [database_project_instance_credential_delete]                                 
+  Delete database/instance.credential [Operation ID:                            
+  database_project_instance_credential_delete]                                  
 
 Synopsis
 
@@ -608,13 +558,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -622,7 +573,7 @@ Operation options
   --location id-or-uri     Location Id  
   --instance id-or-uri     Instance Id  
   --credential id-or-uri   credentialId 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 database instance service
@@ -640,33 +591,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                                          
-  list   List database/instance.service [database_project_instance_service_list] 
-  show   Get database/instance.service [database_project_instance_service_get]
-```
-
-##### h1 database instance service spec
-
-```
-h1 database instance service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 database instance service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List database/instance.service [Operation ID: database_project_instance_service_list] 
+  show   Get database/instance.service [Operation ID: database_project_instance_service_get]
 ```
 
 ##### h1 database instance service list
@@ -674,7 +600,8 @@ Operation options
 ```
 h1 database instance service list
 
-  List database/instance.service [database_project_instance_service_list] 
+  List database/instance.service [Operation ID:                                 
+  database_project_instance_service_list]                                       
 
 Synopsis
 
@@ -690,20 +617,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --instance id-or-uri    Instance Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --skeleton
 ```
 
 ##### h1 database instance service show
@@ -711,7 +639,8 @@ Operation options
 ```
 h1 database instance service show
 
-  Get database/instance.service [database_project_instance_service_get] 
+  Get database/instance.service [Operation ID:                                  
+  database_project_instance_service_get]                                        
 
 Synopsis
 
@@ -727,21 +656,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --instance id-or-uri    Instance Id 
-  --service id-or-uri     serviceId   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --service id-or-uri    serviceId   
+  --skeleton
 ```
 
 #### h1 database instance tag
@@ -759,35 +689,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                                      
-  create   Create database/instance.tag [database_project_instance_tag_create] 
-  list     List database/instance.tag [database_project_instance_tag_list]     
-  show     Get database/instance.tag [database_project_instance_tag_get]       
-  delete   Delete database/instance.tag [database_project_instance_tag_delete]
-```
-
-##### h1 database instance tag spec
-
-```
-h1 database instance tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 database instance tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create database/instance.tag [Operation ID: database_project_instance_tag_create] 
+  list     List database/instance.tag [Operation ID: database_project_instance_tag_list]     
+  show     Get database/instance.tag [Operation ID: database_project_instance_tag_get]       
+  delete   Delete database/instance.tag [Operation ID: database_project_instance_tag_delete]
 ```
 
 ##### h1 database instance tag create
@@ -795,7 +700,8 @@ Operation options
 ```
 h1 database instance tag create
 
-  Create database/instance.tag [database_project_instance_tag_create] 
+  Create database/instance.tag [Operation ID:                                   
+  database_project_instance_tag_create]                                         
 
 Synopsis
 
@@ -811,22 +717,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --instance id-or-uri    Instance Id 
-  --key string            Tag key     
-  --value string          Tag value   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --key string           Tag key     
+  --value string         Tag value   
+  --skeleton
 ```
 
 ##### h1 database instance tag list
@@ -834,7 +741,7 @@ Operation options
 ```
 h1 database instance tag list
 
-  List database/instance.tag [database_project_instance_tag_list] 
+  List database/instance.tag [Operation ID: database_project_instance_tag_list] 
 
 Synopsis
 
@@ -850,20 +757,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --instance id-or-uri    Instance Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --skeleton
 ```
 
 ##### h1 database instance tag show
@@ -871,7 +779,7 @@ Operation options
 ```
 h1 database instance tag show
 
-  Get database/instance.tag [database_project_instance_tag_get] 
+  Get database/instance.tag [Operation ID: database_project_instance_tag_get] 
 
 Synopsis
 
@@ -887,21 +795,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --instance id-or-uri    Instance Id 
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 ##### h1 database instance tag delete
@@ -909,7 +818,8 @@ Operation options
 ```
 h1 database instance tag delete
 
-  Delete database/instance.tag [database_project_instance_tag_delete] 
+  Delete database/instance.tag [Operation ID:                                   
+  database_project_instance_tag_delete]                                         
 
 Synopsis
 
@@ -925,21 +835,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --instance id-or-uri    Instance Id 
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 #### h1 database instance event
@@ -957,33 +868,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                                      
-  list   List database/instance.event [database_project_instance_event_list] 
-  show   Get database/instance.event [database_project_instance_event_get]
-```
-
-##### h1 database instance event spec
-
-```
-h1 database instance event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 database instance event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List database/instance.event [Operation ID: database_project_instance_event_list] 
+  show   Get database/instance.event [Operation ID: database_project_instance_event_get]
 ```
 
 ##### h1 database instance event list
@@ -991,7 +877,8 @@ Operation options
 ```
 h1 database instance event list
 
-  List database/instance.event [database_project_instance_event_list] 
+  List database/instance.event [Operation ID:                                   
+  database_project_instance_event_list]                                         
 
 Synopsis
 
@@ -1007,22 +894,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --instance id-or-uri    Instance Id 
-  --$limit string         $limit      
-  --$skip string          $skip       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --$limit string        $limit      
+  --$skip string         $skip       
+  --skeleton
 ```
 
 ##### h1 database instance event show
@@ -1030,7 +918,7 @@ Operation options
 ```
 h1 database instance event show
 
-  Get database/instance.event [database_project_instance_event_get] 
+  Get database/instance.event [Operation ID: database_project_instance_event_get] 
 
 Synopsis
 
@@ -1046,20 +934,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --instance id-or-uri    Instance Id 
-  --event id-or-uri       eventId     
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --instance id-or-uri   Instance Id 
+  --event id-or-uri      eventId     
+  --skeleton
 ```
 

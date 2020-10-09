@@ -13,26 +13,7 @@ Options
 
 Command List
 
-  spec      Print specification of context 
   journal   Management of journal resource
-```
-
-### h1 insight spec
-
-```
-h1 insight spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 insight spec <options> 
-
-Global options
-
-  --help    Show help message and exit. 
-
-Operation options
 ```
 
 ### h1 insight journal
@@ -50,44 +31,19 @@ Options
 
 Command List
 
-  spec         Print specification of context                              
-  create       Create insight/journal [insight_project_journal_create]     
-  list         List insight/journal [insight_project_journal_list]         
-  show         Get insight/journal [insight_project_journal_get]           
-  update       Update insight/journal [insight_project_journal_update]     
-  delete       Delete insight/journal [insight_project_journal_delete]     
-  transfer     Transfer insight/journal [insight_project_journal_transfer] 
-  log          Manage logs of the journal                                  
-  credential   Manage credentials of the journal                           
-  service      Manage services of the journal                              
-  tag          Manage tags of the journal                                  
-  event        Manage events of the journal                                
-  logger       Log messages to journal                                     
+  create       Create insight/journal [Operation ID: insight_project_journal_create]     
+  list         List insight/journal [Operation ID: insight_project_journal_list]         
+  show         Get insight/journal [Operation ID: insight_project_journal_get]           
+  update       Update insight/journal [Operation ID: insight_project_journal_update]     
+  delete       Delete insight/journal [Operation ID: insight_project_journal_delete]     
+  transfer     Transfer insight/journal [Operation ID: insight_project_journal_transfer] 
+  log          Manage logs of the journal                                                
+  credential   Manage credentials of the journal                                         
+  service      Manage services of the journal                                            
+  tag          Manage tags of the journal                                                
+  event        Manage events of the journal                                              
+  logger       Log messages to journal                                                   
   stream       Stream messages from journal
-```
-
-#### h1 insight journal spec
-
-```
-h1 insight journal spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 insight journal spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 #### h1 insight journal create
@@ -95,7 +51,7 @@ Operation options
 ```
 h1 insight journal create
 
-  Create insight/journal [insight_project_journal_create] 
+  Create insight/journal [Operation ID: insight_project_journal_create] 
 
 Synopsis
 
@@ -112,25 +68,26 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri          Project Id                                                                    
-  --location id-or-uri         Location Id                                                                   
-  --x-idempotency-key string   Idempotency key                                                               
-  --name string                Journal name                                                                  
-  --service id-or-uri          Journal service. Provide ID or URI of billing/service. Defaults is            
-                               5c9cc2d0255c16c3e899a4ea                                                      
-  --retention string           Journal retention                                                             
-  --tag key=key,value=value    Tag collection                                                                
-  --skeleton true,false
+  --project id-or-uri          Project Id                                                     
+  --location id-or-uri         Location Id                                                    
+  --x-idempotency-key string   Idempotency key                                                
+  --name string                Journal name                                                   
+  --service id-or-uri          Journal service. Provide ID or URI of billing/service.         
+                               Defaults is 5c9cc2d0255c16c3e899a4ea                           
+  --retention string           Journal retention                                              
+  --tag key=key,value=value    Tag collection                                                 
+  --skeleton
 ```
 
 #### h1 insight journal list
@@ -138,7 +95,7 @@ Operation options
 ```
 h1 insight journal list
 
-  List insight/journal [insight_project_journal_list] 
+  List insight/journal [Operation ID: insight_project_journal_list] 
 
 Synopsis
 
@@ -153,22 +110,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id          
-  --location id-or-uri    Location Id         
-  --name string           Filter by name      
-  --tag.value string      Filter by tag.value 
-  --tag.key string        Filter by tag.key   
-  --skeleton true,false
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key   
+  --skeleton
 ```
 
 #### h1 insight journal show
@@ -176,7 +134,7 @@ Operation options
 ```
 h1 insight journal show
 
-  Get insight/journal [insight_project_journal_get] 
+  Get insight/journal [Operation ID: insight_project_journal_get] 
 
 Synopsis
 
@@ -192,20 +150,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --skeleton
 ```
 
 #### h1 insight journal update
@@ -213,7 +172,7 @@ Operation options
 ```
 h1 insight journal update
 
-  Update insight/journal [insight_project_journal_update] 
+  Update insight/journal [Operation ID: insight_project_journal_update] 
 
 Synopsis
 
@@ -229,22 +188,24 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                                               
-  --location id-or-uri    Location Id                                                              
-  --journal id-or-uri     Journal Id                                                               
-  --name string           Journal name. Requires permissions insight/journal.name/update           
-  --retention string      Journal retention. Requires permissions insight/journal.retention/update 
-  --skeleton true,false
+  --project id-or-uri    Project Id                                                           
+  --location id-or-uri   Location Id                                                          
+  --journal id-or-uri    Journal Id                                                           
+  --name string          Journal name. Requires permissions insight/journal.name/update       
+  --retention string     Journal retention. Requires permissions                              
+                         insight/journal.retention/update                                     
+  --skeleton
 ```
 
 #### h1 insight journal delete
@@ -252,7 +213,7 @@ Operation options
 ```
 h1 insight journal delete
 
-  Delete insight/journal [insight_project_journal_delete] 
+  Delete insight/journal [Operation ID: insight_project_journal_delete] 
 
 Synopsis
 
@@ -268,20 +229,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --skeleton
 ```
 
 #### h1 insight journal transfer
@@ -289,7 +251,7 @@ Operation options
 ```
 h1 insight journal transfer
 
-  Transfer insight/journal [insight_project_journal_transfer] 
+  Transfer insight/journal [Operation ID: insight_project_journal_transfer] 
 
 Synopsis
 
@@ -297,23 +259,24 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri          Project Id                                                                    
-  --location id-or-uri         Location Id                                                                   
-  --journal id-or-uri          Journal Id                                                                    
-  --x-idempotency-key string   Idempotency key                                                               
-  --project id-or-uri          Journal project. Provide ID or URI of iam/project. Requires permissions       
-                               insight/journal/create                                                        
-  --skeleton true,false
+  --project id-or-uri          Project Id                                                     
+  --location id-or-uri         Location Id                                                    
+  --journal id-or-uri          Journal Id                                                     
+  --x-idempotency-key string   Idempotency key                                                
+  --project id-or-uri          Journal project. Provide ID or URI of iam/project. Requires    
+                               permissions insight/journal/create                             
+  --skeleton
 ```
 
 #### h1 insight journal log
@@ -331,32 +294,7 @@ Options
 
 Command List
 
-  spec   Print specification of context                            
-  list   Get insight/journal.log [insight_project_journal_log_get]
-```
-
-##### h1 insight journal log spec
-
-```
-h1 insight journal log spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 insight journal log spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   Get insight/journal.log [Operation ID: insight_project_journal_log_get]
 ```
 
 ##### h1 insight journal log list
@@ -364,7 +302,7 @@ Operation options
 ```
 h1 insight journal log list
 
-  Get insight/journal.log [insight_project_journal_log_get] 
+  Get insight/journal.log [Operation ID: insight_project_journal_log_get] 
 
 Synopsis
 
@@ -372,25 +310,26 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --since string          since       
-  --until string          until       
-  --follow string         follow      
-  --tail string           tail        
-  --tag string            tag         
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --since string         since       
+  --until string         until       
+  --follow string        follow      
+  --tail string          tail        
+  --tag string           tag         
+  --skeleton
 ```
 
 #### h1 insight journal credential
@@ -408,36 +347,16 @@ Options
 
 Command List
 
-  spec     Print specification of context                                                
-  create   Create insight/journal.credential [insight_project_journal_credential_create] 
-  list     List insight/journal.credential [insight_project_journal_credential_list]     
-  show     Get insight/journal.credential [insight_project_journal_credential_get]       
-  update   Update insight/journal.credential [insight_project_journal_credential_patch]  
-  delete   Delete insight/journal.credential [insight_project_journal_credential_delete]
-```
-
-##### h1 insight journal credential spec
-
-```
-h1 insight journal credential spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 insight journal credential spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create insight/journal.credential [Operation ID:                                   
+           insight_project_journal_credential_create]                                         
+  list     List insight/journal.credential [Operation ID:                                     
+           insight_project_journal_credential_list]                                           
+  show     Get insight/journal.credential [Operation ID:                                      
+           insight_project_journal_credential_get]                                            
+  update   Update insight/journal.credential [Operation ID:                                   
+           insight_project_journal_credential_patch]                                          
+  delete   Delete insight/journal.credential [Operation ID:                                   
+           insight_project_journal_credential_delete]
 ```
 
 ##### h1 insight journal credential create
@@ -445,7 +364,8 @@ Operation options
 ```
 h1 insight journal credential create
 
-  Create insight/journal.credential [insight_project_journal_credential_create] 
+  Create insight/journal.credential [Operation ID:                              
+  insight_project_journal_credential_create]                                    
 
 Synopsis
 
@@ -462,24 +382,25 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id       
-  --location id-or-uri    Location Id      
-  --journal id-or-uri     Journal Id       
-  --name string           Credential name  
-  --type string           Credential type  
-  --value string          Credential value 
-  --token string          Credential token 
-  --skeleton true,false
+  --project id-or-uri    Project Id       
+  --location id-or-uri   Location Id      
+  --journal id-or-uri    Journal Id       
+  --name string          Credential name  
+  --type sha512,plain    Credential type  
+  --value string         Credential value 
+  --token string         Credential token 
+  --skeleton
 ```
 
 ##### h1 insight journal credential list
@@ -487,7 +408,8 @@ Operation options
 ```
 h1 insight journal credential list
 
-  List insight/journal.credential [insight_project_journal_credential_list] 
+  List insight/journal.credential [Operation ID:                                
+  insight_project_journal_credential_list]                                      
 
 Synopsis
 
@@ -503,20 +425,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --skeleton
 ```
 
 ##### h1 insight journal credential show
@@ -524,7 +447,8 @@ Operation options
 ```
 h1 insight journal credential show
 
-  Get insight/journal.credential [insight_project_journal_credential_get] 
+  Get insight/journal.credential [Operation ID:                                 
+  insight_project_journal_credential_get]                                       
 
 Synopsis
 
@@ -540,13 +464,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -554,7 +479,7 @@ Operation options
   --location id-or-uri     Location Id  
   --journal id-or-uri      Journal Id   
   --credential id-or-uri   credentialId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 insight journal credential update
@@ -562,7 +487,8 @@ Operation options
 ```
 h1 insight journal credential update
 
-  Update insight/journal.credential [insight_project_journal_credential_patch] 
+  Update insight/journal.credential [Operation ID:                              
+  insight_project_journal_credential_patch]                                     
 
 Synopsis
 
@@ -570,22 +496,24 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri      Project Id                                                                   
-  --location id-or-uri     Location Id                                                                  
-  --journal id-or-uri      Journal Id                                                                   
-  --credential id-or-uri   credentialId                                                                 
-  --name string            Credential name. Requires permissions insight/journal.credential.name/update 
-  --skeleton true,false
+  --project id-or-uri      Project Id                                                         
+  --location id-or-uri     Location Id                                                        
+  --journal id-or-uri      Journal Id                                                         
+  --credential id-or-uri   credentialId                                                       
+  --name string            Credential name. Requires permissions                              
+                           insight/journal.credential.name/update                             
+  --skeleton
 ```
 
 ##### h1 insight journal credential delete
@@ -593,7 +521,8 @@ Operation options
 ```
 h1 insight journal credential delete
 
-  Delete insight/journal.credential [insight_project_journal_credential_delete] 
+  Delete insight/journal.credential [Operation ID:                              
+  insight_project_journal_credential_delete]                                    
 
 Synopsis
 
@@ -609,13 +538,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -623,7 +553,7 @@ Operation options
   --location id-or-uri     Location Id  
   --journal id-or-uri      Journal Id   
   --credential id-or-uri   credentialId 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 insight journal service
@@ -641,33 +571,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                                      
-  list   List insight/journal.service [insight_project_journal_service_list] 
-  show   Get insight/journal.service [insight_project_journal_service_get]
-```
-
-##### h1 insight journal service spec
-
-```
-h1 insight journal service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 insight journal service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List insight/journal.service [Operation ID: insight_project_journal_service_list] 
+  show   Get insight/journal.service [Operation ID: insight_project_journal_service_get]
 ```
 
 ##### h1 insight journal service list
@@ -675,7 +580,8 @@ Operation options
 ```
 h1 insight journal service list
 
-  List insight/journal.service [insight_project_journal_service_list] 
+  List insight/journal.service [Operation ID:                                   
+  insight_project_journal_service_list]                                         
 
 Synopsis
 
@@ -691,20 +597,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --skeleton
 ```
 
 ##### h1 insight journal service show
@@ -712,7 +619,7 @@ Operation options
 ```
 h1 insight journal service show
 
-  Get insight/journal.service [insight_project_journal_service_get] 
+  Get insight/journal.service [Operation ID: insight_project_journal_service_get] 
 
 Synopsis
 
@@ -728,21 +635,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --service id-or-uri     serviceId   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --service id-or-uri    serviceId   
+  --skeleton
 ```
 
 #### h1 insight journal tag
@@ -760,35 +668,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                                  
-  create   Create insight/journal.tag [insight_project_journal_tag_create] 
-  list     List insight/journal.tag [insight_project_journal_tag_list]     
-  show     Get insight/journal.tag [insight_project_journal_tag_get]       
-  delete   Delete insight/journal.tag [insight_project_journal_tag_delete]
-```
-
-##### h1 insight journal tag spec
-
-```
-h1 insight journal tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 insight journal tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create insight/journal.tag [Operation ID: insight_project_journal_tag_create] 
+  list     List insight/journal.tag [Operation ID: insight_project_journal_tag_list]     
+  show     Get insight/journal.tag [Operation ID: insight_project_journal_tag_get]       
+  delete   Delete insight/journal.tag [Operation ID: insight_project_journal_tag_delete]
 ```
 
 ##### h1 insight journal tag create
@@ -796,7 +679,7 @@ Operation options
 ```
 h1 insight journal tag create
 
-  Create insight/journal.tag [insight_project_journal_tag_create] 
+  Create insight/journal.tag [Operation ID: insight_project_journal_tag_create] 
 
 Synopsis
 
@@ -812,22 +695,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --key string            Tag key     
-  --value string          Tag value   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --key string           Tag key     
+  --value string         Tag value   
+  --skeleton
 ```
 
 ##### h1 insight journal tag list
@@ -835,7 +719,7 @@ Operation options
 ```
 h1 insight journal tag list
 
-  List insight/journal.tag [insight_project_journal_tag_list] 
+  List insight/journal.tag [Operation ID: insight_project_journal_tag_list] 
 
 Synopsis
 
@@ -851,20 +735,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --skeleton
 ```
 
 ##### h1 insight journal tag show
@@ -872,7 +757,7 @@ Operation options
 ```
 h1 insight journal tag show
 
-  Get insight/journal.tag [insight_project_journal_tag_get] 
+  Get insight/journal.tag [Operation ID: insight_project_journal_tag_get] 
 
 Synopsis
 
@@ -888,21 +773,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 ##### h1 insight journal tag delete
@@ -910,7 +796,7 @@ Operation options
 ```
 h1 insight journal tag delete
 
-  Delete insight/journal.tag [insight_project_journal_tag_delete] 
+  Delete insight/journal.tag [Operation ID: insight_project_journal_tag_delete] 
 
 Synopsis
 
@@ -926,21 +812,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 #### h1 insight journal event
@@ -958,33 +845,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                                  
-  list   List insight/journal.event [insight_project_journal_event_list] 
-  show   Get insight/journal.event [insight_project_journal_event_get]
-```
-
-##### h1 insight journal event spec
-
-```
-h1 insight journal event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 insight journal event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List insight/journal.event [Operation ID: insight_project_journal_event_list] 
+  show   Get insight/journal.event [Operation ID: insight_project_journal_event_get]
 ```
 
 ##### h1 insight journal event list
@@ -992,7 +854,7 @@ Operation options
 ```
 h1 insight journal event list
 
-  List insight/journal.event [insight_project_journal_event_list] 
+  List insight/journal.event [Operation ID: insight_project_journal_event_list] 
 
 Synopsis
 
@@ -1008,22 +870,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --$limit string         $limit      
-  --$skip string          $skip       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --$limit string        $limit      
+  --$skip string         $skip       
+  --skeleton
 ```
 
 ##### h1 insight journal event show
@@ -1031,7 +894,7 @@ Operation options
 ```
 h1 insight journal event show
 
-  Get insight/journal.event [insight_project_journal_event_get] 
+  Get insight/journal.event [Operation ID: insight_project_journal_event_get] 
 
 Synopsis
 
@@ -1047,21 +910,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --journal id-or-uri     Journal Id  
-  --event id-or-uri       eventId     
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --journal id-or-uri    Journal Id  
+  --event id-or-uri      eventId     
+  --skeleton
 ```
 
 #### h1 insight journal logger
@@ -1077,13 +941,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -1106,18 +971,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --journal string                                                    
   --project string                                                    
-  --log-file type    Path of the input json log file (default: stdin)
+  --log-file type    Path of the input json log file (default: stdin) 
+  --head number      Maximum number of lines to show. All if skipped.
 ```
 

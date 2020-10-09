@@ -13,26 +13,7 @@ Options
 
 Command List
 
-  spec       Print specification of context  
   registry   Management of registry resource
-```
-
-### h1 container spec
-
-```
-h1 container spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 container spec <options> 
-
-Global options
-
-  --help    Show help message and exit. 
-
-Operation options
 ```
 
 ### h1 container registry
@@ -50,45 +31,20 @@ Options
 
 Command List
 
-  spec         Print specification of context                                    
-  create       Create container/registry [container_project_registry_create]     
-  list         List container/registry [container_project_registry_list]         
-  show         Get container/registry [container_project_registry_get]           
-  update       Update container/registry [container_project_registry_update]     
-  delete       Delete container/registry [container_project_registry_delete]     
-  start        Start container/registry [container_project_registry_start]       
-  stop         Stop container/registry [container_project_registry_stop]         
-  transfer     Transfer container/registry [container_project_registry_transfer] 
-  repository   Manage repositories of the registry                               
-  credential   Manage credentials of the registry                                
-  domain       Manage domains of the registry                                    
-  service      Manage services of the registry                                   
-  tag          Manage tags of the registry                                       
+  create       Create container/registry [Operation ID: container_project_registry_create]     
+  list         List container/registry [Operation ID: container_project_registry_list]         
+  show         Get container/registry [Operation ID: container_project_registry_get]           
+  update       Update container/registry [Operation ID: container_project_registry_update]     
+  delete       Delete container/registry [Operation ID: container_project_registry_delete]     
+  start        Start container/registry [Operation ID: container_project_registry_start]       
+  stop         Stop container/registry [Operation ID: container_project_registry_stop]         
+  transfer     Transfer container/registry [Operation ID: container_project_registry_transfer] 
+  repository   Manage repositories of the registry                                             
+  credential   Manage credentials of the registry                                              
+  domain       Manage domains of the registry                                                  
+  service      Manage services of the registry                                                 
+  tag          Manage tags of the registry                                                     
   event        Manage events of the registry
-```
-
-#### h1 container registry spec
-
-```
-h1 container registry spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 container registry spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 #### h1 container registry create
@@ -96,7 +52,7 @@ Operation options
 ```
 h1 container registry create
 
-  Create container/registry [container_project_registry_create] 
+  Create container/registry [Operation ID: container_project_registry_create] 
 
 Synopsis
 
@@ -113,13 +69,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -129,7 +86,7 @@ Operation options
   --name string                Registry name                                          
   --service id-or-uri          Registry service. Provide ID or URI of billing/service 
   --tag key=key,value=value    Tag collection                                         
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 container registry list
@@ -137,7 +94,7 @@ Operation options
 ```
 h1 container registry list
 
-  List container/registry [container_project_registry_list] 
+  List container/registry [Operation ID: container_project_registry_list] 
 
 Synopsis
 
@@ -152,22 +109,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id          
-  --location id-or-uri    Location Id         
-  --name string           Filter by name      
-  --tag.value string      Filter by tag.value 
-  --tag.key string        Filter by tag.key   
-  --skeleton true,false
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key   
+  --skeleton
 ```
 
 #### h1 container registry show
@@ -175,7 +133,7 @@ Operation options
 ```
 h1 container registry show
 
-  Get container/registry [container_project_registry_get] 
+  Get container/registry [Operation ID: container_project_registry_get] 
 
 Synopsis
 
@@ -191,20 +149,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --skeleton
 ```
 
 #### h1 container registry update
@@ -212,7 +171,7 @@ Operation options
 ```
 h1 container registry update
 
-  Update container/registry [container_project_registry_update] 
+  Update container/registry [Operation ID: container_project_registry_update] 
 
 Synopsis
 
@@ -228,21 +187,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                                         
-  --location id-or-uri    Location Id                                                        
-  --registry id-or-uri    Registry Id                                                        
-  --name string           Registry name. Requires permissions container/registry.name/update 
-  --skeleton true,false
+  --project id-or-uri    Project Id                                                         
+  --location id-or-uri   Location Id                                                        
+  --registry id-or-uri   Registry Id                                                        
+  --name string          Registry name. Requires permissions container/registry.name/update 
+  --skeleton
 ```
 
 #### h1 container registry delete
@@ -250,7 +210,7 @@ Operation options
 ```
 h1 container registry delete
 
-  Delete container/registry [container_project_registry_delete] 
+  Delete container/registry [Operation ID: container_project_registry_delete] 
 
 Synopsis
 
@@ -266,20 +226,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --skeleton
 ```
 
 #### h1 container registry start
@@ -287,7 +248,7 @@ Operation options
 ```
 h1 container registry start
 
-  Start container/registry [container_project_registry_start] 
+  Start container/registry [Operation ID: container_project_registry_start] 
 
 Synopsis
 
@@ -295,13 +256,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -309,7 +271,7 @@ Operation options
   --location id-or-uri         Location Id     
   --registry id-or-uri         Registry Id     
   --x-idempotency-key string   Idempotency key 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 container registry stop
@@ -317,7 +279,7 @@ Operation options
 ```
 h1 container registry stop
 
-  Stop container/registry [container_project_registry_stop] 
+  Stop container/registry [Operation ID: container_project_registry_stop] 
 
 Synopsis
 
@@ -333,13 +295,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -347,7 +310,7 @@ Operation options
   --location id-or-uri         Location Id     
   --registry id-or-uri         Registry Id     
   --x-idempotency-key string   Idempotency key 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 container registry transfer
@@ -355,7 +318,7 @@ Operation options
 ```
 h1 container registry transfer
 
-  Transfer container/registry [container_project_registry_transfer] 
+  Transfer container/registry [Operation ID: container_project_registry_transfer] 
 
 Synopsis
 
@@ -363,23 +326,24 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri          Project Id                                                                    
-  --location id-or-uri         Location Id                                                                   
-  --registry id-or-uri         Registry Id                                                                   
-  --x-idempotency-key string   Idempotency key                                                               
-  --project id-or-uri          Registry project. Provide ID or URI of iam/project. Requires permissions      
-                               container/registry/create                                                     
-  --skeleton true,false
+  --project id-or-uri          Project Id                                                     
+  --location id-or-uri         Location Id                                                    
+  --registry id-or-uri         Registry Id                                                    
+  --x-idempotency-key string   Idempotency key                                                
+  --project id-or-uri          Registry project. Provide ID or URI of iam/project. Requires   
+                               permissions container/registry/create                          
+  --skeleton
 ```
 
 #### h1 container registry repository
@@ -397,34 +361,11 @@ Options
 
 Command List
 
-  spec    Print specification of context                                                  
-  list    List container/registry.repository [container_project_registry_repository_list] 
-  show    Get container/registry.repository [container_project_registry_repository_get]   
+  list    List container/registry.repository [Operation ID:                                   
+          container_project_registry_repository_list]                                         
+  show    Get container/registry.repository [Operation ID:                                    
+          container_project_registry_repository_get]                                          
   image   Manage images of the repository
-```
-
-##### h1 container registry repository spec
-
-```
-h1 container registry repository spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 container registry repository spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 ##### h1 container registry repository list
@@ -432,7 +373,8 @@ Operation options
 ```
 h1 container registry repository list
 
-  List container/registry.repository [container_project_registry_repository_list] 
+  List container/registry.repository [Operation ID:                             
+  container_project_registry_repository_list]                                   
 
 Synopsis
 
@@ -440,20 +382,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --skeleton
 ```
 
 ##### h1 container registry repository show
@@ -461,7 +404,8 @@ Operation options
 ```
 h1 container registry repository show
 
-  Get container/registry.repository [container_project_registry_repository_get] 
+  Get container/registry.repository [Operation ID:                              
+  container_project_registry_repository_get]                                    
 
 Synopsis
 
@@ -469,13 +413,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -483,7 +428,7 @@ Operation options
   --location id-or-uri     Location Id  
   --registry id-or-uri     Registry Id  
   --repository id-or-uri   repositoryId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 container registry repository image
@@ -501,34 +446,12 @@ Options
 
 Command List
 
-  spec     Print specification of context                                                       
-  list     List container/registry.image [container_project_registry_repository_image_list]     
-  show     Get container/registry.image [container_project_registry_repository_image_get]       
-  delete   Delete container/registry.image [container_project_registry_repository_image_delete]
-```
-
-###### h1 container registry repository image spec
-
-```
-h1 container registry repository image spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 container registry repository image spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list     List container/registry.image [Operation ID:                                       
+           container_project_registry_repository_image_list]                                  
+  show     Get container/registry.image [Operation ID:                                        
+           container_project_registry_repository_image_get]                                   
+  delete   Delete container/registry.image [Operation ID:                                     
+           container_project_registry_repository_image_delete]
 ```
 
 ###### h1 container registry repository image list
@@ -536,8 +459,8 @@ Operation options
 ```
 h1 container registry repository image list
 
-  List container/registry.image                                                 
-  [container_project_registry_repository_image_list]                            
+  List container/registry.image [Operation ID:                                  
+  container_project_registry_repository_image_list]                             
 
 Synopsis
 
@@ -545,13 +468,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -559,7 +483,7 @@ Operation options
   --location id-or-uri     Location Id  
   --registry id-or-uri     Registry Id  
   --repository id-or-uri   repositoryId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 container registry repository image show
@@ -567,7 +491,8 @@ Operation options
 ```
 h1 container registry repository image show
 
-  Get container/registry.image [container_project_registry_repository_image_get] 
+  Get container/registry.image [Operation ID:                                   
+  container_project_registry_repository_image_get]                              
 
 Synopsis
 
@@ -575,13 +500,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -590,7 +516,7 @@ Operation options
   --registry id-or-uri     Registry Id  
   --repository id-or-uri   repositoryId 
   --image id-or-uri        imageId      
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 container registry repository image delete
@@ -598,8 +524,8 @@ Operation options
 ```
 h1 container registry repository image delete
 
-  Delete container/registry.image                                               
-  [container_project_registry_repository_image_delete]                          
+  Delete container/registry.image [Operation ID:                                
+  container_project_registry_repository_image_delete]                           
 
 Synopsis
 
@@ -607,13 +533,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -622,7 +549,7 @@ Operation options
   --registry id-or-uri     Registry Id  
   --repository id-or-uri   repositoryId 
   --image id-or-uri        imageId      
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 container registry credential
@@ -640,36 +567,16 @@ Options
 
 Command List
 
-  spec     Print specification of context                                                      
-  create   Create container/registry.credential [container_project_registry_credential_create] 
-  list     List container/registry.credential [container_project_registry_credential_list]     
-  show     Get container/registry.credential [container_project_registry_credential_get]       
-  update   Update container/registry.credential [container_project_registry_credential_patch]  
-  delete   Delete container/registry.credential [container_project_registry_credential_delete]
-```
-
-##### h1 container registry credential spec
-
-```
-h1 container registry credential spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 container registry credential spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create container/registry.credential [Operation ID:                                
+           container_project_registry_credential_create]                                      
+  list     List container/registry.credential [Operation ID:                                  
+           container_project_registry_credential_list]                                        
+  show     Get container/registry.credential [Operation ID:                                   
+           container_project_registry_credential_get]                                         
+  update   Update container/registry.credential [Operation ID:                                
+           container_project_registry_credential_patch]                                       
+  delete   Delete container/registry.credential [Operation ID:                                
+           container_project_registry_credential_delete]
 ```
 
 ##### h1 container registry credential create
@@ -677,8 +584,8 @@ Operation options
 ```
 h1 container registry credential create
 
-  Create container/registry.credential                                          
-  [container_project_registry_credential_create]                                
+  Create container/registry.credential [Operation ID:                           
+  container_project_registry_credential_create]                                 
 
 Synopsis
 
@@ -695,24 +602,25 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id       
-  --location id-or-uri    Location Id      
-  --registry id-or-uri    Registry Id      
-  --name string           Credential name  
-  --type string           Credential type  
-  --value string          Credential value 
-  --token string          Credential token 
-  --skeleton true,false
+  --project id-or-uri    Project Id       
+  --location id-or-uri   Location Id      
+  --registry id-or-uri   Registry Id      
+  --name string          Credential name  
+  --type sha512,plain    Credential type  
+  --value string         Credential value 
+  --token string         Credential token 
+  --skeleton
 ```
 
 ##### h1 container registry credential list
@@ -720,7 +628,8 @@ Operation options
 ```
 h1 container registry credential list
 
-  List container/registry.credential [container_project_registry_credential_list] 
+  List container/registry.credential [Operation ID:                             
+  container_project_registry_credential_list]                                   
 
 Synopsis
 
@@ -736,20 +645,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --skeleton
 ```
 
 ##### h1 container registry credential show
@@ -757,7 +667,8 @@ Operation options
 ```
 h1 container registry credential show
 
-  Get container/registry.credential [container_project_registry_credential_get] 
+  Get container/registry.credential [Operation ID:                              
+  container_project_registry_credential_get]                                    
 
 Synopsis
 
@@ -773,13 +684,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -787,7 +699,7 @@ Operation options
   --location id-or-uri     Location Id  
   --registry id-or-uri     Registry Id  
   --credential id-or-uri   credentialId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 container registry credential update
@@ -795,8 +707,8 @@ Operation options
 ```
 h1 container registry credential update
 
-  Update container/registry.credential                                          
-  [container_project_registry_credential_patch]                                 
+  Update container/registry.credential [Operation ID:                           
+  container_project_registry_credential_patch]                                  
 
 Synopsis
 
@@ -804,23 +716,24 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri      Project Id                                                                    
-  --location id-or-uri     Location Id                                                                   
-  --registry id-or-uri     Registry Id                                                                   
-  --credential id-or-uri   credentialId                                                                  
-  --name string            Credential name. Requires permissions                                         
-                           container/registry.credential.name/update                                     
-  --skeleton true,false
+  --project id-or-uri      Project Id                                                         
+  --location id-or-uri     Location Id                                                        
+  --registry id-or-uri     Registry Id                                                        
+  --credential id-or-uri   credentialId                                                       
+  --name string            Credential name. Requires permissions                              
+                           container/registry.credential.name/update                          
+  --skeleton
 ```
 
 ##### h1 container registry credential delete
@@ -828,8 +741,8 @@ Operation options
 ```
 h1 container registry credential delete
 
-  Delete container/registry.credential                                          
-  [container_project_registry_credential_delete]                                
+  Delete container/registry.credential [Operation ID:                           
+  container_project_registry_credential_delete]                                 
 
 Synopsis
 
@@ -845,13 +758,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -859,7 +773,7 @@ Operation options
   --location id-or-uri     Location Id  
   --registry id-or-uri     Registry Id  
   --credential id-or-uri   credentialId 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 container registry domain
@@ -877,35 +791,14 @@ Options
 
 Command List
 
-  spec     Print specification of context                                              
-  create   Create container/registry.domain [container_project_registry_domain_create] 
-  list     List container/registry.domain [container_project_registry_domain_list]     
-  show     Get container/registry.domain [container_project_registry_domain_get]       
-  delete   Delete container/registry.domain [container_project_registry_domain_delete]
-```
-
-##### h1 container registry domain spec
-
-```
-h1 container registry domain spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 container registry domain spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create container/registry.domain [Operation ID:                                    
+           container_project_registry_domain_create]                                          
+  list     List container/registry.domain [Operation ID:                                      
+           container_project_registry_domain_list]                                            
+  show     Get container/registry.domain [Operation ID:                                       
+           container_project_registry_domain_get]                                             
+  delete   Delete container/registry.domain [Operation ID:                                    
+           container_project_registry_domain_delete]
 ```
 
 ##### h1 container registry domain create
@@ -913,7 +806,8 @@ Operation options
 ```
 h1 container registry domain create
 
-  Create container/registry.domain [container_project_registry_domain_create] 
+  Create container/registry.domain [Operation ID:                               
+  container_project_registry_domain_create]                                     
 
 Synopsis
 
@@ -921,21 +815,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id   
-  --location id-or-uri    Location Id  
-  --registry id-or-uri    Registry Id  
-  --value string          Domain value 
-  --skeleton true,false
+  --project id-or-uri    Project Id   
+  --location id-or-uri   Location Id  
+  --registry id-or-uri   Registry Id  
+  --value string         Domain value 
+  --skeleton
 ```
 
 ##### h1 container registry domain list
@@ -943,7 +838,8 @@ Operation options
 ```
 h1 container registry domain list
 
-  List container/registry.domain [container_project_registry_domain_list] 
+  List container/registry.domain [Operation ID:                                 
+  container_project_registry_domain_list]                                       
 
 Synopsis
 
@@ -951,20 +847,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --skeleton
 ```
 
 ##### h1 container registry domain show
@@ -972,7 +869,8 @@ Operation options
 ```
 h1 container registry domain show
 
-  Get container/registry.domain [container_project_registry_domain_get] 
+  Get container/registry.domain [Operation ID:                                  
+  container_project_registry_domain_get]                                        
 
 Synopsis
 
@@ -980,21 +878,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --domain id-or-uri      domainId    
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --domain id-or-uri     domainId    
+  --skeleton
 ```
 
 ##### h1 container registry domain delete
@@ -1002,7 +901,8 @@ Operation options
 ```
 h1 container registry domain delete
 
-  Delete container/registry.domain [container_project_registry_domain_delete] 
+  Delete container/registry.domain [Operation ID:                               
+  container_project_registry_domain_delete]                                     
 
 Synopsis
 
@@ -1010,21 +910,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --domain id-or-uri      domainId    
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --domain id-or-uri     domainId    
+  --skeleton
 ```
 
 #### h1 container registry service
@@ -1042,33 +943,10 @@ Options
 
 Command List
 
-  spec   Print specification of context                                            
-  list   List container/registry.service [container_project_registry_service_list] 
-  show   Get container/registry.service [container_project_registry_service_get]
-```
-
-##### h1 container registry service spec
-
-```
-h1 container registry service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 container registry service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List container/registry.service [Operation ID:                                       
+         container_project_registry_service_list]                                             
+  show   Get container/registry.service [Operation ID:                                        
+         container_project_registry_service_get]
 ```
 
 ##### h1 container registry service list
@@ -1076,7 +954,8 @@ Operation options
 ```
 h1 container registry service list
 
-  List container/registry.service [container_project_registry_service_list] 
+  List container/registry.service [Operation ID:                                
+  container_project_registry_service_list]                                      
 
 Synopsis
 
@@ -1092,20 +971,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --skeleton
 ```
 
 ##### h1 container registry service show
@@ -1113,7 +993,8 @@ Operation options
 ```
 h1 container registry service show
 
-  Get container/registry.service [container_project_registry_service_get] 
+  Get container/registry.service [Operation ID:                                 
+  container_project_registry_service_get]                                       
 
 Synopsis
 
@@ -1129,21 +1010,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --service id-or-uri     serviceId   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --service id-or-uri    serviceId   
+  --skeleton
 ```
 
 #### h1 container registry tag
@@ -1161,35 +1043,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                                        
-  create   Create container/registry.tag [container_project_registry_tag_create] 
-  list     List container/registry.tag [container_project_registry_tag_list]     
-  show     Get container/registry.tag [container_project_registry_tag_get]       
-  delete   Delete container/registry.tag [container_project_registry_tag_delete]
-```
-
-##### h1 container registry tag spec
-
-```
-h1 container registry tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 container registry tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create container/registry.tag [Operation ID: container_project_registry_tag_create] 
+  list     List container/registry.tag [Operation ID: container_project_registry_tag_list]     
+  show     Get container/registry.tag [Operation ID: container_project_registry_tag_get]       
+  delete   Delete container/registry.tag [Operation ID: container_project_registry_tag_delete]
 ```
 
 ##### h1 container registry tag create
@@ -1197,7 +1054,8 @@ Operation options
 ```
 h1 container registry tag create
 
-  Create container/registry.tag [container_project_registry_tag_create] 
+  Create container/registry.tag [Operation ID:                                  
+  container_project_registry_tag_create]                                        
 
 Synopsis
 
@@ -1213,22 +1071,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --key string            Tag key     
-  --value string          Tag value   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --key string           Tag key     
+  --value string         Tag value   
+  --skeleton
 ```
 
 ##### h1 container registry tag list
@@ -1236,7 +1095,7 @@ Operation options
 ```
 h1 container registry tag list
 
-  List container/registry.tag [container_project_registry_tag_list] 
+  List container/registry.tag [Operation ID: container_project_registry_tag_list] 
 
 Synopsis
 
@@ -1252,20 +1111,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --skeleton
 ```
 
 ##### h1 container registry tag show
@@ -1273,7 +1133,7 @@ Operation options
 ```
 h1 container registry tag show
 
-  Get container/registry.tag [container_project_registry_tag_get] 
+  Get container/registry.tag [Operation ID: container_project_registry_tag_get] 
 
 Synopsis
 
@@ -1289,21 +1149,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 ##### h1 container registry tag delete
@@ -1311,7 +1172,8 @@ Operation options
 ```
 h1 container registry tag delete
 
-  Delete container/registry.tag [container_project_registry_tag_delete] 
+  Delete container/registry.tag [Operation ID:                                  
+  container_project_registry_tag_delete]                                        
 
 Synopsis
 
@@ -1327,21 +1189,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 #### h1 container registry event
@@ -1359,33 +1222,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                                        
-  list   List container/registry.event [container_project_registry_event_list] 
-  show   Get container/registry.event [container_project_registry_event_get]
-```
-
-##### h1 container registry event spec
-
-```
-h1 container registry event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 container registry event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List container/registry.event [Operation ID: container_project_registry_event_list] 
+  show   Get container/registry.event [Operation ID: container_project_registry_event_get]
 ```
 
 ##### h1 container registry event list
@@ -1393,7 +1231,8 @@ Operation options
 ```
 h1 container registry event list
 
-  List container/registry.event [container_project_registry_event_list] 
+  List container/registry.event [Operation ID:                                  
+  container_project_registry_event_list]                                        
 
 Synopsis
 
@@ -1409,22 +1248,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --$limit string         $limit      
-  --$skip string          $skip       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --$limit string        $limit      
+  --$skip string         $skip       
+  --skeleton
 ```
 
 ##### h1 container registry event show
@@ -1432,7 +1272,8 @@ Operation options
 ```
 h1 container registry event show
 
-  Get container/registry.event [container_project_registry_event_get] 
+  Get container/registry.event [Operation ID:                                   
+  container_project_registry_event_get]                                         
 
 Synopsis
 
@@ -1448,20 +1289,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --registry id-or-uri    Registry Id 
-  --event id-or-uri       eventId     
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --registry id-or-uri   Registry Id 
+  --event id-or-uri      eventId     
+  --skeleton
 ```
 

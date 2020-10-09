@@ -32,13 +32,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -59,13 +60,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -88,13 +90,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -115,13 +118,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 

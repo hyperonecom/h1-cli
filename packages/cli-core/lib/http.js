@@ -53,13 +53,13 @@ export default (device, logger) => {
     const request = async (method, uri, options) => {
         const resp = await baseRequest(method, uri, options);
         const type = resp.headers.get('content-type');
-
-        if (resp.status == 204) {
+        const length = resp.headers.get('content-length');
+        if (resp.status == 204 || length == '0') {
             return;
         }
-        const encoding = resp.headers.get("transfer-encoding");
+        const encoding = resp.headers.get('transfer-encoding');
 
-        if (type.startsWith('text/plain')) {
+        if (type && type.startsWith('text/plain')) {
             if (encoding == 'chunked') {
                 return resp;
             }
@@ -68,7 +68,7 @@ export default (device, logger) => {
             return respText;
         }
 
-        if (type.startsWith('application/json')) {
+        if (type && type.startsWith('application/json')) {
             const respJson = await resp.json();
             logger.debug('response json', respJson);
             return respJson;

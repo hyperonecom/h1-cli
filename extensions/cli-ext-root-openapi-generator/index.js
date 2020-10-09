@@ -6,12 +6,6 @@ import { deCamelCase } from '@hyperone/cli-core/lib/transform';
 
 import request from './request';
 
-const printCommand = (name, content) => new Command({
-    name,
-    summary: 'Print specification of context',
-    handler: () => content,
-});
-
 const applyMiddleware = async (middlewares, name, value, ...args) => {
     for (const middleware of middlewares.filter(x => x[name])) {
         value = middleware[name](await value, ...args);
@@ -25,21 +19,20 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
         ...operation.parameters || [],
         ...endpoint.parameters || [],
     ];
-    const middlewares = request.middlewareForSchema(operation);
+    const middlewares = request.middlewareForOperation(operation);
     const options = await applyMiddleware(middlewares, 'afterRenderOptions',
         request.renderOptions(operation, parameters)
     );
 
     const cmd = new Command({
         name,
-        summary: `${operation.summary} [${operation.operationId}]`,
+        summary: `${operation.summary} [Operation ID: ${operation.operationId}]`,
         options: [
             ...options,
             {
                 name: 'skeleton',
-                type: (value) => value == 'true',
-                typeLabel: 'true,false',
-                choices: ['true', 'false'],
+                default: false,
+                type: Boolean,
             },
         ],
         tags: [operation.operationId],
@@ -67,25 +60,21 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
 
             let requestBody;
             if (['post', 'patch', 'put'].includes(method)) {
-                requestBody = await applyMiddleware(middlewares, 'afterRenderBody',
-                    request.renderBody(operation, optsAll, options),
-                    opts
-                );
+                requestBody = request.renderBody(operation, optsAll, options);
             }
-
             if (optsAll.skeleton) {
                 return {
                     parameters,
                     requestBody: requestBody || {},
                 };
             }
-            const resp = await applyMiddleware(middlewares, 'afterResponse',
-                opts.api[method](url, {
-                    json: requestBody,
-                    query,
-                }),
-                opts, requestBody
+            requestBody = await applyMiddleware(middlewares, 'beforeRequest',
+                requestBody, url, opts, options
             );
+            const resp = await opts.api[method](url, {
+                json: requestBody,
+                query,
+            });
             return opts.format(opts, resp);
         },
     });
@@ -97,8 +86,6 @@ export const makeResourceCommand = (resource, ctx) => () => {
         name: deCamelCase(resource.type),
         summary: ctx.description || `Management of ${resource.type} resource`,
     });
-
-    cmd.addCommand(() => printCommand('spec', ctx));
 
     const collectionEndpoint = openapi.getPath(ctx.path) || {};
 
@@ -202,8 +189,6 @@ export const buildNamespaceCommand = (name, spec, ctx) => async () => {
         summary: `Management of ${name} namespace`,
         extensions: [`@hyperone/cli-ext-${name}`],
     });
-
-    cmd.addCommand(printCommand('spec', spec, ctx));
 
     const children = [
         ...openapi.getChild(ctx.path),

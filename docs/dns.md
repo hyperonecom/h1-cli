@@ -13,26 +13,7 @@ Options
 
 Command List
 
-  spec   Print specification of context 
   zone   Management of zone resource
-```
-
-### h1 dns spec
-
-```
-h1 dns spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 dns spec <options> 
-
-Global options
-
-  --help    Show help message and exit. 
-
-Operation options
 ```
 
 ### h1 dns zone
@@ -50,40 +31,15 @@ Options
 
 Command List
 
-  spec        Print specification of context            
-  create      Create dns/zone [dns_project_zone_create] 
-  list        List dns/zone [dns_project_zone_list]     
-  show        Get dns/zone [dns_project_zone_get]       
-  update      Update dns/zone [dns_project_zone_update] 
-  delete      Delete dns/zone [dns_project_zone_delete] 
-  recordset   Manage recordsets of the zone             
-  service     Manage services of the zone               
-  tag         Manage tags of the zone                   
+  create      Create dns/zone [Operation ID: dns_project_zone_create] 
+  list        List dns/zone [Operation ID: dns_project_zone_list]     
+  show        Get dns/zone [Operation ID: dns_project_zone_get]       
+  update      Update dns/zone [Operation ID: dns_project_zone_update] 
+  delete      Delete dns/zone [Operation ID: dns_project_zone_delete] 
+  recordset   Manage recordsets of the zone                           
+  service     Manage services of the zone                             
+  tag         Manage tags of the zone                                 
   event       Manage events of the zone
-```
-
-#### h1 dns zone spec
-
-```
-h1 dns zone spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 dns zone spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 #### h1 dns zone create
@@ -91,7 +47,7 @@ Operation options
 ```
 h1 dns zone create
 
-  Create dns/zone [dns_project_zone_create] 
+  Create dns/zone [Operation ID: dns_project_zone_create] 
 
 Synopsis
 
@@ -108,13 +64,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -126,7 +83,7 @@ Operation options
   --dns-name string                 Zone dnsName                                       
   --source-dns-probing true,false   Source dnsProbing                                  
   --tag key=key,value=value         Tag collection                                     
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 dns zone list
@@ -134,7 +91,7 @@ Operation options
 ```
 h1 dns zone list
 
-  List dns/zone [dns_project_zone_list] 
+  List dns/zone [Operation ID: dns_project_zone_list] 
 
 Synopsis
 
@@ -149,22 +106,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id          
-  --location id-or-uri    Location Id         
-  --name string           Filter by name      
-  --tag.value string      Filter by tag.value 
-  --tag.key string        Filter by tag.key   
-  --skeleton true,false
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key   
+  --skeleton
 ```
 
 #### h1 dns zone show
@@ -172,7 +130,7 @@ Operation options
 ```
 h1 dns zone show
 
-  Get dns/zone [dns_project_zone_get] 
+  Get dns/zone [Operation ID: dns_project_zone_get] 
 
 Synopsis
 
@@ -188,20 +146,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --zone id-or-uri        Zone Id     
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --skeleton
 ```
 
 #### h1 dns zone update
@@ -209,7 +168,7 @@ Operation options
 ```
 h1 dns zone update
 
-  Update dns/zone [dns_project_zone_update] 
+  Update dns/zone [Operation ID: dns_project_zone_update] 
 
 Synopsis
 
@@ -225,21 +184,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                           
-  --location id-or-uri    Location Id                                          
-  --zone id-or-uri        Zone Id                                              
-  --name string           Zone name. Requires permissions dns/zone.name/update 
-  --skeleton true,false
+  --project id-or-uri    Project Id                                           
+  --location id-or-uri   Location Id                                          
+  --zone id-or-uri       Zone Id                                              
+  --name string          Zone name. Requires permissions dns/zone.name/update 
+  --skeleton
 ```
 
 #### h1 dns zone delete
@@ -247,7 +207,7 @@ Operation options
 ```
 h1 dns zone delete
 
-  Delete dns/zone [dns_project_zone_delete] 
+  Delete dns/zone [Operation ID: dns_project_zone_delete] 
 
 Synopsis
 
@@ -263,20 +223,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --zone id-or-uri        Zone Id     
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --skeleton
 ```
 
 #### h1 dns zone recordset
@@ -294,37 +255,12 @@ Options
 
 Command List
 
-  spec     Print specification of context                                
-  create   Create dns/zone.recordset [dns_project_zone_recordset_create] 
-  list     List dns/zone.recordset [dns_project_zone_recordset_list]     
-  show     Get dns/zone.recordset [dns_project_zone_recordset_get]       
-  update   Update dns/zone.recordset [dns_project_zone_recordset_patch]  
-  delete   Delete dns/zone.recordset [dns_project_zone_recordset_delete] 
+  create   Create dns/zone.recordset [Operation ID: dns_project_zone_recordset_create] 
+  list     List dns/zone.recordset [Operation ID: dns_project_zone_recordset_list]     
+  show     Get dns/zone.recordset [Operation ID: dns_project_zone_recordset_get]       
+  update   Update dns/zone.recordset [Operation ID: dns_project_zone_recordset_patch]  
+  delete   Delete dns/zone.recordset [Operation ID: dns_project_zone_recordset_delete] 
   record   Manage records of the recordset
-```
-
-##### h1 dns zone recordset spec
-
-```
-h1 dns zone recordset spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 dns zone recordset spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 ##### h1 dns zone recordset create
@@ -332,7 +268,7 @@ Operation options
 ```
 h1 dns zone recordset create
 
-  Create dns/zone.recordset [dns_project_zone_recordset_create] 
+  Create dns/zone.recordset [Operation ID: dns_project_zone_recordset_create] 
 
 Synopsis
 
@@ -349,24 +285,25 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri                        Project Id                      
-  --location id-or-uri                       Location Id                     
-  --zone id-or-uri                           Zone Id                         
-  --name string                              Recordset name                  
-  --type string                              Recordset type                  
-  --ttl string                               Recordset ttl. Defaults is 3600 
-  --record content=content,enabled=enabled   Record collection               
-  --skeleton true,false
+  --project id-or-uri                             Project Id                      
+  --location id-or-uri                            Location Id                     
+  --zone id-or-uri                                Zone Id                         
+  --name string                                   Recordset name                  
+  --type A,AAAA,CAA,CNAME,MX,NS,PTR,SOA,SRV,TXT   Recordset type                  
+  --ttl string                                    Recordset ttl. Defaults is 3600 
+  --record content=content,enabled=enabled        Record collection               
+  --skeleton
 ```
 
 ##### h1 dns zone recordset list
@@ -374,7 +311,7 @@ Operation options
 ```
 h1 dns zone recordset list
 
-  List dns/zone.recordset [dns_project_zone_recordset_list] 
+  List dns/zone.recordset [Operation ID: dns_project_zone_recordset_list] 
 
 Synopsis
 
@@ -390,20 +327,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --zone id-or-uri        Zone Id     
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --skeleton
 ```
 
 ##### h1 dns zone recordset show
@@ -411,7 +349,7 @@ Operation options
 ```
 h1 dns zone recordset show
 
-  Get dns/zone.recordset [dns_project_zone_recordset_get] 
+  Get dns/zone.recordset [Operation ID: dns_project_zone_recordset_get] 
 
 Synopsis
 
@@ -427,13 +365,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -441,7 +380,7 @@ Operation options
   --location id-or-uri    Location Id 
   --zone id-or-uri        Zone Id     
   --recordset id-or-uri   recordsetId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 dns zone recordset update
@@ -449,7 +388,7 @@ Operation options
 ```
 h1 dns zone recordset update
 
-  Update dns/zone.recordset [dns_project_zone_recordset_patch] 
+  Update dns/zone.recordset [Operation ID: dns_project_zone_recordset_patch] 
 
 Synopsis
 
@@ -457,23 +396,24 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                                                    
-  --location id-or-uri    Location Id                                                                   
-  --zone id-or-uri        Zone Id                                                                       
-  --recordset id-or-uri   recordsetId                                                                   
-  --ttl string            Recordset ttl. Requires permissions dns/zone.recordset.ttl/update. Defaults   
-                          is 3600                                                                       
-  --skeleton true,false
+  --project id-or-uri     Project Id                                                          
+  --location id-or-uri    Location Id                                                         
+  --zone id-or-uri        Zone Id                                                             
+  --recordset id-or-uri   recordsetId                                                         
+  --ttl string            Recordset ttl. Requires permissions dns/zone.recordset.ttl/update.  
+                          Defaults is 3600                                                    
+  --skeleton
 ```
 
 ##### h1 dns zone recordset delete
@@ -481,7 +421,7 @@ Operation options
 ```
 h1 dns zone recordset delete
 
-  Delete dns/zone.recordset [dns_project_zone_recordset_delete] 
+  Delete dns/zone.recordset [Operation ID: dns_project_zone_recordset_delete] 
 
 Synopsis
 
@@ -497,13 +437,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -511,7 +452,7 @@ Operation options
   --location id-or-uri    Location Id 
   --zone id-or-uri        Zone Id     
   --recordset id-or-uri   recordsetId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 dns zone recordset record
@@ -529,35 +470,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                                    
-  create   Create dns/zone.record [dns_project_zone_recordset_record_create] 
-  list     List dns/zone.record [dns_project_zone_recordset_record_list]     
-  show     Get dns/zone.record [dns_project_zone_recordset_record_get]       
-  delete   Delete dns/zone.record [dns_project_zone_recordset_record_delete]
-```
-
-###### h1 dns zone recordset record spec
-
-```
-h1 dns zone recordset record spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 dns zone recordset record spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create dns/zone.record [Operation ID: dns_project_zone_recordset_record_create] 
+  list     List dns/zone.record [Operation ID: dns_project_zone_recordset_record_list]     
+  show     Get dns/zone.record [Operation ID: dns_project_zone_recordset_record_get]       
+  delete   Delete dns/zone.record [Operation ID: dns_project_zone_recordset_record_delete]
 ```
 
 ###### h1 dns zone recordset record create
@@ -565,7 +481,7 @@ Operation options
 ```
 h1 dns zone recordset record create
 
-  Create dns/zone.record [dns_project_zone_recordset_record_create] 
+  Create dns/zone.record [Operation ID: dns_project_zone_recordset_record_create] 
 
 Synopsis
 
@@ -573,13 +489,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -589,7 +506,7 @@ Operation options
   --recordset id-or-uri   recordsetId                      
   --content string        Record content                   
   --enabled true,false    Record enabled. Defaults is true 
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 dns zone recordset record list
@@ -597,7 +514,7 @@ Operation options
 ```
 h1 dns zone recordset record list
 
-  List dns/zone.record [dns_project_zone_recordset_record_list] 
+  List dns/zone.record [Operation ID: dns_project_zone_recordset_record_list] 
 
 Synopsis
 
@@ -605,13 +522,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -619,7 +537,7 @@ Operation options
   --location id-or-uri    Location Id 
   --zone id-or-uri        Zone Id     
   --recordset id-or-uri   recordsetId 
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 dns zone recordset record show
@@ -627,7 +545,7 @@ Operation options
 ```
 h1 dns zone recordset record show
 
-  Get dns/zone.record [dns_project_zone_recordset_record_get] 
+  Get dns/zone.record [Operation ID: dns_project_zone_recordset_record_get] 
 
 Synopsis
 
@@ -635,13 +553,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -650,7 +569,7 @@ Operation options
   --zone id-or-uri        Zone Id     
   --recordset id-or-uri   recordsetId 
   --record id-or-uri      recordId    
-  --skeleton true,false
+  --skeleton
 ```
 
 ###### h1 dns zone recordset record delete
@@ -658,7 +577,7 @@ Operation options
 ```
 h1 dns zone recordset record delete
 
-  Delete dns/zone.record [dns_project_zone_recordset_record_delete] 
+  Delete dns/zone.record [Operation ID: dns_project_zone_recordset_record_delete] 
 
 Synopsis
 
@@ -666,13 +585,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -681,7 +601,7 @@ Operation options
   --zone id-or-uri        Zone Id     
   --recordset id-or-uri   recordsetId 
   --record id-or-uri      recordId    
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 dns zone service
@@ -699,33 +619,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                        
-  list   List dns/zone.service [dns_project_zone_service_list] 
-  show   Get dns/zone.service [dns_project_zone_service_get]
-```
-
-##### h1 dns zone service spec
-
-```
-h1 dns zone service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 dns zone service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List dns/zone.service [Operation ID: dns_project_zone_service_list] 
+  show   Get dns/zone.service [Operation ID: dns_project_zone_service_get]
 ```
 
 ##### h1 dns zone service list
@@ -733,7 +628,7 @@ Operation options
 ```
 h1 dns zone service list
 
-  List dns/zone.service [dns_project_zone_service_list] 
+  List dns/zone.service [Operation ID: dns_project_zone_service_list] 
 
 Synopsis
 
@@ -749,20 +644,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --zone id-or-uri        Zone Id     
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --skeleton
 ```
 
 ##### h1 dns zone service show
@@ -770,7 +666,7 @@ Operation options
 ```
 h1 dns zone service show
 
-  Get dns/zone.service [dns_project_zone_service_get] 
+  Get dns/zone.service [Operation ID: dns_project_zone_service_get] 
 
 Synopsis
 
@@ -786,21 +682,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --zone id-or-uri        Zone Id     
-  --service id-or-uri     serviceId   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --service id-or-uri    serviceId   
+  --skeleton
 ```
 
 #### h1 dns zone tag
@@ -818,35 +715,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                    
-  create   Create dns/zone.tag [dns_project_zone_tag_create] 
-  list     List dns/zone.tag [dns_project_zone_tag_list]     
-  show     Get dns/zone.tag [dns_project_zone_tag_get]       
-  delete   Delete dns/zone.tag [dns_project_zone_tag_delete]
-```
-
-##### h1 dns zone tag spec
-
-```
-h1 dns zone tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 dns zone tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create dns/zone.tag [Operation ID: dns_project_zone_tag_create] 
+  list     List dns/zone.tag [Operation ID: dns_project_zone_tag_list]     
+  show     Get dns/zone.tag [Operation ID: dns_project_zone_tag_get]       
+  delete   Delete dns/zone.tag [Operation ID: dns_project_zone_tag_delete]
 ```
 
 ##### h1 dns zone tag create
@@ -854,7 +726,7 @@ Operation options
 ```
 h1 dns zone tag create
 
-  Create dns/zone.tag [dns_project_zone_tag_create] 
+  Create dns/zone.tag [Operation ID: dns_project_zone_tag_create] 
 
 Synopsis
 
@@ -870,22 +742,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --zone id-or-uri        Zone Id     
-  --key string            Tag key     
-  --value string          Tag value   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --key string           Tag key     
+  --value string         Tag value   
+  --skeleton
 ```
 
 ##### h1 dns zone tag list
@@ -893,7 +766,7 @@ Operation options
 ```
 h1 dns zone tag list
 
-  List dns/zone.tag [dns_project_zone_tag_list] 
+  List dns/zone.tag [Operation ID: dns_project_zone_tag_list] 
 
 Synopsis
 
@@ -909,20 +782,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --zone id-or-uri        Zone Id     
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --skeleton
 ```
 
 ##### h1 dns zone tag show
@@ -930,7 +804,7 @@ Operation options
 ```
 h1 dns zone tag show
 
-  Get dns/zone.tag [dns_project_zone_tag_get] 
+  Get dns/zone.tag [Operation ID: dns_project_zone_tag_get] 
 
 Synopsis
 
@@ -946,21 +820,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --zone id-or-uri        Zone Id     
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 ##### h1 dns zone tag delete
@@ -968,7 +843,7 @@ Operation options
 ```
 h1 dns zone tag delete
 
-  Delete dns/zone.tag [dns_project_zone_tag_delete] 
+  Delete dns/zone.tag [Operation ID: dns_project_zone_tag_delete] 
 
 Synopsis
 
@@ -984,21 +859,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --zone id-or-uri        Zone Id     
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 #### h1 dns zone event
@@ -1016,33 +892,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                    
-  list   List dns/zone.event [dns_project_zone_event_list] 
-  show   Get dns/zone.event [dns_project_zone_event_get]
-```
-
-##### h1 dns zone event spec
-
-```
-h1 dns zone event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 dns zone event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List dns/zone.event [Operation ID: dns_project_zone_event_list] 
+  show   Get dns/zone.event [Operation ID: dns_project_zone_event_get]
 ```
 
 ##### h1 dns zone event list
@@ -1050,7 +901,7 @@ Operation options
 ```
 h1 dns zone event list
 
-  List dns/zone.event [dns_project_zone_event_list] 
+  List dns/zone.event [Operation ID: dns_project_zone_event_list] 
 
 Synopsis
 
@@ -1066,22 +917,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --zone id-or-uri        Zone Id     
-  --$limit string         $limit      
-  --$skip string          $skip       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --$limit string        $limit      
+  --$skip string         $skip       
+  --skeleton
 ```
 
 ##### h1 dns zone event show
@@ -1089,7 +941,7 @@ Operation options
 ```
 h1 dns zone event show
 
-  Get dns/zone.event [dns_project_zone_event_get] 
+  Get dns/zone.event [Operation ID: dns_project_zone_event_get] 
 
 Synopsis
 
@@ -1105,20 +957,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --zone id-or-uri        Zone Id     
-  --event id-or-uri       eventId     
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --zone id-or-uri       Zone Id     
+  --event id-or-uri      eventId     
+  --skeleton
 ```
 

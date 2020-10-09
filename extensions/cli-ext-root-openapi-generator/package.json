@@ -20,6 +20,7 @@
   "dependencies": {
     "@hyperone/cli-core": "link:../../packages/cli-core",
     "@hyperone/cli-framework": "link:../../packages/cli-framework",
+    "aws-sdk": "^2.770.0",
     "jsonpatch": "^3.0.1",
     "openapi-sampler": "^1.0.0-beta.16",
     "pluralize": "^8.0.0",

@@ -13,27 +13,8 @@ Options
 
 Command List
 
-  spec      Print specification of context 
   replica   Management of replica resource 
   vm        Management of vm resource
-```
-
-### h1 compute spec
-
-```
-h1 compute spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute spec <options> 
-
-Global options
-
-  --help    Show help message and exit. 
-
-Operation options
 ```
 
 ### h1 compute replica
@@ -51,38 +32,13 @@ Options
 
 Command List
 
-  spec      Print specification of context                          
-  create    Create compute/replica [compute_project_replica_create] 
-  list      List compute/replica [compute_project_replica_list]     
-  show      Get compute/replica [compute_project_replica_get]       
-  delete    Delete compute/replica [compute_project_replica_delete] 
-  service   Manage services of the replica                          
-  tag       Manage tags of the replica                              
+  create    Create compute/replica [Operation ID: compute_project_replica_create] 
+  list      List compute/replica [Operation ID: compute_project_replica_list]     
+  show      Get compute/replica [Operation ID: compute_project_replica_get]       
+  delete    Delete compute/replica [Operation ID: compute_project_replica_delete] 
+  service   Manage services of the replica                                        
+  tag       Manage tags of the replica                                            
   event     Manage events of the replica
-```
-
-#### h1 compute replica spec
-
-```
-h1 compute replica spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute replica spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 #### h1 compute replica create
@@ -90,7 +46,7 @@ Operation options
 ```
 h1 compute replica create
 
-  Create compute/replica [compute_project_replica_create] 
+  Create compute/replica [Operation ID: compute_project_replica_create] 
 
 Synopsis
 
@@ -98,13 +54,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -113,7 +70,7 @@ Operation options
   --x-idempotency-key string   Idempotency key  
   --hostname string            Replica hostname 
   --secret string              Replica secret   
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 compute replica list
@@ -121,7 +78,7 @@ Operation options
 ```
 h1 compute replica list
 
-  List compute/replica [compute_project_replica_list] 
+  List compute/replica [Operation ID: compute_project_replica_list] 
 
 Synopsis
 
@@ -129,20 +86,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id     
-  --location id-or-uri    Location Id    
-  --name string           Filter by name 
-  --skeleton true,false
+  --project id-or-uri    Project Id     
+  --location id-or-uri   Location Id    
+  --name string          Filter by name 
+  --skeleton
 ```
 
 #### h1 compute replica show
@@ -150,7 +108,7 @@ Operation options
 ```
 h1 compute replica show
 
-  Get compute/replica [compute_project_replica_get] 
+  Get compute/replica [Operation ID: compute_project_replica_get] 
 
 Synopsis
 
@@ -158,20 +116,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --replica id-or-uri     Replica Id  
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --replica id-or-uri    Replica Id  
+  --skeleton
 ```
 
 #### h1 compute replica delete
@@ -179,7 +138,7 @@ Operation options
 ```
 h1 compute replica delete
 
-  Delete compute/replica [compute_project_replica_delete] 
+  Delete compute/replica [Operation ID: compute_project_replica_delete] 
 
 Synopsis
 
@@ -187,20 +146,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --replica id-or-uri     Replica Id  
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --replica id-or-uri    Replica Id  
+  --skeleton
 ```
 
 #### h1 compute replica service
@@ -218,33 +178,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                                      
-  list   List compute/replica.service [compute_project_replica_service_list] 
-  show   Get compute/replica.service [compute_project_replica_service_get]
-```
-
-##### h1 compute replica service spec
-
-```
-h1 compute replica service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute replica service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List compute/replica.service [Operation ID: compute_project_replica_service_list] 
+  show   Get compute/replica.service [Operation ID: compute_project_replica_service_get]
 ```
 
 ##### h1 compute replica service list
@@ -252,7 +187,8 @@ Operation options
 ```
 h1 compute replica service list
 
-  List compute/replica.service [compute_project_replica_service_list] 
+  List compute/replica.service [Operation ID:                                   
+  compute_project_replica_service_list]                                         
 
 Synopsis
 
@@ -260,20 +196,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --replica id-or-uri     Replica Id  
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --replica id-or-uri    Replica Id  
+  --skeleton
 ```
 
 ##### h1 compute replica service show
@@ -281,7 +218,7 @@ Operation options
 ```
 h1 compute replica service show
 
-  Get compute/replica.service [compute_project_replica_service_get] 
+  Get compute/replica.service [Operation ID: compute_project_replica_service_get] 
 
 Synopsis
 
@@ -289,21 +226,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --replica id-or-uri     Replica Id  
-  --service id-or-uri     serviceId   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --replica id-or-uri    Replica Id  
+  --service id-or-uri    serviceId   
+  --skeleton
 ```
 
 #### h1 compute replica tag
@@ -321,35 +259,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                                  
-  create   Create compute/replica.tag [compute_project_replica_tag_create] 
-  list     List compute/replica.tag [compute_project_replica_tag_list]     
-  show     Get compute/replica.tag [compute_project_replica_tag_get]       
-  delete   Delete compute/replica.tag [compute_project_replica_tag_delete]
-```
-
-##### h1 compute replica tag spec
-
-```
-h1 compute replica tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute replica tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create compute/replica.tag [Operation ID: compute_project_replica_tag_create] 
+  list     List compute/replica.tag [Operation ID: compute_project_replica_tag_list]     
+  show     Get compute/replica.tag [Operation ID: compute_project_replica_tag_get]       
+  delete   Delete compute/replica.tag [Operation ID: compute_project_replica_tag_delete]
 ```
 
 ##### h1 compute replica tag create
@@ -357,7 +270,7 @@ Operation options
 ```
 h1 compute replica tag create
 
-  Create compute/replica.tag [compute_project_replica_tag_create] 
+  Create compute/replica.tag [Operation ID: compute_project_replica_tag_create] 
 
 Synopsis
 
@@ -365,22 +278,23 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --replica id-or-uri     Replica Id  
-  --key string            Tag key     
-  --value string          Tag value   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --replica id-or-uri    Replica Id  
+  --key string           Tag key     
+  --value string         Tag value   
+  --skeleton
 ```
 
 ##### h1 compute replica tag list
@@ -388,7 +302,7 @@ Operation options
 ```
 h1 compute replica tag list
 
-  List compute/replica.tag [compute_project_replica_tag_list] 
+  List compute/replica.tag [Operation ID: compute_project_replica_tag_list] 
 
 Synopsis
 
@@ -396,20 +310,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --replica id-or-uri     Replica Id  
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --replica id-or-uri    Replica Id  
+  --skeleton
 ```
 
 ##### h1 compute replica tag show
@@ -417,7 +332,7 @@ Operation options
 ```
 h1 compute replica tag show
 
-  Get compute/replica.tag [compute_project_replica_tag_get] 
+  Get compute/replica.tag [Operation ID: compute_project_replica_tag_get] 
 
 Synopsis
 
@@ -425,21 +340,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --replica id-or-uri     Replica Id  
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --replica id-or-uri    Replica Id  
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 ##### h1 compute replica tag delete
@@ -447,7 +363,7 @@ Operation options
 ```
 h1 compute replica tag delete
 
-  Delete compute/replica.tag [compute_project_replica_tag_delete] 
+  Delete compute/replica.tag [Operation ID: compute_project_replica_tag_delete] 
 
 Synopsis
 
@@ -455,21 +371,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --replica id-or-uri     Replica Id  
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --replica id-or-uri    Replica Id  
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 #### h1 compute replica event
@@ -487,33 +404,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                                  
-  list   List compute/replica.event [compute_project_replica_event_list] 
-  show   Get compute/replica.event [compute_project_replica_event_get]
-```
-
-##### h1 compute replica event spec
-
-```
-h1 compute replica event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute replica event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List compute/replica.event [Operation ID: compute_project_replica_event_list] 
+  show   Get compute/replica.event [Operation ID: compute_project_replica_event_get]
 ```
 
 ##### h1 compute replica event list
@@ -521,7 +413,7 @@ Operation options
 ```
 h1 compute replica event list
 
-  List compute/replica.event [compute_project_replica_event_list] 
+  List compute/replica.event [Operation ID: compute_project_replica_event_list] 
 
 Synopsis
 
@@ -529,22 +421,23 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --replica id-or-uri     Replica Id  
-  --$limit string         $limit      
-  --$skip string          $skip       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --replica id-or-uri    Replica Id  
+  --$limit string        $limit      
+  --$skip string         $skip       
+  --skeleton
 ```
 
 ##### h1 compute replica event show
@@ -552,7 +445,7 @@ Operation options
 ```
 h1 compute replica event show
 
-  Get compute/replica.event [compute_project_replica_event_get] 
+  Get compute/replica.event [Operation ID: compute_project_replica_event_get] 
 
 Synopsis
 
@@ -560,21 +453,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --replica id-or-uri     Replica Id  
-  --event id-or-uri       eventId     
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --replica id-or-uri    Replica Id  
+  --event id-or-uri      eventId     
+  --skeleton
 ```
 
 ### h1 compute vm
@@ -592,51 +486,26 @@ Options
 
 Command List
 
-  spec             Print specification of context                                
-  create           Create compute/vm [compute_project_vm_create]                 
-  list             List compute/vm [compute_project_vm_list]                     
-  show             Get compute/vm [compute_project_vm_get]                       
-  update           Update compute/vm [compute_project_vm_update]                 
-  delete           Delete compute/vm [compute_project_vm_delete]                 
-  start            Start compute/vm [compute_project_vm_start]                   
-  restart          Restart compute/vm [compute_project_vm_restart]               
-  stop             Stop compute/vm [compute_project_vm_stop]                     
-  turnoff          Turnoff compute/vm [compute_project_vm_turnoff]               
-  password_reset   Password reset compute/vm [compute_project_vm_password_reset] 
-  flavour          Flavour compute/vm [compute_project_vm_flavour]               
-  console          Console compute/vm [compute_project_vm_console]               
-  serialport       Serialport compute/vm [compute_project_vm_serialport]         
-  metric           Manage metrics of the vm                                      
-  disk             Manage disks of the vm                                        
-  iso              Manage isos of the vm                                         
-  service          Manage services of the vm                                     
-  tag              Manage tags of the vm                                         
-  event            Manage events of the vm                                       
+  create           Create compute/vm [Operation ID: compute_project_vm_create]                 
+  list             List compute/vm [Operation ID: compute_project_vm_list]                     
+  show             Get compute/vm [Operation ID: compute_project_vm_get]                       
+  update           Update compute/vm [Operation ID: compute_project_vm_update]                 
+  delete           Delete compute/vm [Operation ID: compute_project_vm_delete]                 
+  start            Start compute/vm [Operation ID: compute_project_vm_start]                   
+  restart          Restart compute/vm [Operation ID: compute_project_vm_restart]               
+  stop             Stop compute/vm [Operation ID: compute_project_vm_stop]                     
+  turnoff          Turnoff compute/vm [Operation ID: compute_project_vm_turnoff]               
+  password_reset   Password reset compute/vm [Operation ID: compute_project_vm_password_reset] 
+  flavour          Flavour compute/vm [Operation ID: compute_project_vm_flavour]               
+  console          Console compute/vm [Operation ID: compute_project_vm_console]               
+  serialport       Serialport compute/vm [Operation ID: compute_project_vm_serialport]         
+  metric           Manage metrics of the vm                                                    
+  disk             Manage disks of the vm                                                      
+  iso              Manage isos of the vm                                                       
+  service          Manage services of the vm                                                   
+  tag              Manage tags of the vm                                                       
+  event            Manage events of the vm                                                     
   ssh              Connect to compute/vm using SSH
-```
-
-#### h1 compute vm spec
-
-```
-h1 compute vm spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute vm spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 #### h1 compute vm create
@@ -644,7 +513,7 @@ Operation options
 ```
 h1 compute vm create
 
-  Create compute/vm [compute_project_vm_create] 
+  Create compute/vm [Operation ID: compute_project_vm_create] 
 
 Synopsis
 
@@ -661,33 +530,37 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri                                Project Id                                                      
-  --location id-or-uri                               Location Id                                                     
-  --x-idempotency-key string                         Idempotency key                                                 
-  --name string                                      Vm name                                                         
-  --service id-or-uri                                Vm service. Provide ID or URI of billing/service                
-  --image id-or-uri                                  Vm image. Provide ID or URI of storage/image. Requires          
-                                                     permissions storage/image/use                                   
-  --iso id-or-uri                                    Vm iso. Provide ID or URI of storage/iso. Requires permissions  
-                                                     storage/iso/use                                                 
-  --username string                                  Vm username                                                     
-  --user-metadata string                             Vm userMetadata                                                 
-  --start true,false                                 Vm start. Defaults is true                                      
-  --credential type=type,value=value                 Credential collection                                           
-  --disk name=name,service=service,size=size         Disk collection                                                 
-  --netadp network=network,firewall=firewall,ip=ip   Netadp collection                                               
-  --tag key=key,value=value                          Tag collection                                                  
-  --skeleton true,false
+  --project id-or-uri                                Project Id                               
+  --location id-or-uri                               Location Id                              
+  --x-idempotency-key string                         Idempotency key                          
+  --name string                                      Vm name                                  
+  --service id-or-uri                                Vm service. Provide ID or URI of         
+                                                     billing/service                          
+  --image id-or-uri                                  Vm image. Provide ID or URI of           
+                                                     storage/image. Requires permissions      
+                                                     storage/image/use                        
+  --iso id-or-uri                                    Vm iso. Provide ID or URI of             
+                                                     storage/iso. Requires permissions        
+                                                     storage/iso/use                          
+  --username string                                  Vm username                              
+  --user-metadata string                             Vm userMetadata                          
+  --start true,false                                 Vm start. Defaults is true               
+  --credential type=type,value=value                 Credential collection                    
+  --disk name=name,service=service,size=size         Disk collection                          
+  --netadp network=network,firewall=firewall,ip=ip   Netadp collection                        
+  --tag key=key,value=value                          Tag collection                           
+  --skeleton
 ```
 
 #### h1 compute vm list
@@ -695,7 +568,7 @@ Operation options
 ```
 h1 compute vm list
 
-  List compute/vm [compute_project_vm_list] 
+  List compute/vm [Operation ID: compute_project_vm_list] 
 
 Synopsis
 
@@ -710,22 +583,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id          
-  --location id-or-uri    Location Id         
-  --name string           Filter by name      
-  --tag.value string      Filter by tag.value 
-  --tag.key string        Filter by tag.key   
-  --skeleton true,false
+  --project id-or-uri    Project Id          
+  --location id-or-uri   Location Id         
+  --name string          Filter by name      
+  --tag.value string     Filter by tag.value 
+  --tag.key string       Filter by tag.key   
+  --skeleton
 ```
 
 #### h1 compute vm show
@@ -733,7 +607,7 @@ Operation options
 ```
 h1 compute vm show
 
-  Get compute/vm [compute_project_vm_get] 
+  Get compute/vm [Operation ID: compute_project_vm_get] 
 
 Synopsis
 
@@ -749,20 +623,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --skeleton
 ```
 
 #### h1 compute vm update
@@ -770,7 +645,7 @@ Operation options
 ```
 h1 compute vm update
 
-  Update compute/vm [compute_project_vm_update] 
+  Update compute/vm [Operation ID: compute_project_vm_update] 
 
 Synopsis
 
@@ -786,13 +661,14 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -801,7 +677,7 @@ Operation options
   --vm id-or-uri           Vm Id                                                                
   --user-metadata string   Vm userMetadata. Requires permissions compute/vm.userMetadata/update 
   --name string            Vm name. Requires permissions compute/vm.name/update                 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 compute vm delete
@@ -809,7 +685,7 @@ Operation options
 ```
 h1 compute vm delete
 
-  Delete compute/vm [compute_project_vm_delete] 
+  Delete compute/vm [Operation ID: compute_project_vm_delete] 
 
 Synopsis
 
@@ -825,20 +701,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --skeleton
 ```
 
 #### h1 compute vm start
@@ -846,7 +723,7 @@ Operation options
 ```
 h1 compute vm start
 
-  Start compute/vm [compute_project_vm_start] 
+  Start compute/vm [Operation ID: compute_project_vm_start] 
 
 Synopsis
 
@@ -854,13 +731,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -868,7 +746,7 @@ Operation options
   --location id-or-uri         Location Id     
   --vm id-or-uri               Vm Id           
   --x-idempotency-key string   Idempotency key 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 compute vm restart
@@ -876,7 +754,7 @@ Operation options
 ```
 h1 compute vm restart
 
-  Restart compute/vm [compute_project_vm_restart] 
+  Restart compute/vm [Operation ID: compute_project_vm_restart] 
 
 Synopsis
 
@@ -884,13 +762,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -898,7 +777,7 @@ Operation options
   --location id-or-uri         Location Id     
   --vm id-or-uri               Vm Id           
   --x-idempotency-key string   Idempotency key 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 compute vm stop
@@ -906,7 +785,7 @@ Operation options
 ```
 h1 compute vm stop
 
-  Stop compute/vm [compute_project_vm_stop] 
+  Stop compute/vm [Operation ID: compute_project_vm_stop] 
 
 Synopsis
 
@@ -914,13 +793,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -928,7 +808,7 @@ Operation options
   --location id-or-uri         Location Id     
   --vm id-or-uri               Vm Id           
   --x-idempotency-key string   Idempotency key 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 compute vm turnoff
@@ -936,7 +816,7 @@ Operation options
 ```
 h1 compute vm turnoff
 
-  Turnoff compute/vm [compute_project_vm_turnoff] 
+  Turnoff compute/vm [Operation ID: compute_project_vm_turnoff] 
 
 Synopsis
 
@@ -944,13 +824,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -958,7 +839,7 @@ Operation options
   --location id-or-uri         Location Id     
   --vm id-or-uri               Vm Id           
   --x-idempotency-key string   Idempotency key 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 compute vm password_reset
@@ -966,7 +847,7 @@ Operation options
 ```
 h1 compute vm password_reset
 
-  Password reset compute/vm [compute_project_vm_password_reset] 
+  Password reset compute/vm [Operation ID: compute_project_vm_password_reset] 
 
 Synopsis
 
@@ -974,13 +855,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -991,7 +873,7 @@ Operation options
   --user-name string           Vm userName     
   --modulus string             Vm modulus      
   --exponent string            Vm exponent     
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 compute vm flavour
@@ -999,7 +881,7 @@ Operation options
 ```
 h1 compute vm flavour
 
-  Flavour compute/vm [compute_project_vm_flavour] 
+  Flavour compute/vm [Operation ID: compute_project_vm_flavour] 
 
 Synopsis
 
@@ -1007,13 +889,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -1022,7 +905,7 @@ Operation options
   --vm id-or-uri               Vm Id                                            
   --x-idempotency-key string   Idempotency key                                  
   --service id-or-uri          Vm service. Provide ID or URI of billing/service 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 compute vm console
@@ -1030,7 +913,7 @@ Operation options
 ```
 h1 compute vm console
 
-  Console compute/vm [compute_project_vm_console] 
+  Console compute/vm [Operation ID: compute_project_vm_console] 
 
 Synopsis
 
@@ -1038,13 +921,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -1052,7 +936,7 @@ Operation options
   --location id-or-uri         Location Id     
   --vm id-or-uri               Vm Id           
   --x-idempotency-key string   Idempotency key 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 compute vm serialport
@@ -1060,7 +944,7 @@ Operation options
 ```
 h1 compute vm serialport
 
-  Serialport compute/vm [compute_project_vm_serialport] 
+  Serialport compute/vm [Operation ID: compute_project_vm_serialport] 
 
 Synopsis
 
@@ -1068,13 +952,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -1082,8 +967,8 @@ Operation options
   --location id-or-uri         Location Id              
   --vm id-or-uri               Vm Id                    
   --x-idempotency-key string   Idempotency key          
-  --number string              Vm number. Defaults is 1 
-  --skeleton true,false
+  --number 1,2                 Vm number. Defaults is 1 
+  --skeleton
 ```
 
 #### h1 compute vm metric
@@ -1101,32 +986,7 @@ Options
 
 Command List
 
-  spec   Print specification of context                          
-  list   List compute/vm.metric [compute_project_vm_metric_list]
-```
-
-##### h1 compute vm metric spec
-
-```
-h1 compute vm metric spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute vm metric spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List compute/vm.metric [Operation ID: compute_project_vm_metric_list]
 ```
 
 ##### h1 compute vm metric list
@@ -1134,7 +994,7 @@ Operation options
 ```
 h1 compute vm metric list
 
-  List compute/vm.metric [compute_project_vm_metric_list] 
+  List compute/vm.metric [Operation ID: compute_project_vm_metric_list] 
 
 Synopsis
 
@@ -1142,21 +1002,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --period string         period      
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --period string        period      
+  --skeleton
 ```
 
 #### h1 compute vm disk
@@ -1174,33 +1035,8 @@ Options
 
 Command List
 
-  spec     Print specification of context                          
-  create   Create compute/vm.disk [compute_project_vm_disk_create] 
-  list     List compute/vm.disk [compute_project_vm_disk_list]
-```
-
-##### h1 compute vm disk spec
-
-```
-h1 compute vm disk spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute vm disk spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create compute/vm.disk [Operation ID: compute_project_vm_disk_create] 
+  list     List compute/vm.disk [Operation ID: compute_project_vm_disk_list]
 ```
 
 ##### h1 compute vm disk create
@@ -1208,7 +1044,7 @@ Operation options
 ```
 h1 compute vm disk create
 
-  Create compute/vm.disk [compute_project_vm_disk_create] 
+  Create compute/vm.disk [Operation ID: compute_project_vm_disk_create] 
 
 Synopsis
 
@@ -1216,22 +1052,23 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                                                    
-  --location id-or-uri    Location Id                                                                   
-  --vm id-or-uri          Vm Id                                                                         
-  --disk id-or-uri        Disk disk. Provide ID or URI of storage/disk. Requires permissions            
-                          storage/disk/attach                                                           
-  --skeleton true,false
+  --project id-or-uri    Project Id                                                           
+  --location id-or-uri   Location Id                                                          
+  --vm id-or-uri         Vm Id                                                                
+  --disk id-or-uri       Disk disk. Provide ID or URI of storage/disk. Requires permissions   
+                         storage/disk/attach                                                  
+  --skeleton
 ```
 
 ##### h1 compute vm disk list
@@ -1239,7 +1076,7 @@ Operation options
 ```
 h1 compute vm disk list
 
-  List compute/vm.disk [compute_project_vm_disk_list] 
+  List compute/vm.disk [Operation ID: compute_project_vm_disk_list] 
 
 Synopsis
 
@@ -1247,20 +1084,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --skeleton
 ```
 
 #### h1 compute vm iso
@@ -1278,33 +1116,8 @@ Options
 
 Command List
 
-  spec     Print specification of context                        
-  create   Create compute/vm.iso [compute_project_vm_iso_create] 
-  list     List compute/vm.iso [compute_project_vm_iso_list]
-```
-
-##### h1 compute vm iso spec
-
-```
-h1 compute vm iso spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute vm iso spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create compute/vm.iso [Operation ID: compute_project_vm_iso_create] 
+  list     List compute/vm.iso [Operation ID: compute_project_vm_iso_list]
 ```
 
 ##### h1 compute vm iso create
@@ -1312,7 +1125,7 @@ Operation options
 ```
 h1 compute vm iso create
 
-  Create compute/vm.iso [compute_project_vm_iso_create] 
+  Create compute/vm.iso [Operation ID: compute_project_vm_iso_create] 
 
 Synopsis
 
@@ -1320,22 +1133,23 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id                                                                    
-  --location id-or-uri    Location Id                                                                   
-  --vm id-or-uri          Vm Id                                                                         
-  --iso id-or-uri         Iso iso. Provide ID or URI of storage/iso. Requires permissions               
-                          storage/iso/attach                                                            
-  --skeleton true,false
+  --project id-or-uri    Project Id                                                           
+  --location id-or-uri   Location Id                                                          
+  --vm id-or-uri         Vm Id                                                                
+  --iso id-or-uri        Iso iso. Provide ID or URI of storage/iso. Requires permissions      
+                         storage/iso/attach                                                   
+  --skeleton
 ```
 
 ##### h1 compute vm iso list
@@ -1343,7 +1157,7 @@ Operation options
 ```
 h1 compute vm iso list
 
-  List compute/vm.iso [compute_project_vm_iso_list] 
+  List compute/vm.iso [Operation ID: compute_project_vm_iso_list] 
 
 Synopsis
 
@@ -1351,20 +1165,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --skeleton
 ```
 
 #### h1 compute vm service
@@ -1382,33 +1197,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                            
-  list   List compute/vm.service [compute_project_vm_service_list] 
-  show   Get compute/vm.service [compute_project_vm_service_get]
-```
-
-##### h1 compute vm service spec
-
-```
-h1 compute vm service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute vm service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List compute/vm.service [Operation ID: compute_project_vm_service_list] 
+  show   Get compute/vm.service [Operation ID: compute_project_vm_service_get]
 ```
 
 ##### h1 compute vm service list
@@ -1416,7 +1206,7 @@ Operation options
 ```
 h1 compute vm service list
 
-  List compute/vm.service [compute_project_vm_service_list] 
+  List compute/vm.service [Operation ID: compute_project_vm_service_list] 
 
 Synopsis
 
@@ -1432,20 +1222,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --skeleton
 ```
 
 ##### h1 compute vm service show
@@ -1453,7 +1244,7 @@ Operation options
 ```
 h1 compute vm service show
 
-  Get compute/vm.service [compute_project_vm_service_get] 
+  Get compute/vm.service [Operation ID: compute_project_vm_service_get] 
 
 Synopsis
 
@@ -1469,21 +1260,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --service id-or-uri     serviceId   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --service id-or-uri    serviceId   
+  --skeleton
 ```
 
 #### h1 compute vm tag
@@ -1501,35 +1293,10 @@ Options
 
 Command List
 
-  spec     Print specification of context                        
-  create   Create compute/vm.tag [compute_project_vm_tag_create] 
-  list     List compute/vm.tag [compute_project_vm_tag_list]     
-  show     Get compute/vm.tag [compute_project_vm_tag_get]       
-  delete   Delete compute/vm.tag [compute_project_vm_tag_delete]
-```
-
-##### h1 compute vm tag spec
-
-```
-h1 compute vm tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute vm tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create compute/vm.tag [Operation ID: compute_project_vm_tag_create] 
+  list     List compute/vm.tag [Operation ID: compute_project_vm_tag_list]     
+  show     Get compute/vm.tag [Operation ID: compute_project_vm_tag_get]       
+  delete   Delete compute/vm.tag [Operation ID: compute_project_vm_tag_delete]
 ```
 
 ##### h1 compute vm tag create
@@ -1537,7 +1304,7 @@ Operation options
 ```
 h1 compute vm tag create
 
-  Create compute/vm.tag [compute_project_vm_tag_create] 
+  Create compute/vm.tag [Operation ID: compute_project_vm_tag_create] 
 
 Synopsis
 
@@ -1553,22 +1320,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --key string            Tag key     
-  --value string          Tag value   
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --key string           Tag key     
+  --value string         Tag value   
+  --skeleton
 ```
 
 ##### h1 compute vm tag list
@@ -1576,7 +1344,7 @@ Operation options
 ```
 h1 compute vm tag list
 
-  List compute/vm.tag [compute_project_vm_tag_list] 
+  List compute/vm.tag [Operation ID: compute_project_vm_tag_list] 
 
 Synopsis
 
@@ -1592,20 +1360,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --skeleton
 ```
 
 ##### h1 compute vm tag show
@@ -1613,7 +1382,7 @@ Operation options
 ```
 h1 compute vm tag show
 
-  Get compute/vm.tag [compute_project_vm_tag_get] 
+  Get compute/vm.tag [Operation ID: compute_project_vm_tag_get] 
 
 Synopsis
 
@@ -1629,21 +1398,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 ##### h1 compute vm tag delete
@@ -1651,7 +1421,7 @@ Operation options
 ```
 h1 compute vm tag delete
 
-  Delete compute/vm.tag [compute_project_vm_tag_delete] 
+  Delete compute/vm.tag [Operation ID: compute_project_vm_tag_delete] 
 
 Synopsis
 
@@ -1667,21 +1437,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --tag id-or-uri         tagId       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --tag id-or-uri        tagId       
+  --skeleton
 ```
 
 #### h1 compute vm event
@@ -1699,33 +1470,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                        
-  list   List compute/vm.event [compute_project_vm_event_list] 
-  show   Get compute/vm.event [compute_project_vm_event_get]
-```
-
-##### h1 compute vm event spec
-
-```
-h1 compute vm event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 compute vm event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List compute/vm.event [Operation ID: compute_project_vm_event_list] 
+  show   Get compute/vm.event [Operation ID: compute_project_vm_event_get]
 ```
 
 ##### h1 compute vm event list
@@ -1733,7 +1479,7 @@ Operation options
 ```
 h1 compute vm event list
 
-  List compute/vm.event [compute_project_vm_event_list] 
+  List compute/vm.event [Operation ID: compute_project_vm_event_list] 
 
 Synopsis
 
@@ -1749,22 +1495,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --$limit string         $limit      
-  --$skip string          $skip       
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --$limit string        $limit      
+  --$skip string         $skip       
+  --skeleton
 ```
 
 ##### h1 compute vm event show
@@ -1772,7 +1519,7 @@ Operation options
 ```
 h1 compute vm event show
 
-  Get compute/vm.event [compute_project_vm_event_get] 
+  Get compute/vm.event [Operation ID: compute_project_vm_event_get] 
 
 Synopsis
 
@@ -1788,21 +1535,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id  
-  --location id-or-uri    Location Id 
-  --vm id-or-uri          Vm Id       
-  --event id-or-uri       eventId     
-  --skeleton true,false
+  --project id-or-uri    Project Id  
+  --location id-or-uri   Location Id 
+  --vm id-or-uri         Vm Id       
+  --event id-or-uri      eventId     
+  --skeleton
 ```
 
 #### h1 compute vm ssh
@@ -1818,13 +1566,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 

@@ -13,27 +13,8 @@ Options
 
 Command List
 
-  spec          Print specification of context     
   reservation   Management of reservation resource 
   service       Management of service resource
-```
-
-### h1 billing spec
-
-```
-h1 billing spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 billing spec <options> 
-
-Global options
-
-  --help    Show help message and exit. 
-
-Operation options
 ```
 
 ### h1 billing reservation
@@ -51,41 +32,16 @@ Options
 
 Command List
 
-  spec      Print specification of context                                  
-  create    Create billing/reservation [billing_project_reservation_create] 
-  list      List billing/reservation [billing_project_reservation_list]     
-  show      Get billing/reservation [billing_project_reservation_get]       
-  update    Update billing/reservation [billing_project_reservation_update] 
-  delete    Delete billing/reservation [billing_project_reservation_delete] 
-  assign    Assign billing/reservation [billing_project_reservation_assign] 
-  extend    Extend billing/reservation [billing_project_reservation_extend] 
-  service   Manage services of the reservation                              
-  tag       Manage tags of the reservation                                  
+  create    Create billing/reservation [Operation ID: billing_project_reservation_create] 
+  list      List billing/reservation [Operation ID: billing_project_reservation_list]     
+  show      Get billing/reservation [Operation ID: billing_project_reservation_get]       
+  update    Update billing/reservation [Operation ID: billing_project_reservation_update] 
+  delete    Delete billing/reservation [Operation ID: billing_project_reservation_delete] 
+  assign    Assign billing/reservation [Operation ID: billing_project_reservation_assign] 
+  extend    Extend billing/reservation [Operation ID: billing_project_reservation_extend] 
+  service   Manage services of the reservation                                            
+  tag       Manage tags of the reservation                                                
   event     Manage events of the reservation
-```
-
-#### h1 billing reservation spec
-
-```
-h1 billing reservation spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 billing reservation spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
 ```
 
 #### h1 billing reservation create
@@ -93,7 +49,7 @@ Operation options
 ```
 h1 billing reservation create
 
-  Create billing/reservation [billing_project_reservation_create] 
+  Create billing/reservation [Operation ID: billing_project_reservation_create] 
 
 Synopsis
 
@@ -101,13 +57,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -116,7 +73,7 @@ Operation options
   --name string                Reservation name                                          
   --service id-or-uri          Reservation service. Provide ID or URI of billing/service 
   --tag key=key,value=value    Tag collection                                            
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 billing reservation list
@@ -124,7 +81,7 @@ Operation options
 ```
 h1 billing reservation list
 
-  List billing/reservation [billing_project_reservation_list] 
+  List billing/reservation [Operation ID: billing_project_reservation_list] 
 
 Synopsis
 
@@ -132,21 +89,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id          
-  --name string           Filter by name      
-  --tag.value string      Filter by tag.value 
-  --tag.key string        Filter by tag.key   
-  --skeleton true,false
+  --project id-or-uri   Project Id          
+  --name string         Filter by name      
+  --tag.value string    Filter by tag.value 
+  --tag.key string      Filter by tag.key   
+  --skeleton
 ```
 
 #### h1 billing reservation show
@@ -154,7 +112,7 @@ Operation options
 ```
 h1 billing reservation show
 
-  Get billing/reservation [billing_project_reservation_get] 
+  Get billing/reservation [Operation ID: billing_project_reservation_get] 
 
 Synopsis
 
@@ -162,19 +120,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 billing reservation update
@@ -182,7 +141,7 @@ Operation options
 ```
 h1 billing reservation update
 
-  Update billing/reservation [billing_project_reservation_update] 
+  Update billing/reservation [Operation ID: billing_project_reservation_update] 
 
 Synopsis
 
@@ -190,20 +149,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri       Project Id                                                             
-  --reservation id-or-uri   Reservation Id                                                         
-  --name string             Reservation name. Requires permissions billing/reservation.name/update 
-  --skeleton true,false
+  --project id-or-uri       Project Id                                                        
+  --reservation id-or-uri   Reservation Id                                                    
+  --name string             Reservation name. Requires permissions                            
+                            billing/reservation.name/update                                   
+  --skeleton
 ```
 
 #### h1 billing reservation delete
@@ -211,7 +172,7 @@ Operation options
 ```
 h1 billing reservation delete
 
-  Delete billing/reservation [billing_project_reservation_delete] 
+  Delete billing/reservation [Operation ID: billing_project_reservation_delete] 
 
 Synopsis
 
@@ -219,19 +180,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 billing reservation assign
@@ -239,7 +201,7 @@ Operation options
 ```
 h1 billing reservation assign
 
-  Assign billing/reservation [billing_project_reservation_assign] 
+  Assign billing/reservation [Operation ID: billing_project_reservation_assign] 
 
 Synopsis
 
@@ -247,22 +209,23 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri          Project Id                                                                    
-  --reservation id-or-uri      Reservation Id                                                                
-  --x-idempotency-key string   Idempotency key                                                               
-  --resource id-or-uri         Reservation resource. Provide ID or URI of compute/vm. Requires permissions   
-                               compute/vm/use                                                                
-  --skeleton true,false
+  --project id-or-uri          Project Id                                                     
+  --reservation id-or-uri      Reservation Id                                                 
+  --x-idempotency-key string   Idempotency key                                                
+  --resource id-or-uri         Reservation resource. Provide ID or URI of compute/vm.         
+                               Requires permissions compute/vm/use                            
+  --skeleton
 ```
 
 #### h1 billing reservation extend
@@ -270,7 +233,7 @@ Operation options
 ```
 h1 billing reservation extend
 
-  Extend billing/reservation [billing_project_reservation_extend] 
+  Extend billing/reservation [Operation ID: billing_project_reservation_extend] 
 
 Synopsis
 
@@ -278,20 +241,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri          Project Id      
   --reservation id-or-uri      Reservation Id  
   --x-idempotency-key string   Idempotency key 
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 billing reservation service
@@ -309,33 +273,10 @@ Options
 
 Command List
 
-  spec   Print specification of context                                              
-  list   List billing/reservation.service [billing_project_reservation_service_list] 
-  show   Get billing/reservation.service [billing_project_reservation_service_get]
-```
-
-##### h1 billing reservation service spec
-
-```
-h1 billing reservation service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 billing reservation service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List billing/reservation.service [Operation ID:                                      
+         billing_project_reservation_service_list]                                            
+  show   Get billing/reservation.service [Operation ID:                                       
+         billing_project_reservation_service_get]
 ```
 
 ##### h1 billing reservation service list
@@ -343,7 +284,8 @@ Operation options
 ```
 h1 billing reservation service list
 
-  List billing/reservation.service [billing_project_reservation_service_list] 
+  List billing/reservation.service [Operation ID:                               
+  billing_project_reservation_service_list]                                     
 
 Synopsis
 
@@ -351,19 +293,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 billing reservation service show
@@ -371,7 +314,8 @@ Operation options
 ```
 h1 billing reservation service show
 
-  Get billing/reservation.service [billing_project_reservation_service_get] 
+  Get billing/reservation.service [Operation ID:                                
+  billing_project_reservation_service_get]                                      
 
 Synopsis
 
@@ -379,20 +323,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
   --service id-or-uri       serviceId      
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 billing reservation tag
@@ -410,35 +355,12 @@ Options
 
 Command List
 
-  spec     Print specification of context                                          
-  create   Create billing/reservation.tag [billing_project_reservation_tag_create] 
-  list     List billing/reservation.tag [billing_project_reservation_tag_list]     
-  show     Get billing/reservation.tag [billing_project_reservation_tag_get]       
-  delete   Delete billing/reservation.tag [billing_project_reservation_tag_delete]
-```
-
-##### h1 billing reservation tag spec
-
-```
-h1 billing reservation tag spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 billing reservation tag spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  create   Create billing/reservation.tag [Operation ID:                                      
+           billing_project_reservation_tag_create]                                            
+  list     List billing/reservation.tag [Operation ID: billing_project_reservation_tag_list]  
+  show     Get billing/reservation.tag [Operation ID: billing_project_reservation_tag_get]    
+  delete   Delete billing/reservation.tag [Operation ID:                                      
+           billing_project_reservation_tag_delete]
 ```
 
 ##### h1 billing reservation tag create
@@ -446,7 +368,8 @@ Operation options
 ```
 h1 billing reservation tag create
 
-  Create billing/reservation.tag [billing_project_reservation_tag_create] 
+  Create billing/reservation.tag [Operation ID:                                 
+  billing_project_reservation_tag_create]                                       
 
 Synopsis
 
@@ -454,13 +377,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -468,7 +392,7 @@ Operation options
   --reservation id-or-uri   Reservation Id 
   --key string              Tag key        
   --value string            Tag value      
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 billing reservation tag list
@@ -476,7 +400,8 @@ Operation options
 ```
 h1 billing reservation tag list
 
-  List billing/reservation.tag [billing_project_reservation_tag_list] 
+  List billing/reservation.tag [Operation ID:                                   
+  billing_project_reservation_tag_list]                                         
 
 Synopsis
 
@@ -484,19 +409,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 billing reservation tag show
@@ -504,7 +430,7 @@ Operation options
 ```
 h1 billing reservation tag show
 
-  Get billing/reservation.tag [billing_project_reservation_tag_get] 
+  Get billing/reservation.tag [Operation ID: billing_project_reservation_tag_get] 
 
 Synopsis
 
@@ -512,20 +438,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
   --tag id-or-uri           tagId          
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 billing reservation tag delete
@@ -533,7 +460,8 @@ Operation options
 ```
 h1 billing reservation tag delete
 
-  Delete billing/reservation.tag [billing_project_reservation_tag_delete] 
+  Delete billing/reservation.tag [Operation ID:                                 
+  billing_project_reservation_tag_delete]                                       
 
 Synopsis
 
@@ -541,20 +469,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
   --tag id-or-uri           tagId          
-  --skeleton true,false
+  --skeleton
 ```
 
 #### h1 billing reservation event
@@ -572,33 +501,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                                          
-  list   List billing/reservation.event [billing_project_reservation_event_list] 
-  show   Get billing/reservation.event [billing_project_reservation_event_get]
-```
-
-##### h1 billing reservation event spec
-
-```
-h1 billing reservation event spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 billing reservation event spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List billing/reservation.event [Operation ID: billing_project_reservation_event_list] 
+  show   Get billing/reservation.event [Operation ID: billing_project_reservation_event_get]
 ```
 
 ##### h1 billing reservation event list
@@ -606,7 +510,8 @@ Operation options
 ```
 h1 billing reservation event list
 
-  List billing/reservation.event [billing_project_reservation_event_list] 
+  List billing/reservation.event [Operation ID:                                 
+  billing_project_reservation_event_list]                                       
 
 Synopsis
 
@@ -614,13 +519,14 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
@@ -628,7 +534,7 @@ Operation options
   --reservation id-or-uri   Reservation Id 
   --$limit string           $limit         
   --$skip string            $skip          
-  --skeleton true,false
+  --skeleton
 ```
 
 ##### h1 billing reservation event show
@@ -636,7 +542,8 @@ Operation options
 ```
 h1 billing reservation event show
 
-  Get billing/reservation.event [billing_project_reservation_event_get] 
+  Get billing/reservation.event [Operation ID:                                  
+  billing_project_reservation_event_get]                                        
 
 Synopsis
 
@@ -644,20 +551,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
   --project id-or-uri       Project Id     
   --reservation id-or-uri   Reservation Id 
   --event id-or-uri         eventId        
-  --skeleton true,false
+  --skeleton
 ```
 
 ### h1 billing service
@@ -675,33 +583,8 @@ Options
 
 Command List
 
-  spec   Print specification of context                      
-  list   List billing/service [billing_project_service_list] 
-  show   Get billing/service [billing_project_service_get]
-```
-
-#### h1 billing service spec
-
-```
-h1 billing service spec
-
-  Print specification of context 
-
-Synopsis
-
-  $ h1 billing service spec <options> 
-
-Global options
-
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
-
-Operation options
+  list   List billing/service [Operation ID: billing_project_service_list] 
+  show   Get billing/service [Operation ID: billing_project_service_get]
 ```
 
 #### h1 billing service list
@@ -709,7 +592,7 @@ Operation options
 ```
 h1 billing service list
 
-  List billing/service [billing_project_service_list] 
+  List billing/service [Operation ID: billing_project_service_list] 
 
 Synopsis
 
@@ -717,21 +600,22 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id     
-  --kind string           Filter by kind 
-  --name string           Filter by name 
-  --type string           Filter by type 
-  --skeleton true,false
+  --project id-or-uri   Project Id     
+  --kind string         Filter by kind 
+  --name string         Filter by name 
+  --type string         Filter by type 
+  --skeleton
 ```
 
 #### h1 billing service show
@@ -739,7 +623,7 @@ Operation options
 ```
 h1 billing service show
 
-  Get billing/service [billing_project_service_get] 
+  Get billing/service [Operation ID: billing_project_service_get] 
 
 Synopsis
 
@@ -747,18 +631,19 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                        
-  --verbose                                   Make the operation more talkative.                 
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                   
-  --query string                              JMESPath query string                              
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json.    
-  --as uri                                    Act as another actor eg. service account           
-  --no-wait true,false                        In case of queued event do not wait for completion 
+  --help                                      Show help message and exit.                     
+  --verbose                                   Make the operation more talkative.              
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
+  --query string                              JMESPath query string                           
+  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
+  --as uri                                    Act as another actor eg. service account        
+  --no-wait true,false                        In case of queued event do not wait for         
+                                              completion                                      
 
 Operation options
 
-  --project id-or-uri     Project Id 
-  --service id-or-uri     Service Id 
-  --skeleton true,false
+  --project id-or-uri   Project Id 
+  --service id-or-uri   Service Id 
+  --skeleton
 ```
 

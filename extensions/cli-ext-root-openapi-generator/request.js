@@ -3,7 +3,7 @@ import { openapi } from '@hyperone/cli-core';
 import { deCamelCase } from '@hyperone/cli-core/lib/transform';
 import types from '@hyperone/cli-core/types';
 import { set } from '@hyperone/cli-core/lib/transform';
-import formatter from './formatter/index';
+import middleware from './middlewares/index';
 
 const idless = (name) => name.replace(/Id$/, '');
 
@@ -40,141 +40,156 @@ const parameterForParameter = (p = []) => {
     return parameters;
 };
 
-const middlewareForSchema = (operation) => {
-    const schema = openapi.getSchema(operation);
+const middlewareForSchema = (schema) => {
     const hooks = [];
-
-    if (schema.format && formatter[schema.format] && formatter[schema.format]) {
-        hooks.push(formatter[schema.format]);
-    }
-    for (const [pname, pvalue] of Object.entries(schema.properties || {})) {
-        if (pname == 'metadata') pvalue.format = 'upload';
-
-        if (pvalue.format && formatter[pvalue.format] && formatter[pvalue.format]) {
-            hooks.push(formatter[pvalue.format]);
-        }
-        if (pvalue.type == 'object') {
+    if (schema.type == 'object') {
+        for (const pvalue of Object.values(schema.properties || {})) {
             hooks.push(...middlewareForSchema(pvalue));
         }
     }
+
+    if (schema.oneOf) {
+        for (const pvalue of schema.oneOf) {
+            hooks.push(...middlewareForSchema(pvalue));
+        }
+    }
+
+    if (schema.format && middleware[schema.format] && middleware[schema.format]) {
+        hooks.push(middleware[schema.format]);
+    }
+
     return hooks;
 };
 
+const middlewareForOperation = (operation) => {
+    const schema = openapi.getSchema(operation);
+    return middlewareForSchema(schema);
+};
 
-const parameterForSchema = (schema, prefix = '', path = '') => {
+const parameterForSchema = (pvalue, pname = '', prefix = '', path = '') => {
     const parameters = [];
-
-    for (const [pname, pvalue] of Object.entries(schema.properties || {})) {
-        const description = [];
-
-        const required = schema.required || [];
-        const p = {
-            name: `${prefix}${deCamelCase(pname)}`,
-            required: required.includes(pname),
-            use: {
-                in: 'body',
-                field: `${path}/${pname}`,
-            },
-        };
-        if (pvalue.title) {
-            description.push(pvalue.title);
-        }
-
-        if (pvalue.readOnly) {
-            continue;
-        }
-
-        const audience = pvalue['x-audience'];
-        if (audience && !['user', 'all'].includes(audience)) {
-            continue;
-        }
-
-        if (pvalue['x-resource']) {
-            Object.assign(p, {
-                typeLabel: 'uri',
-            });
-
-            const prefixes = openapi.getEndpointForKind(pvalue['x-resource'].kind);
-
-            if (prefixes.length == 1) {
-                Object.assign(p, {
-                    typeLabel: 'id-or-uri',
-                    prefix: prefixes[0],
-                });
-                description.push(`Provide ID or URI of ${pvalue['x-resource'].kind}`);
-            } else {
-                description.push(`Provide URI of ${pvalue['x-resource'].kind}`);
-            }
-        }
-        if (pvalue['x-permissions']) {
-            description.push(`Requires permissions ${pvalue['x-permissions'].join(', ')}`);
-        }
-
-        if (pvalue.type == 'string') {
-            Object.assign(p, {
-                placeholder: pname,
-            });
-            if (pvalue.enum) {
-                Object.assign(p, {
-                    typeLabel: pvalue.enum.join(','),
-                    choices: pvalue.enum,
-                });
-            }
-        }
-
-        if (pvalue.type == 'array' && pvalue.items.type == 'string') {
-            Object.assign(p, {
-                multiple: true,
-            });
-        }
-
-        if (pvalue.type == 'boolean') {
-            const choices = [true, false].map(String);
-            Object.assign(p, {
-                type: (value) => value == 'true',
-                typeLabel: choices.join(','),
-                choices,
-            });
-        }
-
-        if (pvalue.type == 'object') {
-            parameters.push(
-                ...parameterForSchema(
-                    pvalue,
-                    !!prefix ? `${prefix}-${pname}` : `${pname}-`,
-                    `${path}/${pname}`
-                )
+    if (pvalue.type == 'object') {
+        for (const [child_pname, child_pvalue] of Object.entries(pvalue.properties || {})) {
+            const child_parameters = parameterForSchema(
+                child_pvalue,
+                child_pname,
+                !!prefix ? `${prefix}-${pname}` : `${pname}`,
+                path ? `${path}/${pname}` : `${pname}`
             );
-            continue;
+            parameters.push(...child_parameters);
         }
-
-        if (pvalue.type == 'array' && pvalue.items.type == 'object') {
-            const label = Object.entries(pvalue.items.properties || {})
-                .filter(([, value]) => value.readOnly != true)
-                .map(([key]) => `${key}=${key}`)
-                .join(',');
-
-            Object.assign(p, {
-                multiple: true,
-                typeLabel: label,
-                type: types.nestedValue,
-            });
-        }
-
-        if (pvalue.default) {
-            description.push(`Defaults is ${pvalue.default}`);
-            Object.assign(p, {
-                defaultValue: pvalue.default,
-            });
-        }
-
-        Object.assign(p, {
-            description: description.join('. '),
-        });
-
-        parameters.push(p);
+        return parameters;
     }
 
+    const description = [];
+    const required = pvalue.required || [];
+    const p = {
+        name: prefix ? `${prefix}-${deCamelCase(pname)}` : deCamelCase(pname),
+        required: required.includes(pname),
+        use: {
+            in: 'body',
+            schema: pvalue,
+            field: path ? `/${path}/${pname}` : `/${pname}`,
+        },
+    };
+
+    if (pvalue.title) {
+        description.push(pvalue.title);
+    }
+
+    if (pvalue.readOnly) {
+        return [];
+    }
+
+    const audience = pvalue['x-audience'];
+    if (audience && !['user', 'all'].includes(audience)) {
+        return [];
+    }
+    if (pvalue['x-resource']) {
+        Object.assign(p, {
+            typeLabel: 'uri',
+        });
+
+        const prefixes = openapi.getEndpointForKind(pvalue['x-resource'].kind);
+
+        if (prefixes.length == 1) {
+            Object.assign(p, {
+                typeLabel: 'id-or-uri',
+                prefix: prefixes[0],
+            });
+            description.push(`Provide ID or URI of ${pvalue['x-resource'].kind}`);
+        } else {
+            description.push(`Provide URI of ${pvalue['x-resource'].kind}`);
+        }
+    }
+    if (pvalue['x-permissions']) {
+        description.push(`Requires permissions ${pvalue['x-permissions'].join(', ')}`);
+    }
+
+    if (pvalue.format == 'uri-upload') {
+        description.push('Provide URI of local file eg. \'file://./my-file.bin\'.');
+    }
+
+    if (pvalue.type == 'string') {
+        Object.assign(p, {
+            placeholder: pname,
+        });
+        if (pvalue.enum) {
+            Object.assign(p, {
+                typeLabel: pvalue.enum.join(','),
+                choices: pvalue.enum,
+            });
+        }
+    }
+
+    if (pvalue.type == 'array' && pvalue.items.type == 'string') {
+        Object.assign(p, {
+            multiple: true,
+        });
+    }
+
+    if (pvalue.type == 'boolean') {
+        const choices = [true, false].map(String);
+        Object.assign(p, {
+            type: (value) => value == 'true',
+            typeLabel: choices.join(','),
+            choices,
+        });
+    }
+
+    if (pvalue.type == 'array' && pvalue.items.type == 'object') {
+        const label = Object.entries(pvalue.items.properties || {})
+            .filter(([, value]) => value.readOnly != true)
+            .map(([key]) => `${key}=${key}`)
+            .join(',');
+
+        Object.assign(p, {
+            multiple: true,
+            typeLabel: label,
+            type: types.nestedValue,
+        });
+    }
+
+    if (pvalue.default) {
+        description.push(`Defaults is ${pvalue.default}`);
+        Object.assign(p, {
+            defaultValue: pvalue.default,
+        });
+    }
+
+    if (pvalue.oneOf) {
+        const oneOfParameters = pvalue.oneOf.map((oneOfSchema) =>
+            parameterForSchema(oneOfSchema, pname, prefix, path)[0]
+        ).map(x => `- ${x.description}`);
+        description.push(`Specifies one of the following: \n${oneOfParameters.join('\n')}`);
+    }
+
+    Object.assign(p, {
+        description: description.join('. '),
+    });
+    if (pname) {
+        parameters.push(p);
+    }
     return parameters;
 };
 
@@ -234,7 +249,7 @@ const generateQuery = (path, operation) => {
     if (props) {
         for (const name of ['id', 'name', 'state', 'flavour', 'content', 'enabled', 'size']) {
             if (props[name]) {
-                col.push(`${name}:${name}`);
+                col.push(`${name}: ${name}`);
             }
         }
     }
@@ -242,7 +257,7 @@ const generateQuery = (path, operation) => {
     if (col.length == 0) {
         col.push('value:@');
     }
-    return `[].{${col.join(',')}}`;
+    return `[].{ ${col.join(',')}} `;
 };
 
 const renderQuery = (input, options) => Object
@@ -268,5 +283,5 @@ export default {
     renderQuery,
     generateQuery,
     renderParameter,
-    middlewareForSchema,
+    middlewareForOperation,
 };

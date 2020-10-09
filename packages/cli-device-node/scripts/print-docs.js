@@ -34,8 +34,11 @@ const main = async () => new Command({
             openapiUrl: opts._all.url,
             device: new NodeDevice('h1'),
         });
+        console.log(program.getFullName());
         await program.loadCommands();
+        console.log('Root commands loaded');
         for (const cmd of program.commands) {
+            console.log('Processing command:', cmd.getFullName());
             const outFile = path.join(opts._all.output, `${cmd.name}.md`);
             const out = stripAnsiStream();
             out.pipe(fs.createWriteStream(outFile, { encoding: 'utf-8' }));

@@ -26,7 +26,6 @@ const converter = {
 
 export default {
     afterRenderBody: (requestBody) => {
-        console.log({requestBody});
         return requestBody;
     },
 };
