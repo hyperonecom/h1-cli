@@ -62,12 +62,14 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
             if (['post', 'patch', 'put'].includes(method)) {
                 requestBody = request.renderBody(operation, optsAll, options);
             }
+
             if (optsAll.skeleton) {
                 return {
                     parameters,
                     requestBody: requestBody || {},
                 };
             }
+
             requestBody = await applyMiddleware(middlewares, 'beforeRequest',
                 requestBody, url, opts, options
             );
