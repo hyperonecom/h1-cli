@@ -6,6 +6,7 @@
   "dependencies": {
     "@apidevtools/json-schema-ref-parser": "^9.0.3",
     "@hyperone/cli-framework": "link:../cli-framework",
+    "abort-controller": "^3.0.0",
     "camel-case": "^4.1.1",
     "command-line-args": "^5.1.1",
     "command-line-usage": "^6.1.0",
