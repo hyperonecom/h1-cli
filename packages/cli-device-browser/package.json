@@ -6,7 +6,6 @@
   "author": "Adam Dobrawy",
   "license": "MIT",
   "scripts": {
-    "serve": "webpack-dev-server --config webpack.config.demo.js",
     "build": "webpack"
   },
   "dependencies": {
