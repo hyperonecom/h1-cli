@@ -37,6 +37,12 @@ class Device {
     async readPassportFile(/*filepath*/) {
         return;
     }
+    async statFile(/*filepath*/) {
+        return new Error('Local file operation is not supported');
+    }
+    createReadStream(/*filepath*/) {
+        return new Error('Local file operation is not supported');
+    }
     async readDefaultPassport() {
         return;
     }

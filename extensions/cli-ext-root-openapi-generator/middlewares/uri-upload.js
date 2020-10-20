@@ -21,8 +21,9 @@ export default {
         }
         return options;
     },
-    beforeRequest: async (requestBody, requestUrl, opts, options, device) => {
+    beforeRequest: async (requestBody, requestUrl, opts, options, cmd) => {
         const optsAll = opts._all || opts;
+        const {device} = cmd;
         const noProgress = optsAll['no-progress'];
         const applyOptions = findOptionsForFormat(options, 'uri-upload');
         for (const option of applyOptions) {

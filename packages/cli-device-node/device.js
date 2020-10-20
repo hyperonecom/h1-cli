@@ -135,7 +135,7 @@ export class NodeDevice extends Device {
         return fs.promises.stat(filepath);
     }
     createReadStream(filepath) {
-        return fs.promises.createReadStream(filepath);
+        return fs.createReadStream(filepath);
     }
     readDefaultPassport() {
         try {
