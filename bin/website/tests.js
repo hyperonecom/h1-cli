@@ -431,7 +431,8 @@ ava.serial('website snapshot restore', async t => {
 });
 
 
-ava.serial('website log', async t => {
+ava.skip('website log', async t => {
+    // Moved to API v2
     const password = await tests.getToken();
     const website = await tests.run(`website create --name ${tests.getName(t.title)} ${commonCreateParams} --password ${password}`);
     try {
