@@ -98,10 +98,14 @@ class Command {
         if (opts.help) {
             return this.getUsage();
         }
-        if (opts._unknown && opts._unknown.length > 0 && opts._unknown[0].startsWith('-')) {
+        if (opts._unknown && opts._unknown.length > 0) {
             const option = opts._unknown[0];
-            const suggestion = meant(option, options.map(x => `--${x.name}`));
-            throw new UnknownOptionError(`Unknown parameter "${option}" for "${this.getFullName()}"`, suggestion);
+            if (option.startsWith('--')) {
+                const suggestion = meant(option, options.map(x => `--${x.name}`));
+                throw new UnknownOptionError(`Unknown parameter "${option}" for "${this.getFullName()}"`, suggestion);
+            } else {
+                throw new UnknownOptionError(`Unknown parameter "${option}" for "${this.getFullName()}". Have you forgotten the quotation marks?`);
+            }
         }
         const missing = options.filter(x => x.required && typeof allOpts[x.name] == 'undefined').map(x => `--${x.name}`);
         if (missing.length > 0) {
