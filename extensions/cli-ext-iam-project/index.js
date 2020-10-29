@@ -12,6 +12,7 @@ const lazyAdd = (cmd, names, handler) => {
     }
     cmd.loadHook.push(() => {
         const child = cmd.commands.find(x => x.name == names[0]);
+        if (!child) return;
         child.loadHook.push(() => lazyAdd(child, names.slice(1), handler));
     });
 };
