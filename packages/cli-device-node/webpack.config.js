@@ -6,7 +6,7 @@ module.exports = {
         h1: './bin/h1.js',
         h1_docs: './scripts/print-docs.js',
         main: './index.js',
-        // rbx: './bin/rbx.js',
+        rbx: './bin/rbx.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
