@@ -19,7 +19,7 @@ export default new Command({
         },
     ],
     handler: async (opts) => {
-        const openid_configuration = await opts.http.get(opts.openapi.getUrl('/.well-known/openid-configuration'));
+        const openid_configuration = await opts.auth.getConfiguration();
         const token_endpoint = openid_configuration.token_endpoint;
         // const token_endpoint = openid_configuration.token_endpoint;
         const token = await opts.http.post(token_endpoint, {

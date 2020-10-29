@@ -18,13 +18,15 @@ export default ({ http, logger, config, passport, as, defaultAudience }) => {
 
     const getRefreshToken = () => config.get('auth.token.refresh_token');
 
+    result.getConfiguration = async () => http.get(`${defaultAudience}/.well-known/openid-configuration`);
+
     const refreshToken = async () => {
         const refresh_token = await getRefreshToken();
         if (!refresh_token) {
             logger.debug('No refresh token available. Skip refreshing.');
             return;
         }
-        const openid_configuration = await http.get(`${defaultAudience}/.well-known/openid-configuration`);
+        const openid_configuration = await result.getConfiguration();
         const token = await http.post(openid_configuration.token_endpoint, {
             json: {
                 grant_type: 'refresh_token',
@@ -49,7 +51,7 @@ export default ({ http, logger, config, passport, as, defaultAudience }) => {
     };
 
     const exchange = async (audience, token, options = {}) => {
-        const openid_configuration = await http.get(`${defaultAudience}/.well-known/openid-configuration`);
+        const openid_configuration = await result.getConfiguration();
         return http.post(openid_configuration.token_endpoint, {
             json: {
                 ...{
@@ -104,7 +106,7 @@ export default ({ http, logger, config, passport, as, defaultAudience }) => {
 
     result.introspection = async () => {
         const token = await getAccessToken();
-        const openid_configuration = await http.get(`${defaultAudience}/.well-known/openid-configuration`);
+        const openid_configuration = await result.getConfiguration();
         return http.post(openid_configuration.introspection_endpoint, {
             json: {
                 token: token,
