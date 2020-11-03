@@ -99,7 +99,7 @@ ava.serial('registry docker reachable', async t => {
     t.true(output.includes('Containers: '));
 });
 
-ava.serial('registry is container compatible', async t => {
+ava.skip('registry is container compatible', async t => {
     const password = await tests.getToken();
     const registry = await tests.run(`registry create --name ${tests.getName(t.title)} --password ${password} ${commonCreateParams}`);
     try {
