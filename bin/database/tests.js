@@ -41,10 +41,12 @@ const pgQuery = async (database, password, query) => {
 
 const query = {
     'postgres:11': pgQuery,
+    'postgres:12': pgQuery,
+    'postgres:13': pgQuery,
     'mysql:5.7': mysqlQuery,
 };
 
-['postgres:11', 'mysql:5.7'].forEach(flavour => {
+Object.keys(query).forEach(flavour => {
     ava.serial(`database life cycle - ${flavour}`, tests.resourceLifeCycle('database', {
         createParams: `--name ${tests.getName('database-life-cycle')} --type ${flavour} `,
         stateCreated: 'Running',
@@ -67,7 +69,7 @@ const query = {
     });
 });
 
-['mysql:5.7'].forEach(flavour => {
+Object.keys(query).filter(x => x.startsWith('mysql:')).forEach(flavour => {
     ava.serial(`database credentials password life cycle - ${flavour}`, async t => {
         const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour}`);
 
@@ -102,7 +104,7 @@ const query = {
     });
 });
 
-['postgres:11'].forEach(flavour => {
+Object.keys(query).filter(x => x.startsWith('postgres:')).forEach(flavour => {
     ava.serial(`database reachable - ${flavour}`, async t => {
         const password = await tests.getToken();
         const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour}`);
