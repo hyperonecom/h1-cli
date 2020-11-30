@@ -182,7 +182,6 @@ export class NodeDevice extends Device {
                 }
             }
         });
-        // console.log(`For ${pattern} imported ${extensions.map(x => x.name)}`);
         return extensions;
     }
     mapUrl(url) {
