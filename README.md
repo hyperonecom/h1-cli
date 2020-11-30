@@ -11,6 +11,18 @@ Design docs: https://hackmd.io/wyFxJMe1RCyZ_kK1z4n4lQ
 ## Install project
 
 ```
-npm lerna bootstrap
+yarn install
 ```
 
+## Build project
+
+one-shot:
+
+```
+yarn build
+```
+
+continuos:
+```
+yarn watch
+```
