@@ -38,8 +38,8 @@ export default {
             const filesize = filestat.size;
 
             const uploadRequestUrl = requestUrl
-                .replace('/iso', '/bucket/temp/actions/upload')
-                .replace('/disk', '/bucket/temp/actions/upload');
+                .replace('/iso', '/bucket/5fbfd4c073dc5e138e2b0cfb/actions/upload')
+                .replace('/disk', '/bucket/5fbfd4c073dc5e138e2b0cfb/actions/upload');
 
             const uploadParams = await opts.api.post(uploadRequestUrl, { json: { name: filename } });
 
