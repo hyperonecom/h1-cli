@@ -10,7 +10,7 @@ const mysqlQuery = async (database, password, query) => {
     console.log(new Date(), `Execute query '${query}' on database '${database.fqdn}'`);
     const connection = await mysql.createConnection({
         host: database.fqdn,
-        user: database.id,
+        user: database.username || database.id,
         password: password,
         database: database.id,
     });
@@ -21,6 +21,8 @@ const mysqlQuery = async (database, password, query) => {
         await connection.end();
     }
 };
+
+const mysql56Query = async (database, password, query) => mysqlQuery({...database, username: database.id.substr(-16)}, password, query);
 
 const pgQuery = async (database, password, query) => {
     console.log(new Date(), `Execute query '${query}' on database '${database.fqdn}'`);
@@ -44,6 +46,7 @@ const query = {
     'postgres:12': pgQuery,
     'postgres:13': pgQuery,
     'mysql:5.7': mysqlQuery,
+    'mysql:5.6': mysql56Query,
 };
 
 Object.keys(query).forEach(flavour => {
@@ -83,17 +86,17 @@ Object.keys(query).filter(x => x.startsWith('mysql:')).forEach(flavour => {
         await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database.id}  --password ${password}`);
 
         try {
-            const {results, fields} = await mysqlQuery(database, password, 'SELECT NOW()');
+            const {results, fields} = await query[flavour](database, password, 'SELECT NOW()');
             t.true(!!results);
             t.true(!!fields);
 
-            const {results: results_self_ssl, fields: fields_self_ssl} = await mysqlQuery(database, password, 'SELECT NOW()', {
+            const {results: results_self_ssl, fields: fields_self_ssl} = await query[flavour](database, password, 'SELECT NOW()', {
                 ssl: {rejectUnauthorized: false},
             });
             t.true(!!results_self_ssl);
             t.true(!!fields_self_ssl);
 
-            const {results: results_ssl, fields: fields_ssl} = await mysqlQuery(database, password, 'SELECT NOW()', {
+            const {results: results_ssl, fields: fields_ssl} = await query[flavour](database, password, 'SELECT NOW()', {
                 ssl: {},
             });
             t.true(!!results_ssl);
@@ -110,7 +113,7 @@ Object.keys(query).filter(x => x.startsWith('postgres:')).forEach(flavour => {
         const database = await tests.run(`database create --name ${tests.getName(t.title)} --type ${flavour}`);
         await tests.run(`database credential password add --name ${tests.getName(t.title)} --database ${database.id}  --password ${password}`);
         try {
-            const {results, fields} = await pgQuery(database, password, 'SELECT NOW()');
+            const {results, fields} = await query[flavour](database, password, 'SELECT NOW()');
             t.true(!!results);
             t.true(!!fields);
         } finally {
