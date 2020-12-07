@@ -105,7 +105,7 @@ export default ({ http, logger, config, passport, as, defaultAudience }) => {
     };
 
     result.introspection = async () => {
-        const token = await getAccessToken();
+        const token = await result.getToken();
         const openid_configuration = await result.getConfiguration();
         return http.post(openid_configuration.introspection_endpoint, {
             json: {
