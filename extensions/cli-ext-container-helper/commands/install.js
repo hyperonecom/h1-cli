@@ -10,9 +10,10 @@ export default new Command({
     ],
     handler: async (opts, cmd) => {
         opts = opts._all || opts;
+        const start = process.pkg ? process.argv[0] : `${process.argv[0]} ${process.argv[1]}`;
         const template = [
             '#!/bin/sh',
-            `exec ${process.argv[0]} ${process.argv[1]} container registry helper $@`,
+            `exec ${start} container registry helper $@`,
         ].join('\n');
         const helper = `docker-credential-${cmd.device.getName()}`;
         const filename = path.join(opts['output-directory'], helper);
