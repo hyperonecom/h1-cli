@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:14-alpine
 MAINTAINER hyperone@jawnosc.tk
 RUN apk add --no-cache --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community docker-cli zfs
 WORKDIR /src
