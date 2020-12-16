@@ -1,28 +1,115 @@
-# h1-cli-v2
+# h1-cli v2
 
+[![Build Status](https://travis-ci.org/hyperonecom/h1-cli.svg?branch=master)](https://travis-ci.org/hyperonecom/h1-cli)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
-h1-cli is a console tool designed to manage the HyperOne cloud infrastructure. You can use it for your own administrative work as well as for creating automation scripts.
+
+h1-cli is a tool designed to manage the HyperOne cloud infrastructure. You can use it for your own administrative work as well as for creating automation scripts.
 
 h1-cli v2 is revisited CLI for managed cloud. The basic goal is to solve the scalability problems of the previous version, both in development and execution. It also makes it possible to meet new requirements.
 
-Design docs: https://hackmd.io/wyFxJMe1RCyZ_kK1z4n4lQ
+## Features overview
 
-## Install project
+* control of all resources provided by the platform, in particular:
+
+  * changing server - creating, stoping and deleting them,
+  * manipulation of IP addresses - associate them, modification of the PTR record,
+  * modifying disks - creating, detach / attach from the server, resize,
+  * update DNS zone - add DNS records, import & exports whole zone
+
+* various forms of authentication,
+* choice of output format, in order to use it in additional tools.
+
+The [reference documentation] contains a complete set of information on the possible actions to be taken and their options.
+
+## Installation
+
+Detailed instruction about installation is available at [HyperOne.com](https://www.hyperone.com/tools/cli/guides/installation.html) for:
+
+* Linux distro:
+  * Debian & Ubuntu – via Apt repository
+  * Fedora & CentOS – via Yum repository
+  * Alpine - via Apk repository
+  * other Linux distro – via executable
+* macOS - via executable
+* Windows - via executable
+
+## Usage
+
+The commands are composed of the following components:
+
+```bash
+h1 {namespace} {resource} [subresource ...] {action} [[options] ...]
+```
+
+This structure is repeated in all application commands.
+
+To start the work you should log in via the command:
+
+```bash
+h1 auth user --username {{user_email}} --password {{user_password}}
+```
+
+After correctly logging in, you will receive a message about obtained identity.
+
+The credentials have been saved in ``$HOME/.h1/config.json``. You must ensure the confidentiality of these files.
+
+If you carry out operations constantly in one project, you might select actively used by downloading the proper identifier:
+
+```bash
+h1 iam project list
+```
+
+Then, confirm this choice:
+
+```bash
+h1 project select --project {{project}}
+```
+
+### Development
+
+Project contains two main directories with source code - `packages` and `extensions`. Each of them contain relevant Javascript packages as modules.
+
+Directory `packages` contain building primitives for CLI and entrypoint to start it.
+
+Directory `extensions` contain specific packages to particular CLI elements, e.g. related to specific forms of authentication or namespace operations.
+
+To install your project use:
 
 ```
 yarn install
 ```
 
-## Build project
-
-one-shot:
+To build project use:
 
 ```
 yarn build
 ```
 
-continuos:
+During the development of CLI, it is recommended to use continuos rebuilding of changes, using:
+
 ```
 yarn watch
 ```
+
+To start CLI on Desktop use:
+
+```bash
+nodejs packages/cli-device-node/dist/h1
+```
+
+To start CLI in Browser use:
+
+```bash
+cd packages/cli-device-browser-demo
+npm run serve
+```
+
+### Reporting problems and comments
+
+If you encounter any errors with the tool, please report the problem through the notification system in the administration panel or the [Issues] tab in the [repository].
+
+[Releases]: https://github.com/hyperonecom/h1-cli/releases/latest
+[repository]: https://github.com/hyperonecom/h1-cli
+[Issues]: https://github.com/hyperonecom/h1-cli/issues
+[reference documentation]: docs/index.md
