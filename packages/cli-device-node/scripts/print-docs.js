@@ -21,6 +21,18 @@ const documentCommand = async (out, cmd, level = 1) => {
     }
 };
 
+class DocumentationDevice extends NodeDevice {
+    configLoad() {
+        return {
+            parameter: {
+                location: {
+                    value: 'pl-waw-1',
+                },
+            },
+        };
+    }
+}
+
 const main = async () => new Command({
     name: 'print',
     summary: 'Print or write documentation of commands',
@@ -32,7 +44,7 @@ const main = async () => new Command({
     handler: async (opts) => {
         const { program } = await buildCli({
             openapiUrl: opts._all.url,
-            device: new NodeDevice('h1'),
+            device: new DocumentationDevice('h1'),
         });
         console.log(program.getFullName());
         await program.loadCommands();

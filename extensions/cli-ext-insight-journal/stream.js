@@ -13,11 +13,10 @@ export default new Command({
         { name: 'journal', required: true },
         { name: 'project', required: true, defaultSource: 'project' },
         {
-            name: 'log-file',
-            description: 'Path of the input json log file (default: stdin)',
-            type: path => fs.createWriteStream(path),
+            name: 'log-file-output',
+            description: 'Path of the output json log file. "stdout" is a specially handled file.',
             required: false,
-            defaultValue: process.stdout,
+            defaultValue: 'stdout',
         },
         {
             name: 'head',
@@ -37,10 +36,10 @@ export default new Command({
             headers: { authorization: `Bearer ${token}` },
         });
         let lines = 0;
-
+        const logFile = optsAll['log-file'] == 'stdout' ? process.stdout : fs.createReadStream(optsAll['log-file']);
         return new Promise((resolve, reject) => stream.body
             .on('error', err => {
-                optsAll['log-file'].close();
+                logFile.close();
                 if (err.name !== 'AbortError') {
                     return reject(err);
                 }
@@ -58,7 +57,7 @@ export default new Command({
                     return callback(null, `${line}\n`);
                 },
             }))
-            .pipe(optsAll['log-file'])
+            .pipe(logFile)
             .on('finish', resolve)
             .on('end', resolve)
         );

@@ -5,7 +5,7 @@ import meant from 'meant';
 import { resolvePointer, serializeValue } from './utils';
 import { UnknownOptionError } from './error';
 
-const escape = value => value.replace('{', '\\\{').replace('}', '\\\}');
+const escape = value => `${value}`.replace('{', '\\\{').replace('}', '\\\}');
 class Command {
     constructor(options = {}) {
         this.name = options.name;

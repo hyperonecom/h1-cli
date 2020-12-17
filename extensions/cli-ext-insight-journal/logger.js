@@ -20,10 +20,9 @@ export default new Command({
         },
         {
             name: 'log-file',
-            description: 'Path of the input text log file (default: stdin)',
-            type: path => fs.createReadStream(path),
+            description: 'Path of the input text log file. "stdin" is a specially handled file.',
             required: false,
-            defaultValue: process.stdin,
+            defaultValue: 'stdin',
         },
         // tags
     ],
@@ -32,8 +31,8 @@ export default new Command({
         const log = await opts.api
             .get(openapi.getUrl(`/insight/pl-waw-1/project/${optsAll.project}/journal/${optsAll.journal}`));
         const token = await opts.auth.getToken(log.fqdn);
-
-        const inStream = optsAll['log-file']
+        const logFile = optsAll['log-file'] == 'stdin' ? process.stdin : fs.createReadStream(optsAll['log-file']);
+        const inStream = logFile
             .pipe(new readlineTransform())
             .pipe(new Transform({
                 transform(line, encoding, callback) {

@@ -149,11 +149,8 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '') => {
     }
 
     if (pvalue.type == 'boolean') {
-        const choices = [true, false].map(String);
         Object.assign(p, {
-            type: (value) => value == 'true',
-            typeLabel: choices.join(','),
-            choices,
+            type: Boolean,
         });
     }
 
