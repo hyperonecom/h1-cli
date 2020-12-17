@@ -8,7 +8,7 @@ export default {
         {
             name: 'passport-file',
             typeLabel: 'path',
-            description: 'Passport file. Defaults to ~/.h1/passport.json.',
+            description: 'Passport file. Default value is ~/.h1/passport.json, if available.',
             group: ['global'],
         },
         {

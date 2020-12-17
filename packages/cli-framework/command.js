@@ -40,7 +40,10 @@ class Command {
             }
             this.argPlugin = true;
         }
-        return this.options;
+        return this.options.map(x => ({
+            ...x,
+            description: x.defaultValue ? `${x.description}. Default value is ${x.defaultValue}` : x.description,
+        }));
     }
     async getExamples() {
         if (typeof this.examples == 'function') {
@@ -71,7 +74,6 @@ class Command {
                    $ ${command.replace('{name}', fullName)}`).join('\n\n'),
             });
         }
-
         content.push(...[
             {
                 header: 'Global options',

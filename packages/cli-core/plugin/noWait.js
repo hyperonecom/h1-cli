@@ -7,7 +7,7 @@ export default {
             type: (value) => value == 'true',
             typeLabel: 'true,false',
             choices: ['true', 'false'],
-            defaultValue: true,
+            defaultValue: 'false',
             description: 'In case of queued event do not wait for completion',
             group: ['global'],
         }
