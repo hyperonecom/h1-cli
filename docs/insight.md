@@ -68,25 +68,25 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                                   
+  --verbose                                   Make the operation more talkative.                                            
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml                       
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name, state:state,    
+                                              flavour:flavour}                                                              
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available.            
+  --as uri                                    Act as another actor eg. service account                                      
+  --no-wait                                   In case of queued event do not wait for completion                            
 
 Operation options
 
-  --project id-or-uri          Project Id                                                     
-  --location id-or-uri         Location Id                                                    
-  --x-idempotency-key string   Idempotency key                                                
-  --name string                Journal name                                                   
-  --service id-or-uri          Journal service. Provide ID or URI of billing/service.         
-                               Defaults is 5c9cc2d0255c16c3e899a4ea                           
-  --retention string           Journal retention                                              
-  --tag key=key,value=value    Tag collection                                                 
+  --project id-or-uri          Project Id                                                                    
+  --location id-or-uri         Location Id. Default value is pl-waw-1                                        
+  --x-idempotency-key string   Idempotency key                                                               
+  --name string                Journal name                                                                  
+  --service id-or-uri          Journal service. Provide ID or URI of billing/service. Defaults is            
+                               5c9cc2d0255c16c3e899a4ea. Default value is 5c9cc2d0255c16c3e899a4ea           
+  --retention string           Journal retention                                                             
+  --tag key=key,value=value    Tag collection                                                                
   --skeleton
 ```
 
@@ -110,22 +110,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                                   
+  --verbose                                   Make the operation more talkative.                                            
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml                       
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name, state:state,    
+                                              flavour:flavour}                                                              
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available.            
+  --as uri                                    Act as another actor eg. service account                                      
+  --no-wait                                   In case of queued event do not wait for completion                            
 
 Operation options
 
-  --project id-or-uri    Project Id          
-  --location id-or-uri   Location Id         
-  --name string          Filter by name      
-  --tag.value string     Filter by tag.value 
-  --tag.key string       Filter by tag.key   
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --name string          Filter by name                         
+  --tag.value string     Filter by tag.value                    
+  --tag.key string       Filter by tag.key                      
   --skeleton
 ```
 
@@ -140,30 +140,36 @@ Synopsis
 
   $ h1 insight journal show <options> 
 
-Example
+Examples
 
                                                                                 
   Simple                                                                        
                                                                                 
   $ h1 insight journal show --project 5f64e2468c71177993874510 --journal        
   5f577a24494c5cfdec7830e5                                                      
+                                                                                
+                                                                                
+  Simple write to journal                                                       
+                                                                                
+  $ h1 insight journal show --project 5f64e2468c71177993874510 --journal        
+  5f577a24494c5cfdec7830e5                                                      
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                                   
+  --verbose                                   Make the operation more talkative.                                            
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml                       
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name, state:state,    
+                                              flavour:flavour}                                                              
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available.            
+  --as uri                                    Act as another actor eg. service account                                      
+  --no-wait                                   In case of queued event do not wait for completion                            
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
   --skeleton
 ```
 
@@ -188,23 +194,22 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                                   
+  --verbose                                   Make the operation more talkative.                                            
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml                       
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name, state:state,    
+                                              flavour:flavour}                                                              
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available.            
+  --as uri                                    Act as another actor eg. service account                                      
+  --no-wait                                   In case of queued event do not wait for completion                            
 
 Operation options
 
-  --project id-or-uri    Project Id                                                           
-  --location id-or-uri   Location Id                                                          
-  --journal id-or-uri    Journal Id                                                           
-  --name string          Journal name. Requires permissions insight/journal.name/update       
-  --retention string     Journal retention. Requires permissions                              
-                         insight/journal.retention/update                                     
+  --project id-or-uri    Project Id                                                               
+  --location id-or-uri   Location Id. Default value is pl-waw-1                                   
+  --journal id-or-uri    Journal Id                                                               
+  --name string          Journal name. Requires permissions insight/journal.name/update           
+  --retention string     Journal retention. Requires permissions insight/journal.retention/update 
   --skeleton
 ```
 
@@ -229,20 +234,19 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string                                              
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
   --skeleton
 ```
 
@@ -259,23 +263,23 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                                   
+  --verbose                                   Make the operation more talkative.                                            
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml                       
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name, state:state,    
+                                              flavour:flavour}                                                              
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available.            
+  --as uri                                    Act as another actor eg. service account                                      
+  --no-wait                                   In case of queued event do not wait for completion                            
 
 Operation options
 
-  --project id-or-uri          Project Id                                                     
-  --location id-or-uri         Location Id                                                    
-  --journal id-or-uri          Journal Id                                                     
-  --x-idempotency-key string   Idempotency key                                                
-  --project id-or-uri          Journal project. Provide ID or URI of iam/project. Requires    
-                               permissions insight/journal/create                             
+  --project id-or-uri          Project Id                                                                    
+  --location id-or-uri         Location Id. Default value is pl-waw-1                                        
+  --journal id-or-uri          Journal Id                                                                    
+  --x-idempotency-key string   Idempotency key                                                               
+  --project id-or-uri          Journal project. Provide ID or URI of iam/project. Requires permissions       
+                               insight/journal/create                                                        
   --skeleton
 ```
 
@@ -310,25 +314,24 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string                                              
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --since string         since       
-  --until string         until       
-  --follow string        follow      
-  --tail string          tail        
-  --tag string           tag         
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
+  --since string         since                                  
+  --until string         until                                  
+  --follow string        follow                                 
+  --tail string          tail                                   
+  --tag string           tag                                    
   --skeleton
 ```
 
@@ -347,16 +350,11 @@ Options
 
 Command List
 
-  create   Create insight/journal.credential [Operation ID:                                   
-           insight_project_journal_credential_create]                                         
-  list     List insight/journal.credential [Operation ID:                                     
-           insight_project_journal_credential_list]                                           
-  show     Get insight/journal.credential [Operation ID:                                      
-           insight_project_journal_credential_get]                                            
-  update   Update insight/journal.credential [Operation ID:                                   
-           insight_project_journal_credential_patch]                                          
-  delete   Delete insight/journal.credential [Operation ID:                                   
-           insight_project_journal_credential_delete]
+  create   Create insight/journal.credential [Operation ID: insight_project_journal_credential_create] 
+  list     List insight/journal.credential [Operation ID: insight_project_journal_credential_list]     
+  show     Get insight/journal.credential [Operation ID: insight_project_journal_credential_get]       
+  update   Update insight/journal.credential [Operation ID: insight_project_journal_credential_patch]  
+  delete   Delete insight/journal.credential [Operation ID: insight_project_journal_credential_delete]
 ```
 
 ##### h1 insight journal credential create
@@ -382,24 +380,23 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name}      
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri    Project Id       
-  --location id-or-uri   Location Id      
-  --journal id-or-uri    Journal Id       
-  --name string          Credential name  
-  --type sha512,plain    Credential type  
-  --value string         Credential value 
-  --token string         Credential token 
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
+  --name string          Credential name                        
+  --type sha512,plain    Credential type                        
+  --value string         Credential value                       
+  --token string         Credential token                       
   --skeleton
 ```
 
@@ -425,20 +422,19 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name}      
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
   --skeleton
 ```
 
@@ -464,21 +460,20 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name}      
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri      Project Id   
-  --location id-or-uri     Location Id  
-  --journal id-or-uri      Journal Id   
-  --credential id-or-uri   credentialId 
+  --project id-or-uri      Project Id                             
+  --location id-or-uri     Location Id. Default value is pl-waw-1 
+  --journal id-or-uri      Journal Id                             
+  --credential id-or-uri   credentialId                           
   --skeleton
 ```
 
@@ -494,25 +489,32 @@ Synopsis
 
   $ h1 insight journal credential update <options> 
 
+Example
+
+                                                                                
+  Simple                                                                        
+                                                                                
+  $ h1 insight journal credential update --project 5f64e2468c71177993874510     
+  --journal 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b      
+  --name renamed-credential-journal                                             
+
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name}      
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri      Project Id                                                         
-  --location id-or-uri     Location Id                                                        
-  --journal id-or-uri      Journal Id                                                         
-  --credential id-or-uri   credentialId                                                       
-  --name string            Credential name. Requires permissions                              
-                           insight/journal.credential.name/update                             
+  --project id-or-uri      Project Id                                                                   
+  --location id-or-uri     Location Id. Default value is pl-waw-1                                       
+  --journal id-or-uri      Journal Id                                                                   
+  --credential id-or-uri   credentialId                                                                 
+  --name string            Credential name. Requires permissions insight/journal.credential.name/update 
   --skeleton
 ```
 
@@ -538,21 +540,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                                   
+  --verbose                                   Make the operation more talkative.                                            
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml                       
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name, state:state,    
+                                              flavour:flavour}                                                              
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available.            
+  --as uri                                    Act as another actor eg. service account                                      
+  --no-wait                                   In case of queued event do not wait for completion                            
 
 Operation options
 
-  --project id-or-uri      Project Id   
-  --location id-or-uri     Location Id  
-  --journal id-or-uri      Journal Id   
-  --credential id-or-uri   credentialId 
+  --project id-or-uri      Project Id                             
+  --location id-or-uri     Location Id. Default value is pl-waw-1 
+  --journal id-or-uri      Journal Id                             
+  --credential id-or-uri   credentialId                           
   --skeleton
 ```
 
@@ -597,20 +599,19 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name}      
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
   --skeleton
 ```
 
@@ -635,21 +636,20 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name}      
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --service id-or-uri    serviceId   
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
+  --service id-or-uri    serviceId                              
   --skeleton
 ```
 
@@ -695,22 +695,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string. Default value is [].{id:id}                 
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --key string           Tag key     
-  --value string         Tag value   
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
+  --key string           Tag key                                
+  --value string         Tag value                              
   --skeleton
 ```
 
@@ -735,20 +734,19 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string. Default value is [].{id:id}                 
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
   --skeleton
 ```
 
@@ -773,21 +771,20 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string. Default value is [].{id:id}                 
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --tag id-or-uri        tagId       
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
+  --tag id-or-uri        tagId                                  
   --skeleton
 ```
 
@@ -812,21 +809,20 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string                                              
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --tag id-or-uri        tagId       
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
+  --tag id-or-uri        tagId                                  
   --skeleton
 ```
 
@@ -870,22 +866,21 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                                 
+  --verbose                                   Make the operation more talkative.                                          
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml                     
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name, state:state}  
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available.          
+  --as uri                                    Act as another actor eg. service account                                    
+  --no-wait                                   In case of queued event do not wait for completion                          
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --$limit string        $limit      
-  --$skip string         $skip       
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
+  --$limit string        $limit                                 
+  --$skip string         $skip                                  
   --skeleton
 ```
 
@@ -910,21 +905,20 @@ Example
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                                 
+  --verbose                                   Make the operation more talkative.                                          
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml                     
+  --query string                              JMESPath query string. Default value is [].{id:id, name:name, state:state}  
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available.          
+  --as uri                                    Act as another actor eg. service account                                    
+  --no-wait                                   In case of queued event do not wait for completion                          
 
 Operation options
 
-  --project id-or-uri    Project Id  
-  --location id-or-uri   Location Id 
-  --journal id-or-uri    Journal Id  
-  --event id-or-uri      eventId     
+  --project id-or-uri    Project Id                             
+  --location id-or-uri   Location Id. Default value is pl-waw-1 
+  --journal id-or-uri    Journal Id                             
+  --event id-or-uri      eventId                                
   --skeleton
 ```
 
@@ -941,21 +935,21 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string                                              
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --journal string                                                     
-  --project string                                                     
-  --hostname string                                                    
-  --log-file type     Path of the input text log file (default: stdin)
+  --journal string                                                                                  
+  --project string                                                                                  
+  --hostname string   undefined. Default value is adas-Latitude-E7450                               
+  --log-file string   Path of the input text log file. "stdin" is a specially handled file..        
+                      Default value is stdin
 ```
 
 #### h1 insight journal stream
@@ -971,20 +965,20 @@ Synopsis
 
 Global options
 
-  --help                                      Show help message and exit.                     
-  --verbose                                   Make the operation more talkative.              
-  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command                
-  --query string                              JMESPath query string                           
-  --passport-file path                        Passport file. Defaults to ~/.h1/passport.json. 
-  --as uri                                    Act as another actor eg. service account        
-  --no-wait true,false                        In case of queued event do not wait for         
-                                              completion                                      
+  --help                                      Show help message and exit.                                        
+  --verbose                                   Make the operation more talkative.                                 
+  -o, --output tsv,list,json,js,id,uri,yaml   Specify output format of command. Default value is yaml            
+  --query string                              JMESPath query string                                              
+  --passport-file path                        Passport file. Default value is ~/.h1/passport.json, if available. 
+  --as uri                                    Act as another actor eg. service account                           
+  --no-wait                                   In case of queued event do not wait for completion                 
 
 Operation options
 
-  --journal string                                                    
-  --project string                                                    
-  --log-file type    Path of the input json log file (default: stdin) 
-  --head number      Maximum number of lines to show. All if skipped.
+  --journal string                                                                                         
+  --project string                                                                                         
+  --log-file-output string   Path of the output json log file. "stdout" is a specially handled file..      
+                             Default value is stdout                                                       
+  --head number              Maximum number of lines to show. All if skipped.
 ```
 
