@@ -62,6 +62,7 @@ export default {
             name: 'query',
             description: 'JMESPath query string',
             type: String,
+            defaultValue: cmd.defaultQuery,
             group: ['global'],
         },
     ]),
@@ -69,8 +70,19 @@ export default {
         const optsAll = opts._all || opts;
         const formatter = outputFormat[optsAll.output];
         opts.format = (opts, output) => {
-            if (typeof output == 'string') return output;
-            return formatter(output, optsAll.query, opts.defaultQuery);
+            if (output && output.headers && output.status) {
+                if (output.bodyText) {
+                    output = output.bodyText;
+                } else if (output.bodyJson) {
+                    output = output.bodyJson;
+                } else if (output.status <= 200 && output.status > 300) {
+                    output = 'The operation was a success';
+                } else {
+                    output = `The operation response status is '${output.status} ${output.statusText}'`;
+                }
+            }
+            if (typeof output == 'string' || !optsAll.query) return output;
+            return formatter(output, optsAll.query);
         };
     },
 };

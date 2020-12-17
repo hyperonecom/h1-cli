@@ -249,7 +249,7 @@ const generateQuery = (path, operation) => {
     if (props) {
         for (const name of ['id', 'name', 'state', 'flavour', 'content', 'enabled', 'size']) {
             if (props[name]) {
-                col.push(`${name}: ${name}`);
+                col.push(`${name}:${name}`);
             }
         }
     }
@@ -257,7 +257,7 @@ const generateQuery = (path, operation) => {
     if (col.length == 0) {
         col.push('value:@');
     }
-    return `[].{ ${col.join(',')}} `;
+    return `[].{${col.join(', ')}} `;
 };
 
 const renderQuery = (input, options) => Object

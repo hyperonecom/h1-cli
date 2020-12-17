@@ -42,7 +42,6 @@ export default (device, logger) => {
         const duration = new Date() - start;
         logger.debug('response time', `${duration} ms`);
         resp.controller = controller;
-
         if (!resp.ok) {
             const err = new Error('Invalid response');
             err.resp = resp;
@@ -54,28 +53,24 @@ export default (device, logger) => {
     const request = async (method, uri, options) => {
         const resp = await baseRequest(method, uri, options);
         const type = resp.headers.get('content-type');
-        const length = resp.headers.get('content-length');
-        if (resp.status == 204 || length == '0') {
-            return;
-        }
         const encoding = resp.headers.get('transfer-encoding');
 
         if (type && type.startsWith('text/plain')) {
             if (encoding == 'chunked') {
                 return resp;
             }
-            const respText = await resp.text();
-            logger.debug('response text', respText);
-            return respText;
+            resp.bodyText = resp.text();
+            logger.debug('response text', resp.bodyText);
+            return resp;
         }
 
         if (type && type.startsWith('application/json')) {
-            const respJson = await resp.json();
-            logger.debug('response json', respJson);
-            return respJson;
+            resp.bodyJson = await resp.json();
+            logger.debug('response json', resp.bodyJson);
+            return resp;
         }
 
-        throw new Error(`Unsupported content type: ${type}`);
+        return resp;
     };
 
     result.delete = (uri, options = {}) => request('delete', uri, options);

@@ -5,6 +5,7 @@ import meant from 'meant';
 import { resolvePointer, serializeValue } from './utils';
 import { UnknownOptionError } from './error';
 
+const escape = value => value.replace('{', '\\\{').replace('}', '\\\}');
 class Command {
     constructor(options = {}) {
         this.name = options.name;
@@ -42,7 +43,7 @@ class Command {
         }
         return this.options.map(x => ({
             ...x,
-            description: x.defaultValue ? `${x.description}. Default value is ${x.defaultValue}` : x.description,
+            description: x.defaultValue ? `${x.description}. Default value is ${escape(x.defaultValue)}` : x.description,
         }));
     }
     async getExamples() {

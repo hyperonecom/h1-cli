@@ -56,8 +56,6 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
             const parameters = request.renderParameter(optsAll, options);
             const url = openapi.getUrl(path, parameters);
             const query = request.renderQuery(optsAll, options);
-            opts.defaultQuery = request.generateQuery(path, operation, optsAll);
-
             let requestBody;
             if (['post', 'patch', 'put'].includes(method)) {
                 requestBody = request.renderBody(operation, optsAll, options);
@@ -80,6 +78,7 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
             return opts.format(opts, resp);
         },
     });
+    cmd.defaultQuery = request.generateQuery(path, operation);
     return cmd;
 };
 
