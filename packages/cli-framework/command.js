@@ -98,7 +98,7 @@ class Command {
             ...commandLineArgs(options, { argv, stopAtFirstUnknown: true }),
         };
         const allOpts = opts._all || opts || {};
-        if (opts.help) {
+        if (opts.help || allOpts.help) {
             return this.getUsage();
         }
         if (opts._unknown && opts._unknown.length > 0) {

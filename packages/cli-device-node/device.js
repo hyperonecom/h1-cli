@@ -78,9 +78,12 @@ export class NodeDevice extends Device {
         }
         process.exit(err.exitCode || 1);
     }
+    async dataDir() {
+        return path.join(os.homedir(), `.${this.scope}`);
+    }
     async configLoad() {
         if (typeof this.config == 'undefined') {
-            const outDir = path.join(os.homedir(), `.${this.scope}`);
+            const outDir = this.dataDir();
             try {
                 const content = await fs.promises.readFile(path.join(outDir, 'config.json'), { encoding: 'utf-8' });
                 this.config = JSON.parse(content);
