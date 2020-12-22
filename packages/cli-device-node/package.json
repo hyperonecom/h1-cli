@@ -11,6 +11,7 @@
   "dependencies": {
     "@hyperone/cli-core": "link:../cli-core",
     "@hyperone/cli-ext-compute-vm": "link:../../extensions/cli-ext-compute-vm",
+    "@hyperone/cli-ext-config-autocomplete": "link:../../extensions/cli-ext-config-autocomplete/",
     "@hyperone/cli-ext-config-extensions": "link:../../extensions/cli-ext-config-extensions",
     "@hyperone/cli-ext-config-settings": "link:../../extensions/cli-ext-config-settings",
     "@hyperone/cli-ext-container-helper": "link:../../extensions/cli-ext-container-helper/",
@@ -18,11 +19,11 @@
     "@hyperone/cli-ext-root-auth": "link:../../extensions/cli-ext-root-auth",
     "@hyperone/cli-ext-root-config": "link:../../extensions/cli-ext-root-config",
     "@hyperone/cli-ext-root-openapi-generator": "link:../../extensions/cli-ext-root-openapi-generator",
+    "@hyperone/cli-ext-root-version": "link:../../extensions/cli-ext-root-version/",
     "@hyperone/cli-ext-storage-vault": "link:../../extensions/cli-ext-storage-vault",
     "@hyperone/cli-ext-website-instance": "link:../../extensions/cli-ext-website-instance",
     "@hyperone/cli-framework": "link:../cli-framework",
     "array-back": "^3.1.0",
-    "cli-ext-config-autocomplete": "link:../../extensions/cli-ext-config-autocomplete/",
     "strip-ansi-stream": "^1.0.0",
     "untildify": "^4.0.0"
   },

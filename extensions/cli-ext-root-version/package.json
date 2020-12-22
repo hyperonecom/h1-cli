@@ -1,7 +1,7 @@
 {
-  "name": "@hyperone/cli-ext-config-autocomplete",
+  "name": "@hyperone/cli-ext-root-version",
   "version": "1.0.6",
-  "description": "Extension to manage autocompletion of CLI.",
+  "description": "Extension to display version.",
   "main": "dist/index.js",
   "browser": "index.js",
   "scripts": {
@@ -19,8 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@hyperone/cli-core": "link:../../packages/cli-core",
-    "@hyperone/cli-framework": "link:../../packages/cli-framework",
-    "shlex": "^2.0.2"
+    "@hyperone/cli-framework": "link:../../packages/cli-framework"
   },
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",
   "publishConfig": {

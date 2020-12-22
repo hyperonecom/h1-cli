@@ -298,6 +298,13 @@
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
 
+"@hyperone/cli-ext-config-autocomplete@link:extensions/cli-ext-config-autocomplete":
+  version "1.0.6"
+  dependencies:
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
+    shlex "^2.0.2"
+
 "@hyperone/cli-ext-config-extensions@link:extensions/cli-ext-config-extensions":
   version "2.0.7"
   dependencies:
@@ -353,6 +360,12 @@
     pluralize "^8.0.0"
     sha512crypt-node "^0.1.0"
     ws-streamify "^0.1.4"
+
+"@hyperone/cli-ext-root-version@link:extensions/cli-ext-root-version":
+  version "1.0.6"
+  dependencies:
+    "@hyperone/cli-core" "link:packages/cli-core"
+    "@hyperone/cli-framework" "link:packages/cli-framework"
 
 "@hyperone/cli-ext-storage-vault@link:extensions/cli-ext-storage-vault":
   version "2.0.7"
@@ -2357,10 +2370,6 @@ cli-cursor@^2.1.0:
   integrity sha1-s12sN2R5+sw+lHR9QdDQ9SOP/LU=
   dependencies:
     restore-cursor "^2.0.0"
-
-"cli-ext-config-autocomplete@link:../../extensions/cli-ext-config-autocomplete/":
-  version "0.0.0"
-  uid ""
 
 cli-width@^2.0.0:
   version "2.2.1"

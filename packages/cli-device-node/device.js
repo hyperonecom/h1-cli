@@ -35,6 +35,9 @@ export class NodeDevice extends Device {
     getName() {
         return this.scope;
     }
+    getVersion() {
+        return require('./package.json').version;
+    }
     displayResult(output) {
         if (typeof output === 'object') {
             console.dir(output, { depth: null });
