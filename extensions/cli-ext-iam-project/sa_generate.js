@@ -43,7 +43,7 @@ export default new Command({
         const subject_id = openapi.renderPath('/iam/project/{projectId}/sa/{saId}', parameters);
         const jwk = {
             subject_id,
-            certificate_id: result.id,
+            certificate_id: result.bodyJson.id,
             issuer: openapi.getUrl(subject_id),
             private_key: pki.privateKeyToPem(privateKey),
             public_key: pki.publicKeyToPem(publicKey),
@@ -51,6 +51,6 @@ export default new Command({
         const outfile = optsAll['passport-output-file'];
         opts.logger.info(`Save passport to file '${outfile}'`);
         await fs.promises.writeFile(outfile, JSON.stringify(jwk, null, 4));
-        return result;
+        return result.bodyJson;
     },
 });
