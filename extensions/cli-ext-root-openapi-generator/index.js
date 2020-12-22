@@ -26,7 +26,13 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
 
     const cmd = new Command({
         name,
-        summary: `${operation.summary} [Operation ID: ${operation.operationId}]`,
+        summary: [
+            operation.summary,
+            '',
+            'See also:',
+            '',
+            `* [API reference](https://api.hyperone.com/v2/docs#operation/${operation.operationId})`,
+        ].join('\n'),
         options: [
             ...options,
             {

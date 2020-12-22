@@ -86,7 +86,7 @@ export class NodeDevice extends Device {
     }
     async configLoad() {
         if (typeof this.config == 'undefined') {
-            const outDir = this.dataDir();
+            const outDir = await this.dataDir();
             try {
                 const content = await fs.promises.readFile(path.join(outDir, 'config.json'), { encoding: 'utf-8' });
                 this.config = JSON.parse(content);

@@ -6,6 +6,7 @@ import { resolvePointer, serializeValue } from './utils';
 import { UnknownOptionError } from './error';
 
 const escape = value => `${value}`.replace('{', '\\\{').replace('}', '\\\}');
+
 class Command {
     constructor(options = {}) {
         this.name = options.name;
@@ -52,7 +53,7 @@ class Command {
         }
         return this.examples;
     }
-    async getUsage() {
+    async renderUsage() {
         const options = await this.getOptions();
         const fullName = this.getFullName();
         const content = [
@@ -69,6 +70,7 @@ class Command {
         if (examples && examples.length > 0) {
             content.push({
                 header: examples.length > 1 ? 'Examples' : 'Example',
+                examples,
                 content: examples.map(({ title, command }) => `
                     {bold ${title}}
                 
@@ -89,7 +91,21 @@ class Command {
                 optionList: options,
             },
         ]);
-        return commandLineUsage(content);
+        return content;
+    }
+    async getUsage(...args) {
+        const usage = await this.renderUsage(...args);
+        return commandLineUsage(usage.map(x => {
+            const override = {};
+            if (x.summary) {
+                override.summary.replace('\[(.+?)\]\((.+?)\)', (match) => `${match[1]} (${match[2]})`);
+                override.raw = true;
+            }
+            return {
+                ...x,
+                ...override,
+            };
+        }));
     }
     async exec(argv, parentOpts = {}) {
         const options = await this.getOptions();

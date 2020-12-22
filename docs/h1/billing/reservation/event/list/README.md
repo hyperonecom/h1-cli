@@ -1,0 +1,60 @@
+
+# h1 billing reservation event list
+
+List billing/reservation.event
+
+See also:
+
+* [API reference](https://api.hyperone.com/v2/docs#operation/billing_project_reservation_event_list)
+
+## Synopsis
+
+$ h1 billing reservation event list <options>
+
+## Example
+
+
+### Simple
+
+```h1 billing reservation event list --project 5f64e2468c71177993874510 --reservation 5f577a24494c5cfdec7830e5```
+
+## Global options
+
+| Option name                                        | Description                                                                   |
+| -------------------------------------------------- | ----------------------------------------------------------------------------- |
+| ```--project {id-or-uri}```                        | Project Id                                                                    |
+| ```--reservation {id-or-uri}```                    | Reservation Id                                                                |
+| ```--$limit {$limit}```                            | $limit                                                                        |
+| ```--$skip {$skip}```                              | $skip                                                                         |
+| ```--skeleton```                                   | -                                                                             |
+| ```--help```                                       | Show help message and exit.                                                   |
+| ```--verbose```                                    | Make the operation more talkative.                                            |
+| ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml                       |
+| ```--query {query}```                              | JMESPath query string. Default value is [].\{id:id, name:name, state:state\}  |
+| ```--passport-file {path}```                       | Passport file. Default value is ~/.h1/passport.json, if available.            |
+| ```--as {uri}```                                   | Act as another actor eg. service account                                      |
+| ```--no-wait```                                    | In case of queued event do not wait for completion                            |
+
+## Operation options
+
+| Option name                                        | Description                                                                   |
+| -------------------------------------------------- | ----------------------------------------------------------------------------- |
+| ```--project {id-or-uri}```                        | Project Id                                                                    |
+| ```--reservation {id-or-uri}```                    | Reservation Id                                                                |
+| ```--$limit {$limit}```                            | $limit                                                                        |
+| ```--$skip {$skip}```                              | $skip                                                                         |
+| ```--skeleton```                                   | -                                                                             |
+| ```--help```                                       | Show help message and exit.                                                   |
+| ```--verbose```                                    | Make the operation more talkative.                                            |
+| ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml                       |
+| ```--query {query}```                              | JMESPath query string. Default value is [].\{id:id, name:name, state:state\}  |
+| ```--passport-file {path}```                       | Passport file. Default value is ~/.h1/passport.json, if available.            |
+| ```--as {uri}```                                   | Act as another actor eg. service account                                      |
+| ```--no-wait```                                    | In case of queued event do not wait for completion                            |
+
+# Parent commands
+
+* [h1 billing reservation event](./../README.md)
+* [h1 billing reservation](./../../README.md)
+* [h1 billing](./../../../README.md)
+* [h1](./../../../../README.md)
