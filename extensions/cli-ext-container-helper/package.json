@@ -1,6 +1,6 @@
 {
 	"name": "@hyperone/cli-ext-container-helper",
-	"version": "1.0.1",
+	"version": "2.0.8",
 	"description": "",
 	"main": "dist/index.js",
 	"browser": "index.js",
