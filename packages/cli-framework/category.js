@@ -31,6 +31,7 @@ class Category extends Command {
     }
     async getUsage() {
         await this.loadCommands();
+
         const content = [
             {
                 header: this.getFullName(),
