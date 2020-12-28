@@ -57,6 +57,7 @@ const documentCommand = async (cmd, dir) => {
         out.push('\n');
         bonus = 1;
     }
+
     if (cmd.loadCommands) {
         const commands = await cmd.loadCommands();
         if (commands) {
@@ -67,6 +68,7 @@ const documentCommand = async (cmd, dir) => {
             }
         }
     }
+
     if (cmd.parent) {
         out.push(header(bonus, 'Parent commands'));
         let parent_cmd = cmd;
