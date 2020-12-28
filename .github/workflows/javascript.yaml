@@ -27,6 +27,7 @@ jobs:
     - name: Get short SHA
       id: slug
       run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+    # Nightly asset publication
     - uses: octokit/request-action@v2.x
       id: get_rc_release
       with:
@@ -37,8 +38,7 @@ jobs:
         # -H "Authorization: token $GH_TOKEN"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Upload Release Asset of h1-linux.tar.gz
-      id: h1-linux-asset
+    - name: Upload nightly asset of h1-linux.tar.gz
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,8 +47,7 @@ jobs:
         asset_path: ./packages/cli-device-node/dist/h1-linux.tar.gz
         asset_name: h1-linux.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
-    - name: Upload Release Asset of h1-alpine.tar.gz
-      id: h1-alpine-asset
+    - name: Upload nightly asset of h1-alpine.tar.gz
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -57,8 +56,7 @@ jobs:
         asset_path: ./packages/cli-device-node/dist/h1-alpine.tar.gz
         asset_name: h1-alpine.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
-    - name: Upload Release Asset of h1-macos.tar.gz
-      id: h1-macos-asset
+    - name: Upload nightly asset of h1-macos.tar.gz
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -67,8 +65,7 @@ jobs:
         asset_path: ./packages/cli-device-node/dist/h1-macos.tar.gz
         asset_name: h1-macos.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
-    - name: Upload Release Asset of h1-win.zip
-      id: h1-win-asset
+    - name: Upload nightly asset of h1-win.zip
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -86,3 +83,55 @@ jobs:
           - [h1-alpine.tar.gz](${{ steps.h1-alpine-asset.outputs.browser_download_url }})
           - [h1-macos.tar.gz](${{ steps.h1-macos-asset.outputs.browser_download_url }})
           - [h1-win.zip](${{ steps.h1-win-asset.outputs.browser_download_url }})
+    # Release asset publication
+    - name: Create Release
+      id: create_release
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }} beta
+        draft: true
+        prerelease: true
+    - name: Upload release asset of h1-linux.tar.gz
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ fromJson(steps.create_release.outputs.data).upload_url }}
+        asset_path: ./packages/cli-device-node/dist/h1-linux.tar.gz
+        asset_name: h1-linux.tar.gz
+        asset_content_type: application/gzip
+    - name: Upload release asset of h1-alpine.tar.gz
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ fromJson(steps.create_release.outputs.data).upload_url }}
+        asset_path: ./packages/cli-device-node/dist/h1-alpine.tar.gz
+        asset_name: h1-alpine.tar.gz
+        asset_content_type: application/gzip
+    - name: Upload release asset of h1-macos.tar.gz
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ fromJson(steps.create_release.outputs.data).upload_url }}
+        asset_path: ./packages/cli-device-node/dist/h1-macos.tar.gz
+        asset_name: h1-macos.tar.gz
+        asset_content_type: application/gzip
+    - name: Upload release asset of h1-win.zip
+      if: startsWith(github.ref, 'refs/tags/v')
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ fromJson(steps.create_release.outputs.data).upload_url }}
+        asset_path: ./packages/cli-device-node/dist/h1-win.zip
+        asset_name: h1-win.zip
+        asset_content_type: application/zip
