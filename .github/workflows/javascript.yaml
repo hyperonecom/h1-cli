@@ -39,6 +39,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Upload nightly asset of h1-linux.tar.gz
+      if: ${{ github.event_name == 'push' }}
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -48,6 +49,7 @@ jobs:
         asset_name: h1-linux.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
     - name: Upload nightly asset of h1-alpine.tar.gz
+      if: ${{ github.event_name == 'push' }}
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -57,6 +59,7 @@ jobs:
         asset_name: h1-alpine.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
     - name: Upload nightly asset of h1-macos.tar.gz
+      if: ${{ github.event_name == 'push' }}
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -66,6 +69,7 @@ jobs:
         asset_name: h1-macos.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
     - name: Upload nightly asset of h1-win.zip
+      if: ${{ github.event_name == 'push' }}
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -75,6 +79,7 @@ jobs:
         asset_name: h1-win.${{ steps.slug.outputs.sha8 }}.zip
         asset_content_type: application/zip
     - name: Create commit comment
+      if: ${{ github.event_name == 'push' }}
       uses: peter-evans/commit-comment@v1
       with:
         body: |
@@ -86,7 +91,7 @@ jobs:
     # Release asset publication
     - name: Create Release
       id: create_release
-      if: startsWith(github.ref, 'refs/tags/v')
+      if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -96,7 +101,7 @@ jobs:
         draft: true
         prerelease: true
     - name: Upload release asset of h1-linux.tar.gz
-      if: startsWith(github.ref, 'refs/tags/v')
+      if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -106,7 +111,7 @@ jobs:
         asset_name: h1-linux.tar.gz
         asset_content_type: application/gzip
     - name: Upload release asset of h1-alpine.tar.gz
-      if: startsWith(github.ref, 'refs/tags/v')
+      if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -116,7 +121,7 @@ jobs:
         asset_name: h1-alpine.tar.gz
         asset_content_type: application/gzip
     - name: Upload release asset of h1-macos.tar.gz
-      if: startsWith(github.ref, 'refs/tags/v')
+      if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -126,7 +131,7 @@ jobs:
         asset_name: h1-macos.tar.gz
         asset_content_type: application/gzip
     - name: Upload release asset of h1-win.zip
-      if: startsWith(github.ref, 'refs/tags/v')
+      if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
