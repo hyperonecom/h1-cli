@@ -16,9 +16,10 @@ export default new Command({
             'COMPREPLY=( $(compgen -W  "${words}" -- ${cur}) )',
             'return 0',
             '}',
-            'complete -F _cli h3',
+            'complete -F _cli h1',
         ].join('\n');
-        const shim_path = path.join(await cmd.device.dataDir(), 'completion2.sh');
+        await fs.promises.mkdir(await cmd.device.dataDir(), {recursive: true});
+        const shim_path = path.join(await cmd.device.dataDir(), 'completion.sh');
         await fs.promises.writeFile(shim_path, source_content, {
             mode: 0o755,
         });
