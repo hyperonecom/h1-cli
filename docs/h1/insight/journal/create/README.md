@@ -22,7 +22,7 @@ See also:
 
 ```h1 insight journal create --project 5f64e2468c71177993874510 --name simple-journal --service /billing/project/platform/service/5c9cc2d0255c16c3e899a4ea --retention 30```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                                                            |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
@@ -41,6 +41,7 @@ See also:
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available.                                                               |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                                                                               |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                                                                                     |
+| ```--v, --version```                               | Show version and exit.                                                                                                                 |
 
 ## Operation options
 
@@ -61,6 +62,7 @@ See also:
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available.                                                               |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                                                                               |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                                                                                     |
+| ```--v, --version```                               | Show version and exit.                                                                                                                 |
 
 # Parent commands
 

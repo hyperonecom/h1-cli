@@ -22,7 +22,7 @@ See also:
 
 ```h1 iam project policy create --project 5f64e2468c71177993874510 --name simple-policy --role /iam/project/5eeb5a66ac7d806a88a5bb6b/role/5eeb8b5e47c27dcf37d0ff25 --resource /iam/project/5f64e2468c71177993874510```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
@@ -41,6 +41,7 @@ See also:
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available.                       |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                                       |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                                             |
+| ```--v, --version```                               | Show version and exit.                                                                         |
 
 ## Operation options
 
@@ -61,6 +62,7 @@ See also:
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available.                       |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                                       |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                                             |
+| ```--v, --version```                               | Show version and exit.                                                                         |
 
 # Parent commands
 

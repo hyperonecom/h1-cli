@@ -22,7 +22,7 @@ See also:
 
 ```h1 database instance event list --project 5f64e2468c71177993874510 --instance 5f577a24494c5cfdec7830e5```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                   |
 | -------------------------------------------------- | ----------------------------------------------------------------------------- |
@@ -39,6 +39,7 @@ See also:
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available.      |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                      |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                            |
+| ```--v, --version```                               | Show version and exit.                                                        |
 
 ## Operation options
 
@@ -57,6 +58,7 @@ See also:
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available.      |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                      |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                            |
+| ```--v, --version```                               | Show version and exit.                                                        |
 
 # Parent commands
 

@@ -15,7 +15,7 @@ See also:
 
 * [API reference](https://api.hyperone.com/v2/docs#operation/database_project_instance_connect_list)
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
@@ -30,6 +30,7 @@ See also:
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available. |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                 |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                       |
+| ```--v, --version```                               | Show version and exit.                                                   |
 
 ## Operation options
 
@@ -46,6 +47,7 @@ See also:
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available. |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                 |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                       |
+| ```--v, --version```                               | Show version and exit.                                                   |
 
 # Parent commands
 

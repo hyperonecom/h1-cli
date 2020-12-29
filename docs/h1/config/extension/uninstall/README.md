@@ -21,6 +21,7 @@ $ h1 config extension uninstall <options>
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available. |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                 |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                       |
+| ```--v, --version```                               | Show version and exit.                                                   |
 
 ## Operation options
 
@@ -34,6 +35,7 @@ $ h1 config extension uninstall <options>
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available. |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                 |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                       |
+| ```--v, --version```                               | Show version and exit.                                                   |
 
 # Parent commands
 
