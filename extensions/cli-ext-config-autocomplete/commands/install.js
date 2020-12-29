@@ -5,8 +5,8 @@ import os from 'os';
 
 export default new Command({
     name: 'install',
-    options: [
-    ],
+    summary: 'Update shell configuration to support autocomplete',
+    description: 'Only the Bash shell is currently supported. Let us know if you need support from other shells.',
     handler: async (opts, cmd) => {
         const start = process.pkg ? process.argv[0] : `${process.argv[0]} ${process.argv[1]}`;
         const source_content = [

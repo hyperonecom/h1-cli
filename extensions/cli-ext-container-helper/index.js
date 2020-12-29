@@ -12,7 +12,7 @@ export default {
         const cmd = parent.commands.find(x => x.name == 'registry');
         const category = new Category({
             name: 'helper',
-            description: 'Manage Docker credential helper',
+            summary: 'Manage Docker credential helper',
         });
         cmd.addCommand(category);
         cmd.loadHook.push(() => {

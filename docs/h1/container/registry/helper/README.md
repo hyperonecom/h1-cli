@@ -1,17 +1,13 @@
 
 # h1 container registry helper
 
-
+Manage Docker credential helper
 
 ## Synopsis
 
 ```bash
 $ h1 container registry helper <options>
 ```
-
-## Description
-
-Manage Docker credential helper
 
 ## Global options
 

@@ -3,7 +3,6 @@
 [![Build Status](https://travis-ci.org/hyperonecom/h1-cli.svg?branch=master)](https://travis-ci.org/hyperonecom/h1-cli)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
-
 h1-cli is a tool designed to manage the HyperOne cloud infrastructure. You can use it for your own administrative work as well as for creating automation scripts.
 
 h1-cli v2 is revisited CLI for managed cloud. The basic goal is to solve the scalability problems of the previous version, both in development and execution. It also makes it possible to meet new requirements.
@@ -65,6 +64,29 @@ Then, confirm this choice:
 ```bash
 h1 project select --project {{project}}
 ```
+
+### Autocomplete
+
+CLI support autocomplete for popular Linux shell. To use autocomplete setup update shell configuration is required.
+
+To update shell configuration use:
+
+```bash
+h1 config autocomplete install
+```
+
+A restart of the shell may be required after updating the configuration.
+
+After running, you can check the operation by executing:
+
+```bash
+h1 iam proje<TAB><TAB>
+```
+
+### Docker credential helper
+
+CLI may act as Docker credential helper. To use credential helper update Docker configuration is required.
+To update Docker configuration use command `h1 container registry helper setup`.
 
 ### Development
 

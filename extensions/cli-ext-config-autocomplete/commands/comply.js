@@ -5,6 +5,7 @@ const reply = (entries, prefix) => entries.filter(x => x.startsWith(prefix)).joi
 
 export default new Command({
     name: 'comply',
+    summary: 'List suggestion for command',
     options: [
         { name: 'cmd', required: true },
     ],
