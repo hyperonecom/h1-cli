@@ -98,7 +98,7 @@ class Category extends Command {
             );
         }
 
-        return cmd.exec(opts._unknown, {
+        return cmd.exec(opts._unknown || [], {
             ...allOpts,
             _unknown: [],
             command: undefined,

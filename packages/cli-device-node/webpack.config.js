@@ -3,10 +3,11 @@ const process = require('process');
 
 module.exports = {
     entry: {
-        h1: './bin/h1.js',
-        h1_docs: './scripts/print-docs.js',
         main: './index.js',
+        h1: './bin/h1.js',
         rbx: './bin/rbx.js',
+        h1_docs: './bin/h1_docs.js',
+        rbx_docs: './bin/rbx_docs.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),

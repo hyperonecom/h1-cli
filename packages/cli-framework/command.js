@@ -12,6 +12,7 @@ class Command {
         this.name = options.name;
         this.aliases = [];
         this.summary = options.summary;
+        this.description = options.description;
         this.plugins = options.plugins;
         this.options = options.options || [];
         this.options.push({ name: 'help', group: ['global'], type: Boolean, description: 'Show help message and exit.' });
@@ -64,8 +65,15 @@ class Command {
             {
                 header: 'Synopsis',
                 content: `$ ${fullName} <options>`,
+                format: 'bash',
             },
         ];
+        if (this.description) {
+            content.push({
+                header: 'Description',
+                content: this.description,
+            });
+        }
         const examples = await this.getExamples();
         if (examples && examples.length > 0) {
             content.push({
@@ -77,20 +85,20 @@ class Command {
                    $ ${command.replace('{name}', fullName)}`).join('\n\n'),
             });
         }
-        content.push(...[
-            {
-                header: 'Global options',
-                hide: ['command'],
-                group: ['global'],
-                optionList: options,
-            },
-            {
+        content.push({
+            header: 'Global options',
+            hide: ['command'],
+            group: ['global'],
+            optionList: options,
+        });
+        if (options.some(x => (x.groups || ['_none']).includes('_none'))) {
+            content.push({
                 header: 'Operation options',
                 hide: ['command'],
                 group: ['_none'],
                 optionList: options,
-            },
-        ]);
+            });
+        }
         return content;
     }
     async getUsage(...args) {

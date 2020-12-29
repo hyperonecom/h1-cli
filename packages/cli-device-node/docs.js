@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { buildCli } from '@hyperone/cli-core';
 import { Command } from '@hyperone/cli-framework';
-import { NodeDevice } from '../device';
+import { NodeDevice } from './device';
 import path from 'path';
 import fs from 'fs';
 import table from 'markdown-table';
@@ -43,7 +43,7 @@ const documentCommand = async (cmd, dir) => {
             const header = ['Option name', 'Description'];
             const rows = entry.optionList.map(option => [
                 quote(renderOption(option)),
-                option.description ? option.description.replace('\n', '<br>') : '-',
+                option.description ? option.description.replace(/\n/g, '<br>') : '-',
             ]);
             out.push(`${table([header, ...rows])}`);
         } else if (entry.examples) {
@@ -52,7 +52,11 @@ const documentCommand = async (cmd, dir) => {
                 out.push(quote(example.command.replace('{name}', name)));
             }
         } else if (entry.content) {
-            out.push(entry.content);
+            if (entry.format) {
+                out.push(quote(`${entry.format}\n${entry.content.trim()}\n`));
+            } else {
+                out.push(entry.content);
+            }
         }
         out.push('\n');
         bonus = 1;
@@ -96,24 +100,22 @@ class DocumentationDevice extends NodeDevice {
     }
 }
 
-const main = async () => new Command({
+export default async (options = {}) => new Command({
     name: 'print',
     summary: 'Print or write documentation of commands',
     options: [
-        { name: 'url', description: 'URL of OpenAPI spec', defaultValue: 'https://api.hyperone.com/v2/openapi.json' },
+        { name: 'url', description: 'URL of OpenAPI spec', defaultValue: options.openapiUrl || 'https://api.hyperone.com/v2/openapi.json' },
         { name: 'output', description: 'Output directory', required: true },
-        { name: 'scope', description: 'Output scope', defaultValue: 'h1' },
+        { name: 'scope', description: 'Output scope', defaultValue: options.scope || 'h1' },
     ],
     handler: async (opts) => {
         const { program } = await buildCli({
             openapiUrl: opts._all.url,
-            device: new DocumentationDevice('h1'),
+            device: new DocumentationDevice(opts._all.scope),
         });
         console.log(program.getFullName());
         await program.loadCommands();
         console.log('Root commands loaded');
         await documentCommand(program, opts._all.output);
     },
-}).exec(process.argv.slice(2));
-
-main().catch(console.error);
+}).exec(options.argv || process.argv.slice(2));

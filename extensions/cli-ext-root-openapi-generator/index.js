@@ -26,9 +26,8 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
 
     const cmd = new Command({
         name,
-        summary: [
-            operation.summary,
-            '',
+        summary: operation.summary,
+        description: [
             'See also:',
             '',
             `* [API reference](https://api.hyperone.com/v2/docs#operation/${operation.operationId})`,
@@ -39,6 +38,7 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
                 name: 'skeleton',
                 default: false,
                 type: Boolean,
+                description: 'Display intermediary representation of operation',
             },
         ],
         tags: [operation.operationId],
@@ -197,9 +197,7 @@ export const buildNamespaceCommand = (name, spec, ctx) => async () => {
         extensions: [`@hyperone/cli-ext-${name}`],
     });
 
-    const children = [
-        ...openapi.getChild(ctx.path),
-    ];
+    const children = openapi.getChild(ctx.path);
 
     if (name !== 'iam') {
         children.push(

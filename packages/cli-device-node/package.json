@@ -37,7 +37,7 @@
     "lint": "eslint .",
     "fmt": "eslint . --fix",
     "dist": "./scripts/release-bin.sh",
-    "docs": "COLUMNS=200 nodejs ./dist/h1_docs.js --output ../../docs/",
+    "docs": "nodejs ./dist/h1_docs.js --output ../../docs/",
     "clean": "rm -rf dist"
   },
   "files": [

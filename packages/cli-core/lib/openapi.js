@@ -1,5 +1,5 @@
 import $RefParser from '@apidevtools/json-schema-ref-parser';
-import {lazy_resolver} from './json_schema';
+import { lazy_resolver } from './json_schema';
 
 const spec = {};
 
@@ -56,10 +56,17 @@ export default {
     renderPath,
     getUrl: (path, parameters = {}) => `${spec.servers[0].url}${renderPath(path, parameters)}`,
     spec, // TODO: Remove me
-    getChild: (prefix) => Object
-        .entries(spec.paths)
-        .filter(([path]) => path.match(new RegExp(`^${prefix}/[a-zA-Z]+?$`)))
-        .map(([path]) => ({
+    getChild: (prefix) => Array
+        .from(new Set(Object
+            .entries(spec.paths)
+            .map(([path]) => {
+                const match = path.match(new RegExp(`^(${prefix}/[a-zA-Z]+?)/({[A-Za-z_]+}){0,1}$`));
+                if (!match) return;
+                return match[1];
+            })
+            .filter(x => !!x)
+        ))
+        .map((path) => ({
             type: path.split('/').pop(),
             path,
         })),
