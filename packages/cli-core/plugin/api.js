@@ -4,20 +4,23 @@ import auth from '../lib/auth';
 
 export default {
     name: __filename.split('/').pop(),
-    beforeParseArgv: (cmd) => cmd.options.push(
-        {
-            name: 'passport-file',
-            typeLabel: 'path',
-            description: 'Passport file. Default value is ```~/.h1/passport.json```, if available.',
-            group: ['global'],
-        },
-        {
-            name: 'as',
-            typeLabel: 'uri',
-            description: 'Act as another actor eg. service account',
-            group: ['global'],
-        }
-    ),
+    beforeParseArgv: (cmd) => {
+        if (cmd.findCommand) return;
+        cmd.options.push(
+            {
+                name: 'passport-file',
+                typeLabel: 'path',
+                description: 'Passport file. Default value is ```~/.h1/passport.json```, if available.',
+                group: ['global'],
+            },
+            {
+                name: 'as',
+                typeLabel: 'uri',
+                description: 'Act as another actor eg. service account',
+                group: ['global'],
+            }
+        );
+    },
     beforeCommandStart: async (opts, cmd) => {
         const optsAll = opts._all || opts;
         opts.http = http(cmd.device, opts.logger);
