@@ -12,7 +12,7 @@ export default new Command({
         const source_content = [
             '_cli()',
             '{',
-            `words=$(IFS=" "; ${start} config autocomplete --cmd "\${COMP_WORDS[*]}")`,
+            `words=$(IFS=" "; ${start} config autocomplete  comply --cmd "\${COMP_WORDS[*]}")`,
             'COMPREPLY=( $(compgen -W  "${words}" -- ${cur}) )',
             'return 0',
             '}',
