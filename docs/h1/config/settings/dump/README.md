@@ -5,7 +5,9 @@ Dump all settings values
 
 ## Synopsis
 
+```bash
 $ h1 config settings dump <options>
+```
 
 ## Global options
 

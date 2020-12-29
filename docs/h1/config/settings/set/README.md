@@ -5,7 +5,9 @@ Set setting value
 
 ## Synopsis
 
+```bash
 $ h1 config settings set <options>
+```
 
 ## Global options
 

@@ -5,31 +5,33 @@ Management of organisation resource
 
 ## Synopsis
 
+```bash
 $ h1 iam organisation <options>
+```
 
 ## Global options
 
-| Option name                                        | Description                                                        |
-| -------------------------------------------------- | ------------------------------------------------------------------ |
-| ```--help```                                       | Show help message and exit.                                        |
-| ```--verbose```                                    | Make the operation more talkative.                                 |
-| ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml            |
-| ```--query {query}```                              | JMESPath query string                                              |
-| ```--passport-file {path}```                       | Passport file. Default value is ~/.h1/passport.json, if available. |
-| ```--as {uri}```                                   | Act as another actor eg. service account                           |
-| ```--no-wait```                                    | In case of queued event do not wait for completion                 |
+| Option name                                        | Description                                                              |
+| -------------------------------------------------- | ------------------------------------------------------------------------ |
+| ```--help```                                       | Show help message and exit.                                              |
+| ```--verbose```                                    | Make the operation more talkative.                                       |
+| ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml                  |
+| ```--query {query}```                              | JMESPath query string                                                    |
+| ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available. |
+| ```--as {uri}```                                   | Act as another actor eg. service account                                 |
+| ```--no-wait```                                    | In case of queued event do not wait for completion                       |
 
 ## Operation options
 
-| Option name                                        | Description                                                        |
-| -------------------------------------------------- | ------------------------------------------------------------------ |
-| ```--help```                                       | Show help message and exit.                                        |
-| ```--verbose```                                    | Make the operation more talkative.                                 |
-| ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml            |
-| ```--query {query}```                              | JMESPath query string                                              |
-| ```--passport-file {path}```                       | Passport file. Default value is ~/.h1/passport.json, if available. |
-| ```--as {uri}```                                   | Act as another actor eg. service account                           |
-| ```--no-wait```                                    | In case of queued event do not wait for completion                 |
+| Option name                                        | Description                                                              |
+| -------------------------------------------------- | ------------------------------------------------------------------------ |
+| ```--help```                                       | Show help message and exit.                                              |
+| ```--verbose```                                    | Make the operation more talkative.                                       |
+| ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml                  |
+| ```--query {query}```                              | JMESPath query string                                                    |
+| ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available. |
+| ```--as {uri}```                                   | Act as another actor eg. service account                                 |
+| ```--no-wait```                                    | In case of queued event do not wait for completion                       |
 
 # Available commands
 
@@ -38,7 +40,6 @@ $ h1 iam organisation <options>
 * [h1 iam organisation show](./show/README.md)
 * [h1 iam organisation update](./update/README.md)
 * [h1 iam organisation delete](./delete/README.md)
-* [h1 iam organisation billing](./billing/README.md)
 * [h1 iam organisation transfer](./transfer/README.md)
 * [h1 iam organisation payment](./payment/README.md)
 * [h1 iam organisation invoice](./invoice/README.md)

@@ -5,7 +5,9 @@ Get setting value
 
 ## Synopsis
 
+```bash
 $ h1 config settings get <options>
+```
 
 ## Global options
 
