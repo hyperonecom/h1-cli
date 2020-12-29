@@ -1,13 +1,17 @@
 
 export default {
     name: __filename.split('/').pop(),
-    beforeParseArgv: (cmd) => cmd.options.push({
-        name: 'verbose',
-        type: Boolean,
-        description: 'Make the operation more talkative.',
-        defaultValue: false,
-        group: ['global'],
-    }),
+    beforeParseArgv: (cmd) => {
+        if (cmd.findCommand) return;
+
+        cmd.options.push({
+            name: 'verbose',
+            type: Boolean,
+            description: 'Make the operation more talkative.',
+            defaultValue: false,
+            group: ['global'],
+        });
+    },
     beforeCommandStart: async (opts, cmd) => {
         const allOpts = opts._all || opts || {};
         opts.logger = {};

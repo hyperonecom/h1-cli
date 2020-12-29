@@ -9,7 +9,7 @@ Manage events of the vm
 $ h1 compute vm event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

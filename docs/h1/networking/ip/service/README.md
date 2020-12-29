@@ -9,7 +9,7 @@ Manage services of the ip
 $ h1 networking ip service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

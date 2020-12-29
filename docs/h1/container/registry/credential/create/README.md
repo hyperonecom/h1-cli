@@ -22,7 +22,7 @@ See also:
 
 ```h1 container registry credential create --project 5f64e2468c71177993874510 --registry 5f577a24494c5cfdec7830e5 --name registry-credential --type plain --value xxxxxx```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

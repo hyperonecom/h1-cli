@@ -9,7 +9,7 @@ Manage envs of the instance
 $ h1 website instance env <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

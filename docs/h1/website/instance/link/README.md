@@ -9,7 +9,7 @@ Manage links of the instance
 $ h1 website instance link <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

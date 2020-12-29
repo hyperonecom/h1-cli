@@ -9,7 +9,7 @@ Dump all settings values
 $ h1 config settings dump <options>
 ```
 
-## Global options
+## Common options
 
 | Option name  | Description                 |
 | ------------ | --------------------------- |

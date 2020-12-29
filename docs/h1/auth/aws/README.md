@@ -9,7 +9,7 @@ Authenticate using AWS identity
 $ h1 auth aws <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

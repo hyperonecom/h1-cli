@@ -9,7 +9,7 @@ Manage services of the netgw
 $ h1 networking netgw service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

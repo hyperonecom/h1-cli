@@ -22,7 +22,7 @@ See also:
 
 ```h1 dns zone create --project 5f64e2468c71177993874510 --name simple-zone --service /billing/project/platform/service/5d31a9310642a263e1c0b23d --dns-name example-zone.com```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

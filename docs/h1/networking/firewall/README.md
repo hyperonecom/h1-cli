@@ -9,7 +9,7 @@ Management of firewall resource
 $ h1 networking firewall <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

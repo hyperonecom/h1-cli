@@ -9,7 +9,7 @@ Manage events of the network
 $ h1 networking network event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

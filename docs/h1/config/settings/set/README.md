@@ -9,7 +9,7 @@ Set setting value
 $ h1 config settings set <options>
 ```
 
-## Global options
+## Common options
 
 | Option name           | Description                 |
 | --------------------- | --------------------------- |

@@ -9,7 +9,7 @@ Manage services of the netadp
 $ h1 networking netadp service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

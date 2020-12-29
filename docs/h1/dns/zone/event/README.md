@@ -9,7 +9,7 @@ Manage events of the zone
 $ h1 dns zone event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

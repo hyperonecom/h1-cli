@@ -9,7 +9,7 @@ Management of vault resource
 $ h1 storage vault <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

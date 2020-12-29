@@ -9,7 +9,7 @@ Management of replica resource
 $ h1 compute replica <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

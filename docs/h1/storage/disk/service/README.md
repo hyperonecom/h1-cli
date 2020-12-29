@@ -9,7 +9,7 @@ Manage services of the disk
 $ h1 storage disk service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

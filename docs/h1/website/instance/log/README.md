@@ -9,7 +9,7 @@ Manage logs of the instance
 $ h1 website instance log <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

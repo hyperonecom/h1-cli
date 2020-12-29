@@ -9,7 +9,7 @@ Manage snapshots of the instance
 $ h1 website instance snapshot <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

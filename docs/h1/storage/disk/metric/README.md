@@ -9,7 +9,7 @@ Manage metrics of the disk
 $ h1 storage disk metric <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

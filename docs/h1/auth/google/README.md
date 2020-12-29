@@ -9,7 +9,7 @@ Authenticate using Google identity
 $ h1 auth google <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

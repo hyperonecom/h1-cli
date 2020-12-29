@@ -15,7 +15,7 @@ See also:
 
 * [API reference](https://api.hyperone.com/v2/docs#operation/compute_project_replica_service_list)
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

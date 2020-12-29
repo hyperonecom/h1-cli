@@ -9,7 +9,7 @@ Connect to compute/vm using SSH
 $ h1 compute vm ssh <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

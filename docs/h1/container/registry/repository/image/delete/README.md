@@ -22,7 +22,7 @@ See also:
 
 ```h1 container registry repository image delete --project 5f64e2468c71177993874510 --registry 5f577a24494c5cfdec7830e5 --repository xxxx5 --image imageId```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

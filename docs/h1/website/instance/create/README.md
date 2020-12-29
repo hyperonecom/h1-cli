@@ -22,7 +22,7 @@ See also:
 
 ```h1 website instance create --project 5f64e2468c71177993874510 --name simple-website --service /billing/project/platform/service/5cb9e2c8467ad031486f9d88 --image h1cr.io/website/php-apache:latest```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                                                                                 |
 | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |

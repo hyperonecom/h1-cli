@@ -9,7 +9,7 @@ Manage recordsets of the zone
 $ h1 dns zone recordset <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

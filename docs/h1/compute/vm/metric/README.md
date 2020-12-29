@@ -9,7 +9,7 @@ Manage metrics of the vm
 $ h1 compute vm metric <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

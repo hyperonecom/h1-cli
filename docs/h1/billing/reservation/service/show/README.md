@@ -22,7 +22,7 @@ See also:
 
 ```h1 billing reservation service show --project 5f64e2468c71177993874510 --reservation 5f577a24494c5cfdec7830e5 --service 5f60cbbe494c5cfdec81cc6b```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

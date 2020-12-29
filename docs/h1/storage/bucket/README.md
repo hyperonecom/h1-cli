@@ -9,7 +9,7 @@ Management of bucket resource
 $ h1 storage bucket <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

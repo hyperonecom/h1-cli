@@ -9,7 +9,7 @@ Erase credential in Docker credential helper
 $ h1 container registry helper erase <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

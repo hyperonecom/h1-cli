@@ -9,7 +9,7 @@ Manage events of the image
 $ h1 storage image event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

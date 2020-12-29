@@ -9,7 +9,7 @@ Management of container namespace
 $ h1 container <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

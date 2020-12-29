@@ -9,7 +9,7 @@ Manage messages of the ticket
 $ h1 support ticket message <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

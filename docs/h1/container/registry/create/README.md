@@ -22,7 +22,7 @@ See also:
 
 ```h1 container registry create --project 5f64e2468c71177993874510 --name simple-registry --service /billing/project/platform/service/5d08b8c36f76391808dffc3d```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

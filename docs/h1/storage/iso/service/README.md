@@ -9,7 +9,7 @@ Manage services of the iso
 $ h1 storage iso service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

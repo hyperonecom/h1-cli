@@ -9,7 +9,7 @@ Management of dns namespace
 $ h1 dns <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

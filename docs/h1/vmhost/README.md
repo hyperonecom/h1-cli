@@ -9,7 +9,7 @@ Management of vmhost namespace
 $ h1 vmhost <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

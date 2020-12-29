@@ -9,7 +9,7 @@ Management of storage namespace
 $ h1 storage <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

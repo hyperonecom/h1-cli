@@ -9,7 +9,7 @@ Stream messages from journal
 $ h1 insight journal stream <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                      |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------ |

@@ -15,7 +15,7 @@ See also:
 
 * [API reference](https://api.hyperone.com/v2/docs#operation/dns_project_zone_recordset_patch)
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                                |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |

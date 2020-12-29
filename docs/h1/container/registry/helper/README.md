@@ -9,7 +9,7 @@ Manage Docker credential helper
 $ h1 container registry helper <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

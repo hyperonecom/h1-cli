@@ -22,7 +22,7 @@ See also:
 
 ```h1 storage iso update --project 5f64e2468c71177993874510 --iso 5f577a24494c5cfdec7830e5 --name iso-renamed```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                               |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |

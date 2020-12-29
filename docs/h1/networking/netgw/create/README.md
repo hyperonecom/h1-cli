@@ -22,7 +22,7 @@ See also:
 
 ```h1 networking netgw create --project 5f64e2468c71177993874510 --name simple-netgw --public-ip /networking/pl-waw-1/project/5af0bbbcb7802508ad844caa/ip/5784e97be2627505227b57ab```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

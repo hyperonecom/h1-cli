@@ -9,7 +9,7 @@ Management of instance resource
 $ h1 website instance <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

@@ -9,7 +9,7 @@ Manage tags of the replica
 $ h1 compute replica tag <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

@@ -9,7 +9,7 @@ Management of service resource
 $ h1 billing service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

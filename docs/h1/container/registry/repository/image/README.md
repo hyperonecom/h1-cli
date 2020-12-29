@@ -9,7 +9,7 @@ Manage images of the repository
 $ h1 container registry repository image <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

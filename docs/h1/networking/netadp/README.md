@@ -9,7 +9,7 @@ Management of netadp resource
 $ h1 networking netadp <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

@@ -9,7 +9,7 @@ Management of journal resource
 $ h1 insight journal <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

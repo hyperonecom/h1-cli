@@ -9,7 +9,7 @@ Management of reservation resource
 $ h1 billing reservation <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

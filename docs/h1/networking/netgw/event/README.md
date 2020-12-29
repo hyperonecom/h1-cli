@@ -9,7 +9,7 @@ Manage events of the netgw
 $ h1 networking netgw event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

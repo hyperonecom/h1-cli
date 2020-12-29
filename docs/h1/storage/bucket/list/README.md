@@ -15,7 +15,7 @@ See also:
 
 * [API reference](https://api.hyperone.com/v2/docs#operation/storage_project_bucket_list)
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

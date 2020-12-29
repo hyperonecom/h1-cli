@@ -9,7 +9,7 @@ Get setting value
 $ h1 config settings get <options>
 ```
 
-## Global options
+## Common options
 
 | Option name       | Description                 |
 | ----------------- | --------------------------- |

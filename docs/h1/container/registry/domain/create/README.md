@@ -22,7 +22,7 @@ See also:
 
 ```h1 container registry domain create --project 5f64e2468c71177993874510 --registry 5f577a24494c5cfdec7830e5 --value wonderful-ellis.example.com.```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

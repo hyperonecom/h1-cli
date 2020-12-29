@@ -22,7 +22,7 @@ See also:
 
 ```h1 compute vm connect open --project 5f64e2468c71177993874510 --vm 5f577a24494c5cfdec7830e5 --connect 5f918e1aa828daa954b4579c```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

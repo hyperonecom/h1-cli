@@ -9,7 +9,7 @@ Manage services of the network
 $ h1 networking network service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

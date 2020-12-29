@@ -9,7 +9,7 @@ Management of insight namespace
 $ h1 insight <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

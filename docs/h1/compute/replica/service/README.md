@@ -9,7 +9,7 @@ Manage services of the replica
 $ h1 compute replica service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

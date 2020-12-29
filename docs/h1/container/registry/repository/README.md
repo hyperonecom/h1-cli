@@ -9,7 +9,7 @@ Manage repositories of the registry
 $ h1 container registry repository <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

@@ -9,7 +9,7 @@ Connect to storage/vault using SSH
 $ h1 storage vault ssh <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

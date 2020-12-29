@@ -15,7 +15,7 @@ See also:
 
 * [API reference](https://api.hyperone.com/v2/docs#operation/vmhost_project_instance_event_get)
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                   |
 | -------------------------------------------------- | ----------------------------------------------------------------------------- |

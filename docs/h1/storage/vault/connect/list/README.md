@@ -15,7 +15,7 @@ See also:
 
 * [API reference](https://api.hyperone.com/v2/docs#operation/storage_project_vault_connect_list)
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

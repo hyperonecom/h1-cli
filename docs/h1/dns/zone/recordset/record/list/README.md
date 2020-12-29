@@ -22,7 +22,7 @@ See also:
 
 ```h1 dns zone recordset record list --project 5f64e2468c71177993874510 --zone 5f72beb1494c5cfdec9b907f --recordset 5f60cbbe494c5cfdec81cc6b```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

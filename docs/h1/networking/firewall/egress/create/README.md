@@ -22,7 +22,7 @@ See also:
 
 ```h1 networking firewall egress create --project 5f64e2468c71177993874510 --firewall 5f577a24494c5cfdec7830e5 --name simple-egress --action allow --priority 900 --filter tcp:80 --external 0.0.0.0/0 --internal 0.0.0.0/0```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

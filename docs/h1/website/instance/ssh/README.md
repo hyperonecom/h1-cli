@@ -9,7 +9,7 @@ Connect to website/instance using SSH
 $ h1 website instance ssh <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

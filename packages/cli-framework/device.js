@@ -4,6 +4,9 @@ class Device {
     getName() {
         return 'cli';
     }
+    getVersion() {
+        return require('./package.json').version;
+    }
     async displayResult(result) {
         console.log(result);
     }

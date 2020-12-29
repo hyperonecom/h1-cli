@@ -9,7 +9,7 @@ Manage services of the image
 $ h1 storage image service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

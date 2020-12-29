@@ -9,7 +9,7 @@ Management of website namespace
 $ h1 website <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

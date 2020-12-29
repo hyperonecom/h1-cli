@@ -9,7 +9,7 @@ Manage events of the iso
 $ h1 storage iso event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

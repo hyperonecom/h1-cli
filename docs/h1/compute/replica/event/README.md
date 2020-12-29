@@ -9,7 +9,7 @@ Manage events of the replica
 $ h1 compute replica event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

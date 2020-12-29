@@ -9,7 +9,7 @@ List suggestion for command
 $ h1 config autocomplete comply <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

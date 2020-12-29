@@ -9,7 +9,7 @@ Uninstall extension
 $ h1 config extension uninstall <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

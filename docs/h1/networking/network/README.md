@@ -9,7 +9,7 @@ Management of network resource
 $ h1 networking network <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

@@ -1,16 +1,20 @@
 
 export default {
     name: __filename.split('/').pop(),
-    beforeParseArgv: (cmd) => cmd.options.push(
-        {
-            name: 'no-wait',
-            type: Boolean,
-            choices: ['true', 'false'],
-            defaultValue: false,
-            description: 'In case of queued event do not wait for completion',
-            group: ['global'],
-        }
-    ),
+    beforeParseArgv: (cmd) => {
+        if (cmd.findCommand) return;
+
+        cmd.options.push(
+            {
+                name: 'no-wait',
+                type: Boolean,
+                choices: ['true', 'false'],
+                defaultValue: false,
+                description: 'In case of queued event do not wait for completion',
+                group: ['global'],
+            }
+        );
+    },
     beforeCommandStart: async (opts) => {
         const optsAll = opts._all || opts;
         const prefer_async = optsAll['no-wait'];

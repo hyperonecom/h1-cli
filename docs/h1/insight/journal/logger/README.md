@@ -9,7 +9,7 @@ Log messages to journal
 $ h1 insight journal logger <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                   |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------- |

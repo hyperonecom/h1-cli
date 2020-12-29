@@ -9,7 +9,7 @@ Manage tags of the disk
 $ h1 storage disk tag <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

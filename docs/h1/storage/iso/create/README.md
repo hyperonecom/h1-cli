@@ -22,7 +22,7 @@ See also:
 
 ```h1 storage iso create --project 5f64e2468c71177993874510 --name simple-iso```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                               |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |

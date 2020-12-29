@@ -9,7 +9,7 @@ Setup Docker credential helper for registry
 $ h1 container registry helper setup <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

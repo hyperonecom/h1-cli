@@ -9,7 +9,7 @@ Manage events of the disk
 $ h1 storage disk event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

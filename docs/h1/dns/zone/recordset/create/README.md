@@ -22,7 +22,7 @@ See also:
 
 ```h1 dns zone recordset create --project 5f64e2468c71177993874510 --zone 5f72beb1494c5cfdec9b907f --name zone-recordset --type A --record content=1.1.1.1```
 
-## Global options
+## Common options
 
 | Option name                                           | Description                                                              |
 | ----------------------------------------------------- | ------------------------------------------------------------------------ |

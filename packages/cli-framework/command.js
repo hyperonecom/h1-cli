@@ -43,6 +43,9 @@ class Command {
             }
             this.argPlugin = true;
         }
+        if (this.device && this.device.getVersion) {
+            this.options.push({ name: 'version', alias: 'v', group: ['global'], type: Boolean, description: 'Show version and exit.' });
+        }
         return this.options.map(x => ({
             ...x,
             description: x.defaultValue ? `${x.description}. Default value is ${escape(x.defaultValue)}` : x.description,
@@ -86,7 +89,7 @@ class Command {
             });
         }
         content.push({
-            header: 'Global options',
+            header: 'Common options',
             hide: ['command'],
             group: ['global'],
             optionList: options,
@@ -115,6 +118,9 @@ class Command {
             };
         }));
     }
+    async getVersion() {
+        return `${this.device.getName()} version ${this.device.getVersion()}`;
+    }
     async exec(argv, parentOpts = {}) {
         const options = await this.getOptions();
         const opts = {
@@ -124,6 +130,9 @@ class Command {
         const allOpts = opts._all || opts || {};
         if (opts.help || allOpts.help) {
             return this.getUsage();
+        }
+        if (opts.version || allOpts.version) {
+            return this.getVersion();
         }
         if (opts._unknown && opts._unknown.length > 0) {
             const option = opts._unknown[0];

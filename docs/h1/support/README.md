@@ -9,7 +9,7 @@ Management of support namespace
 $ h1 support <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

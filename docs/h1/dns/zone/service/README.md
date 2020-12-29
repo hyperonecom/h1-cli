@@ -9,7 +9,7 @@ Manage services of the zone
 $ h1 dns zone service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

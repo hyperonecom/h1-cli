@@ -69,21 +69,27 @@ class Category extends Command {
             }
         }
     }
+    async getOptions () {
+        return [
+            { name: 'command', defaultOption: true },
+            ...await super.getOptions(),
+        ];
+    }
     async exec(argv = [], parentOpts = {}) {
         await this.loadCommands();
         const opts = {
             ...parentOpts,
             ...commandLineArgs(
-                [
-                    { name: 'command', defaultOption: true },
-                    ...this.options,
-                ],
+                await this.getOptions(),
                 { argv, stopAtFirstUnknown: true }
             ),
             state: this.state,
         };
         const allOpts = opts._all || opts || {};
         const cmd = this.commands.find(x => x.name == allOpts.command || x.aliases.includes(allOpts.command));
+        if (opts.version || allOpts.version) {
+            return this.getVersion();
+        }
         if (!cmd) {
             if (allOpts.help) {
                 return this.getUsage();

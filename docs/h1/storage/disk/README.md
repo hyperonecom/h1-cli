@@ -9,7 +9,7 @@ Management of disk resource
 $ h1 storage disk <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

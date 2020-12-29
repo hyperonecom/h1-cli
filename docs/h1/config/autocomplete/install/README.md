@@ -13,7 +13,7 @@ $ h1 config autocomplete install <options>
 
 Only the Bash shell is currently supported. Let us know if you need support from other shells.
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

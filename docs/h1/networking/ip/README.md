@@ -9,7 +9,7 @@ Management of ip resource
 $ h1 networking ip <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

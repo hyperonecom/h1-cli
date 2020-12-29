@@ -9,7 +9,7 @@ Connect to storage/vault using SFTP
 $ h1 storage vault sftp <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

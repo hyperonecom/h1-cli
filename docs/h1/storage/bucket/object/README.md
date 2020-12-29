@@ -9,7 +9,7 @@ Manage objects of the bucket
 $ h1 storage bucket object <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

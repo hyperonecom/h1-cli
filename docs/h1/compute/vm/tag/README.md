@@ -9,7 +9,7 @@ Manage tags of the vm
 $ h1 compute vm tag <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

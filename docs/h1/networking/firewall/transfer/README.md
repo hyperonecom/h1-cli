@@ -15,7 +15,7 @@ See also:
 
 * [API reference](https://api.hyperone.com/v2/docs#operation/networking_project_firewall_transfer)
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                                                         |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------- |

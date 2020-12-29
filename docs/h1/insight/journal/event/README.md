@@ -9,7 +9,7 @@ Manage events of the journal
 $ h1 insight journal event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

@@ -9,7 +9,7 @@ Manage sideapps of the instance
 $ h1 website instance sideapp <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

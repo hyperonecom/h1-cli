@@ -9,7 +9,7 @@ Manage tags of the vault
 $ h1 storage vault tag <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

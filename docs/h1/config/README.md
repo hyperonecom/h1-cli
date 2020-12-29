@@ -9,7 +9,7 @@ Management of CLI configuration
 $ h1 config <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

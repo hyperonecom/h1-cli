@@ -9,7 +9,7 @@ Management of netgw resource
 $ h1 networking netgw <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

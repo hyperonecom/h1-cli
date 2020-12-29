@@ -9,7 +9,7 @@ Manage egresses of the firewall
 $ h1 networking firewall egress <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

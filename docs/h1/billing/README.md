@@ -9,7 +9,7 @@ Management of billing namespace
 $ h1 billing <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

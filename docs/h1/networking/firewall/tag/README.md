@@ -9,7 +9,7 @@ Manage tags of the firewall
 $ h1 networking firewall tag <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

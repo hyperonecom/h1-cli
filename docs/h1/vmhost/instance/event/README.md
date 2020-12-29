@@ -9,7 +9,7 @@ Manage events of the instance
 $ h1 vmhost instance event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

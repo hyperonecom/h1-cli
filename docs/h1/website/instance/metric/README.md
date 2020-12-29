@@ -9,7 +9,7 @@ Manage metrics of the instance
 $ h1 website instance metric <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

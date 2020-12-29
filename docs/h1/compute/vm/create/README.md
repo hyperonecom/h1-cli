@@ -22,7 +22,7 @@ See also:
 
 ```h1 compute vm create --project 5f64e2468c71177993874510 --name simple-vm --service /billing/project/platform/service/58ac418566e7477bd7bc4e0c --credential type=plain,value=xxx```
 
-## Global options
+## Common options
 
 | Option name                                              | Description                                                                                    |
 | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |

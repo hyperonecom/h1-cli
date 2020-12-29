@@ -9,7 +9,7 @@ Management of ticket resource
 $ h1 support ticket <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

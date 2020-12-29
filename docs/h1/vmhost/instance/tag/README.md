@@ -9,7 +9,7 @@ Manage tags of the instance
 $ h1 vmhost instance tag <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

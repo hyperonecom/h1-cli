@@ -9,7 +9,7 @@ Management of networking namespace
 $ h1 networking <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

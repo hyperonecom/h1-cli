@@ -9,7 +9,7 @@ Manage events of the firewall
 $ h1 networking firewall event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

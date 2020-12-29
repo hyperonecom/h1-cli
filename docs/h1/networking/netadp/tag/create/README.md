@@ -22,7 +22,7 @@ See also:
 
 ```h1 networking netadp tag create --project 5f64e2468c71177993874510 --netadp 5f577a24494c5cfdec7830e5 --key x --value x```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

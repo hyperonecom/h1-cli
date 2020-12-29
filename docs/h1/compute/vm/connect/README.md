@@ -9,7 +9,7 @@ Manage connects of the vm
 $ h1 compute vm connect <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

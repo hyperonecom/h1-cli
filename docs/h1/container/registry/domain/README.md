@@ -9,7 +9,7 @@ Manage domains of the registry
 $ h1 container registry domain <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

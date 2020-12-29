@@ -9,7 +9,7 @@ Manage services of the instance
 $ h1 vmhost instance service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

@@ -9,7 +9,7 @@ Manage events of the netadp
 $ h1 networking netadp event <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

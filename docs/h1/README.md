@@ -9,7 +9,7 @@ Management for cloud services of HyperOne
 $ h1 <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

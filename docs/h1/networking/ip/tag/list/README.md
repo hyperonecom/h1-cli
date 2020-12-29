@@ -22,7 +22,7 @@ See also:
 
 ```h1 networking ip tag list --project 5f64e2468c71177993874510 --ip 5f577a24494c5cfdec7830e5```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

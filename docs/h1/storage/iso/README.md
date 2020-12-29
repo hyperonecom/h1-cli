@@ -9,7 +9,7 @@ Management of iso resource
 $ h1 storage iso <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

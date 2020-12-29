@@ -9,7 +9,7 @@ Store credential in Docker credential helper
 $ h1 container registry helper store <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

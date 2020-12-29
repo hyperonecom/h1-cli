@@ -9,7 +9,7 @@ Authenticate using Azure identity
 $ h1 auth azure <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

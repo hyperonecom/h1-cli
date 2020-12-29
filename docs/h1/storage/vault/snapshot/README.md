@@ -9,7 +9,7 @@ Manage snapshots of the vault
 $ h1 storage vault snapshot <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

@@ -9,7 +9,7 @@ Manage tags of the registry
 $ h1 container registry tag <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

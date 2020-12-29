@@ -48,24 +48,28 @@ const outputFormat = {
 
 export default {
     name: __filename.split('/').pop(),
-    beforeParseArgv: (cmd) => cmd.options.push(...[
-        {
-            name: 'output',
-            alias: 'o',
-            description: 'Specify output format of command',
-            type: String,
-            typeLabel: `${Object.keys(outputFormat).join(',')}`,
-            defaultValue: 'yaml',
-            group: ['global'],
-        },
-        {
-            name: 'query',
-            description: 'JMESPath query string',
-            type: String,
-            defaultValue: cmd.defaultQuery,
-            group: ['global'],
-        },
-    ]),
+    beforeParseArgv: (cmd) => {
+        if (cmd.findCommand) return;
+
+        cmd.options.push(...[
+            {
+                name: 'output',
+                alias: 'o',
+                description: 'Specify output format of command',
+                type: String,
+                typeLabel: `${Object.keys(outputFormat).join(',')}`,
+                defaultValue: 'yaml',
+                group: ['global'],
+            },
+            {
+                name: 'query',
+                description: 'JMESPath query string',
+                type: String,
+                defaultValue: cmd.defaultQuery,
+                group: ['global'],
+            },
+        ]);
+    },
     beforeCommandStart: async (opts) => {
         const optsAll = opts._all || opts;
         const formatter = outputFormat[optsAll.output];

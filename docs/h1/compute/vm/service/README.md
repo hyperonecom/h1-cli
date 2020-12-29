@@ -9,7 +9,7 @@ Manage services of the vm
 $ h1 compute vm service <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

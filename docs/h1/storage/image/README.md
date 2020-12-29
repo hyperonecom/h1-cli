@@ -9,7 +9,7 @@ Management of image resource
 $ h1 storage image <options>
 ```
 
-## Global options
+## Common options
 
 | Option name               | Description                 |
 | ------------------------- | --------------------------- |

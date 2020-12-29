@@ -9,7 +9,7 @@ Authenticate as user of Platform
 $ h1 auth user <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |

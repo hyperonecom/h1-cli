@@ -9,7 +9,7 @@ Connect to website/instance using SFTP
 $ h1 website instance sftp <options>
 ```
 
-## Global options
+## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
