@@ -10,4 +10,4 @@ export default new Command({
         const optsAll = opts._all || opts;
         return opts.format(await cmd.config.get(optsAll.key));
     },
-})
+});
