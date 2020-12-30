@@ -26,6 +26,6 @@ export default new Command({
             optsAll.token = access_token.token;
         }
         await opts.auth.federate(optsAll.token);
-        return opts.auth.introspection();
+        return 'Token successfully updated.';
     },
 });

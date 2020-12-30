@@ -53,6 +53,6 @@ export default new Command({
         await opts.auth.federate(token, {
             subject_token_type: 'aws-caller-identity',
         });
-        return opts.auth.introspection();
+        return 'Token successfully updated.';
     },
 });

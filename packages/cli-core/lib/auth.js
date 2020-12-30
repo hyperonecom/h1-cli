@@ -18,7 +18,10 @@ export default ({ http, logger, config, passport, as, defaultAudience }) => {
 
     const getRefreshToken = () => config.get('auth.token.refresh_token');
 
-    result.getConfiguration = async () => http.get(`${defaultAudience}/.well-known/openid-configuration`);
+    result.getConfiguration = async () => {
+        const resp = await http.get(`${defaultAudience}/.well-known/openid-configuration`);
+        return resp.bodyJson;
+    };
 
     const refreshToken = async () => {
         const refresh_token = await getRefreshToken();
@@ -52,7 +55,7 @@ export default ({ http, logger, config, passport, as, defaultAudience }) => {
 
     const exchange = async (audience, token, options = {}) => {
         const openid_configuration = await result.getConfiguration();
-        return http.post(openid_configuration.token_endpoint, {
+        const resp = await http.post(openid_configuration.token_endpoint, {
             json: {
                 ...{
                     grant_type: 'urn:ietf:params:oauth:grant-type:token-exchange',
@@ -64,6 +67,7 @@ export default ({ http, logger, config, passport, as, defaultAudience }) => {
                 ...options,
             },
         });
+        return resp.bodyJson;
     };
 
     result.getToken = async (audience) => {
@@ -107,7 +111,7 @@ export default ({ http, logger, config, passport, as, defaultAudience }) => {
     result.introspection = async () => {
         const token = await result.getToken();
         const openid_configuration = await result.getConfiguration();
-        return http.post(openid_configuration.bodyJson.introspection_endpoint, {
+        return http.post(openid_configuration.introspection_endpoint, {
             json: {
                 token: token,
             },

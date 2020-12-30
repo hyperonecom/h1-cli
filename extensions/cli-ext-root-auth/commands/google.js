@@ -30,6 +30,6 @@ export default new Command({
         await opts.auth.federate(optsAll.token, {
             subject_token_type: 'gcp-access-token',
         });
-        return opts.auth.introspection();
+        return 'Token successfully updated.';
     },
 });
