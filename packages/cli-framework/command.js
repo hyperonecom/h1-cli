@@ -76,6 +76,7 @@ class Command {
             content.push({
                 header: 'Description',
                 content: this.description,
+                raw: true,
             });
         }
         const examples = await this.getExamples();
@@ -144,6 +145,17 @@ class Command {
                 throw new UnknownOptionError(`Unknown parameter "${option}" for "${this.getFullName()}". Have you forgotten the quotation marks?`);
             }
         }
+
+        const interactive = options.filter(x => x.required && typeof allOpts[x.name] == 'undefined' && x.interactive);
+        const answers = await this.device.askInteractive(
+            interactive.map(x => ({
+                name: x.name,
+                type: x.interactive,
+                message: `Provide value for required option '--${x.name}':`,
+            }))
+        );
+        Object.assign(allOpts, answers);
+
         const missing = options.filter(x => x.required && typeof allOpts[x.name] == 'undefined').map(x => `--${x.name}`);
         if (missing.length > 0) {
             throw new UnknownOptionError(`Parameter missing: ${missing.join(', ')}`, missing);

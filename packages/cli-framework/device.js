@@ -58,6 +58,9 @@ class Device {
     extensionDir() {
         return;
     }
+    askInteractive (/* questions */) {
+        return {};
+    }
 }
 
 export default Device;

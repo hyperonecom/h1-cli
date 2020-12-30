@@ -6,13 +6,17 @@ export default new Command({
     summary: 'Authenticate as user of Platform',
     options: [
         {
-            name: 'username', required: true, use: {
+            name: 'username', required: true,
+            interactive: 'text',
+            use: {
                 in: 'body',
                 field: '/username',
             },
         },
         {
-            name: 'password', required: true, use: {
+            name: 'password', required: true,
+            interactive: 'password',
+            use: {
                 in: 'body',
                 field: '/password',
             },

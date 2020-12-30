@@ -6,6 +6,7 @@ const os = require('os');
 const util = require('util');
 const crypto = require('crypto');
 const randomBytes = util.promisify(crypto.randomBytes);
+const pty = require('node-pty');
 
 const randomToken = (len = 16) => randomBytes(len).then(x => x.toString('hex'));
 
@@ -18,12 +19,13 @@ const run = (cmd, options = {}) => new Promise((resolve, reject) => {
 
     program.stdout.on('data', (chunk) => chunks.push(chunk));
     program.stderr.on('data', (chunk) => chunks.push(chunk));
+
     program.on('error', reject);
     program.on('close', (code, signal) => {
         const output = Buffer.concat(chunks).toString('utf-8');
         if (code !== 0) {
             const err = new Error(`'${cmd}'exited with code ${code} and signal ${signal}`);
-            err.cmd =  cmd;
+            err.cmd = cmd;
             err.signal = signal;
             err.code = code;
             err.output = output;
@@ -46,6 +48,45 @@ const runJson = async (cmd, options = {}) => {
     }
 };
 
+const runPty = async (cmd, inputs, options = {}) => new Promise((resolve, reject) => {
+    const ptyProcess = pty.spawn(process.argv[0], [
+        path.join(__dirname, '../dist/h1.js'),
+        ...shlex.split(cmd).slice(1),
+    ], options);
+    const chunks = [];
+
+    let written = false;
+    let index = 0;
+
+    const startWrite = () => setTimeout(() => {
+        if (!ptyProcess._writable) return;
+        if (index >= inputs.length) return;
+        ptyProcess.write(inputs[index]);
+        index += 1;
+        startWrite();
+    }, 100);
+
+    ptyProcess.onData((chunk) => {
+        chunks.push(Buffer.from(chunk));
+        if (written) return;
+        written = true;
+        startWrite();
+    });
+
+    ptyProcess.onExit(({ exitCode: code, signal }) => {
+        const output = Buffer.concat(chunks).toString('utf-8');
+        if (code !== 0) {
+            const err = new Error(`'${cmd}'exited with code ${code} and signal ${signal}`);
+            err.cmd = cmd;
+            err.signal = signal;
+            err.code = code;
+            err.output = output;
+            return reject(err);
+        }
+        return resolve(output);
+    });
+});
+
 const withTemp = fn => async (...args) => {
     const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), 'cli-temp-'));
     try {
@@ -55,7 +96,7 @@ const withTemp = fn => async (...args) => {
     }
 };
 
-const withVariable = (options=[], fn) => async (...args) => {
+const withVariable = (options = [], fn) => async (...args) => {
     const map = await runJson('h1 config settings get --key test');
     const new_args = [];
     for (const name of options) {
@@ -72,6 +113,7 @@ const getName = (...names) => [...names, Date.now().toString()]
 module.exports = {
     run,
     runJson,
+    runPty,
     withTemp,
     randomToken,
     withVariable,

@@ -10,6 +10,7 @@ import process from 'process';
 import info from './package.json';
 import { get, set, unset } from '@hyperone/cli-core/lib/transform';
 import { CliError } from '@hyperone/cli-framework/error';
+import inquirer from 'inquirer';
 
 const parameterLabel = (parameter, options = []) => {
     const option = options.find(p => p.use && p.use.in == parameter.in && p.use.field == parameter.field);
@@ -199,5 +200,8 @@ export class NodeDevice extends Device {
         const outDir = path.join(os.homedir(), `.${this.scope}/extensions`);
         fs.mkdirSync(outDir, { recursive: true });
         return outDir;
+    }
+    askInteractive(questions) {
+        return inquirer.prompt(questions);
     }
 }
