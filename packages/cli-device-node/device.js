@@ -63,7 +63,6 @@ export class NodeDevice extends Device {
             const type = err.resp && err.resp.headers.get('content-type');
             if (err.resp && type && type.startsWith('application/json')) {
                 const respJson = await err.resp.json();
-                console.dir(respJson, { depth: null });
                 if (!respJson.title) {
                     console.error(respJson);
                 } else {
