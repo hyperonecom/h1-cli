@@ -1,46 +1,23 @@
 
 
-import { Category, Command } from '@hyperone/cli-framework';
+import { Category } from '@hyperone/cli-framework';
+import set from './commands/set';
+import dump from './commands/dump';
+import get from './commands/get';
 
 export default {
     name: require('./package.json').name,
     version: require('./package.json').version,
-    load: async (parent) => {
+    load: async (parent) => parent.loadHook.push(() => {
         const cmd = new Category({
             name: 'settings',
             summary: 'Manage settings of CLI',
         });
-
-        cmd.addCommand(new Command({
-            name: 'get',
-            summary: 'Get setting value',
-            options: [
-                { name: 'key', required: true },
-            ],
-            handler: (opts) => parent.config.get(opts.key),
-        }));
-
-        cmd.addCommand(new Command({
-            name: 'dump',
-            summary: 'Dump all settings values',
-            options: [],
-            handler: () => parent.config.all(),
-        }));
-
-        cmd.addCommand(new Command({
-            name: 'set',
-            summary: 'Set setting value',
-            options: [
-                { name: 'key' },
-                { name: 'value' },
-            ],
-            handler: (opts) => {
-                const { config } = parent.state;
-                config.set(opts.name, opts.value);
-                config.store();
-            },
-        }));
-
         parent.addCommand(cmd);
-    },
+        cmd.loadHook.push(() => {
+            cmd.addCommand(set);
+            cmd.addCommand(dump);
+            cmd.addCommand(get);
+        });
+    }),
 };
