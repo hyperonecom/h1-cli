@@ -46,7 +46,9 @@ export class NodeDevice extends Device {
         }
     }
     async displayError(err) {
-        if (err instanceof CliError) {
+        if (err.code == 'ERESOLVER') {
+            console.log('There is a problem with the network connection to the Platform. Please check your internet connection and try again later.');
+        } else if (err instanceof CliError) {
             console.log(`Error: ${err.message}`);
             if (err.suggestion && err.suggestion > 0) {
                 console.error('Did you mean this?');
@@ -60,7 +62,7 @@ export class NodeDevice extends Device {
             const type = err.resp && err.resp.headers.get('content-type');
             if (err.resp && type && type.startsWith('application/json')) {
                 const respJson = await err.resp.json();
-                console.dir(respJson, {depth:null});
+                console.dir(respJson, { depth: null });
                 if (!respJson.title) {
                     console.error(respJson);
                 } else {

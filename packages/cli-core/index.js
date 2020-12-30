@@ -11,11 +11,14 @@ import setDefault from './plugin/setDefault';
 
 import cfg from './lib/config';
 
-export async function buildCli (options = {}) {
+export async function buildCli(options = {}) {
     const device = options.device;
     const config = options.config || cfg(device);
-
-    await openapi.init(options);
+    try {
+        await openapi.init(options);
+    } catch (err) {
+        return device.displayError(err);
+    }
 
     const program = new Category({
         name: options.device.getName(),
