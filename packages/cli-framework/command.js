@@ -9,6 +9,7 @@ const escape = value => `${value}`.replace('{', '\\\{').replace('}', '\\\}');
 
 class Command {
     constructor(options = {}) {
+        Object.assign(this, options);
         this.name = options.name;
         this.aliases = [];
         this.summary = options.summary;

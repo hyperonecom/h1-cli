@@ -6,6 +6,7 @@ import user from './commands/user';
 import aws from './commands/aws';
 import azure from './commands/azure';
 import google from './commands/google';
+import me from './commands/me';
 
 export default {
     name: require('./package.json').name,
@@ -18,7 +19,7 @@ export default {
         });
 
         parent.addCommand(cmd);
-
+        cmd.addCommand(() => me);
         cmd.addCommand(() => user);
         cmd.addCommand(() => aws);
         cmd.addCommand(() => azure);

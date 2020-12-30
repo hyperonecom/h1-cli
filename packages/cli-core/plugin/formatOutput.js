@@ -4,7 +4,9 @@ import yaml from 'js-yaml';
 
 const queryFilter = (query, result) => {
     result = Array.isArray(result) ? result : [result];
-    result = jmespath.search(result, query);
+    if (query) {
+        result = jmespath.search(result, query);
+    }
     return result;
 };
 
@@ -50,7 +52,6 @@ export default {
     name: __filename.split('/').pop(),
     beforeParseArgv: (cmd) => {
         if (cmd.findCommand) return;
-
         cmd.options.push(...[
             {
                 name: 'output',
@@ -73,7 +74,7 @@ export default {
     beforeCommandStart: async (opts) => {
         const optsAll = opts._all || opts;
         const formatter = outputFormat[optsAll.output];
-        opts.format = (opts, output) => {
+        opts.format = (output) => {
             if (output && output.headers && output.status) {
                 if (output.bodyText) {
                     output = output.bodyText;
@@ -85,7 +86,7 @@ export default {
                     output = `The operation response status is '${output.status} ${output.statusText}'`;
                 }
             }
-            if (typeof output == 'string' || !optsAll.query) return output;
+            if (typeof output == 'string') return output;
             return formatter(output, optsAll.query);
         };
     },

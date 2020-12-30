@@ -82,6 +82,6 @@ export default new Command({
 
         opts.defaultQuery = '[].{name: name, version: version}';
 
-        return opts.format(opts, result);
+        return opts.format(result);
     },
 });

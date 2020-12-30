@@ -26,6 +26,7 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
 
     const cmd = new Command({
         name,
+        defaultQuery: request.generateQuery(path, operation),
         summary: operation.summary,
         description: [
             'See also:',
@@ -81,10 +82,9 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
                 json: requestBody,
                 query,
             });
-            return opts.format(opts, resp);
+            return opts.format(resp);
         },
     });
-    cmd.defaultQuery = request.generateQuery(path, operation);
     return cmd;
 };
 

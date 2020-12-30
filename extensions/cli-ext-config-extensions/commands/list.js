@@ -31,6 +31,6 @@ export default new Command({
         }
 
         opts.defaultQuery = '[].{name: name, remoteVersion: remoteVersion, localVersion: localVersion}';
-        return opts.format(opts, result);
+        return opts.format(result);
     },
 });
