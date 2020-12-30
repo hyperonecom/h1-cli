@@ -147,19 +147,22 @@ class Command {
         }
 
         const interactive = options.filter(x => x.required && typeof allOpts[x.name] == 'undefined' && x.interactive);
-        const answers = await this.device.askInteractive(
-            interactive.map(x => ({
-                name: x.name,
-                type: x.interactive,
-                message: `Provide value for required option '--${x.name}':`,
-            }))
-        );
-        Object.assign(allOpts, answers);
+        if (this.device && this.device.askInteractive) {
+            const answers = await this.device.askInteractive(
+                interactive.map(x => ({
+                    name: x.name,
+                    type: x.interactive,
+                    message: `Provide value for required option '--${x.name}':`,
+                }))
+            );
+            Object.assign(allOpts, answers);
+        }
 
         const missing = options.filter(x => x.required && typeof allOpts[x.name] == 'undefined').map(x => `--${x.name}`);
         if (missing.length > 0) {
             throw new UnknownOptionError(`Parameter missing: ${missing.join(', ')}`, missing);
         }
+
         let p = Promise.resolve();
         if (this.plugins) {
             const cmd = this;
