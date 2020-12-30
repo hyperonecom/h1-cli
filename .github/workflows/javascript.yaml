@@ -21,9 +21,21 @@ jobs:
       run: yarn run install:ci
     - name: Build packages
       run: yarn run build
+    - name: Setup e2e tests
+      run: |
+        node ./dist/h1.js config settings set --key "test.project" --value "5e3db909586f1ca015f0b956"
+        node ./dist/h1.js config settings set --key "test.username" --value "h1-testing-2@jawnosc.tk"
+        node ./dist/h1.js config settings set --key "test.password" --value "$HYPERONE_PASSWORD"
+        node ./dist/h1.js config settings set --key "test.aws-access-key" --value "AKIATTWUTKSTUCQP2XDA"
+        node ./dist/h1.js config settings set --key "test.aws-secret-key" --value "$AWS_SECRET_KEY"
+      working-directory: ./packages/cli-device-node
+      if: ${{ github.event_name == 'push' }}
+      env:
+        HYPERONE_PASSWORD: ${{secrets.HYPERONE_PASSWORD}}
+        AWS_SECRET_KEY: ${{secrets.AWS_SECRET_KEY}}
     - name: Run e2e tests
       run: npm run test
-      working-directory: ./packages/cli-device-node
+      if: ${{ github.event_name == 'push' }}
     - name: Build NodeJS release files
       run: ./scripts/release-bin.sh
       working-directory: ./packages/cli-device-node
