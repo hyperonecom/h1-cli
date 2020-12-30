@@ -30,12 +30,13 @@ export default ({ http, logger, config, passport, as, defaultAudience }) => {
             return;
         }
         const openid_configuration = await result.getConfiguration();
-        const token = await http.post(openid_configuration.token_endpoint, {
+        const resp = await http.post(openid_configuration.token_endpoint, {
             json: {
                 grant_type: 'refresh_token',
                 refresh_token,
             },
         });
+        const token = resp.bodyJson;
         const until = new Date(await config.get('auth.token.expires_at') * 1000).toISOString();
         logger.debug(`Access token refreshed. Valid until ${until}.`);
         result.updateToken(token);
