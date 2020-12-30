@@ -4,6 +4,6 @@ export default new Command({
     name: 'version',
     summary: 'Display CLI version and exit',
     handler: async (opts, cmd) => {
-        return cmd.device.getVersion();
+        return cmd.getVersion();
     },
 });
