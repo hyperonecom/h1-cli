@@ -22,7 +22,7 @@ ava.skip('auth aws', withTemp(withVariable(['aws-access-key', 'aws-secret-key'],
     t.true(me.sub.includes('https://sts.amazonaws.com/'));
 })));
 
-ava('auth user interactive', withTemp(withVariable(['username', 'password'], async (t, tmpDir, username, password) => {
+ava.skip('auth user interactive', withTemp(withVariable(['username', 'password'], async (t, tmpDir, username, password) => {
     const options = { env: { HOME: tmpDir } };
     const output = await runPty('h1 auth user', [username, password].map(x => `${x}\r`), options);
     t.true(output.includes('Token successfully updated.'));
