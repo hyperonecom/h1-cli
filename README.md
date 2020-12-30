@@ -114,17 +114,26 @@ During the development of CLI, it is recommended to use continuos rebuilding of 
 yarn watch
 ```
 
-To start CLI on Desktop use:
+To start CLI on desktop use:
 
 ```bash
 nodejs packages/cli-device-node/dist/h1
 ```
 
-To start CLI in Browser use:
+To start CLI in browser use:
 
 ```bash
 cd packages/cli-device-browser-demo
 npm run serve
+```
+
+### Testing
+
+To start end-to-end tests for desktop use:
+
+```bash
+nodejs packages/cli-device-node/dist/h1
+npm run test
 ```
 
 ### Reporting problems and comments
