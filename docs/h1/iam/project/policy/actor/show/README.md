@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 iam project policy actor show --project 5f64e2468c71177993874510 --policy 5f72c96b02fbdad8a048fa40 --actor 5f72ce6102fbdad8a048fb38```
+```bash
+h1 iam project policy actor show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--policy 5f72c96b02fbdad8a048fa40 \ 
+	--actor 5f72ce6102fbdad8a048fb38
+```
 
 ## Common options
 

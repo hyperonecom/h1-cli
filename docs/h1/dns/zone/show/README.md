@@ -20,7 +20,11 @@ See also:
 
 ### Simple
 
-```h1 dns zone show --project 5f64e2468c71177993874510 --zone 5f72beb1494c5cfdec9b907f```
+```bash
+h1 dns zone show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--zone 5f72beb1494c5cfdec9b907f
+```
 
 ## Common options
 

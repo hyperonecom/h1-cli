@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 provider agent enabled-service create --project 5f64e2468c71177993874510 --agent 5f577a24494c5cfdec7830e5 --service /billing/project/platform/service/5cb9e2c8467ad031486f9d88```
+```bash
+h1 provider agent enabled-service create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--agent 5f577a24494c5cfdec7830e5 \ 
+	--service /billing/project/platform/service/5cb9e2c8467ad031486f9d88
+```
 
 ## Common options
 

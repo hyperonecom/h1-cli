@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 iam project sa tag delete --project 5f64e2468c71177993874510 --sa 5f72c96b02fbdad8a048fa40 --tag 5f60cbbe494c5cfdec81cc6b```
+```bash
+h1 iam project sa tag delete \ 
+	--project 5f64e2468c71177993874510 \ 
+	--sa 5f72c96b02fbdad8a048fa40 \ 
+	--tag 5f60cbbe494c5cfdec81cc6b
+```
 
 ## Common options
 

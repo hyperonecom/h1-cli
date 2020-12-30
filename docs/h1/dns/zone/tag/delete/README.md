@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 dns zone tag delete --project 5f64e2468c71177993874510 --zone 5f72beb1494c5cfdec9b907f --tag 5f60cbbe494c5cfdec81cc6b```
+```bash
+h1 dns zone tag delete \ 
+	--project 5f64e2468c71177993874510 \ 
+	--zone 5f72beb1494c5cfdec9b907f \ 
+	--tag 5f60cbbe494c5cfdec81cc6b
+```
 
 ## Common options
 

@@ -20,7 +20,11 @@ See also:
 
 ### Simple
 
-```h1 iam project threshold create --project 5f64e2468c71177993874510 --value 506.72886056737053```
+```bash
+h1 iam project threshold create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--value 506.72886056737053
+```
 
 ## Common options
 

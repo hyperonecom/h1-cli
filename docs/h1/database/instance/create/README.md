@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 database instance create --project 5f64e2468c71177993874510 --name simple-instance --service /billing/project/platform/service/5cd2e2fc3bd40c1a6359bb26```
+```bash
+h1 database instance create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--name simple-instance \ 
+	--service /billing/project/platform/service/5cd2e2fc3bd40c1a6359bb26
+```
 
 ## Common options
 

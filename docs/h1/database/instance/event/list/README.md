@@ -20,7 +20,11 @@ See also:
 
 ### Simple
 
-```h1 database instance event list --project 5f64e2468c71177993874510 --instance 5f577a24494c5cfdec7830e5```
+```bash
+h1 database instance event list \ 
+	--project 5f64e2468c71177993874510 \ 
+	--instance 5f577a24494c5cfdec7830e5
+```
 
 ## Common options
 

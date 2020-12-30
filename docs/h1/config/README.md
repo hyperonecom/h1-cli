@@ -27,9 +27,9 @@ $ h1 config <options>
 
 # Available commands
 
-* [h1 config settings](./settings/README.md)
 * [h1 config autocomplete](./autocomplete/README.md)
 * [h1 config extension](./extension/README.md)
+* [h1 config settings](./settings/README.md)
 
 # Parent commands
 

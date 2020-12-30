@@ -20,7 +20,13 @@ See also:
 
 ### Simple
 
-```h1 storage image create --project 5f64e2468c71177993874510 --name simple-image --service /billing/project/platform/service/564639bc052c084e2f2e3266 --vm /compute/pl-waw-1/project/5f64e2468c71177993874510/vm/5f72b7a9494c5cfdec9b8198```
+```bash
+h1 storage image create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--name simple-image \ 
+	--service /billing/project/platform/service/564639bc052c084e2f2e3266 \ 
+	--vm /compute/pl-waw-1/project/5f64e2468c71177993874510/vm/5f72b7a9494c5cfdec9b8198
+```
 
 ## Common options
 

@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 storage vault create --project 5f64e2468c71177993874510 --name simple-vault --size 10```
+```bash
+h1 storage vault create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--name simple-vault \ 
+	--size 10
+```
 
 ## Common options
 

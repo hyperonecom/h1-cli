@@ -8,6 +8,7 @@ import table from 'markdown-table';
 
 const header = (level, value) => `\n${'#'.repeat(level)} ${value}\n\n`;
 const quote = (value) => `\`\`\`${value}\`\`\``;
+const code = (language, text) => quote(`${language}\n${text}\n`);
 
 const renderOption = option => {
     const parts = [];
@@ -49,11 +50,12 @@ const documentCommand = async (cmd, dir) => {
         } else if (entry.examples) {
             for (const example of entry.examples) {
                 out.push(header(bonus + 2, example.title));
-                out.push(quote(example.command.replace('{name}', name)));
+                const command = example.command.replace('{name}', name).replace(/--/g, '\\ \n\t--');
+                out.push(code('bash', command));
             }
         } else if (entry.content) {
             if (entry.format) {
-                out.push(quote(`${entry.format}\n${entry.content.trim()}\n`));
+                out.push(code('bash', entry.content.trim()));
             } else {
                 out.push(entry.content);
             }

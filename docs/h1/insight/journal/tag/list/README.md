@@ -20,7 +20,11 @@ See also:
 
 ### Simple
 
-```h1 insight journal tag list --project 5f64e2468c71177993874510 --journal 5f577a24494c5cfdec7830e5```
+```bash
+h1 insight journal tag list \ 
+	--project 5f64e2468c71177993874510 \ 
+	--journal 5f577a24494c5cfdec7830e5
+```
 
 ## Common options
 

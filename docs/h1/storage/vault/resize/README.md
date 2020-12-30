@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 storage vault resize --project 5f64e2468c71177993874510 --vault 5f577a24494c5cfdec7830e5 --size 25```
+```bash
+h1 storage vault resize \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vault 5f577a24494c5cfdec7830e5 \ 
+	--size 25
+```
 
 ## Common options
 

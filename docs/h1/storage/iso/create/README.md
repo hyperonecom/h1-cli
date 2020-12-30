@@ -20,7 +20,11 @@ See also:
 
 ### Simple
 
-```h1 storage iso create --project 5f64e2468c71177993874510 --name simple-iso```
+```bash
+h1 storage iso create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--name simple-iso
+```
 
 ## Common options
 

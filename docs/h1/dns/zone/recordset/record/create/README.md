@@ -20,7 +20,13 @@ See also:
 
 ### Simple
 
-```h1 dns zone recordset record create --project 5f64e2468c71177993874510 --zone 5f72beb1494c5cfdec9b907f --recordset 5f60cbbe494c5cfdec81cc6b --content 1.1.1.1```
+```bash
+h1 dns zone recordset record create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--zone 5f72beb1494c5cfdec9b907f \ 
+	--recordset 5f60cbbe494c5cfdec81cc6b \ 
+	--content 1.1.1.1
+```
 
 ## Common options
 

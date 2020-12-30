@@ -20,7 +20,10 @@ See also:
 
 ### Simple
 
-```h1 dns zone list --project 5f64e2468c71177993874510```
+```bash
+h1 dns zone list \ 
+	--project 5f64e2468c71177993874510
+```
 
 ## Common options
 

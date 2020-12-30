@@ -20,7 +20,12 @@ See also:
 
 ### Rename
 
-```h1 storage disk update --project 5f64e2468c71177993874510 --disk 5f577a24494c5cfdec7830e5 --name disk-renamed```
+```bash
+h1 storage disk update \ 
+	--project 5f64e2468c71177993874510 \ 
+	--disk 5f577a24494c5cfdec7830e5 \ 
+	--name disk-renamed
+```
 
 ## Common options
 

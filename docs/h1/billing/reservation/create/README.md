@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 billing reservation create --project 5f64e2468c71177993874510 --name simple-reservation --service /billing/project/5f64e2468c71177993874510/service/5bf55e7f96ca089454ce6f68```
+```bash
+h1 billing reservation create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--name simple-reservation \ 
+	--service /billing/project/5f64e2468c71177993874510/service/5bf55e7f96ca089454ce6f68
+```
 
 ## Common options
 

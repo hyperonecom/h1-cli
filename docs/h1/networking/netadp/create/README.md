@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 networking netadp create --project 5f64e2468c71177993874510 --vm /compute/pl-waw-1/project/5f64e2468c71177993874510/vm/5f72b7a9494c5cfdec9b8198 --network /networking/pl-waw-1/project/000000000000000000000000/network/5784e97be2627505227b578c```
+```bash
+h1 networking netadp create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vm /compute/pl-waw-1/project/5f64e2468c71177993874510/vm/5f72b7a9494c5cfdec9b8198 \ 
+	--network /networking/pl-waw-1/project/000000000000000000000000/network/5784e97be2627505227b578c
+```
 
 ## Common options
 

@@ -20,7 +20,11 @@ See also:
 
 ### Simple
 
-```h1 iam project threshold show --project 5f64e2468c71177993874510 --threshold 1```
+```bash
+h1 iam project threshold show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--threshold 1
+```
 
 ## Common options
 

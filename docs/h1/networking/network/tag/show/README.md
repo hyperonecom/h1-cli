@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 networking network tag show --project 5f64e2468c71177993874510 --network 5f577a24494c5cfdec7830e5 --tag 5f60cbbe494c5cfdec81cc6b```
+```bash
+h1 networking network tag show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--network 5f577a24494c5cfdec7830e5 \ 
+	--tag 5f60cbbe494c5cfdec81cc6b
+```
 
 ## Common options
 

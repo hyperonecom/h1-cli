@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 dns zone service show --project 5f64e2468c71177993874510 --zone 5f72beb1494c5cfdec9b907f --service 5f60cbbe494c5cfdec81cc6b```
+```bash
+h1 dns zone service show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--zone 5f72beb1494c5cfdec9b907f \ 
+	--service 5f60cbbe494c5cfdec81cc6b
+```
 
 ## Common options
 

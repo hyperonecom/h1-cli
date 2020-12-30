@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 iam project policy service show --project 5f64e2468c71177993874510 --policy 5f72c96b02fbdad8a048fa40 --service 5f60cbbe494c5cfdec81cc6b```
+```bash
+h1 iam project policy service show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--policy 5f72c96b02fbdad8a048fa40 \ 
+	--service 5f60cbbe494c5cfdec81cc6b
+```
 
 ## Common options
 

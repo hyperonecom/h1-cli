@@ -20,7 +20,13 @@ See also:
 
 ### Simple
 
-```h1 iam project sa credential update --project 5f64e2468c71177993874510 --sa 5f72c96b02fbdad8a048fa40 --credential 5f60cbbe494c5cfdec81cc6b --name renamed-credential-sa```
+```bash
+h1 iam project sa credential update \ 
+	--project 5f64e2468c71177993874510 \ 
+	--sa 5f72c96b02fbdad8a048fa40 \ 
+	--credential 5f60cbbe494c5cfdec81cc6b \ 
+	--name renamed-credential-sa
+```
 
 ## Common options
 

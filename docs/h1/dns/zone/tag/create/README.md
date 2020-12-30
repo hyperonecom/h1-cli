@@ -20,7 +20,13 @@ See also:
 
 ### Simple
 
-```h1 dns zone tag create --project 5f64e2468c71177993874510 --zone 5f72beb1494c5cfdec9b907f --key x --value x```
+```bash
+h1 dns zone tag create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--zone 5f72beb1494c5cfdec9b907f \ 
+	--key x \ 
+	--value x
+```
 
 ## Common options
 

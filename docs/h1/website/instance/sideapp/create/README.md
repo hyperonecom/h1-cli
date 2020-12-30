@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 website instance sideapp create --project 5f64e2468c71177993874510 --instance 5f577a24494c5cfdec7830e5 --flavour console```
+```bash
+h1 website instance sideapp create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--instance 5f577a24494c5cfdec7830e5 \ 
+	--flavour console
+```
 
 ## Common options
 

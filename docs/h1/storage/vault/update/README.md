@@ -20,7 +20,12 @@ See also:
 
 ### Rename
 
-```h1 storage vault update --project 5f64e2468c71177993874510 --vault 5f577a24494c5cfdec7830e5 --name vault-renamed```
+```bash
+h1 storage vault update \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vault 5f577a24494c5cfdec7830e5 \ 
+	--name vault-renamed
+```
 
 ## Common options
 

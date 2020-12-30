@@ -20,13 +20,25 @@ See also:
 
 ### Simple
 
-```h1 storage vault show --project 5f64e2468c71177993874510 --vault 5f577a24494c5cfdec7830e5```
+```bash
+h1 storage vault show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vault 5f577a24494c5cfdec7830e5
+```
 ### Connect storage/vault via SSH
 
-```h1 storage vault show --project 5f64e2468c71177993874510 --vault 5f577a24494c5cfdec7830e5```
+```bash
+h1 storage vault show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vault 5f577a24494c5cfdec7830e5
+```
 ### Connect storage/vault via plain
 
-```h1 storage vault show --project 5f64e2468c71177993874510 --vault 5f577a24494c5cfdec7830e5```
+```bash
+h1 storage vault show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vault 5f577a24494c5cfdec7830e5
+```
 
 ## Common options
 

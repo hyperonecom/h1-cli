@@ -20,13 +20,25 @@ See also:
 
 ### Simple
 
-```h1 compute vm show --project 5f64e2468c71177993874510 --vm 5f577a24494c5cfdec7830e5```
+```bash
+h1 compute vm show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vm 5f577a24494c5cfdec7830e5
+```
 ### Connect SSH
 
-```h1 compute vm show --project 5f64e2468c71177993874510 --vm 5f577a24494c5cfdec7830e5```
+```bash
+h1 compute vm show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vm 5f577a24494c5cfdec7830e5
+```
 ### Execute metadata
 
-```h1 compute vm show --project 5f64e2468c71177993874510 --vm 5f577a24494c5cfdec7830e5```
+```bash
+h1 compute vm show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vm 5f577a24494c5cfdec7830e5
+```
 
 ## Common options
 

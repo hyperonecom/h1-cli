@@ -20,10 +20,22 @@ See also:
 
 ### Simple
 
-```h1 storage vault credential update --project 5f64e2468c71177993874510 --vault 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b --name renamed-credential-vault```
+```bash
+h1 storage vault credential update \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vault 5f577a24494c5cfdec7830e5 \ 
+	--credential 5f60cbbe494c5cfdec81cc6b \ 
+	--name renamed-credential-vault
+```
 ### Simple SSH
 
-```h1 storage vault credential update --project 5f64e2468c71177993874510 --vault 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b --name renamed-credential-vault```
+```bash
+h1 storage vault credential update \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vault 5f577a24494c5cfdec7830e5 \ 
+	--credential 5f60cbbe494c5cfdec81cc6b \ 
+	--name renamed-credential-vault
+```
 
 ## Common options
 

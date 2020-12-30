@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 networking firewall event show --project 5f64e2468c71177993874510 --firewall 5f577a24494c5cfdec7830e5 --event 5f60cbbe494c5cfdec81cc6b```
+```bash
+h1 networking firewall event show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--firewall 5f577a24494c5cfdec7830e5 \ 
+	--event 5f60cbbe494c5cfdec81cc6b
+```
 
 ## Common options
 

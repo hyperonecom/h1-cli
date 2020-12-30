@@ -20,7 +20,13 @@ See also:
 
 ### Simple
 
-```h1 insight journal create --project 5f64e2468c71177993874510 --name simple-journal --service /billing/project/platform/service/5c9cc2d0255c16c3e899a4ea --retention 30```
+```bash
+h1 insight journal create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--name simple-journal \ 
+	--service /billing/project/platform/service/5c9cc2d0255c16c3e899a4ea \ 
+	--retention 30
+```
 
 ## Common options
 

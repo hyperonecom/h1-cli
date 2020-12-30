@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 iam project role permission create --project 5f64e2468c71177993874510 --role 5f72c96b02fbdad8a048fa40 --value website/instance.tag/list```
+```bash
+h1 iam project role permission create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--role 5f72c96b02fbdad8a048fa40 \ 
+	--value website/instance.tag/list
+```
 
 ## Common options
 

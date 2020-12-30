@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 compute vm connect show --project 5f64e2468c71177993874510 --vm 5f577a24494c5cfdec7830e5 --connect 5f918e1aa828daa954b4579c```
+```bash
+h1 compute vm connect show \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vm 5f577a24494c5cfdec7830e5 \ 
+	--connect 5f918e1aa828daa954b4579c
+```
 
 ## Common options
 

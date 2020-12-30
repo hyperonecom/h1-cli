@@ -20,7 +20,11 @@ See also:
 
 ### Simple
 
-```h1 iam project sa create --project 5f64e2468c71177993874510 --name simple-sa```
+```bash
+h1 iam project sa create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--name simple-sa
+```
 
 ## Common options
 

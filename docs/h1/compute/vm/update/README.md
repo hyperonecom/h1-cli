@@ -20,7 +20,12 @@ See also:
 
 ### Rename
 
-```h1 compute vm update --project 5f64e2468c71177993874510 --vm 5f577a24494c5cfdec7830e5 --name vm-renamed```
+```bash
+h1 compute vm update \ 
+	--project 5f64e2468c71177993874510 \ 
+	--vm 5f577a24494c5cfdec7830e5 \ 
+	--name vm-renamed
+```
 
 ## Common options
 

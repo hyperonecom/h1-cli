@@ -20,7 +20,12 @@ See also:
 
 ### Rename
 
-```h1 billing reservation update --project 5f64e2468c71177993874510 --reservation 5f577a24494c5cfdec7830e5 --name reservation-renamed```
+```bash
+h1 billing reservation update \ 
+	--project 5f64e2468c71177993874510 \ 
+	--reservation 5f577a24494c5cfdec7830e5 \ 
+	--name reservation-renamed
+```
 
 ## Common options
 

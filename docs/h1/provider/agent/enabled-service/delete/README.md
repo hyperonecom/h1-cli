@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 provider agent enabled-service delete --project 5f64e2468c71177993874510 --agent 5f577a24494c5cfdec7830e5 --enabled-service 5c9cc2d0255c16c3e899a4ea```
+```bash
+h1 provider agent enabled-service delete \ 
+	--project 5f64e2468c71177993874510 \ 
+	--agent 5f577a24494c5cfdec7830e5 \ 
+	--enabled-service 5c9cc2d0255c16c3e899a4ea
+```
 
 ## Common options
 

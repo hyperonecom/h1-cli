@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 iam project policy actor create --project 5f64e2468c71177993874510 --policy 5f72c96b02fbdad8a048fa40 --value /iam/user/example@example.com```
+```bash
+h1 iam project policy actor create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--policy 5f72c96b02fbdad8a048fa40 \ 
+	--value /iam/user/example@example.com
+```
 
 ## Common options
 

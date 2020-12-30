@@ -27,9 +27,9 @@ $ h1 config settings <options>
 
 # Available commands
 
-* [h1 config settings get](./get/README.md)
-* [h1 config settings dump](./dump/README.md)
 * [h1 config settings set](./set/README.md)
+* [h1 config settings dump](./dump/README.md)
+* [h1 config settings get](./get/README.md)
 
 # Parent commands
 

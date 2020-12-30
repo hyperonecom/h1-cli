@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 website instance snapshot create --project 5f64e2468c71177993874510 --instance 5f577a24494c5cfdec7830e5 --name simple-website-snapshot```
+```bash
+h1 website instance snapshot create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--instance 5f577a24494c5cfdec7830e5 \ 
+	--name simple-website-snapshot
+```
 
 ## Common options
 

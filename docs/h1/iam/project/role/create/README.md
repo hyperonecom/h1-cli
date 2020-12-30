@@ -20,7 +20,12 @@ See also:
 
 ### Simple
 
-```h1 iam project role create --project 5f64e2468c71177993874510 --name simple-role --service /billing/project/platform/service/5e679c282b39c4353cd86f34```
+```bash
+h1 iam project role create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--name simple-role \ 
+	--service /billing/project/platform/service/5e679c282b39c4353cd86f34
+```
 
 ## Common options
 

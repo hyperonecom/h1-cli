@@ -20,7 +20,10 @@ See also:
 
 ### Simple
 
-```h1 provider agent list --project 5f64e2468c71177993874510```
+```bash
+h1 provider agent list \ 
+	--project 5f64e2468c71177993874510
+```
 
 ## Common options
 

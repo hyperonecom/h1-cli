@@ -87,7 +87,7 @@ class Command {
                 content: examples.map(({ title, command }) => `
                     {bold ${title}}
                 
-                   $ ${command.replace('{name}', fullName)}`).join('\n\n'),
+                   $ ${command.replace('{name}', fullName).replace(/--/g, '\\\\ \n\t--')}`).join('\n\n'),
             });
         }
         content.push({

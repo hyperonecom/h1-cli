@@ -20,7 +20,12 @@ See also:
 
 ### Rename
 
-```h1 container registry update --project 5f64e2468c71177993874510 --registry 5f577a24494c5cfdec7830e5 --name registry-renamed```
+```bash
+h1 container registry update \ 
+	--project 5f64e2468c71177993874510 \ 
+	--registry 5f577a24494c5cfdec7830e5 \ 
+	--name registry-renamed
+```
 
 ## Common options
 

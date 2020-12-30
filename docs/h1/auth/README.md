@@ -27,6 +27,7 @@ $ h1 auth <options>
 
 # Available commands
 
+* [h1 auth me](./me/README.md)
 * [h1 auth user](./user/README.md)
 * [h1 auth aws](./aws/README.md)
 * [h1 auth azure](./azure/README.md)

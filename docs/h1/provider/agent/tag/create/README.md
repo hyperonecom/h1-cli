@@ -20,7 +20,13 @@ See also:
 
 ### Simple
 
-```h1 provider agent tag create --project 5f64e2468c71177993874510 --agent 5f577a24494c5cfdec7830e5 --key x --value x```
+```bash
+h1 provider agent tag create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--agent 5f577a24494c5cfdec7830e5 \ 
+	--key x \ 
+	--value x
+```
 
 ## Common options
 

@@ -20,7 +20,11 @@ See also:
 
 ### Simple
 
-```h1 networking firewall create --project 5f64e2468c71177993874510 --name simple-firewall```
+```bash
+h1 networking firewall create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--name simple-firewall
+```
 
 ## Common options
 

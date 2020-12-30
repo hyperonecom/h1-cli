@@ -20,7 +20,12 @@ See also:
 
 ### Rename
 
-```h1 iam project role update --project 5f64e2468c71177993874510 --role 5f72c96b02fbdad8a048fa40 --name role-renamed```
+```bash
+h1 iam project role update \ 
+	--project 5f64e2468c71177993874510 \ 
+	--role 5f72c96b02fbdad8a048fa40 \ 
+	--name role-renamed
+```
 
 ## Common options
 

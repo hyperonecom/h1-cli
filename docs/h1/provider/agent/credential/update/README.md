@@ -20,7 +20,13 @@ See also:
 
 ### Simple
 
-```h1 provider agent credential update --project 5f64e2468c71177993874510 --agent 5f577a24494c5cfdec7830e5 --credential 5f60cbbe494c5cfdec81cc6b --name renamed-credential-agent```
+```bash
+h1 provider agent credential update \ 
+	--project 5f64e2468c71177993874510 \ 
+	--agent 5f577a24494c5cfdec7830e5 \ 
+	--credential 5f60cbbe494c5cfdec81cc6b \ 
+	--name renamed-credential-agent
+```
 
 ## Common options
 

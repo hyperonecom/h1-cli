@@ -20,10 +20,23 @@ See also:
 
 ### Simple
 
-```h1 storage disk create --project 5f64e2468c71177993874510 --name simple-disk --service /billing/project/platform/service/562fb685a3e575771b599091 --size 5```
+```bash
+h1 storage disk create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--name simple-disk \ 
+	--service /billing/project/platform/service/562fb685a3e575771b599091 \ 
+	--size 5
+```
 ### Clone
 
-```h1 storage disk create --project 5f64e2468c71177993874510 --name simple-disk --service /billing/project/platform/service/562fb685a3e575771b599091 --size 5 --source /storage/pl-waw-1/project/5f64e2468c71177993874510/disk/5f577a24494c5cfdec7830e5```
+```bash
+h1 storage disk create \ 
+	--project 5f64e2468c71177993874510 \ 
+	--name simple-disk \ 
+	--service /billing/project/platform/service/562fb685a3e575771b599091 \ 
+	--size 5 \ 
+	--source /storage/pl-waw-1/project/5f64e2468c71177993874510/disk/5f577a24494c5cfdec7830e5
+```
 
 ## Common options
 
