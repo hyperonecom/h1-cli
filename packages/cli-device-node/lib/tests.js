@@ -10,7 +10,7 @@ const randomBytes = util.promisify(crypto.randomBytes);
 const randomToken = (len = 16) => randomBytes(len).then(x => x.toString('hex'));
 
 const run = (cmd, options = {}) => new Promise((resolve, reject) => {
-    const program = child_process.spawn('node', [
+    const program = child_process.spawn(process.argv[0], [
         path.join(__dirname, '../dist/h1.js'),
         ...shlex.split(cmd).slice(1),
     ], options);
@@ -18,7 +18,7 @@ const run = (cmd, options = {}) => new Promise((resolve, reject) => {
 
     program.stdout.on('data', (chunk) => chunks.push(chunk));
     program.stderr.on('data', (chunk) => chunks.push(chunk));
-
+    program.on('error', reject);
     program.on('close', (code, signal) => {
         const output = Buffer.concat(chunks).toString('utf-8');
         if (code !== 0) {

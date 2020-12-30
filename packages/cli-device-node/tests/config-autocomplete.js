@@ -2,7 +2,7 @@ const ava = require('ava');
 const { run, withTemp } = require('../lib/tests');
 
 const comply = async (cmd) => {
-    const output = await run(`h3 config autocomplete comply --cmd '${cmd}'`);
+    const output = await run(`h1 config autocomplete comply --cmd '${cmd}'`);
     return output.split('\n');
 };
 

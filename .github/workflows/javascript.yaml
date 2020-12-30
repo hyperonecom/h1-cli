@@ -21,7 +21,7 @@ jobs:
       run: yarn run install:ci
     - name: Build packages
       run: yarn run build
-    - name: Build NodeJS release files
+    - name: Run e2e tests
       run: npm run test
       working-directory: ./packages/cli-device-node
     - name: Build NodeJS release files
