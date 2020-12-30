@@ -33,6 +33,7 @@ $ h1 insight journal <options>
 * [h1 insight journal update](./update/README.md)
 * [h1 insight journal delete](./delete/README.md)
 * [h1 insight journal transfer](./transfer/README.md)
+* [h1 insight journal log](./log/README.md)
 * [h1 insight journal credential](./credential/README.md)
 * [h1 insight journal service](./service/README.md)
 * [h1 insight journal tag](./tag/README.md)

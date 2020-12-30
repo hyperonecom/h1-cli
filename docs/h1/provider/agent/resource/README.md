@@ -31,6 +31,7 @@ $ h1 provider agent resource <options>
 * [h1 provider agent resource show](./show/README.md)
 * [h1 provider agent resource recreate](./recreate/README.md)
 * [h1 provider agent resource inspect](./inspect/README.md)
+* [h1 provider agent resource event](./event/README.md)
 
 # Parent commands
 

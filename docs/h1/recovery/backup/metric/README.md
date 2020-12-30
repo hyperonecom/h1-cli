@@ -29,6 +29,7 @@ $ h1 recovery backup metric <options>
 
 * [h1 recovery backup metric list](./list/README.md)
 * [h1 recovery backup metric show](./show/README.md)
+* [h1 recovery backup metric point](./point/README.md)
 
 # Parent commands
 

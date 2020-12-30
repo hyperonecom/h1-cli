@@ -29,6 +29,7 @@ $ h1 storage disk metric <options>
 
 * [h1 storage disk metric list](./list/README.md)
 * [h1 storage disk metric show](./show/README.md)
+* [h1 storage disk metric point](./point/README.md)
 
 # Parent commands
 

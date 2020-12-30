@@ -32,6 +32,7 @@ $ h1 iam organisation <options>
 * [h1 iam organisation show](./show/README.md)
 * [h1 iam organisation update](./update/README.md)
 * [h1 iam organisation delete](./delete/README.md)
+* [h1 iam organisation billing](./billing/README.md)
 * [h1 iam organisation transfer](./transfer/README.md)
 * [h1 iam organisation payment](./payment/README.md)
 * [h1 iam organisation invoice](./invoice/README.md)

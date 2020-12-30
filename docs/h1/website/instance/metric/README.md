@@ -29,6 +29,7 @@ $ h1 website instance metric <options>
 
 * [h1 website instance metric list](./list/README.md)
 * [h1 website instance metric show](./show/README.md)
+* [h1 website instance metric point](./point/README.md)
 
 # Parent commands
 

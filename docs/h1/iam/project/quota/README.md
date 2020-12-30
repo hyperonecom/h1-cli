@@ -29,6 +29,7 @@ $ h1 iam project quota <options>
 
 * [h1 iam project quota list](./list/README.md)
 * [h1 iam project quota show](./show/README.md)
+* [h1 iam project quota limit](./limit/README.md)
 
 # Parent commands
 

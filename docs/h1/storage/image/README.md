@@ -33,6 +33,7 @@ $ h1 storage image <options>
 * [h1 storage image update](./update/README.md)
 * [h1 storage image delete](./delete/README.md)
 * [h1 storage image transfer](./transfer/README.md)
+* [h1 storage image disk](./disk/README.md)
 * [h1 storage image service](./service/README.md)
 * [h1 storage image tag](./tag/README.md)
 * [h1 storage image event](./event/README.md)

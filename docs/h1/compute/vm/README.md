@@ -39,6 +39,8 @@ $ h1 compute vm <options>
 * [h1 compute vm password_reset](./password_reset/README.md)
 * [h1 compute vm flavour](./flavour/README.md)
 * [h1 compute vm serialport](./serialport/README.md)
+* [h1 compute vm disk](./disk/README.md)
+* [h1 compute vm iso](./iso/README.md)
 * [h1 compute vm metric](./metric/README.md)
 * [h1 compute vm connect](./connect/README.md)
 * [h1 compute vm service](./service/README.md)

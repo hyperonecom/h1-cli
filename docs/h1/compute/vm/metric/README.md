@@ -29,6 +29,7 @@ $ h1 compute vm metric <options>
 
 * [h1 compute vm metric list](./list/README.md)
 * [h1 compute vm metric show](./show/README.md)
+* [h1 compute vm metric point](./point/README.md)
 
 # Parent commands
 

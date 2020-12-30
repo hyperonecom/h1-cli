@@ -29,6 +29,7 @@ $ h1 networking netadp metric <options>
 
 * [h1 networking netadp metric list](./list/README.md)
 * [h1 networking netadp metric show](./show/README.md)
+* [h1 networking netadp metric point](./point/README.md)
 
 # Parent commands
 

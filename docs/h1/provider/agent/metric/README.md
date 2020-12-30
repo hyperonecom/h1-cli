@@ -29,6 +29,7 @@ $ h1 provider agent metric <options>
 
 * [h1 provider agent metric list](./list/README.md)
 * [h1 provider agent metric show](./show/README.md)
+* [h1 provider agent metric point](./point/README.md)
 
 # Parent commands
 

@@ -60,7 +60,7 @@ export default {
         .from(new Set(Object
             .entries(spec.paths)
             .map(([path]) => {
-                const match = path.match(new RegExp(`^(${prefix}/[a-zA-Z]+?)/({[A-Za-z_]+}){0,1}$`));
+                const match = path.match(new RegExp(`^(${prefix}/[a-zA-Z]+?)(/{[A-Za-z_]+}){0,1}$`));
                 if (!match) return;
                 return match[1];
             })
