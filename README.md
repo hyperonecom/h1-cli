@@ -136,6 +136,14 @@ nodejs packages/cli-device-node/dist/h1
 npm run test
 ```
 
+### Environment variables
+
+CLI support following environment variables:
+
+* `HYPERONE_OPENAPI_URL` - allows to specify link to OpenAPI specification to reach platform API. Example value: `https://api.hyperone.com/v2/openapi.json`
+
+Certain external libraries may support consume environment variables, e.g. for purpose of authentication to AWS, GCP, Azure platforms.
+
 ### Reporting problems and comments
 
 If you encounter any errors with the tool, please report the problem through the notification system in the administration panel or the [Issues] tab in the [repository].
