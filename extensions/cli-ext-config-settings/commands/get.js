@@ -6,8 +6,8 @@ export default new Command({
     options: [
         { name: 'key', required: true },
     ],
-    handler: (opts, cmd) => {
+    handler: async (opts, cmd) => {
         const optsAll = opts._all || opts;
-        return cmd.config.get(optsAll.key);
+        return opts.format(await cmd.config.get(optsAll.key));
     },
 })
