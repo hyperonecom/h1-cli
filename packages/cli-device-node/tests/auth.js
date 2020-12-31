@@ -1,11 +1,6 @@
 const ava = require('ava');
 const { run, runJson, runPty, withTemp, withVariable } = require('./../lib/tests');
 
-ava('display user profile', async t => {
-    const output = await runJson('h1 auth me');
-    t.true(output.aud.includes('https://api.hyperone.com/v2'));
-});
-
 ava('auth user', withTemp(withVariable(['username', 'password'], async (t, tmpDir, username, password) => {
     const options = { env: { HOME: tmpDir } };
     const output = await run(`h1 auth user --username ${username} --password ${password}`, options);
