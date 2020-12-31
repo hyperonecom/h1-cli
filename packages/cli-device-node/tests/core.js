@@ -1,11 +1,6 @@
 const ava = require('ava');
 const { run } = require('./../lib/tests');
 
-ava('display version command output', async t => {
-    const output = await run('h1 version');
-    t.true(output.includes('2.0'));
-});
-
 ava('display version option output', async t => {
     const output = await run('h1 -v');
     t.true(output.includes('h1 version 2'));

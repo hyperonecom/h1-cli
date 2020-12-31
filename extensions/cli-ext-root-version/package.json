@@ -19,7 +19,8 @@
   "license": "MIT",
   "dependencies": {
     "@hyperone/cli-core": "link:../../packages/cli-core",
-    "@hyperone/cli-framework": "link:../../packages/cli-framework"
+    "@hyperone/cli-framework": "link:../../packages/cli-framework",
+    "semver": "^7.3.4"
   },
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",
   "publishConfig": {
