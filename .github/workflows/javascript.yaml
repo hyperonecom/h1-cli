@@ -95,10 +95,12 @@ jobs:
     - name: Build Changelog
       id: github_release
       uses: mikepenz/release-changelog-builder-action@v1.3.0
+      if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Preview Changelog
       run: echo "$CHANGELOG"
+      if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
       env:
         CHANGELOG: ${{steps.github_release.outputs.changelog}}
     - name: Create Release
