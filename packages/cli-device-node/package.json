@@ -31,6 +31,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "ava": {
+    "timeout": "1m"
+  },
   "scripts": {
     "prepack": "NODE_ENV=production webpack",
     "watch": "webpack --watch",

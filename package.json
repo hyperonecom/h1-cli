@@ -16,9 +16,6 @@
     "extensions/*",
     "packages/*"
   ],
-  "ava": {
-    "timeout": "5m"
-  },
   "devDependencies": {
     "@hyperone/eslint-config": "^2.0.1",
     "eslint": "^7.4.0",
