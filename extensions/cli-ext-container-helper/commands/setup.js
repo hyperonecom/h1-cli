@@ -16,6 +16,7 @@ const set_helper = async (hostname, helper) => {
     // - gcloud auth configure-docker
     const cpath = get_config_path();
     let cfg = {};
+    await fs.promises.mkdir(path.dirname(cpath), {recursive: true});
     try {
         cfg = JSON.parse(await fs.promises.readFile(cpath, { encoding: 'utf-8' }));
     } catch (err) {
@@ -51,12 +52,13 @@ export default new Command({
     ],
     handler: async (opts, cmd) => {
         const optsAll = opts._all || opts;
-        const resource = await opts.api.get(
+        const resource_resp = await opts.api.get(
             openapi.getUrl('/container/pl-waw-1/project/{projectId}/registry/{registryId}', {
                 projectId: optsAll.project,
                 registryId: optsAll.registry,
             })
         );
+        const resource = resource_resp.bodyJson;
         await set_helper(resource.fqdn, cmd.device.getName());
         return `Configuration for registry '${resource.fqdn}' updated`;
     },

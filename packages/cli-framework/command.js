@@ -44,17 +44,14 @@ class Command {
             }
             this.argPlugin = true;
         }
-        const versionOptions = [];
-        if (this.device && this.device.getVersion) {
-            versionOptions.push({ name: 'version', alias: 'v', group: ['global'], type: Boolean, description: 'Show version and exit.' });
-        }
+
         return [
-            ...this.options,
-            ...versionOptions,
-        ].map(x => ({
-            ...x,
-            description: x.defaultValue ? `${x.description}. Default value is ${escape(x.defaultValue)}` : x.description,
-        }));
+            ...this.options.map(x => ({
+                ...x,
+                description: x.defaultValue ? `${x.description}. Default value is ${escape(x.defaultValue)}` : x.description,
+            })),
+            ...this.device && this.device.getVersion ? [{ name: 'version', alias: 'v', group: ['global'], type: Boolean, description: 'Show version and exit.' }] : [],
+        ];
     }
     async getExamples() {
         if (typeof this.examples == 'function') {
