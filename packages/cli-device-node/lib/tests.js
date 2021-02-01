@@ -2,11 +2,13 @@ const shlex = require('shlex');
 const child_process = require('child_process');
 const path = require('path');
 const fs = require('fs').promises;
+const { createWriteStream } = require('fs');
 const os = require('os');
 const util = require('util');
 const crypto = require('crypto');
 const randomBytes = util.promisify(crypto.randomBytes);
 const pty = require('node-pty');
+const fetch = require('node-fetch');
 
 const randomToken = (len = 16) => randomBytes(len).then(x => x.toString('hex'));
 
@@ -110,6 +112,19 @@ const getName = (...names) => [...names, Date.now().toString()]
     .join('-')
     .replace(/[^a-zA-Z0-9]/g, '-');
 
+const downloadCachedFile = url => new Promise((resolve, reject) => {
+    const suffix = crypto.createHash('sha256').update(url).digest('hex');
+    const filename = path.join(os.tmpdir(), `test-h1-cli-v2-${suffix}`);
+    const stream = createWriteStream(filename);
+    stream.on('finish', () => resolve(filename));
+    fetch(url)
+        .then(resp => resp.body
+            .pipe(stream)
+            .on('error', reject)
+        )
+        .catch(reject);
+});
+
 module.exports = {
     run,
     runJson,
@@ -118,4 +133,5 @@ module.exports = {
     randomToken,
     withVariable,
     getName,
+    downloadCachedFile,
 };

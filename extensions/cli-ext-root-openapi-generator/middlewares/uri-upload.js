@@ -41,7 +41,8 @@ export default {
                 .replace('/iso', '/bucket/5fbfd4c073dc5e138e2b0cfb/actions/upload')
                 .replace('/disk', '/bucket/5fbfd4c073dc5e138e2b0cfb/actions/upload');
 
-            const uploadParams = await opts.api.post(uploadRequestUrl, { json: { name: filename } });
+            const uploadParamsResp = await opts.api.post(uploadRequestUrl, { json: { name: filename } });
+            const uploadParams = uploadParamsResp.bodyJson;
 
             const s3Client = new S3({
                 endpoint: uploadParams.endpoint,
