@@ -4,7 +4,7 @@
     "extensions/**"
   ],
   "npmClient": "yarn",
-  "version": "2.0.19",
+  "version": "2.0.20",
   "ignoreChanges": [
     "**/*.md"
   ],
