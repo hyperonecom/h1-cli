@@ -77,10 +77,11 @@ class Category extends Command {
     }
     async exec(argv = [], parentOpts = {}) {
         await this.loadCommands();
+        const options = await this.getOptions();
         const opts = {
             ...parentOpts,
             ...commandLineArgs(
-                await this.getOptions(),
+                options,
                 { argv, stopAtFirstUnknown: true }
             ),
             state: this.state,

@@ -13,6 +13,10 @@ const fetch = require('node-fetch');
 const randomToken = (len = 16) => randomBytes(len).then(x => x.toString('hex'));
 
 const run = (cmd, options = {}) => new Promise((resolve, reject) => {
+    if (process.argv.includes('--serial')) {
+        // eslint-disable-next-line no-console
+        console.log('executed: ', cmd);
+    }
     const program = child_process.spawn(process.argv[0], [
         path.join(__dirname, '../dist/h1.js'),
         ...shlex.split(cmd).slice(1),
@@ -38,7 +42,7 @@ const run = (cmd, options = {}) => new Promise((resolve, reject) => {
 });
 
 const runJson = async (cmd, options = {}) => {
-    let output = await run(`${cmd} -o json`, options);
+    let output = await run(`${cmd} -o json --query ''`, options);
     output = output.trim();
     const document = output.slice(Math.min(output.lastIndexOf('\n{\n') + 2, 0));
     try {

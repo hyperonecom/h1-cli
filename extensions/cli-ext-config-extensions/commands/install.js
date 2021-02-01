@@ -15,17 +15,17 @@ export default new Command({
     summary: 'Install (or update) extension',
     options: [
         { name: 'extension', required: true, description: 'Extension name to install' },
-        { name: 'version', required: true, description: 'Extension version to install', defaultValue: 'latest' },
+        { name: 'required', required: true, description: 'Extension version required to install', defaultValue: 'latest' },
     ],
     handler: async (opts, cmd) => {
         const optsAll = opts._all || opts;
         const client = npm(opts.http, 'https://registry.npmjs.org/');
         const result = [];
-        if (!opts.version) {
+        if (!opts.required) {
             const versions = await client.listVersions(optsAll.extension);
-            opts.version = versions.latest;
+            opts.required = versions.latest;
         }
-        const detail = await client.showPackage(optsAll.extension, opts.version);
+        const detail = await client.showPackage(optsAll.extension, opts.required);
         opts.logger.info(`Installing '${detail.name}' in version '${detail.version}'`);
         const outDir = path.join(cmd.device.extensionDir(), detail.name);
 

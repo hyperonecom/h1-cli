@@ -6,12 +6,13 @@ export default new Command({
     options: [],
     handler: async (opts) => {
         const buf = [];
-        const identity = await opts.auth.introspection();
+        const identity_resp = await opts.auth.introspection();
+        const identity = identity_resp.bodyJson;
         for await (const chunk of process.stdin) {
             buf.push(chunk);
         }
         const server_url = buf.toString('utf-8').trim();
-        const token = await opts.auth.getToken(server_url.hostname);
+        const token = await opts.auth.getToken(server_url);
         return JSON.stringify({
             ServerURL: server_url,
             Username: identity.sub,
