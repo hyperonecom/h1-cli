@@ -44,10 +44,14 @@ class Command {
             }
             this.argPlugin = true;
         }
+        const versionOptions = [];
         if (this.device && this.device.getVersion) {
-            this.options.push({ name: 'version', alias: 'v', group: ['global'], type: Boolean, description: 'Show version and exit.' });
+            versionOptions.push({ name: 'version', alias: 'v', group: ['global'], type: Boolean, description: 'Show version and exit.' });
         }
-        return this.options.map(x => ({
+        return [
+            ...this.options,
+            ...versionOptions,
+        ].map(x => ({
             ...x,
             description: x.defaultValue ? `${x.description}. Default value is ${escape(x.defaultValue)}` : x.description,
         }));
