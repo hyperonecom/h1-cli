@@ -82,16 +82,13 @@ export default ({ http, logger, config, passport, as, defaultAudience }) => {
 
         if (as) {
             logger.debug(`Use delegate to switch actor to '${as}'`);
-            const body = await exchange(access_token, {
-                audience,
+            const body = await exchange(audience, access_token, {
                 resource: as,
             });
             return body.access_token;
         } else if (!passport && audience && defaultAudience !== audience) {
             logger.debug(`Update audience as '${audience}'`);
-            const body = await exchange(access_token, {
-                audience,
-            });
+            const body = await exchange(audience, access_token);
             return body.access_token;
         }
 

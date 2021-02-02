@@ -28,15 +28,16 @@ export default new Command({
     ],
     handler: async (opts) => {
         const optsAll = opts._all || opts;
-        const log = await opts.api
+        const logResp = await opts.api
             .get(openapi.getUrl(`/insight/pl-waw-1/project/${optsAll.project}/journal/${optsAll.journal}`));
+        const log = logResp.bodyJson;
         const token = await opts.auth.getToken(log.fqdn);
 
         const stream = await opts.http.get(`http://${log.fqdn}/log`, {
             headers: { authorization: `Bearer ${token}` },
         });
         let lines = 0;
-        const logFile = optsAll['log-file'] == 'stdout' ? process.stdout : fs.createReadStream(optsAll['log-file']);
+        const logFile = optsAll['log-file-output'] == 'stdout' ? process.stdout : fs.createWriteStream(optsAll['log-file-output']);
         return new Promise((resolve, reject) => stream.body
             .on('error', err => {
                 logFile.close();

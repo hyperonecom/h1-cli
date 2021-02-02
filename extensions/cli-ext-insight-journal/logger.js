@@ -28,8 +28,9 @@ export default new Command({
     ],
     handler: async (opts) => {
         const optsAll = opts._all || opts;
-        const log = await opts.api
+        const logResp = await opts.api
             .get(openapi.getUrl(`/insight/pl-waw-1/project/${optsAll.project}/journal/${optsAll.journal}`));
+        const log = logResp.bodyJson;
         const token = await opts.auth.getToken(log.fqdn);
         const logFile = optsAll['log-file'] == 'stdin' ? process.stdin : fs.createReadStream(optsAll['log-file']);
         const inStream = logFile
