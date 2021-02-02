@@ -150,7 +150,8 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '') => {
 
     if (pvalue.type == 'boolean') {
         Object.assign(p, {
-            type: Boolean,
+            typeLabel: 'true,false',
+            type: types.booleanish,
         });
     }
 
@@ -168,7 +169,6 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '') => {
     }
 
     if (pvalue.default) {
-        description.push(`Defaults is ${pvalue.default}`);
         Object.assign(p, {
             defaultValue: pvalue.default,
         });

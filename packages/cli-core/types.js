@@ -13,8 +13,19 @@ const nestedValue = value => {
     return result;
 };
 
+const booleanish = value => {
+    if (['true', 't', 'y', 'on'].includes(value.toLowerCase())) {
+        return true;
+    }
+    if (['false', 'f', 'n', 'off'].includes(value.toLowerCase())) {
+        return false;
+    }
+    throw new Error('Invalid value. Require \'true\' or \'false\'');
+};
+
 export default {
     extractId,
     nestedValue,
+    booleanish,
 };
 
