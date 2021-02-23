@@ -46,7 +46,7 @@ export default new Command({
                 },
             }));
         return opts.http.
-            post(`http://${log.fqdn}/log`, {
+            post(`https://${log.fqdn}/log`, {
                 body: inStream,
                 headers: { authorization: `Bearer ${token}` },
             });
