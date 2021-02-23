@@ -33,7 +33,7 @@ export default new Command({
         const log = logResp.bodyJson;
         const token = await opts.auth.getToken(log.fqdn);
 
-        const stream = await opts.http.get(`http://${log.fqdn}/log`, {
+        const stream = await opts.http.get(`https://${log.fqdn}/log`, {
             headers: { authorization: `Bearer ${token}` },
         });
         let lines = 0;
