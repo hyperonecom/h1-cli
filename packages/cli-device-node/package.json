@@ -16,6 +16,7 @@
     "@hyperone/cli-ext-config-settings": "link:../../extensions/cli-ext-config-settings",
     "@hyperone/cli-ext-container-helper": "link:../../extensions/cli-ext-container-helper/",
     "@hyperone/cli-ext-iam-project": "link:../../extensions/cli-ext-iam-project",
+    "@hyperone/cli-ext-insight-journal": "link:../../extensions/cli-ext-insight-journal/",
     "@hyperone/cli-ext-root-auth": "link:../../extensions/cli-ext-root-auth",
     "@hyperone/cli-ext-root-config": "link:../../extensions/cli-ext-root-config",
     "@hyperone/cli-ext-root-openapi-generator": "link:../../extensions/cli-ext-root-openapi-generator",
