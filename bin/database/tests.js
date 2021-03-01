@@ -22,8 +22,6 @@ const mysqlQuery = async (database, password, query) => {
     }
 };
 
-const mysql56Query = async (database, password, query) => mysqlQuery({...database, username: database.id.substr(-16)}, password, query);
-
 const pgQuery = async (database, password, query) => {
     console.log(new Date(), `Execute query '${query}' on database '${database.fqdn}'`);
     const client = new Client({
@@ -46,7 +44,6 @@ const query = {
     'postgres:12': pgQuery,
     'postgres:13': pgQuery,
     'mysql:5.7': mysqlQuery,
-    'mysql:5.6': mysql56Query,
 };
 
 Object.keys(query).forEach(flavour => {
