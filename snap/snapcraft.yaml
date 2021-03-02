@@ -1,0 +1,25 @@
+name: h1-cli
+base: core18 # the base snap is the execution environment for this snap
+version: git
+summary: HyperOne Command Line Interface
+description: HyperOne Command Line Interface
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+parts:
+  cli:
+    plugin: nodejs
+    source: .
+    nodejs-package-manager: npm
+    nodejs-version: '12.4.0'
+    stage-packages:
+      - libgcc1
+      - libstdc++6
+# To list 'stage-packages' use:
+# ldd -v /usr/bin/node  | grep '=>' | awk '{print $4}' | sort -n  | uniq | grep '/' | xargs -n 1 dpkg -S
+apps:
+  h1-cli:
+    command: h1
+  rbx-cli:
+    command: rbx
