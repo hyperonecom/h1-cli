@@ -13,7 +13,7 @@ const applyMiddleware = async (middlewares, name, value, ...args) => {
     return value;
 };
 
-export const makeOperationCommand = ({ name, endpoint, method, path }) => async () => {
+export const makeOperationCommand = ({ name, endpoint, method, path, }) => async () => {
     const operation = endpoint[method];
     const parameters = [
         ...operation.parameters || [],
@@ -61,7 +61,7 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
             opts.config = cmd.config;
             const optsAll = opts._all || opts;
             const parameters = request.renderParameter(optsAll, options);
-            const url = openapi.getUrl(path, parameters);
+            const url = openapi.getUrl(path, parameters, operation);
             const query = request.renderQuery(optsAll, options);
             let requestBody;
             if (['post', 'patch', 'put'].includes(method)) {
