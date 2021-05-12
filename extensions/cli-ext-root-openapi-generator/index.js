@@ -13,7 +13,7 @@ const applyMiddleware = async (middlewares, name, value, ...args) => {
     return value;
 };
 
-export const makeOperationCommand = ({ name, endpoint, method, path, }) => async () => {
+export const makeOperationCommand = ({ name, endpoint, method, path }) => async () => {
     const operation = endpoint[method];
     const parameters = [
         ...operation.parameters || [],
