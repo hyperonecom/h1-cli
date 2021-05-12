@@ -84,7 +84,7 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '') => {
     const description = [];
     const required = pvalue.required || [];
     const p = {
-        name: prefix ? `${prefix}-${deCamelCase(pname)}` : deCamelCase(pname),
+        name: prefix && prefix !== 'properties' ? `${prefix}-${deCamelCase(pname)}` : deCamelCase(pname),
         required: required.includes(pname),
         use: {
             in: 'body',
@@ -212,8 +212,28 @@ const renderOptions = (operation, parameters = []) => {
     ];
 };
 
-const renderBody = (operation, input, options) => {
+const renderEmpty = (schema) => {
     const result = {};
+    schema = flatSchema(schema);
+    if (schema.type == 'object') {
+        for (const [child_pname, child_pvalue] of Object.entries(schema.properties || {})) {
+            if (child_pvalue.type == 'object') {
+                result[child_pname] = renderEmpty(child_pvalue);
+            }
+            if (child_pvalue.const) {
+                result[child_pname] = child_pvalue.const;
+            }
+            if (child_pvalue.default) {
+                result[child_pname] = child_pvalue.default;
+            }
+        }
+    }
+    return result;
+};
+
+const renderBody = (operation, input, options) => {
+    const schema = openapi.getSchema(operation);
+    const result = renderEmpty(schema);
     const parameters = renderParameter(input, options);
 
     for (const option of options) {
