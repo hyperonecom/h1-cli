@@ -66,32 +66,33 @@ const middlewareForOperation = (operation) => {
     return middlewareForSchema(schema);
 };
 
-const parameterForSchema = (pvalue, pname = '', prefix = '', path = '') => {
+const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required) => {
     const parameters = [];
     if (pvalue.type == 'object') {
         for (const [child_pname, child_pvalue] of Object.entries(pvalue.properties || {})) {
             const child_parameters = parameterForSchema(
-                child_pvalue,
+                flatSchema(child_pvalue),
                 child_pname,
                 !!prefix ? `${prefix}-${pname}` : `${pname}`,
-                path ? `${path}/${pname}` : `${pname}`
+                path ? `${path}/${pname}` : `${pname}`,
+                (pvalue.required || []).includes(child_pname)
             );
             parameters.push(...child_parameters);
         }
         return parameters;
     }
-
     const description = [];
-    const required = pvalue.required || [];
     const p = {
-        name: prefix && prefix !== 'properties' ? `${prefix}-${deCamelCase(pname)}` : deCamelCase(pname),
-        required: required.includes(pname),
+        name: prefix ? `${prefix}-${deCamelCase(pname)}` : deCamelCase(pname),
+        required,
         use: {
             in: 'body',
             schema: pvalue,
             field: path ? `/${path}/${pname}` : `/${pname}`,
         },
     };
+
+    p.name = p.name.replace(/properties-/, '');
 
     if (pvalue.title) {
         description.push(pvalue.title);
@@ -190,16 +191,73 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '') => {
     return parameters;
 };
 
-const flatSchema = (schema) => {
-    if (schema.allOf) {
-        const properties = {};
-        for (const sch of schema.allOf) {
-            Object.assign(properties, sch.properties);
+const mergeSchema = (a, b) => {
+    const result = {};
+    if (a.type == 'object' && b.type == 'object') {
+        result.type = 'object';
+        if (a.required && b.required) {
+            a.required = a.filter(x => b.required.includes(x));
         }
-        return {
-            type: 'object',
-            properties,
+        if (a.properties && b.properties) {
+            const keys = [
+                ...new Set([
+                    ...Object.keys(a.properties || {}),
+                    ...Object.keys(b.properties || {}),
+                ]),
+            ];
+            result.properties = Object.fromEntries(
+                keys.map(key => {
+                    if (a.properties[key] && b.properties[key]) {
+                        return [
+                            key, mergeSchema(a.properties[key], b.properties[key]),
+                        ];
+                    } else if (a.properties[key]) {
+                        return [
+                            key, a.properties[key],
+                        ];
+                    }
+                    return [
+                        key, b.properties[key],
+                    ];
+                })
+            );
+        }
+    } else if (a.type !== b.type) {
+        result.type = {
+            type: 'string',
         };
+    } else {
+        result.type = {
+            type: a.type,
+        };
+    }
+    if (a.const !== b.const) {
+        result.enum = [
+            a.const,
+            b.const,
+        ];
+    } else if (a.const) {
+        result.const = a.const;
+    }
+    for (const name of ['format', 'title']) {
+        if (a[name] == b[name]) {
+            result[name] = a[name];
+        }
+    }
+    if (a.enum && b.enum) {
+        result.enum = [
+            ...a.enum,
+            ...b.enum,
+        ];
+    }
+    return result;
+};
+
+const flatSchema = (schema) => {
+    for (const key of ['anyOf', 'allOf', 'oneOf']) {
+        if (schema[key]) {
+            return schema[key].reduce((a, b) => mergeSchema(a, b));
+        }
     }
     return schema;
 };
