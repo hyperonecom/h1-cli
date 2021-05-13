@@ -15,6 +15,7 @@
     "meant": "^1.0.1"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

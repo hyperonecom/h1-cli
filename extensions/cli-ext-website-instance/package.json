@@ -22,6 +22,7 @@
 		"@hyperone/cli-generic-commands": "link:../../packages/cli-generic-commands"
 	},
 	"publishConfig": {
-		"access": "public"
+		"access": "public",
+		"registry": "https://registry.npmjs.org/"
 	}
 }

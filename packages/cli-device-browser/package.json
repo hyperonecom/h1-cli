@@ -16,7 +16,8 @@
     "shell-quote": "^1.7.2"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "webpack": "^4.43.0",

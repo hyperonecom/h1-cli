@@ -13,6 +13,7 @@
     "@hyperone/cli-framework": "link:../cli-framework"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
