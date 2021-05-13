@@ -20,6 +20,9 @@
     "@hyperone/eslint-config": "^2.0.1",
     "eslint": "^7.4.0",
     "eslint-plugin-jasmine": "^4.1.1",
-    "lerna": "^3.22.1"
+    "lerna": "^4.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }
