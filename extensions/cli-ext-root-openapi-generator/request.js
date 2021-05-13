@@ -196,7 +196,7 @@ const mergeSchema = (a, b) => {
     if (a.type == 'object' && b.type == 'object') {
         result.type = 'object';
         if (a.required && b.required) {
-            a.required = a.filter(x => b.required.includes(x));
+            a.required = a.required.filter(x => b.required.includes(x));
         }
         if (a.properties && b.properties) {
             const keys = [
