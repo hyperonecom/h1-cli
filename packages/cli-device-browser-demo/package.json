@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-device-browser-demo",
-  "version": "2.0.30",
+  "version": "2.0.31",
   "description": "",
   "scripts": {
     "serve": "webpack-dev-server",
