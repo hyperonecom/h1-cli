@@ -165,7 +165,7 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
         Object.assign(p, {
             multiple: true,
             typeLabel: label,
-            type: types.nestedValue,
+            type: types.nestedValue(pvalue.items),
         });
     }
 
@@ -292,6 +292,7 @@ const renderEmpty = (schema) => {
 const renderBody = (operation, input, options) => {
     const schema = openapi.getSchema(operation);
     const result = renderEmpty(schema);
+    result.properties = {};
     const parameters = renderParameter(input, options);
 
     for (const option of options) {

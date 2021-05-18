@@ -4,11 +4,23 @@ const extractId = (value) => {
     return value;
 };
 
-const nestedValue = value => {
+function isInteger(value) {
+    return /^-?\d+$/.test(value);
+}
+
+const nestedValue = schema => value => {
     const result = {};
     for (const v of value.split(',')) {
         const [pkey, pvalue] = v.split(/=/, 2);
-        result[pkey] = pvalue;
+        const type = schema.properties[pkey] && schema.properties[pkey].type;
+        if (type == 'integer') {
+            if (!isInteger(pvalue)) {
+                throw new Error(`Invalid value. Required integer for nested value ${pkey}.`);
+            }
+            result[pkey] = Number(pvalue);
+        } else {
+            result[pkey] = pvalue;
+        }
     }
     return result;
 };
