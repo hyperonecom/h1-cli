@@ -9,7 +9,7 @@
     "abort-controller": "^3.0.0",
     "camel-case": "^4.1.1",
     "command-line-args": "^5.1.1",
-    "command-line-usage": "^6.1.0",
+    "command-line-usage": "^6.1.1",
     "jmespath": "^0.15.0",
     "js-yaml": "^3.14.0",
     "jsonwebtoken": "^8.5.1",

@@ -51,7 +51,7 @@ docReady(async function () {
         output: outputElement,
     });
     const program = await buildCli({
-        openapiUrl: '/api/v2/openapi.json',
+        openapiUrl: 'http://localhost:9000/api/v2/openapi.json',
         device,
     });
 
