@@ -1,6 +1,6 @@
 const path = require('path');
 const process = require('process');
-const webpack = require('webpack')
+const webpack = require('webpack');
 
 module.exports = {
     entry: './index.js',
