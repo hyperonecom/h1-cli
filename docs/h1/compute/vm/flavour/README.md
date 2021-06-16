@@ -19,10 +19,11 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
-| ```--vm {id-or-uri}```                             | Vm Id                                                                                          |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--vm {id-or-uri}```                             | Vm Id                                                                                          |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--service {id-or-uri}```                        | Vm service. Provide ID or URI of billing/service                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
@@ -38,10 +39,11 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
-| ```--vm {id-or-uri}```                             | Vm Id                                                                                          |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--vm {id-or-uri}```                             | Vm Id                                                                                          |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--service {id-or-uri}```                        | Vm service. Provide ID or URI of billing/service                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |

@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 iam project role tag create \ 
-	--project 5f64e2468c71177993874510 \ 
 	--role 5f72c96b02fbdad8a048fa40 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--key x \ 
 	--value x
 ```
@@ -32,8 +32,8 @@ h1 iam project role tag create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--role {id-or-uri}```                           | Role Id                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--key {key}```                                  | Tag key                                                                  |
 | ```--value {value}```                              | Tag value                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
@@ -50,8 +50,8 @@ h1 iam project role tag create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--role {id-or-uri}```                           | Role Id                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--key {key}```                                  | Tag key                                                                  |
 | ```--value {value}```                              | Tag value                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |

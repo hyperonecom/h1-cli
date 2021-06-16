@@ -19,8 +19,8 @@ See also:
 
 | Option name                                        | Description                                                                             |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                                         |
 | ```--payment {id-or-uri}```                        | paymentId                                                                               |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                                         |
 | ```--project {id-or-uri}```                        | Payment project. Provide ID or URI of iam/project. Requires permissions iam/project/get |
 | ```--skeleton```                                   | Display intermediary representation of operation                                        |
 | ```--help```                                       | Show help message and exit.                                                             |
@@ -36,8 +36,8 @@ See also:
 
 | Option name                                        | Description                                                                             |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                                         |
 | ```--payment {id-or-uri}```                        | paymentId                                                                               |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                                         |
 | ```--project {id-or-uri}```                        | Payment project. Provide ID or URI of iam/project. Requires permissions iam/project/get |
 | ```--skeleton```                                   | Display intermediary representation of operation                                        |
 | ```--help```                                       | Show help message and exit.                                                             |

@@ -32,6 +32,8 @@ $ h1 iam organisation <options>
 * [h1 iam organisation show](./show/README.md)
 * [h1 iam organisation update](./update/README.md)
 * [h1 iam organisation delete](./delete/README.md)
+* [h1 iam organisation policy](./policy/README.md)
+* [h1 iam organisation role](./role/README.md)
 * [h1 iam organisation billing](./billing/README.md)
 * [h1 iam organisation transfer](./transfer/README.md)
 * [h1 iam organisation payment](./payment/README.md)
@@ -41,8 +43,6 @@ $ h1 iam organisation <options>
 * [h1 iam organisation ownership](./ownership/README.md)
 * [h1 iam organisation service](./service/README.md)
 * [h1 iam organisation event](./event/README.md)
-* [h1 iam organisation policy](./policy/README.md)
-* [h1 iam organisation role](./role/README.md)
 
 # Parent commands
 

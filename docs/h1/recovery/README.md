@@ -28,6 +28,7 @@ $ h1 recovery <options>
 # Available commands
 
 * [h1 recovery backup](./backup/README.md)
+* [h1 recovery plan](./plan/README.md)
 
 # Parent commands
 

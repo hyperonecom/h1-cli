@@ -1,7 +1,7 @@
 
 # h1 website instance env create
 
-Create website/instance.env
+create instance.env
 
 ## Synopsis
 
@@ -13,30 +13,18 @@ $ h1 website instance env create <options>
 
 See also:
 
-* [API reference](https://api.hyperone.com/v2/docs#operation/website_project_instance_env_create)
-
-## Example
-
-
-### Simple
-
-```bash
-h1 website instance env create \ 
-	--project 5f64e2468c71177993874510 \ 
-	--instance 5f577a24494c5cfdec7830e5 \ 
-	--name DATABASE_URL \ 
-	--value x
-```
+* [API reference](https://api.hyperone.com/v2/docs#operation/v1:website:instance.env:create)
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--instance {id-or-uri}```                       | Instance Id                                                              |
-| ```--name {name}```                                | Env name                                                                 |
+| ```--instance {id-or-uri}```                       | instance Id                                                              |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--value {value}```                              | Env value                                                                |
+| ```--profile {env}```                              | -                                                                        |
+| ```--name {name}```                                | -                                                                        |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -51,11 +39,12 @@ h1 website instance env create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--instance {id-or-uri}```                       | Instance Id                                                              |
-| ```--name {name}```                                | Env name                                                                 |
+| ```--instance {id-or-uri}```                       | instance Id                                                              |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--value {value}```                              | Env value                                                                |
+| ```--profile {env}```                              | -                                                                        |
+| ```--name {name}```                                | -                                                                        |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

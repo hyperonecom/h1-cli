@@ -22,20 +22,20 @@ See also:
 
 ```bash
 h1 compute vm connect open \ 
-	--project 5f64e2468c71177993874510 \ 
+	--connect 5f918e1aa828daa954b4579c \ 
 	--vm 5f577a24494c5cfdec7830e5 \ 
-	--connect 5f918e1aa828daa954b4579c
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--vm {id-or-uri}```                             | Vm Id                                                                    |
 | ```--connect {id-or-uri}```                        | connectId                                                                |
-| ```--protocol {http,ws}```                         | Connect protocol. Defaults is http. Default value is http                |
+| ```--vm {id-or-uri}```                             | Vm Id                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
+| ```--protocol {http, ws}```                        | Connect protocol. Default value is http                                  |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -50,11 +50,11 @@ h1 compute vm connect open \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--vm {id-or-uri}```                             | Vm Id                                                                    |
 | ```--connect {id-or-uri}```                        | connectId                                                                |
-| ```--protocol {http,ws}```                         | Connect protocol. Defaults is http. Default value is http                |
+| ```--vm {id-or-uri}```                             | Vm Id                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
+| ```--protocol {http, ws}```                        | Connect protocol. Default value is http                                  |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

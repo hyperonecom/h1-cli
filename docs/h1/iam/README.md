@@ -28,8 +28,8 @@ $ h1 iam <options>
 # Available commands
 
 * [h1 iam user](./user/README.md)
-* [h1 iam project](./project/README.md)
 * [h1 iam organisation](./organisation/README.md)
+* [h1 iam project](./project/README.md)
 
 # Parent commands
 

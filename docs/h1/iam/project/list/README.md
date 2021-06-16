@@ -19,13 +19,13 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--name {name}```                                | Filter by name                                                                                 |
-| ```--$limit {$limit}```                            | Filter by $limit                                                                               |
-| ```--active {active}```                            | Filter by active                                                                               |
-| ```--organisation {organisation}```                | Filter by organisation                                                                         |
-| ```--$lean {$lean}```                              | return a lightweight version of the resource                                                   |
-| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
 | ```--tag.key {tag.key}```                          | Filter by tag.key                                                                              |
+| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
+| ```--$lean {$lean}```                              | return a lightweight version of the resource                                                   |
+| ```--organisation {organisation}```                | Filter by organisation                                                                         |
+| ```--active {active}```                            | Filter by active                                                                               |
+| ```--$limit {$limit}```                            | Filter by $limit                                                                               |
+| ```--name {name}```                                | Filter by name                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |
@@ -40,13 +40,13 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--name {name}```                                | Filter by name                                                                                 |
-| ```--$limit {$limit}```                            | Filter by $limit                                                                               |
-| ```--active {active}```                            | Filter by active                                                                               |
-| ```--organisation {organisation}```                | Filter by organisation                                                                         |
-| ```--$lean {$lean}```                              | return a lightweight version of the resource                                                   |
-| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
 | ```--tag.key {tag.key}```                          | Filter by tag.key                                                                              |
+| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
+| ```--$lean {$lean}```                              | return a lightweight version of the resource                                                   |
+| ```--organisation {organisation}```                | Filter by organisation                                                                         |
+| ```--active {active}```                            | Filter by active                                                                               |
+| ```--$limit {$limit}```                            | Filter by $limit                                                                               |
+| ```--name {name}```                                | Filter by name                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |

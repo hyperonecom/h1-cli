@@ -19,13 +19,14 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
 | ```--name {name}```                                | Policy name                                                                                    |
 | ```--role {uri}```                                 | Policy role. Provide URI of iam/role. Requires permissions iam/role/use                        |
 | ```--resource {uri}```                             | Policy resource. Provide URI of *                                                              |
 | ```--actor {value=value}```                        | Actor collection                                                                               |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                 |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |
@@ -40,13 +41,14 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
 | ```--name {name}```                                | Policy name                                                                                    |
 | ```--role {uri}```                                 | Policy role. Provide URI of iam/role. Requires permissions iam/role/use                        |
 | ```--resource {uri}```                             | Policy resource. Provide URI of *                                                              |
 | ```--actor {value=value}```                        | Actor collection                                                                               |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                 |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |

@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 compute vm iso create \ 
-	--project 5f64e2468c71177993874510 \ 
 	--vm 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--iso /storage/pl-waw-1/project/5f64e2468c71177993874510/iso/5f74bdf1494c5cfdec9e66dd
 ```
 
@@ -31,9 +31,9 @@ h1 compute vm iso create \
 
 | Option name                                        | Description                                                                                               |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
 | ```--vm {id-or-uri}```                             | Vm Id                                                                                                     |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                |
 | ```--iso {id-or-uri}```                            | Iso iso. Provide ID or URI of storage/iso. Requires permissions storage/iso/attach                        |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                          |
 | ```--help```                                       | Show help message and exit.                                                                               |
@@ -49,9 +49,9 @@ h1 compute vm iso create \
 
 | Option name                                        | Description                                                                                               |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
 | ```--vm {id-or-uri}```                             | Vm Id                                                                                                     |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                |
 | ```--iso {id-or-uri}```                            | Iso iso. Provide ID or URI of storage/iso. Requires permissions storage/iso/attach                        |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                          |
 | ```--help```                                       | Show help message and exit.                                                                               |

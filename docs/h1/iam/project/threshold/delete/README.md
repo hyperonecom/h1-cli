@@ -22,16 +22,16 @@ See also:
 
 ```bash
 h1 iam project threshold delete \ 
-	--project 5f64e2468c71177993874510 \ 
-	--threshold 1
+	--threshold 1 \ 
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--threshold {id-or-uri}```                      | thresholdId                                                              |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -46,8 +46,8 @@ h1 iam project threshold delete \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--threshold {id-or-uri}```                      | thresholdId                                                              |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

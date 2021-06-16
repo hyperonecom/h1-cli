@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 networking ip update \ 
-	--project 5f64e2468c71177993874510 \ 
 	--ip 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--ptr-record ip-updated
 ```
 
@@ -31,9 +31,9 @@ h1 networking ip update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
 | ```--ip {id-or-uri}```                             | Ip Id                                                                                          |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--ptr-record {ptr-record}```                    | Ip ptrRecord. Requires permissions networking/ip.ptrRecord/update                              |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
@@ -49,9 +49,9 @@ h1 networking ip update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
 | ```--ip {id-or-uri}```                             | Ip Id                                                                                          |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--ptr-record {ptr-record}```                    | Ip ptrRecord. Requires permissions networking/ip.ptrRecord/update                              |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |

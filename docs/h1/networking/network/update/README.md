@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 networking network update \ 
-	--project 5f64e2468c71177993874510 \ 
 	--network 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name network-renamed
 ```
 
@@ -31,9 +31,9 @@ h1 networking network update \
 
 | Option name                                        | Description                                                                                                                                  |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                                                   |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                                                       |
 | ```--network {id-or-uri}```                        | Network Id                                                                                                                                   |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                                                       |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                                                   |
 | ```--name {name}```                                | Network name. Requires permissions networking/network.name/update                                                                            |
 | ```--gateway {gateway}```                          | Network gateway. Requires permissions networking/network.gateway/update                                                                      |
 | ```--firewall {id-or-uri}```                       | Network firewall. Provide ID or URI of networking/firewall. Requires permissions networking/firewall/use, networking/network.firewall/update |
@@ -51,9 +51,9 @@ h1 networking network update \
 
 | Option name                                        | Description                                                                                                                                  |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                                                   |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                                                       |
 | ```--network {id-or-uri}```                        | Network Id                                                                                                                                   |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                                                       |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                                                   |
 | ```--name {name}```                                | Network name. Requires permissions networking/network.name/update                                                                            |
 | ```--gateway {gateway}```                          | Network gateway. Requires permissions networking/network.gateway/update                                                                      |
 | ```--firewall {id-or-uri}```                       | Network firewall. Provide ID or URI of networking/firewall. Requires permissions networking/firewall/use, networking/network.firewall/update |

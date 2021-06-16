@@ -19,9 +19,10 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--hostname {hostname}```                        | Replica hostname                                                                               |
 | ```--secret {secret}```                            | Replica secret                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
@@ -38,9 +39,10 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--hostname {hostname}```                        | Replica hostname                                                                               |
 | ```--secret {secret}```                            | Replica secret                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |

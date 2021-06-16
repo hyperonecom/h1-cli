@@ -22,17 +22,18 @@ See also:
 
 ```bash
 h1 billing reservation assign \ 
-	--project 5f64e2468c71177993874510 \ 
-	--reservation 5f577a24494c5cfdec7830e5
+	--reservation 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--reservation {id-or-uri}```                    | Reservation Id                                                                                 |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--reservation {id-or-uri}```                    | Reservation Id                                                                                 |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--resource {id-or-uri}```                       | Reservation resource. Provide ID or URI of compute/vm. Requires permissions compute/vm/use     |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
@@ -48,9 +49,10 @@ h1 billing reservation assign \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--reservation {id-or-uri}```                    | Reservation Id                                                                                 |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--reservation {id-or-uri}```                    | Reservation Id                                                                                 |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--resource {id-or-uri}```                       | Reservation resource. Provide ID or URI of compute/vm. Requires permissions compute/vm/use     |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |

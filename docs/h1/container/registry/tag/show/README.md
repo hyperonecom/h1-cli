@@ -22,19 +22,19 @@ See also:
 
 ```bash
 h1 container registry tag show \ 
-	--project 5f64e2468c71177993874510 \ 
+	--tag 5f60cbbe494c5cfdec81cc6b \ 
 	--registry 5f577a24494c5cfdec7830e5 \ 
-	--tag 5f60cbbe494c5cfdec81cc6b
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--registry {id-or-uri}```                       | Registry Id                                                              |
 | ```--tag {id-or-uri}```                            | tagId                                                                    |
+| ```--registry {id-or-uri}```                       | Registry Id                                                              |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -49,10 +49,10 @@ h1 container registry tag show \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--registry {id-or-uri}```                       | Registry Id                                                              |
 | ```--tag {id-or-uri}```                            | tagId                                                                    |
+| ```--registry {id-or-uri}```                       | Registry Id                                                              |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

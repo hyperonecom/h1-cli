@@ -31,14 +31,15 @@ h1 networking netadp create \
 
 | Option name                                        | Description                                                                                             |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                              |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                  |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                                 |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                         |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                                                              |
 | ```--vm {id-or-uri}```                             | Netadp vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use                         |
 | ```--network {id-or-uri}```                        | Netadp network. Provide ID or URI of networking/network. Requires permissions networking/network/use    |
 | ```--firewall {id-or-uri}```                       | Netadp firewall. Provide ID or URI of networking/firewall. Requires permissions networking/firewall/use |
 | ```--ip {ip}```                                    | Ip collection                                                                                           |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                          |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                          |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                        |
 | ```--help```                                       | Show help message and exit.                                                                             |
 | ```--verbose```                                    | Make the operation more talkative.                                                                      |
@@ -53,14 +54,15 @@ h1 networking netadp create \
 
 | Option name                                        | Description                                                                                             |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                              |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                  |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                                 |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                         |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                                                              |
 | ```--vm {id-or-uri}```                             | Netadp vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use                         |
 | ```--network {id-or-uri}```                        | Netadp network. Provide ID or URI of networking/network. Requires permissions networking/network/use    |
 | ```--firewall {id-or-uri}```                       | Netadp firewall. Provide ID or URI of networking/firewall. Requires permissions networking/firewall/use |
 | ```--ip {ip}```                                    | Ip collection                                                                                           |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                          |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                          |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                        |
 | ```--help```                                       | Show help message and exit.                                                                             |
 | ```--verbose```                                    | Make the operation more talkative.                                                                      |

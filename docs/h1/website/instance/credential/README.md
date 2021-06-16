@@ -30,7 +30,6 @@ $ h1 website instance credential <options>
 * [h1 website instance credential create](./create/README.md)
 * [h1 website instance credential list](./list/README.md)
 * [h1 website instance credential show](./show/README.md)
-* [h1 website instance credential update](./update/README.md)
 * [h1 website instance credential delete](./delete/README.md)
 
 # Parent commands

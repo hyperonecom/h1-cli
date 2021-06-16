@@ -19,10 +19,11 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
-| ```--journal {id-or-uri}```                        | Journal Id                                                                                     |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--journal {id-or-uri}```                        | Journal Id                                                                                     |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--project {id-or-uri}```                        | Journal project. Provide ID or URI of iam/project. Requires permissions insight/journal/create |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
@@ -38,10 +39,11 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
-| ```--journal {id-or-uri}```                        | Journal Id                                                                                     |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--journal {id-or-uri}```                        | Journal Id                                                                                     |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--project {id-or-uri}```                        | Journal project. Provide ID or URI of iam/project. Requires permissions insight/journal/create |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |

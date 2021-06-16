@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 insight journal credential create \ 
-	--project 5f64e2468c71177993874510 \ 
 	--journal 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name journal-credential \ 
 	--type plain \ 
 	--value xxxxxx
@@ -33,11 +33,11 @@ h1 insight journal credential create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
 | ```--journal {id-or-uri}```                        | Journal Id                                                               |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--name {name}```                                | Credential name                                                          |
-| ```--type {sha512,plain}```                        | Credential type                                                          |
+| ```--type {sha512, plain}```                       | Credential type                                                          |
 | ```--value {value}```                              | Credential value                                                         |
 | ```--token {token}```                              | Credential token                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
@@ -54,11 +54,11 @@ h1 insight journal credential create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
 | ```--journal {id-or-uri}```                        | Journal Id                                                               |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--name {name}```                                | Credential name                                                          |
-| ```--type {sha512,plain}```                        | Credential type                                                          |
+| ```--type {sha512, plain}```                       | Credential type                                                          |
 | ```--value {value}```                              | Credential value                                                         |
 | ```--token {token}```                              | Credential token                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |

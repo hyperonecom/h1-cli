@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 storage iso update \ 
-	--project 5f64e2468c71177993874510 \ 
 	--iso 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name iso-renamed
 ```
 
@@ -31,9 +31,9 @@ h1 storage iso update \
 
 | Option name                                        | Description                                                                                               |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
 | ```--iso {id-or-uri}```                            | Iso Id                                                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                |
 | ```--name {name}```                                | Iso name. Requires permissions storage/iso.name/update                                                    |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                          |
 | ```--help```                                       | Show help message and exit.                                                                               |
@@ -49,9 +49,9 @@ h1 storage iso update \
 
 | Option name                                        | Description                                                                                               |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
 | ```--iso {id-or-uri}```                            | Iso Id                                                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                |
 | ```--name {name}```                                | Iso name. Requires permissions storage/iso.name/update                                                    |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                          |
 | ```--help```                                       | Show help message and exit.                                                                               |

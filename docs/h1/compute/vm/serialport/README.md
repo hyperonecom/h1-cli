@@ -22,19 +22,20 @@ See also:
 
 ```bash
 h1 compute vm serialport \ 
-	--project 5f64e2468c71177993874510 \ 
-	--vm 5f577a24494c5cfdec7830e5
+	--vm 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--vm {id-or-uri}```                             | Vm Id                                                                    |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                  |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                          |
-| ```--number {1,2}```                               | Vm number. Defaults is 1. Default value is 1                             |
+| ```--vm {id-or-uri}```                             | Vm Id                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
+| ```--number {1, 2}```                              | Vm number. Default value is 1                                            |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -49,11 +50,12 @@ h1 compute vm serialport \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--vm {id-or-uri}```                             | Vm Id                                                                    |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                  |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                          |
-| ```--number {1,2}```                               | Vm number. Defaults is 1. Default value is 1                             |
+| ```--vm {id-or-uri}```                             | Vm Id                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
+| ```--number {1, 2}```                              | Vm number. Default value is 1                                            |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

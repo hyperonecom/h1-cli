@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 iam project role permission create \ 
-	--project 5f64e2468c71177993874510 \ 
 	--role 5f72c96b02fbdad8a048fa40 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--value website/instance.tag/list
 ```
 
@@ -31,8 +31,8 @@ h1 iam project role permission create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--role {id-or-uri}```                           | Role Id                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--value {value}```                              | Permission value                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
@@ -48,8 +48,8 @@ h1 iam project role permission create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--role {id-or-uri}```                           | Role Id                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--value {value}```                              | Permission value                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |

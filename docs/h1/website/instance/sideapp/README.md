@@ -27,10 +27,9 @@ $ h1 website instance sideapp <options>
 
 # Available commands
 
-* [h1 website instance sideapp create](./create/README.md)
 * [h1 website instance sideapp list](./list/README.md)
 * [h1 website instance sideapp show](./show/README.md)
-* [h1 website instance sideapp delete](./delete/README.md)
+* [h1 website instance sideapp open](./open/README.md)
 
 # Parent commands
 

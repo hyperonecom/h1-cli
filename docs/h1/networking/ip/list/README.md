@@ -29,12 +29,12 @@ h1 networking ip list \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
-| ```--network {network}```                          | Filter by network                                                                              |
-| ```--associated.netadp {associated.netadp}```      | Filter by associated.netadp                                                                    |
-| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
 | ```--tag.key {tag.key}```                          | Filter by tag.key                                                                              |
+| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
+| ```--associated.netadp {associated.netadp}```      | Filter by associated.netadp                                                                    |
+| ```--network {network}```                          | Filter by network                                                                              |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |
@@ -49,12 +49,12 @@ h1 networking ip list \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
-| ```--network {network}```                          | Filter by network                                                                              |
-| ```--associated.netadp {associated.netadp}```      | Filter by associated.netadp                                                                    |
-| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
 | ```--tag.key {tag.key}```                          | Filter by tag.key                                                                              |
+| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
+| ```--associated.netadp {associated.netadp}```      | Filter by associated.netadp                                                                    |
+| ```--network {network}```                          | Filter by network                                                                              |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |

@@ -14,7 +14,7 @@ $ h1 config extension install <options>
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
 | ```--extension {extension}```                      | Extension name to install                                                |
-| ```--version {version}```                          | Extension version to install. Default value is latest                    |
+| ```--required {required}```                        | Extension version required to install. Default value is latest           |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
 | ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml                  |
@@ -29,7 +29,7 @@ $ h1 config extension install <options>
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
 | ```--extension {extension}```                      | Extension name to install                                                |
-| ```--version {version}```                          | Extension version to install. Default value is latest                    |
+| ```--required {required}```                        | Extension version required to install. Default value is latest           |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
 | ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml                  |

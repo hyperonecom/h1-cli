@@ -33,10 +33,7 @@ $ h1 recovery backup <options>
 * [h1 recovery backup update](./update/README.md)
 * [h1 recovery backup delete](./delete/README.md)
 * [h1 recovery backup export](./export/README.md)
-* [h1 recovery backup metric](./metric/README.md)
-* [h1 recovery backup service](./service/README.md)
 * [h1 recovery backup tag](./tag/README.md)
-* [h1 recovery backup event](./event/README.md)
 
 # Parent commands
 

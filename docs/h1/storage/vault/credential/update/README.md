@@ -22,18 +22,18 @@ See also:
 
 ```bash
 h1 storage vault credential update \ 
-	--project 5f64e2468c71177993874510 \ 
-	--vault 5f577a24494c5cfdec7830e5 \ 
 	--credential 5f60cbbe494c5cfdec81cc6b \ 
+	--vault 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name renamed-credential-vault
 ```
 ### Simple SSH
 
 ```bash
 h1 storage vault credential update \ 
-	--project 5f64e2468c71177993874510 \ 
-	--vault 5f577a24494c5cfdec7830e5 \ 
 	--credential 5f60cbbe494c5cfdec81cc6b \ 
+	--vault 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name renamed-credential-vault
 ```
 
@@ -41,10 +41,10 @@ h1 storage vault credential update \
 
 | Option name                                        | Description                                                                |
 | -------------------------------------------------- | -------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                 |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                     |
-| ```--vault {id-or-uri}```                          | Vault Id                                                                   |
 | ```--credential {id-or-uri}```                     | credentialId                                                               |
+| ```--vault {id-or-uri}```                          | Vault Id                                                                   |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                     |
+| ```--project {id-or-uri}```                        | Project Id                                                                 |
 | ```--name {name}```                                | Credential name. Requires permissions storage/vault.credential.name/update |
 | ```--skeleton```                                   | Display intermediary representation of operation                           |
 | ```--help```                                       | Show help message and exit.                                                |
@@ -60,10 +60,10 @@ h1 storage vault credential update \
 
 | Option name                                        | Description                                                                |
 | -------------------------------------------------- | -------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                 |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                     |
-| ```--vault {id-or-uri}```                          | Vault Id                                                                   |
 | ```--credential {id-or-uri}```                     | credentialId                                                               |
+| ```--vault {id-or-uri}```                          | Vault Id                                                                   |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                     |
+| ```--project {id-or-uri}```                        | Project Id                                                                 |
 | ```--name {name}```                                | Credential name. Requires permissions storage/vault.credential.name/update |
 | ```--skeleton```                                   | Display intermediary representation of operation                           |
 | ```--help```                                       | Show help message and exit.                                                |

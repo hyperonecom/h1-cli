@@ -29,13 +29,13 @@ h1 networking netadp list \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
-| ```--assigned.resource {assigned.resource}```      | Filter by assigned.resource                                                                    |
-| ```--assigned.id {assigned.id}```                  | Filter by assigned.id                                                                          |
-| ```--network {network}```                          | Filter by network                                                                              |
-| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
 | ```--tag.key {tag.key}```                          | Filter by tag.key                                                                              |
+| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
+| ```--network {network}```                          | Filter by network                                                                              |
+| ```--assigned.id {assigned.id}```                  | Filter by assigned.id                                                                          |
+| ```--assigned.resource {assigned.resource}```      | Filter by assigned.resource                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |
@@ -50,13 +50,13 @@ h1 networking netadp list \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
-| ```--assigned.resource {assigned.resource}```      | Filter by assigned.resource                                                                    |
-| ```--assigned.id {assigned.id}```                  | Filter by assigned.id                                                                          |
-| ```--network {network}```                          | Filter by network                                                                              |
-| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
 | ```--tag.key {tag.key}```                          | Filter by tag.key                                                                              |
+| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
+| ```--network {network}```                          | Filter by network                                                                              |
+| ```--assigned.id {assigned.id}```                  | Filter by assigned.id                                                                          |
+| ```--assigned.resource {assigned.resource}```      | Filter by assigned.resource                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |

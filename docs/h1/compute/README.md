@@ -27,8 +27,8 @@ $ h1 compute <options>
 
 # Available commands
 
-* [h1 compute replica](./replica/README.md)
 * [h1 compute vm](./vm/README.md)
+* [h1 compute replica](./replica/README.md)
 
 # Parent commands
 

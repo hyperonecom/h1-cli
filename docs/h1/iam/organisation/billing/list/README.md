@@ -19,10 +19,10 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
-| ```--start {start}```                              | start                                                                    |
-| ```--end {end}```                                  | end                                                                      |
 | ```--resource.type {resource.type}```              | resource.type                                                            |
+| ```--end {end}```                                  | end                                                                      |
+| ```--start {start}```                              | start                                                                    |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -37,10 +37,10 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
-| ```--start {start}```                              | start                                                                    |
-| ```--end {end}```                                  | end                                                                      |
 | ```--resource.type {resource.type}```              | resource.type                                                            |
+| ```--end {end}```                                  | end                                                                      |
+| ```--start {start}```                              | start                                                                    |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

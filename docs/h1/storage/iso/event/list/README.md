@@ -22,19 +22,19 @@ See also:
 
 ```bash
 h1 storage iso event list \ 
-	--project 5f64e2468c71177993874510 \ 
-	--iso 5f577a24494c5cfdec7830e5
+	--iso 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                                   |
 | -------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                    |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                        |
-| ```--iso {id-or-uri}```                            | Iso Id                                                                        |
-| ```--$limit {$limit}```                            | $limit                                                                        |
 | ```--$skip {$skip}```                              | $skip                                                                         |
+| ```--$limit {$limit}```                            | $limit                                                                        |
+| ```--iso {id-or-uri}```                            | Iso Id                                                                        |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                        |
+| ```--project {id-or-uri}```                        | Project Id                                                                    |
 | ```--skeleton```                                   | Display intermediary representation of operation                              |
 | ```--help```                                       | Show help message and exit.                                                   |
 | ```--verbose```                                    | Make the operation more talkative.                                            |
@@ -49,11 +49,11 @@ h1 storage iso event list \
 
 | Option name                                        | Description                                                                   |
 | -------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                    |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                        |
-| ```--iso {id-or-uri}```                            | Iso Id                                                                        |
-| ```--$limit {$limit}```                            | $limit                                                                        |
 | ```--$skip {$skip}```                              | $skip                                                                         |
+| ```--$limit {$limit}```                            | $limit                                                                        |
+| ```--iso {id-or-uri}```                            | Iso Id                                                                        |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                        |
+| ```--project {id-or-uri}```                        | Project Id                                                                    |
 | ```--skeleton```                                   | Display intermediary representation of operation                              |
 | ```--help```                                       | Show help message and exit.                                                   |
 | ```--verbose```                                    | Make the operation more talkative.                                            |

@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 container registry domain create \ 
-	--project 5f64e2468c71177993874510 \ 
 	--registry 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--value wonderful-ellis.example.com.
 ```
 
@@ -31,9 +31,9 @@ h1 container registry domain create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
 | ```--registry {id-or-uri}```                       | Registry Id                                                              |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--value {value}```                              | Domain value                                                             |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
@@ -49,9 +49,9 @@ h1 container registry domain create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
 | ```--registry {id-or-uri}```                       | Registry Id                                                              |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--value {value}```                              | Domain value                                                             |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |

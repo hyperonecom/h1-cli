@@ -19,11 +19,11 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
-| ```--name {name}```                                | Filter by name                                                                                 |
-| ```--resource {resource}```                        | Filter by resource                                                                             |
-| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
 | ```--tag.key {tag.key}```                          | Filter by tag.key                                                                              |
+| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
+| ```--resource {resource}```                        | Filter by resource                                                                             |
+| ```--name {name}```                                | Filter by name                                                                                 |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |
@@ -38,11 +38,11 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
-| ```--name {name}```                                | Filter by name                                                                                 |
-| ```--resource {resource}```                        | Filter by resource                                                                             |
-| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
 | ```--tag.key {tag.key}```                          | Filter by tag.key                                                                              |
+| ```--tag.value {tag.value}```                      | Filter by tag.value                                                                            |
+| ```--resource {resource}```                        | Filter by resource                                                                             |
+| ```--name {name}```                                | Filter by name                                                                                 |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |

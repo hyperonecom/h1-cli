@@ -32,14 +32,15 @@ h1 dns zone create \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Zone name                                                                                      |
 | ```--service {id-or-uri}```                        | Zone service. Provide ID or URI of billing/service                                             |
 | ```--dns-name {dns-name}```                        | Zone dnsName                                                                                   |
-| ```--source-dns-probing```                         | Source dnsProbing                                                                              |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                 |
+| ```--source-dns-probing {true,false}```            | Source dnsProbing                                                                              |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |
@@ -54,14 +55,15 @@ h1 dns zone create \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Zone name                                                                                      |
 | ```--service {id-or-uri}```                        | Zone service. Provide ID or URI of billing/service                                             |
 | ```--dns-name {dns-name}```                        | Zone dnsName                                                                                   |
-| ```--source-dns-probing```                         | Source dnsProbing                                                                              |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                 |
+| ```--source-dns-probing {true,false}```            | Source dnsProbing                                                                              |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |

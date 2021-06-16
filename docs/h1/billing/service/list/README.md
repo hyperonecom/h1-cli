@@ -19,10 +19,10 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--kind {kind}```                                | Filter by kind                                                           |
-| ```--name {name}```                                | Filter by name                                                           |
 | ```--type {type}```                                | Filter by type                                                           |
+| ```--name {name}```                                | Filter by name                                                           |
+| ```--kind {kind}```                                | Filter by kind                                                           |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -37,10 +37,10 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--kind {kind}```                                | Filter by kind                                                           |
-| ```--name {name}```                                | Filter by name                                                           |
 | ```--type {type}```                                | Filter by type                                                           |
+| ```--name {name}```                                | Filter by name                                                           |
+| ```--kind {kind}```                                | Filter by kind                                                           |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

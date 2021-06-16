@@ -19,8 +19,8 @@ See also:
 
 | Option name                                        | Description                                                                                              |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                          |
 | ```--transfer {id-or-uri}```                       | transferId                                                                                               |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                          |
 | ```--payment {uri}```                              | Transfer payment. Provide URI of billing/payment. Requires permissions iam/organisation.payment/allocate |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                         |
 | ```--help```                                       | Show help message and exit.                                                                              |
@@ -36,8 +36,8 @@ See also:
 
 | Option name                                        | Description                                                                                              |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                          |
 | ```--transfer {id-or-uri}```                       | transferId                                                                                               |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                          |
 | ```--payment {uri}```                              | Transfer payment. Provide URI of billing/payment. Requires permissions iam/organisation.payment/allocate |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                         |
 | ```--help```                                       | Show help message and exit.                                                                              |

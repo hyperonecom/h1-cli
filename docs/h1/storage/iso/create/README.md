@@ -30,12 +30,13 @@ h1 storage iso create \
 
 | Option name                                        | Description                                                                                               |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                                   |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                           |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                |
 | ```--name {name}```                                | Iso name                                                                                                  |
 | ```--source {source}```                            | Iso source. Provide URI of local file eg. 'file://./my-file.bin'.                                         |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                            |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                            |
 | ```--no-progress```                                | -                                                                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                          |
 | ```--help```                                       | Show help message and exit.                                                                               |
@@ -51,12 +52,13 @@ h1 storage iso create \
 
 | Option name                                        | Description                                                                                               |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                                   |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                           |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                |
 | ```--name {name}```                                | Iso name                                                                                                  |
 | ```--source {source}```                            | Iso source. Provide URI of local file eg. 'file://./my-file.bin'.                                         |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                            |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                            |
 | ```--no-progress```                                | -                                                                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                          |
 | ```--help```                                       | Show help message and exit.                                                                               |

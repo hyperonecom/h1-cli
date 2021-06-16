@@ -19,9 +19,9 @@ See also:
 
 | Option name                                        | Description                                                                                                                                |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                                                 |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                                                     |
 | ```--netadp {id-or-uri}```                         | Netadp Id                                                                                                                                  |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                                                     |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                                                 |
 | ```--firewall {id-or-uri}```                       | Netadp firewall. Provide ID or URI of networking/firewall. Requires permissions networking/firewall/use, networking/netadp.firewall/update |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                                                           |
 | ```--help```                                       | Show help message and exit.                                                                                                                |
@@ -37,9 +37,9 @@ See also:
 
 | Option name                                        | Description                                                                                                                                |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                                                 |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                                                     |
 | ```--netadp {id-or-uri}```                         | Netadp Id                                                                                                                                  |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                                                     |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                                                 |
 | ```--firewall {id-or-uri}```                       | Netadp firewall. Provide ID or URI of networking/firewall. Requires permissions networking/firewall/use, networking/netadp.firewall/update |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                                                           |
 | ```--help```                                       | Show help message and exit.                                                                                                                |

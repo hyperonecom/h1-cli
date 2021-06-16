@@ -19,9 +19,9 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
 | ```--replica {id-or-uri}```                        | Replica Id                                                               |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--key {key}```                                  | Tag key                                                                  |
 | ```--value {value}```                              | Tag value                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
@@ -38,9 +38,9 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
 | ```--replica {id-or-uri}```                        | Replica Id                                                               |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--key {key}```                                  | Tag key                                                                  |
 | ```--value {value}```                              | Tag value                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |

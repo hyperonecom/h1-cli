@@ -31,11 +31,12 @@ h1 billing reservation create \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Reservation name                                                                               |
 | ```--service {id-or-uri}```                        | Reservation service. Provide ID or URI of billing/service                                      |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                 |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |
@@ -50,11 +51,12 @@ h1 billing reservation create \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Reservation name                                                                               |
 | ```--service {id-or-uri}```                        | Reservation service. Provide ID or URI of billing/service                                      |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                 |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |

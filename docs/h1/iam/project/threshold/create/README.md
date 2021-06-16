@@ -23,7 +23,7 @@ See also:
 ```bash
 h1 iam project threshold create \ 
 	--project 5f64e2468c71177993874510 \ 
-	--value 506.72886056737053
+	--value 950.0801706148383
 ```
 
 ## Common options

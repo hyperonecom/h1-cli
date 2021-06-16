@@ -19,9 +19,9 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
-| ```--role {id-or-uri}```                           | Role Id                                                                  |
 | ```--tag {id-or-uri}```                            | tagId                                                                    |
+| ```--role {id-or-uri}```                           | Role Id                                                                  |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -36,9 +36,9 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
-| ```--role {id-or-uri}```                           | Role Id                                                                  |
 | ```--tag {id-or-uri}```                            | tagId                                                                    |
+| ```--role {id-or-uri}```                           | Role Id                                                                  |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

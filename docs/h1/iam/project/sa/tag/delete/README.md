@@ -22,18 +22,18 @@ See also:
 
 ```bash
 h1 iam project sa tag delete \ 
-	--project 5f64e2468c71177993874510 \ 
+	--tag 5f60cbbe494c5cfdec81cc6b \ 
 	--sa 5f72c96b02fbdad8a048fa40 \ 
-	--tag 5f60cbbe494c5cfdec81cc6b
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--sa {id-or-uri}```                             | Sa Id                                                                    |
 | ```--tag {id-or-uri}```                            | tagId                                                                    |
+| ```--sa {id-or-uri}```                             | Sa Id                                                                    |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -48,9 +48,9 @@ h1 iam project sa tag delete \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--sa {id-or-uri}```                             | Sa Id                                                                    |
 | ```--tag {id-or-uri}```                            | tagId                                                                    |
+| ```--sa {id-or-uri}```                             | Sa Id                                                                    |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

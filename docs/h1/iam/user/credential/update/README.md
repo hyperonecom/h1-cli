@@ -19,8 +19,8 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--user {id-or-uri}```                           | User Id                                                                  |
 | ```--credential {id-or-uri}```                     | credentialId                                                             |
+| ```--user {id-or-uri}```                           | User Id                                                                  |
 | ```--name {name}```                                | Credential name. Requires permissions iam/user.credential.name/update    |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
@@ -36,8 +36,8 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--user {id-or-uri}```                           | User Id                                                                  |
 | ```--credential {id-or-uri}```                     | credentialId                                                             |
+| ```--user {id-or-uri}```                           | User Id                                                                  |
 | ```--name {name}```                                | Credential name. Requires permissions iam/user.credential.name/update    |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |

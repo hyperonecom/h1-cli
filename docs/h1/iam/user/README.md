@@ -29,6 +29,7 @@ $ h1 iam user <options>
 
 * [h1 iam user show](./show/README.md)
 * [h1 iam user update](./update/README.md)
+* [h1 iam user authorization](./authorization/README.md)
 * [h1 iam user credential](./credential/README.md)
 * [h1 iam user service](./service/README.md)
 

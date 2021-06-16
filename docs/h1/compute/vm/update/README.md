@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 compute vm update \ 
-	--project 5f64e2468c71177993874510 \ 
 	--vm 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name vm-renamed
 ```
 
@@ -31,9 +31,9 @@ h1 compute vm update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
 | ```--vm {id-or-uri}```                             | Vm Id                                                                                          |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--user-metadata {user-metadata}```              | Vm userMetadata. Requires permissions compute/vm.userMetadata/update                           |
 | ```--name {name}```                                | Vm name. Requires permissions compute/vm.name/update                                           |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
@@ -50,9 +50,9 @@ h1 compute vm update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
 | ```--vm {id-or-uri}```                             | Vm Id                                                                                          |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--user-metadata {user-metadata}```              | Vm userMetadata. Requires permissions compute/vm.userMetadata/update                           |
 | ```--name {name}```                                | Vm name. Requires permissions compute/vm.name/update                                           |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |

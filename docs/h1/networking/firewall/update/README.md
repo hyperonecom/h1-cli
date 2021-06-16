@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 networking firewall update \ 
-	--project 5f64e2468c71177993874510 \ 
 	--firewall 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name firewall-renamed
 ```
 
@@ -31,9 +31,9 @@ h1 networking firewall update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
 | ```--firewall {id-or-uri}```                       | Firewall Id                                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Firewall name. Requires permissions networking/firewall.name/update                            |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
@@ -49,9 +49,9 @@ h1 networking firewall update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
 | ```--firewall {id-or-uri}```                       | Firewall Id                                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Firewall name. Requires permissions networking/firewall.name/update                            |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |

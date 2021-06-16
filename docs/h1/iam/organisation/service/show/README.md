@@ -19,8 +19,8 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--service {id-or-uri}```                        | serviceId                                                                |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -35,8 +35,8 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--service {id-or-uri}```                        | serviceId                                                                |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

@@ -19,10 +19,11 @@ See also:
 
 | Option name                                        | Description                                                                                               |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
-| ```--iso {id-or-uri}```                            | Iso Id                                                                                                    |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                                   |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                           |
+| ```--iso {id-or-uri}```                            | Iso Id                                                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                |
 | ```--vm {id-or-uri}```                             | Iso vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use                              |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                          |
 | ```--help```                                       | Show help message and exit.                                                                               |
@@ -38,10 +39,11 @@ See also:
 
 | Option name                                        | Description                                                                                               |
 | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                                |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
-| ```--iso {id-or-uri}```                            | Iso Id                                                                                                    |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                                   |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                           |
+| ```--iso {id-or-uri}```                            | Iso Id                                                                                                    |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                                    |
+| ```--project {id-or-uri}```                        | Project Id                                                                                                |
 | ```--vm {id-or-uri}```                             | Iso vm. Provide ID or URI of compute/vm. Requires permissions compute/vm/use                              |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                          |
 | ```--help```                                       | Show help message and exit.                                                                               |

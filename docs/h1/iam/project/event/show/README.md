@@ -19,8 +19,8 @@ See also:
 
 | Option name                                        | Description                                                                   |
 | -------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                    |
 | ```--event {id-or-uri}```                          | eventId                                                                       |
+| ```--project {id-or-uri}```                        | Project Id                                                                    |
 | ```--skeleton```                                   | Display intermediary representation of operation                              |
 | ```--help```                                       | Show help message and exit.                                                   |
 | ```--verbose```                                    | Make the operation more talkative.                                            |
@@ -35,8 +35,8 @@ See also:
 
 | Option name                                        | Description                                                                   |
 | -------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                    |
 | ```--event {id-or-uri}```                          | eventId                                                                       |
+| ```--project {id-or-uri}```                        | Project Id                                                                    |
 | ```--skeleton```                                   | Display intermediary representation of operation                              |
 | ```--help```                                       | Show help message and exit.                                                   |
 | ```--verbose```                                    | Make the operation more talkative.                                            |

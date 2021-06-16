@@ -28,10 +28,10 @@ $ h1 networking <options>
 # Available commands
 
 * [h1 networking firewall](./firewall/README.md)
-* [h1 networking ip](./ip/README.md)
+* [h1 networking network](./network/README.md)
 * [h1 networking netadp](./netadp/README.md)
 * [h1 networking netgw](./netgw/README.md)
-* [h1 networking network](./network/README.md)
+* [h1 networking ip](./ip/README.md)
 
 # Parent commands
 

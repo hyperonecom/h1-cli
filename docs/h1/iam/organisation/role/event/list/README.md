@@ -19,10 +19,10 @@ See also:
 
 | Option name                                        | Description                                                                   |
 | -------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                               |
-| ```--role {id-or-uri}```                           | Role Id                                                                       |
-| ```--$limit {$limit}```                            | $limit                                                                        |
 | ```--$skip {$skip}```                              | $skip                                                                         |
+| ```--$limit {$limit}```                            | $limit                                                                        |
+| ```--role {id-or-uri}```                           | Role Id                                                                       |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                              |
 | ```--help```                                       | Show help message and exit.                                                   |
 | ```--verbose```                                    | Make the operation more talkative.                                            |
@@ -37,10 +37,10 @@ See also:
 
 | Option name                                        | Description                                                                   |
 | -------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                               |
-| ```--role {id-or-uri}```                           | Role Id                                                                       |
-| ```--$limit {$limit}```                            | $limit                                                                        |
 | ```--$skip {$skip}```                              | $skip                                                                         |
+| ```--$limit {$limit}```                            | $limit                                                                        |
+| ```--role {id-or-uri}```                           | Role Id                                                                       |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                              |
 | ```--help```                                       | Show help message and exit.                                                   |
 | ```--verbose```                                    | Make the operation more talkative.                                            |

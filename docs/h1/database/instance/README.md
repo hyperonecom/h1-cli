@@ -32,14 +32,11 @@ $ h1 database instance <options>
 * [h1 database instance show](./show/README.md)
 * [h1 database instance update](./update/README.md)
 * [h1 database instance delete](./delete/README.md)
-* [h1 database instance start](./start/README.md)
 * [h1 database instance stop](./stop/README.md)
-* [h1 database instance transfer](./transfer/README.md)
+* [h1 database instance start](./start/README.md)
 * [h1 database instance credential](./credential/README.md)
 * [h1 database instance connect](./connect/README.md)
-* [h1 database instance service](./service/README.md)
 * [h1 database instance tag](./tag/README.md)
-* [h1 database instance event](./event/README.md)
 
 # Parent commands
 

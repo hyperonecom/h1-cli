@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 networking firewall ingress create \ 
-	--project 5f64e2468c71177993874510 \ 
 	--firewall 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name simple-ingress \ 
 	--action allow \ 
 	--priority 900 \ 
@@ -36,15 +36,15 @@ h1 networking firewall ingress create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
 | ```--firewall {id-or-uri}```                       | Firewall Id                                                              |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--name {name}```                                | Rule name                                                                |
-| ```--action {allow,deny}```                        | Rule action                                                              |
+| ```--action {allow, deny}```                       | Rule action                                                              |
 | ```--priority {priority}```                        | Rule priority                                                            |
 | ```--filter {filter}```                            | Filter collection                                                        |
-| ```--external {external}```                        | External collection. Defaults is 0.0.0.0/0. Default value is 0.0.0.0/0   |
-| ```--internal {internal}```                        | Internal collection. Defaults is *. Default value is *                   |
+| ```--external {external}```                        | External collection. Default value is 0.0.0.0/0                          |
+| ```--internal {internal}```                        | Internal collection. Default value is *                                  |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -59,15 +59,15 @@ h1 networking firewall ingress create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
 | ```--firewall {id-or-uri}```                       | Firewall Id                                                              |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--name {name}```                                | Rule name                                                                |
-| ```--action {allow,deny}```                        | Rule action                                                              |
+| ```--action {allow, deny}```                       | Rule action                                                              |
 | ```--priority {priority}```                        | Rule priority                                                            |
 | ```--filter {filter}```                            | Filter collection                                                        |
-| ```--external {external}```                        | External collection. Defaults is 0.0.0.0/0. Default value is 0.0.0.0/0   |
-| ```--internal {internal}```                        | Internal collection. Defaults is *. Default value is *                   |
+| ```--external {external}```                        | External collection. Default value is 0.0.0.0/0                          |
+| ```--internal {internal}```                        | Internal collection. Default value is *                                  |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

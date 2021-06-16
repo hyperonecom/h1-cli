@@ -27,8 +27,8 @@ $ h1 billing <options>
 
 # Available commands
 
-* [h1 billing reservation](./reservation/README.md)
 * [h1 billing service](./service/README.md)
+* [h1 billing reservation](./reservation/README.md)
 
 # Parent commands
 

@@ -19,10 +19,11 @@ See also:
 
 | Option name                                        | Description                                                                                        |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                         |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                             |
-| ```--registry {id-or-uri}```                       | Registry Id                                                                                        |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                            |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                    |
+| ```--registry {id-or-uri}```                       | Registry Id                                                                                        |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                             |
+| ```--project {id-or-uri}```                        | Project Id                                                                                         |
 | ```--project {id-or-uri}```                        | Registry project. Provide ID or URI of iam/project. Requires permissions container/registry/create |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                   |
 | ```--help```                                       | Show help message and exit.                                                                        |
@@ -38,10 +39,11 @@ See also:
 
 | Option name                                        | Description                                                                                        |
 | -------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                         |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                             |
-| ```--registry {id-or-uri}```                       | Registry Id                                                                                        |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                            |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                    |
+| ```--registry {id-or-uri}```                       | Registry Id                                                                                        |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                             |
+| ```--project {id-or-uri}```                        | Project Id                                                                                         |
 | ```--project {id-or-uri}```                        | Registry project. Provide ID or URI of iam/project. Requires permissions container/registry/create |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                   |
 | ```--help```                                       | Show help message and exit.                                                                        |

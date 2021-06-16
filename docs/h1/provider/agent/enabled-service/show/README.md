@@ -22,19 +22,19 @@ See also:
 
 ```bash
 h1 provider agent enabled-service show \ 
-	--project 5f64e2468c71177993874510 \ 
+	--enabled-service 5c9cc2d0255c16c3e899a4ea \ 
 	--agent 5f577a24494c5cfdec7830e5 \ 
-	--enabled-service 5c9cc2d0255c16c3e899a4ea
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--agent {id-or-uri}```                          | Agent Id                                                                 |
 | ```--enabled-service {id-or-uri}```                | enabledServiceId                                                         |
+| ```--agent {id-or-uri}```                          | Agent Id                                                                 |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -49,10 +49,10 @@ h1 provider agent enabled-service show \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--agent {id-or-uri}```                          | Agent Id                                                                 |
 | ```--enabled-service {id-or-uri}```                | enabledServiceId                                                         |
+| ```--agent {id-or-uri}```                          | Agent Id                                                                 |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

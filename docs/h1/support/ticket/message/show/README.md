@@ -19,9 +19,9 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--ticket {id-or-uri}```                         | Ticket Id                                                                |
 | ```--message {id-or-uri}```                        | messageId                                                                |
+| ```--ticket {id-or-uri}```                         | Ticket Id                                                                |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -36,9 +36,9 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--ticket {id-or-uri}```                         | Ticket Id                                                                |
 | ```--message {id-or-uri}```                        | messageId                                                                |
+| ```--ticket {id-or-uri}```                         | Ticket Id                                                                |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

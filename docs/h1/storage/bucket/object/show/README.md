@@ -19,10 +19,10 @@ See also:
 
 | Option name                                        | Description                                                                 |
 | -------------------------------------------------- | --------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                  |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                      |
-| ```--bucket {id-or-uri}```                         | Bucket Id                                                                   |
 | ```--object {id-or-uri}```                         | objectId                                                                    |
+| ```--bucket {id-or-uri}```                         | Bucket Id                                                                   |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                      |
+| ```--project {id-or-uri}```                        | Project Id                                                                  |
 | ```--skeleton```                                   | Display intermediary representation of operation                            |
 | ```--help```                                       | Show help message and exit.                                                 |
 | ```--verbose```                                    | Make the operation more talkative.                                          |
@@ -37,10 +37,10 @@ See also:
 
 | Option name                                        | Description                                                                 |
 | -------------------------------------------------- | --------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                  |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                      |
-| ```--bucket {id-or-uri}```                         | Bucket Id                                                                   |
 | ```--object {id-or-uri}```                         | objectId                                                                    |
+| ```--bucket {id-or-uri}```                         | Bucket Id                                                                   |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                      |
+| ```--project {id-or-uri}```                        | Project Id                                                                  |
 | ```--skeleton```                                   | Display intermediary representation of operation                            |
 | ```--help```                                       | Show help message and exit.                                                 |
 | ```--verbose```                                    | Make the operation more talkative.                                          |

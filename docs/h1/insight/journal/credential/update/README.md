@@ -22,9 +22,9 @@ See also:
 
 ```bash
 h1 insight journal credential update \ 
-	--project 5f64e2468c71177993874510 \ 
-	--journal 5f577a24494c5cfdec7830e5 \ 
 	--credential 5f60cbbe494c5cfdec81cc6b \ 
+	--journal 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name renamed-credential-journal
 ```
 
@@ -32,10 +32,10 @@ h1 insight journal credential update \
 
 | Option name                                        | Description                                                                  |
 | -------------------------------------------------- | ---------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                   |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                       |
-| ```--journal {id-or-uri}```                        | Journal Id                                                                   |
 | ```--credential {id-or-uri}```                     | credentialId                                                                 |
+| ```--journal {id-or-uri}```                        | Journal Id                                                                   |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                       |
+| ```--project {id-or-uri}```                        | Project Id                                                                   |
 | ```--name {name}```                                | Credential name. Requires permissions insight/journal.credential.name/update |
 | ```--skeleton```                                   | Display intermediary representation of operation                             |
 | ```--help```                                       | Show help message and exit.                                                  |
@@ -51,10 +51,10 @@ h1 insight journal credential update \
 
 | Option name                                        | Description                                                                  |
 | -------------------------------------------------- | ---------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                   |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                       |
-| ```--journal {id-or-uri}```                        | Journal Id                                                                   |
 | ```--credential {id-or-uri}```                     | credentialId                                                                 |
+| ```--journal {id-or-uri}```                        | Journal Id                                                                   |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                       |
+| ```--project {id-or-uri}```                        | Project Id                                                                   |
 | ```--name {name}```                                | Credential name. Requires permissions insight/journal.credential.name/update |
 | ```--skeleton```                                   | Display intermediary representation of operation                             |
 | ```--help```                                       | Show help message and exit.                                                  |

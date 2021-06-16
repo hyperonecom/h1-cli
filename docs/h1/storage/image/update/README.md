@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 storage image update \ 
-	--project 5f64e2468c71177993874510 \ 
 	--image 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name image-renamed
 ```
 
@@ -31,9 +31,9 @@ h1 storage image update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
 | ```--image {id-or-uri}```                          | Image Id                                                                                       |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Image name. Requires permissions storage/image.name/update                                     |
 | ```--description {description}```                  | Image description. Requires permissions storage/image.description/update                       |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
@@ -50,9 +50,9 @@ h1 storage image update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
 | ```--image {id-or-uri}```                          | Image Id                                                                                       |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Image name. Requires permissions storage/image.name/update                                     |
 | ```--description {description}```                  | Image description. Requires permissions storage/image.description/update                       |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |

@@ -1,7 +1,7 @@
 
 # h1 recovery backup tag create
 
-Create recovery/backup.tag
+create backup.tag
 
 ## Synopsis
 
@@ -13,15 +13,15 @@ $ h1 recovery backup tag create <options>
 
 See also:
 
-* [API reference](https://api.hyperone.com/v2/docs#operation/recovery_project_backup_tag_create)
+* [API reference](https://api.hyperone.com/v2/docs#operation/v1:recovery:backup.tag:create)
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--backup {id-or-uri}```                         | Backup Id                                                                |
+| ```--backup {id-or-uri}```                         | backup Id                                                                |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--key {key}```                                  | Tag key                                                                  |
 | ```--value {value}```                              | Tag value                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
@@ -38,9 +38,9 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--backup {id-or-uri}```                         | Backup Id                                                                |
+| ```--backup {id-or-uri}```                         | backup Id                                                                |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--key {key}```                                  | Tag key                                                                  |
 | ```--value {value}```                              | Tag value                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |

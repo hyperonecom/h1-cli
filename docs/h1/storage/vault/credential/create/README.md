@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 storage vault credential create \ 
-	--project 5f64e2468c71177993874510 \ 
 	--vault 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name vault-credential \ 
 	--type plain \ 
 	--value xxxxxx
@@ -32,8 +32,8 @@ h1 storage vault credential create \
 
 ```bash
 h1 storage vault credential create \ 
-	--project 5f64e2468c71177993874510 \ 
 	--vault 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name vault-credential \ 
 	--type ssh \ 
 	--value ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7Ssk/TZy/PS5mtGqNwmgfukrA/QrpW3oyrMM3KViHO9wtIwu1BapTdmUxIWi7TX1Nl51i8040CvTstfi11O4jMk2E5lGYp0TIduo8B8Qo/0wO6s2BrXHtLI1FlctkQacrKTnSINrSEcBbIO6G//S4fiRI5ioK8OAPt/qJK1k74AOnrupsXxTUYggmmIJfto8r1c3ZAhfwnJ4D0SDCoWjL4PLh/UGQv7sN20Z/afWVDCa78TnQ6lGlJe6VRSqoT09kJpt2CW0Pa3Ij1QaSJp6ENHpWAWGLyiwW8rLxCqFriz333yf0zzw2QmiyyNHe1ITG2goJU05pHEYyzYq6xo5X
@@ -43,11 +43,11 @@ h1 storage vault credential create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
 | ```--vault {id-or-uri}```                          | Vault Id                                                                 |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--name {name}```                                | Credential name                                                          |
-| ```--type {ssh,sha512,plain}```                    | Credential type                                                          |
+| ```--type {ssh, sha512, plain}```                  | Credential type                                                          |
 | ```--value {value}```                              | Credential value                                                         |
 | ```--token {token}```                              | Credential token                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
@@ -64,11 +64,11 @@ h1 storage vault credential create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
 | ```--vault {id-or-uri}```                          | Vault Id                                                                 |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--name {name}```                                | Credential name                                                          |
-| ```--type {ssh,sha512,plain}```                    | Credential type                                                          |
+| ```--type {ssh, sha512, plain}```                  | Credential type                                                          |
 | ```--value {value}```                              | Credential value                                                         |
 | ```--token {token}```                              | Credential token                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |

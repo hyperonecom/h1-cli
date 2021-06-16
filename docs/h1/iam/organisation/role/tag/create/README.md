@@ -19,8 +19,8 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--role {id-or-uri}```                           | Role Id                                                                  |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--key {key}```                                  | Tag key                                                                  |
 | ```--value {value}```                              | Tag value                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
@@ -37,8 +37,8 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--role {id-or-uri}```                           | Role Id                                                                  |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                          |
 | ```--key {key}```                                  | Tag key                                                                  |
 | ```--value {value}```                              | Tag value                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |

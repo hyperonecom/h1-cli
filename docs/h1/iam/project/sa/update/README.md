@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 iam project sa update \ 
-	--project 5f64e2468c71177993874510 \ 
 	--sa 5f72c96b02fbdad8a048fa40 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name sa-renamed
 ```
 
@@ -31,8 +31,8 @@ h1 iam project sa update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--sa {id-or-uri}```                             | Sa Id                                                                                          |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Sa name. Requires permissions iam/sa.name/update                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
@@ -48,8 +48,8 @@ h1 iam project sa update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--sa {id-or-uri}```                             | Sa Id                                                                                          |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Sa name. Requires permissions iam/sa.name/update                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |

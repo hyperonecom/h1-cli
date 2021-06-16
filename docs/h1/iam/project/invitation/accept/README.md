@@ -19,8 +19,8 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--invitation {id-or-uri}```                     | invitationId                                                             |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--token {token}```                              | Invitation token                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
@@ -36,8 +36,8 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--invitation {id-or-uri}```                     | invitationId                                                             |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--token {token}```                              | Invitation token                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |

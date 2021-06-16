@@ -19,8 +19,8 @@ See also:
 
 | Option name                                        | Description                                                                        |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                         |
 | ```--credential-store {id-or-uri}```               | credentialStoreId                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                                         |
 | ```--name {name}```                                | CredentialStore name. Requires permissions iam/project.credentialStore.name/update |
 | ```--skeleton```                                   | Display intermediary representation of operation                                   |
 | ```--help```                                       | Show help message and exit.                                                        |
@@ -36,8 +36,8 @@ See also:
 
 | Option name                                        | Description                                                                        |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                         |
 | ```--credential-store {id-or-uri}```               | credentialStoreId                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                                         |
 | ```--name {name}```                                | CredentialStore name. Requires permissions iam/project.credentialStore.name/update |
 | ```--skeleton```                                   | Display intermediary representation of operation                                   |
 | ```--help```                                       | Show help message and exit.                                                        |

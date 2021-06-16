@@ -23,7 +23,7 @@ See also:
 | ```--phone {phone}```                              | User phone. Requires permissions iam/user.phone/update                   |
 | ```--first-name {first-name}```                    | User firstName. Requires permissions iam/user.firstName/update           |
 | ```--family-name {family-name}```                  | User familyName. Requires permissions iam/user.familyName/update         |
-| ```--lang {en,pl}```                               | User lang. Requires permissions iam/user.lang/update                     |
+| ```--lang {en, pl}```                              | User lang. Requires permissions iam/user.lang/update                     |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -42,7 +42,7 @@ See also:
 | ```--phone {phone}```                              | User phone. Requires permissions iam/user.phone/update                   |
 | ```--first-name {first-name}```                    | User firstName. Requires permissions iam/user.firstName/update           |
 | ```--family-name {family-name}```                  | User familyName. Requires permissions iam/user.familyName/update         |
-| ```--lang {en,pl}```                               | User lang. Requires permissions iam/user.lang/update                     |
+| ```--lang {en, pl}```                              | User lang. Requires permissions iam/user.lang/update                     |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

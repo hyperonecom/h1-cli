@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 billing reservation update \ 
-	--project 5f64e2468c71177993874510 \ 
 	--reservation 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name reservation-renamed
 ```
 
@@ -31,8 +31,8 @@ h1 billing reservation update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--reservation {id-or-uri}```                    | Reservation Id                                                                                 |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Reservation name. Requires permissions billing/reservation.name/update                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
@@ -48,8 +48,8 @@ h1 billing reservation update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--reservation {id-or-uri}```                    | Reservation Id                                                                                 |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Reservation name. Requires permissions billing/reservation.name/update                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |

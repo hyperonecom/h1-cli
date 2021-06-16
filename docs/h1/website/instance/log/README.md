@@ -29,7 +29,7 @@ $ h1 website instance log <options>
 
 * [h1 website instance log list](./list/README.md)
 * [h1 website instance log show](./show/README.md)
-* [h1 website instance log read](./read/README.md)
+* [h1 website instance log download](./download/README.md)
 
 # Parent commands
 

@@ -1,7 +1,7 @@
 
 # h1 database instance tag show
 
-Get database/instance.tag
+get instance.tag
 
 ## Synopsis
 
@@ -13,28 +13,16 @@ $ h1 database instance tag show <options>
 
 See also:
 
-* [API reference](https://api.hyperone.com/v2/docs#operation/database_project_instance_tag_get)
-
-## Example
-
-
-### Simple
-
-```bash
-h1 database instance tag show \ 
-	--project 5f64e2468c71177993874510 \ 
-	--instance 5f577a24494c5cfdec7830e5 \ 
-	--tag 5f60cbbe494c5cfdec81cc6b
-```
+* [API reference](https://api.hyperone.com/v2/docs#operation/v1:database:instance.tag:get)
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--instance {id-or-uri}```                       | Instance Id                                                              |
-| ```--tag {id-or-uri}```                            | tagId                                                                    |
+| ```--tag {id-or-uri}```                            | tag Id                                                                   |
+| ```--instance {id-or-uri}```                       | instance Id                                                              |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -49,10 +37,10 @@ h1 database instance tag show \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--instance {id-or-uri}```                       | Instance Id                                                              |
-| ```--tag {id-or-uri}```                            | tagId                                                                    |
+| ```--tag {id-or-uri}```                            | tag Id                                                                   |
+| ```--instance {id-or-uri}```                       | instance Id                                                              |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

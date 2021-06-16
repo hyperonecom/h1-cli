@@ -19,8 +19,8 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--quota {id-or-uri}```                          | quotaId                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--user {user}```                                | Limit user. Requires permissions iam/project.quota.user/update           |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
@@ -36,8 +36,8 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--quota {id-or-uri}```                          | quotaId                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--user {user}```                                | Limit user. Requires permissions iam/project.quota.user/update           |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |

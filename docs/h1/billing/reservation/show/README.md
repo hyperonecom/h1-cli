@@ -22,23 +22,23 @@ See also:
 
 ```bash
 h1 billing reservation show \ 
-	--project 5f64e2468c71177993874510 \ 
-	--reservation 5f577a24494c5cfdec7830e5
+	--reservation 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510
 ```
 ### Simple GC
 
 ```bash
 h1 billing reservation show \ 
-	--project 5f64e2468c71177993874510 \ 
-	--reservation 5f577a24494c5cfdec7830e5
+	--reservation 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--reservation {id-or-uri}```                    | Reservation Id                                                                                 |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |
@@ -53,8 +53,8 @@ h1 billing reservation show \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--reservation {id-or-uri}```                    | Reservation Id                                                                                 |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |

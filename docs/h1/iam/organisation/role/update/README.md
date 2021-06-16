@@ -19,8 +19,8 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
 | ```--role {id-or-uri}```                           | Role Id                                                                                        |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
 | ```--name {name}```                                | Role name. Requires permissions iam/role.name/update                                           |
 | ```--description {description}```                  | Role description. Requires permissions iam/role.description/update                             |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
@@ -37,8 +37,8 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
 | ```--role {id-or-uri}```                           | Role Id                                                                                        |
+| ```--organisation {id-or-uri}```                   | Organisation Id                                                                                |
 | ```--name {name}```                                | Role name. Requires permissions iam/role.name/update                                           |
 | ```--description {description}```                  | Role description. Requires permissions iam/role.description/update                             |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |

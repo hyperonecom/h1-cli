@@ -19,10 +19,10 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--name {name}```                                | Filter by name                                                                                 |
-| ```--billing.company {billing.company}```          | Filter by billing.company                                                                      |
-| ```--$limit {$limit}```                            | Filter by $limit                                                                               |
 | ```--active {active}```                            | Filter by active                                                                               |
+| ```--$limit {$limit}```                            | Filter by $limit                                                                               |
+| ```--billing.company {billing.company}```          | Filter by billing.company                                                                      |
+| ```--name {name}```                                | Filter by name                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |
@@ -37,10 +37,10 @@ See also:
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--name {name}```                                | Filter by name                                                                                 |
-| ```--billing.company {billing.company}```          | Filter by billing.company                                                                      |
-| ```--$limit {$limit}```                            | Filter by $limit                                                                               |
 | ```--active {active}```                            | Filter by active                                                                               |
+| ```--$limit {$limit}```                            | Filter by $limit                                                                               |
+| ```--billing.company {billing.company}```          | Filter by billing.company                                                                      |
+| ```--name {name}```                                | Filter by name                                                                                 |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |

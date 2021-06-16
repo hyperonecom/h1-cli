@@ -1,7 +1,7 @@
 
 # h1 website instance domain create
 
-Create website/instance.domain
+create instance.domain
 
 ## Synopsis
 
@@ -13,33 +13,23 @@ $ h1 website instance domain create <options>
 
 See also:
 
-* [API reference](https://api.hyperone.com/v2/docs#operation/website_project_instance_domain_create)
-
-## Example
-
-
-### Simple
-
-```bash
-h1 website instance domain create \ 
-	--project 5f64e2468c71177993874510 \ 
-	--instance 5f577a24494c5cfdec7830e5 \ 
-	--value wonderful-ellis.example.com.
-```
+* [API reference](https://api.hyperone.com/v2/docs#operation/v1:website:instance.domain:create)
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--instance {id-or-uri}```                       | Instance Id                                                              |
-| ```--value {value}```                              | Domain value                                                             |
+| ```--instance {id-or-uri}```                       | instance Id                                                              |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
+| ```--dns-name {dns-name}```                        | -                                                                        |
+| ```--profile {domain}```                           | -                                                                        |
+| ```--name {name}```                                | -                                                                        |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
 | ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml                  |
-| ```--query {query}```                              | JMESPath query string. Default value is [].\{id:id\}                     |
+| ```--query {query}```                              | JMESPath query string. Default value is [].\{id:id, name:name\}          |
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available. |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                 |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                       |
@@ -49,15 +39,17 @@ h1 website instance domain create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--instance {id-or-uri}```                       | Instance Id                                                              |
-| ```--value {value}```                              | Domain value                                                             |
+| ```--instance {id-or-uri}```                       | instance Id                                                              |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
+| ```--dns-name {dns-name}```                        | -                                                                        |
+| ```--profile {domain}```                           | -                                                                        |
+| ```--name {name}```                                | -                                                                        |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
 | ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml                  |
-| ```--query {query}```                              | JMESPath query string. Default value is [].\{id:id\}                     |
+| ```--query {query}```                              | JMESPath query string. Default value is [].\{id:id, name:name\}          |
 | ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available. |
 | ```--as {uri}```                                   | Act as another actor eg. service account                                 |
 | ```--no-wait```                                    | In case of queued event do not wait for completion                       |

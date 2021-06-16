@@ -33,6 +33,10 @@ $ h1 iam project <options>
 * [h1 iam project update](./update/README.md)
 * [h1 iam project delete](./delete/README.md)
 * [h1 iam project transfer](./transfer/README.md)
+* [h1 iam project policy](./policy/README.md)
+* [h1 iam project role](./role/README.md)
+* [h1 iam project sa](./sa/README.md)
+* [h1 iam project application](./application/README.md)
 * [h1 iam project billing](./billing/README.md)
 * [h1 iam project payment](./payment/README.md)
 * [h1 iam project invoice](./invoice/README.md)
@@ -45,9 +49,6 @@ $ h1 iam project <options>
 * [h1 iam project service](./service/README.md)
 * [h1 iam project tag](./tag/README.md)
 * [h1 iam project event](./event/README.md)
-* [h1 iam project policy](./policy/README.md)
-* [h1 iam project role](./role/README.md)
-* [h1 iam project sa](./sa/README.md)
 * [h1 iam project select](./select/README.md)
 
 # Parent commands

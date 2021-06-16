@@ -19,10 +19,11 @@ See also:
 
 | Option name                                        | Description                                                                                          |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                              |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                      |
 | ```--name {name}```                                | Project name                                                                                         |
 | ```--organisation {id-or-uri}```                   | Project organisation. Provide ID or URI of iam/organisation. Requires permissions iam/project/create |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                       |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                       |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                     |
 | ```--help```                                       | Show help message and exit.                                                                          |
 | ```--verbose```                                    | Make the operation more talkative.                                                                   |
@@ -37,10 +38,11 @@ See also:
 
 | Option name                                        | Description                                                                                          |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                              |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                      |
 | ```--name {name}```                                | Project name                                                                                         |
 | ```--organisation {id-or-uri}```                   | Project organisation. Provide ID or URI of iam/organisation. Requires permissions iam/project/create |
-| ```--tag {key=key,value=value}```                  | Tag collection                                                                                       |
+| ```--tag {key=key, value=value}```                 | Tag collection                                                                                       |
 | ```--skeleton```                                   | Display intermediary representation of operation                                                     |
 | ```--help```                                       | Show help message and exit.                                                                          |
 | ```--verbose```                                    | Make the operation more talkative.                                                                   |

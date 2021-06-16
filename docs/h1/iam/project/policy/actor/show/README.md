@@ -22,18 +22,18 @@ See also:
 
 ```bash
 h1 iam project policy actor show \ 
-	--project 5f64e2468c71177993874510 \ 
+	--actor 5f72ce6102fbdad8a048fb38 \ 
 	--policy 5f72c96b02fbdad8a048fa40 \ 
-	--actor 5f72ce6102fbdad8a048fb38
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--policy {id-or-uri}```                         | Policy Id                                                                |
 | ```--actor {id-or-uri}```                          | actorId                                                                  |
+| ```--policy {id-or-uri}```                         | Policy Id                                                                |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -48,9 +48,9 @@ h1 iam project policy actor show \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--policy {id-or-uri}```                         | Policy Id                                                                |
 | ```--actor {id-or-uri}```                          | actorId                                                                  |
+| ```--policy {id-or-uri}```                         | Policy Id                                                                |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

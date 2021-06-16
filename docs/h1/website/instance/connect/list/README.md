@@ -1,7 +1,7 @@
 
 # h1 website instance connect list
 
-List website/instance.connect
+list instance.connect
 
 ## Synopsis
 
@@ -13,15 +13,15 @@ $ h1 website instance connect list <options>
 
 See also:
 
-* [API reference](https://api.hyperone.com/v2/docs#operation/website_project_instance_connect_list)
+* [API reference](https://api.hyperone.com/v2/docs#operation/v1:website:instance.connect:list)
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--instance {id-or-uri}```                       | Instance Id                                                              |
+| ```--instance {id-or-uri}```                       | instance Id                                                              |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -36,9 +36,9 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--instance {id-or-uri}```                       | Instance Id                                                              |
+| ```--instance {id-or-uri}```                       | instance Id                                                              |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

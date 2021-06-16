@@ -22,19 +22,19 @@ See also:
 
 ```bash
 h1 dns zone recordset record list \ 
-	--project 5f64e2468c71177993874510 \ 
+	--recordset 5f60cbbe494c5cfdec81cc6b \ 
 	--zone 5f72beb1494c5cfdec9b907f \ 
-	--recordset 5f60cbbe494c5cfdec81cc6b
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--zone {id-or-uri}```                           | Zone Id                                                                  |
 | ```--recordset {id-or-uri}```                      | recordsetId                                                              |
+| ```--zone {id-or-uri}```                           | Zone Id                                                                  |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -49,10 +49,10 @@ h1 dns zone recordset record list \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--zone {id-or-uri}```                           | Zone Id                                                                  |
 | ```--recordset {id-or-uri}```                      | recordsetId                                                              |
+| ```--zone {id-or-uri}```                           | Zone Id                                                                  |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

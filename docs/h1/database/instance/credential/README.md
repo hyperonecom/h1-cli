@@ -30,7 +30,6 @@ $ h1 database instance credential <options>
 * [h1 database instance credential create](./create/README.md)
 * [h1 database instance credential list](./list/README.md)
 * [h1 database instance credential show](./show/README.md)
-* [h1 database instance credential update](./update/README.md)
 * [h1 database instance credential delete](./delete/README.md)
 
 # Parent commands

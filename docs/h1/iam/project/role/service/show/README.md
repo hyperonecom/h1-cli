@@ -22,18 +22,18 @@ See also:
 
 ```bash
 h1 iam project role service show \ 
-	--project 5f64e2468c71177993874510 \ 
+	--service 5f60cbbe494c5cfdec81cc6b \ 
 	--role 5f72c96b02fbdad8a048fa40 \ 
-	--service 5f60cbbe494c5cfdec81cc6b
+	--project 5f64e2468c71177993874510
 ```
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--role {id-or-uri}```                           | Role Id                                                                  |
 | ```--service {id-or-uri}```                        | serviceId                                                                |
+| ```--role {id-or-uri}```                           | Role Id                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -48,9 +48,9 @@ h1 iam project role service show \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--role {id-or-uri}```                           | Role Id                                                                  |
 | ```--service {id-or-uri}```                        | serviceId                                                                |
+| ```--role {id-or-uri}```                           | Role Id                                                                  |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 insight journal update \ 
-	--project 5f64e2468c71177993874510 \ 
 	--journal 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name journal-renamed
 ```
 
@@ -31,9 +31,9 @@ h1 insight journal update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
 | ```--journal {id-or-uri}```                        | Journal Id                                                                                     |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Journal name. Requires permissions insight/journal.name/update                                 |
 | ```--retention {retention}```                      | Journal retention. Requires permissions insight/journal.retention/update                       |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
@@ -50,9 +50,9 @@ h1 insight journal update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
 | ```--journal {id-or-uri}```                        | Journal Id                                                                                     |
+| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                                         |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Journal name. Requires permissions insight/journal.name/update                                 |
 | ```--retention {retention}```                      | Journal retention. Requires permissions insight/journal.retention/update                       |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |

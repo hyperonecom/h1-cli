@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 iam project role update \ 
-	--project 5f64e2468c71177993874510 \ 
 	--role 5f72c96b02fbdad8a048fa40 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--name role-renamed
 ```
 
@@ -31,8 +31,8 @@ h1 iam project role update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--role {id-or-uri}```                           | Role Id                                                                                        |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Role name. Requires permissions iam/role.name/update                                           |
 | ```--description {description}```                  | Role description. Requires permissions iam/role.description/update                             |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |
@@ -49,8 +49,8 @@ h1 iam project role update \
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--role {id-or-uri}```                           | Role Id                                                                                        |
+| ```--project {id-or-uri}```                        | Project Id                                                                                     |
 | ```--name {name}```                                | Role name. Requires permissions iam/role.name/update                                           |
 | ```--description {description}```                  | Role description. Requires permissions iam/role.description/update                             |
 | ```--skeleton```                                   | Display intermediary representation of operation                                               |

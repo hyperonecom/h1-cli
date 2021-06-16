@@ -1,7 +1,7 @@
 
 # h1 website instance credential create
 
-Create website/instance.credential
+create instance.credential
 
 ## Synopsis
 
@@ -13,33 +13,18 @@ $ h1 website instance credential create <options>
 
 See also:
 
-* [API reference](https://api.hyperone.com/v2/docs#operation/website_project_instance_credential_create)
-
-## Example
-
-
-### Simple
-
-```bash
-h1 website instance credential create \ 
-	--project 5f64e2468c71177993874510 \ 
-	--instance 5f577a24494c5cfdec7830e5 \ 
-	--name instance-credential \ 
-	--type plain \ 
-	--value xxxxxx
-```
+* [API reference](https://api.hyperone.com/v2/docs#operation/v1:website:instance.credential:create)
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--instance {id-or-uri}```                       | Instance Id                                                              |
-| ```--name {name}```                                | Credential name                                                          |
-| ```--type {ssh,sha512,plain}```                    | Credential type                                                          |
+| ```--instance {id-or-uri}```                       | instance Id                                                              |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--value {value}```                              | Credential value                                                         |
-| ```--token {token}```                              | Credential token                                                         |
+| ```--profile {plain, sha512, ssh}```               | -                                                                        |
+| ```--name {name}```                                | -                                                                        |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -54,13 +39,12 @@ h1 website instance credential create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--instance {id-or-uri}```                       | Instance Id                                                              |
-| ```--name {name}```                                | Credential name                                                          |
-| ```--type {ssh,sha512,plain}```                    | Credential type                                                          |
+| ```--instance {id-or-uri}```                       | instance Id                                                              |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--value {value}```                              | Credential value                                                         |
-| ```--token {token}```                              | Credential token                                                         |
+| ```--profile {plain, sha512, ssh}```               | -                                                                        |
+| ```--name {name}```                                | -                                                                        |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

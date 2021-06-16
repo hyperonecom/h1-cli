@@ -21,7 +21,7 @@ See also:
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
 | ```--user {id-or-uri}```                           | User Id                                                                  |
 | ```--name {name}```                                | Credential name                                                          |
-| ```--type {ssh,sha512,totp,otac,plain}```          | Credential type                                                          |
+| ```--type {ssh, sha512, totp, otac, plain}```      | Credential type                                                          |
 | ```--value {value}```                              | Credential value                                                         |
 | ```--token {token}```                              | Credential token                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
@@ -40,7 +40,7 @@ See also:
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
 | ```--user {id-or-uri}```                           | User Id                                                                  |
 | ```--name {name}```                                | Credential name                                                          |
-| ```--type {ssh,sha512,totp,otac,plain}```          | Credential type                                                          |
+| ```--type {ssh, sha512, totp, otac, plain}```      | Credential type                                                          |
 | ```--value {value}```                              | Credential value                                                         |
 | ```--token {token}```                              | Credential token                                                         |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |

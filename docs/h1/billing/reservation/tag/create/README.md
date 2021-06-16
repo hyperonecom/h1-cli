@@ -22,8 +22,8 @@ See also:
 
 ```bash
 h1 billing reservation tag create \ 
-	--project 5f64e2468c71177993874510 \ 
 	--reservation 5f577a24494c5cfdec7830e5 \ 
+	--project 5f64e2468c71177993874510 \ 
 	--key x \ 
 	--value x
 ```
@@ -32,8 +32,8 @@ h1 billing reservation tag create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--reservation {id-or-uri}```                    | Reservation Id                                                           |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--key {key}```                                  | Tag key                                                                  |
 | ```--value {value}```                              | Tag value                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
@@ -50,8 +50,8 @@ h1 billing reservation tag create \
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--reservation {id-or-uri}```                    | Reservation Id                                                           |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--key {key}```                                  | Tag key                                                                  |
 | ```--value {value}```                              | Tag value                                                                |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |

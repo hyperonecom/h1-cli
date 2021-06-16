@@ -19,9 +19,10 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                  |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                          |
-| ```--type {sales,billing,service support}```       | Ticket type                                                              |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
+| ```--type {sales, billing, service support}```     | Ticket type                                                              |
 | ```--subject {subject}```                          | Ticket subject                                                           |
 | ```--message {message}```                          | Ticket message                                                           |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
@@ -38,9 +39,10 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                  |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                          |
-| ```--type {sales,billing,service support}```       | Ticket type                                                              |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
+| ```--type {sales, billing, service support}```     | Ticket type                                                              |
 | ```--subject {subject}```                          | Ticket subject                                                           |
 | ```--message {message}```                          | Ticket message                                                           |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |

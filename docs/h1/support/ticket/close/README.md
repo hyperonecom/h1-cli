@@ -19,9 +19,10 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--ticket {id-or-uri}```                         | Ticket Id                                                                |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                  |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                          |
+| ```--ticket {id-or-uri}```                         | Ticket Id                                                                |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -36,9 +37,10 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--ticket {id-or-uri}```                         | Ticket Id                                                                |
+| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                  |
 | ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                          |
+| ```--ticket {id-or-uri}```                         | Ticket Id                                                                |
+| ```--project {id-or-uri}```                        | Project Id                                                               |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |

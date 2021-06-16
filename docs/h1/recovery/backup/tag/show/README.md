@@ -1,7 +1,7 @@
 
 # h1 recovery backup tag show
 
-Get recovery/backup.tag
+get backup.tag
 
 ## Synopsis
 
@@ -13,16 +13,16 @@ $ h1 recovery backup tag show <options>
 
 See also:
 
-* [API reference](https://api.hyperone.com/v2/docs#operation/recovery_project_backup_tag_get)
+* [API reference](https://api.hyperone.com/v2/docs#operation/v1:recovery:backup.tag:get)
 
 ## Common options
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--backup {id-or-uri}```                         | Backup Id                                                                |
-| ```--tag {id-or-uri}```                            | tagId                                                                    |
+| ```--tag {id-or-uri}```                            | tag Id                                                                   |
+| ```--backup {id-or-uri}```                         | backup Id                                                                |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
@@ -37,10 +37,10 @@ See also:
 
 | Option name                                        | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
-| ```--project {id-or-uri}```                        | Project Id                                                               |
-| ```--location {id-or-uri}```                       | Location Id. Default value is pl-waw-1                                   |
-| ```--backup {id-or-uri}```                         | Backup Id                                                                |
-| ```--tag {id-or-uri}```                            | tagId                                                                    |
+| ```--tag {id-or-uri}```                            | tag Id                                                                   |
+| ```--backup {id-or-uri}```                         | backup Id                                                                |
+| ```--project {id-or-uri}```                        | project Id                                                               |
+| ```--location {id-or-uri}```                       | location Id. Default value is pl-waw-1                                   |
 | ```--skeleton```                                   | Display intermediary representation of operation                         |
 | ```--help```                                       | Show help message and exit.                                              |
 | ```--verbose```                                    | Make the operation more talkative.                                       |
