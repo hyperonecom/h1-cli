@@ -137,9 +137,15 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
         });
         if (pvalue.enum) {
             Object.assign(p, {
-                typeLabel: pvalue.enum.join(','),
                 choices: pvalue.enum,
             });
+            if (pvalue.enum.join(', ').length < 100) {
+                Object.assign(p, {
+                    typeLabel: pvalue.enum.join(', '),
+                });
+            } else {
+                description.push(`Allowed values is ${pvalue.enum.join(', ')}`);
+            }
         }
     }
 
@@ -160,7 +166,7 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
         const label = Object.entries(pvalue.items.properties || {})
             .filter(([, value]) => value.readOnly != true)
             .map(([key]) => `${key}=${key}`)
-            .join(',');
+            .join(', ');
 
         Object.assign(p, {
             multiple: true,
