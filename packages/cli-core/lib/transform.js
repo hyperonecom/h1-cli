@@ -19,6 +19,7 @@ export const set = (obj, path, value) => {
         }
         el = el[key];
     }
+    delete el[keys[keys.length - 1]];
     el[keys[keys.length - 1]] = value;
 };
 export const unset = (obj, path) => set(obj, path, undefined);

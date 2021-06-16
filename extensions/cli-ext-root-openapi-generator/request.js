@@ -32,7 +32,7 @@ const parameterForParameter = (p = []) => {
             });
         }
 
-        parameters.push({
+        parameters.unshift({
             ...p,
             description: description.join('.'),
         });
@@ -186,7 +186,7 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
         description: description.join('. '),
     });
     if (pname) {
-        parameters.push(p);
+        parameters.unshift(p);
     }
     return parameters;
 };
@@ -292,7 +292,6 @@ const renderEmpty = (schema) => {
 const renderBody = (operation, input, options) => {
     const schema = openapi.getSchema(operation);
     const result = renderEmpty(schema);
-    result.properties = {};
     const parameters = renderParameter(input, options);
 
     for (const option of options) {
@@ -306,6 +305,9 @@ const renderBody = (operation, input, options) => {
             value = openapi.renderPath(option.prefix, { ...parameters, [`${option.name}Id`]: value });
         }
         set(result, option.use.field.replace(/\//g, '.'), value);
+    }
+    if (!result.properties) {
+        result.properties = {};
     }
     return result;
 };
