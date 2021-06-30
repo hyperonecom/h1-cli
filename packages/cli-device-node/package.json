@@ -26,6 +26,7 @@
     "@hyperone/cli-framework": "link:../cli-framework",
     "array-back": "^3.1.0",
     "inquirer": "^7.3.3",
+    "node-pty": "^0.10.1",
     "strip-ansi-stream": "^1.0.0",
     "untildify": "^4.0.0"
   },
