@@ -18,6 +18,9 @@ const nestedValue = schema => value => {
                 throw new Error(`Invalid value. Required integer for nested value ${pkey}.`);
             }
             result[pkey] = Number(pvalue);
+        } else if (type == 'array') {
+            if (!result[pkey]) result[pkey] = [];
+            result[pkey].push(pvalue);
         } else {
             result[pkey] = pvalue;
         }
