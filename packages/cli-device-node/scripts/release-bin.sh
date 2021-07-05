@@ -1,6 +1,6 @@
 #!/bin/sh
 set -eux
-NODE_VERSION="12"
+NODE_VERSION="16"
 
 for scope in h1; do
 	npx pkg -t "node${NODE_VERSION}-linux" -o "./dist/${scope}" "./dist/${scope}.js";
