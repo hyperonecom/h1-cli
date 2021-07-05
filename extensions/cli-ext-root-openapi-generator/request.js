@@ -331,7 +331,7 @@ const generateQuery = (path, operation) => {
     }
 
     if (props) {
-        for (const name of ['id', 'name', 'state', 'flavour', 'content', 'enabled', 'size']) {
+        for (const name of ['id', 'name', 'state', 'flavour', 'content', 'enabled', 'size', 'uri']) {
             if (props[name]) {
                 col.push(`${name}:${name}`);
             }
