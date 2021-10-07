@@ -21,6 +21,7 @@ ava.serial('organisation life cycle', async t => {
         skipDelete: true,
         skipFqdn: true,
         skipTransfer: true,
+        skipTag: true,
     })(t);
 });
 
