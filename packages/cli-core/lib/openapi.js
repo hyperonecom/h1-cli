@@ -2,7 +2,6 @@ import $RefParser from '@apidevtools/json-schema-ref-parser';
 import { lazy_resolver } from './json_schema';
 
 const spec = {};
-let specUrl = undefined;
 
 const renderPath = (path, parameters) => path.replace(new RegExp(/{(.+?)}/g), (source, name) => {
     if (name in parameters) return encodeURIComponent(parameters[name]);
@@ -12,8 +11,7 @@ const renderPath = (path, parameters) => path.replace(new RegExp(/{(.+?)}/g), (s
 export default {
     init: async (options) => {
         const openapiUrl = options.openapiUrl || 'https://api.hyperone.com/v2/openapi.json';
-        specUrl = options.openapiSpec || openapiUrl;
-        const schema = await $RefParser.parse(specUrl);
+        const schema = await $RefParser.parse(options.openapiSpec || openapiUrl);
         Object.assign(spec, await $RefParser.dereference(schema, {
             resolve: {
                 lazy: lazy_resolver(openapiUrl),
@@ -57,11 +55,13 @@ export default {
     },
     renderPath,
     getUrl: (path, parameters = {}, operation) => {
-        let server = spec.servers[0];
+        const root = spec.servers[0];
+        let server = root;
         if (operation && operation.servers) {
             server = operation.servers[0];
         }
-        return `${new URL(server.url, specUrl)}${renderPath(path, parameters)}`;
+
+        return `${new URL(server.url, root.url)}${renderPath(path, parameters)}`;
     },
     spec, // TODO: Remove me
     getChild: (prefix) => Array
