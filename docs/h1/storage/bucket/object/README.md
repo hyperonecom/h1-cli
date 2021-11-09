@@ -9,21 +9,18 @@ Manage objects of the bucket
 $ h1 storage bucket object <options>
 ```
 
-## Common options
-
-| Option name               | Description                 |
-| ------------------------- | --------------------------- |
-| ```--command {command}``` | -                           |
-| ```--help```              | Show help message and exit. |
-| ```--v, --version```      | Show version and exit.      |
-
 ## Operation options
 
-| Option name               | Description                 |
-| ------------------------- | --------------------------- |
-| ```--command {command}``` | -                           |
-| ```--help```              | Show help message and exit. |
-| ```--v, --version```      | Show version and exit.      |
+| Option name               | Description |
+| ------------------------- | ----------- |
+| ```--command {command}``` | -           |
+
+## Common options
+
+| Option name          | Description                 |
+| -------------------- | --------------------------- |
+| ```--help```         | Show help message and exit. |
+| ```--v, --version``` | Show version and exit.      |
 
 # Available commands
 

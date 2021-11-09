@@ -9,21 +9,18 @@ Management of instance resource
 $ h1 website instance <options>
 ```
 
-## Common options
-
-| Option name               | Description                 |
-| ------------------------- | --------------------------- |
-| ```--command {command}``` | -                           |
-| ```--help```              | Show help message and exit. |
-| ```--v, --version```      | Show version and exit.      |
-
 ## Operation options
 
-| Option name               | Description                 |
-| ------------------------- | --------------------------- |
-| ```--command {command}``` | -                           |
-| ```--help```              | Show help message and exit. |
-| ```--v, --version```      | Show version and exit.      |
+| Option name               | Description |
+| ------------------------- | ----------- |
+| ```--command {command}``` | -           |
+
+## Common options
+
+| Option name          | Description                 |
+| -------------------- | --------------------------- |
+| ```--help```         | Show help message and exit. |
+| ```--v, --version``` | Show version and exit.      |
 
 # Available commands
 
@@ -43,6 +40,7 @@ $ h1 website instance <options>
 * [h1 website instance sideapp](./sideapp/README.md)
 * [h1 website instance log](./log/README.md)
 * [h1 website instance tag](./tag/README.md)
+* [h1 website instance metric](./metric/README.md)
 * [h1 website instance ssh](./ssh/README.md)
 * [h1 website instance sftp](./sftp/README.md)
 

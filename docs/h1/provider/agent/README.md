@@ -9,21 +9,18 @@ Management of agent resource
 $ h1 provider agent <options>
 ```
 
-## Common options
-
-| Option name               | Description                 |
-| ------------------------- | --------------------------- |
-| ```--command {command}``` | -                           |
-| ```--help```              | Show help message and exit. |
-| ```--v, --version```      | Show version and exit.      |
-
 ## Operation options
 
-| Option name               | Description                 |
-| ------------------------- | --------------------------- |
-| ```--command {command}``` | -                           |
-| ```--help```              | Show help message and exit. |
-| ```--v, --version```      | Show version and exit.      |
+| Option name               | Description |
+| ------------------------- | ----------- |
+| ```--command {command}``` | -           |
+
+## Common options
+
+| Option name          | Description                 |
+| -------------------- | --------------------------- |
+| ```--help```         | Show help message and exit. |
+| ```--v, --version``` | Show version and exit.      |
 
 # Available commands
 
@@ -39,7 +36,6 @@ $ h1 provider agent <options>
 * [h1 provider agent credential](./credential/README.md)
 * [h1 provider agent enabled-service](./enabled-service/README.md)
 * [h1 provider agent resource](./resource/README.md)
-* [h1 provider agent metric](./metric/README.md)
 * [h1 provider agent service](./service/README.md)
 * [h1 provider agent tag](./tag/README.md)
 * [h1 provider agent event](./event/README.md)

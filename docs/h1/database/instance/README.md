@@ -9,21 +9,18 @@ Management of instance resource
 $ h1 database instance <options>
 ```
 
-## Common options
-
-| Option name               | Description                 |
-| ------------------------- | --------------------------- |
-| ```--command {command}``` | -                           |
-| ```--help```              | Show help message and exit. |
-| ```--v, --version```      | Show version and exit.      |
-
 ## Operation options
 
-| Option name               | Description                 |
-| ------------------------- | --------------------------- |
-| ```--command {command}``` | -                           |
-| ```--help```              | Show help message and exit. |
-| ```--v, --version```      | Show version and exit.      |
+| Option name               | Description |
+| ------------------------- | ----------- |
+| ```--command {command}``` | -           |
+
+## Common options
+
+| Option name          | Description                 |
+| -------------------- | --------------------------- |
+| ```--help```         | Show help message and exit. |
+| ```--v, --version``` | Show version and exit.      |
 
 # Available commands
 
@@ -37,6 +34,7 @@ $ h1 database instance <options>
 * [h1 database instance credential](./credential/README.md)
 * [h1 database instance connect](./connect/README.md)
 * [h1 database instance tag](./tag/README.md)
+* [h1 database instance metric](./metric/README.md)
 
 # Parent commands
 

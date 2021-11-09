@@ -91,20 +91,24 @@ class Command {
                    $ ${command.replace('{name}', fullName).replace(/--/g, '\\\\ \n\t--')}`).join('\n\n'),
             });
         }
-        content.push({
-            header: 'Common options',
-            hide: ['command'],
-            group: ['global'],
-            optionList: options,
-        });
-        if (options.some(x => (x.groups || ['_none']).includes('_none'))) {
+
+        const optionList = options.filter(option => !option.group || option.group.includes('_none'));
+        if (optionList.length > 0) {
             content.push({
                 header: 'Operation options',
                 hide: ['command'],
                 group: ['_none'],
-                optionList: options,
+                optionList,
             });
         }
+
+        content.push({
+            header: 'Common options',
+            hide: ['command'],
+            group: ['global'],
+            optionList: options.filter(option => option.group && option.group.includes('global')),
+        });
+
         return content;
     }
     async getUsage(...args) {

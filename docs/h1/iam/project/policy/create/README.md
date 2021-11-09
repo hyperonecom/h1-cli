@@ -28,41 +28,24 @@ h1 iam project policy create \
 	--resource /iam/project/5f64e2468c71177993874510
 ```
 
+## Operation options
+
+| Option name                                   | Description                                                             |
+| --------------------------------------------- | ----------------------------------------------------------------------- |
+| ```--x-dry-run {x-dry-run}```                 | Dry run                                                                 |
+| ```--x-idempotency-key {x-idempotency-key}``` | Idempotency key                                                         |
+| ```--project {id-or-uri}```                   | Project Id                                                              |
+| ```--name {name}```                           | Policy name                                                             |
+| ```--role {uri}```                            | Policy role. Provide URI of iam/role. Requires permissions iam/role/use |
+| ```--resource {uri}```                        | Policy resource. Provide URI of *                                       |
+| ```--actor {value=value}```                   | Actor collection                                                        |
+| ```--tag {key=key, value=value}```            | Tag collection                                                          |
+| ```--skeleton```                              | Display intermediary representation of operation                        |
+
 ## Common options
 
 | Option name                                        | Description                                                                                    |
 | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
-| ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--name {name}```                                | Policy name                                                                                    |
-| ```--role {uri}```                                 | Policy role. Provide URI of iam/role. Requires permissions iam/role/use                        |
-| ```--resource {uri}```                             | Policy resource. Provide URI of *                                                              |
-| ```--actor {value=value}```                        | Actor collection                                                                               |
-| ```--tag {key=key, value=value}```                 | Tag collection                                                                                 |
-| ```--skeleton```                                   | Display intermediary representation of operation                                               |
-| ```--help```                                       | Show help message and exit.                                                                    |
-| ```--verbose```                                    | Make the operation more talkative.                                                             |
-| ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml                                        |
-| ```--query {query}```                              | JMESPath query string. Default value is [].\{id:id, name:name, state:state, flavour:flavour\}  |
-| ```--passport-file {path}```                       | Passport file. Default value is ```~/.h1/passport.json```, if available.                       |
-| ```--as {uri}```                                   | Act as another actor eg. service account                                                       |
-| ```--no-wait```                                    | In case of queued event do not wait for completion                                             |
-| ```--v, --version```                               | Show version and exit.                                                                         |
-
-## Operation options
-
-| Option name                                        | Description                                                                                    |
-| -------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| ```--x-dry-run {x-dry-run}```                      | Dry run                                                                                        |
-| ```--x-idempotency-key {x-idempotency-key}```      | Idempotency key                                                                                |
-| ```--project {id-or-uri}```                        | Project Id                                                                                     |
-| ```--name {name}```                                | Policy name                                                                                    |
-| ```--role {uri}```                                 | Policy role. Provide URI of iam/role. Requires permissions iam/role/use                        |
-| ```--resource {uri}```                             | Policy resource. Provide URI of *                                                              |
-| ```--actor {value=value}```                        | Actor collection                                                                               |
-| ```--tag {key=key, value=value}```                 | Tag collection                                                                                 |
-| ```--skeleton```                                   | Display intermediary representation of operation                                               |
 | ```--help```                                       | Show help message and exit.                                                                    |
 | ```--verbose```                                    | Make the operation more talkative.                                                             |
 | ```--o, --output {tsv,list,json,js,id,uri,yaml}``` | Specify output format of command. Default value is yaml                                        |
