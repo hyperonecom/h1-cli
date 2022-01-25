@@ -89,7 +89,7 @@ docReady(async function () {
     });
     submitElement.addEventListener('click', async () => {
         const cmd = commandElement.value.split(' ');
-        if (cmd[0] == device.getName()) {
+        if (cmd[0] === device.getName()) {
             console.log('command: ', cmd);
             outputElement.style.border = 'thick solid #0000FF';
             await program.run(cmd.slice(1));

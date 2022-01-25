@@ -8,7 +8,7 @@ export const resolvePointer = (data, path) => {
 };
 
 export const serializeValue = (value) => {
-    if (typeof value == 'object') {
+    if (typeof value === 'object') {
         return Object
             .entries(value)
             .filter(([, value]) => !!value)

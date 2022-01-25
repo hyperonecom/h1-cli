@@ -37,7 +37,7 @@ export default new Command({
             headers: { authorization: `Bearer ${token}` },
         });
         let lines = 0;
-        const logFile = optsAll['log-file-output'] == 'stdout' ? process.stdout : fs.createWriteStream(optsAll['log-file-output']);
+        const logFile = optsAll['log-file-output'] === 'stdout' ? process.stdout : fs.createWriteStream(optsAll['log-file-output']);
         return new Promise((resolve, reject) => stream.body
             .on('error', err => {
                 logFile.close();

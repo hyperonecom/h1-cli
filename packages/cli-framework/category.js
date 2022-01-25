@@ -55,7 +55,7 @@ class Category extends Command {
     }
     addCommand(...cmds) {
         for (const cmd of cmds) {
-            if (typeof cmd == 'function') {
+            if (typeof cmd === 'function') {
                 if (this.loaded) {
                     throw new AlreadyLoadedError('No late to add new lazy command');
                 }
@@ -87,7 +87,7 @@ class Category extends Command {
             state: this.state,
         };
         const allOpts = opts._all || opts || {};
-        const cmd = this.commands.find(x => x.name == allOpts.command || x.aliases.includes(allOpts.command));
+        const cmd = this.commands.find(x => x.name === allOpts.command || x.aliases.includes(allOpts.command));
         if (opts.version || allOpts.version) {
             return this.getVersion();
         }
@@ -120,7 +120,9 @@ class Category extends Command {
     async findCommand(tag) {
         const commands = await this.loadCommands();
         const child_cmd = commands.find(x => x.tags.includes(tag));
-        if (child_cmd) return child_cmd;
+        if (child_cmd) {
+            return child_cmd;
+        }
         for (const child of commands.filter(x => x.loadCommands)) {
             const child_cmd = await child.findCommand(tag);
             if (child_cmd) {

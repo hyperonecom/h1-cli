@@ -4,7 +4,9 @@ import { lazy_resolver } from './json_schema';
 const spec = {};
 
 const renderPath = (path, parameters) => path.replace(new RegExp(/{(.+?)}/g), (source, name) => {
-    if (name in parameters) return encodeURIComponent(parameters[name]);
+    if (name in parameters) {
+        return encodeURIComponent(parameters[name]);
+    }
     return source;
 });
 
@@ -28,7 +30,7 @@ export default {
 
             namespaces[xNamespace] = namespaces[xNamespace] || [];
 
-            if (namespaces[xNamespace].some(x => x.kind == xKind)) {
+            if (namespaces[xNamespace].some(x => x.kind === xKind)) {
                 return;
             }
 
@@ -43,12 +45,16 @@ export default {
     },
     getPath: prefix => spec.paths[prefix],
     getEndpointForKind: kind => {
-        const tags = spec.tags.filter(tag => tag['x-kind'] == kind);
+        const tags = spec.tags.filter(tag => tag['x-kind'] === kind);
         const operations = tags.map(x => `${x.name}_get`);
         const prefixes = [];
         for (const [prefix, pathItem] of Object.entries(spec.paths)) {
-            if (!pathItem.get) continue;
-            if (!operations.includes(pathItem.get.operationId)) continue;
+            if (!pathItem.get) {
+                continue;
+            }
+            if (!operations.includes(pathItem.get.operationId)) {
+                continue;
+            }
             prefixes.push(prefix);
         }
         return prefixes;
@@ -69,7 +75,9 @@ export default {
             .entries(spec.paths)
             .map(([path]) => {
                 const match = path.match(new RegExp(`^(${prefix}/[a-zA-Z]+?)(/{[A-Za-z_]+}){0,1}$`));
-                if (!match) return;
+                if (!match) {
+                    return;
+                }
                 return match[1];
             })
             .filter(x => !!x)

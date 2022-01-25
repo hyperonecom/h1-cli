@@ -4,15 +4,17 @@ import select from './select';
 import sa_generate from './sa_generate';
 
 const lazyAdd = (cmd, names, handler) => {
-    if (names.length == 1) {
+    if (names.length === 1) {
         return cmd.loadHook.push(() => {
-            const child = cmd.commands.find(x => x.name == names[0]);
+            const child = cmd.commands.find(x => x.name === names[0]);
             child.addCommand(handler);
         });
     }
     cmd.loadHook.push(() => {
-        const child = cmd.commands.find(x => x.name == names[0]);
-        if (!child) return;
+        const child = cmd.commands.find(x => x.name === names[0]);
+        if (!child) {
+            return;
+        }
         child.loadHook.push(() => lazyAdd(child, names.slice(1), handler));
     });
 };

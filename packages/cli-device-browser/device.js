@@ -14,7 +14,7 @@ class BrowserDevice extends Device {
     }
     configLoad() {
         // eslint-disable-next-line no-undef
-        if (typeof this.config == 'undefined') {
+        if (typeof this.config === 'undefined') {
             const content = window.localStorage.getItem('cli-configuration');
 
             if (content) {

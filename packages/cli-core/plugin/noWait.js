@@ -2,7 +2,9 @@
 export default {
     name: __filename.split('/').pop(),
     beforeParseArgv: (cmd) => {
-        if (cmd.findCommand) return;
+        if (cmd.findCommand) {
+            return;
+        }
 
         cmd.options.push(
             {

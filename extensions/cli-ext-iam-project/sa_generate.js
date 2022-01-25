@@ -10,7 +10,9 @@ const generateKeyPair = () => new Promise((resolve, reject) =>
         bits: 2048,
         workers: -1,
     }, (err, keypair) => {
-        if (err) return reject(err);
+        if (err) {
+            return reject(err);
+        }
         return resolve(keypair);
     })
 );

@@ -4,8 +4,8 @@ import { set } from '@hyperone/cli-core/lib/transform';
 
 const findOptionsForFormat = (options, format) => options.filter(x =>
     x.use && x.use.schema && (
-        x.use.schema.format == format ||
-        x.use.schema.oneOf && x.use.schema.oneOf.some(y => y.format == format)
+        x.use.schema.format === format ||
+        x.use.schema.oneOf && x.use.schema.oneOf.some(y => y.format === format)
     ));
 
 export default {
@@ -28,8 +28,12 @@ export default {
         const applyOptions = findOptionsForFormat(options, 'uri-upload');
         for (const option of applyOptions) {
             const value = optsAll[option.name];
-            if (!value) continue;
-            if (!value.startsWith('file://')) continue;
+            if (!value) {
+                continue;
+            }
+            if (!value.startsWith('file://')) {
+                continue;
+            }
             const path = require('path');
             const filepath = new URL(value).pathname;
             const filename = path.basename(filepath);

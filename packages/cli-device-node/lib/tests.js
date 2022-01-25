@@ -65,8 +65,12 @@ const runPty = async (cmd, inputs, options = {}) => new Promise((resolve, reject
     let index = 0;
 
     const startWrite = () => setTimeout(() => {
-        if (!ptyProcess._writable) return;
-        if (index >= inputs.length) return;
+        if (!ptyProcess._writable) {
+            return;
+        }
+        if (index >= inputs.length) {
+            return;
+        }
         ptyProcess.write(inputs[index]);
         index += 1;
         startWrite();
@@ -74,7 +78,9 @@ const runPty = async (cmd, inputs, options = {}) => new Promise((resolve, reject
 
     ptyProcess.onData((chunk) => {
         chunks.push(Buffer.from(chunk));
-        if (written) return;
+        if (written) {
+            return;
+        }
         written = true;
         startWrite();
     });
@@ -106,7 +112,9 @@ const withVariable = (options = [], fn) => async (...args) => {
     const map = await runJson('h1 config settings get --key test');
     const new_args = [];
     for (const name of options) {
-        if (!map[name]) throw new Error(`Missing value for variable '${name}'. Use 'h1 config settings --key test.${name} --value {value}' to  set`);
+        if (!map[name]) {
+            throw new Error(`Missing value for variable '${name}'. Use 'h1 config settings --key test.${name} --value {value}' to  set`);
+        }
         new_args.push(map[name]);
     }
     return fn(...args, ...new_args);

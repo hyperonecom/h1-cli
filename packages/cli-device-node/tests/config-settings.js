@@ -14,5 +14,5 @@ ava('config settings lifecycle', async t => {
     const output_get = await run(`h1 config settings get --key ${key}`);
     t.true(output_get.includes(token));
     const output_dump = await runJson('h1 config settings dump');
-    t.true(output_dump[key] == token);
+    t.true(output_dump[key] === token);
 });

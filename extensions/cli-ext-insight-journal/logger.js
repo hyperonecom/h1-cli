@@ -32,7 +32,7 @@ export default new Command({
             .get(openapi.getUrl(`/insight/pl-waw-1/project/${optsAll.project}/journal/${optsAll.journal}`));
         const log = logResp.bodyJson;
         const token = await opts.auth.getToken(log.fqdn);
-        const logFile = optsAll['log-file'] == 'stdin' ? process.stdin : fs.createReadStream(optsAll['log-file']);
+        const logFile = optsAll['log-file'] === 'stdin' ? process.stdin : fs.createReadStream(optsAll['log-file']);
         const inStream = logFile
             .pipe(new readlineTransform())
             .pipe(new Transform({

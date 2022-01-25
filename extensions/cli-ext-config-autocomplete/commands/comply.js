@@ -12,7 +12,9 @@ export default new Command({
     handler: async (opts, cmd) => {
         // find root command
         let root = cmd;
-        while (root.parent) root = root.parent;
+        while (root.parent) {
+            root = root.parent;
+        }
         const argv = split(opts._all.cmd);
         // console.log({argv});
         const last_arg = argv[argv.length - 1];
@@ -25,10 +27,10 @@ export default new Command({
             }
             children = await command.loadCommands();
             arg = argv[index];
-            if (!children.some(x => x.name == arg)) {
+            if (!children.some(x => x.name === arg)) {
                 break;
             }
-            command = children.find(x => x.name == arg);
+            command = children.find(x => x.name === arg);
         }
         // autocomplete for option
         if (last_arg.startsWith('-')) {

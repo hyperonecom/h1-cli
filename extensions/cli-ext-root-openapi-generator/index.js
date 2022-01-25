@@ -167,7 +167,9 @@ export const makeResourceCommand = (resource, ctx) => () => {
 
         for (const { name, path: actionPath, endpoint } of openapi.getActions(path)) {
             for (const method of ['post', 'get']) {
-                if (!endpoint[method]) continue;
+                if (!endpoint[method]) {
+                    continue;
+                }
 
                 cmd.addCommand(makeOperationCommand({
                     ...ctx,

@@ -51,7 +51,9 @@ const outputFormat = {
 export default {
     name: __filename.split('/').pop(),
     beforeParseArgv: (cmd) => {
-        if (cmd.findCommand) return;
+        if (cmd.findCommand) {
+            return;
+        }
         cmd.options.push(...[
             {
                 name: 'output',
@@ -86,7 +88,9 @@ export default {
                     output = `The operation response status is '${output.status} ${output.statusText}'`;
                 }
             }
-            if (typeof output == 'string') return output;
+            if (typeof output === 'string') {
+                return output;
+            }
             return formatter(output, optsAll.query);
         };
     },

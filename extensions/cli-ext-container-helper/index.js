@@ -9,7 +9,7 @@ export default {
     name: require('./package.json').name,
     version: require('./package.json').version,
     load: async (parent) => parent.loadHook.push(() => {
-        const cmd = parent.commands.find(x => x.name == 'registry');
+        const cmd = parent.commands.find(x => x.name === 'registry');
         const category = new Category({
             name: 'helper',
             summary: 'Manage Docker credential helper',

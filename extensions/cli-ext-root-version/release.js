@@ -14,18 +14,22 @@ export const getRelease = async (http, prerelease = false) => {
 };
 
 export const getFlavour = async () => {
-    if (os.platform() == 'win32') {
+    if (os.platform() === 'win32') {
         return 'win';
     }
-    if (os.platform() == 'linux') {
+    if (os.platform() === 'linux') {
         try {
             const content = await fs.promises.readFile('/etc/os-release', { encoding: 'utf-8' });
-            if (content.includes('alpine')) return 'alpine';
+            if (content.includes('alpine')) {
+                return 'alpine';
+            }
         } catch (err) {
 
         }
         return 'linux';
     }
-    if (os.platform() == 'darwin') return 'macos';
+    if (os.platform() === 'darwin') {
+        return 'macos';
+    }
     throw new CliError('Unable to determine CLI flavour');
 };

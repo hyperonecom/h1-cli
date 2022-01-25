@@ -20,7 +20,9 @@ const set_helper = async (hostname, helper) => {
     try {
         cfg = JSON.parse(await fs.promises.readFile(cpath, { encoding: 'utf-8' }));
     } catch (err) {
-        if (err.code != 'ENOENT') throw err;
+        if (err.code !== 'ENOENT') {
+            throw err;
+        }
     }
     cfg.auths = cfg.auths || {};
     cfg.credHelpers = cfg.credHelpers || {};

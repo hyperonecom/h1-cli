@@ -34,7 +34,7 @@ skipIfCi('container helper lifecycle', withVariable(['project'], withTemp(async 
         t.true(stdoutPush.includes('Pushed'));
 
         const output_list = await runJson(`h1 container registry repository list --project ${project} --registry ${resource.id}`);
-        t.true(output_list.some(x => x.name == name));
+        t.true(output_list.some(x => x.name === name));
     } finally {
         await run(`h1 container registry delete --project ${project} --registry ${resource.id}`, options);
     }

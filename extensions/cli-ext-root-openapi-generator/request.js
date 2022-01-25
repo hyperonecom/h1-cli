@@ -42,7 +42,7 @@ const parameterForParameter = (p = []) => {
 
 const middlewareForSchema = (schema) => {
     const hooks = [];
-    if (schema.type == 'object') {
+    if (schema.type === 'object') {
         for (const pvalue of Object.values(schema.properties || {})) {
             hooks.push(...middlewareForSchema(pvalue));
         }
@@ -68,7 +68,7 @@ const middlewareForOperation = (operation) => {
 
 const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required) => {
     const parameters = [];
-    if (pvalue.type == 'object') {
+    if (pvalue.type === 'object') {
         for (const [child_pname, child_pvalue] of Object.entries(pvalue.properties || {})) {
             const child_parameters = parameterForSchema(
                 flatSchema(child_pvalue),
@@ -113,7 +113,7 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
 
         const prefixes = openapi.getEndpointForKind(pvalue['x-resource'].kind);
 
-        if (prefixes.length == 1) {
+        if (prefixes.length === 1) {
             Object.assign(p, {
                 typeLabel: 'id-or-uri',
                 prefix: prefixes[0],
@@ -127,11 +127,11 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
         description.push(`Requires permissions ${pvalue['x-permissions'].join(', ')}`);
     }
 
-    if (pvalue.format == 'uri-upload') {
+    if (pvalue.format === 'uri-upload') {
         description.push('Provide URI of local file eg. \'file://./my-file.bin\'.');
     }
 
-    if (pvalue.type == 'string') {
+    if (pvalue.type === 'string') {
         Object.assign(p, {
             placeholder: pname,
         });
@@ -149,22 +149,22 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
         }
     }
 
-    if (pvalue.type == 'array' && pvalue.items.type == 'string') {
+    if (pvalue.type === 'array' && pvalue.items.type === 'string') {
         Object.assign(p, {
             multiple: true,
         });
     }
 
-    if (pvalue.type == 'boolean') {
+    if (pvalue.type === 'boolean') {
         Object.assign(p, {
             typeLabel: 'true,false',
             type: types.booleanish,
         });
     }
 
-    if (pvalue.type == 'array' && pvalue.items.type == 'object') {
+    if (pvalue.type === 'array' && pvalue.items.type === 'object') {
         const label = Object.entries(pvalue.items.properties || {})
-            .filter(([, value]) => value.readOnly != true)
+            .filter(([, value]) => value.readOnly !== true)
             .map(([key]) => `${key}=${key}`)
             .join(', ');
 
@@ -199,7 +199,7 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
 
 const mergeSchema = (a, b) => {
     const result = {};
-    if (a.type == 'object' && b.type == 'object') {
+    if (a.type === 'object' && b.type === 'object') {
         result.type = 'object';
         if (a.required && b.required) {
             a.required = a.required.filter(x => b.required.includes(x));
@@ -246,7 +246,7 @@ const mergeSchema = (a, b) => {
         result.const = a.const;
     }
     for (const name of ['format', 'title']) {
-        if (a[name] == b[name]) {
+        if (a[name] === b[name]) {
             result[name] = a[name];
         }
     }
@@ -279,9 +279,9 @@ const renderOptions = (operation, parameters = []) => {
 const renderEmpty = (schema) => {
     const result = {};
     schema = flatSchema(schema);
-    if (schema.type == 'object') {
+    if (schema.type === 'object') {
         for (const [child_pname, child_pvalue] of Object.entries(schema.properties || {})) {
-            if (child_pvalue.type == 'object') {
+            if (child_pvalue.type === 'object') {
                 result[child_pname] = renderEmpty(child_pvalue);
             }
             if (child_pvalue.const) {
@@ -301,12 +301,16 @@ const renderBody = (operation, input, options) => {
     const parameters = renderParameter(input, options);
 
     for (const option of options) {
-        if (!option.use || option.use.in != 'body') {
+        if (!option.use || option.use.in !== 'body') {
             continue;
         }
         let value = input[option.name];
-        if (value === undefined) continue;
-        if (value == option.defaultValue) continue;
+        if (value === undefined) {
+            continue;
+        }
+        if (value === option.defaultValue) {
+            continue;
+        }
         if (option.prefix && value && !value.startsWith('/')) {
             value = openapi.renderPath(option.prefix, { ...parameters, [`${option.name}Id`]: value });
         }
@@ -320,13 +324,15 @@ const renderBody = (operation, input, options) => {
 
 const generateQuery = (path, operation) => {
     const schema = openapi.getResponse(operation);
-    if (!schema) return;
+    if (!schema) {
+        return;
+    }
     const col = [];
 
     let props;
-    if (schema.type == 'array') {
+    if (schema.type === 'array') {
         props = schema.items.properties || {};
-    } else if (schema.type == 'object') {
+    } else if (schema.type === 'object') {
         props = schema.properties || {};
     }
 
@@ -338,7 +344,7 @@ const generateQuery = (path, operation) => {
         }
     }
 
-    if (col.length == 0) {
+    if (col.length === 0) {
         col.push('value:@');
     }
     return `[].{${col.join(', ')}} `;
@@ -346,14 +352,16 @@ const generateQuery = (path, operation) => {
 
 const renderQuery = (input, options) => Object
     .fromEntries(options
-        .filter(option => option.use && option.use.in == 'query' && input[option.name])
+        .filter(option => option.use && option.use.in === 'query' && input[option.name])
         .map(option => [option.use.field, input[option.name]])
     );
 
 const renderParameter = (input, options) => {
     const parameter = {};
     for (const option of options.filter(x => x.use)) {
-        if (!input[option.name]) continue;
+        if (!input[option.name]) {
+            continue;
+        }
         if (['path', 'query'].includes(option.use.in)) {
             parameter[option.use.field] = input[option.name];
         }

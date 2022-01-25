@@ -13,7 +13,7 @@ import { CliError } from '@hyperone/cli-framework/error';
 import inquirer from 'inquirer';
 
 const parameterLabel = (parameter, options = []) => {
-    const option = options.find(p => p.use && p.use.in == parameter.in && p.use.field == parameter.field);
+    const option = options.find(p => p.use && p.use.in === parameter.in && p.use.field === parameter.field);
     if (!option) {
         return parameter.field;
     }
@@ -47,7 +47,7 @@ export class NodeDevice extends Device {
         }
     }
     async displayError(err) {
-        if (err.code == 'ERESOLVER') {
+        if (err.code === 'ERESOLVER') {
             console.log('There is a problem with the network connection to the Platform. Please check your internet connection and try again later.');
         } else if (err instanceof CliError) {
             console.log(`Error: ${err.message}`);
@@ -87,7 +87,7 @@ export class NodeDevice extends Device {
         return path.join(os.homedir(), `.${this.scope}`);
     }
     async configLoad() {
-        if (typeof this.config == 'undefined') {
+        if (typeof this.config === 'undefined') {
             const outDir = await this.dataDir();
             try {
                 const content = await fs.promises.readFile(path.join(outDir, 'config.json'), { encoding: 'utf-8' });
@@ -109,7 +109,7 @@ export class NodeDevice extends Device {
         return this.config;
     }
     async configStore() {
-        if (typeof this.config == 'undefined') return;
+        if (typeof this.config === 'undefined') { return; }
         const outDir = path.join(os.homedir(), `.${this.scope}`);
         await fs.promises.mkdir(outDir, { recursive: true });
         await fs.promises.writeFile(path.join(outDir, 'config.json'), JSON.stringify(this.config, null, 4), { encoding: 'utf-8' });
@@ -149,7 +149,9 @@ export class NodeDevice extends Device {
         try {
             return JSON.parse(fs.readFileSync(untildify(`~/.${this.scope}/passport.json`)));
         } catch (err) {
-            if (err.code == 'ENOENT') return;
+            if (err.code === 'ENOENT') {
+                return;
+            }
             throw err;
         }
     }
@@ -161,7 +163,7 @@ export class NodeDevice extends Device {
         try {
             directories = await fs.promises.readdir(extDir);
         } catch (err) {
-            if (err.code == 'ENOENT') {
+            if (err.code === 'ENOENT') {
                 directories = [];
             } else {
                 throw err;
@@ -185,7 +187,7 @@ export class NodeDevice extends Device {
                 extension = extension.default && extension.default;
                 // Skip remote-loaded modules
                 // Allows overlap & upgrade
-                if (!extensions.some(x => x.name == extension.name)) {
+                if (!extensions.some(x => x.name === extension.name)) {
                     extensions.push(extension);
                 }
             }

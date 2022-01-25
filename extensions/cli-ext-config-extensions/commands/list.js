@@ -20,7 +20,7 @@ export default new Command({
                 continue;
             }
             const versions = await client.listVersions(pkg.package.name);
-            const installed = installed_extensions.find(x => x.name == pkg.package.name);
+            const installed = installed_extensions.find(x => x.name === pkg.package.name);
 
             result.push({
                 name: pkg.package.name,

@@ -35,7 +35,7 @@ class Command {
     }
     async getOptions() {
         // TODO: Found clean-way to avoid state
-        if (typeof this.argPlugin == 'undefined') {
+        if (typeof this.argPlugin === 'undefined') {
             for (const plugin of this.plugins || []) {
                 if (!plugin.beforeParseArgv) {
                     continue;
@@ -54,7 +54,7 @@ class Command {
         ];
     }
     async getExamples() {
-        if (typeof this.examples == 'function') {
+        if (typeof this.examples === 'function') {
             this.examples = await this.examples();
         }
         return this.examples;
@@ -151,7 +151,7 @@ class Command {
             }
         }
 
-        const interactive = options.filter(x => x.required && typeof allOpts[x.name] == 'undefined' && x.interactive);
+        const interactive = options.filter(x => x.required && typeof allOpts[x.name] === 'undefined' && x.interactive);
         if (this.device && this.device.askInteractive) {
             const answers = await this.device.askInteractive(
                 interactive.map(x => ({
@@ -163,7 +163,7 @@ class Command {
             Object.assign(allOpts, answers);
         }
 
-        const missing = options.filter(x => x.required && typeof allOpts[x.name] == 'undefined').map(x => `--${x.name}`);
+        const missing = options.filter(x => x.required && typeof allOpts[x.name] === 'undefined').map(x => `--${x.name}`);
         if (missing.length > 0) {
             throw new UnknownOptionError(`Parameter missing: ${missing.join(', ')}`, missing);
         }
@@ -184,7 +184,7 @@ class Command {
         const argv = this.getFullName().split(' ');
         for (const option of this.options) {
             if (option.use) {
-                const value = option.use.in == 'body' ? resolvePointer(requestBody, option.use.field) : parameters[option.use.field];
+                const value = option.use.in === 'body' ? resolvePointer(requestBody, option.use.field) : parameters[option.use.field];
                 if (typeof value !== 'undefined' && value !== option.defaultValue) {
                     if (option.multiple) {
                         for (const v of value) {

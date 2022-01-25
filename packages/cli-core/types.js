@@ -1,6 +1,6 @@
 
 const extractId = (value) => {
-    if (value.startsWith('/')) return value.split('/').pop();
+    if (value.startsWith('/')) { return value.split('/').pop(); }
     return value;
 };
 
@@ -13,13 +13,15 @@ const nestedValue = schema => value => {
     for (const v of value.split(',')) {
         const [pkey, pvalue] = v.split(/=/, 2);
         const type = schema.properties[pkey] && schema.properties[pkey].type;
-        if (type == 'integer') {
+        if (type === 'integer') {
             if (!isInteger(pvalue)) {
                 throw new Error(`Invalid value. Required integer for nested value ${pkey}.`);
             }
             result[pkey] = Number(pvalue);
-        } else if (type == 'array') {
-            if (!result[pkey]) result[pkey] = [];
+        } else if (type === 'array') {
+            if (!result[pkey]) {
+                result[pkey] = [];
+            }
             result[pkey].push(pvalue);
         } else {
             result[pkey] = pvalue;

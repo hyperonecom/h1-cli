@@ -56,7 +56,7 @@ export default (device, logger) => {
         const encoding = resp.headers.get('transfer-encoding');
 
         if (type && type.startsWith('text/plain')) {
-            if (encoding == 'chunked') {
+            if (encoding === 'chunked') {
                 return resp;
             }
             resp.bodyText = resp.text();
