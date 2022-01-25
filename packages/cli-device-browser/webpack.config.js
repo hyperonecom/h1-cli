@@ -30,5 +30,14 @@ module.exports = {
         alias: {
             'array-back': require.resolve('array-back').replace('/dist/index.js', ''),
         },
+        fallback: {
+            os: require.resolve('os-browserify/browser'),
+            http: false,
+            https: false,
+            path: false,
+            crypto: false,
+            util: false,
+            stream: require.resolve('stream-browserify'),
+        },
     },
 };
