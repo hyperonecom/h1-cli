@@ -14,8 +14,8 @@ export default {
             name: 'helper',
             summary: 'Manage Docker credential helper',
         });
-        cmd.addCommand(category);
-        cmd.loadHook.push(() => {
+        cmd?.addCommand(category);
+        cmd?.loadHook.push(() => {
             category.addCommand(() => install);
             category.addCommand(() => setup);
             category.addCommand(() => get);
