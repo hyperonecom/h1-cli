@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-ext-config-autocomplete",
-  "version": "2.1.2",
+  "version": "2.1.5",
   "description": "Extension to manage autocompletion of CLI.",
   "main": "dist/index.js",
   "browser": "index.js",
