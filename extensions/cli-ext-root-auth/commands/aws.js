@@ -1,6 +1,6 @@
 
 import { Command } from '@hyperone/cli-framework';
-import awsCredentialProvider from '@aws-sdk/credential-provider-node';
+import { defaultProvider } from '@aws-sdk/credential-provider-node';
 import aws4 from 'aws4';
 
 export default new Command({
@@ -38,7 +38,7 @@ export default new Command({
 
         if (optsAll.discovery) {
             try {
-                credential = await awsCredentialProvider.defaultProvider()();
+                credential = await defaultProvider()();
             } catch (err) {
                 throw new Error('None of the supported AWS credential discovery forms have succeeded.');
             }
