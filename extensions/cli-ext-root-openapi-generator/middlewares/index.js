@@ -1,7 +1,7 @@
 import upload from './uri-upload';
 
 const formats = {
-    'uri-upload': upload,
+    uri: upload,
 };
 
 export default formats;

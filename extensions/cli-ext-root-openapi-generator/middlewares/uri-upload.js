@@ -3,15 +3,16 @@ import { S3 } from 'aws-sdk';
 import { set } from '@hyperone/cli-core/lib/transform';
 
 const findOptionsForFormat = (options, format) => options.filter(x =>
-    x.use && x.use.schema && (
+    x.use && x.use.schema && x.use.schema['x-file'] && (
         x.use.schema.format === format ||
         x.use.schema.oneOf && x.use.schema.oneOf.some(y => y.format === format)
-    ));
+    )
+);
 
 export default {
-    name: 'uri-upload',
+    name: 'uri',
     afterRenderOptions: (options) => {
-        const applyOptions = findOptionsForFormat(options, 'uri-upload');
+        const applyOptions = findOptionsForFormat(options, 'uri');
         if (applyOptions) {
             options.push({
                 name: 'no-progress',
@@ -25,7 +26,7 @@ export default {
         const optsAll = opts._all || opts;
         const {device} = cmd;
         const noProgress = optsAll['no-progress'];
-        const applyOptions = findOptionsForFormat(options, 'uri-upload');
+        const applyOptions = findOptionsForFormat(options, 'uri');
         for (const option of applyOptions) {
             const value = optsAll[option.name];
             if (!value) {

@@ -127,7 +127,7 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
         description.push(`Requires permissions ${pvalue['x-permissions'].join(', ')}`);
     }
 
-    if (pvalue.format === 'uri-upload') {
+    if (pvalue['x-file']) {
         description.push('Provide URI of local file eg. \'file://./my-file.bin\'.');
     }
 
