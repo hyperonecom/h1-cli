@@ -47,7 +47,11 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
             if (!operation['x-examples']) {
                 return [];
             }
-            const openApiexamples = await operation['x-examples']();
+
+            const openApiexamples = await operation['x-examples']()
+                .catch(() => ({}))
+            ;
+
             const cliExamples = [];
             for (const [title, example] of Object.entries(openApiexamples)) {
                 cliExamples.push({
