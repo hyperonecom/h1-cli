@@ -54,7 +54,7 @@ const middlewareForSchema = (schema) => {
         }
     }
 
-    if (schema.format && middleware[schema.format] && middleware[schema.format]) {
+    if (schema.format && middleware[schema.format]) {
         hooks.push(middleware[schema.format]);
     }
 
