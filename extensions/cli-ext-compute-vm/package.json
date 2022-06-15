@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-ext-compute-vm",
-  "version": "2.1.5",
+  "version": "2.1.7",
   "description": "",
   "main": "dist/index.js",
   "browser": "index.js",
