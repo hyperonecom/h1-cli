@@ -4,6 +4,7 @@ import { deCamelCase } from '@hyperone/cli-core/lib/transform';
 import types from '@hyperone/cli-core/types';
 import { set } from '@hyperone/cli-core/lib/transform';
 import middleware from './middlewares/index';
+import mergeAllOf from 'json-schema-merge-allof';
 
 const idless = (name) => name.replace(/Id$/, '');
 
@@ -272,7 +273,7 @@ const renderOptions = (operation, parameters = []) => {
     const schema = openapi.getSchema(operation);
     return [
         ...parameterForParameter(parameters),
-        ...parameterForSchema(flatSchema(schema)),
+        ...parameterForSchema(flatSchema(mergeAllOf(schema))),
     ];
 };
 
