@@ -262,10 +262,7 @@ const mergeSchema = (a, b) => {
 const flatSchema = (schema) => {
     for (const key of ['anyOf', 'allOf', 'oneOf']) {
         if (schema[key]) {
-            return schema[key]
-                .map(flatSchema)
-                .reduce((a, b) => mergeSchema(a, b))
-            ;
+            return schema[key].reduce((a, b) => mergeSchema(a, b));
         }
     }
     return schema;
