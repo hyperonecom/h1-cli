@@ -18,9 +18,9 @@
   ],
   "devDependencies": {
     "@hyperone/eslint-config": "^3.0.0",
-    "eslint": "^8.17.0",
+    "eslint": "^8.18.0",
     "eslint-plugin-jasmine": "^4.1.3",
-    "lerna": "^5.1.2"
+    "lerna": "^5.1.4"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
