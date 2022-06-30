@@ -246,7 +246,7 @@ const mergeSchema = (a, b) => {
     } else if (a.const) {
         result.const = a.const;
     }
-    for (const name of ['format', 'title']) {
+    for (const name of ['format', 'title', 'readOnly', 'writeOnly']) {
         if (a[name] === b[name]) {
             result[name] = a[name];
         }
