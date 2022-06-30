@@ -34,7 +34,7 @@ class Command {
         return parts.join(' ');
     }
     async getOptions() {
-        // TODO: Found clean-way to avoid state
+        // TODO: Find clean-way to avoid state
         if (typeof this.argPlugin === 'undefined') {
             for (const plugin of this.plugins || []) {
                 if (!plugin.beforeParseArgv) {
