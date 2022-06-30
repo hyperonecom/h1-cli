@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-generic-commands",
-  "version": "2.1.5",
+  "version": "2.1.9",
   "description": "",
   "main": "index.js",
   "scripts": {

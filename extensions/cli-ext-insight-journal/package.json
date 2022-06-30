@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-ext-insight-journal",
-  "version": "2.1.5",
+  "version": "2.1.9",
   "description": "",
   "main": "dist/index.js",
   "browser": "index.js",
