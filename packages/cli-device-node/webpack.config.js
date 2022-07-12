@@ -1,3 +1,5 @@
+const webpack = require('webpack');
+
 const path = require('path');
 const process = require('process');
 
@@ -25,4 +27,7 @@ module.exports = {
             'array-back': require.resolve('array-back').replace('/dist/index.js', ''),
         },
     },
+    plugins: [
+        new webpack.BannerPlugin({ banner: '#!/usr/bin/env node', raw: true }),
+    ],
 };
