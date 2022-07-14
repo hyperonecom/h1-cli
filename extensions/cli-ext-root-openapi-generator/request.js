@@ -4,7 +4,6 @@ import { deCamelCase } from '@hyperone/cli-core/lib/transform';
 import types from '@hyperone/cli-core/types';
 import { set } from '@hyperone/cli-core/lib/transform';
 import middleware from './middlewares/index';
-import mergeAllOf from 'json-schema-merge-allof';
 
 const idless = (name) => name.replace(/Id$/, '');
 
@@ -72,7 +71,7 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
     if (pvalue.type === 'object') {
         for (const [child_pname, child_pvalue] of Object.entries(pvalue.properties || {})) {
             const child_parameters = parameterForSchema(
-                flatSchema(child_pvalue),
+                child_pvalue,
                 child_pname,
                 !!prefix ? `${prefix}-${pname}` : `${pname}`,
                 path ? `${path}/${pname}` : `${pname}`,
@@ -198,88 +197,16 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
     return parameters;
 };
 
-const mergeSchema = (a, b) => {
-    const result = {};
-    if (a.type === 'object' && b.type === 'object') {
-        result.type = 'object';
-        if (a.required && b.required) {
-            a.required = a.required.filter(x => b.required.includes(x));
-        }
-        if (a.properties && b.properties) {
-            const keys = [
-                ...new Set([
-                    ...Object.keys(a.properties || {}),
-                    ...Object.keys(b.properties || {}),
-                ]),
-            ];
-            result.properties = Object.fromEntries(
-                keys.map(key => {
-                    if (a.properties[key] && b.properties[key]) {
-                        return [
-                            key, mergeSchema(a.properties[key], b.properties[key]),
-                        ];
-                    } else if (a.properties[key]) {
-                        return [
-                            key, a.properties[key],
-                        ];
-                    }
-                    return [
-                        key, b.properties[key],
-                    ];
-                })
-            );
-        }
-    } else if (a.type !== b.type) {
-        result.type = {
-            type: 'string',
-        };
-    } else {
-        result.type = {
-            type: a.type,
-        };
-    }
-    if (a.const !== b.const) {
-        result.enum = [
-            a.const,
-            b.const,
-        ];
-    } else if (a.const) {
-        result.const = a.const;
-    }
-    for (const name of ['format', 'title', 'readOnly', 'writeOnly']) {
-        if (a[name] === b[name]) {
-            result[name] = a[name];
-        }
-    }
-    if (a.enum && b.enum) {
-        result.enum = [
-            ...a.enum,
-            ...b.enum,
-        ];
-    }
-    return result;
-};
-
-const flatSchema = (schema) => {
-    for (const key of ['anyOf', 'allOf', 'oneOf']) {
-        if (schema[key]) {
-            return schema[key].reduce((a, b) => mergeSchema(a, b));
-        }
-    }
-    return schema;
-};
-
 const renderOptions = (operation, parameters = []) => {
     const schema = openapi.getSchema(operation);
     return [
         ...parameterForParameter(parameters),
-        ...parameterForSchema(flatSchema(mergeAllOf(schema))),
+        ...parameterForSchema(schema),
     ];
 };
 
 const renderEmpty = (schema) => {
     const result = {};
-    schema = flatSchema(schema);
     if (schema.type === 'object') {
         for (const [child_pname, child_pvalue] of Object.entries(schema.properties || {})) {
             if (child_pvalue.type === 'object') {

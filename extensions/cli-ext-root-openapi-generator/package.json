@@ -21,7 +21,6 @@
     "@hyperone/cli-core": "link:../../packages/cli-core",
     "@hyperone/cli-framework": "link:../../packages/cli-framework",
     "aws-sdk": "^2.770.0",
-    "json-schema-merge-allof": "^0.8.1",
     "jsonpatch": "^3.0.1",
     "pluralize": "^8.0.0",
     "progress": "^2.0.3",

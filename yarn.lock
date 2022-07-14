@@ -246,7 +246,7 @@
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
 "@hyperone/cli-core@link:packages/cli-core":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^9.0.3"
     "@hyperone/cli-framework" "link:packages/cli-framework"
@@ -256,6 +256,7 @@
     command-line-usage "^6.1.1"
     jmespath "^0.15.0"
     js-yaml "^3.14.0"
+    json-schema-merge-allof "^0.8.1"
     jsonwebtoken "^8.5.1"
     meant "^1.0.1"
     node-fetch "^2.6.0"
@@ -263,7 +264,7 @@
     untildify "^4.0.0"
 
 "@hyperone/cli-device-browser@link:packages/cli-device-browser":
-  version "2.1.8"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-ext-root-openapi-generator" "link:extensions/cli-ext-root-openapi-generator"
@@ -274,20 +275,20 @@
     stream-browserify "^3.0.0"
 
 "@hyperone/cli-ext-compute-vm@link:extensions/cli-ext-compute-vm":
-  version "2.1.7"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
 
 "@hyperone/cli-ext-config-autocomplete@link:extensions/cli-ext-config-autocomplete":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
     shlex "^2.0.2"
 
 "@hyperone/cli-ext-config-extensions@link:extensions/cli-ext-config-extensions":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
@@ -296,33 +297,33 @@
     tar-fs "^2.1.0"
 
 "@hyperone/cli-ext-config-settings@link:extensions/cli-ext-config-settings":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
 
 "@hyperone/cli-ext-container-helper@link:extensions/cli-ext-container-helper":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
 
 "@hyperone/cli-ext-iam-project@link:extensions/cli-ext-iam-project":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
     node-forge "^0.9.1"
 
 "@hyperone/cli-ext-insight-journal@link:extensions/cli-ext-insight-journal":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
     readline-transform "^1.0.0"
 
 "@hyperone/cli-ext-root-auth@link:extensions/cli-ext-root-auth":
-  version "2.1.7"
+  version "2.1.9"
   dependencies:
     "@aws-sdk/credential-provider-node" "0.1.0-preview.2"
     "@azure/identity" "^1.0.3"
@@ -332,18 +333,17 @@
     google-auth-library "^6.0.5"
 
 "@hyperone/cli-ext-root-config@link:extensions/cli-ext-root-config":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
 
 "@hyperone/cli-ext-root-openapi-generator@link:extensions/cli-ext-root-openapi-generator":
-  version "2.1.8"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
     aws-sdk "^2.770.0"
-    json-schema-merge-allof "^0.8.1"
     jsonpatch "^3.0.1"
     pluralize "^8.0.0"
     progress "^2.0.3"
@@ -351,35 +351,35 @@
     ws-streamify "^0.1.4"
 
 "@hyperone/cli-ext-root-version@link:extensions/cli-ext-root-version":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
     semver "^7.3.4"
 
 "@hyperone/cli-ext-storage-vault@link:extensions/cli-ext-storage-vault":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
     "@hyperone/cli-generic-commands" "link:packages/cli-generic-commands"
 
 "@hyperone/cli-ext-website-instance@link:extensions/cli-ext-website-instance":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"
     "@hyperone/cli-generic-commands" "link:packages/cli-generic-commands"
 
 "@hyperone/cli-framework@link:packages/cli-framework":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     command-line-args "^5.1.1"
     command-line-usage "^6.1.1"
     meant "^1.0.1"
 
 "@hyperone/cli-generic-commands@link:packages/cli-generic-commands":
-  version "2.1.5"
+  version "2.1.9"
   dependencies:
     "@hyperone/cli-core" "link:packages/cli-core"
     "@hyperone/cli-framework" "link:packages/cli-framework"

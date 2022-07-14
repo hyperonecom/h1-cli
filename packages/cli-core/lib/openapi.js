@@ -1,4 +1,5 @@
 import $RefParser from '@apidevtools/json-schema-ref-parser';
+import mergeAllOf from 'json-schema-merge-allof';
 import { lazy_resolver } from './json_schema';
 
 const spec = {};
@@ -9,6 +10,77 @@ const renderPath = (path, parameters) => path.replace(new RegExp(/{(.+?)}/g), (s
     }
     return source;
 });
+
+const mergeSchema = (a, b) => {
+    const result = {};
+    if (a.type === 'object' && b.type === 'object') {
+        result.type = 'object';
+        if (a.required && b.required) {
+            a.required = a.required.filter(x => b.required.includes(x));
+        }
+        if (a.properties && b.properties) {
+            const keys = [
+                ...new Set([
+                    ...Object.keys(a.properties || {}),
+                    ...Object.keys(b.properties || {}),
+                ]),
+            ];
+            result.properties = Object.fromEntries(
+                keys.map(key => {
+                    if (a.properties[key] && b.properties[key]) {
+                        return [
+                            key, mergeSchema(a.properties[key], b.properties[key]),
+                        ];
+                    } else if (a.properties[key]) {
+                        return [
+                            key, a.properties[key],
+                        ];
+                    }
+                    return [
+                        key, b.properties[key],
+                    ];
+                })
+            );
+        }
+    } else if (a.type !== b.type) {
+        result.type = {
+            type: 'string',
+        };
+    } else {
+        result.type = {
+            type: a.type,
+        };
+    }
+    if (a.const !== b.const) {
+        result.enum = [
+            a.const,
+            b.const,
+        ];
+    } else if (a.const) {
+        result.const = a.const;
+    }
+    for (const name of ['format', 'title', 'readOnly', 'writeOnly']) {
+        if (a[name] === b[name]) {
+            result[name] = a[name];
+        }
+    }
+    if (a.enum && b.enum) {
+        result.enum = [
+            ...a.enum,
+            ...b.enum,
+        ];
+    }
+    return result;
+};
+
+const flatSchema = (schema) => {
+    for (const key of ['anyOf', 'allOf', 'oneOf']) {
+        if (schema[key]) {
+            return schema[key].reduce((a, b) => mergeSchema(a, b));
+        }
+    }
+    return schema;
+};
 
 export default {
     init: async (options) => {
@@ -86,7 +158,10 @@ export default {
             type: path.split('/').pop(),
             path,
         })),
-    getSchema: operation => operation.requestBody && operation.requestBody.content['application/json'].schema || {},
+    getSchema: operation => {
+        const schema = operation.requestBody?.content['application/json'].schema || {};
+        return flatSchema(mergeAllOf(schema));
+    },
     getResponse: (operation, status = 200, type = 'application/json') => operation.responses &&
         operation.responses[status] &&
         operation.responses[status].content[type] &&
