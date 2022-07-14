@@ -244,7 +244,7 @@ const renderBody = (operation, input, options) => {
         }
         set(result, option.use.field.replace(/\//g, '.'), value);
     }
-    if (!result.properties) {
+    if (!result.properties && schema.properties?.properties?.type === 'object') {
         result.properties = {};
     }
     return result;
