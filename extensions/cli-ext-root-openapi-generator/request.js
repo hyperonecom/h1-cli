@@ -5,12 +5,12 @@ import types from '@hyperone/cli-core/types';
 import { set } from '@hyperone/cli-core/lib/transform';
 import middleware from './middlewares/index';
 
-const idless = (name) => name.replace(/Id$/, '');
+const removeId = (name) => name.replace(/Id$/, '');
 
 const parameterForParameter = (p = []) => {
     const parameters = [];
     for (const parameter of p) {
-        const name = idless(parameter.name);
+        const name = removeId(parameter.name);
         const description = [
             parameter.description,
         ];
@@ -43,14 +43,14 @@ const parameterForParameter = (p = []) => {
 const middlewareForSchema = (schema) => {
     const hooks = [];
     if (schema.type === 'object') {
-        for (const pvalue of Object.values(schema.properties || {})) {
-            hooks.push(...middlewareForSchema(pvalue));
+        for (const child_schema of Object.values(schema.properties || {})) {
+            hooks.push(...middlewareForSchema(child_schema));
         }
     }
 
     if (schema.oneOf) {
-        for (const pvalue of schema.oneOf) {
-            hooks.push(...middlewareForSchema(pvalue));
+        for (const child_schema of schema.oneOf) {
+            hooks.push(...middlewareForSchema(child_schema));
         }
     }
 
@@ -66,17 +66,21 @@ const middlewareForOperation = (operation) => {
     return middlewareForSchema(schema);
 };
 
-const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required) => {
+const parameterForSchema = ({ schema, pname = '', prefix = '', path = '', required }) => {
     const parameters = [];
-    if (pvalue.type === 'object') {
-        for (const [child_pname, child_pvalue] of Object.entries(pvalue.properties || {})) {
-            const child_parameters = parameterForSchema(
-                child_pvalue,
-                child_pname,
-                !!prefix ? `${prefix}-${pname}` : `${pname}`,
-                path ? `${path}/${pname}` : `${pname}`,
-                (pvalue.required || []).includes(child_pname)
-            );
+
+    schema.required ??= [];
+    schema.properties ??= {};
+
+    if (schema.type === 'object') {
+        for (const [child_pname, child_schema] of Object.entries(schema.properties)) {
+            const child_parameters = parameterForSchema({
+                schema: child_schema,
+                pname: child_pname,
+                prefix: !!prefix ? `${prefix}-${pname}` : `${pname}`,
+                path: path ? `${path}/${pname}` : `${pname}`,
+                required: schema.required.includes(child_pname),
+            });
             parameters.push(...child_parameters);
         }
         return parameters;
@@ -87,83 +91,83 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
         required,
         use: {
             in: 'body',
-            schema: pvalue,
+            schema,
             field: path ? `/${path}/${pname}` : `/${pname}`,
         },
     };
 
     p.name = p.name.replace(/properties-/, '');
 
-    if (pvalue.title) {
-        description.push(pvalue.title);
+    if (schema.title) {
+        description.push(schema.title);
     }
 
-    if (pvalue.readOnly) {
+    if (schema.readOnly) {
         return [];
     }
 
-    const audience = pvalue['x-audience'];
+    const audience = schema['x-audience'];
     if (audience && !['user', 'all'].includes(audience)) {
         return [];
     }
-    if (pvalue['x-resource']) {
+    if (schema['x-resource']) {
         Object.assign(p, {
             typeLabel: 'uri',
         });
 
-        const prefixes = openapi.getEndpointForKind(pvalue['x-resource'].kind);
+        const prefixes = openapi.getEndpointForKind(schema['x-resource'].kind);
 
         if (prefixes.length === 1) {
             Object.assign(p, {
                 typeLabel: 'id-or-uri',
                 prefix: prefixes[0],
             });
-            description.push(`Provide ID or URI of ${pvalue['x-resource'].kind}`);
+            description.push(`Provide ID or URI of ${schema['x-resource'].kind}`);
         } else {
-            description.push(`Provide URI of ${pvalue['x-resource'].kind}`);
+            description.push(`Provide URI of ${schema['x-resource'].kind}`);
         }
     }
-    if (pvalue['x-permissions']) {
-        description.push(`Requires permissions ${pvalue['x-permissions'].join(', ')}`);
+    if (schema['x-permissions']) {
+        description.push(`Requires permissions ${schema['x-permissions'].join(', ')}`);
     }
 
-    if (pvalue['x-file']) {
+    if (schema['x-file']) {
         description.push('Provide URI of local file eg. \'file://./my-file.bin\'.');
     }
 
-    if (pvalue.type === 'string') {
+    if (schema.type === 'string') {
         Object.assign(p, {
             placeholder: pname,
         });
-        if (pvalue.enum) {
+        if (schema.enum) {
             Object.assign(p, {
-                choices: pvalue.enum,
+                choices: schema.enum,
             });
-            if (pvalue.enum.join(', ').length < 100) {
+            if (schema.enum.join(', ').length < 100) {
                 Object.assign(p, {
-                    typeLabel: pvalue.enum.join(', '),
+                    typeLabel: schema.enum.join(', '),
                 });
             } else {
-                description.push(`Allowed values is ${pvalue.enum.join(', ')}`);
+                description.push(`Allowed values are ${schema.enum.join(', ')}`);
             }
         }
     }
 
-    if (pvalue.type === 'array' && pvalue.items.type === 'string') {
+    if (schema.type === 'array' && schema.items.type === 'string') {
         Object.assign(p, {
             multiple: true,
         });
     }
 
-    if (pvalue.type === 'boolean') {
+    if (schema.type === 'boolean') {
         Object.assign(p, {
             typeLabel: 'true,false',
             type: types.booleanish,
         });
     }
 
-    if (pvalue.type === 'array' && pvalue.items.type === 'object') {
-        const label = Object.entries(pvalue.items.properties || {})
+    if (schema.type === 'array' && schema.items.type === 'object') {
+        const label = Object.entries(schema.items.properties || {})
             .filter(([, value]) => value.readOnly !== true)
             .map(([key]) => `${key}=${key}`)
             .join(', ');
@@ -171,19 +175,19 @@ const parameterForSchema = (pvalue, pname = '', prefix = '', path = '', required
         Object.assign(p, {
             multiple: true,
             typeLabel: label,
-            type: types.nestedValue(pvalue.items),
+            type: types.nestedValue(schema.items),
         });
     }
 
-    if (pvalue.default) {
+    if (schema.default) {
         Object.assign(p, {
-            defaultValue: pvalue.default,
+            defaultValue: schema.default,
         });
     }
 
-    if (pvalue.oneOf) {
-        const oneOfParameters = pvalue.oneOf.map((oneOfSchema) =>
-            parameterForSchema(oneOfSchema, pname, prefix, path)[0]
+    if (schema.oneOf) {
+        const oneOfParameters = schema.oneOf.map((oneOfSchema) =>
+            parameterForSchema({ schema: oneOfSchema, pname, prefix, path })[0]
         ).map(x => `- ${x.description}`);
         description.push(`Specifies one of the following: \n${oneOfParameters.join('\n')}`);
     }
@@ -201,22 +205,22 @@ const renderOptions = (operation, parameters = []) => {
     const schema = openapi.getSchema(operation);
     return [
         ...parameterForParameter(parameters),
-        ...parameterForSchema(schema),
+        ...parameterForSchema({ schema }),
     ];
 };
 
 const renderEmpty = (schema) => {
     const result = {};
     if (schema.type === 'object') {
-        for (const [child_pname, child_pvalue] of Object.entries(schema.properties || {})) {
-            if (child_pvalue.type === 'object') {
-                result[child_pname] = renderEmpty(child_pvalue);
+        for (const [child_pname, child_schema] of Object.entries(schema.properties || {})) {
+            if (child_schema.type === 'object') {
+                result[child_pname] = renderEmpty(child_schema);
             }
-            if (child_pvalue.const) {
-                result[child_pname] = child_pvalue.const;
+            if (child_schema.const) {
+                result[child_pname] = child_schema.const;
             }
-            if (child_pvalue.default) {
-                result[child_pname] = child_pvalue.default;
+            if (child_schema.default) {
+                result[child_pname] = child_schema.default;
             }
         }
     }

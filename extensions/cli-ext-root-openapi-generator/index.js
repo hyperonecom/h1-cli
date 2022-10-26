@@ -48,12 +48,12 @@ export const makeOperationCommand = ({ name, endpoint, method, path }) => async 
                 return [];
             }
 
-            const openApiexamples = await operation['x-examples']()
+            const oAPIExamples = await operation['x-examples']()
                 .catch(() => ({}))
             ;
 
             const cliExamples = [];
-            for (const [title, example] of Object.entries(openApiexamples)) {
+            for (const [title, example] of Object.entries(oAPIExamples)) {
                 cliExamples.push({
                     title,
                     command: await cmd.generateArgv(example).join(' '),
