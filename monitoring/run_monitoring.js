@@ -134,7 +134,7 @@ const sendMail = async (config, success, report) => {
         await smtpTransport.sendMail({
             from: config.SMTP_SENDER,
             to: recipient,
-            subject: `${config.MONITORING_NAME} ${subject}`,
+            subject: `[v1] ${config.MONITORING_NAME} ${subject}`,
             text: report.split('\n').filter(line =>
                 keywordsMatches(keywordsWhiteList, line) && !keywordsMatches(keywordsBlackList, line)
             ).join('\n'),
