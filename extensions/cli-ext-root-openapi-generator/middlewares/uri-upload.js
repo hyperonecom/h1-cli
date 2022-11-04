@@ -1,5 +1,6 @@
 import ProgressBar from 'progress';
-import { S3 } from 'aws-sdk';
+import { Upload } from '@aws-sdk/lib-storage';
+import { S3Client } from '@aws-sdk/client-s3';
 import { set } from '@hyperone/cli-core/lib/transform';
 
 const findOptionsForFormat = (options, format) => options.filter(x =>
@@ -50,25 +51,28 @@ export default {
             const uploadParamsResp = await opts.api.post(uploadRequestUrl, { json: { name: filename } });
             const uploadParams = uploadParamsResp.bodyJson;
 
-            const s3Client = new S3({
+            const s3Client = new S3Client({
                 endpoint: uploadParams.endpoint,
-                accessKeyId: uploadParams.accessKeyId,
-                sessionToken: uploadParams.sessionToken,
-                secretAccessKey: uploadParams.secretAccessKey,
                 region: uploadParams.region,
-                s3BucketEndpoint: true,
-                s3ForcePathStyle: true,
-                signatureVersion: 'v4',
+                credentials: {
+                    accessKeyId: uploadParams.accessKeyId,
+                    secretAccessKey: uploadParams.secretAccessKey,
+                    sessionToken: uploadParams.sessionToken,
+                },
+                forcePathStyle: true,
                 logger: {
                     log: (...args) => opts.logger.debug(...args),
                 },
             });
 
-            const managedUpload = s3Client.upload({
-                Bucket: uploadParams.bucket,
-                Key: uploadParams.key,
-                Body: filestream,
-                ContentType: 'application/octet-stream',
+            const upload = new Upload({
+                client: s3Client,
+                params: {
+                    Bucket: uploadParams.bucket,
+                    Key: uploadParams.key,
+                    Body: filestream,
+                    ContentType: 'application/octet-stream',
+                },
             });
 
             if (!noProgress) {
@@ -80,13 +84,13 @@ export default {
                 });
 
                 let prev_loaded = 0;
-                managedUpload.on('httpUploadProgress', ({ loaded }) => {
+                upload.on('httpUploadProgress', ({ loaded }) => {
                     bar.tick(loaded - prev_loaded);
                     prev_loaded = loaded;
                 });
             }
 
-            const uploadData = await managedUpload.promise();
+            const uploadData = await upload.done();
             const newValue = uploadData.Location;
             set(requestBody, option.use.field.replace(/\//g, '.'), newValue);
         }

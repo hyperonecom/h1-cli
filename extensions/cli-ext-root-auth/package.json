@@ -19,7 +19,7 @@
   "license": "MIT",
   "gitHead": "a667a9fae1ba7945f8ca4a9f5e115254feb94831",
   "dependencies": {
-    "@aws-sdk/credential-provider-node": "0.1.0-preview.2",
+    "@aws-sdk/credential-provider-node": "3.202.0",
     "@azure/identity": "^1.0.3",
     "@hyperone/cli-core": "link:../../packages/cli-core",
     "@hyperone/cli-framework": "link:../../packages/cli-framework",
