@@ -1,13 +1,13 @@
-
-
 import { Category } from '@hyperone/cli-framework';
 import set from './commands/set';
 import dump from './commands/dump';
 import get from './commands/get';
 
+import info from './package.json';
+
 export default {
-    name: require('./package.json').name,
-    version: require('./package.json').version,
+    name: info.name,
+    version: info.version,
     load: async (parent) => parent.loadHook.push(() => {
         const cmd = new Category({
             name: 'settings',

@@ -222,10 +222,11 @@ export const buildNamespaceCommand = (name, spec, ctx) => async () => {
     return cmd;
 };
 
+import info from './package.json';
 
 export default {
-    name: require('./package.json').name,
-    version: require('./package.json').version,
+    name: info.name,
+    version: info.version,
     load: async (parent) => {
         const namespaces = openapi.getNamespaces();
         for (const [name, spec] of Object.entries(namespaces)) {

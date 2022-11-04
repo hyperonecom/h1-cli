@@ -1,5 +1,3 @@
-
-
 import { Category } from '@hyperone/cli-framework';
 
 import user from './commands/user';
@@ -8,9 +6,11 @@ import azure from './commands/azure';
 import google from './commands/google';
 import me from './commands/me';
 
+import info from './package.json';
+
 export default {
-    name: require('./package.json').name,
-    version: require('./package.json').version,
+    name: info.name,
+    version: info.version,
     load: async (parent) => parent.loadHook.push(() => {
 
         const cmd = new Category({

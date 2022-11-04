@@ -1,10 +1,9 @@
-
-
 import { Category } from '@hyperone/cli-framework';
+import info from './package.json';
 
 export default {
-    name: require('./package.json').name,
-    version: require('./package.json').version,
+    name: info.name,
+    version: info.version,
     load: async (parent) => parent.loadHook.push(() => {
         parent.addCommand(new Category({
             name: 'config',

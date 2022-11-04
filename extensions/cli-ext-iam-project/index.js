@@ -1,5 +1,3 @@
-
-
 import select from './select';
 import sa_generate from './sa_generate';
 
@@ -19,9 +17,11 @@ const lazyAdd = (cmd, names, handler) => {
     });
 };
 
+import info from './package.json';
+
 export default {
-    name: require('./package.json').name,
-    version: require('./package.json').version,
+    name: info.name,
+    version: info.version,
     load: async (parent) => parent.loadHook.push(() => {
         lazyAdd(parent, ['project'], () => select);
         lazyAdd(parent, ['project', 'sa', 'credential'], () => sa_generate);

@@ -1,10 +1,9 @@
-
-
-import {ssh, sftp} from '@hyperone/cli-generic-commands';
+import { ssh, sftp } from '@hyperone/cli-generic-commands';
+import info from './package.json';
 
 export default {
-    name: require('./package.json').name,
-    version: require('./package.json').version,
+    name: info.name,
+    version: info.version,
     load: async (parent) => parent.loadHook.push(() => {
         const cmd = parent.commands.find(x => x.name === 'instance');
         cmd?.addCommand(() => ssh({

@@ -5,9 +5,11 @@ import get from './commands/get';
 import store from './commands/store';
 import erase from './commands/erase';
 
+import info from './package.json';
+
 export default {
-    name: require('./package.json').name,
-    version: require('./package.json').version,
+    name: info.name,
+    version: info.version,
     load: async (parent) => parent.loadHook.push(() => {
         const cmd = parent.commands.find(x => x.name === 'registry');
         const category = new Category({

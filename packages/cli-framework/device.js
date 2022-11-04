@@ -1,11 +1,11 @@
 /* eslint-disable no-console */
-
+import info from './package.json';
 class Device {
     getName() {
         return 'cli';
     }
     getVersion() {
-        return require('./package.json').version;
+        return info.version;
     }
     async displayResult(result) {
         console.log(result);
