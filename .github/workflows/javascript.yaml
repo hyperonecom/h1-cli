@@ -44,7 +44,7 @@ jobs:
       working-directory: ./packages/cli-device-node
     - name: Get short SHA
       id: slug
-      run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+      run: echo "sha8=$(echo ${GITHUB_SHA} | cut -c1-8)" >> $GITHUB_OUTPUT
     # Nightly asset publication
     - uses: octokit/request-action@v2.x
       id: get_rc_release
