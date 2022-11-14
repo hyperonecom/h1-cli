@@ -18,14 +18,14 @@
   "author": "Adam Dobrawy",
   "license": "MIT",
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.202.0",
-    "@aws-sdk/lib-storage": "^3.202.0",
+    "@aws-sdk/client-s3": "^3.209.0",
+    "@aws-sdk/lib-storage": "^3.209.0",
     "@hyperone/cli-core": "link:../../packages/cli-core",
     "@hyperone/cli-framework": "link:../../packages/cli-framework",
-    "jsonpatch": "^3.0.1",
+    "jsonpatch": "^3.1.0",
     "pluralize": "^8.0.0",
     "progress": "^2.0.3",
-    "sha512crypt-node": "^0.1.0",
+    "sha512crypt-node": "^1.0.2",
     "ws-streamify": "^0.1.4"
   },
   "gitHead": "a667a9fae1ba7945f8ca4a9f5e115254feb94831",
