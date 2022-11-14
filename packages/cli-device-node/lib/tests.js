@@ -17,20 +17,22 @@ const run = (cmd, options = {}) => new Promise((resolve, reject) => {
         // eslint-disable-next-line no-console
         console.log('executed: ', cmd);
     }
-    const program = child_process.spawn(process.argv[0], [
+
+    const args = [
         path.join(__dirname, '../dist/h1.js'),
         ...shlex.split(cmd).slice(1),
-    ], options);
+    ];
+    const program = child_process.spawn(process.argv[0], args, options);
     const chunks = [];
 
-    program.stdout.on('data', (chunk) => chunks.push(chunk));
-    program.stderr.on('data', (chunk) => chunks.push(chunk));
+    program.stdout.on('data', chunk => chunks.push(chunk));
+    program.stderr.on('data', chunk => chunks.push(chunk));
 
-    program.on('error', reject);
-    program.on('close', (code, signal) => {
+    program.once('error', reject);
+    program.once('close', (code, signal) => {
         const output = Buffer.concat(chunks).toString('utf-8');
         if (code !== 0) {
-            const err = new Error(`'${cmd}'exited with code ${code} and signal ${signal}`);
+            const err = new Error(`'${cmd}' exited with code ${code} and signal ${signal}`);
             err.cmd = cmd;
             err.signal = signal;
             err.code = code;
