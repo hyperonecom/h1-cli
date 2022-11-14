@@ -45,7 +45,7 @@
     "dist": "./scripts/release-bin.sh",
     "docs": "nodejs ./dist/h1_docs.js --output ../../docs/",
     "clean": "rm -rf dist",
-    "test": "ava"
+    "test": "ava --serial"
   },
   "files": [
     "device.js",
@@ -56,7 +56,7 @@
   ],
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",
   "devDependencies": {
-    "ava": "^3.14.0",
+    "ava": "^5.1.0",
     "markdown-table": "^2.0.0",
     "node-pty": "^0.10.1",
     "pkg": "^5.8.0",
