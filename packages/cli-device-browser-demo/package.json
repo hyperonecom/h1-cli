@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@hyperone/cli-device-browser": "link:../../packages/cli-device-browser",
+    "url": "^0.11.0",
     "vm-browserify": "^1.1.2"
   },
   "private": true,

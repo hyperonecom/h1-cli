@@ -52,6 +52,7 @@ module.exports = {
             path: require.resolve('path-browserify'),
             vm: require.resolve('vm-browserify'),
             util: false,
+            url: require.resolve('url/'),
         },
         alias: {
             'array-back': require.resolve('array-back').replace('/dist/index.js', ''),
