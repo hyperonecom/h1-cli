@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Node 16.x
+    - name: Set up Node 18.x
       uses: actions/setup-node@v1
       with:
-        node-version: '16.x'
+        node-version: '18.x'
     - name: Install lerna
       run: yarn install
     - name: Lint code
@@ -66,16 +66,6 @@ jobs:
         asset_path: ./packages/cli-device-node/dist/h1-linux.tar.gz
         asset_name: h1-linux.${{ steps.slug.outputs.sha8 }}.tar.gz
         asset_content_type: application/gzip
-    - name: Upload nightly asset of h1-alpine.tar.gz
-      if: ${{ github.event_name == 'push' }}
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
-        asset_path: ./packages/cli-device-node/dist/h1-alpine.tar.gz
-        asset_name: h1-alpine.${{ steps.slug.outputs.sha8 }}.tar.gz
-        asset_content_type: application/gzip
     - name: Upload nightly asset of h1-macos.tar.gz
       if: ${{ github.event_name == 'push' }}
       uses: actions/upload-release-asset@v1
@@ -103,7 +93,6 @@ jobs:
         body: |
           Use following links to download pre-compiled binary:
           - [h1-linux.tar.gz](${{ steps.h1-linux-asset.outputs.browser_download_url }})
-          - [h1-alpine.tar.gz](${{ steps.h1-alpine-asset.outputs.browser_download_url }})
           - [h1-macos.tar.gz](${{ steps.h1-macos-asset.outputs.browser_download_url }})
           - [h1-win.zip](${{ steps.h1-win-asset.outputs.browser_download_url }})
     # Release asset publication
@@ -139,16 +128,6 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-linux.tar.gz
         asset_name: h1-linux.tar.gz
-        asset_content_type: application/gzip
-    - name: Upload release asset of h1-alpine.tar.gz
-      if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./packages/cli-device-node/dist/h1-alpine.tar.gz
-        asset_name: h1-alpine.tar.gz
         asset_content_type: application/gzip
     - name: Upload release asset of h1-macos.tar.gz
       if: ${{ github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v') }}
