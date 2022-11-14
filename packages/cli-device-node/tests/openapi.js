@@ -3,7 +3,7 @@ const { withVariable, run, runJson, getName, downloadCachedFile } = require('./.
 
 ava('openapi:resource create help', async (t) => {
     const output = await run('h1 storage disk create --help ');
-    t.true(output.includes('storage_project_disk_create'));
+    t.true(output.includes('storage_project_disk:create'));
     t.true(output.includes('--service'));
     t.true(output.includes('--source'));
     t.true(output.includes('--vm'));
@@ -13,14 +13,14 @@ ava('openapi:resource create help', async (t) => {
 
 ava('openapi:resource list help', async (t) => {
     const output = await run('h1 storage disk list --help');
-    t.true(output.includes('storage_project_disk_list'));
+    t.true(output.includes('storage_project_disk:list'));
     t.true(output.includes('--location'));
     t.true(output.includes('--project'));
 });
 
 ava('openapi:resource show help', async (t) => {
     const output = await run('h1 storage disk show --help');
-    t.true(output.includes('storage_project_disk_get'));
+    t.true(output.includes('storage_project_disk:get'));
     t.true(output.includes('--location'));
     t.true(output.includes('--project'));
     t.true(output.includes('--disk'));
@@ -28,7 +28,7 @@ ava('openapi:resource show help', async (t) => {
 
 ava('openapi:resource delete help', async (t) => {
     const output = await run('h1 storage disk delete --help');
-    t.true(output.includes('storage_project_disk_delete'));
+    t.true(output.includes('storage_project_disk:delete'));
     t.true(output.includes('--location'));
     t.true(output.includes('--project'));
     t.true(output.includes('--disk'));
