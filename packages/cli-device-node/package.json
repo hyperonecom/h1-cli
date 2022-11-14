@@ -26,7 +26,6 @@
     "@hyperone/cli-framework": "link:../cli-framework",
     "array-back": "^3.1.0",
     "inquirer": "^7.3.3",
-    "pkg": "^5.8.0",
     "strip-ansi-stream": "^1.0.0",
     "untildify": "^4.0.0"
   },
@@ -60,7 +59,7 @@
     "ava": "^3.14.0",
     "markdown-table": "^2.0.0",
     "node-pty": "^0.10.1",
-    "pkg": "^4.4.9",
+    "pkg": "^5.8.0",
     "webpack": "^5.67.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.3"
