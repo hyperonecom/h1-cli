@@ -104,7 +104,7 @@ const withTemp = fn => async (...args) => {
     try {
         return await fn(...args, tempDir);
     } finally {
-        await fs.rmdir(tempDir, { recursive: true });
+        await fs.rm(tempDir, { recursive: true });
     }
 };
 
