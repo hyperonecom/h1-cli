@@ -23,12 +23,12 @@ jobs:
       run: yarn run build
     - name: Setup e2e tests
       run: |
-        node ./dist/h1.js config settings set --key "test.project" --value "5e3db909586f1ca015f0b956"
-        node ./dist/h1.js config settings set --key "test.username" --value "$HYPERONE_USERNAME"
-        node ./dist/h1.js config settings set --key "test.password" --value "$HYPERONE_PASSWORD"
-        node ./dist/h1.js config settings set --key "test.aws-access-key" --value "AKIATTWUTKSTUCQP2XDA"
-        node ./dist/h1.js config settings set --key "test.aws-secret-key" --value "$AWS_SECRET_KEY"
-        node ./dist/h1.js auth user --username "$HYPERONE_USERNAME" --password "$HYPERONE_PASSWORD"
+        node ./bin/h1.js config settings set --key "test.project" --value "5e3db909586f1ca015f0b956"
+        node ./bin/h1.js config settings set --key "test.username" --value "$HYPERONE_USERNAME"
+        node ./bin/h1.js config settings set --key "test.password" --value "$HYPERONE_PASSWORD"
+        node ./bin/h1.js config settings set --key "test.aws-access-key" --value "AKIATTWUTKSTUCQP2XDA"
+        node ./bin/h1.js config settings set --key "test.aws-secret-key" --value "$AWS_SECRET_KEY"
+        node ./bin/h1.js auth user --username "$HYPERONE_USERNAME" --password "$HYPERONE_PASSWORD"
       working-directory: ./packages/cli-device-node
       if: ${{ github.event_name == 'push' }}
       env:
