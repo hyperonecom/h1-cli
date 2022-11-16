@@ -40,7 +40,7 @@ jobs:
       working-directory: ./packages/cli-device-node
       if: ${{ github.event_name == 'push' }}
     - name: Build NodeJS release files
-      run: ./scripts/release-bin.sh
+      run: yarn run dist
       working-directory: ./packages/cli-device-node
     - name: Get short SHA
       id: slug
