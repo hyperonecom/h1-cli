@@ -1,5 +1,3 @@
-
-
 module.exports = {
     extends: [
         '@hyperone',
@@ -13,8 +11,15 @@ module.exports = {
     env: {
         jasmine: true,
     },
+    parser: '@babel/eslint-parser', //remove when eslint support it natively https://github.com/eslint/eslint/discussions/15305
     parserOptions: {
         sourceType: 'module',
+        requireConfigFile: false,
+        babelOptions: {
+            plugins: [
+                '@babel/plugin-syntax-import-assertions', //remove when eslint support it natively https://github.com/eslint/eslint/discussions/15305
+            ],
+        },        
     },
     globals: {
         __non_webpack_require__: 'readonly',
