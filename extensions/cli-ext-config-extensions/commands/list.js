@@ -1,8 +1,5 @@
-
-
-import npm from '../npm';
 import { Command } from '@hyperone/cli-framework';
-
+import npm from '../npm.js';
 
 export default new Command({
     name: 'list',

@@ -1,6 +1,6 @@
 import { Command } from '@hyperone/cli-framework';
-import { CliError } from '@hyperone/cli-framework/error';
-import { getRelease, getFlavour } from '../release';
+import { CliError } from '@hyperone/cli-framework/error.js';
+import { getRelease, getFlavour } from '../release.js';
 import os from 'os';
 import fs from 'fs';
 import path from 'path';

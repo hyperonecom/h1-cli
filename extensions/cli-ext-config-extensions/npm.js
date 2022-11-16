@@ -1,5 +1,3 @@
-
-
 export default (http, baseUri) => {
     const api = {};
 

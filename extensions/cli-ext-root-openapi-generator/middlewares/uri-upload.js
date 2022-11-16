@@ -1,7 +1,7 @@
 import ProgressBar from 'progress';
 import { Upload } from '@aws-sdk/lib-storage';
 import { S3Client } from '@aws-sdk/client-s3';
-import { set } from '@hyperone/cli-core/lib/transform';
+import { set } from '@hyperone/cli-core/lib/transform.js';
 
 const findOptionsForFormat = (options, format) => options.filter(x =>
     x.use && x.use.schema && x.use.schema['x-file'] && (

@@ -1,20 +1,22 @@
 <!doctype html>
 <html>
 
-<head>
-  <script src="bundle.js"></script>
-</head>
-
 <body>
-  <input type="text" style="width: 50%" placeholder="cli auth user --help" id="command">
+  <input
+    id="command"
+    type="text"
+    style="width: 50%"
+    placeholder="cli auth user --help"
+    value="cli"
+  >
   <input type="submit" id="submit" value="Start">
   <pre id="terminal-container"></pre>
   <hr>
   <select id="operation">
-  <option>user_service_list</option>
-  <option>storage_project_disk_create</option>
-  <option>compute_project_vm_create</option>
-  <option>dns_project_zone_create</option>
+    <option>user_service_list</option>
+    <option>storage_project_disk_create</option>
+    <option>compute_project_vm_create</option>
+    <option>dns_project_zone_create</option>
   </select>
   Parameters:
   <textarea rows="20" cols="80" id="parameters">
@@ -32,6 +34,7 @@
       ]
     }
   </textarea>
+  <script type="module" src="/index.js"></script>
 </body>
 
 </html>

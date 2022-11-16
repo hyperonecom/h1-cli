@@ -1,4 +1,11 @@
 /* eslint-disable no-console */
+
+import { Buffer } from 'buffer/';
+window.Buffer = Buffer; //json-schema-ref-parser@9.0.9 (try to remove after update)
+
+import { process } from 'process/';
+window.process = process; //table-layout@1.0.2 -> command-line-usage@6.1.3
+
 import { buildCli, BrowserDevice } from '@hyperone/cli-device-browser';
 import { quote } from 'shell-quote';
 
@@ -24,6 +31,7 @@ class DemoBrowserDevice extends BrowserDevice {
             // console.dir(output, { depth: null });
         } else if (output) {
             this.output.innerText = output;
+            console.log(output);
         }
     }
     async displayError(err) {
@@ -51,7 +59,7 @@ docReady(async function () {
         output: outputElement,
     });
     const program = await buildCli({
-        openapiUrl: 'http://localhost:9000/api/v2/openapi.json',
+        openapiUrl: '/api/v2/openapi.json',
         device,
     });
 
@@ -97,4 +105,6 @@ docReady(async function () {
             document.getElementById('terminal-container').innerText = `command '${cmd}' unsupported`;
         }
     });
+
+    submitElement.click();
 });

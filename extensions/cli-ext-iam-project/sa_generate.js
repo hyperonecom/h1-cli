@@ -1,9 +1,9 @@
-
-
 import { Command } from '@hyperone/cli-framework';
-import { rsa, ssh, pki } from 'node-forge';
 import { openapi } from '@hyperone/cli-core';
 import fs from 'fs';
+
+import forge from 'node-forge';
+const { rsa, ssh, pki } = forge;
 
 const generateKeyPair = () => new Promise((resolve, reject) =>
     rsa.generateKeyPair({

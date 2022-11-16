@@ -2,7 +2,7 @@
 
 import { Device } from '@hyperone/cli-framework';
 import openapiExt from '@hyperone/cli-ext-root-openapi-generator';
-import { get, set, unset } from '@hyperone/cli-core/lib/transform';
+import { get, set, unset } from '@hyperone/cli-core/lib/transform.js';
 
 class BrowserDevice extends Device {
     constructor(options = {}) {

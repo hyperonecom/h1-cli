@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import AbortController from 'abort-controller';
 
 export default (device, logger) => {

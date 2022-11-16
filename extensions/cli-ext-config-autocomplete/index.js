@@ -1,8 +1,8 @@
 import { Category } from '@hyperone/cli-framework';
-import comply from './commands/comply';
-import install from './commands/install';
+import comply from './commands/comply.js';
+import install from './commands/install.js';
 
-import info from './package.json';
+import info from './package.json' assert { type: 'json' };
 
 export default {
     name: info.name,

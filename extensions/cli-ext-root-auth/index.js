@@ -1,12 +1,12 @@
 import { Category } from '@hyperone/cli-framework';
 
-import user from './commands/user';
-import aws from './commands/aws';
-import azure from './commands/azure';
-import google from './commands/google';
-import me from './commands/me';
+import user from './commands/user.js';
+import aws from './commands/aws.js';
+import azure from './commands/azure.js';
+import google from './commands/google.js';
+import me from './commands/me.js';
 
-import info from './package.json';
+import info from './package.json' assert { type: 'json' };
 
 export default {
     name: info.name,

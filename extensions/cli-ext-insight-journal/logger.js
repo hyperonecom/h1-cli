@@ -1,5 +1,3 @@
-
-
 import { Command } from '@hyperone/cli-framework';
 import readlineTransform from 'readline-transform';
 import { Transform } from 'stream';

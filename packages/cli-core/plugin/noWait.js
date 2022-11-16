@@ -1,6 +1,6 @@
 
 export default {
-    name: __filename.split('/').pop(),
+    name: 'noWait',
     beforeParseArgv: (cmd) => {
         if (cmd.findCommand) {
             return;

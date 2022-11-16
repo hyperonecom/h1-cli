@@ -1,8 +1,8 @@
 import { Command } from '@hyperone/cli-framework';
-import { CliError } from '@hyperone/cli-framework/error';
-import packageInfo from '@hyperone/cli-core/package.json';
-import semverGt from 'semver/functions/gt';
-import { getRelease } from '../release';
+import { CliError } from '@hyperone/cli-framework/error.js';
+import packageInfo from '@hyperone/cli-core/package.json' assert { type: 'json'};
+import semverGt from 'semver/functions/gt.js';
+import { getRelease } from '../release.js';
 
 export default new Command({
     name: 'check',

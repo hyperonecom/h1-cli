@@ -1,9 +1,9 @@
 import { Category } from '@hyperone/cli-framework';
-import set from './commands/set';
-import dump from './commands/dump';
-import get from './commands/get';
+import set from './commands/set.js';
+import dump from './commands/dump.js';
+import get from './commands/get.js';
 
-import info from './package.json';
+import info from './package.json' assert { type: 'json' };
 
 export default {
     name: info.name,

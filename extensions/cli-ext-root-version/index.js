@@ -1,9 +1,9 @@
 import { Category } from '@hyperone/cli-framework';
 
-import upgrade from './commands/check';
-import check from './commands/upgrade';
+import upgrade from './commands/check.js';
+import check from './commands/upgrade.js';
 
-import info from './package.json';
+import info from './package.json' assert { type: 'json' };
 
 export default {
     name: info.name,

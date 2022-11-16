@@ -2,9 +2,13 @@
   "name": "@hyperone/cli-device-node",
   "version": "2.1.12",
   "description": "",
-  "main": "./dist/main.js",
+  "main": "index.js",
+  "type": "module",
   "bin": {
-    "h1": "./dist/h1.js"
+    "h1": "./bin/h1.js",
+    "rbx": "./bin/rbx.js",
+    "h1_docs": "./bin/h1_docs.js",
+    "rbx_docs": "./bin/rbx_docs.js"
   },
   "author": "Adam Dobrawy",
   "license": "MIT",
@@ -24,7 +28,6 @@
     "@hyperone/cli-ext-storage-vault": "link:../../extensions/cli-ext-storage-vault",
     "@hyperone/cli-ext-website-instance": "link:../../extensions/cli-ext-website-instance",
     "@hyperone/cli-framework": "link:../cli-framework",
-    "array-back": "^3.1.0",
     "inquirer": "^7.3.3",
     "strip-ansi-stream": "^1.0.0",
     "untildify": "^4.0.0"
@@ -37,9 +40,7 @@
     "timeout": "1m"
   },
   "scripts": {
-    "prepack": "NODE_ENV=production webpack",
-    "watch": "webpack --watch",
-    "build": "webpack",
+    "build": "esbuild ./bin/h1.js --bundle --platform=node --outfile=dist/h1.js",
     "lint": "eslint .",
     "fmt": "eslint . --fix",
     "dist": "./scripts/release-bin.sh",
@@ -50,18 +51,15 @@
   "files": [
     "device.js",
     "index.js",
-    "dist/main.js",
-    "dist/h1.js",
-    "dist/h1_docs.js"
+    "bin/h1.js",
+    "bin/h1_docs.js"
   ],
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",
   "devDependencies": {
     "ava": "^5.1.0",
+    "esbuild": "^0.15.14",
     "markdown-table": "^2.0.0",
     "node-pty": "^0.10.1",
-    "pkg": "^5.8.0",
-    "webpack": "^5.67.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.3"
+    "pkg": "^5.8.0"
   }
 }

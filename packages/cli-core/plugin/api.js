@@ -1,9 +1,9 @@
-import http from '../lib/http';
-import api from '../lib/api';
-import auth from '../lib/auth';
+import http from '../lib/http.js';
+import api from '../lib/api.js';
+import auth from '../lib/auth.js';
 
 export default {
-    name: __filename.split('/').pop(),
+    name: 'api',
     beforeParseArgv: (cmd) => {
         if (cmd.findCommand) {
             return;

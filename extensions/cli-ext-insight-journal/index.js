@@ -1,7 +1,7 @@
-import logger from './logger';
-import stream from './stream';
+import logger from './logger.js';
+import stream from './stream.js';
 
-import info from './package.json';
+import info from './package.json' assert { type: 'json' };
 
 export default {
     name: info.name,

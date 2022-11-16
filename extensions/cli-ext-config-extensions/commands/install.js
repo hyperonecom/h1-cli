@@ -6,9 +6,7 @@ import fs from 'fs';
 import path from 'path';
 import { remove } from 'fs-extra';
 import { Command } from '@hyperone/cli-framework';
-import npm from '../npm';
-
-const r = eval('require');
+import npm from '../npm.js';
 
 export default new Command({
     name: 'install',
@@ -59,7 +57,7 @@ export default new Command({
 
         let ext;
         try {
-            ext = r(outDir);
+            ext = await import(path.join(outDir, 'index.js'));
             for (const prop of ['name', 'load', 'version']) {
                 if (!ext[prop]) {
                     throw new Error(`Invalid extension. Missing '${prop}' property.`);

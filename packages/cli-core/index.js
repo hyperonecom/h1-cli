@@ -1,15 +1,15 @@
-import openapi from './lib/openapi';
+import openapi from './lib/openapi.js';
 import { Category, Command } from '@hyperone/cli-framework';
 export { openapi, Category, Command };
 
-import verbose from './plugin/verbose';
-import formatOutput from './plugin/formatOutput';
-import openapiPlugin from './plugin/openapi';
-import api from './plugin/api';
-import noWait from './plugin/noWait';
-import setDefault from './plugin/setDefault';
+import verbose from './plugin/verbose.js';
+import formatOutput from './plugin/formatOutput.js';
+import openapiPlugin from './plugin/openapi.js';
+import api from './plugin/api.js';
+import noWait from './plugin/noWait.js';
+import setDefault from './plugin/setDefault.js';
 
-import cfg from './lib/config';
+import cfg from './lib/config.js';
 
 export async function buildCli(options = {}) {
     const device = options.device;

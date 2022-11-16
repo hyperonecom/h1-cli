@@ -1,5 +1,5 @@
-import select from './select';
-import sa_generate from './sa_generate';
+import select from './select.js';
+import sa_generate from './sa_generate.js';
 
 const lazyAdd = (cmd, names, handler) => {
     if (names.length === 1) {
@@ -10,14 +10,11 @@ const lazyAdd = (cmd, names, handler) => {
     }
     cmd.loadHook.push(() => {
         const child = cmd.commands.find(x => x.name === names[0]);
-        if (!child) {
-            return;
-        }
-        child.loadHook.push(() => lazyAdd(child, names.slice(1), handler));
+        child?.loadHook.push(() => lazyAdd(child, names.slice(1), handler));
     });
 };
 
-import info from './package.json';
+import info from './package.json' assert { type: 'json' };
 
 export default {
     name: info.name,

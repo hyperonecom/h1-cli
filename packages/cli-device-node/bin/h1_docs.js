@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import docs from '../docs';
+import docs from '../docs.js';
 
 docs({
     openapiUrl: 'https://api.hyperone.com/v2/openapi.json',

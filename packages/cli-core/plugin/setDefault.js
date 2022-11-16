@@ -1,6 +1,6 @@
 
 export default {
-    name: __filename.split('/').pop(),
+    name: 'setDefault',
     beforeParseArgv: async (cmd) => {
         for (const parameter of cmd.options) {
             if (!parameter.defaultSource) {

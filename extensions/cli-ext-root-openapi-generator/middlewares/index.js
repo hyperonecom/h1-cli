@@ -1,4 +1,4 @@
-import upload from './uri-upload';
+import upload from './uri-upload.js';
 
 const formats = {
     uri: upload,

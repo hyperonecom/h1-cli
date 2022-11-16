@@ -49,7 +49,7 @@ const outputFormat = {
 };
 
 export default {
-    name: __filename.split('/').pop(),
+    name: 'formatOutput',
     beforeParseArgv: (cmd) => {
         if (cmd.findCommand) {
             return;

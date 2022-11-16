@@ -2,9 +2,9 @@
 import pluralize from 'pluralize';
 import { Category, Command } from '@hyperone/cli-framework';
 import { openapi } from '@hyperone/cli-core';
-import { deCamelCase } from '@hyperone/cli-core/lib/transform';
+import { deCamelCase } from '@hyperone/cli-core/lib/transform.js';
 
-import request from './request';
+import request from './request.js';
 
 const applyMiddleware = async (middlewares, name, value, ...args) => {
     for (const middleware of middlewares.filter(x => x[name])) {
@@ -222,7 +222,7 @@ export const buildNamespaceCommand = (name, spec, ctx) => async () => {
     return cmd;
 };
 
-import info from './package.json';
+import info from './package.json' assert { type: 'json' };
 
 export default {
     name: info.name,

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import info from './package.json';
+import info from './package.json' assert { type: 'json' };
 class Device {
     getName() {
         return 'cli';

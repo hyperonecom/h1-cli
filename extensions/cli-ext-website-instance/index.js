@@ -1,5 +1,5 @@
 import { ssh, sftp } from '@hyperone/cli-generic-commands';
-import info from './package.json';
+import info from './package.json' assert { type: 'json' };
 
 export default {
     name: info.name,

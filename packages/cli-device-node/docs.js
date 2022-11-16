@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { buildCli } from '@hyperone/cli-core';
 import { Command } from '@hyperone/cli-framework';
-import { NodeDevice } from './device';
+import { NodeDevice } from './device.js';
 import path from 'path';
 import fs from 'fs';
 import table from 'markdown-table';

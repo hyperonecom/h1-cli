@@ -8,7 +8,6 @@ const util = require('util');
 const crypto = require('crypto');
 const randomBytes = util.promisify(crypto.randomBytes);
 const pty = require('node-pty');
-const fetch = require('node-fetch');
 
 const randomToken = (len = 16) => randomBytes(len).then(x => x.toString('hex'));
 

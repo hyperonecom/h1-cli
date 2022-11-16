@@ -7,9 +7,9 @@ import untildify from 'untildify';
 
 import { Device } from '@hyperone/cli-framework';
 import process from 'process';
-import info from './package.json';
-import { get, set, unset } from '@hyperone/cli-core/lib/transform';
-import { CliError } from '@hyperone/cli-framework/error';
+import info from './package.json' assert { type: 'json' };
+import { get, set, unset } from '@hyperone/cli-core/lib/transform.js';
+import { CliError } from '@hyperone/cli-framework/error.js';
 import inquirer from 'inquirer';
 
 const parameterLabel = (parameter, options = []) => {
@@ -157,7 +157,7 @@ export class NodeDevice extends Device {
     }
     async importExtension(pattern) {
         let directories = [];
-        const extDir = path.join(os.homedir(), `.${this.scope}/extensions`);
+        const extDir = this.extensionDir();
         const extensions = [];
 
         try {
@@ -174,24 +174,60 @@ export class NodeDevice extends Device {
         for (const extension_dir of directories) {
             const module = path.join(extDir, extension_dir);
             if (module.match(`${pattern}-.*`)) {
-                let extension = __non_webpack_require__(module);
+                let extension = await import(module);
                 extension = extension.default || extension;
                 extension.module = module;
                 extensions.push(extension);
             }
         }
-        const r = require.context('./../../node_modules/@hyperone/', true, /cli-ext-[a-z-]*\/index\.js$/);
-        r.keys().forEach(module => {
-            if (module.match(`./${pattern}-.*/index.js`)) {
-                let extension = r(module);
-                extension = extension.default && extension.default;
-                // Skip remote-loaded modules
-                // Allows overlap & upgrade
-                if (!extensions.some(x => x.name === extension.name)) {
-                    extensions.push(extension);
-                }
+
+        //add @hyperone/cli-ext-* extensions
+        if (process.pkg) {
+            // dynamic loading is broken because of v8 issues, falling back to o manual loading
+            //      TypeError: Invalid host defined options
+            //      https://bugs.chromium.org/p/chromium/issues/detail?id=1244145
+            //      https://bugs.chromium.org/p/v8/issues/detail?id=10284
+
+            if (pattern === 'cli-ext-root') {
+                extensions.push(await import('@hyperone/cli-ext-root-auth').then(m => m.default));
+                extensions.push(await import('@hyperone/cli-ext-root-config').then(m => m.default));
+                extensions.push(await import('@hyperone/cli-ext-root-openapi-generator').then(m => m.default));
+                extensions.push(await import('@hyperone/cli-ext-root-version').then(m => m.default));
+            } else if (pattern === 'cli-ext-compute') {
+                extensions.push(await import('@hyperone/cli-ext-compute-vm').then(m => m.default));
+            } else if (pattern === 'cli-ext-container') {
+                extensions.push(await import('@hyperone/cli-ext-container-helper').then(m => m.default));
+            } else if (pattern === 'cli-ext-iam') {
+                extensions.push(await import('@hyperone/cli-ext-iam-project').then(m => m.default));
+            } else if (pattern === 'cli-ext-insight') {
+                extensions.push(await import('@hyperone/cli-ext-insight-journal').then(m => m.default));
+            } else if (pattern === 'cli-ext-storage') {
+                extensions.push(await import('@hyperone/cli-ext-storage-vault').then(m => m.default));
+            } else if (pattern === 'cli-ext-website') {
+                extensions.push(await import('@hyperone/cli-ext-website-instance').then(m => m.default));
             }
-        });
+    
+            return extensions;
+        }
+
+        const scopedExtensionsDir = '../../node_modules/@hyperone';
+
+        const scopeExtensionsNames = fs
+            .readdirSync(scopedExtensionsDir)
+            .filter(name => name.startsWith('cli-ext-'))
+            .filter(name => name.startsWith(pattern))
+        ;
+
+        for (const fileName of scopeExtensionsNames) {
+            const filePath = path.join(scopedExtensionsDir, fileName, 'index.js');
+            const extension = await import(filePath).then(m => m.default);
+            // Skip remote-loaded modules
+            // Allows overlap & upgrade
+            if (!extensions.some(x => x.name === extension.name)) {
+                extensions.push(extension);
+            }
+        }
+
         return extensions;
     }
     mapUrl(url) {

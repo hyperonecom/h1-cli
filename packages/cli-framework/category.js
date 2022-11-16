@@ -2,8 +2,8 @@
 import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
 import meant from 'meant';
-import Command from './command';
-import { NotFoundCommandError, AlreadyLoadedError } from '@hyperone/cli-framework/error';
+import Command from './command.js';
+import { NotFoundCommandError, AlreadyLoadedError } from '@hyperone/cli-framework/error.js';
 
 class Category extends Command {
     constructor(options = {}) {

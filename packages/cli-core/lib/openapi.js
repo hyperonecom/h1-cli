@@ -1,6 +1,6 @@
 import $RefParser from '@apidevtools/json-schema-ref-parser';
 import mergeAllOf from 'json-schema-merge-allof';
-import { lazy_resolver } from './json_schema';
+import { lazy_resolver } from './json_schema.js';
 
 const spec = {};
 

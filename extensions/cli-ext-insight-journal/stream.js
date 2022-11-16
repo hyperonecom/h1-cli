@@ -1,5 +1,3 @@
-
-
 import { Command } from '@hyperone/cli-framework';
 import fs from 'fs';
 import { openapi } from '@hyperone/cli-core';

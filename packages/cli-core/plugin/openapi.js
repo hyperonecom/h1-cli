@@ -1,7 +1,7 @@
-import {openapi} from '../';
+import { openapi } from '../index.js';
 
 export default {
-    name: __filename.split('/').pop(),
+    name: 'openapi',
     beforeCommandStart: (opts) => {
         opts.openapi = openapi;
     },

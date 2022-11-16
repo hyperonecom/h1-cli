@@ -1,9 +1,8 @@
 
 import { openapi } from '@hyperone/cli-core';
-import { deCamelCase } from '@hyperone/cli-core/lib/transform';
-import types from '@hyperone/cli-core/types';
-import { set } from '@hyperone/cli-core/lib/transform';
-import middleware from './middlewares/index';
+import { deCamelCase, set } from '@hyperone/cli-core/lib/transform.js';
+import types from '@hyperone/cli-core/types.js';
+import middleware from './middlewares/index.js';
 
 const removeId = (name) => name.replace(/Id$/, '');
 

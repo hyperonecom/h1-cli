@@ -1,6 +1,5 @@
-
 export default {
-    name: __filename.split('/').pop(),
+    name: 'verbose',
     beforeParseArgv: (cmd) => {
         if (cmd.findCommand) {
             return;

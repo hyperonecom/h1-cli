@@ -1,6 +1,6 @@
 import fs from 'fs';
 import os from 'os';
-import { CliError } from '@hyperone/cli-framework/error';
+import { CliError } from '@hyperone/cli-framework/error.js';
 
 const url = 'https://api.github.com/repos/hyperonecom/h1-cli/releases';
 

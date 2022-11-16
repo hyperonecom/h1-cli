@@ -1,5 +1,5 @@
-import info from './package.json';
-import ssh from './ssh';
+import info from './package.json' assert { type: 'json' };
+import ssh from './ssh.js';
 
 export default {
     name: info.name,

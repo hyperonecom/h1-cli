@@ -1,11 +1,11 @@
 import { Category } from '@hyperone/cli-framework';
-import install from './commands/install';
-import setup from './commands/setup';
-import get from './commands/get';
-import store from './commands/store';
-import erase from './commands/erase';
+import install from './commands/install.js';
+import setup from './commands/setup.js';
+import get from './commands/get.js';
+import store from './commands/store.js';
+import erase from './commands/erase.js';
 
-import info from './package.json';
+import info from './package.json' assert { type: 'json' };
 
 export default {
     name: info.name,

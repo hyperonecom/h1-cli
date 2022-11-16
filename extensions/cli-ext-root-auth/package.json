@@ -2,19 +2,8 @@
   "name": "@hyperone/cli-ext-root-auth",
   "version": "2.1.12",
   "description": "",
-  "main": "dist/index.js",
-  "browser": "index.js",
-  "scripts": {
-    "prepack": "NODE_ENV=production webpack",
-    "build": "webpack",
-    "watch": "webpack --watch",
-    "clean": "rm dist -rf"
-  },
-  "devDependencies": {
-    "webpack": "^5.67.0",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.7.3"
-  },
+  "main": "index.js",
+  "type": "module",
   "author": "Adam Dobrawy",
   "license": "MIT",
   "gitHead": "a667a9fae1ba7945f8ca4a9f5e115254feb94831",
@@ -24,7 +13,7 @@
     "@hyperone/cli-core": "link:../../packages/cli-core",
     "@hyperone/cli-framework": "link:../../packages/cli-framework",
     "aws4": "^1.10.0",
-    "google-auth-library": "^6.0.5"
+    "google-auth-library": "^8.7.0"
   },
   "publishConfig": {
     "access": "public",

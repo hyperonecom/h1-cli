@@ -2,8 +2,8 @@
 import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
 import meant from 'meant';
-import { resolvePointer, serializeValue } from './utils';
-import { UnknownOptionError } from './error';
+import { resolvePointer, serializeValue } from './utils.js';
+import { UnknownOptionError } from './error.js';
 
 const escape = value => `${value}`.replace('{', '\\\{').replace('}', '\\\}');
 
