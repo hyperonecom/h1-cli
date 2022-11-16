@@ -206,7 +206,7 @@ export class NodeDevice extends Device {
             } else if (pattern === 'cli-ext-website') {
                 extensions.push(await import('@hyperone/cli-ext-website-instance').then(m => m.default));
             }
-    
+
             return extensions;
         }
 

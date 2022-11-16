@@ -19,7 +19,7 @@ module.exports = {
             plugins: [
                 '@babel/plugin-syntax-import-assertions', //remove when eslint support it natively https://github.com/eslint/eslint/discussions/15305
             ],
-        },        
+        },
     },
     globals: {
         __non_webpack_require__: 'readonly',
