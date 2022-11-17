@@ -98,7 +98,7 @@ const runPty = async (cmd, inputs, options = {}) => new Promise((resolve, reject
     ptyProcess.onExit(({ exitCode: code, signal }) => {
         const output = Buffer.concat(chunks).toString('utf-8');
         if (code !== 0) {
-            const err = new Error(`'${cmd}'exited with code ${code} and signal ${signal}`);
+            const err = new Error(`'${cmd}' exited with code ${code} and signal ${signal}`);
             err.cmd = cmd;
             err.signal = signal;
             err.code = code;
