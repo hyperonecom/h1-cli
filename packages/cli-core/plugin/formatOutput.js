@@ -1,11 +1,11 @@
-import jmespath from 'jmespath';
+import { search } from 'jmespath';
 // import tabula from 'tabula'
-import yaml from 'js-yaml';
+import { dump } from 'js-yaml';
 
 const queryFilter = (query, result) => {
     result = Array.isArray(result) ? result : [result];
     if (query) {
-        result = jmespath.search(result, query);
+        result = search(result, query);
     }
     return result;
 };
@@ -45,7 +45,7 @@ const outputFormat = {
     js: (result, query) => query ? queryFilter(query, result) : result,
     id: (result, query) => queryFilter(query, result).map(x => x.id).join('\n'),
     uri: (result, query) => queryFilter(query, result).map(x => x.uri).join('\n'),
-    yaml: (result, query) => yaml.safeDump(query ? queryFilter(query, result) : result),
+    yaml: (result, query) => dump(query ? queryFilter(query, result) : result),
 };
 
 export default {

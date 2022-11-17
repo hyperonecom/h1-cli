@@ -29,6 +29,7 @@
     "@hyperone/cli-ext-website-instance": "link:../../extensions/cli-ext-website-instance",
     "@hyperone/cli-framework": "link:../cli-framework",
     "inquirer": "^9.1.4",
+    "shlex": "^2.1.2",
     "untildify": "^4.0.0"
   },
   "publishConfig": {

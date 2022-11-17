@@ -1,4 +1,3 @@
-
 import { Command } from '@hyperone/cli-framework';
 import { DefaultAzureCredential } from '@azure/identity';
 const generic_scope = 'https://management.azure.com';

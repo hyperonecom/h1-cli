@@ -10,7 +10,7 @@
     "@hyperone/cli-core": "link:../../packages/cli-core",
     "@hyperone/cli-framework": "link:../../packages/cli-framework",
     "gunzip-maybe": "^1.4.2",
-    "tar-fs": "^2.1.0"
+    "tar-fs": "^2.1.1"
   },
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",
   "publishConfig": {

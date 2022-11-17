@@ -9,7 +9,7 @@
   "dependencies": {
     "@hyperone/cli-core": "link:../../packages/cli-core",
     "@hyperone/cli-framework": "link:../../packages/cli-framework",
-    "shlex": "^2.0.2"
+    "shlex": "^2.1.2"
   },
   "gitHead": "4e1b348977b45dd7741aff12b2b692cc1a16e74d",
   "publishConfig": {

@@ -1,4 +1,4 @@
-import shlex from 'shlex';
+import { split } from 'shlex';
 import pty from 'node-pty';
 
 import { promises as fs } from 'node:fs';
@@ -21,7 +21,7 @@ const run = (cmd, options = {}) => new Promise((resolve, reject) => {
 
     const args = [
         path.join(__dirname, '../bin/h1.js'),
-        ...shlex.split(cmd).slice(1),
+        ...split(cmd).slice(1),
     ];
     options.env = {
         ...options.env,
@@ -67,7 +67,7 @@ const runJson = async (cmd, options = {}) => {
 const runPty = async (cmd, inputs, options = {}) => new Promise((resolve, reject) => {
     const ptyProcess = pty.spawn(process.argv[0], [
         path.join(__dirname, '../bin/h1.js'),
-        ...shlex.split(cmd).slice(1),
+        ...split(cmd).slice(1),
     ], options);
     const chunks = [];
 

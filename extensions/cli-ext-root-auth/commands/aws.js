@@ -1,4 +1,3 @@
-
 import { Command } from '@hyperone/cli-framework';
 import { defaultProvider } from '@aws-sdk/credential-provider-node';
 import aws4 from 'aws4';
