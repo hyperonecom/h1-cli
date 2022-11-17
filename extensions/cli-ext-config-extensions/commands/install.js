@@ -1,11 +1,10 @@
-
-
-import tar from 'tar-fs';
-import gunzip from 'gunzip-maybe';
-import fs from 'fs';
-import path from 'path';
-import { remove } from 'fs-extra';
 import { Command } from '@hyperone/cli-framework';
+import gunzip from 'gunzip-maybe';
+import tar from 'tar-fs';
+
+import { promises as fs } from 'node:fs';
+import path from 'node:path';
+
 import npm from '../npm.js';
 
 export default new Command({
@@ -28,10 +27,10 @@ export default new Command({
         const outDir = path.join(cmd.device.extensionDir(), detail.name);
 
         opts.logger.debug('Cleaning up old version of extension');
-        await remove(outDir);
+        await fs.rm(outDir, { recursive: true });
 
         opts.logger.debug(`Creating director '${outDir}'`);
-        await fs.promises.mkdir(outDir, { recursive: true });
+        await fs.mkdir(outDir, { recursive: true });
 
         opts.logger.debug('Downloading extension');
 

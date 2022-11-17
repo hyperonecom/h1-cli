@@ -9,7 +9,6 @@
   "dependencies": {
     "@hyperone/cli-core": "link:../../packages/cli-core",
     "@hyperone/cli-framework": "link:../../packages/cli-framework",
-    "fs-extra": "^9.0.1",
     "gunzip-maybe": "^1.4.2",
     "tar-fs": "^2.1.0"
   },

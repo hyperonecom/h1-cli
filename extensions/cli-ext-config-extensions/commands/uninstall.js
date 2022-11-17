@@ -1,9 +1,7 @@
-
-
-import fs from 'fs';
-import path from 'path';
-import { remove } from 'fs-extra';
 import { Command } from '@hyperone/cli-framework';
+
+import { promises as fs } from 'node:fs';
+import path from 'node:path';
 
 export default new Command({
     name: 'uninstall',
@@ -16,13 +14,13 @@ export default new Command({
 
         const outDir = path.join(cmd.device.extensionDir(), optsAll.extension);
         try {
-            await fs.promises.stat(outDir);
+            await fs.stat(outDir);
         } catch (err) {
             opts.logger.debug(`Not available ${outDir}`, err);
             return 'Operation not supported. Extension not installed locally.';
         }
         opts.logger.debug('Cleaning up old version of extension');
-        await remove(outDir);
+        await fs.rm(outDir, { recursive: true });
         return 'Extension successfully removed';
     },
 });
