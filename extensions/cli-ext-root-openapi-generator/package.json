@@ -1,9 +1,9 @@
 {
   "name": "@hyperone/cli-ext-root-openapi-generator",
-  "version": "2.1.12",
+  "version": "2.2.0",
   "description": "",
   "main": "index.js",
-  "type": "module",  
+  "type": "module",
   "author": "Adam Dobrawy",
   "license": "MIT",
   "dependencies": {

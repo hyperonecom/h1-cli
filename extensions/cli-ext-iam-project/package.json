@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-ext-iam-project",
-  "version": "2.1.12",
+  "version": "2.2.0",
   "description": "",
   "main": "index.js",
   "type": "module",
