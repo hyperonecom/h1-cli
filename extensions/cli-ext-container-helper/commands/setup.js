@@ -1,10 +1,11 @@
 import { Command } from '@hyperone/cli-framework';
-import fs from 'fs';
-import path from 'path';
+import path from 'node:path';
+import fs from 'node:fs';
+import os from 'node:os';
 import { openapi } from '@hyperone/cli-core';
 
 const get_config_path = () => {
-    const docker_config_dir = process.env.DOCKER_CONFIG || path.join(require('os').homedir(), '.docker');
+    const docker_config_dir = process.env.DOCKER_CONFIG || path.join(os.homedir(), '.docker');
     return path.join(docker_config_dir, 'config.json');
 };
 

@@ -1,10 +1,9 @@
 /* eslint-disable no-console */
+import info from '../package.json' assert { type: 'json' };
 
-import packageInfo from './../package.json';
-
-for (const pkg of Object.keys(packageInfo.dependencies).filter(x => x.startsWith('@hyperone/cli-ext'))) {
+for (const pkg of Object.keys(info.dependencies).filter(x => x.startsWith('@hyperone/cli-ext'))) {
     try {
-        require(pkg);
+        await import(pkg);
         console.log('Successfully loaded', pkg);
     } catch (err) {
         console.log('Failed to load', pkg);

@@ -36,9 +36,9 @@ export default {
             if (!value.startsWith('file://')) {
                 continue;
             }
-            const path = require('path');
+
             const filepath = new URL(value).pathname;
-            const filename = path.basename(filepath);
+            const filename = filepath.split('/').pop();
             const filestream = device.createReadStream(filepath);
             const filestat = await device.statFile(filepath);
             const filesize = filestat.size;

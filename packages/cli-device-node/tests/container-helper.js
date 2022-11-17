@@ -1,10 +1,11 @@
-const ava = require('ava');
-const { run, runJson, withTemp, withVariable } = require('../lib/tests');
-const util = require('util');
-const exec = util.promisify(require('child_process').exec);
+import test from 'ava';
+import { run, runJson, withTemp, withVariable } from '../lib/tests.js';
+import { promisify } from 'node:util';
+import child_process from 'node:child_process';
+const exec = promisify(child_process.exec);
 
 // test have known isolation issue on CI
-const skipIfCi = process.env.CI ? ava.skip : ava;
+const skipIfCi = process.env.CI ? test.skip : test;
 
 skipIfCi('container helper lifecycle', withVariable(['project'], withTemp(async (t, project, tmpDir) => {
     const options = {

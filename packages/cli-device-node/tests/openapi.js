@@ -1,7 +1,7 @@
-const ava = require('ava');
-const { withVariable, run, runJson, getName, downloadCachedFile } = require('./../lib/tests');
+import test from 'ava';
+import { withVariable, run, runJson, getName, downloadCachedFile } from '../lib/tests.js';
 
-ava('openapi:resource create help', async (t) => {
+test('openapi:resource create help', async (t) => {
     const output = await run('h1 storage disk create --help ');
     t.true(output.includes('storage_project_disk:create'));
     t.true(output.includes('--service'));
@@ -11,14 +11,14 @@ ava('openapi:resource create help', async (t) => {
     t.true(output.includes('--project'));
 });
 
-ava('openapi:resource list help', async (t) => {
+test('openapi:resource list help', async (t) => {
     const output = await run('h1 storage disk list --help');
     t.true(output.includes('storage_project_disk:list'));
     t.true(output.includes('--location'));
     t.true(output.includes('--project'));
 });
 
-ava('openapi:resource show help', async (t) => {
+test('openapi:resource show help', async (t) => {
     const output = await run('h1 storage disk show --help');
     t.true(output.includes('storage_project_disk:get'));
     t.true(output.includes('--location'));
@@ -26,7 +26,7 @@ ava('openapi:resource show help', async (t) => {
     t.true(output.includes('--disk'));
 });
 
-ava('openapi:resource delete help', async (t) => {
+test('openapi:resource delete help', async (t) => {
     const output = await run('h1 storage disk delete --help');
     t.true(output.includes('storage_project_disk:delete'));
     t.true(output.includes('--location'));
@@ -34,7 +34,7 @@ ava('openapi:resource delete help', async (t) => {
     t.true(output.includes('--disk'));
 });
 
-ava('openapi:resource lifecycle execute', withVariable(['project'], async (t, project) => {
+test('openapi:resource lifecycle execute', withVariable(['project'], async (t, project) => {
     const name = await getName(t.title);
     const output_create = await runJson(`h1 iam project role create --project ${project} --name ${name}`);
     t.true(output_create.name === name);
@@ -47,9 +47,9 @@ ava('openapi:resource lifecycle execute', withVariable(['project'], async (t, pr
     await run(`h1 iam project role delete --project ${project} --role ${output_create.id}`);
 }));
 
-ava('openapi:resource create:uri-upload', withVariable(['project'], async (t, project) => {
+test('openapi:resource create:uri-upload', withVariable(['project'], async (t, project) => {
     const name = await getName(t.title);
-    const iso_url = 'http://www.tinycorelinux.net/9.x/x86/release/Core-current.iso';
+    const iso_url = 'http://www.tinycorelinux.net/13.x/x86/release/Core-current.iso';
     const filepath = await downloadCachedFile(iso_url);
     const output_create = await runJson(`h1 storage iso create --project ${project} --name ${name} --source file://${filepath}`);
     t.true(output_create.state === 'Online');

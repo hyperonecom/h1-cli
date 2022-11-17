@@ -1,15 +1,17 @@
-const shlex = require('shlex');
-const child_process = require('child_process');
-const path = require('path');
-const fs = require('fs').promises;
-const { createWriteStream } = require('fs');
-const os = require('os');
-const util = require('util');
-const crypto = require('crypto');
-const randomBytes = util.promisify(crypto.randomBytes);
-const pty = require('node-pty');
+import shlex from 'shlex';
+import pty from 'node-pty';
 
-const randomToken = (len = 16) => randomBytes(len).then(x => x.toString('hex'));
+import { promises as fs, createWriteStream } from 'node:fs';
+import { randomBytes, createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+
+import child_process from 'node:child_process';
+import path from 'node:path';
+import os from 'node:os';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
+
+const randomToken = async (len = 16) => randomBytes(len).toString('hex');
 
 const run = (cmd, options = {}) => new Promise((resolve, reject) => {
     if (process.argv.includes('--serial')) {
@@ -18,9 +20,16 @@ const run = (cmd, options = {}) => new Promise((resolve, reject) => {
     }
 
     const args = [
-        path.join(__dirname, '../dist/h1.js'),
+        path.join(__dirname, '../bin/h1.js'),
         ...shlex.split(cmd).slice(1),
     ];
+    options.env = {
+        ...options.env,
+        //TODO remove when it becomes stable
+        //  "Importing JSON modules is an experimental feature" - https://nodejs.org/api/esm.html#json-modules
+        //  "The Fetch API is an experimental feature"          - https://nodejs.org/api/globals.html#fetch
+        NODE_NO_WARNINGS: '1'
+    };
     const program = child_process.spawn(process.argv[0], args, options);
     const chunks = [];
 
@@ -57,7 +66,7 @@ const runJson = async (cmd, options = {}) => {
 
 const runPty = async (cmd, inputs, options = {}) => new Promise((resolve, reject) => {
     const ptyProcess = pty.spawn(process.argv[0], [
-        path.join(__dirname, '../dist/h1.js'),
+        path.join(__dirname, '../bin/h1.js'),
         ...shlex.split(cmd).slice(1),
     ], options);
     const chunks = [];
@@ -126,19 +135,18 @@ const getName = (...names) => [...names, Date.now().toString()]
     .replace(/[^a-zA-Z0-9]/g, '-');
 
 const downloadCachedFile = url => new Promise((resolve, reject) => {
-    const suffix = crypto.createHash('sha256').update(url).digest('hex');
+    const suffix = createHash('sha256').update(url).digest('hex');
     const filename = path.join(os.tmpdir(), `test-h1-cli-v2-${suffix}`);
-    const stream = createWriteStream(filename);
-    stream.on('finish', () => resolve(filename));
+    
     fetch(url)
-        .then(resp => resp.body
-            .pipe(stream)
-            .on('error', reject)
-        )
-        .catch(reject);
+        .then(response => response.blob())
+        .then(blob => fs.writeFile(filename, blob.stream()))
+        .catch(reject)
+        .then(() => resolve(filename))
+    ;
 });
 
-module.exports = {
+export {
     run,
     runJson,
     runPty,

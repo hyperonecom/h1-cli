@@ -36,7 +36,7 @@ jobs:
         HYPERONE_PASSWORD: ${{secrets.HYPERONE_PASSWORD}}
         AWS_SECRET_KEY: ${{secrets.AWS_SECRET_KEY}}
     - name: Run e2e tests
-      run: npm run test
+      run: yarn run test
       working-directory: ./packages/cli-device-node
       if: ${{ github.event_name == 'push' }}
     - name: Build NodeJS release files

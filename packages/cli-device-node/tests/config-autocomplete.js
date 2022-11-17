@@ -1,12 +1,12 @@
-const ava = require('ava');
-const { run, withTemp } = require('../lib/tests');
+import test from 'ava';
+import { run, withTemp } from '../lib/tests.js';
 
 const comply = async (cmd) => {
     const output = await run(`h1 config autocomplete comply --cmd '${cmd}'`);
     return output.split('\n');
 };
 
-ava('autocomplete comply', async t => {
+test('autocomplete comply', async t => {
     const category = await comply('h1 i');
     t.true(category.includes('iam'));
 
@@ -18,7 +18,7 @@ ava('autocomplete comply', async t => {
     t.true(option.includes('--project'));
 });
 
-ava('autocomplete install', withTemp(async (t, tempDir) => {
+test('autocomplete install', withTemp(async (t, tempDir) => {
     const options = {env: {HOME: tempDir}};
     const output = await run('h1 config autocomplete install', options);
     t.true(output.includes(tempDir));

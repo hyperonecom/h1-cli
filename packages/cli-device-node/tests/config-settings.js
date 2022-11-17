@@ -1,12 +1,12 @@
-const ava = require('ava');
-const { run, runJson, randomToken } = require('./../lib/tests');
+import test from 'ava';
+import { run, runJson, randomToken } from '../lib/tests.js';
 
-ava('config settings set', async t => {
+test('config settings set', async t => {
     const output = await run('h1 config settings set --key x --value x');
     t.true(output.includes('Configuration option set'));
 });
 
-ava('config settings lifecycle', async t => {
+test('config settings lifecycle', async t => {
     const token = await randomToken();
     const key = 'token-lifecycle';
     const output_set = await run(`h1 config settings set --key ${key} --value ${token}`);
