@@ -1,5 +1,4 @@
-**/dist/*.js
+dist
 bundle.js
 **/public/dist.js
 **/public/demo.js
-
