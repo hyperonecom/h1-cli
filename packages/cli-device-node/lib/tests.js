@@ -1,7 +1,7 @@
 import shlex from 'shlex';
 import pty from 'node-pty';
 
-import { promises as fs, createWriteStream } from 'node:fs';
+import { promises as fs } from 'node:fs';
 import { randomBytes, createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 
@@ -28,7 +28,7 @@ const run = (cmd, options = {}) => new Promise((resolve, reject) => {
         //TODO remove when it becomes stable
         //  "Importing JSON modules is an experimental feature" - https://nodejs.org/api/esm.html#json-modules
         //  "The Fetch API is an experimental feature"          - https://nodejs.org/api/globals.html#fetch
-        NODE_NO_WARNINGS: '1'
+        NODE_NO_WARNINGS: '1',
     };
     const program = child_process.spawn(process.argv[0], args, options);
     const chunks = [];
@@ -137,7 +137,7 @@ const getName = (...names) => [...names, Date.now().toString()]
 const downloadCachedFile = url => new Promise((resolve, reject) => {
     const suffix = createHash('sha256').update(url).digest('hex');
     const filename = path.join(os.tmpdir(), `test-h1-cli-v2-${suffix}`);
-    
+
     fetch(url)
         .then(response => response.blob())
         .then(blob => fs.writeFile(filename, blob.stream()))
