@@ -44,7 +44,7 @@ jobs:
       working-directory: ./packages/cli-device-node
     - name: Get short SHA
       id: slug
-      run: echo "sha8=$(echo ${GITHUB_SHA} | cut -c1-8)" >> $GITHUB_OUTPUT
+      run: echo "sha=$(git rev-parse --short ${{ github.sha }})" >> $GITHUB_OUTPUT
     # Nightly asset publication
     - uses: octokit/request-action@v2.x
       id: get_rc_release
@@ -64,7 +64,7 @@ jobs:
       with:
         upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-linux.tar.gz
-        asset_name: h1-linux.${{ steps.slug.outputs.sha8 }}.tar.gz
+        asset_name: h1-linux.${{ steps.slug.outputs.sha }}.tar.gz
         asset_content_type: application/gzip
     - name: Upload nightly asset of h1-macos.tar.gz
       if: ${{ github.event_name == 'push' }}
@@ -74,7 +74,7 @@ jobs:
       with:
         upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-macos.tar.gz
-        asset_name: h1-macos.${{ steps.slug.outputs.sha8 }}.tar.gz
+        asset_name: h1-macos.${{ steps.slug.outputs.sha }}.tar.gz
         asset_content_type: application/gzip
     - name: Upload nightly asset of h1-win.zip
       if: ${{ github.event_name == 'push' }}
@@ -84,7 +84,7 @@ jobs:
       with:
         upload_url: ${{ fromJson(steps.get_rc_release.outputs.data).upload_url }}
         asset_path: ./packages/cli-device-node/dist/h1-win.zip
-        asset_name: h1-win.${{ steps.slug.outputs.sha8 }}.zip
+        asset_name: h1-win.${{ steps.slug.outputs.sha }}.zip
         asset_content_type: application/zip
     - name: Create commit comment
       if: ${{ github.event_name == 'push' }}
