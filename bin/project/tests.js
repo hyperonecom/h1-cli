@@ -326,9 +326,9 @@ ava.serial('project select', tests.requireSlaveProject(async (t, projects) => {
     await tests.remove('ip', new_ip);
 }));
 
-ava.serial('project credentials life cycle', tests.credentialsLifeCycle('project credentials', {
-    createParams: `--project ${active_project}`,
-    listParams: `--project ${active_project}`,
-}));
+// ava.serial('project credentials life cycle', tests.credentialsLifeCycle('project credentials', {
+//     createParams: `--project ${active_project}`,
+//     listParams: `--project ${active_project}`,
+// }));
 
 ava.todo('project logging');
