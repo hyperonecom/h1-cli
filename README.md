@@ -102,16 +102,16 @@ To install your project use:
 yarn install
 ```
 
+During the development of CLI:
+
+```
+nodejs packages/cli-device-node/bin/h1
+```
+
 To build project use:
 
 ```
 yarn build
-```
-
-During the development of CLI, it is recommended to use continuos rebuilding of changes, using:
-
-```
-yarn watch
 ```
 
 To start CLI on desktop use:
