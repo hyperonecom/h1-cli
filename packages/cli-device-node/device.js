@@ -12,6 +12,10 @@ import { get, set, unset } from '@hyperone/cli-core/lib/transform.js';
 import { CliError } from '@hyperone/cli-framework/error.js';
 import inquirer from 'inquirer';
 
+//import.meta.url is not available after bundling #esbuild
+const importMetaURL = import.meta.url;
+const __dirname = importMetaURL && new URL('.', importMetaURL).pathname;
+
 const parameterLabel = (parameter, options = []) => {
     const option = options.find(p => p.use && p.use.in === parameter.in && p.use.field === parameter.field);
     if (!option) {
@@ -182,7 +186,7 @@ export class NodeDevice extends Device {
         }
 
         //add @hyperone/cli-ext-* extensions
-        if (process.pkg) {
+        if (process.pkg || !__dirname) {
             // dynamic loading is broken because of v8 issues, falling back to o manual loading
             //      TypeError: Invalid host defined options
             //      https://bugs.chromium.org/p/chromium/issues/detail?id=1244145
@@ -210,7 +214,7 @@ export class NodeDevice extends Device {
             return extensions;
         }
 
-        const scopedExtensionsDir = '../../node_modules/@hyperone';
+        const scopedExtensionsDir = path.join(__dirname, '../../node_modules/@hyperone');
 
         const scopeExtensionsNames = fs
             .readdirSync(scopedExtensionsDir)

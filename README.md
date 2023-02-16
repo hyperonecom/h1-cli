@@ -117,7 +117,7 @@ yarn build
 To start CLI on desktop use:
 
 ```bash
-nodejs packages/cli-device-node/dist/h1
+nodejs packages/cli-device-node/dist/h1.cjs
 ```
 
 To start CLI in browser use:

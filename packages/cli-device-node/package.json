@@ -41,7 +41,7 @@
     "timeout": "1m"
   },
   "scripts": {
-    "build": "esbuild ./bin/h1.js --bundle --platform=node --outfile=dist/h1.js",
+    "build": "esbuild ./bin/h1.js --bundle --platform=node --outfile=dist/h1.cjs",
     "lint": "eslint .",
     "fmt": "eslint . --fix",
     "dist": "./scripts/release-bin.sh",
