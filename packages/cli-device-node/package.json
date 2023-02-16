@@ -26,6 +26,7 @@
     "@hyperone/cli-ext-root-openapi-generator": "link:../../extensions/cli-ext-root-openapi-generator",
     "@hyperone/cli-ext-root-version": "link:../../extensions/cli-ext-root-version/",
     "@hyperone/cli-ext-storage-vault": "link:../../extensions/cli-ext-storage-vault",
+    "@hyperone/cli-ext-storage-bucket": "link:../../extensions/cli-ext-storage-bucket",
     "@hyperone/cli-ext-website-instance": "link:../../extensions/cli-ext-website-instance",
     "@hyperone/cli-framework": "link:../cli-framework",
     "inquirer": "^9.1.4",

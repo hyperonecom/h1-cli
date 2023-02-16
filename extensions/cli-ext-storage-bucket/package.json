@@ -1,20 +1,18 @@
 {
-  "name": "@hyperone/cli-ext-root-openapi-generator",
+  "name": "@hyperone/cli-ext-storage-bucket",
   "version": "2.2.0",
   "description": "",
   "main": "index.js",
   "type": "module",
-  "author": "Adam Dobrawy",
+  "author": "Frederico Silva",
   "license": "MIT",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.272.0",
+    "@aws-sdk/lib-storage": "^3.272.0",
     "@hyperone/cli-core": "link:../../packages/cli-core",
     "@hyperone/cli-framework": "link:../../packages/cli-framework",
-    "jsonpatch": "^3.1.0",
-    "pluralize": "^8.0.0",
-    "sha512crypt-node": "^1.0.2",
-    "ws-streamify": "^0.1.4"
+    "progress": "^2.0.3"
   },
-  "gitHead": "a667a9fae1ba7945f8ca4a9f5e115254feb94831",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"

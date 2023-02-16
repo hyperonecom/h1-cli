@@ -47,11 +47,14 @@ test('openapi:resource lifecycle execute', withVariable(['project'], async (t, p
     await run(`h1 iam project role delete --project ${project} --role ${output_create.id}`);
 }));
 
-test('openapi:resource create:uri-upload', withVariable(['project'], async (t, project) => {
+test('openapi:resource create:upload', withVariable(['project', 'bucket'], async (t, project, bucket) => {
     const name = await getName(t.title);
     const iso_url = 'http://www.tinycorelinux.net/13.x/x86/release/Core-current.iso';
     const filepath = await downloadCachedFile(iso_url);
-    const output_create = await runJson(`h1 storage iso create --project ${project} --name ${name} --source file://${filepath}`);
-    t.true(output_create.state === 'Online');
-    await run(`h1 storage iso delete --project ${project} --iso ${output_create.id}`);
+
+    const object = await runJson(`h1 storage bucket upload --bucket ${bucket} --file ${filepath}`);
+
+    const iso = await runJson(`h1 storage iso create --project ${project} --name ${name} --source ${object.uri}`);
+    t.true(iso.state === 'Online');
+    await run(`h1 storage iso delete --project ${project} --iso ${iso.id}`);
 }));

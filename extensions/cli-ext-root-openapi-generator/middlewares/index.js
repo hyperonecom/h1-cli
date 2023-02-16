@@ -1,8 +1,8 @@
 import password from './password-unix.js';
-import upload from './uri-upload.js';
+// import upload from './uri-upload.js';
 
 const formats = {
-    uri: upload,
+    // uri: upload,
     'password-unix': password,
 };
 
