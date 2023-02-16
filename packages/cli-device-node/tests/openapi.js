@@ -52,7 +52,7 @@ test('openapi:resource create:upload', withVariable(['project', 'bucket'], async
     const iso_url = 'http://www.tinycorelinux.net/13.x/x86/release/Core-current.iso';
     const filepath = await downloadCachedFile(iso_url);
 
-    const object = await runJson(`h1 storage bucket upload --bucket ${bucket} --file ${filepath}`);
+    const object = await runJson(`h1 storage bucket upload --project ${project} --bucket ${bucket} --file ${filepath}`);
 
     const iso = await runJson(`h1 storage iso create --project ${project} --name ${name} --source ${object.uri}`);
     t.true(iso.state === 'Online');
