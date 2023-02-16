@@ -54,6 +54,11 @@ const run = (cmd, options = {}) => new Promise((resolve, reject) => {
 const runJson = async (cmd, options = {}) => {
     let output = await run(`${cmd} -o json --query ''`, options);
     output = output.trim();
+
+    if (output === '') {
+        return undefined;
+    }
+
     const document = output.slice(Math.min(output.lastIndexOf('\n{\n') + 2, 0));
     try {
         return JSON.parse(document);
@@ -122,8 +127,8 @@ const withVariable = (options = [], fn) => async (...args) => {
     const map = await runJson('h1 config settings get --key test');
     const new_args = [];
     for (const name of options) {
-        if (!map[name]) {
-            throw new Error(`Missing value for variable '${name}'. Use 'h1 config settings --key test.${name} --value {value}' to  set`);
+        if (!map || !map[name]) {
+            throw new Error(`Missing value for variable '${name}'. Use 'h1 config settings set --key test.${name} --value {value}' to set`);
         }
         new_args.push(map[name]);
     }
