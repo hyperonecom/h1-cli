@@ -1,4 +1,5 @@
 import info from './package.json' assert { type: 'json' };
+import password_reset from './password_reset.js';
 import ssh from './ssh.js';
 
 export default {
@@ -7,5 +8,6 @@ export default {
     load: async (parent) => parent.loadHook.push(() => {
         const cmd = parent.commands.find(x => x.name === 'vm');
         cmd?.addCommand(() => ssh);
+        cmd?.addCommand(() => password_reset);
     }),
 };
