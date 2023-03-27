@@ -1,5 +1,3 @@
-import AbortController from 'abort-controller';
-
 export default (device, logger) => {
     const result = {};
     const controller = new AbortController();
