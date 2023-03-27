@@ -24,7 +24,7 @@ jobs:
     - name: Setup e2e tests
       run: |
         node ./bin/h1.js config settings set --key "test.project" --value "5e3db909586f1ca015f0b956"
-        node ./bin/h1.js config settings set --key "test.bucket" --value "63eea2c17a758364d942eb99"
+        node ./bin/h1.js config settings set --key "test.bucket" --value "6421822d7a758364d9752d2c"
         node ./bin/h1.js config settings set --key "test.username" --value "$HYPERONE_USERNAME"
         node ./bin/h1.js config settings set --key "test.password" --value "$HYPERONE_PASSWORD"
         node ./bin/h1.js config settings set --key "test.aws-access-key" --value "AKIATTWUTKSTUCQP2XDA"
