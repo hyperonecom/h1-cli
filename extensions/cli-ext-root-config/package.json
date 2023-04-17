@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-ext-root-config",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Extension to manage configuration.",
   "main": "index.js",
   "type": "module",

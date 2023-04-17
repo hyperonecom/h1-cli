@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-ext-root-version",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "description": "Extension to display version.",
   "main": "index.js",
   "type": "module",
