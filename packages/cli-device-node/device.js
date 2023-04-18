@@ -214,7 +214,10 @@ export class NodeDevice extends Device {
             return extensions;
         }
 
-        const scopedExtensionsDir = path.join(__dirname, '../../node_modules/@hyperone');
+        const scopedExtensionsDir = __dirname.includes('/@hyperone')
+            ? path.join(__dirname, '..') //all extensions within the @hyperone scope
+            : path.join(__dirname, '../../node_modules/@hyperone') //dev mode
+        ;
 
         const scopeExtensionsNames = fs
             .readdirSync(scopedExtensionsDir)
