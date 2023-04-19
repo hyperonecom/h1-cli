@@ -48,7 +48,7 @@ export default (device, logger) => {
     };
 
     const request = async (method, uri, options) => {
-        const resp = await baseRequest(method, uri, options);
+        const resp = await baseRequest(method.toUpperCase(), uri, options);
         const type = resp.headers.get('content-type');
         const encoding = resp.headers.get('transfer-encoding');
 
