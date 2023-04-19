@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-device-browser",
-  "version": "2.3.0",
+  "version": "2.3.2",
   "description": "",
   "main": "index.js",
   "author": "Adam Dobrawy",

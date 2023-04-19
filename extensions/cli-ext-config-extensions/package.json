@@ -1,6 +1,6 @@
 {
   "name": "@hyperone/cli-ext-config-extensions",
-  "version": "2.3.0",
+  "version": "2.3.2",
   "description": "Extension to manage loaded extensions itself.",
   "main": "index.js",
   "type": "module",
