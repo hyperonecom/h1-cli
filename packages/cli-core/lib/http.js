@@ -32,6 +32,7 @@ export default (device, logger) => {
 
         const resp = await fetch(uri, {
             method, body, headers, query, signal: controller.signal,
+            duplex: 'half',
         });
 
         logger.debug('response status', resp.status);

@@ -1,8 +1,6 @@
 import { Command } from '@hyperone/cli-framework';
 import fs from 'fs';
 import { openapi } from '@hyperone/cli-core';
-import readlineTransform from 'readline-transform';
-import { Transform } from 'stream';
 
 export default new Command({
     name: 'stream',
@@ -25,40 +23,42 @@ export default new Command({
         // tags
     ],
     handler: async (opts) => {
+
         const optsAll = opts._all || opts;
+        const logFile = optsAll['log-file-output'] === 'stdout'
+            ? process.stdout
+            : fs.createWriteStream(optsAll['log-file-output'])
+        ;
+        
         const logResp = await opts.api
             .get(openapi.getUrl(`/insight/pl-waw-1/project/${optsAll.project}/journal/${optsAll.journal}`));
         const log = logResp.bodyJson;
         const token = await opts.auth.getToken(log.fqdn);
 
-        const stream = await opts.http.get(`https://${log.fqdn}/log`, {
+        const response = await opts.http.get(`https://${log.fqdn}/log`, {
             headers: { authorization: `Bearer ${token}` },
         });
-        let lines = 0;
-        const logFile = optsAll['log-file-output'] === 'stdout' ? process.stdout : fs.createWriteStream(optsAll['log-file-output']);
-        return new Promise((resolve, reject) => stream.body
-            .on('error', err => {
-                logFile.close();
-                if (err.name !== 'AbortError') {
-                    return reject(err);
-                }
-                return resolve();
-            })
-            .pipe(new readlineTransform())
-            .pipe(new Transform({
-                transform(line, encoding, callback) {
-                    lines += 1;
-                    if (optsAll.head && lines > optsAll.head) {
-                        stream.controller.abort();
-                        // Discard extra lines
-                        return callback(null);
+
+        const reader = response.body.getReader();
+        const td = new TextDecoder();
+        let count = 0;
+        let chunk;
+
+        do {
+            chunk = await reader.read();
+            if (!chunk.done) {
+                const lines = td.decode(chunk.value).split('\n');
+
+                for (const line of lines) {
+                    count += 1;
+                    logFile.write(line);
+                    logFile.write('\n');
+                    if (optsAll.head && count >= optsAll.head) {
+                        reader.cancel();
+                        break;
                     }
-                    return callback(null, `${line}\n`);
-                },
-            }))
-            .pipe(logFile)
-            .on('finish', resolve)
-            .on('end', resolve)
-        );
+                }
+            }
+        } while (chunk.done === false);
     },
 });

@@ -42,11 +42,14 @@ export default new Command({
                     this.push('\n');
                     return callback(null);
                 },
-            }));
-        return opts.http.
-            post(`https://${log.fqdn}/log`, {
-                body: inStream,
-                headers: { authorization: `Bearer ${token}` },
-            });
+            }))
+        ;
+        
+        const response = await opts.http.post(`https://${log.fqdn}/log`, {
+            body: inStream,
+            headers: { authorization: `Bearer ${token}` },
+        });
+
+        return response.bodyText;
     },
 });
