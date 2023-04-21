@@ -1,5 +1,5 @@
 import { Command } from '@hyperone/cli-framework';
-import readlineTransform from 'readline-transform';
+import readlineTransform from './ReadlineTransform.js';
 import { Transform } from 'stream';
 import fs from 'fs';
 import os from 'os';
