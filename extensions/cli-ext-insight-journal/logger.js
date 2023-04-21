@@ -44,7 +44,7 @@ export default new Command({
                 },
             }))
         ;
-        
+
         const response = await opts.http.post(`https://${log.fqdn}/log`, {
             body: inStream,
             headers: { authorization: `Bearer ${token}` },

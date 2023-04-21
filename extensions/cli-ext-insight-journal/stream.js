@@ -29,7 +29,7 @@ export default new Command({
             ? process.stdout
             : fs.createWriteStream(optsAll['log-file-output'])
         ;
-        
+
         const logResp = await opts.api
             .get(openapi.getUrl(`/insight/pl-waw-1/project/${optsAll.project}/journal/${optsAll.journal}`));
         const log = logResp.bodyJson;
