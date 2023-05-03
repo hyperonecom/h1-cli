@@ -8,12 +8,12 @@
   "license": "MIT",
   "gitHead": "a667a9fae1ba7945f8ca4a9f5e115254feb94831",
   "dependencies": {
-    "@aws-sdk/credential-provider-node": "3.212.0",
-    "@azure/identity": "^3.1.0",
+    "@aws-sdk/credential-provider-node": "3.325.0",
+    "@azure/identity": "^3.1.4",
     "@hyperone/cli-core": "link:../../packages/cli-core",
     "@hyperone/cli-framework": "link:../../packages/cli-framework",
-    "aws4": "^1.11.0",
-    "google-auth-library": "^8.7.0"
+    "aws4": "^1.12.0",
+    "google-auth-library": "^8.8.0"
   },
   "publishConfig": {
     "access": "public",
