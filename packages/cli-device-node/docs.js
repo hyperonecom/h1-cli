@@ -4,7 +4,7 @@ import { Command } from '@hyperone/cli-framework';
 import { NodeDevice } from './device.js';
 import path from 'path';
 import fs from 'fs';
-import table from 'markdown-table';
+import { markdownTable } from 'markdown-table';
 
 const header = (level, value) => `\n${'#'.repeat(level)} ${value}\n\n`;
 const quote = (value) => `\`\`\`${value}\`\`\``;
@@ -46,7 +46,7 @@ const documentCommand = async (cmd, dir) => {
                 quote(renderOption(option)),
                 option.description ? option.description.replace(/\n/g, '<br>') : '-',
             ]);
-            out.push(`${table([header, ...rows])}`);
+            out.push(`${markdownTable([header, ...rows])}`);
         } else if (entry.examples) {
             for (const example of entry.examples) {
                 out.push(header(bonus + 2, example.title));
