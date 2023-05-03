@@ -1,7 +1,5 @@
 # h1-cli v2
 
-[![Build Status](https://travis-ci.org/hyperonecom/h1-cli.svg?branch=master)](https://travis-ci.org/hyperonecom/h1-cli)
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
 
 h1-cli is a tool designed to manage the HyperOne cloud infrastructure. You can use it for your own administrative work as well as for creating automation scripts.
 
